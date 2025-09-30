@@ -93,20 +93,22 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
             {/* SNarGPT */}
             <ProductCard 
               name="SNarGPT" 
-              tagline="수능 수학 문제를 99%+ 정확도로 풀이"
+              tagline="ChatGPT 기반의 해설 AI"
               bullets={[
-                '정확한 개념 설명과 단계별 풀이',
-                '실제 수험생에게 필요한 피드백 제공',
+                'ChatGPT를 기반으로 한 대화형 해설 시스템',
+                '학생과 자연스러운 대화로 개념 설명',
+                '질문과 답변을 통한 학습 지원',
               ]}
             />
 
             {/* SNarGO */}
             <ProductCard 
               name="SNarGO" 
-              tagline="수능문제 풀이 전문 AI"
+              tagline="수능 문제 풀이 전문 AI (정확도 99.9%)"
               bullets={[
-                '평가원 기출부터 최신 모의고사까지 정밀 해설',
-                '원하는 방식으로 빠르고 정확한 풀이',
+                '수능 문제를 99.9% 정확도로 해결',
+                '평가원 기출부터 최신 모의고사까지 정밀 분석',
+                '단순 풀이가 아닌 개념 이해 중심 해설',
               ]}
             />
 
