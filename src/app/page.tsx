@@ -46,7 +46,8 @@ export default function Home() {
       readTime: '8 min read',
       tags: ['SN Originals', '고전문학', '수능국어', '사미인곡'],
       thumbnail: 'https://img.youtube.com/vi/50nJegN2YSQ/maxresdefault.jpg',
-      category: 'SN Originals'
+      category: 'SN Originals',
+      url: '/originals/samieungok'
     },
     {
       id: 3,
@@ -56,7 +57,8 @@ export default function Home() {
       readTime: '9 min read',
       tags: ['SN Originals', '고전문학', '수능국어', '관동별곡'],
       thumbnail: 'https://img.youtube.com/vi/9T06DoJaMHs/maxresdefault.jpg',
-      category: 'SN Originals'
+      category: 'SN Originals',
+      url: '/originals/gwandong-byeolgok'
     },
     {
       id: 4,
@@ -66,7 +68,8 @@ export default function Home() {
       readTime: '6 min read',
       tags: ['SN Originals', '고전문학', '수능국어', '북천가'],
       thumbnail: 'https://img.youtube.com/vi/xhyppBm3_o4/maxresdefault.jpg',
-      category: 'SN Originals'
+      category: 'SN Originals',
+      url: '/originals/bukcheonga'
     },
     {
       id: 5,
@@ -76,7 +79,8 @@ export default function Home() {
       readTime: '7 min read',
       tags: ['SN Originals', '고전문학', '수능국어', '화왕가'],
       thumbnail: 'https://img.youtube.com/vi/6tsl5IIMy_o/maxresdefault.jpg',
-      category: 'SN Originals'
+      category: 'SN Originals',
+      url: '/originals/hwangokga'
     },
     {
       id: 6,
@@ -86,7 +90,8 @@ export default function Home() {
       readTime: '8 min read',
       tags: ['SN Originals', '고전문학', '수능국어', '갑민가'],
       thumbnail: 'https://img.youtube.com/vi/3ZGE-RvBinQ/maxresdefault.jpg',
-      category: 'SN Originals'
+      category: 'SN Originals',
+      url: '/originals/gapminga'
     }
   ];
 
@@ -247,7 +252,7 @@ export default function Home() {
               <div className="space-y-3">
                 {/* 2. 제목 */}
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={post.category === 'SN Originals' ? `/originals/${post.id}` : `/posts/${post.id}`}>
+                  <a href={post.category === 'SN Originals' ? post.url : `/posts/${post.id}`}>
                     {post.category === 'SN Originals' && '🎥 '}{post.title}
                   </a>
                 </h2>
@@ -307,7 +312,7 @@ export default function Home() {
 
                 {/* 제목 */}
                 <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={post.category === 'SN Originals' ? `/originals/${post.id}` : `/posts/${post.id}`}>
+                  <a href={post.category === 'SN Originals' ? post.url : `/posts/${post.id}`}>
                     {post.category === 'SN Originals' && '🎥 '}{post.title}
                   </a>
                 </h2>

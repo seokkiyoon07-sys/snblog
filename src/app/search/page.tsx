@@ -31,7 +31,7 @@ function SearchContent() {
       tags: ['SN Originals', '고전문학', '수능국어', '사미인곡'],
       thumbnail: 'https://img.youtube.com/vi/50nJegN2YSQ/maxresdefault.jpg',
       category: 'SN Originals',
-      url: '/originals/1'
+      url: '/originals/samieungok'
     },
     {
       id: 3,
@@ -42,7 +42,7 @@ function SearchContent() {
       tags: ['SN Originals', '고전문학', '수능국어', '관동별곡'],
       thumbnail: 'https://img.youtube.com/vi/9T06DoJaMHs/maxresdefault.jpg',
       category: 'SN Originals',
-      url: '/originals/2'
+      url: '/originals/gwandong-byeolgok'
     },
     {
       id: 4,
@@ -53,7 +53,7 @@ function SearchContent() {
       tags: ['SN Originals', '고전문학', '수능국어', '북천가'],
       thumbnail: 'https://img.youtube.com/vi/xhyppBm3_o4/maxresdefault.jpg',
       category: 'SN Originals',
-      url: '/originals/3'
+      url: '/originals/bukcheonga'
     },
     {
       id: 5,
@@ -64,7 +64,7 @@ function SearchContent() {
       tags: ['SN Originals', '고전문학', '수능국어', '화왕가'],
       thumbnail: 'https://img.youtube.com/vi/6tsl5IIMy_o/maxresdefault.jpg',
       category: 'SN Originals',
-      url: '/originals/4'
+      url: '/originals/hwangokga'
     },
     {
       id: 6,
@@ -75,7 +75,7 @@ function SearchContent() {
       tags: ['SN Originals', '고전문학', '수능국어', '갑민가'],
       thumbnail: 'https://img.youtube.com/vi/3ZGE-RvBinQ/maxresdefault.jpg',
       category: 'SN Originals',
-      url: '/originals/5'
+      url: '/originals/gapminga'
     }
   ];
 
