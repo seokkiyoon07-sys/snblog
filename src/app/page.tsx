@@ -247,8 +247,8 @@ export default function Home() {
               <div className="space-y-3">
                 {/* 2. 제목 */}
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={post.category === 'SN Originals' ? '/originals' : `/posts/${post.id}`}>
-                    {post.title}
+                  <a href={post.category === 'SN Originals' ? `/originals/${post.id}` : `/posts/${post.id}`}>
+                    {post.category === 'SN Originals' && '🎥 '}{post.title}
                   </a>
                 </h2>
 
@@ -307,8 +307,8 @@ export default function Home() {
 
                 {/* 제목 */}
                 <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={post.category === 'SN Originals' ? '/originals' : `/posts/${post.id}`}>
-                    {post.title}
+                  <a href={post.category === 'SN Originals' ? `/originals/${post.id}` : `/posts/${post.id}`}>
+                    {post.category === 'SN Originals' && '🎥 '}{post.title}
                   </a>
                 </h2>
 
