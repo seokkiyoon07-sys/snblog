@@ -11,9 +11,7 @@ export const metadata = {
 };
 
 export default function AdmissionsPage() {
-  const admissions: any[] = [];
-  const announcements: any[] = []; // 전체 공지사항
-  const mathContents: any[] = []; // 수학 컨텐츠
+  const admissions: any[] = []; // Explicitly typed as any[]
 
   return (
     <div className="space-y-8">
@@ -25,80 +23,6 @@ export default function AdmissionsPage() {
         <p className="text-lg text-gray-600 dark:text-gray-300">
           최신 입시 동향과 분석 자료
         </p>
-      </div>
-
-      {/* 문제컨텐츠 섹션 */}
-      <div className="space-y-6">
-        <div className="flex items-center space-x-2">
-          <div className="w-2 h-2 bg-sn-primary rounded-full"></div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-            문제컨텐츠
-          </h2>
-        </div>
-
-        {/* 전체 공지사항 */}
-        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-            📢 전체 공지사항
-          </h3>
-          {announcements.length > 0 ? (
-            <div className="space-y-3">
-              {announcements.map((announcement, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-blue-200 dark:border-blue-700">
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-2">
-                    {announcement.title}
-                  </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                    {announcement.content}
-                  </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
-                    {announcement.date}
-                  </p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-8">
-              <p className="text-gray-500 dark:text-gray-400">공지사항이 없습니다.</p>
-            </div>
-          )}
-        </div>
-
-        {/* 수학 컨텐츠 */}
-        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-            📚 수학 컨텐츠
-          </h3>
-          {mathContents.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {mathContents.map((content, index) => (
-                <div key={index} className="bg-white dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:shadow-md transition-shadow">
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-2">
-                    {content.title}
-                  </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-                    {content.description}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-500 dark:text-gray-400">
-                      {content.date}
-                    </span>
-                    <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
-                      {content.type}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-8">
-              <p className="text-gray-500 dark:text-gray-400">수학 컨텐츠가 없습니다.</p>
-              <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
-                곧 업로드될 예정입니다.
-              </p>
-            </div>
-          )}
-        </div>
       </div>
 
       {/* 포스트 목록 */}
