@@ -137,6 +137,52 @@ export default function OriginalsDetailPage() {
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
             {currentPost.excerpt}
           </p>
+          
+          {/* 관동별곡 상세 내용 */}
+          {currentPost.id === 2 && (
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mt-6">
+              <div className="text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+                <p className="text-lg font-medium">안녕하세요 SN독학기숙학원입니다 :)</p>
+                <p>보기만해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄 관동별곡을 준비했습니다.</p>
+                
+                <div className="bg-white dark:bg-gray-700 rounded-lg p-4 mt-4">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-3">[타임스탬프]</h3>
+                  <div className="space-y-1 text-sm">
+                    <p>00:00 인트로, 작품 배경</p>
+                    <p>00:52 서사 - 죽림</p>
+                    <p>01:06 서사 - 연추문, 이동(평구~치악산)</p>
+                    <p>01:24 서사 - 소양강</p>
+                    <p>01:38 서사 - 철원, 태봉국 궁궐터</p>
+                    <p>01:56 서사 - 회양</p>
+                    <p>02:08 본사1(금강산) - 회양</p>
+                    <p>02:23 본사1(금강산) - 만폭동</p>
+                    <p>02:38 본사1(금강산) - 금강대</p>
+                    <p>02:55 본사1(금강산) - 진헐대</p>
+                    <p>03:44 본사1(금강산) - 개심대</p>
+                    <p>04:04 본사1(금강산) - 비로봉</p>
+                    <p>04:43 본사1(금강산) - 화룡소</p>
+                    <p>05:08 본사1(금강산) - 불정대</p>
+                    <p>05:40 본사2(동해) - 산영루</p>
+                    <p>06:18 본사2(동해) - 총석정</p>
+                    <p>06:35 본사2(동해) - 삼일포</p>
+                    <p>06:59 본사2(동해) - 의상대</p>
+                    <p>07:42 본사2(동해) - 경포대</p>
+                    <p>08:20 본사2(동해) - 강릉</p>
+                    <p>08:40 본사2(동해) - 죽서루</p>
+                    <p>09:07 본사2(동해)/결사 - 망양정</p>
+                  </div>
+                </div>
+                
+                <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mt-4">
+                  <p className="text-blue-800 dark:text-blue-200 font-medium">
+                    "AI 그림과 친절한 해설로 즐기는 고전문학!<br/>
+                    보기만 해도 국어 감각이 살아납니다.<br/>
+                    수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* 태그 */}
