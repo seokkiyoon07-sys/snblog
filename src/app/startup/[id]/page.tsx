@@ -80,6 +80,28 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
           <p className="mt-2 text-slate-600">SN 생태계를 구성하는 핵심 AI 제품들입니다.</p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {/* SN 독학기숙학원 */}
+            <ProductCard 
+              name="SN 독학기숙학원(양평 남학생점)" 
+              tagline="국내 탑티어 독학기숙학원"
+              bullets={[
+                '지난 12년간 압도적 합격률',
+                '순수독학기숙의 명가',
+                '여학생 캠퍼스는 추후 오픈 예정',
+              ]}
+            />
+
+            {/* SN 독학재수학원 */}
+            <ProductCard 
+              name="SN 독학재수학원(대치점)" 
+              tagline="2026년도 신규 론칭"
+              bullets={[
+                '수학 및 AI 특화관',
+                '최신 교육 시설과 시스템',
+                '개인별 맞춤형 학습 프로그램',
+              ]}
+            />
+
             {/* SNarlink */}
             <ProductCard 
               name="SNarlink" 
