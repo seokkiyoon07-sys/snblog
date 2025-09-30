@@ -1,8 +1,8 @@
 <svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- S letter -->
-  <path d="M5 5 C5 2, 8 2, 10 2 C12 2, 15 2, 15 5 C15 8, 12 8, 10 8 C8 8, 5 8, 5 11 C5 14, 8 14, 10 14 C12 14, 15 14, 15 17 C15 20, 12 20, 10 20 C8 20, 5 20, 5 17 C5 14, 8 14, 10 14 C12 14, 15 14, 15 11 C15 8, 12 8, 10 8 C8 8, 5 8, 5 5 Z" fill="#122918"/>
+  <!-- S letter - stylized continuous line -->
+  <path d="M5 5 C5 2, 8 2, 10 2 C12 2, 15 2, 15 5 C15 8, 12 8, 10 8 C8 8, 5 8, 5 11 C5 14, 8 14, 10 14 C12 14, 15 14, 15 17 C15 20, 12 20, 10 20 C8 20, 5 20, 5 17 C5 14, 8 14, 10 14 C12 14, 15 14, 15 11 C15 8, 12 8, 10 8 C8 8, 5 8, 5 5 Z" fill="#122918" stroke="#122918" stroke-width="2"/>
   
-  <!-- N letter -->
+  <!-- N letter - standard bold sans-serif -->
   <path d="M25 5 L25 20 L30 20 L30 10 L35 20 L40 20 L40 5 L35 5 L35 15 L30 5 Z" fill="#122918"/>
   
   <!-- Academy text -->
