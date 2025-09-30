@@ -49,8 +49,8 @@ export default function Header() {
         <div className="hidden lg:block">
           <div className="flex items-center justify-between">
                 {/* 로고 */}
-                 <div className="flex items-center space-x-4">
-                   <a href="/" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
+                 <div className="flex items-center">
+                   <a href="/" className="flex items-center hover:opacity-80 transition-opacity">
                      <img
                        src="/sn-logo.png"
                        alt="SN"
@@ -139,8 +139,8 @@ export default function Header() {
         <div className="lg:hidden">
           <div className="flex items-center justify-between">
                 {/* 로고 */}
-                 <div className="flex items-center space-x-2">
-                   <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                 <div className="flex items-center">
+                   <a href="/" className="flex items-center hover:opacity-80 transition-opacity">
                      <img
                        src="/sn-logo.png"
                        alt="SN"
