@@ -2,30 +2,13 @@ export default function StartupPage() {
   const startups = [
     {
       id: 1,
-      title: 'SN 특별 프로그램: 겨울방학 집중 캠프',
-      excerpt: '2024년 겨울방학을 맞아 SN에서 진행하는 특별 프로그램을 소개합니다. 수능 대비 집중 캠프, 논술 특강, 면접 준비반 등 다양한 프로그램이 준비되어 있습니다.',
-      date: 'Dec 8, 2024',
-      readTime: '5 min read',
-      tags: ['특별프로그램', '겨울방학', '캠프'],
-      thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&crop=center',
-    },
-    {
-      id: 2,
-      title: 'SN 교사진 소개: 경험과 열정의 만남',
-      excerpt: 'SN의 자랑스러운 교사진을 소개합니다. 각 분야의 전문가들이 모여 학생들의 꿈을 실현시키기 위해 최선을 다하고 있습니다.',
-      date: 'Dec 3, 2024',
-      readTime: '7 min read',
-      tags: ['교사진', '교육철학', '전문가'],
-      thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=center',
-    },
-    {
-      id: 3,
-      title: 'SN 신규 캠퍼스 오픈 소식',
-      excerpt: '더 많은 학생들에게 양질의 교육을 제공하기 위해 새로운 캠퍼스를 오픈합니다. 최신 시설과 편의 기능을 자랑합니다.',
-      date: 'Nov 30, 2024',
-      readTime: '4 min read',
-      tags: ['신규캠퍼스', '오픈', '시설'],
-      thumbnail: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop&crop=center',
+      title: 'SN에서 교육 AI 스타트업을 만들었습니다.',
+      excerpt: '독학기숙학원의 명가 SN에서 이번에 새롭게 에듀테크 AI를 만들었습니다. 우리의 비전, 앞으로의 미션 등을 소개합니다.',
+      date: 'Dec 25, 2024',
+      readTime: '10 min read',
+      tags: ['SN AI 스타트업', '에듀테크', 'AI교육', '비전'],
+      thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',
+      category: 'SN AI 스타트업'
     },
   ];
 
@@ -63,7 +46,7 @@ export default function StartupPage() {
               <div className="space-y-3">
                 {/* 2. 제목 */}
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={`/posts/${post.id}`}>
+                  <a href={`/startup/${post.id}`}>
                     {post.title}
                   </a>
                 </h2>
@@ -121,7 +104,7 @@ export default function StartupPage() {
 
                 {/* 제목 */}
                 <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={`/posts/${post.id}`}>
+                  <a href={`/startup/${post.id}`}>
                     {post.title}
                   </a>
                 </h2>
