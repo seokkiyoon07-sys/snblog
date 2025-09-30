@@ -13,33 +13,36 @@ export default function OriginalsPage() {
     },
     {
       id: 2,
-      title: 'SN Originals: 특별한 교육 콘텐츠',
-      excerpt: 'SN만의 독창적인 교육 콘텐츠와 특별 프로그램을 소개합니다. 학생들의 성장을 위한 맞춤형 교육 솔루션을 제공합니다.',
-      date: 'Dec 20, 2024',
-      readTime: '6 min read',
-      tags: ['SN Originals', '특별프로그램', '교육콘텐츠'],
-      thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&crop=center',
-      category: 'SN Originals'
+      title: '너 그렇게 여자만 좋아하다 피똥싼다 (수능 고전문학 「화왕가」)',
+      excerpt: '화왕가는 조선 후기 작가 김만중의 작품으로, 당시 사회의 모순과 부조리를 풍자한 고전문학입니다. 현대적 해석과 함께 수능에 자주 출제되는 핵심 내용을 재미있게 배워보세요!',
+      date: 'Dec 21, 2024',
+      readTime: '7 min read',
+      tags: ['SN Originals', '고전문학', '수능국어', '화왕가'],
+      thumbnail: 'https://img.youtube.com/vi/6tsl5IIMy_o/maxresdefault.jpg',
+      category: 'SN Originals',
+      youtubeUrl: 'https://www.youtube.com/watch?v=6tsl5IIMy_o&t=2s'
     },
     {
       id: 3,
-      title: 'SN만의 독특한 학습법: 창의적 사고력 향상',
-      excerpt: 'SN에서 개발한 독창적인 학습법을 소개합니다. 단순 암기가 아닌 창의적 사고력을 기르는 혁신적인 교육 방법을 제시합니다.',
-      date: 'Dec 18, 2024',
-      readTime: '8 min read',
-      tags: ['SN Originals', '학습법', '창의적사고'],
-      thumbnail: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop&crop=center',
-      category: 'SN Originals'
+      title: '좋긴 한데 유배 생활 이래도 됨? 고전문학 「북천가」',
+      excerpt: '북천가는 조선 후기 문인들의 유배 생활을 그린 작품으로, 자연에 대한 사랑과 정치적 현실에 대한 아쉬움을 담고 있습니다. 수능 고전문학의 핵심 작품을 쉽고 재미있게 이해해보세요!',
+      date: 'Dec 20, 2024',
+      readTime: '6 min read',
+      tags: ['SN Originals', '고전문학', '수능국어', '북천가'],
+      thumbnail: 'https://img.youtube.com/vi/xhyppBm3_o4/maxresdefault.jpg',
+      category: 'SN Originals',
+      youtubeUrl: 'https://www.youtube.com/watch?v=xhyppBm3_o4'
     },
     {
       id: 4,
-      title: 'SN 특별 프로젝트: 미래 교육 실험',
-      excerpt: 'SN에서 진행하는 미래 교육 실험 프로젝트를 소개합니다. AI와 교육의 융합, 새로운 학습 패러다임을 탐구합니다.',
-      date: 'Dec 15, 2024',
-      readTime: '10 min read',
-      tags: ['SN Originals', '미래교육', 'AI교육'],
-      thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop&crop=center',
-      category: 'SN Originals'
+      title: '정철의 강원도 브이로그 (고전문학 「관동별곡」)',
+      excerpt: '정철의 관동별곡을 현대적 브이로그 형식으로 재해석! 강원도의 아름다운 자연과 정철의 감정을 생생하게 느껴보세요. 수능 고전문학의 대표작을 재미있게 배우는 특별한 시간입니다.',
+      date: 'Dec 19, 2024',
+      readTime: '9 min read',
+      tags: ['SN Originals', '고전문학', '수능국어', '관동별곡'],
+      thumbnail: 'https://img.youtube.com/vi/9T06DoJaMHs/maxresdefault.jpg',
+      category: 'SN Originals',
+      youtubeUrl: 'https://www.youtube.com/watch?v=9T06DoJaMHs'
     },
   ];
 
