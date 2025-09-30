@@ -20,6 +20,12 @@ export default function Sidebar() {
       tags: ['SN AI 스타트업', '에듀테크', 'AI교육'],
     },
     {
+      title: '선조를 향한 정철의 중독된 사랑 (고전문학 「사미인곡」)',
+      date: 'Sep 23, 2025',
+      readTime: '8 min read',
+      tags: ['SN Originals', '고전문학', '수능국어'],
+    },
+    {
       title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
       date: 'Sep 22, 2025',
       readTime: '8 min read',
@@ -53,6 +59,13 @@ export default function Sidebar() {
       readTime: '10 min read',
       views: 2500,
       tags: ['SN AI 스타트업', '에듀테크', 'AI교육'],
+    },
+    {
+      title: '선조를 향한 정철의 중독된 사랑 (고전문학 「사미인곡」)',
+      date: 'Sep 23, 2025',
+      readTime: '8 min read',
+      views: 1900,
+      tags: ['SN Originals', '고전문학', '수능국어'],
     },
     {
       title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
