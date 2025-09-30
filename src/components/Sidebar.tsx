@@ -3,79 +3,77 @@
 export default function Sidebar() {
   // 태그 데이터 (실제로는 API에서 가져올 데이터)
   const tags = [
-    { name: '입시정보', count: 15 },
-    { name: '수능', count: 8 },
-    { name: '컬럼', count: 12 },
-    { name: '학습법', count: 6 },
-    { name: '후기', count: 10 },
-    { name: '서울대', count: 3 },
-    { name: 'SN AI 스타트업', count: 8 },
-    { name: '의대', count: 4 },
+    { name: 'SN AI 스타트업', count: 1 },
+    { name: 'SN Originals', count: 4 },
+    { name: '고전문학', count: 4 },
+    { name: '수능국어', count: 4 },
+    { name: '에듀테크', count: 1 },
+    { name: 'AI교육', count: 1 },
   ];
 
   // 최근 포스트 데이터
   const recentPosts = [
     {
-      title: '2024 수능 완전 분석: 주요 변화점과 대비 전략',
-      date: 'Dec 15, 2024',
-      readTime: '8 min read',
-      tags: ['입시정보', '수능', '분석'],
-    },
-    {
-      title: 'SN 학습법: 효과적인 자기주도학습 방법',
-      date: 'Dec 12, 2024',
-      readTime: '6 min read',
-      tags: ['컬럼', '학습법', '자기주도학습'],
-    },
-    {
-      title: '서울대 합격생 후기: 3년간의 SN 생활',
-      date: 'Dec 10, 2024',
+      title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
+      date: 'Sep 25, 2025',
       readTime: '10 min read',
-      tags: ['후기', '서울대', '합격'],
+      tags: ['SN AI 스타트업', '에듀테크', 'AI교육'],
     },
     {
-      title: 'SN 특별 프로그램: 겨울방학 집중 캠프',
-      date: 'Dec 8, 2024',
-      readTime: '5 min read',
-      tags: ['SN AI 스타트업', '특별프로그램', '겨울방학'],
+      title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
+      date: 'Sep 22, 2025',
+      readTime: '8 min read',
+      tags: ['SN Originals', '고전문학', '수능국어'],
     },
     {
-      title: '의대 입시 가이드: 2024년 최신 트렌드',
-      date: 'Dec 5, 2024',
-      readTime: '12 min read',
-      tags: ['입시정보', '의대', '학종'],
+      title: '너 그렇게 여자만 좋아하다 피똥싼다 (수능 고전문학 「화왕가」)',
+      date: 'Sep 21, 2025',
+      readTime: '7 min read',
+      tags: ['SN Originals', '고전문학', '수능국어'],
+    },
+    {
+      title: '좋긴 한데 유배 생활 이래도 됨? 고전문학 「북천가」',
+      date: 'Sep 20, 2025',
+      readTime: '6 min read',
+      tags: ['SN Originals', '고전문학', '수능국어'],
+    },
+    {
+      title: '정철의 강원도 브이로그 (고전문학 「관동별곡」)',
+      date: 'Sep 19, 2025',
+      readTime: '9 min read',
+      tags: ['SN Originals', '고전문학', '수능국어'],
     },
   ];
 
   // 인기 블로그 데이터
   const popularPosts = [
     {
-      title: '2024 수능 완전 분석: 주요 변화점과 대비 전략',
-      date: 'Dec 15, 2024',
-      readTime: '8 min read',
-      views: 1250,
-      tags: ['입시정보', '수능', '분석'],
-    },
-    {
-      title: '서울대 합격생 후기: 3년간의 SN 생활',
-      date: 'Dec 10, 2024',
+      title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
+      date: 'Sep 25, 2025',
       readTime: '10 min read',
-      views: 2100,
-      tags: ['후기', '서울대', '합격'],
+      views: 2500,
+      tags: ['SN AI 스타트업', '에듀테크', 'AI교육'],
     },
     {
-      title: 'SN 학습법: 효과적인 자기주도학습 방법',
-      date: 'Dec 12, 2024',
-      readTime: '6 min read',
-      views: 980,
-      tags: ['컬럼', '학습법', '자기주도학습'],
+      title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
+      date: 'Sep 22, 2025',
+      readTime: '8 min read',
+      views: 1800,
+      tags: ['SN Originals', '고전문학', '수능국어'],
     },
     {
-      title: '의대 입시 가이드: 2024년 최신 트렌드',
-      date: 'Dec 5, 2024',
-      readTime: '12 min read',
-      views: 1560,
-      tags: ['입시정보', '의대', '학종'],
+      title: '정철의 강원도 브이로그 (고전문학 「관동별곡」)',
+      date: 'Sep 19, 2025',
+      readTime: '9 min read',
+      views: 1200,
+      tags: ['SN Originals', '고전문학', '수능국어'],
+    },
+    {
+      title: '너 그렇게 여자만 좋아하다 피똥싼다 (수능 고전문학 「화왕가」)',
+      date: 'Sep 21, 2025',
+      readTime: '7 min read',
+      views: 1100,
+      tags: ['SN Originals', '고전문학', '수능국어'],
     },
   ];
 

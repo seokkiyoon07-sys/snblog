@@ -11,35 +11,7 @@ export const metadata = {
 };
 
 export default function ReviewsPage() {
-  const reviews = [
-    {
-      id: 1,
-      title: '서울대 합격생 후기: 3년간의 SN 생활',
-      excerpt: '서울대에 합격한 김○○ 학생의 SN 3년 생활 후기를 공유합니다. 입학부터 졸업까지의 과정에서 겪었던 어려움과 극복 방법, 그리고 SN에서 얻은 것들에 대해 솔직하게 이야기합니다.',
-      date: 'Dec 10, 2024',
-      readTime: '10 min read',
-      tags: ['서울대', '합격', '후기'],
-      thumbnail: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=400&fit=crop&crop=center',
-    },
-    {
-      id: 2,
-      title: '연세대 의예과 합격생의 특별한 이야기',
-      excerpt: '연세대 의예과에 합격한 박○○ 학생의 특별한 입시 경험담을 들어보세요. 의대 입시의 모든 과정을 생생하게 전달합니다.',
-      date: 'Dec 7, 2024',
-      readTime: '8 min read',
-      tags: ['연세대', '의예과', '합격'],
-      thumbnail: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop&crop=center',
-    },
-    {
-      id: 3,
-      title: '고려대 경영학과 합격 후기',
-      excerpt: '고려대 경영학과에 합격한 이○○ 학생의 입시 준비 과정과 SN에서의 학습 경험을 공유합니다.',
-      date: 'Dec 4, 2024',
-      readTime: '6 min read',
-      tags: ['고려대', '경영학과', '합격'],
-      thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=center',
-    },
-  ];
+  const reviews = [];
 
   return (
     <div className="space-y-8">

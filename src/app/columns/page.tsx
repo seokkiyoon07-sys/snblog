@@ -11,35 +11,7 @@ export const metadata = {
 };
 
 export default function ColumnsPage() {
-  const columns = [
-    {
-      id: 1,
-      title: 'SN 학습법: 효과적인 자기주도학습 방법',
-      excerpt: 'SN에서 검증된 자기주도학습 방법을 소개합니다. 계획 세우기부터 실행, 피드백까지의 전체 과정을 단계별로 설명하고, 실제 학생들의 성공 사례를 통해 구체적인 적용 방법을 제시합니다.',
-      date: 'Dec 12, 2024',
-      readTime: '6 min read',
-      tags: ['학습법', '자기주도학습'],
-      thumbnail: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop&crop=center',
-    },
-    {
-      id: 2,
-      title: '수능 국어 독서 영역 완전 정복 가이드',
-      excerpt: '수능 국어 독서 영역의 모든 유형을 분석하고 효과적인 풀이 전략을 제시합니다. 지문 분석 방법부터 문제 해결 기법까지 체계적으로 정리했습니다.',
-      date: 'Dec 8, 2024',
-      readTime: '9 min read',
-      tags: ['국어', '독서', '수능'],
-      thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=center',
-    },
-    {
-      id: 3,
-      title: '수학 공식 암기보다 이해가 중요한 이유',
-      excerpt: '수학을 공식 암기로 접근하는 것의 한계를 지적하고, 개념 이해를 통한 진정한 수학 실력 향상 방법을 제시합니다.',
-      date: 'Dec 5, 2024',
-      readTime: '7 min read',
-      tags: ['수학', '개념이해', '학습법'],
-      thumbnail: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop&crop=center',
-    },
-  ];
+  const columns = [];
 
   return (
     <div className="space-y-8">

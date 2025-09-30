@@ -15,13 +15,13 @@ export default function Home() {
   const pinnedPosts = [
     {
       id: 1,
-      title: '2024 수능 완전 분석: 주요 변화점과 대비 전략',
-      excerpt: '2024년 수능의 주요 변화점을 분석하고 효과적인 대비 전략을 제시합니다. 특히 국어 영역의 독서 지문 길이 증가와 수학 영역의 문제 유형 변화에 대해 자세히 다룹니다. SN에서 3년간 축적된 데이터를 바탕으로 한 실질적인 조언을 제공합니다.',
-      date: 'Sep 15, 2025',
-      readTime: '8 min read',
-      tags: ['입시정보', '수능', '분석'],
-      thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop&crop=center',
-      category: '입시정보',
+      title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
+      excerpt: '독학기숙학원의 명가 SN에서 이번에 새롭게 에듀테크 AI를 만들었습니다. 우리의 비전, 앞으로의 미션, 팀 구성원, AI 제품들을 소개합니다. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
+      date: 'Sep 25, 2025',
+      readTime: '10 min read',
+      tags: ['SN AI 스타트업', '에듀테크', 'AI교육', '비전'],
+      thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',
+      category: 'SN AI 스타트업',
       isPinned: true
     }
   ];
@@ -30,84 +30,54 @@ export default function Home() {
   const allPosts = [
     {
       id: 1,
-      title: '2024 수능 완전 분석: 주요 변화점과 대비 전략',
-      excerpt: '2024년 수능의 주요 변화점을 분석하고 효과적인 대비 전략을 제시합니다. 특히 국어 영역의 독서 지문 길이 증가와 수학 영역의 문제 유형 변화에 대해 자세히 다룹니다. SN에서 3년간 축적된 데이터를 바탕으로 한 실질적인 조언을 제공합니다.',
-      date: 'Sep 15, 2025',
-      readTime: '8 min read',
-      tags: ['입시정보', '수능', '분석'],
-      thumbnail: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop&crop=center',
-      category: '입시정보'
+      title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
+      excerpt: '독학기숙학원의 명가 SN에서 이번에 새롭게 에듀테크 AI를 만들었습니다. 우리의 비전, 앞으로의 미션, 팀 구성원, AI 제품들을 소개합니다. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
+      date: 'Sep 25, 2025',
+      readTime: '10 min read',
+      tags: ['SN AI 스타트업', '에듀테크', 'AI교육', '비전'],
+      thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',
+      category: 'SN AI 스타트업'
     },
     {
       id: 2,
-      title: 'SN 학습법: 효과적인 자기주도학습 방법',
-      excerpt: 'SN에서 검증된 자기주도학습 방법을 소개합니다. 계획 세우기부터 실행, 피드백까지의 전체 과정을 단계별로 설명하고, 실제 학생들의 성공 사례를 통해 구체적인 적용 방법을 제시합니다. 특히 고3 수험생들에게 도움이 되는 실용적인 내용을 담았습니다.',
-      date: 'Sep 12, 2025',
-      readTime: '6 min read',
-      tags: ['컬럼', '학습법', '자기주도학습'],
-      thumbnail: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop&crop=center',
-      category: '컬럼'
+      title: '정철의 강원도 브이로그 (고전문학 「관동별곡」)',
+      excerpt: '정철의 관동별곡을 현대적 브이로그 형식으로 재해석! 강원도의 아름다운 자연과 정철의 감정을 생생하게 느껴보세요. 수능 고전문학의 대표작을 재미있게 배우는 특별한 시간입니다.',
+      date: 'Sep 19, 2025',
+      readTime: '9 min read',
+      tags: ['SN Originals', '고전문학', '수능국어', '관동별곡'],
+      thumbnail: 'https://img.youtube.com/vi/9T06DoJaMHs/maxresdefault.jpg',
+      category: 'SN Originals'
     },
     {
       id: 3,
-      title: '서울대 합격생 후기: 3년간의 SN 생활',
-      excerpt: '서울대에 합격한 김○○ 학생의 SN 3년 생활 후기를 공유합니다. 입학부터 졸업까지의 과정에서 겪었던 어려움과 극복 방법, 그리고 SN에서 얻은 것들에 대해 솔직하게 이야기합니다. 후배들에게 전하는 조언도 함께 들어보세요.',
-      date: 'Sep 10, 2025',
-      readTime: '10 min read',
-      tags: ['후기', '서울대', '합격'],
-      thumbnail: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=400&fit=crop&crop=center',
-      category: '후기'
+      title: '좋긴 한데 유배 생활 이래도 됨? 고전문학 「북천가」',
+      excerpt: '북천가는 조선 후기 문인들의 유배 생활을 그린 작품으로, 자연에 대한 사랑과 정치적 현실에 대한 아쉬움을 담고 있습니다. 수능 고전문학의 핵심 작품을 쉽고 재미있게 이해해보세요!',
+      date: 'Sep 20, 2025',
+      readTime: '6 min read',
+      tags: ['SN Originals', '고전문학', '수능국어', '북천가'],
+      thumbnail: 'https://img.youtube.com/vi/xhyppBm3_o4/maxresdefault.jpg',
+      category: 'SN Originals'
     },
     {
       id: 4,
-      title: 'SN 특별 프로그램: 겨울방학 집중 캠프',
-      excerpt: '2024년 겨울방학을 맞아 SN에서 진행하는 특별 프로그램을 소개합니다. 수능 대비 집중 캠프, 논술 특강, 면접 준비반 등 다양한 프로그램이 준비되어 있습니다. 각 프로그램의 특징과 참가 방법, 그리고 기대 효과에 대해 자세히 알아보세요.',
-      date: 'Sep 8, 2025',
-      readTime: '5 min read',
-      tags: ['SN AI 스타트업', '특별프로그램', '겨울방학'],
-      thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&crop=center',
-      category: 'SN AI 스타트업'
+      title: '너 그렇게 여자만 좋아하다 피똥싼다 (수능 고전문학 「화왕가」)',
+      excerpt: '화왕가는 조선 후기 작가 김만중의 작품으로, 당시 사회의 모순과 부조리를 풍자한 고전문학입니다. 현대적 해석과 함께 수능에 자주 출제되는 핵심 내용을 재미있게 배워보세요!',
+      date: 'Sep 21, 2025',
+      readTime: '7 min read',
+      tags: ['SN Originals', '고전문학', '수능국어', '화왕가'],
+      thumbnail: 'https://img.youtube.com/vi/6tsl5IIMy_o/maxresdefault.jpg',
+      category: 'SN Originals'
     },
     {
       id: 5,
-      title: '의대 입시 가이드: 2024년 최신 트렌드',
-      excerpt: '의대 입시의 최신 동향과 변화를 분석합니다. 학생부종합전형의 비중 증가, 면접 형태의 변화, 그리고 각 대학별 특징을 종합적으로 정리했습니다. 의대를 목표로 하는 학생들과 학부모님께 도움이 되는 실질적인 정보를 제공합니다.',
-      date: 'Sep 5, 2025',
-      readTime: '12 min read',
-      tags: ['입시정보', '의대', '학종'],
-      thumbnail: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop&crop=center',
-      category: '입시정보'
-    },
-    {
-      id: 6,
-      title: 'SN 교사진 소개: 경험과 열정의 만남',
-      excerpt: 'SN의 자랑스러운 교사진을 소개합니다. 각 분야의 전문가들이 모여 학생들의 꿈을 실현시키기 위해 최선을 다하고 있습니다. 교사들의 경력과 교육 철학, 그리고 학생들과의 특별한 에피소드를 통해 SN만의 교육 문화를 엿볼 수 있습니다.',
-      date: 'Sep 3, 2025',
-      readTime: '7 min read',
-      tags: ['SN AI 스타트업', '교사진', '교육철학'],
-      thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=center',
-      category: 'SN AI 스타트업'
-    },
-    {
-      id: 7,
-      title: 'SN 신규 캠퍼스 오픈: 더 넓은 공간, 더 좋은 교육',
-      excerpt: '더 많은 학생들에게 양질의 교육을 제공하기 위해 새로운 캠퍼스를 오픈합니다. 최신 시설과 편의 기능을 자랑하는 새로운 공간에서 더욱 효과적인 학습이 가능합니다.',
-      date: 'Sep 1, 2025',
-      readTime: '5 min read',
-      tags: ['학원소식', '신규캠퍼스', '오픈'],
-      thumbnail: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop&crop=center',
-      category: '학원소식'
-    },
-    {
-      id: 8,
-      title: 'SN 겨울방학 특별 프로그램 안내',
-      excerpt: '2024년 겨울방학을 맞아 SN에서 진행하는 특별 프로그램을 안내합니다. 수능 대비 집중 캠프, 논술 특강, 면접 준비반 등 다양한 프로그램이 준비되어 있습니다.',
-      date: 'Aug 28, 2025',
-      readTime: '4 min read',
-      tags: ['학원소식', '겨울방학', '특별프로그램'],
-      thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&crop=center',
-      category: '학원소식'
-    },
+      title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
+      excerpt: 'AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어 감각이 살아납니다. 수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!',
+      date: 'Sep 22, 2025',
+      readTime: '8 min read',
+      tags: ['SN Originals', '고전문학', '수능국어', '갑민가'],
+      thumbnail: 'https://img.youtube.com/vi/3ZGE-RvBinQ/maxresdefault.jpg',
+      category: 'SN Originals'
+    }
   ];
 
   // 모든 카테고리 글 통합 및 최신순 정렬
