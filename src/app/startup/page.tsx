@@ -2,8 +2,8 @@ export default function StartupPage() {
   const startups = [
     {
       id: 1,
-      title: '시대인재 특별 프로그램: 겨울방학 집중 캠프',
-      excerpt: '2024년 겨울방학을 맞아 시대인재에서 진행하는 특별 프로그램을 소개합니다. 수능 대비 집중 캠프, 논술 특강, 면접 준비반 등 다양한 프로그램이 준비되어 있습니다.',
+      title: 'SN 특별 프로그램: 겨울방학 집중 캠프',
+      excerpt: '2024년 겨울방학을 맞아 SN에서 진행하는 특별 프로그램을 소개합니다. 수능 대비 집중 캠프, 논술 특강, 면접 준비반 등 다양한 프로그램이 준비되어 있습니다.',
       date: 'Dec 8, 2024',
       readTime: '5 min read',
       tags: ['특별프로그램', '겨울방학', '캠프'],
@@ -11,8 +11,8 @@ export default function StartupPage() {
     },
     {
       id: 2,
-      title: '시대인재 교사진 소개: 경험과 열정의 만남',
-      excerpt: '시대인재의 자랑스러운 교사진을 소개합니다. 각 분야의 전문가들이 모여 학생들의 꿈을 실현시키기 위해 최선을 다하고 있습니다.',
+      title: 'SN 교사진 소개: 경험과 열정의 만남',
+      excerpt: 'SN의 자랑스러운 교사진을 소개합니다. 각 분야의 전문가들이 모여 학생들의 꿈을 실현시키기 위해 최선을 다하고 있습니다.',
       date: 'Dec 3, 2024',
       readTime: '7 min read',
       tags: ['교사진', '교육철학', '전문가'],
@@ -37,7 +37,7 @@ export default function StartupPage() {
           SN AI 스타트업
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300">
-          시대인재의 AI 기반 혁신적인 교육 프로그램과 새로운 시도들
+          SN의 AI 기반 혁신적인 교육 프로그램과 새로운 시도들
         </p>
       </div>
 
