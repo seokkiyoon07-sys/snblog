@@ -19,7 +19,11 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
       <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <span className="inline-block rounded-full border border-slate-200 px-4 py-1 text-sm">SN Academy AI Startup</span>
-          <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight hover:text-sn-primary transition-colors cursor-pointer">SN에서 교육 AI 스타트업을 창업했습니다.</h1>
+          <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight hover:text-sn-primary transition-colors cursor-pointer">
+            SN에서<br/>
+            교육 AI 스타트업을<br/>
+            창업했습니다.
+          </h1>
           <p className="mt-4 md:mt-6 text-lg md:text-xl text-slate-600">
             교육과 AI의 융합으로,<br/>
             학생 개개인의 잠재력을 극대화하는<br/>
@@ -56,7 +60,7 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { role: '대표 (CEO)', desc: '교육 현장 20년 경험, 전략과 비전을 이끄는 리더' },
-              { role: 'AI 개발자 2명', desc: '대규모 언어모델과 AI 솔루션 연구' },
+              { role: 'AI 개발자 2명', desc: '서울대 박사, 카이스트 수석 졸업생' },
               { role: '백엔드 개발자 1명', desc: '안정적인 데이터 처리와 서버 아키텍처' },
               { role: '마케팅/데이터 분석 1명', desc: '학습 데이터 기반 전략 수립' },
               { role: '디자이너 1명', desc: '직관적이고 감각적인 UX/UI 구현' },
