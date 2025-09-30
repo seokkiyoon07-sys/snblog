@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function StartupVisionPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-800">
+    <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-800 text-slate-800 dark:text-slate-200">
       {/* 뒤로가기 버튼 */}
       <div className="px-6 md:px-10 lg:px-16 pt-8">
         <div className="mx-auto max-w-5xl">
@@ -44,19 +44,19 @@ export default function StartupVisionPage() {
       {/* Vision & Mission */}
       <section className="px-6 md:px-10 lg:px-16 py-12 md:py-16">
         <div className="mx-auto max-w-5xl space-y-6">
-               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                 <h2 className="text-2xl font-bold">우리의 비전 (Vision)</h2>
-                 <p className="mt-3 leading-relaxed">AI와 자기주도학습의 결합으로, 더 낮은 비용에 학생의 성장을 로켓처럼 가속합니다.</p>
+               <div className="rounded-2xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
+                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">우리의 비전 (Vision)</h2>
+                 <p className="mt-3 leading-relaxed text-gray-700 dark:text-gray-300">AI와 자기주도학습의 결합으로, 더 낮은 비용에 학생의 성장을 로켓처럼 가속합니다.</p>
                </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-2xl font-bold">우리의 미션 (Mission)</h2>
-            <ul className="mt-3 space-y-2 leading-relaxed list-disc pl-5">
+          <div className="rounded-2xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">우리의 미션 (Mission)</h2>
+            <ul className="mt-3 space-y-2 leading-relaxed list-disc pl-5 text-gray-700 dark:text-gray-300">
               <li>우리는 자기주도학습과 AI를 결합하여 교육의 비용을 낮춥니다.</li>
               <li>학생들에게 초개인화된 학습 경험을 제공합니다.</li>
               <li>학생들의 학습량을 정밀하게 측정하고, 그에 맞는 정확한 솔루션을 제시합니다.</li>
               <li>한국 교육 시장에 혁신적인 AI 학습 도구를 보급합니다.</li>
             </ul>
-            <p className="mt-4 text-sm text-slate-600 leading-relaxed">
+            <p className="mt-4 text-sm text-slate-600 dark:text-gray-400 leading-relaxed">
               이를 통해 교육의 불균형, 비효율, 정보 격차, 비용 격차를 해소하여 학생들의 입시 성공을 이끌겠습니다.
             </p>
           </div>
