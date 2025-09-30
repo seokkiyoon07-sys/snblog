@@ -49,15 +49,15 @@ export default function Header() {
         <div className="hidden lg:block">
           <div className="flex items-center justify-between">
                 {/* 로고 */}
-                <div className="flex items-center space-x-4">
-                  <a href="/" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-                    <img 
-                      src="/sn-logo.svg" 
-                      alt="SN Academy" 
-                      className="h-8 w-auto"
-                    />
-                  </a>
-                </div>
+                 <div className="flex items-center space-x-4">
+                   <a href="/" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
+                     <img
+                       src="/sn-logo.png"
+                       alt="SN"
+                       className="h-8 w-auto"
+                     />
+                   </a>
+                 </div>
 
             {/* 검색바 */}
             <div className="flex-1 max-w-md mx-8">
@@ -139,15 +139,15 @@ export default function Header() {
         <div className="lg:hidden">
           <div className="flex items-center justify-between">
                 {/* 로고 */}
-                <div className="flex items-center space-x-2">
-                  <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-                    <img 
-                      src="/sn-logo.svg" 
-                      alt="SN Academy" 
-                      className="h-6 w-auto"
-                    />
-                  </a>
-                </div>
+                 <div className="flex items-center space-x-2">
+                   <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                     <img
+                       src="/sn-logo.png"
+                       alt="SN"
+                       className="h-6 w-auto"
+                     />
+                   </a>
+                 </div>
 
             {/* 모바일 메뉴 버튼 */}
             <div className="flex items-center space-x-2">
