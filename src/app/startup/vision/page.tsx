@@ -179,7 +179,12 @@ export default function StartupVisionPage() {
       <section className="px-6 md:px-10 lg:px-16 py-16 md:py-20">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl md:text-3xl font-bold">교육의 새로운 패러다임을 설계합니다.</h2>
-          <p className="mt-4 text-slate-600">우리는 작은 팀이지만 변화의 파급력은 결코 작지 않습니다. 우리의 목표는 단 하나, <b>모든 학생이 자신만의 맞춤형 학습 여정</b>을 걷도록 돕는 것입니다.</p>
+          <div className="mt-6 space-y-4 text-slate-600 leading-relaxed">
+            <p>우리는 작은 팀이지만, 변화의 파급력은 결코 작지 않을 것입니다.</p>
+            <p>AI는 학생들의 학습량을 정밀하게 측정하고 맞춤형 솔루션을 제공합니다. 어떤 수능 문제든 풀어낼 수 있으며, 학생들은 이해되지 않는 부분을 반복해서 언제든 질문할 수 있습니다. 또한 평가원 급 수준의 문제를 AI가 직접 생성할 수도 있습니다.</p>
+            <p>이를 통해 학생들은 기존 교육비의 <b>50%로도 AI를 활용해 성장 잠재력을 가속화하고, 지적으로 도약하며, 입시에서 성공</b>할 것입니다.</p>
+            <p className="text-lg font-semibold text-slate-800">이것이 우리의 단 하나의 목표입니다.</p>
+          </div>
           <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-3 shadow-sm">
             <span className="text-sm">SN Academy AI</span>
             <span className="text-slate-300">•</span>
