@@ -12,8 +12,10 @@ export default function Header() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // 검색 로직 구현
-    console.log('Search:', searchQuery);
+    if (searchQuery.trim()) {
+      // 검색어가 있으면 검색 페이지로 이동
+      window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+    }
   };
 
   const infoOptions = [
