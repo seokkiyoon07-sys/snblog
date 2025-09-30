@@ -68,7 +68,7 @@ export default function Home() {
           >
             {/* 모바일 레이아웃 */}
             <div className="block sm:hidden">
-              {/* 썸네일 */}
+              {/* 1. 썸네일 */}
               <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
                 <img
                   src={post.thumbnail}
@@ -79,7 +79,26 @@ export default function Home() {
               
               {/* 콘텐츠 */}
               <div className="space-y-3">
-                {/* 태그 */}
+                {/* 2. 제목 */}
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <a href={`/posts/${post.id}`}>
+                    {post.title}
+                  </a>
+                </h2>
+
+                {/* 3. 요약 */}
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
+                  {post.excerpt}
+                </p>
+
+                {/* 4. 메타 정보 (날짜, read) */}
+                <div className="flex items-center space-x-3 text-sm text-gray-500 dark:text-gray-400">
+                  <span>{post.date}</span>
+                  <span>•</span>
+                  <span>{post.readTime}</span>
+                </div>
+
+                {/* 5. 태그 */}
                 <div className="flex flex-wrap gap-1.5">
                   {post.tags.map((tag) => (
                     <span
@@ -89,25 +108,6 @@ export default function Home() {
                       {tag}
                     </span>
                   ))}
-                </div>
-
-                {/* 제목 */}
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={`/posts/${post.id}`}>
-                    {post.title}
-                  </a>
-                </h2>
-
-                {/* 요약 */}
-                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                {/* 메타 정보 */}
-                <div className="flex items-center space-x-3 text-sm text-gray-500 dark:text-gray-400">
-                  <span>{post.date}</span>
-                  <span>•</span>
-                  <span>{post.readTime}</span>
                 </div>
               </div>
             </div>
