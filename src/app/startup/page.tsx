@@ -46,7 +46,7 @@ export default function StartupPage() {
               <div className="space-y-3">
                 {/* 2. 제목 */}
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={`/startup/${post.id}`}>
+                  <a href="/startup/vision">
                     {post.title}
                   </a>
                 </h2>
@@ -104,7 +104,7 @@ export default function StartupPage() {
 
                 {/* 제목 */}
                 <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={`/startup/${post.id}`}>
+                  <a href="/startup/vision">
                     {post.title}
                   </a>
                 </h2>
