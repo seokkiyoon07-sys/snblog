@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 
 export const metadata = {
   title: '북천가 | SN Originals 고전문학',
@@ -130,12 +129,10 @@ export default function BukcheongaPage() {
             {relatedPosts.map((relatedPost) => (
               <a key={relatedPost.id} href={relatedPost.url} className="block group">
                 <div className="relative w-full h-48 overflow-hidden rounded-lg mb-3">
-                  <Image
+                  <img
                     src={relatedPost.thumbnail}
                     alt={relatedPost.title}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    className="transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
