@@ -22,7 +22,7 @@ export default function Header() {
       title: '독학기숙(남학생점)',
       link: 'https://www.snacademy.co.kr',
       linkText: 'www.snacademy.co.kr',
-      color: 'text-blue-600 dark:text-blue-400'
+      color: 'text-sn-primary dark:text-sn-primary-light'
     },
     {
       key: '대치점',
@@ -48,17 +48,16 @@ export default function Header() {
         {/* 데스크톱 헤더 */}
         <div className="hidden lg:block">
           <div className="flex items-center justify-between">
-            {/* 로고 */}
-            <div className="flex items-center space-x-4">
-              <a href="/" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  SN Academy
-                </h1>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  Blog
-                </span>
-              </a>
-            </div>
+                {/* 로고 */}
+                <div className="flex items-center space-x-4">
+                  <a href="/" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
+                    <img 
+                      src="/sn-logo.svg" 
+                      alt="SN Academy" 
+                      className="h-8 w-auto"
+                    />
+                  </a>
+                </div>
 
             {/* 검색바 */}
             <div className="flex-1 max-w-md mx-8">
@@ -70,7 +69,7 @@ export default function Header() {
                     placeholder="검색..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sn-primary focus:border-transparent"
                   />
                 </div>
               </form>
@@ -91,7 +90,7 @@ export default function Header() {
                       window.open(selectedOption.link, '_blank', 'noopener,noreferrer');
                     }
                   }}
-                  className="text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                  className="text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-sn-primary cursor-pointer"
                 >
                   {infoOptions.map((option) => (
                     <option key={option.key} value={option.key}>
@@ -139,17 +138,16 @@ export default function Header() {
         {/* 모바일 헤더 */}
         <div className="lg:hidden">
           <div className="flex items-center justify-between">
-            {/* 로고 */}
-            <div className="flex items-center space-x-2">
-              <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-                <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-                  SN Academy
-                </h1>
-                <span className="text-xs text-gray-500 dark:text-gray-400">
-                  Blog
-                </span>
-              </a>
-            </div>
+                {/* 로고 */}
+                <div className="flex items-center space-x-2">
+                  <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <img 
+                      src="/sn-logo.svg" 
+                      alt="SN Academy" 
+                      className="h-6 w-auto"
+                    />
+                  </a>
+                </div>
 
             {/* 모바일 메뉴 버튼 */}
             <div className="flex items-center space-x-2">
@@ -186,7 +184,7 @@ export default function Header() {
                   placeholder="검색..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sn-primary focus:border-transparent"
                 />
               </div>
             </form>
@@ -205,7 +203,7 @@ export default function Header() {
                   window.open(selectedOption.link, '_blank', 'noopener,noreferrer');
                 }
               }}
-              className="w-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+              className="w-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sn-primary cursor-pointer"
             >
               {infoOptions.map((option) => (
                 <option key={option.key} value={option.key}>

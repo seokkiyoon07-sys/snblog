@@ -115,7 +115,7 @@ export default function Home() {
       {pinnedPosts.length > 0 && (
         <div className="space-y-4 lg:space-y-6">
           <div className="flex items-center space-x-2 mb-4">
-            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <div className="w-2 h-2 bg-sn-primary rounded-full"></div>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               추천 글
             </h2>
@@ -123,7 +123,7 @@ export default function Home() {
           {pinnedPosts.map((post) => (
             <article
               key={post.id}
-              className="border border-blue-200 dark:border-blue-800 rounded-lg p-4 bg-blue-50 dark:bg-blue-900/20"
+              className="border border-sn-primary/20 dark:border-sn-primary/30 rounded-lg p-4 bg-sn-primary/5 dark:bg-sn-primary/10"
             >
               {/* 모바일 레이아웃 */}
               <div className="block sm:hidden">
@@ -139,7 +139,7 @@ export default function Home() {
                 {/* 콘텐츠 */}
                 <div className="space-y-3">
                   {/* 2. 제목 */}
-                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors">
                     <a href={`/posts/${post.id}`}>
                       📌 {post.title}
                     </a>
@@ -156,7 +156,7 @@ export default function Home() {
                     <span>•</span>
                     <span>{post.readTime}</span>
                     <span>•</span>
-                    <span className="text-blue-600 dark:text-blue-400 font-medium">{post.category}</span>
+                    <span className="text-sn-primary dark:text-sn-primary-light font-medium">{post.category}</span>
                   </div>
 
                   {/* 5. 태그 */}
@@ -164,7 +164,7 @@ export default function Home() {
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-block px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 rounded"
+                        className="inline-block px-2 py-1 text-xs font-medium bg-sn-primary/10 dark:bg-sn-primary/20 text-sn-primary dark:text-sn-primary-light rounded"
                       >
                         {tag}
                       </span>
@@ -191,7 +191,7 @@ export default function Home() {
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-block px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 rounded"
+                        className="inline-block px-2 py-1 text-xs font-medium bg-sn-primary/10 dark:bg-sn-primary/20 text-sn-primary dark:text-sn-primary-light rounded"
                       >
                         {tag}
                       </span>
@@ -199,7 +199,7 @@ export default function Home() {
                   </div>
 
                   {/* 제목 */}
-                  <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors">
                     <a href={`/posts/${post.id}`}>
                       📌 {post.title}
                     </a>
@@ -216,7 +216,7 @@ export default function Home() {
                     <span>•</span>
                     <span>{post.readTime}</span>
                     <span>•</span>
-                    <span className="text-blue-600 dark:text-blue-400 font-medium">{post.category}</span>
+                    <span className="text-sn-primary dark:text-sn-primary-light font-medium">{post.category}</span>
                   </div>
                 </div>
               </div>
@@ -254,7 +254,7 @@ export default function Home() {
               {/* 콘텐츠 */}
               <div className="space-y-3">
                 {/* 2. 제목 */}
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors">
                   <a href={`/posts/${post.id}`}>
                     {post.title}
                   </a>
@@ -271,7 +271,7 @@ export default function Home() {
                   <span>•</span>
                   <span>{post.readTime}</span>
                   <span>•</span>
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">{post.category || '기타'}</span>
+                  <span className="text-sn-primary dark:text-sn-primary-light font-medium">{post.category || '기타'}</span>
                 </div>
 
                 {/* 5. 태그 */}
@@ -314,7 +314,7 @@ export default function Home() {
                 </div>
 
                 {/* 제목 */}
-                <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors">
                   <a href={`/posts/${post.id}`}>
                     {post.title}
                   </a>
@@ -331,7 +331,7 @@ export default function Home() {
                   <span>•</span>
                   <span>{post.readTime}</span>
                   <span>•</span>
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">{post.category || '기타'}</span>
+                  <span className="text-sn-primary dark:text-sn-primary-light font-medium">{post.category || '기타'}</span>
                 </div>
               </div>
             </div>
@@ -345,7 +345,7 @@ export default function Home() {
           <button className="px-3 py-2 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
             이전
           </button>
-          <button className="px-3 py-2 text-sm sm:text-base font-medium text-white bg-blue-600 rounded">
+          <button className="px-3 py-2 text-sm sm:text-base font-medium text-white bg-sn-primary rounded">
             1
           </button>
           <button className="px-3 py-2 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">

@@ -28,7 +28,7 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
         <h3>🔮 앞으로의 계획</h3>
         <p>2024년 하반기부터 베타 서비스를 시작하여, 2025년 정식 런칭을 목표로 하고 있습니다. SN 학생들을 시작으로 전국의 학생들에게 혁신적인 교육 경험을 제공할 예정입니다.</p>
         
-        <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg mt-8">
+        <div className="bg-sn-primary/5 dark:bg-sn-primary/10 p-6 rounded-lg mt-8">
           <h4 className="text-lg font-semibold mb-3">📞 문의하기</h4>
           <p>SN AI 스타트업에 대한 더 자세한 정보가 필요하시다면 언제든 연락주세요.</p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
@@ -50,7 +50,7 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
       <div className="mb-6">
         <a 
           href="/startup" 
-          className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+          className="inline-flex items-center text-sn-primary dark:text-sn-primary-light hover:text-sn-primary-dark dark:hover:text-sn-primary transition-colors"
         >
           ← SN AI 스타트업으로 돌아가기
         </a>
@@ -62,7 +62,7 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="inline-block px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-800 text-blue-700 dark:text-blue-300 rounded-full"
+              className="inline-block px-3 py-1 text-sm font-medium bg-sn-primary/10 dark:bg-sn-primary/20 text-sn-primary dark:text-sn-primary-light rounded-full"
             >
               {tag}
             </span>
@@ -78,7 +78,7 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
           <span>•</span>
           <span>{post.readTime}</span>
           <span>•</span>
-          <span className="text-blue-600 dark:text-blue-400 font-medium">{post.category}</span>
+          <span className="text-sn-primary dark:text-sn-primary-light font-medium">{post.category}</span>
         </div>
         
         {/* 썸네일 */}

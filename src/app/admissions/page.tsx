@@ -73,7 +73,7 @@ export default function AdmissionsPage() {
                 </div>
 
                 {/* 제목 */}
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors">
                   <a href={`/posts/${post.id}`}>
                     {post.title}
                   </a>

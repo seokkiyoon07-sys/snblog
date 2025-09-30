@@ -112,7 +112,7 @@ export default function Sidebar() {
             <div key={index} className="space-y-1">
               <a
                 href={`/posts/${post.title.toLowerCase().replace(/\s+/g, '-')}`}
-                className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
+                className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors line-clamp-2"
               >
                 {post.title}
               </a>
@@ -134,7 +134,7 @@ export default function Sidebar() {
             <div key={index} className="space-y-1">
               <a
                 href={`/posts/${post.title.toLowerCase().replace(/\s+/g, '-')}`}
-                className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
+                className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors line-clamp-2"
               >
                 {post.title}
               </a>
