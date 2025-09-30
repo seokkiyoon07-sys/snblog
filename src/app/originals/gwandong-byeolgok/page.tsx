@@ -179,8 +179,8 @@ export default function GwandongByeolgokPage() {
                   <Image
                     src={relatedPost.thumbnail}
                     alt={relatedPost.title}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    style={{ objectFit: 'cover' }}
                     className="transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
