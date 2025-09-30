@@ -54,7 +54,12 @@ export default function Header() {
                      <img
                        src="/sn-logo.png"
                        alt="SN"
-                       className="h-8 w-auto"
+                       className="h-8 w-auto dark:hidden"
+                     />
+                     <img
+                       src="/sn-logo-white.png"
+                       alt="SN"
+                       className="h-8 w-auto hidden dark:block"
                      />
                    </a>
                  </div>
@@ -144,7 +149,12 @@ export default function Header() {
                      <img
                        src="/sn-logo.png"
                        alt="SN"
-                       className="h-6 w-auto"
+                       className="h-6 w-auto dark:hidden"
+                     />
+                     <img
+                       src="/sn-logo-white.png"
+                       alt="SN"
+                       className="h-6 w-auto hidden dark:block"
                      />
                    </a>
                  </div>
