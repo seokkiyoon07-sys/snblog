@@ -29,11 +29,10 @@ export default function StartupVisionPage() {
       <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <span className="inline-block rounded-full border border-slate-200 px-4 py-1 text-sm">SN Academy AI Startup</span>
-          <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight hover:text-sn-primary transition-colors cursor-pointer">
-            SN에서<br/>
-            교육 AI 스타트업을<br/>
-            창업했습니다.
-          </h1>
+               <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight hover:text-sn-primary transition-colors cursor-pointer leading-relaxed">
+                 SN에서<br/>
+                 교육 AI 스타트업을 창업했습니다.
+               </h1>
           <p className="mt-4 md:mt-6 text-lg md:text-xl text-slate-600">
             교육과 AI의 융합으로,<br/>
             학생 개개인의 잠재력을 극대화하는<br/>
@@ -69,9 +68,9 @@ export default function StartupVisionPage() {
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { role: '대표 (CEO)', desc: '교육 현장 20년 경험, 전략과 비전을 이끄는 리더' },
-              { role: 'AI 개발자 2명', desc: '서울대 박사, 카이스트 수석 졸업생' },
-              { role: '백엔드 개발자 1명', desc: '안정적인 데이터 처리와 서버 아키텍처' },
+              { role: '대표(CEO)', desc: '교육 현장 12년 경험,\n전략과 비전을 이끄는 리더' },
+              { role: 'AI 개발자 2명', desc: '서울대 박사, 카이스트 수석 졸업자\nLLM, AI 아키텍처' },
+              { role: '백엔드 개발자', desc: '안정적인 데이터 처리와\n서버 아키텍처' },
               { role: '마케팅/데이터 분석 1명', desc: '학습 데이터 기반 전략 수립' },
               { role: '디자이너 1명', desc: '직관적이고 감각적인 UX/UI 구현' },
               { role: '프론트엔드 개발자 1명', desc: '웹/앱 인터페이스 개발' },
@@ -80,7 +79,7 @@ export default function StartupVisionPage() {
             ].map((m, i) => (
               <article key={i} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
                 <h3 className="font-semibold">{m.role}</h3>
-                <p className="mt-2 text-sm text-slate-600">{m.desc}</p>
+                <p className="mt-2 text-sm text-slate-600 whitespace-pre-line">{m.desc}</p>
               </article>
             ))}
           </div>
@@ -94,27 +93,29 @@ export default function StartupVisionPage() {
           <p className="mt-2 text-slate-600">SN 생태계를 구성하는 핵심 AI 제품들입니다.</p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {/* SN 독학기숙학원 */}
-            <ProductCard 
-              name="SN 독학기숙학원(양평 남학생점)" 
-              tagline="국내 탑티어 독학기숙학원"
-              bullets={[
-                '지난 12년간 압도적 합격률',
-                '순수독학기숙의 명가',
-                '여학생 캠퍼스는 추후 오픈 예정',
-              ]}
-            />
+                 {/* SN 독학기숙학원 */}
+                 <ProductCard
+                   name="SN독학기숙학원(양평 남학생점)"
+                   tagline="국내 탑티어 독학기숙학원"
+                   bullets={[
+                     '지난 12년간 압도적 합격률',
+                     '순수독학기숙의 명가',
+                     '여학생 캠퍼스는 추후 오픈 예정',
+                   ]}
+                   tag="학원"
+                 />
 
-            {/* SN 독학재수학원 */}
-            <ProductCard 
-              name="SN 독학재수학원(대치점)" 
-              tagline="2026년도 신규 론칭"
-              bullets={[
-                '수학 및 AI 특화관',
-                '최신 교육 시설과 시스템',
-                '개인별 맞춤형 학습 프로그램',
-              ]}
-            />
+                 {/* SN 독학재수학원 */}
+                 <ProductCard
+                   name="SN 독학재수학원 (대치점) 예정"
+                   tagline="2026년도 신규 론칭"
+                   bullets={[
+                     '수학 및 AI 특화관',
+                     '최신 교육 시설과 시스템',
+                     '개인별 맞춤형 학습 프로그램',
+                   ]}
+                   tag="학원"
+                 />
 
             {/* SNarlink */}
             <ProductCard 
@@ -194,13 +195,13 @@ export default function StartupVisionPage() {
   );
 }
 
-function ProductCard({ name, tagline, bullets }: { name: string; tagline: string; bullets: string[] }) {
-  return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md">
-      <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold">{name}</h3>
-        <span className="rounded-full border border-slate-200 px-3 py-1 text-xs">AI</span>
-      </div>
+     function ProductCard({ name, tagline, bullets, tag = "AI" }: { name: string; tagline: string; bullets: string[]; tag?: string }) {
+       return (
+         <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+           <div className="flex items-center justify-between">
+             <h3 className="text-lg font-semibold">{name}</h3>
+             <span className="rounded-full border border-slate-200 px-3 py-1 text-xs">{tag}</span>
+           </div>
       <p className="mt-2 text-sm text-slate-600">{tagline}</p>
       <ul className="mt-4 space-y-1 list-disc pl-5 text-sm text-slate-700">
         {bullets.map((b, i) => (
