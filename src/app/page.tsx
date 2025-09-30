@@ -1,3 +1,15 @@
+export const metadata = {
+  title: 'SN Academy Blog | 독학기숙학원의 교육 혁신과 AI 스타트업',
+  description: 'SN Academy의 교육 혁신, AI 스타트업, 독학기숙학원 정보를 제공합니다. 수능 대비, 입시 정보, 학습법, 합격 후기까지 모든 교육 정보를 한 곳에서 확인하세요.',
+  keywords: 'SN Academy, 독학기숙학원, AI 스타트업, 수능, 입시정보, 학습법, 교육혁신',
+  openGraph: {
+    title: 'SN Academy Blog | 독학기숙학원의 교육 혁신과 AI 스타트업',
+    description: 'SN Academy의 교육 혁신, AI 스타트업, 독학기숙학원 정보를 제공합니다.',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
+
 export default function Home() {
   // 고정 글 설정 (1-3개 유동적)
   const pinnedPosts = [

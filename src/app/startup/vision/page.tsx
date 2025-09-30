@@ -1,3 +1,15 @@
+export const metadata = {
+  title: 'SN AI 스타트업 비전 | 교육 AI 혁신과 팀 소개',
+  description: 'SN Academy AI 스타트업의 비전과 미션, 팀 구성원, AI 제품들을 소개합니다. SNarlink, SNarGPT, SNarGO 등 교육 AI 솔루션과 독학기숙학원, 독학재수학원 정보를 확인하세요.',
+  keywords: 'SN AI 스타트업, 교육 AI 비전, SN 팀, AI 제품, SNarlink, SNarGPT, SNarGO, 독학기숙학원, 독학재수학원',
+  openGraph: {
+    title: 'SN AI 스타트업 비전 | 교육 AI 혁신과 팀 소개',
+    description: 'SN Academy AI 스타트업의 비전과 미션, 팀 구성원, AI 제품들을 소개합니다.',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
+
 export default function StartupVisionPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-800">

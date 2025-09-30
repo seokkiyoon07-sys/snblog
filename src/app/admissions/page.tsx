@@ -1,3 +1,15 @@
+export const metadata = {
+  title: '입시정보 | SN Academy 입시 가이드와 대학별 전략',
+  description: 'SN Academy의 입시 전문가들이 제공하는 최신 입시 정보와 대학별 전략을 확인하세요. 수능 분석, 의대 입시, 학생부종합전형 등 다양한 입시 정보를 제공합니다.',
+  keywords: '입시정보, 수능 분석, 의대 입시, 학생부종합전형, 대학 입시, 입시 전략',
+  openGraph: {
+    title: '입시정보 | SN Academy 입시 가이드와 대학별 전략',
+    description: 'SN Academy의 입시 전문가들이 제공하는 최신 입시 정보와 대학별 전략을 확인하세요.',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
+
 export default function AdmissionsPage() {
   const admissions = [
     {

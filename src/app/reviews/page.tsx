@@ -1,3 +1,15 @@
+export const metadata = {
+  title: '합격 후기 | SN Academy 학생들의 성공 스토리',
+  description: 'SN Academy에서 목표 대학에 합격한 학생들의 생생한 후기를 확인하세요. 서울대, 연세대, 고려대 등 명문대 합격생들의 학습 방법과 경험담을 공유합니다.',
+  keywords: '합격 후기, SN Academy, 서울대 합격, 연세대 합격, 고려대 합격, 대학 합격, 학습 후기',
+  openGraph: {
+    title: '합격 후기 | SN Academy 학생들의 성공 스토리',
+    description: 'SN Academy에서 목표 대학에 합격한 학생들의 생생한 후기를 확인하세요.',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
+
 export default function ReviewsPage() {
   const reviews = [
     {

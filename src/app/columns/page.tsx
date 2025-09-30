@@ -1,3 +1,15 @@
+export const metadata = {
+  title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
+  description: 'SN Academy의 교육 전문가들이 제공하는 학습법, 입시 전략, 자기주도학습 방법 등을 확인하세요. 검증된 교육 노하우로 학습 효과를 극대화할 수 있습니다.',
+  keywords: 'SN 컬럼, 학습법, 자기주도학습, 입시 전략, 교육 노하우, 학습 효과',
+  openGraph: {
+    title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
+    description: 'SN Academy의 교육 전문가들이 제공하는 학습법과 입시 전략을 확인하세요.',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
+
 export default function ColumnsPage() {
   const columns = [
     {

@@ -1,3 +1,15 @@
+export const metadata = {
+  title: 'SN Originals | 보기만 해도 수능 점수가 오르는 컨텐츠',
+  description: 'SN Originals에서 수능 고전문학을 재미있게 배우세요. 갑민가, 화왕가, 북천가, 관동별곡 등 고전문학을 AI 그림과 친절한 해설로 즐기며 수능 국어 감각을 기를 수 있습니다.',
+  keywords: 'SN Originals, 수능 고전문학, 갑민가, 화왕가, 북천가, 관동별곡, 수능 국어, 고전문학, 수능 대비',
+  openGraph: {
+    title: 'SN Originals | 보기만 해도 수능 점수가 오르는 컨텐츠',
+    description: 'SN Originals에서 수능 고전문학을 재미있게 배우세요. AI 그림과 친절한 해설로 수능 국어 감각을 기를 수 있습니다.',
+    type: 'website',
+    locale: 'ko_KR',
+  },
+};
+
 export default function OriginalsPage() {
   const originals = [
     {
