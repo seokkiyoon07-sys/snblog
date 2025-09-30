@@ -4,7 +4,7 @@ export default function StartupPage() {
       id: 1,
       title: 'SN에서 교육 AI 스타트업을 만들었습니다.',
       excerpt: '독학기숙학원의 명가 SN에서 이번에 새롭게 에듀테크 AI를 만들었습니다. 우리의 비전, 앞으로의 미션 등을 소개합니다.',
-      date: 'Dec 25, 2024',
+      date: 'Sep 25, 2025',
       readTime: '10 min read',
       tags: ['SN AI 스타트업', '에듀테크', 'AI교육', '비전'],
       thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',

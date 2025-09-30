@@ -13,6 +13,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sn-primary: #122918;
+  --color-sn-primary-light: #1a3d2a;
+  --color-sn-primary-dark: #0f1f15;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,5 +54,30 @@ body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+  }
+  
+  /* SN 컬러 강제 적용 */
+  .text-sn-primary {
+    color: #122918 !important;
+  }
+  
+  .hover\:text-sn-primary:hover {
+    color: #122918 !important;
+  }
+  
+  .bg-sn-primary {
+    background-color: #122918 !important;
+  }
+  
+  .border-sn-primary {
+    border-color: #122918 !important;
+  }
+  
+  .text-sn-primary-light {
+    color: #1a3d2a !important;
+  }
+  
+  .hover\:text-sn-primary-light:hover {
+    color: #1a3d2a !important;
   }
 }

@@ -37,7 +37,7 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
         </div>
       </div>
     `,
-    date: 'Dec 25, 2024',
+    date: 'Sep 25, 2025',
     readTime: '10 min read',
     tags: ['SN AI 스타트업', '에듀테크', 'AI교육', '비전'],
     thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',
