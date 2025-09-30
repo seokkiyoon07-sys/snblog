@@ -50,12 +50,14 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* 로고 */}
             <div className="flex items-center space-x-4">
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                SN Academy
-              </h1>
-              <span className="text-sm text-gray-500 dark:text-gray-400">
-                Blog
-              </span>
+              <a href="/" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  SN Academy
+                </h1>
+                <span className="text-sm text-gray-500 dark:text-gray-400">
+                  Blog
+                </span>
+              </a>
             </div>
 
             {/* 검색바 */}
@@ -138,12 +140,14 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* 로고 */}
             <div className="flex items-center space-x-2">
-              <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-                SN Academy
-              </h1>
-              <span className="text-xs text-gray-500 dark:text-gray-400">
-                Blog
-              </span>
+              <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+                  SN Academy
+                </h1>
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  Blog
+                </span>
+              </a>
             </div>
 
             {/* 모바일 메뉴 버튼 */}
