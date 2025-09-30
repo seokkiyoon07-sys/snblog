@@ -79,7 +79,7 @@ export default function OriginalsPage() {
               {/* 콘텐츠 */}
               <div className="space-y-3">
                 {/* 2. 제목 */}
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors">
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   <a href={post.youtubeUrl || `/posts/${post.id}`} target={post.youtubeUrl ? "_blank" : "_self"}>
                     {post.youtubeUrl && "🎥 "}{post.title}
                   </a>
@@ -139,7 +139,7 @@ export default function OriginalsPage() {
                 </div>
 
                 {/* 제목 */}
-                <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors">
+                <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   <a href={post.youtubeUrl || `/posts/${post.id}`} target={post.youtubeUrl ? "_blank" : "_self"}>
                     {post.youtubeUrl && "🎥 "}{post.title}
                   </a>
