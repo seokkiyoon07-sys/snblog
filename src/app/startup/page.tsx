@@ -20,7 +20,7 @@ export default function StartupPage() {
     },
     {
       id: 3,
-      title: '시대인재 신규 캠퍼스 오픈 소식',
+      title: 'SN 신규 캠퍼스 오픈 소식',
       excerpt: '더 많은 학생들에게 양질의 교육을 제공하기 위해 새로운 캠퍼스를 오픈합니다. 최신 시설과 편의 기능을 자랑합니다.',
       date: 'Nov 30, 2024',
       readTime: '4 min read',
