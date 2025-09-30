@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 export default function ReviewsPage() {
-  const reviews = [];
+  const reviews: any[] = [];
 
   return (
     <div className="space-y-8">
@@ -26,8 +26,9 @@ export default function ReviewsPage() {
       </div>
 
       {/* 포스트 목록 */}
-      <div className="space-y-6">
-        {reviews.map((post) => (
+      {reviews.length > 0 ? (
+        <div className="space-y-6">
+          {reviews.map((post) => (
           <article
             key={post.id}
             className="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0"
@@ -45,16 +46,18 @@ export default function ReviewsPage() {
               {/* 콘텐츠 */}
               <div className="flex-1 space-y-3">
                 {/* 태그 */}
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                {post.tags && post.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag: string) => (
+                      <span
+                        key={tag}
+                        className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {/* 제목 */}
                 <h2 className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
@@ -78,7 +81,12 @@ export default function ReviewsPage() {
             </div>
           </article>
         ))}
-      </div>
+        </div>
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-gray-500 dark:text-gray-400">아직 게시된 글이 없습니다.</p>
+        </div>
+      )}
     </div>
   );
 }
