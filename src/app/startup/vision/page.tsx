@@ -44,18 +44,21 @@ export default function StartupVisionPage() {
       {/* Vision & Mission */}
       <section className="px-6 md:px-10 lg:px-16 py-12 md:py-16">
         <div className="mx-auto max-w-5xl space-y-6">
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-2xl font-bold">우리의 비전 (Vision)</h2>
-            <p className="mt-3 leading-relaxed">"AI로 학생의 미래를 더 깊고, 더 정확하게, 더 빠르게 열어주는 것."</p>
-          </div>
+               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                 <h2 className="text-2xl font-bold">우리의 비전 (Vision)</h2>
+                 <p className="mt-3 leading-relaxed">AI와 자기주도학습의 결합으로, 더 낮은 비용에 학생의 성장을 로켓처럼 가속합니다.</p>
+               </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-2xl font-bold">우리의 미션 (Mission)</h2>
             <ul className="mt-3 space-y-2 leading-relaxed list-disc pl-5">
-              <li>교육의 <b>불균형·비효율·정보 격차</b>를 해소합니다.</li>
-              <li>학생에게는 <b>맞춤형 학습 경험</b>을 제공합니다.</li>
-              <li>교사·학부모에게는 <b>투명한 학습 데이터 분석</b>을 제공합니다.</li>
-              <li>교육 시장에는 <b>혁신적인 AI 도구</b>를 제공합니다.</li>
+              <li>우리는 자기주도학습과 AI를 결합하여 교육의 비용을 낮춥니다.</li>
+              <li>학생들에게 초개인화된 학습 경험을 제공합니다.</li>
+              <li>학생들의 학습량을 정밀하게 측정하고, 그에 맞는 정확한 솔루션을 제시합니다.</li>
+              <li>한국 교육 시장에 혁신적인 AI 학습 도구를 보급합니다.</li>
             </ul>
+            <p className="mt-4 text-sm text-slate-600 leading-relaxed">
+              이를 통해 교육의 불균형, 비효율, 정보 격차, 비용 격차를 해소하여 학생들의 입시 성공을 이끌겠습니다.
+            </p>
           </div>
         </div>
       </section>
