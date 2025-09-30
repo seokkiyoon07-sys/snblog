@@ -19,14 +19,18 @@ export default function StartupDetailPage({ params }: { params: { id: string } }
       <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
           <span className="inline-block rounded-full border border-slate-200 px-4 py-1 text-sm">SN Academy AI Startup</span>
-          <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight">SN에서 교육 AI 스타트업을 만들었습니다.</h1>
-          <p className="mt-4 md:mt-6 text-lg md:text-xl text-slate-600">교육과 AI의 융합으로, 학생 개개인의 잠재력을 극대화하는 <b>초개인화 학습 혁신</b>을 실현합니다.</p>
+          <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight hover:text-sn-primary transition-colors cursor-pointer">SN에서 교육 AI 스타트업을 창업했습니다.</h1>
+          <p className="mt-4 md:mt-6 text-lg md:text-xl text-slate-600">
+            교육과 AI의 융합으로,<br/>
+            학생 개개인의 잠재력을 극대화하는<br/>
+            <b>초개인화 학습 혁신</b>을 실현합니다.
+          </p>
         </div>
       </section>
 
       {/* Vision & Mission */}
       <section className="px-6 md:px-10 lg:px-16 py-12 md:py-16">
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+        <div className="mx-auto max-w-5xl space-y-6">
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-2xl font-bold">우리의 비전 (Vision)</h2>
             <p className="mt-3 leading-relaxed">"AI로 학생의 미래를 더 깊고, 더 정확하게, 더 빠르게 열어주는 것."</p>
