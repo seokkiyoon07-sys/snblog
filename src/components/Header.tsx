@@ -123,6 +123,7 @@ export default function Header() {
               { name: '컬럼', href: '/columns' },
               { name: '입시정보', href: '/admissions' },
               { name: '후기', href: '/reviews' },
+              { name: 'SN Originals', href: '/originals' },
             ].map((item) => (
               <a
                 key={item.name}
@@ -223,6 +224,7 @@ export default function Header() {
                 { name: '컬럼', href: '/columns' },
                 { name: '입시정보', href: '/admissions' },
                 { name: '후기', href: '/reviews' },
+                { name: 'SN Originals', href: '/originals' },
               ].map((item) => (
                 <a
                   key={item.name}

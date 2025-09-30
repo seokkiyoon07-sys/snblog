@@ -76,6 +76,26 @@ export default function Home() {
       thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=center',
       category: 'SN AI 스타트업'
     },
+    {
+      id: 7,
+      title: 'SN 신규 캠퍼스 오픈: 더 넓은 공간, 더 좋은 교육',
+      excerpt: '더 많은 학생들에게 양질의 교육을 제공하기 위해 새로운 캠퍼스를 오픈합니다. 최신 시설과 편의 기능을 자랑하는 새로운 공간에서 더욱 효과적인 학습이 가능합니다.',
+      date: 'Dec 1, 2024',
+      readTime: '5 min read',
+      tags: ['학원소식', '신규캠퍼스', '오픈'],
+      thumbnail: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=400&fit=crop&crop=center',
+      category: '학원소식'
+    },
+    {
+      id: 8,
+      title: 'SN 겨울방학 특별 프로그램 안내',
+      excerpt: '2024년 겨울방학을 맞아 SN에서 진행하는 특별 프로그램을 안내합니다. 수능 대비 집중 캠프, 논술 특강, 면접 준비반 등 다양한 프로그램이 준비되어 있습니다.',
+      date: 'Nov 28, 2024',
+      readTime: '4 min read',
+      tags: ['학원소식', '겨울방학', '특별프로그램'],
+      thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=400&fit=crop&crop=center',
+      category: '학원소식'
+    },
   ];
 
   // 모든 카테고리 글 통합 및 최신순 정렬
