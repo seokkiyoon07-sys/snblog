@@ -1,9 +1,9 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [searchResults, setSearchResults] = useState<any[]>([]);
@@ -161,7 +161,7 @@ export default function SearchPage() {
                       <span>{post.readTime}</span>
                     </div>
                     <div className="flex flex-wrap gap-1 mt-3">
-                      {post.tags.map((tag) => (
+                      {post.tags.map((tag: string) => (
                         <span
                           key={tag}
                           className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 px-2 py-1 rounded"
@@ -193,5 +193,20 @@ export default function SearchPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600 dark:text-gray-400">로딩 중...</p>
+        </div>
+      </div>
+    }>
+      <SearchContent />
+    </Suspense>
   );
 }
