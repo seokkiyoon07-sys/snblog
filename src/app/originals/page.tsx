@@ -2,6 +2,17 @@ export default function OriginalsPage() {
   const originals = [
     {
       id: 1,
+      title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
+      excerpt: 'AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어 감각이 살아납니다. 수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!',
+      date: 'Dec 22, 2024',
+      readTime: '8 min read',
+      tags: ['SN Originals', '고전문학', '수능국어', '갑민가'],
+      thumbnail: 'https://img.youtube.com/vi/3ZGE-RvBinQ/maxresdefault.jpg',
+      category: 'SN Originals',
+      youtubeUrl: 'https://www.youtube.com/watch?v=3ZGE-RvBinQ'
+    },
+    {
+      id: 2,
       title: 'SN Originals: 특별한 교육 콘텐츠',
       excerpt: 'SN만의 독창적인 교육 콘텐츠와 특별 프로그램을 소개합니다. 학생들의 성장을 위한 맞춤형 교육 솔루션을 제공합니다.',
       date: 'Dec 20, 2024',
@@ -11,7 +22,7 @@ export default function OriginalsPage() {
       category: 'SN Originals'
     },
     {
-      id: 2,
+      id: 3,
       title: 'SN만의 독특한 학습법: 창의적 사고력 향상',
       excerpt: 'SN에서 개발한 독창적인 학습법을 소개합니다. 단순 암기가 아닌 창의적 사고력을 기르는 혁신적인 교육 방법을 제시합니다.',
       date: 'Dec 18, 2024',
@@ -21,7 +32,7 @@ export default function OriginalsPage() {
       category: 'SN Originals'
     },
     {
-      id: 3,
+      id: 4,
       title: 'SN 특별 프로젝트: 미래 교육 실험',
       excerpt: 'SN에서 진행하는 미래 교육 실험 프로젝트를 소개합니다. AI와 교육의 융합, 새로운 학습 패러다임을 탐구합니다.',
       date: 'Dec 15, 2024',
@@ -40,7 +51,7 @@ export default function OriginalsPage() {
           SN Originals
         </h1>
         <p className="text-base lg:text-lg text-gray-600 dark:text-gray-300 px-4">
-          SN만의 독창적인 교육 콘텐츠와 특별 프로그램
+          보기만 해도 수능 점수가 오르는 컨텐츠
         </p>
       </div>
 
@@ -66,8 +77,8 @@ export default function OriginalsPage() {
               <div className="space-y-3">
                 {/* 2. 제목 */}
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={`/posts/${post.id}`}>
-                    {post.title}
+                  <a href={post.youtubeUrl || `/posts/${post.id}`} target={post.youtubeUrl ? "_blank" : "_self"}>
+                    {post.youtubeUrl && "🎥 "}{post.title}
                   </a>
                 </h2>
 
@@ -126,8 +137,8 @@ export default function OriginalsPage() {
 
                 {/* 제목 */}
                 <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={`/posts/${post.id}`}>
-                    {post.title}
+                  <a href={post.youtubeUrl || `/posts/${post.id}`} target={post.youtubeUrl ? "_blank" : "_self"}>
+                    {post.youtubeUrl && "🎥 "}{post.title}
                   </a>
                 </h2>
 
