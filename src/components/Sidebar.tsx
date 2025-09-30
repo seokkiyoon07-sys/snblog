@@ -80,18 +80,18 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="space-y-8">
+    <aside className="space-y-6 lg:space-y-8">
       {/* 태그 섹션 */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+        <h3 className="text-base lg:text-lg font-semibold text-gray-900 dark:text-white mb-3 lg:mb-4">
           Tags
         </h3>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 lg:gap-2">
           {tags.map((tag) => (
             <a
               key={tag.name}
               href={`/tags/${tag.name}`}
-              className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="inline-flex items-center px-2.5 py-1 lg:px-3 lg:py-1.5 rounded-full text-xs lg:text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               {tag.name}
               <span className="ml-1 text-gray-500 dark:text-gray-400">
@@ -104,15 +104,15 @@ export default function Sidebar() {
 
       {/* 인기 블로그 섹션 */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+        <h3 className="text-base lg:text-lg font-semibold text-gray-900 dark:text-white mb-3 lg:mb-4">
           인기 블로그
         </h3>
-        <div className="space-y-3">
+        <div className="space-y-2 lg:space-y-3">
           {popularPosts.map((post, index) => (
             <div key={index} className="space-y-1">
               <a
                 href={`/posts/${post.title.toLowerCase().replace(/\s+/g, '-')}`}
-                className="block text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
+                className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
               >
                 {post.title}
               </a>
@@ -126,15 +126,15 @@ export default function Sidebar() {
 
       {/* 최근 포스트 섹션 (3개만) */}
       <div>
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+        <h3 className="text-base lg:text-lg font-semibold text-gray-900 dark:text-white mb-3 lg:mb-4">
           Recent Posts
         </h3>
-        <div className="space-y-3">
+        <div className="space-y-2 lg:space-y-3">
           {recentPosts.slice(0, 3).map((post, index) => (
             <div key={index} className="space-y-1">
               <a
                 href={`/posts/${post.title.toLowerCase().replace(/\s+/g, '-')}`}
-                className="block text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
+                className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
               >
                 {post.title}
               </a>

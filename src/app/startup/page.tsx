@@ -30,27 +30,74 @@ export default function StartupPage() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 lg:space-y-8">
       {/* 페이지 헤더 */}
-      <div className="text-center py-8">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      <div className="text-center py-6 lg:py-8">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 lg:mb-4">
           SN AI 스타트업
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
+        <p className="text-base lg:text-lg text-gray-600 dark:text-gray-300 px-4">
           SN의 AI 기반 혁신적인 교육 프로그램과 새로운 시도들
         </p>
       </div>
 
       {/* 포스트 목록 */}
-      <div className="space-y-6">
+      <div className="space-y-4 lg:space-y-6">
         {startups.map((post) => (
           <article
             key={post.id}
-            className="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0"
+            className="border-b border-gray-200 dark:border-gray-700 pb-4 lg:pb-6 last:border-b-0"
           >
-            <div className="flex gap-6">
+            {/* 모바일 레이아웃 */}
+            <div className="block sm:hidden">
               {/* 썸네일 */}
-              <div className="flex-shrink-0 w-48 h-32 overflow-hidden rounded-lg">
+              <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                <img
+                  src={post.thumbnail}
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              
+              {/* 콘텐츠 */}
+              <div className="space-y-3">
+                {/* 태그 */}
+                <div className="flex flex-wrap gap-1.5">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* 제목 */}
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <a href={`/posts/${post.id}`}>
+                    {post.title}
+                  </a>
+                </h2>
+
+                {/* 요약 */}
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
+                  {post.excerpt}
+                </p>
+
+                {/* 메타 정보 */}
+                <div className="flex items-center space-x-3 text-sm text-gray-500 dark:text-gray-400">
+                  <span>{post.date}</span>
+                  <span>•</span>
+                  <span>{post.readTime}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 데스크톱 레이아웃 */}
+            <div className="hidden sm:flex gap-4 lg:gap-6">
+              {/* 썸네일 */}
+              <div className="flex-shrink-0 w-40 sm:w-48 h-28 sm:h-32 overflow-hidden rounded-lg">
                 <img
                   src={post.thumbnail}
                   alt={post.title}
@@ -73,19 +120,19 @@ export default function StartupPage() {
                 </div>
 
                 {/* 제목 */}
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   <a href={`/posts/${post.id}`}>
                     {post.title}
                   </a>
                 </h2>
 
                 {/* 요약 */}
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3 text-base">
+                <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
                   {post.excerpt}
                 </p>
 
                 {/* 메타 정보 */}
-                <div className="flex items-center space-x-4 text-base text-gray-500 dark:text-gray-400">
+                <div className="flex items-center space-x-4 text-sm lg:text-base text-gray-500 dark:text-gray-400">
                   <span>{post.date}</span>
                   <span>•</span>
                   <span>{post.readTime}</span>

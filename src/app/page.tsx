@@ -58,17 +58,64 @@ export default function Home() {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 lg:space-y-8">
       {/* 포스트 목록 */}
-      <div className="space-y-6">
+      <div className="space-y-4 lg:space-y-6">
         {posts.map((post) => (
           <article
             key={post.id}
-            className="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0"
+            className="border-b border-gray-200 dark:border-gray-700 pb-4 lg:pb-6 last:border-b-0"
           >
-            <div className="flex gap-6">
+            {/* 모바일 레이아웃 */}
+            <div className="block sm:hidden">
               {/* 썸네일 */}
-              <div className="flex-shrink-0 w-48 h-32 overflow-hidden rounded-lg">
+              <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                <img
+                  src={post.thumbnail}
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              
+              {/* 콘텐츠 */}
+              <div className="space-y-3">
+                {/* 태그 */}
+                <div className="flex flex-wrap gap-1.5">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* 제목 */}
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  <a href={`/posts/${post.id}`}>
+                    {post.title}
+                  </a>
+                </h2>
+
+                {/* 요약 */}
+                <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
+                  {post.excerpt}
+                </p>
+
+                {/* 메타 정보 */}
+                <div className="flex items-center space-x-3 text-sm text-gray-500 dark:text-gray-400">
+                  <span>{post.date}</span>
+                  <span>•</span>
+                  <span>{post.readTime}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 데스크톱 레이아웃 */}
+            <div className="hidden sm:flex gap-4 lg:gap-6">
+              {/* 썸네일 */}
+              <div className="flex-shrink-0 w-40 sm:w-48 h-28 sm:h-32 overflow-hidden rounded-lg">
                 <img
                   src={post.thumbnail}
                   alt={post.title}
@@ -91,19 +138,19 @@ export default function Home() {
                 </div>
 
                 {/* 제목 */}
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <h2 className="text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                   <a href={`/posts/${post.id}`}>
                     {post.title}
                   </a>
                 </h2>
 
                 {/* 요약 */}
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3 text-base">
+                <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
                   {post.excerpt}
                 </p>
 
                 {/* 메타 정보 */}
-                <div className="flex items-center space-x-4 text-base text-gray-500 dark:text-gray-400">
+                <div className="flex items-center space-x-4 text-sm lg:text-base text-gray-500 dark:text-gray-400">
                   <span>{post.date}</span>
                   <span>•</span>
                   <span>{post.readTime}</span>
@@ -115,21 +162,21 @@ export default function Home() {
       </div>
 
       {/* 페이지네이션 */}
-      <div className="flex justify-center pt-8">
-        <nav className="flex items-center space-x-2">
-          <button className="px-4 py-2 text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
+      <div className="flex justify-center pt-6 lg:pt-8">
+        <nav className="flex items-center space-x-1 sm:space-x-2">
+          <button className="px-3 py-2 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
             이전
           </button>
-          <button className="px-4 py-2 text-base font-medium text-white bg-blue-600 rounded">
+          <button className="px-3 py-2 text-sm sm:text-base font-medium text-white bg-blue-600 rounded">
             1
           </button>
-          <button className="px-4 py-2 text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
+          <button className="px-3 py-2 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
             2
           </button>
-          <button className="px-4 py-2 text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
+          <button className="px-3 py-2 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
             3
           </button>
-          <button className="px-4 py-2 text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
+          <button className="px-3 py-2 text-sm sm:text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
             다음
           </button>
         </nav>

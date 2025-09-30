@@ -39,12 +39,14 @@ export default function RootLayout({
         >
           <div className="min-h-screen">
             <Header />
-            <div className="max-w-6xl mx-auto px-4 py-8">
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                <main className="lg:col-span-3">
+            <div className="max-w-6xl mx-auto px-4 py-4 sm:py-6 lg:py-8">
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
+                <main className="lg:col-span-3 order-1">
                   {children}
                 </main>
-                <Sidebar />
+                <aside className="order-2 lg:order-2">
+                  <Sidebar />
+                </aside>
               </div>
             </div>
           </div>
