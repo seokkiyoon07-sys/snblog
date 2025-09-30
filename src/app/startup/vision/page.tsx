@@ -70,9 +70,10 @@ export default function StartupVisionPage() {
           <p className="mt-2 text-slate-600">작지만 강력한 팀이 교육의 미래를 다시 씁니다.</p>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { role: '대표(CEO)', desc: '교육 현장 12년 경험,\n전략과 비전을 이끄는 리더' },
-              { role: 'AI 개발자 2명', desc: '서울대 박사, 카이스트 수석 졸업자\nLLM, AI 아키텍처' },
+                 {[
+                   { role: '대표(CEO)', desc: '교육 현장 12년 경험,\n전략과 비전을 이끄는 리더' },
+                   { role: 'SN독학기숙학원 임직원', desc: '독학기숙 최고의 팀' },
+                   { role: 'AI 개발자 2명', desc: '서울대 박사, 카이스트 수석 졸업자\nLLM, AI 아키텍처' },
               { role: '백엔드 개발자', desc: '안정적인 데이터 처리와\n서버 아키텍처' },
               { role: '마케팅/데이터 분석 1명', desc: '학습 데이터 기반 전략 수립' },
               { role: '디자이너 1명', desc: '직관적이고 감각적인 UX/UI 구현' },
