@@ -11,7 +11,6 @@ import {
   CodeBlock
 } from '@/components/BlogComponents';
 import Image from 'next/image';
-import { unstable_cache } from 'next/cache';
 
 export const metadata = {
   title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
@@ -25,31 +24,19 @@ export const metadata = {
   },
 };
 
-// 캐시 방지 헤더 설정
+// 강력한 캐시 방지 헤더 설정
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
+export const fetchCache = 'force-no-store';
+export const runtime = 'nodejs';
 
-// Vercel BUILD SHA를 사용한 동적 캐시 키 생성
-const BUILD = process.env.VERCEL_GIT_COMMIT_SHA || 'local-dev';
-const CACHE_KEY = `snarlink-page-content-${BUILD}`;
-const CACHE_TAGS = ['snarlink', 'columns', 'pages', `build:${BUILD}`];
-
-// 캐시된 컴포넌트 생성 함수 - BUILD SHA 기반 캐시 키
-const getCachedPageContent = unstable_cache(
-  async () => {
-    return {
-      title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
-      lastUpdated: new Date().toISOString(),
-      buildSha: BUILD,
-      cacheVersion: 'v3.0.0' // BUILD SHA 기반 버전
-    };
-  },
-  [CACHE_KEY], // 동적 캐시 키
-  {
-    tags: CACHE_TAGS,
-    revalidate: 3600 // 1시간
-  }
-);
+// 캐시 완전 비활성화 - 정적 데이터 사용
+const pageData = {
+  title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
+  lastUpdated: new Date().toISOString(),
+  buildSha: process.env.VERCEL_GIT_COMMIT_SHA || 'local-dev',
+  cacheVersion: 'v4.0.0' // 캐시 없는 버전
+};
 
 export default function Page() {
   return (
