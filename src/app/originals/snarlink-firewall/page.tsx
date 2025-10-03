@@ -7,7 +7,10 @@ import {
   InfoBox, 
   SuccessBox, 
   Section, 
-  FeatureList 
+  FeatureList,
+  TOC,
+  Callout,
+  CodeBlock
 } from '@/components/BlogComponents';
 
 export const metadata = {
@@ -24,13 +27,17 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <BlogLayout title="SNarlink: 공부만을 위한 방화벽, 11년의 진화">
-      {/* 썸네일 */}
-      <BlogImage 
-        src="/image/SNarlink/thumbnail.png"
-        alt="SN독학기숙학원 방화벽 운영 현장 썸네일"
-        caption="2014년부터 이어온 방화벽 운영의 기록"
-      />
+    <div className="flex">
+      {/* 목차 */}
+      <TOC />
+      
+      <BlogLayout title="SNarlink: 공부만을 위한 방화벽, 11년의 진화">
+        {/* 썸네일 */}
+        <BlogImage 
+          src="/image/SNarlink/thumbnail.png"
+          alt="SN독학기숙학원 방화벽 운영 현장 썸네일"
+          caption="2014년부터 이어온 방화벽 운영의 기록"
+        />
 
       {/* 인트로 */}
       <p className="text-lg text-gray-700 leading-relaxed">
@@ -127,6 +134,31 @@ export default function Page() {
           음악 다운로드/스트리밍, 게임, iMessage 등을 거의 완벽에 가깝게 차단했습니다.
         </p>
 
+        <Callout variant="tip" title="기술적 도전">
+          <p>
+            애플의 복잡한 CDN 구조와 동적 도메인 생성을 고려하여, 
+            실시간 패턴 매칭과 머신러닝 기반 이상 탐지 시스템을 구축했습니다.
+          </p>
+        </Callout>
+
+        <CodeBlock 
+          language="javascript"
+          code={`// Apple 트래픽 필터링 예시
+const appleTrafficFilter = {
+  allowed: [
+    '*.apple.com/auth',
+    '*.icloud.com/calendar',
+    '*.apple.com/login'
+  ],
+  blocked: [
+    '*.apple.com/music',
+    '*.apple.com/games',
+    '*.icloud.com/photos'
+  ],
+  dynamicDetection: true
+};`}
+        />
+
         <SuccessBox>
           <p className="font-medium text-green-800">
             시스템은 업데이트로 구조가 바뀌어도 이상 징후를 실시간 감지해 자동 대응합니다.
@@ -167,6 +199,18 @@ export default function Page() {
           <strong className="text-purple-600">초개인화 리포팅</strong>을 준비 중이며, 
           시각화와 리포트는 올해 내로 선보일 예정입니다.
         </p>
+
+        <Callout variant="info" title="수집되는 데이터 유형">
+          <FeatureList 
+            features={[
+              "기기별 접속 로그 및 패턴 분석",
+              "학습 사이트 이용 시간 (분 단위)",
+              "집중 시간대 및 생산성 지표",
+              "강의 시청 기록 및 진도율",
+              "앱 사용 패턴 및 우선순위"
+            ]} 
+          />
+        </Callout>
 
         <InfoBox>
           <p className="text-blue-800">
@@ -214,13 +258,14 @@ export default function Page() {
         </div>
       </div>
 
-      {/* 주의/참고 */}
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-8">
-        <p className="text-sm text-gray-600">
-          ※ 본 글은 재학생·학부모님은 물론, 교육업계 관계자분들께도 공개합니다. 차세대 교육
-          방화벽 도입이 필요하신 대형 학원은 본원으로 연락 주시면 라이선스/시공 협의가 가능합니다.
-        </p>
-      </div>
-    </BlogLayout>
+        {/* 주의/참고 */}
+        <Callout variant="warning" title="라이선스 문의">
+          <p className="text-sm">
+            ※ 본 글은 재학생·학부모님은 물론, 교육업계 관계자분들께도 공개합니다. 차세대 교육
+            방화벽 도입이 필요하신 대형 학원은 본원으로 연락 주시면 라이선스/시공 협의가 가능합니다.
+          </p>
+        </Callout>
+      </BlogLayout>
+    </div>
   );
 }
