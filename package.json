@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "test:jandi": "node scripts/test-jandi.js",
+    "test:slack": "node scripts/test-slack.js",
+    "test:webhooks": "node scripts/test-all-webhooks.js"
   },
   "dependencies": {
     "critters": "^0.0.23",
