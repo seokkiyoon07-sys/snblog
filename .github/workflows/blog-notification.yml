@@ -1,0 +1,180 @@
+name: Blog Post Notification to Jandi
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/data/posts.ts'
+      - 'src/app/originals/**'
+      - 'src/app/startup/**'
+      - 'src/app/columns/**'
+      - 'src/app/problems/**'
+      - 'src/app/reviews/**'
+      - 'src/app/admissions/**'
+
+jobs:
+  notify-jandi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect new blog posts
+        id: detect-posts
+        run: |
+          # Get the list of changed files
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          echo "Changed files: $CHANGED_FILES"
+          
+          # Check if posts.ts was modified
+          if echo "$CHANGED_FILES" | grep -q "src/data/posts.ts"; then
+            echo "posts_modified=true" >> $GITHUB_OUTPUT
+            echo "Posts data file was modified"
+          else
+            echo "posts_modified=false" >> $GITHUB_OUTPUT
+            echo "Posts data file was not modified"
+          fi
+          
+          # Check if any blog post pages were added/modified
+          if echo "$CHANGED_FILES" | grep -qE "src/app/(originals|startup|columns|problems|reviews|admissions)/.*/page\.tsx$"; then
+            echo "new_pages=true" >> $GITHUB_OUTPUT
+            echo "New blog post pages detected"
+          else
+            echo "new_pages=false" >> $GITHUB_OUTPUT
+            echo "No new blog post pages detected"
+          fi
+
+      - name: Send notification to Jandi
+        if: steps.detect-posts.outputs.posts_modified == 'true' || steps.detect-posts.outputs.new_pages == 'true'
+        run: |
+          # Get commit info
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          COMMIT_AUTHOR=$(git log -1 --pretty=%an)
+          COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+          
+          # Create Jandi message
+          JANDI_MESSAGE=$(cat <<EOF
+          {
+            "body": "🌱 새로운 블로그 글이 게시되었습니다!",
+            "connectColor": "#FAC11B",
+            "connectInfo": [
+              {
+                "title": "📝 블로그 업데이트",
+                "description": "새로운 콘텐츠가 추가되었습니다.",
+                "imageUrl": "https://blog.snacademy.co.kr/logo.png"
+              }
+            ],
+            "connectButtons": [
+              {
+                "name": "블로그 보기",
+                "type": "link",
+                "url": "https://blog.snacademy.co.kr"
+              },
+              {
+                "name": "커밋 보기",
+                "type": "link",
+                "url": "$COMMIT_URL"
+              }
+            ]
+          }
+          EOF
+          )
+          
+          # Send to Jandi
+          curl -X POST "https://wh.jandi.com/connect-api/webhook/13116580/408c7be61ec340cc632a4816f56a4442" \
+            -H "Content-Type: application/json" \
+            -d "$JANDI_MESSAGE"
+
+      - name: Send detailed notification for new posts
+        if: steps.detect-posts.outputs.new_pages == 'true'
+        run: |
+          # Find new blog post files
+          NEW_POSTS=$(git diff --name-only HEAD~1 HEAD | grep -E "src/app/(originals|startup|columns|problems|reviews|admissions)/.*/page\.tsx$" || true)
+          
+          if [ -n "$NEW_POSTS" ]; then
+            echo "New blog posts found: $NEW_POSTS"
+            
+            # Send individual notification for each new post
+            for post_file in $NEW_POSTS; do
+              # Extract post info from file path
+              POST_CATEGORY=$(echo "$post_file" | sed 's|src/app/\([^/]*\)/.*|\1|')
+              POST_SLUG=$(echo "$post_file" | sed 's|src/app/[^/]*/\([^/]*\)/page\.tsx|\1|')
+              
+              # Create category-specific message
+              case $POST_CATEGORY in
+                "originals")
+                  CATEGORY_EMOJI="📚"
+                  CATEGORY_NAME="SN Originals"
+                  COLOR="#FF6B6B"
+                  ;;
+                "startup")
+                  CATEGORY_EMOJI="🚀"
+                  CATEGORY_NAME="AI 스타트업"
+                  COLOR="#4ECDC4"
+                  ;;
+                "columns")
+                  CATEGORY_EMOJI="📝"
+                  CATEGORY_NAME="컬럼"
+                  COLOR="#45B7D1"
+                  ;;
+                "problems")
+                  CATEGORY_EMOJI="📋"
+                  CATEGORY_NAME="문제 다운로드"
+                  COLOR="#96CEB4"
+                  ;;
+                "reviews")
+                  CATEGORY_EMOJI="⭐"
+                  CATEGORY_NAME="후기"
+                  COLOR="#FFEAA7"
+                  ;;
+                "admissions")
+                  CATEGORY_EMOJI="🎓"
+                  CATEGORY_NAME="입시정보"
+                  COLOR="#DDA0DD"
+                  ;;
+                *)
+                  CATEGORY_EMOJI="📄"
+                  CATEGORY_NAME="기타"
+                  COLOR="#FAC11B"
+                  ;;
+              esac
+              
+              # Create detailed Jandi message
+              DETAILED_MESSAGE=$(cat <<EOF
+              {
+                "body": "$CATEGORY_EMOJI 새로운 $CATEGORY_NAME 글이 추가되었습니다!",
+                "connectColor": "$COLOR",
+                "connectInfo": [
+                  {
+                    "title": "📝 $POST_SLUG",
+                    "description": "새로운 블로그 글이 게시되었습니다.",
+                    "imageUrl": "https://blog.snacademy.co.kr/logo.png"
+                  }
+                ],
+                "connectButtons": [
+                  {
+                    "name": "글 읽기",
+                    "type": "link",
+                    "url": "https://blog.snacademy.co.kr/$POST_CATEGORY/$POST_SLUG"
+                  },
+                  {
+                    "name": "전체 블로그",
+                    "type": "link",
+                    "url": "https://blog.snacademy.co.kr"
+                  }
+                ]
+              }
+              EOF
+              )
+              
+              # Send detailed notification
+              curl -X POST "https://wh.jandi.com/connect-api/webhook/13116580/408c7be61ec340cc632a4816f56a4442" \
+                -H "Content-Type: application/json" \
+                -d "$DETAILED_MESSAGE"
+                
+              # Wait 1 second between notifications
+              sleep 1
+            done
+          fi
