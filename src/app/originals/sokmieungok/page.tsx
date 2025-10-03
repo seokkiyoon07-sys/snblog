@@ -89,28 +89,28 @@ export default function SokmieungokPage() {
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">작품의 매력</h2>
-              <div className="space-y-6">
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-blue-400">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">🎭 드라마틱한 대화체</h3>
+              <div className="space-y-4">
+                <div className="bg-white p-6 rounded-lg border border-gray-200">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">드라마틱한 대화체</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    갑녀와 을녀의 대화를 통해 이야기가 전개되는 독특한 구조! 
-                    마치 연극을 보는 것처럼 생생하게 정철의 내면을 엿볼 수 있어요.
+                    갑녀와 을녀의 대화를 통해 이야기가 전개되는 독특한 구조로, 
+                    마치 연극을 보는 것처럼 생생하게 정철의 내면을 엿볼 수 있습니다.
                   </p>
                 </div>
                 
-                <div className="bg-gradient-to-r from-pink-50 to-rose-50 p-6 rounded-lg border-l-4 border-pink-400">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">💔 감성의 깊이</h3>
+                <div className="bg-white p-6 rounded-lg border border-gray-200">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">감성의 깊이</h3>
                   <p className="text-gray-700 leading-relaxed">
                     단순한 사랑 노래가 아닌, 정치적 좌절과 고향에 대한 그리움을 
-                    연군의 정으로 은유한 <span className="font-semibold text-pink-600">감성적 자서전</span>이에요.
+                    연군의 정으로 은유한 감성적 자서전입니다.
                   </p>
                 </div>
 
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border-l-4 border-green-400">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">✨ 문학적 완성도</h3>
+                <div className="bg-white p-6 rounded-lg border border-gray-200">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">문학적 완성도</h3>
                   <p className="text-gray-700 leading-relaxed">
                     「사미인곡」과의 연관성, 정교한 비유법, 그리고 감정의 절제된 표현까지. 
-                    조선 문학의 <span className="font-semibold text-green-600">진수</span>를 만날 수 있는 작품입니다.
+                    조선 문학의 진수를 만날 수 있는 작품입니다.
                   </p>
                 </div>
               </div>
@@ -118,30 +118,39 @@ export default function SokmieungokPage() {
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">감상 포인트</h2>
-              <div className="bg-gradient-to-r from-amber-50 to-yellow-50 p-6 rounded-lg border border-amber-200">
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <span className="text-2xl">🎯</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">대화의 미묘함</h4>
-                      <p className="text-gray-700 text-sm">갑녀의 질문과 을녀의 답변 사이의 감정적 교감을 느껴보세요.</p>
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">대화의 미묘함</h4>
+                    <p className="text-gray-700 text-sm">갑녀의 질문과 을녀의 답변 사이의 감정적 교감을 느껴보세요.</p>
                   </div>
-                  <div className="flex items-start space-x-3">
-                    <span className="text-2xl">💫</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">은유의 아름다움</h4>
-                      <p className="text-gray-700 text-sm">정치적 상황을 연군의 정으로 표현한 정철의 문학적 기법을 감상해보세요.</p>
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">은유의 아름다움</h4>
+                    <p className="text-gray-700 text-sm">정치적 상황을 연군의 정으로 표현한 정철의 문학적 기법을 감상해보세요.</p>
                   </div>
-                  <div className="flex items-start space-x-3">
-                    <span className="text-2xl">🌟</span>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">감정의 절제</h4>
-                      <p className="text-gray-700 text-sm">과도한 감정 표현 없이도 전해지는 깊은 아픔과 그리움을 느껴보세요.</p>
-                    </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">감정의 절제</h4>
+                    <p className="text-gray-700 text-sm">과도한 감정 표현 없이도 전해지는 깊은 아픔과 그리움을 느껴보세요.</p>
                   </div>
                 </div>
+              </div>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">English Description</h2>
+              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  <strong>Sokmieungok (속미인곡)</strong> is a classical Korean literary work written by Jeong Cheol (정철) around 1588-1589. 
+                  This masterpiece is a sequel to "Samieungok" and was composed during Jeong Cheol's stay in his hometown of Changpyeong, Jeollanam-do.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  The work is unique in its dramatic dialogue format, featuring a conversation between two women (Gapnyeo and Eulnyeo). 
+                  Through this dialogue, Jeong Cheol expresses his political frustrations and longing for his homeland using the metaphor of a woman's love for her departed lover.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  This emotional autobiography disguised as a love song represents the pinnacle of Joseon Dynasty literature, 
+                  showcasing sophisticated literary techniques and restrained emotional expression.
+                </p>
               </div>
             </section>
           </div>
@@ -164,7 +173,7 @@ export default function SokmieungokPage() {
               </Link>
               <Link href="/originals/hwangokga" className="group">
                 <div className="bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow p-4">
-                  <h3 className="font-semibold text-gray-900 group-hover:text-blue-600">황옥가</h3>
+                  <h3 className="font-semibold text-gray-900 group-hover:text-blue-600">화왕가</h3>
                   <p className="text-sm text-gray-600 mt-1">고전 가사 작품</p>
                 </div>
               </Link>
