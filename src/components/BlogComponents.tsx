@@ -147,11 +147,25 @@ export function TOC() {
   
   useEffect(() => {
     const headings = Array.from(document.querySelectorAll("article h2, article h3")) as HTMLHeadingElement[];
-    setItems(headings.map(h => ({ 
-      id: h.id || h.textContent?.toLowerCase().replace(/\s+/g, '-') || '', 
-      text: h.innerText, 
-      level: h.tagName === "H2" ? 2 : 3 
-    })));
+    const processedItems = headings.map(h => {
+      const text = h.innerText;
+      const id = text.toLowerCase()
+        .replace(/[^\w\s-]/g, '') // 특수문자 제거
+        .replace(/\s+/g, '-') // 공백을 하이픈으로
+        .replace(/--+/g, '-') // 연속된 하이픈 제거
+        .trim();
+      
+      // ID 설정
+      h.id = id;
+      
+      return { 
+        id, 
+        text, 
+        level: h.tagName === "H2" ? 2 : 3 
+      };
+    });
+    
+    setItems(processedItems);
   }, []);
   
   return (
