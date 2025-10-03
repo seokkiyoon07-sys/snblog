@@ -38,17 +38,24 @@ export const metadata: Metadata = {
   },
 };
 
-// 캐시된 컴포넌트 생성 함수
+// Vercel BUILD SHA를 사용한 동적 캐시 키 생성
+const BUILD = process.env.VERCEL_GIT_COMMIT_SHA || 'local-dev';
+const CACHE_KEY = `sn-originals-intro-page-content-${BUILD}`;
+const CACHE_TAGS = ['originals', 'sn-originals', 'pages', `build:${BUILD}`];
+
+// 캐시된 컴포넌트 생성 함수 - BUILD SHA 기반 캐시 키
 const getCachedPageContent = unstable_cache(
   async () => {
     return {
       title: "SN Originals 고전문학 시리즈를 소개합니다",
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
+      buildSha: BUILD,
+      cacheVersion: 'v3.0.0' // BUILD SHA 기반 버전
     };
   },
-  ['sn-originals-intro-page-content'],
+  [CACHE_KEY], // 동적 캐시 키
   {
-    tags: ['originals', 'sn-originals', 'pages'],
+    tags: CACHE_TAGS,
     revalidate: 3600 // 1시간
   }
 );
