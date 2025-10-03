@@ -1,0 +1,194 @@
+name: Smart Blog Post Notification
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/data/posts.ts'
+      - 'src/app/**/page.tsx'
+
+jobs:
+  smart-notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Detect blog changes
+        id: detect-changes
+        run: |
+          node << 'EOF'
+          const fs = require('fs');
+          const { execSync } = require('child_process');
+          
+          try {
+            // Get changed files
+            const changedFiles = execSync('git diff --name-only HEAD~1 HEAD', { encoding: 'utf8' }).trim().split('\n');
+            console.log('Changed files:', changedFiles);
+            
+            // Check if posts.ts was modified
+            const postsModified = changedFiles.includes('src/data/posts.ts');
+            console.log('Posts modified:', postsModified);
+            
+            // Read current posts data
+            let currentPosts = [];
+            let previousPosts = [];
+            
+            try {
+              const currentContent = fs.readFileSync('src/data/posts.ts', 'utf8');
+              const currentMatch = currentContent.match(/export const allPosts: Post\[\] = \[([\s\S]*?)\]/);
+              if (currentMatch) {
+                const postsArray = currentMatch[1];
+                const postMatches = postsArray.match(/{\s*id:\s*'([^']+)'[\s\S]*?}/g) || [];
+                currentPosts = postMatches.map(match => {
+                  const idMatch = match.match(/id:\s*'([^']+)'/);
+                  return idMatch ? idMatch[1] : null;
+                }).filter(Boolean);
+              }
+            } catch (e) {
+              console.log('Error reading current posts:', e.message);
+            }
+            
+            // Try to get previous posts data
+            try {
+              const previousContent = execSync('git show HEAD~1:src/data/posts.ts', { encoding: 'utf8' });
+              const previousMatch = previousContent.match(/export const allPosts: Post\[\] = \[([\s\S]*?)\]/);
+              if (previousMatch) {
+                const postsArray = previousMatch[1];
+                const postMatches = postsArray.match(/{\s*id:\s*'([^']+)'[\s\S]*?}/g) || [];
+                previousPosts = postMatches.map(match => {
+                  const idMatch = match.match(/id:\s*'([^']+)'/);
+                  return idMatch ? idMatch[1] : null;
+                }).filter(Boolean);
+              }
+            } catch (e) {
+              console.log('Error reading previous posts:', e.message);
+            }
+            
+            // Find new posts
+            const newPosts = currentPosts.filter(id => !previousPosts.includes(id));
+            const removedPosts = previousPosts.filter(id => !currentPosts.includes(id));
+            
+            console.log('Current posts:', currentPosts);
+            console.log('Previous posts:', previousPosts);
+            console.log('New posts:', newPosts);
+            console.log('Removed posts:', removedPosts);
+            
+            // Set outputs
+            console.log(`::set-output name=posts_modified::${postsModified}`);
+            console.log(`::set-output name=new_posts::${newPosts.join(',')}`);
+            console.log(`::set-output name=removed_posts::${removedPosts.join(',')}`);
+            console.log(`::set-output name=has_changes::${newPosts.length > 0 || removedPosts.length > 0 || postsModified}`);
+            
+          } catch (error) {
+            console.error('Error in detection script:', error);
+            console.log('::set-output name=has_changes::false');
+          }
+          EOF
+
+      - name: Send notification
+        if: steps.detect-changes.outputs.has_changes == 'true'
+        run: |
+          # Get commit info
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          COMMIT_AUTHOR=$(git log -1 --pretty=%an)
+          COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+          
+          # Parse new posts
+          NEW_POSTS="${{ steps.detect-changes.outputs.new_posts }}"
+          REMOVED_POSTS="${{ steps.detect-changes.outputs.removed_posts }}"
+          
+          # Create notification message
+          if [ -n "$NEW_POSTS" ] && [ -n "$REMOVED_POSTS" ]; then
+            BODY_MESSAGE="🔄 블로그가 업데이트되었습니다!"
+            DESCRIPTION="새로운 글이 추가되고 기존 글이 수정되었습니다."
+          elif [ -n "$NEW_POSTS" ]; then
+            BODY_MESSAGE="✨ 새로운 블로그 글이 추가되었습니다!"
+            DESCRIPTION="새로운 콘텐츠가 게시되었습니다."
+          elif [ -n "$REMOVED_POSTS" ]; then
+            BODY_MESSAGE="🗑️ 블로그 글이 수정되었습니다!"
+            DESCRIPTION="기존 글이 업데이트되었습니다."
+          else
+            BODY_MESSAGE="📝 블로그가 업데이트되었습니다!"
+            DESCRIPTION="블로그 데이터가 변경되었습니다."
+          fi
+          
+          # Create Jandi message
+          JANDI_MESSAGE=$(cat <<EOF
+          {
+            "body": "$BODY_MESSAGE",
+            "connectColor": "#FAC11B",
+            "connectInfo": [
+              {
+                "title": "📝 SN Academy Blog",
+                "description": "$DESCRIPTION",
+                "imageUrl": "https://blog.snacademy.co.kr/logo.png"
+              }
+            ],
+            "connectButtons": [
+              {
+                "name": "블로그 보기",
+                "type": "link",
+                "url": "https://blog.snacademy.co.kr"
+              },
+              {
+                "name": "커밋 보기",
+                "type": "link",
+                "url": "$COMMIT_URL"
+              }
+            ]
+          }
+          EOF
+          )
+          
+          # Send to Jandi
+          curl -X POST "https://wh.jandi.com/connect-api/webhook/13116580/408c7be61ec340cc632a4816f56a4442" \
+            -H "Content-Type: application/json" \
+            -d "$JANDI_MESSAGE"
+          
+          # Send individual notifications for new posts
+          if [ -n "$NEW_POSTS" ]; then
+            IFS=',' read -ra POST_ARRAY <<< "$NEW_POSTS"
+            for post_id in "${POST_ARRAY[@]}"; do
+              if [ -n "$post_id" ]; then
+                # Send individual post notification
+                INDIVIDUAL_MESSAGE=$(cat <<EOF
+                {
+                  "body": "🎉 새 글이 게시되었습니다!",
+                  "connectColor": "#4ECDC4",
+                  "connectInfo": [
+                    {
+                      "title": "📝 $post_id",
+                      "description": "새로운 블로그 글이 추가되었습니다.",
+                      "imageUrl": "https://blog.snacademy.co.kr/logo.png"
+                    }
+                  ],
+                  "connectButtons": [
+                    {
+                      "name": "블로그 보기",
+                      "type": "link",
+                      "url": "https://blog.snacademy.co.kr"
+                    }
+                  ]
+                }
+                EOF
+                )
+                
+                curl -X POST "https://wh.jandi.com/connect-api/webhook/13116580/408c7be61ec340cc632a4816f56a4442" \
+                  -H "Content-Type: application/json" \
+                  -d "$INDIVIDUAL_MESSAGE"
+                  
+                sleep 1
+              fi
+            done
+          fi
