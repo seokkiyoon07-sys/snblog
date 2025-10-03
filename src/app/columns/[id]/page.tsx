@@ -1,12 +1,20 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import StructuredData from '@/components/StructuredData'
 import AIDataGenerator from '@/components/AIDataGenerator'
 import { getPostById } from '@/data/posts'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const post = getPostById('2818205a96df801bae59cd1dafaf26b9')
+interface PostPageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const post = getPostById(id);
   
   if (!post) {
     return {
@@ -42,20 +50,21 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function PostPage() {
-  const post = getPostById('2818205a96df801bae59cd1dafaf26b9')
+export async function generateStaticParams() {
+  const { getPostsByCategory } = await import('@/data/posts');
+  const columnsPosts = getPostsByCategory('columns');
+  
+  return columnsPosts.map((post) => ({
+    id: post.id,
+  }))
+}
+
+export default async function ColumnsPostPage({ params }: PostPageProps) {
+  const { id } = await params;
+  const post = getPostById(id);
 
   if (!post) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Post Not Found</h1>
-          <Link href="/" className="text-blue-600 hover:text-blue-800">
-            홈으로 돌아가기
-          </Link>
-        </div>
-      </div>
-    )
+    notFound();
   }
 
   return (
@@ -177,10 +186,10 @@ export default function PostPage() {
       {/* AI 학습 데이터 */}
       <AIDataGenerator
         data={{
-          learningObjectives: ['방화벽의 개념과 중요성 이해', 'SN Academy의 AI 방화벽 시스템 이해', '교육 환경에서의 보안 솔루션 이해'],
+          learningObjectives: ['교육 전문가의 인사이트 학습', '교육 트렌드 이해', '실용적인 교육 조언 습득'],
           difficulty: 'intermediate',
-          subject: '정보보안',
-          keywords: ['방화벽', 'AI', '보안', '교육', '기숙학원'],
+          subject: '교육',
+          keywords: post.tags.join(', '),
           estimatedTime: post.readTime,
         }}
       />
