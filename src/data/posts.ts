@@ -103,7 +103,22 @@ export const allPosts: Post[] = [
     author: 'SN Academy',
     published: true
   },
-  // SN Originals 소개글 (고정)
+  // AI 스타트업 글 (홈페이지 고정)
+  {
+    id: 'ai-startup',
+    title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
+    excerpt: '독학기숙학원의 명가 SN에서 이번에 새롭게 에듀테크 AI를 만들었습니다. 우리의 비전, 앞으로의 미션, 팀 구성원, AI 제품들을 소개합니다. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
+    date: '2025-09-25',
+    readTime: '10 min read',
+    tags: ['SN AI 스타트업', '에듀테크', 'AI교육'],
+    category: 'AI 스타트업',
+    url: '/startup',
+    thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',
+    author: 'SN Academy',
+    featured: true,
+    published: true
+  },
+  // SN Originals 소개글 (SN Originals 페이지 고정)
   {
     id: 'sn-originals-intro',
     title: 'SN Originals 고전문학 시리즈를 소개합니다',
@@ -115,21 +130,7 @@ export const allPosts: Post[] = [
     url: '/originals/intro',
     thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
     author: 'SN Academy',
-    featured: true,
-    published: true
-  },
-  // AI 스타트업 글
-  {
-    id: 'ai-startup',
-    title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
-    excerpt: '독학기숙학원의 명가 SN에서 이번에 새롭게 에듀테크 AI를 만들었습니다. 우리의 비전, 앞으로의 미션, 팀 구성원, AI 제품들을 소개합니다. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
-    date: '2025-09-25',
-    readTime: '10 min read',
-    tags: ['SN AI 스타트업', '에듀테크', 'AI교육'],
-    category: 'AI 스타트업',
-    url: '/startup',
-    author: 'SN Academy',
-    featured: true,
+    featured: false,
     published: true
   },
 ]
