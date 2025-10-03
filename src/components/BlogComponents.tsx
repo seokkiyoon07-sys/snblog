@@ -22,18 +22,24 @@ interface BlogImageProps {
   src: string;
   alt: string;
   caption?: string;
+  priority?: boolean;
 }
 
-export function BlogImage({ src, alt, caption }: BlogImageProps) {
+export function BlogImage({ src, alt, caption, priority = false }: BlogImageProps) {
   return (
     <figure className="my-8">
-      <Image
-        src={src}
-        alt={alt}
-        width={800}
-        height={500}
-        className="rounded-xl shadow-md mx-auto"
-      />
+      <div className="relative w-full h-auto">
+        <Image
+          src={src}
+          alt={alt}
+          width={800}
+          height={500}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
+          className="rounded-xl shadow-md mx-auto w-full h-auto object-contain"
+          priority={priority}
+          quality={85}
+        />
+      </div>
       {caption && (
         <figcaption className="text-center text-gray-500 mt-2 text-sm">
           {caption}
@@ -119,7 +125,7 @@ export function SuccessBox({ children }: { children: React.ReactNode }) {
 export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="my-8">
-      <h2 className="text-2xl font-semibold mb-4 text-gray-800">{title}</h2>
+      <h2 className="text-lg font-semibold mb-4 text-gray-800">{title}</h2>
       {children}
     </section>
   );
@@ -147,22 +153,39 @@ export function TOC() {
   
   useEffect(() => {
     const headings = Array.from(document.querySelectorAll("article h2, article h3")) as HTMLHeadingElement[];
-    const processedItems = headings.map(h => {
+    const processedItems: { id: string; text: string; level: number }[] = [];
+    
+    headings.forEach((h, index) => {
       const text = h.innerText;
-      const id = text.toLowerCase()
+      let id = text.toLowerCase()
         .replace(/[^\w\s-]/g, '') // 특수문자 제거
         .replace(/\s+/g, '-') // 공백을 하이픈으로
         .replace(/--+/g, '-') // 연속된 하이픈 제거
         .trim();
       
+      // 중복 방지를 위해 인덱스 추가
+      if (id === '' || id === '-') {
+        id = `heading-${index}`;
+      } else {
+        // 기존에 같은 ID가 있는지 확인하고 중복이면 인덱스 추가
+        const existingIds = processedItems.map(item => item.id);
+        let finalId = id;
+        let counter = 1;
+        while (existingIds.includes(finalId)) {
+          finalId = `${id}-${counter}`;
+          counter++;
+        }
+        id = finalId;
+      }
+      
       // ID 설정
       h.id = id;
       
-      return { 
+      processedItems.push({ 
         id, 
         text, 
         level: h.tagName === "H2" ? 2 : 3 
-      };
+      });
     });
     
     setItems(processedItems);
@@ -257,6 +280,15 @@ const VARIANTS = {
     iconSvg: (
       <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+      </svg>
+    )
+  },
+  success: {
+    container: "bg-green-50 border-green-200 text-green-900",
+    icon: "text-green-500",
+    iconSvg: (
+      <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
       </svg>
     )
   },

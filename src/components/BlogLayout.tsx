@@ -13,3 +13,4 @@ export default function BlogLayout({ title, children }: BlogLayoutProps) {
     </article>
   );
 }
+

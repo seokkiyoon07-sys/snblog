@@ -11,13 +11,14 @@ import {
   Callout,
   CodeBlock
 } from '@/components/BlogComponents';
+import Image from 'next/image';
 
 export const metadata = {
-  title: "SN독학기숙학원 방화벽의 모든 것! 11년 기술력으로 만든 AI 기반 지능형 방어 시스템",
+  title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
   description:
     "SN의 인터넷 방화벽은 국내 최고 수준의 보안을 자랑합니다. 11년간 축적한 방화벽 기술력과 2025년 새롭게 선보인 SNarlink 시스템에 대해 다룹니다.",
   openGraph: {
-    title: "SN독학기숙학원 방화벽의 모든 것! 11년 기술력으로 만든 AI 기반 지능형 방어 시스템",
+    title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
     description:
       "SN의 인터넷 방화벽은 국내 최고 수준의 보안을 자랑합니다. 11년간 축적한 방화벽 기술력과 2025년 새롭게 선보인 SNarlink 시스템에 대해 다룹니다.",
     type: "article",
@@ -31,7 +32,7 @@ export default function Page() {
       <TOC />
       
       <div className="flex-1">
-        <BlogLayout title="SN독학기숙학원 방화벽의 모든 것! 11년 기술력으로 만든 AI 기반 지능형 방어 시스템">
+        <BlogLayout title="SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)">
           
           {/* 인트로 */}
           <Quote>
@@ -113,6 +114,7 @@ export default function Page() {
                   src="/image/SNarlink/cisco firewall.png"
                   alt="2018년 도입된 Cisco 방화벽 장비"
                   caption="2018년 도입된 Cisco 방화벽 장비"
+                  priority={true}
                 />
 
                 <p className="text-gray-700 mt-4">
@@ -179,15 +181,29 @@ export default function Page() {
                   결국 <strong>커뮤니티와 클래스 모두를 차단</strong>할 수밖에 없었고, <strong>강의를 들어야 하는 학생들은 별도로 핫스팟을 켜서 이용</strong>해야만 했습니다. 여기에서 관리의 공백이 생기죠.
                 </p>
 
-                <div className="space-y-4">
-                  <BlogImage 
-                    src="/image/SNarlink/orbi1.png"
-                    alt="오르비 커뮤니티와 클래스의 차이점"
-                  />
-                  <BlogImage 
-                    src="/image/SNarlink/orbi2.png"
-                    alt="오르비 클래스 접근 화면"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="relative w-full h-auto">
+                    <Image
+                      src="/image/SNarlink/orbi1.png"
+                      alt="오르비 커뮤니티와 클래스의 차이점"
+                      width={400}
+                      height={300}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="rounded-xl shadow-md w-full h-auto object-contain"
+                      quality={95}
+                    />
+                  </div>
+                  <div className="relative w-full h-auto">
+                    <Image
+                      src="/image/SNarlink/orbi2.png"
+                      alt="오르비 클래스 접근 화면"
+                      width={400}
+                      height={300}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="rounded-xl shadow-md w-full h-auto object-contain"
+                      quality={95}
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -271,9 +287,10 @@ export default function Page() {
             </Highlight>
 
             <BlogImage 
-              src="/image/SNarlink/SNarlik Logo.png"
+              src="/image/SNarlink/SNarlink Logo.png"
               alt="SNarlink 로고"
               caption="SNarlink 로고"
+              priority={true}
             />
 
             <p className="text-gray-700 mb-6">

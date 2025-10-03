@@ -22,7 +22,7 @@ export interface Post {
 export const allPosts: Post[] = [
   {
     id: 'SNarlink',
-    title: 'SN독학기숙학원 방화벽의 모든 것! 11년 기술력으로 만든 AI 기반 지능형 방어 시스템',
+    title: 'SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)',
     excerpt: 'SN의 인터넷 방화벽은 국내 최고 수준의 보안을 자랑합니다.',
     content: `# SN독학기숙학원 방화벽의 모든 것!
 
@@ -132,7 +132,7 @@ SN독학기숙학원에 다니는 대부분의 학생들, 특히 약 90%는 학�
 
 단순한 **'차단'이 아니라, 학생의 '시도'와 '의도'를 읽는 지능형 방어 시스템**으로 말입니다.
 
-![SNarlink 로고](/image/SNarlink/SNarlik Logo.png)
+![SNarlink 로고](/image/SNarlink/SNarlink Logo.png)
 
 우리는 이 방화벽 시스템을 **SNarlink_study**라고 명명했습니다. SN + Starlink. 공부에만 집중할 수 있도록 설계된 전용 네트워크입니다.
 
@@ -312,7 +312,7 @@ SN독학기숙학원의 방화벽은 개발이 모두 완료되었으며, 본원
     author: 'SN Academy',
     date: '2025-10-03',
     readTime: '12',
-    featured: true,
+    featured: false,
     published: true,
     thumbnail: '/image/SNarlink/thumbnail.png',
     youtubeUrl: undefined,
@@ -486,7 +486,7 @@ SN아카데미는 2014년부터 경기도 양평에서 꾸준히 독학기숙학
   },
   {
     id: 'sokmieungok',
-    title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」)',
+    title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~"\n(고전문학 「속미인곡」)',
     excerpt: '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 6탄으로 「속미인곡」을 준비했습니다.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
@@ -495,6 +495,10 @@ SN아카데미는 2014년부터 경기도 양평에서 꾸준히 독학기숙학
 
 「사미인곡」과 마찬가지로 연군의 정을 임을 이별한 여인의 애달픈 심정에 비하여 표현한 작품으로,
 갑녀와 을녀의 대화 형식으로 이야기를 풀어내어 자신(을녀)의 사연과 사모의 정을 구슬프게 표현한 특별한 작품입니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
 
 ## 「속미인곡」- 사랑의 절정과 문학의 완성
 
@@ -537,32 +541,7 @@ SN아카데미는 2014년부터 경기도 양평에서 꾸준히 독학기숙학
 This work inherits the East Asian tradition of political poetry while reflecting the unique political conditions of Joseon. The way it transforms political loyalty into genuine love represents a valuable contribution to world literature, demonstrating how literature can sublimate political emotions into the highest form of human expression.
 
 **Contemporary Relevance:**
-"Sokmiin-gok" shows us that true literature has the power to express not only personal emotions but also the deepest human longings. It demonstrates how literature can serve as a medium for understanding the complex relationship between love, loyalty, and political commitment.
-
-### For International Students
-
-**What is "Sokmiin-gok"?**
-
-"Sokmiin-gok" is one of the most celebrated works of classical Korean literature, written by Jeong Cheol during the Joseon Dynasty (1392-1910). This poem is part of a series that includes "Samiin-gok" and represents the pinnacle of Korean classical poetry.
-
-**Why is it important for Korean language learners?**
-
-1. **Cultural Understanding**: This work provides deep insight into Korean cultural values, particularly the concept of loyalty and love in traditional Korean society.
-
-2. **Language Development**: The sophisticated use of metaphor and allegory in this poem helps learners understand the nuanced ways Korean language expresses complex emotions.
-
-3. **Historical Context**: Understanding this work helps learners grasp the historical and political context of Korea during the Joseon Dynasty, which is crucial for understanding modern Korean culture.
-
-4. **Literary Appreciation**: This work demonstrates the beauty and depth of Korean literature, encouraging learners to explore more Korean literary works.
-
-**Key Themes:**
-- **Love and Loyalty**: The poem explores the complex relationship between personal love and political loyalty
-- **Separation and Longing**: It expresses the deep pain of separation and the yearning for reunion
-- **Political Allegory**: The work uses romantic imagery to express political sentiments
-- **Emotional Depth**: It showcases the sophisticated emotional expression characteristic of Korean literature
-
-**For Korean Language Students:**
-This work is particularly valuable for advanced Korean language learners who want to understand not just the language, but the cultural and historical context that shapes Korean communication patterns today.`,
+"Sokmiin-gok" shows us that true literature has the power to express not only personal emotions but also the deepest human longings. It demonstrates how literature can serve as a medium for understanding the complex relationship between love, loyalty, and political commitment.`,
     category: 'SN Originals',
     tags: ['고전문학', '속미인곡', '정철', '가사문학'],
     author: 'SN Academy',
@@ -576,7 +555,7 @@ This work is particularly valuable for advanced Korean language learners who wan
   },
   {
     id: 'samieungok',
-    title: '선조를 향한 정철의 중독된 사랑 (고전문학 「사미인곡」)',
+    title: '선조를 향한 정철의 중독된 사랑\n(고전문학 「사미인곡」)',
     excerpt: '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 5탄으로 「사미인곡」을 준비했습니다.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
@@ -586,9 +565,9 @@ This work is particularly valuable for advanced Korean language learners who wan
 임금과 이별한 본인이 처지를 남편과 이별한 한 여인의 상황으로 그려내면서,
 계절의 변화에 따라 매화, 옷, 달, 별, 눈 등 다양한 비유와 대구 등을 사용하여 감각적으로 그려낸 작품입니다.
 
-"AI 그림과 친절한 해설로 즐기는 고전문학!
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
 보기만 해도 국어 감각이 살아납니다.
-수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
 
 ## 「사미인곡」- 정치적 사랑의 문학적 승화
 
@@ -631,32 +610,7 @@ This work is particularly valuable for advanced Korean language learners who wan
 This work inherits the East Asian tradition of political poetry while reflecting the unique political conditions of Joseon. The way it transforms political loyalty into literary expression represents a valuable contribution to world literature, demonstrating how literature can sublimate political emotions into art.
 
 **Contemporary Relevance:**
-"Samiin-gok" shows us that true literature has the power to express not only personal emotions but also the pain and joy of an entire era. It demonstrates how literature can serve as a medium for understanding complex political and emotional relationships.
-
-### For International Students
-
-**What is "Samiin-gok"?**
-
-"Samiin-gok" is one of the most celebrated works of classical Korean literature, written by Jeong Cheol during the Joseon Dynasty. This poem uses the metaphor of a beautiful woman to express political loyalty and love for the king, representing a sophisticated form of political allegory in Korean literature.
-
-**Why is it important for Korean language learners?**
-
-1. **Cultural Understanding**: This work provides deep insight into Korean cultural values, particularly the concept of loyalty and political devotion in traditional Korean society.
-
-2. **Language Development**: The sophisticated use of metaphor and allegory in this poem helps learners understand the nuanced ways Korean language expresses complex political and emotional concepts.
-
-3. **Historical Context**: Understanding this work helps learners grasp the historical and political context of Korea during the Joseon Dynasty, which is crucial for understanding modern Korean culture.
-
-4. **Literary Appreciation**: This work demonstrates the beauty and depth of Korean literature, encouraging learners to explore more Korean literary works.
-
-**Key Themes:**
-- **Political Allegory**: The poem uses romantic imagery to express political sentiments
-- **Loyalty and Devotion**: It explores the complex relationship between personal loyalty and political commitment
-- **Seasonal Imagery**: The work uses seasonal changes and natural imagery to express emotional states
-- **Metaphorical Expression**: It showcases the sophisticated metaphorical language characteristic of Korean classical literature
-
-**For Korean Language Students:**
-This work is particularly valuable for advanced Korean language learners who want to understand not just the language, but the cultural and historical context that shapes Korean communication patterns today. The metaphorical language used in this work is still influential in modern Korean literature and poetry.`,
+"Samiin-gok" shows us that true literature has the power to express not only personal emotions but also the pain and joy of an entire era. It demonstrates how literature can serve as a medium for understanding complex political and emotional relationships.`,
     category: 'SN Originals',
     tags: ['고전문학', '사미인곡', '정철', '가사문학'],
     author: 'SN Academy',
@@ -668,11 +622,19 @@ This work is particularly valuable for advanced Korean language learners who wan
     youtubeUrl: 'https://www.youtube.com/watch?v=50nJegN2YSQ',
     url: '/originals/samieungok'
   },
-  {
-    id: 'gapminga',
-    title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
-    excerpt: '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
-    content: `## 「갑민가」- 민중의 절규와 저항
+    {
+      id: 'gapminga',
+      title: '내 속도 모르면서 가라 마라 막말하지 마라\n(수능 고전문학 「갑민가」)',
+      excerpt: '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄으로 「갑민가」를 준비했습니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「갑민가」- 민중의 절규와 저항
 
 ### 💔 시대의 아픔을 담은 문학
 「갑민가」는 조선 후기 백성들의 고통과 절망을 생생하게 담아낸 작품입니다. 이 작품은 단순한 문학 작품을 넘어서, 당시 사회의 모순과 지배층의 부패를 날카롭게 비판하는 사회적 메시지를 담고 있습니다.
@@ -699,9 +661,9 @@ This work is particularly valuable for advanced Korean language learners who wan
 
 ## English Description
 
-### "Gapmin-ga" - The Cry of the People
+### "Gapmin-ga" - The Cry of the People: A Masterpiece of K-Classic Literature
 
-**Gapmin-ga** (갑민가) is a powerful work of classical Korean literature that gives voice to the suffering and resistance of the common people during the late Joseon Dynasty. This work transcends mere literary expression to become a social document that exposes the contradictions and corruption of the ruling class.
+**Gapmin-ga** (갑민가) stands as one of the most powerful works in Korean classical literature, representing the authentic voice of the oppressed during the late Joseon Dynasty (1392-1910). This masterpiece transcends mere literary expression to become a profound social document that exposes the contradictions and corruption of the ruling class while giving voice to the voiceless masses.
 
 **Literary and Social Significance:**
 - **Authentic Voice**: Represents the perspective of the common people, not the ruling elite
@@ -709,11 +671,17 @@ This work is particularly valuable for advanced Korean language learners who wan
 - **Literary Historical Value**: A masterpiece of late Joseon popular literature
 - **Emotional Resonance**: Contains universal messages that modern readers can relate to
 
+**K-Classic Literature Context:**
+This work represents the pinnacle of Korean classical literature's engagement with social issues. Unlike court literature that often idealized the ruling class, "Gapmin-ga" provides an unfiltered view of the common people's suffering and resistance. It demonstrates how Korean literature has historically served as a vehicle for social critique and human dignity.
+
 **Global Literary Context:**
-This work inherits the East Asian tradition of popular literature while reflecting the unique social conditions of Joseon. The way it transforms the suffering and resistance of the people into literary expression represents a valuable contribution to world literature, demonstrating the power of literature to give voice to the voiceless.
+This work inherits the East Asian tradition of popular literature while reflecting the unique social conditions of Joseon Korea. The way it transforms the suffering and resistance of the people into literary expression represents a valuable contribution to world literature, demonstrating the power of literature to give voice to the voiceless and challenge social injustice.
 
 **Contemporary Relevance:**
-"Gapmin-ga" reminds us that true literature has the power not only to create beauty but also to pursue truth and justice. It shows how literature can serve as a medium for social change and the expression of human dignity.`,
+"Gapmin-ga" reminds us that true literature has the power not only to create beauty but also to pursue truth and justice. It shows how literature can serve as a medium for social change and the expression of human dignity, making it relevant for contemporary readers interested in social justice and human rights.
+
+**For International Readers:**
+This work is particularly valuable for those studying Korean culture and literature, as it provides insight into the historical struggles of the Korean people and the role of literature in Korean society. It demonstrates how Korean classical literature addresses universal themes of oppression, resistance, and human dignity that resonate across cultures and time periods.`,
     category: 'SN Originals',
     tags: ['고전문학', '갑민가', '민중문학', '사회비판'],
     author: 'SN Academy',
@@ -727,9 +695,17 @@ This work inherits the East Asian tradition of popular literature while reflecti
   },
   {
     id: 'hwangokga',
-    title: '너 그렇게 여자만 좋아하다 피똥싼다 (수능 고전문학 「화왕가」)',
+    title: '너 그렇게 여자만 좋아하다 피똥싼다\n(수능 고전문학 「화왕가」)',
     excerpt: '조선 후기 풍자 문학의 백미 「화왕가」로 문학의 유머와 비판정신을 만나보세요.',
-    content: `## 「화왕가」- 풍자 문학의 진수
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 2탄으로 「화왕가」를 준비했습니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「화왕가」- 풍자 문학의 진수
 
 ### 😂 유머로 승화된 사회 비판
 「화왕가」는 조선 후기 사회의 모순과 인간의 욕망을 풍자적으로 표현한 문학적 걸작입니다. 이 작품은 단순한 비판을 넘어서, 유머와 해학을 통해 사회의 부조리를 날카롭게 지적하는 문학의 힘을 보여줍니다.
@@ -784,9 +760,20 @@ This work inherits the East Asian tradition of satirical literature while reflec
   },
   {
     id: 'bukcheonga',
-    title: '좋긴 한데 유배 생활 이래도 됨? 고전문학 「북천가」',
+    title: '좋긴 한데 유배 생활 이래도 됨?\n고전문학 「북천가」',
     excerpt: '조선 후기 민중의 아픔과 저항을 담은 「북천가」로 진정한 문학의 힘을 만나보세요.',
-    content: `## 「북천가」- 민중 문학의 진수
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 3탄으로 「북천가」를 준비했습니다.
+
+북천가는 이번 수능에 출제될 확률이 높은 작품인데요.
+이동하실 때, 머리를 잠시 식히실 때 보시면 도움이 되실 겁니다!
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「북천가」- 민중 문학의 진수
 
 ### 💔 시대의 아픔을 담은 문학
 「북천가」는 조선 후기 북한 지역 민중들의 고통과 절망을 생생하게 담아낸 작품입니다. 이 작품은 단순한 문학 작품을 넘어서, 당시 사회의 모순과 지배층의 부패를 날카롭게 비판하는 사회적 메시지를 담고 있습니다.
@@ -841,9 +828,41 @@ This work inherits the East Asian tradition of popular literature while reflecti
   },
   {
     id: 'gwandong-byeolgok',
-    title: '정철의 강원도 브이로그 (고전문학 「관동별곡」)',
+    title: '정철의 강원도 브이로그\n(고전문학 「관동별곡」)',
     excerpt: '정철의 대표작 「관동별곡」으로 조선 가사 문학의 아름다움을 만나보세요.',
-    content: `## 「관동별곡」- 조선 가사 문학의 백미
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄으로 「관동별곡」을 준비했습니다.
+
+[타임스탬프]
+00:00 인트로, 작품 배경
+00:52 서사 - 죽림
+01:06 서사 - 연추문, 이동(평구~치악산)
+01:24 서사 - 소양강
+01:38 서사 - 철원, 태봉국 궁궐터
+01:56 서사 - 회양
+02:08 본사1(금강산) - 회양
+02:23 본사1(금강산) - 만폭동
+02:38 본사1(금강산) - 금강대
+02:55 본사1(금강산) - 진헐대
+03:44 본사1(금강산) - 개심대
+04:04 본사1(금강산) - 비로봉
+04:43 본사1(금강산) - 화룡소
+05:08 본사1(금강산) - 불정대
+05:40 본사2(동해) - 산영루
+06:18 본사2(동해) - 총석정
+06:35 본사2(동해) - 삼일포
+06:59 본사2(동해) - 의상대
+07:42 본사2(동해) - 경포대
+08:20 본사2(동해) - 강릉
+08:40 본사2(동해) - 죽서루
+09:07 본사2(동해)/결사 - 망양정
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「관동별곡」- 조선 가사 문학의 백미
 
 ### 🌄 작품의 진정한 아름다움
 「관동별곡」은 단순한 풍경 묘사를 넘어서, 정철이 관동 지역(강원도)의 자연을 통해 인간의 내면세계를 표현한 문학적 걸작입니다. 이 작품은 조선 가사 문학의 최고봉으로 평가받으며, 자연과 인간의 조화를 통해 문학의 본질을 보여줍니다.
