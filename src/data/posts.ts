@@ -12,6 +12,7 @@ export interface Post {
   date: string;
   readTime: string;
   featured: boolean;
+  published: boolean;
   thumbnail?: string;
   youtubeUrl?: string;
   url: string;
@@ -105,6 +106,7 @@ URL 단위 예외 처리도 가능합니다. 현재는 베타 버전이지만, U
     date: '2025-10-03',
     readTime: '5',
     featured: false,
+    published: true,
     thumbnail: 'null',
     youtubeUrl: null,
     url: '/columns/2818205a96df801bae59cd1dafaf26b9'
@@ -120,6 +122,7 @@ URL 단위 예외 처리도 가능합니다. 현재는 베타 버전이지만, U
     date: '2025-10-01',
     readTime: '8',
     featured: false,
+    published: true,
     thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
     youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     url: '/originals/sokmieungok'
