@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   keywords: "SN, 학원, 입시, 교육, 블로그, 컬럼, 후기",
   verification: {
     google: "Y6sre3jJPoA9rk5rlvcAP-3Zv4c704_j7XVCmhOxgRI",
+    other: {
+      "naver-site-verification": "009b8ffadd30a56b1c984244f455759c1eb54200",
+    },
   },
 };
 
