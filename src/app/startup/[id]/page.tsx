@@ -162,7 +162,9 @@ export default async function StartupPostPage({ params }: PostPageProps) {
       <section className="px-6 md:px-10 lg:px-16 pb-24">
         <div className="mx-auto max-w-4xl">
           <div className="prose prose-lg prose-slate max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br />') }} />
+            <div className="whitespace-pre-wrap">
+              {post.content}
+            </div>
           </div>
         </div>
       </section>
