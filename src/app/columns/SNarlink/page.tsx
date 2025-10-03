@@ -7,7 +7,6 @@ import {
   SuccessBox, 
   Section, 
   FeatureList,
-  TOC,
   Callout,
   CodeBlock
 } from '@/components/BlogComponents';
@@ -27,12 +26,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <div className="flex">
-      {/* 목차 */}
-      <TOC />
-      
-      <div className="flex-1">
-        <BlogLayout title="SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)">
+    <BlogLayout title="SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)">
           
           {/* 인트로 */}
           <Quote>
@@ -666,8 +660,6 @@ export default function Page() {
             </div>
           </Section>
 
-        </BlogLayout>
-      </div>
-    </div>
+    </BlogLayout>
   );
 }
