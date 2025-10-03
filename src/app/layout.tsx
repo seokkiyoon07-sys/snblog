@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "SN Academy Blog",
   description: "SN 학원의 주요 사업내용, 컬럼, 입시정보, 후기를 공유하는 블로그입니다.",
   keywords: "SN, 학원, 입시, 교육, 블로그, 컬럼, 후기",
+  verification: {
+    google: "Y6sre3jJPoA9rk5rlvcAP-3Zv4c704_j7XVCmhOxgRI",
+  },
 };
 
 export default function RootLayout({
