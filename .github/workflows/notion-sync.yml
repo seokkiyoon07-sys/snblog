@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Install Notion SDK
-        run: npm install @notionhq/client
+        run: npm install @notionhq/client@2.2.3
 
       - name: Debug environment
         run: |
@@ -39,7 +39,7 @@ jobs:
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
           echo "Starting Notion sync..."
-          node scripts/notion-sync-real.js
+          node scripts/notion-sync-v2.js
           echo "Notion sync completed with exit code: $?"
 
       - name: Check for changes

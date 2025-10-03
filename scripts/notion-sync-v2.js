@@ -1,4 +1,4 @@
-// 실제 노션 동기화 스크립트
+// 노션 동기화 스크립트 v2 (SDK 2.2.3 호환)
 const { Client } = require('@notionhq/client');
 const fs = require('fs');
 const path = require('path');
@@ -18,43 +18,57 @@ function convertNotionToMarkdown(blocks) {
   blocks.forEach(block => {
     switch (block.type) {
       case 'paragraph':
-        if (block.paragraph.rich_text.length > 0) {
+        if (block.paragraph && block.paragraph.rich_text && block.paragraph.rich_text.length > 0) {
           markdown += block.paragraph.rich_text.map(text => text.plain_text).join('') + '\n\n';
         }
         break;
         
       case 'heading_1':
-        markdown += '# ' + block.heading_1.rich_text.map(text => text.plain_text).join('') + '\n\n';
+        if (block.heading_1 && block.heading_1.rich_text) {
+          markdown += '# ' + block.heading_1.rich_text.map(text => text.plain_text).join('') + '\n\n';
+        }
         break;
         
       case 'heading_2':
-        markdown += '## ' + block.heading_2.rich_text.map(text => text.plain_text).join('') + '\n\n';
+        if (block.heading_2 && block.heading_2.rich_text) {
+          markdown += '## ' + block.heading_2.rich_text.map(text => text.plain_text).join('') + '\n\n';
+        }
         break;
         
       case 'heading_3':
-        markdown += '### ' + block.heading_3.rich_text.map(text => text.plain_text).join('') + '\n\n';
+        if (block.heading_3 && block.heading_3.rich_text) {
+          markdown += '### ' + block.heading_3.rich_text.map(text => text.plain_text).join('') + '\n\n';
+        }
         break;
         
       case 'bulleted_list_item':
-        markdown += '- ' + block.bulleted_list_item.rich_text.map(text => text.plain_text).join('') + '\n';
+        if (block.bulleted_list_item && block.bulleted_list_item.rich_text) {
+          markdown += '- ' + block.bulleted_list_item.rich_text.map(text => text.plain_text).join('') + '\n';
+        }
         break;
         
       case 'numbered_list_item':
-        markdown += '1. ' + block.numbered_list_item.rich_text.map(text => text.plain_text).join('') + '\n';
+        if (block.numbered_list_item && block.numbered_list_item.rich_text) {
+          markdown += '1. ' + block.numbered_list_item.rich_text.map(text => text.plain_text).join('') + '\n';
+        }
         break;
         
       case 'code':
-        markdown += '```' + (block.code.language || '') + '\n';
-        markdown += block.code.rich_text.map(text => text.plain_text).join('') + '\n';
-        markdown += '```\n\n';
+        if (block.code && block.code.rich_text) {
+          markdown += '```' + (block.code.language || '') + '\n';
+          markdown += block.code.rich_text.map(text => text.plain_text).join('') + '\n';
+          markdown += '```\n\n';
+        }
         break;
         
       case 'quote':
-        markdown += '> ' + block.quote.rich_text.map(text => text.plain_text).join('') + '\n\n';
+        if (block.quote && block.quote.rich_text) {
+          markdown += '> ' + block.quote.rich_text.map(text => text.plain_text).join('') + '\n\n';
+        }
         break;
         
       case 'image':
-        if (block.image.type === 'external') {
+        if (block.image && block.image.type === 'external') {
           markdown += `![${block.image.caption?.[0]?.plain_text || ''}](${block.image.external.url})\n\n`;
         }
         break;
@@ -74,7 +88,9 @@ async function fetchNotionPosts() {
     console.log('노션 데이터베이스 ID:', DATABASE_ID);
     console.log('노션 토큰 존재 여부:', !!process.env.NOTION_TOKEN);
     
-    // 노션 SDK 2.2.3 버전에 맞는 API 사용
+    // API 호출 전에 클라이언트 상태 확인
+    console.log('노션 클라이언트 생성 완료');
+    
     const response = await notion.databases.query({
       database_id: DATABASE_ID,
       filter: {
