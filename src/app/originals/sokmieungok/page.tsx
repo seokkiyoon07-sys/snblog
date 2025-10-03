@@ -3,66 +3,83 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import StructuredData from '@/components/StructuredData'
 import AIDataGenerator from '@/components/AIDataGenerator'
+import { getPostById } from '@/data/posts'
 
-export const metadata: Metadata = {
-  title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」) | SN Academy Blog',
-  description: '고전문학 시리즈 6탄 「속미인곡」을 준비했습니다. 1588~1589년 경 정철이 고향인 전남 창평에 우거하며 「사미인곡」에 이어 지은 가사입니다. 갑녀와 을녀의 대화 형식으로 이야기를 풀어내어 자신(을녀)의 사연과 사모의 정을 구슬프게 표현한 특별한 작품입니다.',
-  keywords: '속미인곡, 정철, 고전문학, 조선시대, 가사, 연군의 정, SN Originals, 수능국어',
-  openGraph: {
-    title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」)',
-    description: '고전문학 시리즈 6탄 「속미인곡」을 준비했습니다. 갑녀와 을녀의 대화 형식으로 이야기를 풀어내어 자신(을녀)의 사연과 사모의 정을 구슬프게 표현한 특별한 작품입니다.',
-    type: 'article',
-    url: 'https://blog.snacademy.co.kr/originals/sokmieungok',
-    images: [
-      {
-        url: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
-        width: 1280,
-        height: 720,
-        alt: '조선시대 정철의 속미인곡 - 고전문학 시리즈 6탄',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」)',
-    description: '고전문학 시리즈 6탄 「속미인곡」을 준비했습니다. 갑녀와 을녀의 대화 형식으로 이야기를 풀어내어 자신(을녀)의 사연과 사모의 정을 구슬프게 표현한 특별한 작품입니다.',
-    images: ['https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg'],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const post = getPostById('sokmieungok')
+  
+  if (!post) {
+    return {
+      title: '속미인곡 | SN Academy Blog',
+    }
+  }
+
+  return {
+    title: `${post.title} | SN Academy Blog`,
+    description: post.excerpt,
+    keywords: post.tags.join(', '),
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article',
+      url: `https://blog.snacademy.co.kr${post.url}`,
+      images: post.thumbnail ? [
+        {
+          url: post.thumbnail,
+          width: 1280,
+          height: 720,
+          alt: post.title,
+        },
+      ] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: post.thumbnail ? [post.thumbnail] : [],
+    },
+  }
 }
 
 export default function SokmieungokPage() {
+  const post = getPostById('sokmieungok')
+  
+  if (!post) {
+    return <div>Post not found</div>
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <StructuredData 
         type="article"
         data={{
-          title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」)',
-          description: '고전문학 시리즈 6탄 「속미인곡」을 준비했습니다. 1588~1589년 경 정철이 고향인 전남 창평에 우거하며 「사미인곡」에 이어 지은 가사입니다.',
-          datePublished: '2025-10-03',
-          dateModified: '2025-10-03',
-          url: 'https://blog.snacademy.co.kr/originals/sokmieungok',
-          image: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
-          keywords: '속미인곡, 정철, 고전문학, 조선시대, 가사, 연군의 정'
+          title: post.title,
+          description: post.excerpt,
+          datePublished: post.date,
+          dateModified: post.date,
+          url: `https://blog.snacademy.co.kr${post.url}`,
+          image: post.thumbnail || '',
+          keywords: post.tags.join(', ')
         }}
       />
-      <StructuredData 
+      <StructuredData
         type="video"
         data={{
-          title: '조선시대 정철의 속미인곡 - 고전문학 시리즈 6탄',
-          description: '고전문학 시리즈 6탄 「속미인곡」을 준비했습니다.',
-          thumbnailUrl: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
-          uploadDate: '2025-10-03',
+          title: post.title,
+          description: post.excerpt,
+          thumbnailUrl: post.thumbnail || '',
+          uploadDate: post.date,
           duration: 'PT7M',
-          embedUrl: 'https://www.youtube.com/embed/TQEkvJsu5UY'
+          embedUrl: post.youtubeUrl ? post.youtubeUrl.replace('watch?v=', 'embed/') : ''
         }}
       />
-      <AIDataGenerator 
+      <AIDataGenerator
         content={{
-          title: '조선시대 정철의 속미인곡 - 고전문학 시리즈 6탄',
-          description: '고전문학 시리즈 6탄 「속미인곡」을 준비했습니다. 1588~1589년 경 정철이 고향인 전남 창평에 우거하며 「사미인곡」에 이어 지은 가사입니다.',
-          author: 'SN Academy',
-          category: '고전문학',
-          tags: ['속미인곡', '정철', '고전문학', '조선시대', '가사', '연군의 정', '수능국어'],
+          title: post.title,
+          description: post.excerpt,
+          author: post.author,
+          category: post.category,
+          tags: post.tags,
           content: '「속미인곡」은 조선 중기 문인 정철의 마스터피스 중 하나로, 「사미인곡」의 후속작이에요. 정치적 좌절과 고향에 대한 그리움을 연군의 정으로 은유한 이 작품은, 갑녀와 을녀의 대화라는 독특한 형식으로 우리에게 다가옵니다. 을녀(정철 자신)가 갑녀에게 자신의 사연을 털어놓는 방식으로, 임금에 대한 그리움과 정치적 아픔을 여인의 애달픈 마음으로 표현한 감성적인 자서전 같은 작품이에요.',
           difficulty: 'intermediate',
           subject: '고전문학',
