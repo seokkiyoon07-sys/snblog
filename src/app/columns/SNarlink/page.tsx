@@ -11,6 +11,7 @@ import {
   CodeBlock
 } from '@/components/BlogComponents';
 import Image from 'next/image';
+import { unstable_cache } from 'next/cache';
 
 export const metadata = {
   title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
@@ -23,6 +24,21 @@ export const metadata = {
     type: "article",
   },
 };
+
+// 캐시된 컴포넌트 생성 함수
+const getCachedPageContent = unstable_cache(
+  async () => {
+    return {
+      title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
+      lastUpdated: new Date().toISOString()
+    };
+  },
+  ['snarlink-page-content'],
+  {
+    tags: ['snarlink', 'columns', 'pages'],
+    revalidate: 3600 // 1시간
+  }
+);
 
 export default function Page() {
   return (
