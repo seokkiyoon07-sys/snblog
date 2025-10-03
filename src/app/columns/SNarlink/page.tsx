@@ -25,6 +25,10 @@ export const metadata = {
   },
 };
 
+// 캐시 방지 헤더 설정
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // 캐시된 컴포넌트 생성 함수 - 캐시 버스팅 추가
 const getCachedPageContent = unstable_cache(
   async () => {
