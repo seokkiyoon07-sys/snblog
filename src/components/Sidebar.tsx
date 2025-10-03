@@ -14,79 +14,90 @@ export default function Sidebar() {
   // 최근 포스트 데이터
   const recentPosts = [
     {
-      title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
-      date: 'Sep 25, 2025',
-      readTime: '10 min read',
-      tags: ['SN AI 스타트업', '에듀테크', 'AI교육'],
+      title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」)',
+      date: 'Oct 3, 2025',
+      readTime: '7 min read',
+      tags: ['SN Originals', '고전문학', '속미인곡'],
+      url: '/originals/sokmieungok'
     },
     {
       title: '선조를 향한 정철의 중독된 사랑 (고전문학 「사미인곡」)',
       date: 'Sep 23, 2025',
       readTime: '8 min read',
-      tags: ['SN Originals', '고전문학', '수능국어'],
+      tags: ['SN Originals', '고전문학', '사미인곡'],
+      url: '/originals/samieungok'
     },
     {
       title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
       date: 'Sep 22, 2025',
       readTime: '8 min read',
-      tags: ['SN Originals', '고전문학', '수능국어'],
+      tags: ['SN Originals', '고전문학', '갑민가'],
+      url: '/originals/gapminga'
     },
     {
       title: '너 그렇게 여자만 좋아하다 피똥싼다 (수능 고전문학 「화왕가」)',
       date: 'Sep 21, 2025',
       readTime: '7 min read',
-      tags: ['SN Originals', '고전문학', '수능국어'],
+      tags: ['SN Originals', '고전문학', '화왕가'],
+      url: '/originals/hwangokga'
     },
     {
       title: '좋긴 한데 유배 생활 이래도 됨? 고전문학 「북천가」',
       date: 'Sep 20, 2025',
       readTime: '6 min read',
-      tags: ['SN Originals', '고전문학', '수능국어'],
+      tags: ['SN Originals', '고전문학', '북천가'],
+      url: '/originals/bukcheonga'
     },
     {
       title: '정철의 강원도 브이로그 (고전문학 「관동별곡」)',
       date: 'Sep 19, 2025',
       readTime: '9 min read',
-      tags: ['SN Originals', '고전문학', '수능국어'],
+      tags: ['SN Originals', '고전문학', '관동별곡'],
+      url: '/originals/gwandong-byeolgok'
     },
   ];
 
   // 인기 블로그 데이터
   const popularPosts = [
     {
-      title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
-      date: 'Sep 25, 2025',
-      readTime: '10 min read',
+      title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」)',
+      date: 'Oct 3, 2025',
+      readTime: '7 min read',
       views: 2500,
-      tags: ['SN AI 스타트업', '에듀테크', 'AI교육'],
+      tags: ['SN Originals', '고전문학', '속미인곡'],
+      url: '/originals/sokmieungok'
     },
     {
       title: '선조를 향한 정철의 중독된 사랑 (고전문학 「사미인곡」)',
       date: 'Sep 23, 2025',
       readTime: '8 min read',
       views: 1900,
-      tags: ['SN Originals', '고전문학', '수능국어'],
+      tags: ['SN Originals', '고전문학', '사미인곡'],
+      url: '/originals/samieungok'
     },
     {
       title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
       date: 'Sep 22, 2025',
       readTime: '8 min read',
       views: 1800,
-      tags: ['SN Originals', '고전문학', '수능국어'],
+      tags: ['SN Originals', '고전문학', '갑민가'],
+      url: '/originals/gapminga'
     },
     {
       title: '정철의 강원도 브이로그 (고전문학 「관동별곡」)',
       date: 'Sep 19, 2025',
       readTime: '9 min read',
       views: 1200,
-      tags: ['SN Originals', '고전문학', '수능국어'],
+      tags: ['SN Originals', '고전문학', '관동별곡'],
+      url: '/originals/gwandong-byeolgok'
     },
     {
       title: '너 그렇게 여자만 좋아하다 피똥싼다 (수능 고전문학 「화왕가」)',
       date: 'Sep 21, 2025',
       readTime: '7 min read',
       views: 1100,
-      tags: ['SN Originals', '고전문학', '수능국어'],
+      tags: ['SN Originals', '고전문학', '화왕가'],
+      url: '/originals/hwangokga'
     },
   ];
 
@@ -101,7 +112,7 @@ export default function Sidebar() {
           {tags.map((tag) => (
             <a
               key={tag.name}
-              href={`/tags/${tag.name}`}
+              href="/originals"
               className="inline-flex items-center px-2.5 py-1 lg:px-3 lg:py-1.5 rounded-full text-xs lg:text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               {tag.name}
@@ -122,7 +133,7 @@ export default function Sidebar() {
           {popularPosts.map((post, index) => (
             <div key={index} className="space-y-1">
               <a
-                href={`/posts/${post.title.toLowerCase().replace(/\s+/g, '-')}`}
+                href={post.url}
                 className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
               >
                 {post.title}
@@ -144,7 +155,7 @@ export default function Sidebar() {
           {recentPosts.slice(0, 3).map((post, index) => (
             <div key={index} className="space-y-1">
               <a
-                href={`/posts/${post.title.toLowerCase().replace(/\s+/g, '-')}`}
+                href={post.url}
                 className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
               >
                 {post.title}
