@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const categoryDisplayNames: Record<string, string> = {
     'SN Originals': 'SN Originals',
     'columns': '컬럼',
-    'startup': 'SN AI 스타트업',
+    'startup': 'AI 스타트업',
     'problems': '문제 다운로드',
     'reviews': '후기',
     'admissions': '입시정보'
@@ -89,7 +89,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const categoryDisplayNames: Record<string, string> = {
     'SN Originals': 'SN Originals',
     'columns': '컬럼',
-    'startup': 'SN AI 스타트업',
+    'startup': 'AI 스타트업',
     'problems': '문제 다운로드',
     'reviews': '후기',
     'admissions': '입시정보'

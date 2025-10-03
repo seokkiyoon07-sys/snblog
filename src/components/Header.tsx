@@ -131,7 +131,7 @@ export default function Header() {
           <nav className="mt-6 flex space-x-8">
             {[
               { name: '홈', href: '/' },
-              { name: 'SN AI 스타트업', href: '/startup' },
+              { name: 'AI 스타트업', href: '/startup' },
               { name: '컬럼', href: '/columns' },
               { name: '문제 다운로드', href: '/problems' },
               { name: '입시정보', href: '/admissions' },
@@ -241,7 +241,7 @@ export default function Header() {
             <nav className="mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700 pt-4">
               {[
                 { name: '홈', href: '/' },
-                { name: 'SN AI 스타트업', href: '/startup' },
+                { name: 'AI 스타트업', href: '/startup' },
                 { name: '컬럼', href: '/columns' },
                 { name: '문제 다운로드', href: '/problems' },
                 { name: '입시정보', href: '/admissions' },
