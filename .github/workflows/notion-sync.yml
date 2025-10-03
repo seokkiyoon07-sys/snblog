@@ -30,43 +30,25 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: node scripts/notion-sync-real.js
+
+      - name: Check for changes
+        id: changes
         run: |
-          # 간단한 노션 동기화 스크립트
-          node -e "
-          const { Client } = require('@notionhq/client');
-          const fs = require('fs');
-          
-          const notion = new Client({
-            auth: process.env.NOTION_TOKEN,
-          });
-          
-          async function syncNotion() {
-            try {
-              console.log('노션에서 포스트를 가져오는 중...');
-              
-              const response = await notion.databases.query({
-                database_id: process.env.NOTION_DATABASE_ID,
-                filter: {
-                  property: 'Status',
-                  select: { equals: 'Published' }
-                }
-              });
-              
-              console.log('찾은 포스트 수:', response.results.length);
-              
-              if (response.results.length > 0) {
-                console.log('노션 동기화가 완료되었습니다!');
-                console.log('첫 번째 포스트:', response.results[0].properties.Title?.title?.[0]?.plain_text || '제목 없음');
-              } else {
-                console.log('Published 상태인 포스트가 없습니다.');
-              }
-            } catch (error) {
-              console.error('동기화 중 오류:', error.message);
-            }
-          }
-          
-          syncNotion();
-          "
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add src/data/posts.ts
+          git commit -m "Sync posts from Notion [skip ci]"
+          git push
 
       - name: Notify on Jandi
         run: |
