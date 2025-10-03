@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   return {
     title: `${post.title} | SN Academy Blog`,
     description: post.excerpt,
-    keywords: post.tags.join(', '),
+    keywords: post.tags?.join(', ') || '',
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -143,7 +143,7 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
           )}
 
           {/* 태그 */}
-          {post.tags.length > 0 && (
+          {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-12 justify-center">
               {post.tags.map((tag) => (
                 <span
@@ -181,7 +181,7 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
           image: post.thumbnail,
           url: `https://blog.snacademy.co.kr${post.url}`,
           category: post.category,
-          keywords: post.tags.join(', '),
+          keywords: post.tags?.join(', ') || '',
         }}
       />
 
@@ -192,7 +192,7 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
           description: post.excerpt,
           author: post.author,
           category: post.category,
-          tags: post.tags,
+          tags: post.tags || [],
           content: post.content,
           difficulty: 'intermediate',
           subject: '국어',

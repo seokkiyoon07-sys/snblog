@@ -3,6 +3,8 @@
 import { useTheme } from 'next-themes';
 import { Sun, Moon, Search, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
@@ -52,18 +54,22 @@ export default function Header() {
           <div className="flex items-center justify-between">
                 {/* 로고 */}
                  <div className="flex items-center">
-                   <a href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                     <img
+                   <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+                     <Image
                        src="/sn-logo.png"
                        alt="SN"
+                       width={32}
+                       height={32}
                        className="h-8 w-auto dark:hidden"
                      />
-                     <img
+                     <Image
                        src="/sn-logo-white.png"
                        alt="SN"
+                       width={32}
+                       height={32}
                        className="h-8 w-auto hidden dark:block"
                      />
-                   </a>
+                   </Link>
                  </div>
 
             {/* 검색바 */}
@@ -132,13 +138,13 @@ export default function Header() {
               { name: '후기', href: '/reviews' },
               { name: 'SN Originals', href: '/originals' },
             ].map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>
@@ -148,18 +154,22 @@ export default function Header() {
           <div className="flex items-center justify-between">
                 {/* 로고 */}
                  <div className="flex items-center">
-                   <a href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                     <img
+                   <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+                     <Image
                        src="/sn-logo.png"
                        alt="SN"
+                       width={24}
+                       height={24}
                        className="h-6 w-auto dark:hidden"
                      />
-                     <img
+                     <Image
                        src="/sn-logo-white.png"
                        alt="SN"
+                       width={24}
+                       height={24}
                        className="h-6 w-auto hidden dark:block"
                      />
-                   </a>
+                   </Link>
                  </div>
 
             {/* 모바일 메뉴 버튼 */}
@@ -238,14 +248,14 @@ export default function Header() {
                 { name: '후기', href: '/reviews' },
                 { name: 'SN Originals', href: '/originals' },
               ].map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className="block py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </nav>
           )}

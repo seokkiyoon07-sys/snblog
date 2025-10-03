@@ -5,8 +5,8 @@ import { getLatestPosts, allPosts } from '@/data/posts'
 export default function Sidebar() {
   // 동적으로 태그 데이터 생성
   const tagCounts = allPosts
-    .filter(post => post.published)
-    .flatMap(post => post.tags)
+    .filter(post => post.published && post.tags)
+    .flatMap(post => post.tags!)
     .reduce((acc, tag) => {
       acc[tag] = (acc[tag] || 0) + 1
       return acc

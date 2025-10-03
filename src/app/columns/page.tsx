@@ -1,92 +1,81 @@
-export const metadata = {
+import PostCard from '@/components/PostCard';
+import { getPostsByCategory } from '@/data/posts';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://blog.snacademy.co.kr"),
   title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
   description: 'SN Academy의 교육 전문가들이 제공하는 학습법, 입시 전략, 자기주도학습 방법 등을 확인하세요. 검증된 교육 노하우로 학습 효과를 극대화할 수 있습니다.',
-  keywords: 'SN 컬럼, 학습법, 자기주도학습, 입시 전략, 교육 노하우, 학습 효과',
+  alternates: { 
+    canonical: "/columns" 
+  },
   openGraph: {
     title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
-    description: 'SN Academy의 교육 전문가들이 제공하는 학습법과 입시 전략을 확인하세요.',
+    description: 'SN Academy의 교육 전문가들이 제공하는 학습법과 입시 조언을 확인하세요.',
     type: 'website',
     locale: 'ko_KR',
+    url: 'https://blog.snacademy.co.kr/columns',
+    images: [
+      {
+        url: '/og/columns.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'SN 컬럼 - 교육 전문가의 학습법과 입시 조언',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
+    description: 'SN Academy의 교육 전문가들이 제공하는 학습법과 입시 조언을 확인하세요.',
+    images: ['/og/columns.jpg'],
+  },
+  robots: { 
+    index: true, 
+    follow: true 
   },
 };
 
 export default function ColumnsPage() {
-  const columns: any[] = [];
+  const columns = getPostsByCategory('columns');
 
   return (
     <div className="space-y-8">
       {/* 페이지 헤더 */}
-      <div className="text-center py-8">
+      <header className="text-center py-8">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
           컬럼
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300">
-          교육 전문가의 인사이트와 조언
+          교육 전문가의 학습법과 입시 조언
         </p>
-      </div>
+      </header>
 
       {/* 포스트 목록 */}
-      {columns.length > 0 ? (
-        <div className="space-y-6">
-          {columns.map((post) => (
-          <article
-            key={post.id}
-            className="border-b border-gray-200 dark:border-gray-700 pb-6 last:border-b-0"
-          >
-            <div className="flex gap-6">
-              {/* 썸네일 */}
-              <div className="flex-shrink-0 w-48 h-32 overflow-hidden rounded-lg">
-                <img
-                  src={post.thumbnail}
-                  alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-              
-              {/* 콘텐츠 */}
-              <div className="flex-1 space-y-3">
-                {/* 태그 */}
-                {post.tags && post.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag: string) => (
-                      <span
-                        key={tag}
-                        className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {/* 제목 */}
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  <a href={`/posts/${post.id}`}>
-                    {post.title}
-                  </a>
-                </h2>
-
-                {/* 요약 */}
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3 text-base">
-                  {post.excerpt}
-                </p>
-
-                {/* 메타 정보 */}
-                <div className="flex items-center space-x-4 text-base text-gray-500 dark:text-gray-400">
-                  <span>{post.date}</span>
-                  <span>•</span>
-                  <span>{post.readTime}</span>
-                </div>
-              </div>
+      <section aria-labelledby="columns-heading">
+        <h2 id="columns-heading" className="sr-only">교육 컬럼</h2>
+        {columns.length > 0 ? (
+          <div className="space-y-6" role="list" aria-label="교육 컬럼 목록">
+            {columns.map((post) => (
+              <PostCard key={post.id} post={post} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12" role="status" aria-live="polite">
+            <div className="w-16 h-16 mx-auto mb-4 text-gray-400" aria-hidden="true">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
             </div>
-          </article>
-        ))}
-        </div>
-      ) : (
-        <div className="text-center py-12">
-          <p className="text-gray-500 dark:text-gray-400">아직 게시된 글이 없습니다.</p>
-        </div>
-      )}
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+              아직 컬럼이 없습니다
+            </h3>
+            <p className="text-gray-500 dark:text-gray-400">
+              곧 교육 전문가들의 유익한 컬럼을 공유할 예정입니다.
+            </p>
+          </div>
+        )}
+      </section>
     </div>
   );
 }
