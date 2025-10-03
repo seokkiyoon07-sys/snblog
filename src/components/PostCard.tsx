@@ -112,7 +112,7 @@ export default function PostCard({
           {/* 제목 */}
           <h2 className={`${isFeatured ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl'} font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors`}>
             <Link href={post.url} itemProp="url">
-              <span itemProp="headline">
+              <span itemProp="headline" className="whitespace-pre-line">
                 {isFeatured ? '📚' : '🎥'} {post.title}
               </span>
             </Link>

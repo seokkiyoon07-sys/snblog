@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['img.youtube.com', 'blog.snacademy.co.kr'],
     formats: ['image/webp', 'image/avif'],
+    qualities: [75, 85, 95],
   },
   experimental: {
     optimizeCss: true,
