@@ -1,9 +1,9 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
+import { allPosts } from '@/data/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://blog.snacademy.co.kr'
-  
-  // 정적 페이지들
+  const baseUrl = 'https://blog.snacademy.co.kr';
+
   const staticPages = [
     {
       url: baseUrl,
@@ -59,47 +59,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
-  ]
+  ];
 
-  // SN Originals 페이지들
-  const originalsPages = [
-    {
-      url: `${baseUrl}/originals/sokmieungok`,
-      lastModified: new Date(),
+  // 동적으로 모든 게시물 페이지 생성
+  const dynamicPages = allPosts
+    .filter(post => post.published)
+    .map(post => ({
+      url: `${baseUrl}${post.url}`,
+      lastModified: new Date(post.date),
       changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/originals/samieungok`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/originals/gapminga`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/originals/hwangokga`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/originals/bukcheonga`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/originals/gwandong-byeolgok`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    },
-  ]
+      priority: post.featured ? 0.9 : 0.8,
+    }));
 
-  return [...staticPages, ...originalsPages]
+  return [...staticPages, ...dynamicPages];
 }
