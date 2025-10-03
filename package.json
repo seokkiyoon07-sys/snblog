@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test:jandi": "node scripts/test-jandi.js"
+    "test:jandi": "node scripts/test-jandi.js",
+    "backup:posts": "node scripts/backup-posts.js",
+    "restore:posts": "node scripts/restore-posts.js"
   },
   "dependencies": {
     "critters": "^0.0.23",
