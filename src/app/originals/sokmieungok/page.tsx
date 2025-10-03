@@ -56,7 +56,7 @@ export default function SokmieungokPage() {
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
             <p className="text-lg text-blue-900 font-medium mb-2">
-              📚 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 6탄
+              📚 고전문학 시리즈 6탄 - 「속미인곡」
             </p>
             <p className="text-blue-800">
               「속미인곡」을 준비했습니다. 1588~1589년 경 정철이 고향인 전남 창평에 우거하며 「사미인곡」에 이어 지은 가사입니다.
@@ -66,52 +66,82 @@ export default function SokmieungokPage() {
           <div className="space-y-6">
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">작품 개요</h2>
-              <p className="text-gray-700 leading-relaxed">
-                「속미인곡」은 정철이 「사미인곡」에 이어 지은 가사로, 연군의 정을 임을 이별한 여인의 애달픈 심정에 비하여 표현한 작품입니다. 
-                갑녀와 을녀의 대화 형식으로 이야기를 풀어내어 자신(을녀)의 사연과 사모의 정을 구슬프게 표현한 특별한 작품입니다.
-              </p>
+              <div className="space-y-4">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  「속미인곡」은 조선 중기 문인 정철의 마스터피스 중 하나로, 「사미인곡」의 후속작이에요. 
+                  정치적 좌절과 고향에 대한 그리움을 연군의 정으로 은유한 이 작품은, 
+                  <span className="font-semibold text-blue-600">갑녀와 을녀의 대화</span>라는 독특한 형식으로 우리에게 다가옵니다.
+                </p>
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-400">
+                  <p className="text-gray-700 leading-relaxed">
+                    💫 <strong>왜 특별한가?</strong><br/>
+                    을녀(정철 자신)가 갑녀에게 자신의 사연을 털어놓는 방식으로, 
+                    임금에 대한 그리움과 정치적 아픔을 여인의 애달픈 마음으로 표현한 
+                    <span className="font-semibold text-purple-600">감성적인 자서전</span> 같은 작품이에요.
+                  </p>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  단순한 사랑 노래가 아니라, 조선 시대 지식인의 내면을 들여다볼 수 있는 
+                  <span className="font-semibold text-indigo-600">문학적 보석</span>이라고 할 수 있습니다.
+                </p>
+              </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">작품의 특징</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-sm border">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">대화 형식</h3>
-                  <p className="text-gray-700">
-                    갑녀와 을녀의 대화를 통해 작품의 내용을 전개하는 독특한 구조를 가지고 있습니다.
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">작품의 매력</h2>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-blue-400">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">🎭 드라마틱한 대화체</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    갑녀와 을녀의 대화를 통해 이야기가 전개되는 독특한 구조! 
+                    마치 연극을 보는 것처럼 생생하게 정철의 내면을 엿볼 수 있어요.
                   </p>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm border">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">연군의 정</h3>
-                  <p className="text-gray-700">
-                    임을 그리워하는 여인의 마음을 통해 작가의 정치적 고뇌를 표현했습니다.
+                
+                <div className="bg-gradient-to-r from-pink-50 to-rose-50 p-6 rounded-lg border-l-4 border-pink-400">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">💔 감성의 깊이</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    단순한 사랑 노래가 아닌, 정치적 좌절과 고향에 대한 그리움을 
+                    연군의 정으로 은유한 <span className="font-semibold text-pink-600">감성적 자서전</span>이에요.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border-l-4 border-green-400">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">✨ 문학적 완성도</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    「사미인곡」과의 연관성, 정교한 비유법, 그리고 감정의 절제된 표현까지. 
+                    조선 문학의 <span className="font-semibold text-green-600">진수</span>를 만날 수 있는 작품입니다.
                   </p>
                 </div>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">수능 출제 포인트</h2>
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-yellow-800 mb-3">핵심 키워드</h3>
-                <ul className="space-y-2 text-yellow-700">
-                  <li>• <strong>대화체 가사:</strong> 갑녀와 을녀의 대화 형식</li>
-                  <li>• <strong>연군의 정:</strong> 임에 대한 그리움과 사모의 정</li>
-                  <li>• <strong>정치적 은유:</strong> 정치적 상황을 연군의 정으로 표현</li>
-                  <li>• <strong>사미인곡과의 연관성:</strong> 연작 가사의 특징</li>
-                </ul>
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">학습 팁</h2>
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <ol className="space-y-3 text-green-700">
-                  <li><strong>1단계:</strong> 갑녀와 을녀의 대화 내용을 정확히 파악하세요.</li>
-                  <li><strong>2단계:</strong> 연군의 정이 정치적 상황을 은유한 것임을 이해하세요.</li>
-                  <li><strong>3단계:</strong> 「사미인곡」과의 차이점을 비교해보세요.</li>
-                  <li><strong>4단계:</strong> 작품의 감정적 흐름을 따라가며 감상하세요.</li>
-                </ol>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">감상 포인트</h2>
+              <div className="bg-gradient-to-r from-amber-50 to-yellow-50 p-6 rounded-lg border border-amber-200">
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <span className="text-2xl">🎯</span>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">대화의 미묘함</h4>
+                      <p className="text-gray-700 text-sm">갑녀의 질문과 을녀의 답변 사이의 감정적 교감을 느껴보세요.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-2xl">💫</span>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">은유의 아름다움</h4>
+                      <p className="text-gray-700 text-sm">정치적 상황을 연군의 정으로 표현한 정철의 문학적 기법을 감상해보세요.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="text-2xl">🌟</span>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">감정의 절제</h4>
+                      <p className="text-gray-700 text-sm">과도한 감정 표현 없이도 전해지는 깊은 아픔과 그리움을 느껴보세요.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
           </div>
