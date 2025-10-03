@@ -1,48 +1,65 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { getPostById } from '@/data/posts'
 
-export const metadata: Metadata = {
-  title: 'SN Originals 고전문학 시리즈를 소개합니다 | SN Academy Blog',
-  description: '최재천 선생님의 "알면 사랑한다"는 말처럼, 고전문학도 충분히 알아가는 과정이 필요합니다. SN Originals는 AI 기술을 활용해 고전문학을 만화영화처럼 재미있게 접할 수 있도록 도와드립니다.',
-  keywords: 'SN Originals, 고전문학, AI교육, 수능국어, 고전문학학습, SN Academy, 최재천, 알면 사랑한다',
-  openGraph: {
-    title: 'SN Originals 고전문학 시리즈를 소개합니다',
-    description: '최재천 선생님의 "알면 사랑한다"는 말처럼, 고전문학도 충분히 알아가는 과정이 필요합니다. SN Originals는 AI 기술을 활용해 고전문학을 만화영화처럼 재미있게 접할 수 있도록 도와드립니다.',
-    type: 'article',
-    url: 'https://blog.snacademy.co.kr/originals/intro',
-    images: [
-      {
-        url: 'https://blog.snacademy.co.kr/image/originalintro1.png',
-        width: 800,
-        height: 400,
-        alt: 'SN Originals 고전문학 시리즈 소개',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'SN Originals 고전문학 시리즈를 소개합니다',
-    description: '최재천 선생님의 "알면 사랑한다"는 말처럼, 고전문학도 충분히 알아가는 과정이 필요합니다.',
-    images: ['https://blog.snacademy.co.kr/image/originalintro1.png'],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const post = getPostById('sn-originals-intro')
+  
+  if (!post) {
+    return {
+      title: 'SN Originals 고전문학 시리즈를 소개합니다 | SN Academy Blog',
+    }
+  }
+
+  return {
+    title: `${post.title} | SN Academy Blog`,
+    description: post.excerpt,
+    keywords: post.tags.join(', '),
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article',
+      url: `https://blog.snacademy.co.kr${post.url}`,
+      images: post.thumbnail ? [
+        {
+          url: `https://blog.snacademy.co.kr${post.thumbnail}`,
+          width: 800,
+          height: 400,
+          alt: post.title,
+        },
+      ] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: post.thumbnail ? [`https://blog.snacademy.co.kr${post.thumbnail}`] : [],
+    },
+  }
 }
 
 export default function SNOriginalsIntroPage() {
+  const post = getPostById('sn-originals-intro')
+  
+  if (!post) {
+    return <div>Post not found</div>
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-4xl mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            SN Originals 고전문학 시리즈를 소개합니다
+            {post.title}
           </h1>
           <div className="flex items-center text-gray-600 space-x-2">
-            <span className="text-sm font-medium">SN Originals</span>
+            <span className="text-sm font-medium">{post.category}</span>
             <span className="text-sm">•</span>
-            <span className="text-sm">2024년 10월 3일</span>
+            <span className="text-sm">{post.date}</span>
             <span className="text-sm">•</span>
-            <span className="text-sm">8 min read</span>
+            <span className="text-sm">{post.readTime}</span>
           </div>
         </div>
       </div>
