@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'SN Originals 고전문학 시리즈를 소개합니다 | SN Academy Blog',
   description: '최재천 선생님의 "알면 사랑한다"는 말처럼, 고전문학도 충분히 알아가는 과정이 필요합니다. SN Originals는 AI 기술을 활용해 고전문학을 만화영화처럼 재미있게 접할 수 있도록 도와드립니다.',
-  keywords: 'SN Originals, 고전문학, AI교육, 수능국어, 고전문학학습, SN Academy',
+  keywords: 'SN Originals, 고전문학, AI교육, 수능국어, 고전문학학습, SN Academy, 최재천, 알면 사랑한다',
   openGraph: {
     title: 'SN Originals 고전문학 시리즈를 소개합니다',
     description: '최재천 선생님의 "알면 사랑한다"는 말처럼, 고전문학도 충분히 알아가는 과정이 필요합니다. SN Originals는 AI 기술을 활용해 고전문학을 만화영화처럼 재미있게 접할 수 있도록 도와드립니다.',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: 'https://blog.snacademy.co.kr/originals/intro',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
+        url: 'https://blog.snacademy.co.kr/image/originalintro1.png',
         width: 800,
         height: 400,
         alt: 'SN Originals 고전문학 시리즈 소개',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SN Originals 고전문학 시리즈를 소개합니다',
     description: '최재천 선생님의 "알면 사랑한다"는 말처럼, 고전문학도 충분히 알아가는 과정이 필요합니다.',
-    images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center'],
+    images: ['https://blog.snacademy.co.kr/image/originalintro1.png'],
   },
 }
 
