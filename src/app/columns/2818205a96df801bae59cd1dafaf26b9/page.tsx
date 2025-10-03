@@ -160,31 +160,16 @@ export default function PostPage() {
 
       {/* 구조화된 데이터 */}
       <StructuredData
+        type="article"
         data={{
-          '@context': 'https://schema.org',
-          '@type': 'Article',
-          headline: post.title,
+          title: post.title,
           description: post.excerpt,
-          author: {
-            '@type': 'Person',
-            name: post.author,
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: 'SN Academy',
-            logo: {
-              '@type': 'ImageObject',
-              url: 'https://blog.snacademy.co.kr/logo.png',
-            },
-          },
+          author: post.author,
           datePublished: post.date,
           dateModified: post.date,
-          mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': `https://blog.snacademy.co.kr${post.url}`,
-          },
           image: post.thumbnail,
-          articleSection: post.category,
+          url: `https://blog.snacademy.co.kr${post.url}`,
+          category: post.category,
           keywords: post.tags.join(', '),
         }}
       />
