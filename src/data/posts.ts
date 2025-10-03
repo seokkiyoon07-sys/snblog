@@ -21,7 +21,7 @@ export const allPosts: Post[] = [
     id: 'sokmieungok',
     title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」)',
     excerpt: '고전문학 시리즈 6탄으로 「속미인곡」을 준비했습니다. 「속미인곡」은 1588~1589년 경 정철이 고향인 전남 창평에 우거하며 「사미인곡」에 이어 지은 가사입니다. 갑녀와 을녀의 대화 형식으로 이야기를 풀어내어 자신(을녀)의 사연과 사모의 정을 구슬프게 표현한 특별한 작품입니다.',
-    date: '2024-10-03',
+    date: '2024-10-04',
     readTime: '7 min read',
     tags: ['SN Originals', '고전문학', '속미인곡'],
     category: 'SN Originals',
@@ -29,7 +29,7 @@ export const allPosts: Post[] = [
     thumbnail: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
     youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     author: 'SN Academy',
-    featured: true,
+    featured: false,
     published: true
   },
   {
@@ -44,7 +44,7 @@ export const allPosts: Post[] = [
     thumbnail: 'https://img.youtube.com/vi/50nJegN2YSQ/maxresdefault.jpg',
     youtubeUrl: 'https://www.youtube.com/watch?v=50nJegN2YSQ',
     author: 'SN Academy',
-    featured: true,
+    featured: false,
     published: true
   },
   {
