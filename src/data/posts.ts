@@ -24,165 +24,87 @@ export const allPosts: Post[] = [
     id: 'ai-startup',
     title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
     excerpt: '교육과 AI의 융합으로 학생 개개인의 잠재력을 극대화하는 초개인화 학습 혁신을 실현하는 SN Academy AI 스타트업을 소개합니다.',
-    content: `// Drop this into a Next.js page (e.g., app/page.tsx) or any React route.
-// TailwindCSS recommended. No external UI deps required.
+    content: `# SN에서 교육 AI 스타트업을 창업했습니다
 
-export default function SNBlogPage() {
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-800">
-      {/* Hero */}
-      <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24">
-        <div className="mx-auto max-w-5xl text-center">
-          <span className="inline-block rounded-full border border-slate-200 px-4 py-1 text-sm">SN Academy AI Startup</span>
-          <h1 className="mt-6 text-3xl md:text-5xl font-extrabold tracking-tight">SN에서 교육 AI 스타트업을 만들었습니다.</h1>
-          <p className="mt-4 md:mt-6 text-lg md:text-xl text-slate-600">교육과 AI의 융합으로, 학생 개개인의 잠재력을 극대화하는 <b>초개인화 학습 혁신</b>을 실현합니다.</p>
-        </div>
-      </section>
+교육과 AI의 융합으로 학생 개개인의 잠재력을 극대화하는 초개인화 학습 혁신을 실현하는 SN Academy AI 스타트업을 소개합니다.
 
-      {/* Vision & Mission */}
-      <section className="px-6 md:px-10 lg:px-16 py-12 md:py-16">
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-2xl font-bold">우리의 비전 (Vision)</h2>
-            <p className="mt-3 leading-relaxed">"AI로 학생의 미래를 더 깊고, 더 정확하게, 더 빠르게 열어주는 것."</p>
-          </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="text-2xl font-bold">우리의 미션 (Mission)</h2>
-            <ul className="mt-3 space-y-2 leading-relaxed list-disc pl-5">
-              <li>교육의 <b>불균형·비효율·정보 격차</b>를 해소합니다.</li>
-              <li>학생에게는 <b>맞춤형 학습 경험</b>을 제공합니다.</li>
-              <li>교사·학부모에게는 <b>투명한 학습 데이터 분석</b>을 제공합니다.</li>
-              <li>교육 시장에는 <b>혁신적인 AI 도구</b>를 제공합니다.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+## 🚀 혁신적인 교육 AI 솔루션
 
-      {/* Team */}
-      <section className="px-6 md:px-10 lg:px-16 py-12 md:py-16">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="text-2xl md:text-3xl font-bold">Our Team</h2>
-          <p className="mt-2 text-slate-600">작지만 강력한 팀이 교육의 미래를 다시 씁니다.</p>
+SN Academy는 교육 분야의 혁신을 위해 AI 스타트업을 창업했습니다. 우리의 목표는 모든 학습자가 자신만의 맞춤형 학습 경험을 할 수 있도록 하는 것입니다.
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { role: '대표 (CEO)', desc: '교육 현장 20년 경험, 전략과 비전을 이끄는 리더' },
-              { role: 'AI 개발자 2명', desc: '대규모 언어모델과 AI 솔루션 연구' },
-              { role: '백엔드 개발자 1명', desc: '안정적인 데이터 처리와 서버 아키텍처' },
-              { role: '마케팅/데이터 분석 1명', desc: '학습 데이터 기반 전략 수립' },
-              { role: '디자이너 1명', desc: '직관적이고 감각적인 UX/UI 구현' },
-              { role: '프론트엔드 개발자 1명', desc: '웹/앱 인터페이스 개발' },
-              { role: '라벨링 전문가 1명', desc: 'AI 학습 데이터셋 구축 및 정제' },
-              { role: '운영 인력 1명', desc: '현장 운영 및 사용자 피드백' },
-            ].map((m, i) => (
-              <article key={i} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
-                <h3 className="font-semibold">{m.role}</h3>
-                <p className="mt-2 text-sm text-slate-600">{m.desc}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+## 🎯 핵심 가치
 
-      {/* Products */}
-      <section className="px-6 md:px-10 lg:px-16 py-12 md:py-16">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="text-2xl md:text-3xl font-bold">Our Products</h2>
-          <p className="mt-2 text-slate-600">SN 생태계를 구성하는 핵심 AI 제품들입니다.</p>
+### 초개인화 학습
+- 각 학습자의 학습 패턴과 속도를 분석
+- 개인별 최적화된 학습 경로 제공
+- 실시간 학습 진도 추적 및 피드백
 
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {/* SNarlink */}
-            <ProductCard 
-              name="SNarlink" 
-              tagline="초정밀 학습 분석 방화벽 시스템"
-              bullets={[
-                '온라인 학습 활동을 데이터화하여 집중도 측정',
-                '학부모/교사에게 투명한 리포트 제공',
-              ]}
-            />
+### AI 기반 교육 기술
+- 자연어 처리 기술을 활용한 질문-답변 시스템
+- 학습 내용 이해도 자동 평가
+- 개인별 학습 약점 분석 및 보완 방안 제시
 
-            {/* SNarGPT */}
-            <ProductCard 
-              name="SNarGPT" 
-              tagline="수능 수학 문제를 99%+ 정확도로 풀이"
-              bullets={[
-                '정확한 개념 설명과 단계별 풀이',
-                '실제 수험생에게 필요한 피드백 제공',
-              ]}
-            />
+## 🌟 우리의 비전
 
-            {/* SNarGO */}
-            <ProductCard 
-              name="SNarGO" 
-              tagline="수능문제 풀이 전문 AI"
-              bullets={[
-                '평가원 기출부터 최신 모의고사까지 정밀 해설',
-                '원하는 방식으로 빠르고 정확한 풀이',
-              ]}
-            />
+**"AI로 학생의 미래를 더 깊고, 더 정확하게, 더 빠르게 열어주는 것."**
 
-            {/* SNarGEN */}
-            <ProductCard 
-              name="SNarGEN" 
-              tagline="기존 교육 업체의 1% 비용으로 고퀄 문제 생성"
-              bullets={[
-                '평가원 수준의 문항 자동 생성',
-                '콘텐츠 제작의 패러다임 전환',
-              ]}
-            />
+## 🎯 우리의 미션
 
-            {/* SNarOCR */}
-            <ProductCard 
-              name="SNarOCR" 
-              tagline="촬영만 하면 자동 인식·분석하는 시험지 OCR"
-              bullets={[
-                '문제 영역 자동 인식 및 정규화',
-                '문제은행 연동으로 즉시 학습 관리',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
+- 교육의 **불균형·비효율·정보 격차**를 해소합니다
+- 학생에게는 **맞춤형 학습 경험**을 제공합니다
+- 교사·학부모에게는 **투명한 학습 데이터 분석**을 제공합니다
+- 교육 시장에는 **혁신적인 AI 도구**를 제공합니다
 
-      {/* Closing */}
-      <section className="px-6 md:px-10 lg:px-16 py-16 md:py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl md:text-3xl font-bold">교육의 새로운 패러다임을 설계합니다.</h2>
-          <p className="mt-4 text-slate-600">우리는 작은 팀이지만 변화의 파급력은 결코 작지 않습니다. 우리의 목표는 단 하나, <b>모든 학생이 자신만의 맞춤형 학습 여정</b>을 걷도록 돕는 것입니다.</p>
-          <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-3 shadow-sm">
-            <span className="text-sm">SN Academy AI</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-sm">초개인화 학습 혁신</span>
-          </div>
-        </div>
-      </section>
+## 👥 Our Team
 
-      {/* Footer */}
-      <footer className="px-6 md:px-10 lg:px-16 pb-12">
-        <div className="mx-auto max-w-5xl text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} SN Academy AI. All rights reserved.
-        </div>
-      </footer>
-    </main>
-  );
-}
+작지만 강력한 팀이 교육의 미래를 다시 씁니다.
 
-function ProductCard({ name, tagline, bullets }: { name: string; tagline: string; bullets: string[] }) {
-  return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md">
-      <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold">{name}</h3>
-        <span className="rounded-full border border-slate-200 px-3 py-1 text-xs">AI</span>
-      </div>
-      <p className="mt-2 text-sm text-slate-600">{tagline}</p>
-      <ul className="mt-4 space-y-1 list-disc pl-5 text-sm text-slate-700">
-        {bullets.map((b, i) => (
-          <li key={i}>{b}</li>
-        ))}
-      </ul>
-    </article>
-  );
-}`,
+### 🏢 팀 구성
+- **대표 (CEO)**: 교육 현장 20년 경험, 전략과 비전을 이끄는 리더
+- **AI 개발자 2명**: 대규모 언어모델과 AI 솔루션 연구
+- **백엔드 개발자 1명**: 안정적인 데이터 처리와 서버 아키텍처
+- **마케팅/데이터 분석 1명**: 학습 데이터 기반 전략 수립
+- **디자이너 1명**: 직관적이고 감각적인 UX/UI 구현
+- **프론트엔드 개발자 1명**: 웹/앱 인터페이스 개발
+- **라벨링 전문가 1명**: AI 학습 데이터셋 구축 및 정제
+- **운영 인력 1명**: 현장 운영 및 사용자 피드백
+
+## 🛠️ Our Products
+
+SN 생태계를 구성하는 핵심 AI 제품들입니다.
+
+### 🔗 SNarlink
+**초정밀 학습 분석 방화벽 시스템**
+- 온라인 학습 활동을 데이터화하여 집중도 측정
+- 학부모/교사에게 투명한 리포트 제공
+
+### 🤖 SNarGPT
+**수능 수학 문제를 99%+ 정확도로 풀이**
+- 정확한 개념 설명과 단계별 풀이
+- 실제 수험생에게 필요한 피드백 제공
+
+### 🎯 SNarGO
+**수능문제 풀이 전문 AI**
+- 평가원 기출부터 최신 모의고사까지 정밀 해설
+- 원하는 방식으로 빠르고 정확한 풀이
+
+### ⚡ SNarGEN
+**기존 교육 업체의 1% 비용으로 고퀄 문제 생성**
+- 평가원 수준의 문항 자동 생성
+- 콘텐츠 제작의 패러다임 전환
+
+### 📱 SNarOCR
+**촬영만 하면 자동 인식·분석하는 시험지 OCR**
+- 문제 영역 자동 인식 및 정규화
+- 문제은행 연동으로 즉시 학습 관리
+
+## 🌟 교육의 새로운 패러다임을 설계합니다
+
+우리는 작은 팀이지만 변화의 파급력은 결코 작지 않습니다. 우리의 목표는 단 하나, **모든 학생이 자신만의 맞춤형 학습 여정**을 걷도록 돕는 것입니다.
+
+---
+
+**SN Academy AI · 초개인화 학습 혁신**`,
     category: 'startup',
     tags: ['AI교육', '스타트업', '에듀테크'],
     author: 'SN Academy',
