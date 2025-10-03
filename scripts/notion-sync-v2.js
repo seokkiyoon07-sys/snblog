@@ -125,22 +125,28 @@ async function fetchNotionPosts() {
       // 페이지 속성 가져오기
       const properties = page.properties;
       
+      const category = properties.Category?.select?.name?.toLowerCase() || 'originals';
+      const postId = pageId.replace(/-/g, '');
+      
       const post = {
-        id: pageId.replace(/-/g, ''),
+        id: postId,
         title: properties.Title?.title?.[0]?.plain_text || '제목 없음',
         excerpt: properties.Excerpt?.rich_text?.[0]?.plain_text || '',
         content: content,
-        category: properties.Category?.select?.name?.toLowerCase() || 'originals',
+        category: category,
         tags: properties.Tags?.multi_select?.map(tag => tag.name) || [],
         author: properties.Author?.rich_text?.[0]?.plain_text || 'SN Academy',
         date: properties.Created?.created_time?.split('T')[0] || new Date().toISOString().split('T')[0],
         readTime: properties.ReadTime?.number || Math.ceil(content.split(' ').length / 200),
         featured: properties.Featured?.checkbox || false,
-        thumbnail: properties.Thumbnail?.url || '',
-        url: `/${properties.Category?.select?.name?.toLowerCase() || 'originals'}/${pageId.replace(/-/g, '')}`
+        thumbnail: properties.Thumbnail?.url || null,
+        url: `/${category}/${postId}`
       };
       
-      console.log('생성된 포스트:', post.title, '카테고리:', post.category);
+      console.log('생성된 포스트:', post.title);
+      console.log('- 카테고리:', post.category);
+      console.log('- URL:', post.url);
+      console.log('- 썸네일:', post.thumbnail);
       posts.push(post);
     }
     
