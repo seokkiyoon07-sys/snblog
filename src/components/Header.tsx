@@ -131,6 +131,7 @@ export default function Header() {
               { name: '입시정보', href: '/admissions' },
               { name: '후기', href: '/reviews' },
               { name: 'SN Originals', href: '/originals' },
+              { name: '✏️ 에디터', href: '/blog-editor' },
             ].map((item) => (
               <a
                 key={item.name}
@@ -237,6 +238,7 @@ export default function Header() {
                 { name: '입시정보', href: '/admissions' },
                 { name: '후기', href: '/reviews' },
                 { name: 'SN Originals', href: '/originals' },
+                { name: '✏️ 에디터', href: '/blog-editor' },
               ].map((item) => (
                 <a
                   key={item.name}
