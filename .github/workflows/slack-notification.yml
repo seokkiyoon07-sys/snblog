@@ -1,4 +1,4 @@
-name: Jandi Notification
+name: Slack Blog Notification
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - 'src/app/**/page.tsx'
 
 jobs:
-  notify:
+  notify-slack:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,7 +33,7 @@ jobs:
             echo "pages_modified=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Send to Jandi
+      - name: Send to Slack
         if: steps.changes.outputs.posts_modified == 'true' || steps.changes.outputs.pages_modified == 'true'
         run: |
           # Get commit details
@@ -45,40 +45,52 @@ jobs:
           if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ "${{ steps.changes.outputs.pages_modified }}" == "true" ]; then
             BODY="🔄 블로그 콘텐츠가 업데이트되었습니다!"
             DESCRIPTION="새로운 글이 추가되고 데이터가 업데이트되었습니다."
-            COLOR="#FF6B6B"
+            COLOR="warning"
           elif [ "${{ steps.changes.outputs.posts_modified }}" == "true" ]; then
             BODY="📊 블로그 데이터가 업데이트되었습니다!"
             DESCRIPTION="포스트 정보가 수정되었습니다."
-            COLOR="#4ECDC4"
+            COLOR="good"
           else
             BODY="📝 새로운 블로그 글이 추가되었습니다!"
             DESCRIPTION="새로운 페이지가 생성되었습니다."
-            COLOR="#45B7D1"
+            COLOR="good"
           fi
           
-          # Create Jandi payload
-          curl -X POST "https://wh.jandi.com/connect-api/webhook/13116580/408c7be61ec340cc632a4816f56a4442" \
+          # Send to Slack
+          curl -X POST "${{ secrets.SLACK_WEBHOOK_URL }}" \
             -H "Content-Type: application/json" \
             -d "{
-              \"body\": \"$BODY\",
-              \"connectColor\": \"$COLOR\",
-              \"connectInfo\": [
+              \"text\": \"$BODY\",
+              \"attachments\": [
                 {
+                  \"color\": \"$COLOR\",
                   \"title\": \"📝 SN Academy Blog\",
-                  \"description\": \"$DESCRIPTION\",
-                  \"imageUrl\": \"https://blog.snacademy.co.kr/logo.png\"
-                }
-              ],
-              \"connectButtons\": [
-                {
-                  \"name\": \"블로그 보기\",
-                  \"type\": \"link\",
-                  \"url\": \"https://blog.snacademy.co.kr\"
-                },
-                {
-                  \"name\": \"커밋 보기\",
-                  \"type\": \"link\",
-                  \"url\": \"$COMMIT_URL\"
+                  \"text\": \"$DESCRIPTION\",
+                  \"thumb_url\": \"https://blog.snacademy.co.kr/logo.png\",
+                  \"fields\": [
+                    {
+                      \"title\": \"작성자\",
+                      \"value\": \"$COMMIT_AUTHOR\",
+                      \"short\": true
+                    },
+                    {
+                      \"title\": \"커밋 메시지\",
+                      \"value\": \"$COMMIT_MSG\",
+                      \"short\": false
+                    }
+                  ],
+                  \"actions\": [
+                    {
+                      \"type\": \"button\",
+                      \"text\": \"블로그 보기\",
+                      \"url\": \"https://blog.snacademy.co.kr\"
+                    },
+                    {
+                      \"type\": \"button\",
+                      \"text\": \"커밋 보기\",
+                      \"url\": \"$COMMIT_URL\"
+                    }
+                  ]
                 }
               ]
             }"
