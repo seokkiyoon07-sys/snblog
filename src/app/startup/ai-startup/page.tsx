@@ -71,18 +71,41 @@ export default function AIStartupPage() {
             </p>
             
             {/* 통계 카드들 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-200">
-                <div className="text-2xl font-bold text-sn-primary mb-1">8명</div>
-                <div className="text-slate-600 text-sm">강력한 팀</div>
+            <div className="max-w-4xl mx-auto">
+              {/* 첫 번째 행 - 2개 (학원 정보) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <a 
+                  href="https://www.snacademy.co.kr" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-xl p-4 shadow-lg border-2 border-sn-primary hover:shadow-xl transition-all duration-300 cursor-pointer"
+                >
+                  <div className="text-lg font-bold text-sn-primary mb-1">SN독학기숙학원</div>
+                  <div className="text-slate-500 text-sm">양평점</div>
+                </a>
+                <a 
+                  href="/coming-soon" 
+                  className="bg-white rounded-xl p-4 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 cursor-pointer"
+                >
+                  <div className="text-lg font-bold text-sn-primary mb-1">SN독학재수학원</div>
+                  <div className="text-slate-500 text-sm">대치점 예정</div>
+                </a>
               </div>
-              <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-200">
-                <div className="text-2xl font-bold text-sn-primary mb-1">5개</div>
-                <div className="text-slate-600 text-sm">AI 제품</div>
-              </div>
-              <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-200">
-                <div className="text-2xl font-bold text-sn-primary mb-1">12년</div>
-                <div className="text-slate-600 text-sm">교육 경험</div>
+              
+              {/* 두 번째 행 - 3개 */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-200">
+                  <div className="text-2xl font-bold text-sn-primary mb-1">8명</div>
+                  <div className="text-slate-600 text-sm">AI 개발팀</div>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-200">
+                  <div className="text-2xl font-bold text-sn-primary mb-1">5개</div>
+                  <div className="text-slate-600 text-sm">AI 제품</div>
+                </div>
+                <div className="bg-white rounded-xl p-4 shadow-lg border border-slate-200">
+                  <div className="text-2xl font-bold text-sn-primary mb-1">12년</div>
+                  <div className="text-slate-600 text-sm">교육 경험</div>
+                </div>
               </div>
             </div>
           </div>
@@ -178,43 +201,43 @@ export default function AIStartupPage() {
       {/* 비전과 미션 */}
       <section className="px-6 md:px-10 lg:px-16 py-12 bg-white">
         <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="space-y-12">
             {/* 비전 */}
-            <div className="text-center lg:text-left">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 mb-4">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-4">🌟 우리의 비전</h3>
-              <blockquote className="text-lg font-semibold text-slate-700 italic leading-relaxed">
-                "AI로 학생의 미래를 더 깊고, 더 정확하게, 더 빠르게 열어주는 것."
-              </blockquote>
+              <p className="text-lg font-semibold text-slate-700 leading-relaxed max-w-4xl mx-auto">
+                AI의 기술과 인간의 자기주도학습 능력을 결합한 관리로, 학생의 지적 성장을 로켓처럼 가속합니다.
+              </p>
             </div>
 
             {/* 미션 */}
-            <div>
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mx-auto lg:mx-0 mb-4">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-4">🎯 우리의 미션</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
+              <ul className="space-y-3 max-w-4xl mx-auto">
+                <li className="flex items-start justify-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <span className="text-slate-600 text-sm">교육의 <strong>불균형·비효율·정보 격차</strong>를 해소합니다</span>
                 </li>
-                <li className="flex items-start">
+                <li className="flex items-start justify-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <span className="text-slate-600 text-sm">학생에게는 <strong>맞춤형 학습 경험</strong>을 제공합니다</span>
                 </li>
-                <li className="flex items-start">
+                <li className="flex items-start justify-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <span className="text-slate-600 text-sm">교사·학부모에게는 <strong>투명한 학습 데이터 분석</strong>을 제공합니다</span>
                 </li>
-                <li className="flex items-start">
+                <li className="flex items-start justify-center">
                   <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <span className="text-slate-600 text-sm">교육 시장에는 <strong>혁신적인 AI 도구</strong>를 제공합니다</span>
                 </li>
@@ -245,7 +268,8 @@ export default function AIStartupPage() {
               { role: "디자이너 1명", desc: "직관적이고 감각적인 UX/UI 구현", icon: "🎨" },
               { role: "프론트엔드 개발자 1명", desc: "웹/앱 인터페이스 개발", icon: "💻" },
               { role: "라벨링 전문가 1명", desc: "AI 학습 데이터셋 구축 및 정제", icon: "🏷️" },
-              { role: "운영 인력 1명", desc: "현장 운영 및 사용자 피드백", icon: "🔧" }
+              { role: "운영 인력 1명", desc: "현장 운영 및 사용자 피드백", icon: "🔧" },
+              { role: "SN독학기숙학원 임직원", desc: "양평점 현장 운영 및 학생 관리", icon: "🏫", special: true }
             ].map((member, index) => (
               <div key={index} className="bg-white rounded-xl p-4 shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
                 <div className="text-center">
@@ -281,27 +305,28 @@ export default function AIStartupPage() {
                   "온라인 학습 활동을 데이터화하여 집중도 측정",
                   "학부모/교사에게 투명한 리포트 제공"
                 ],
-                color: "from-purple-500 to-purple-600"
-              },
-              {
-                name: "SNarGPT",
-                icon: "🤖",
-                title: "수능 수학 문제를 99%+ 정확도로 풀이",
-                features: [
-                  "정확한 개념 설명과 단계별 풀이",
-                  "실제 수험생에게 필요한 피드백 제공"
-                ],
-                color: "from-blue-500 to-blue-600"
+                color: "from-purple-500 to-purple-600",
+                link: "/columns/SNarlink"
               },
               {
                 name: "SNarGO",
                 icon: "🎯",
-                title: "수능문제 풀이 전문 AI",
+                title: "수학문제풀이 AI",
                 features: [
-                  "평가원 기출부터 최신 모의고사까지 정밀 해설",
-                  "원하는 방식으로 빠르고 정확한 풀이"
+                  "수능 수학문제를 99%+ 확률로 풀이",
+                  "정확한 개념 설명과 단계별 풀이"
                 ],
                 color: "from-green-500 to-green-600"
+              },
+              {
+                name: "SNarGPT",
+                icon: "🤖",
+                title: "질문 받아주는 AI",
+                features: [
+                  "다양한 학습 관련 질문에 답변",
+                  "개인별 맞춤형 학습 가이드 제공"
+                ],
+                color: "from-blue-500 to-blue-600"
               },
               {
                 name: "SNarGEN",
@@ -323,27 +348,37 @@ export default function AIStartupPage() {
                 ],
                 color: "from-pink-500 to-pink-600"
               }
-            ].map((product, index) => (
-              <div key={index} className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300">
-                <div className="flex items-start mb-4">
-                  <div className={`w-12 h-12 bg-gradient-to-br ${product.color} rounded-xl flex items-center justify-center mr-3 flex-shrink-0`}>
-                    <span className="text-lg">{product.icon}</span>
+            ].map((product, index) => {
+              const ProductCard = product.link ? 'a' : 'div';
+              const productProps = product.link ? {
+                href: product.link,
+                className: "bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 cursor-pointer block"
+              } : {
+                className: "bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300"
+              };
+              
+              return (
+                <ProductCard key={index} {...productProps}>
+                  <div className="flex items-start mb-4">
+                    <div className={`w-12 h-12 bg-gradient-to-br ${product.color} rounded-xl flex items-center justify-center mr-3 flex-shrink-0`}>
+                      <span className="text-lg">{product.icon}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-1">{product.name}</h3>
+                      <p className="text-sm font-semibold text-slate-700">{product.title}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-1">{product.name}</h3>
-                    <p className="text-sm font-semibold text-slate-700">{product.title}</p>
-                  </div>
-                </div>
-                <ul className="space-y-2">
-                  {product.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <div className={`w-1.5 h-1.5 bg-gradient-to-r ${product.color} rounded-full mt-2 mr-2 flex-shrink-0`}></div>
-                      <span className="text-slate-600 text-xs">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                  <ul className="space-y-2">
+                    {product.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start">
+                        <div className={`w-1.5 h-1.5 bg-gradient-to-r ${product.color} rounded-full mt-2 mr-2 flex-shrink-0`}></div>
+                        <span className="text-slate-600 text-xs">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </ProductCard>
+              );
+            })}
           </div>
         </div>
       </section>
