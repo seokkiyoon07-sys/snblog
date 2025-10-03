@@ -1,3 +1,27 @@
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const postId = params.id;
+  
+  return {
+    title: `SN AI 스타트업 상세 | ${postId} | SN Academy Blog`,
+    description: 'SN Academy AI 스타트업의 상세 정보를 확인하세요. 교육 AI 혁신과 에듀테크 솔루션에 대한 자세한 내용을 제공합니다.',
+    keywords: 'SN AI 스타트업, 교육 AI, 에듀테크, AI 교육, 초개인화 학습, SN Academy',
+    openGraph: {
+      title: `SN AI 스타트업 상세 | ${postId}`,
+      description: 'SN Academy AI 스타트업의 상세 정보를 확인하세요.',
+      type: 'article',
+      locale: 'ko_KR',
+      url: `https://blog.snacademy.co.kr/startup/${postId}`,
+    },
+    twitter: {
+      card: 'summary',
+      title: `SN AI 스타트업 상세 | ${postId}`,
+      description: 'SN Academy AI 스타트업의 상세 정보를 확인하세요.',
+    },
+  };
+}
+
 export default function StartupDetailPage({ params }: { params: { id: string } }) {
   const postId = params.id;
   

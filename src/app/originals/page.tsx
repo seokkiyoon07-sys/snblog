@@ -7,6 +7,21 @@ export const metadata = {
     description: 'SN Originals에서 수능 고전문학을 재미있게 배우세요. AI 그림과 친절한 해설로 수능 국어 감각을 기를 수 있습니다.',
     type: 'website',
     locale: 'ko_KR',
+    url: 'https://blog.snacademy.co.kr/originals',
+    images: [
+      {
+        url: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
+        width: 1280,
+        height: 720,
+        alt: 'SN Originals - 고전문학 시리즈',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SN Originals | 보기만 해도 수능 점수가 오르는 컨텐츠',
+    description: 'SN Originals에서 수능 고전문학을 재미있게 배우세요. AI 그림과 친절한 해설로 수능 국어 감각을 기를 수 있습니다.',
+    images: ['https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg'],
   },
 };
 
