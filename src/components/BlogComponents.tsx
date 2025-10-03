@@ -156,7 +156,6 @@ export function TOC() {
   
   return (
     <nav className="sticky top-24 hidden xl:block w-64 text-sm leading-6">
-      <h2 className="mb-3 font-semibold text-gray-800">On this page</h2>
       <ul className="space-y-1">
         {items.map((h) => (
           <li key={h.id} className={h.level === 3 ? "ml-4" : ""}>
