@@ -25,18 +25,19 @@ export const metadata = {
   },
 };
 
-// 캐시된 컴포넌트 생성 함수
+// 캐시된 컴포넌트 생성 함수 - 캐시 버스팅 추가
 const getCachedPageContent = unstable_cache(
   async () => {
     return {
       title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
+      cacheVersion: 'v2.0.1' // 캐시 버스팅을 위한 버전
     };
   },
-  ['snarlink-page-content'],
+  ['snarlink-page-content-v2'], // 캐시 키 변경
   {
-    tags: ['snarlink', 'columns', 'pages'],
-    revalidate: 3600 // 1시간
+    tags: ['snarlink', 'columns', 'pages', 'cache-bust-v2'],
+    revalidate: false // 캐시 비활성화
   }
 );
 

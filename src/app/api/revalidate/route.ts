@@ -21,6 +21,7 @@ export async function POST(request: NextRequest) {
     revalidateTag('pages')
     revalidateTag('startup')
     revalidateTag('originals')
+    revalidateTag('cache-bust-v2') // 새로운 캐시 버스팅 태그
     
     return NextResponse.json({ 
       revalidated: true, 
