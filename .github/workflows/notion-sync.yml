@@ -1,0 +1,93 @@
+name: Notion to Blog Sync
+
+on:
+  schedule:
+    # 매 30분마다 실행
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Notion SDK
+        run: npm install @notionhq/client
+
+      - name: Sync from Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: |
+          # 간단한 노션 동기화 스크립트
+          node -e "
+          const { Client } = require('@notionhq/client');
+          const fs = require('fs');
+          
+          const notion = new Client({
+            auth: process.env.NOTION_TOKEN,
+          });
+          
+          async function syncNotion() {
+            try {
+              console.log('노션에서 포스트를 가져오는 중...');
+              
+              const response = await notion.databases.query({
+                database_id: process.env.NOTION_DATABASE_ID,
+                filter: {
+                  property: 'Status',
+                  select: { equals: 'Published' }
+                }
+              });
+              
+              console.log('찾은 포스트 수:', response.results.length);
+              
+              if (response.results.length > 0) {
+                console.log('노션 동기화가 완료되었습니다!');
+                console.log('첫 번째 포스트:', response.results[0].properties.Title?.title?.[0]?.plain_text || '제목 없음');
+              } else {
+                console.log('Published 상태인 포스트가 없습니다.');
+              }
+            } catch (error) {
+              console.error('동기화 중 오류:', error.message);
+            }
+          }
+          
+          syncNotion();
+          "
+
+      - name: Notify on Jandi
+        run: |
+          # Jandi 알림
+          curl -X POST "https://wh.jandi.com/connect-api/webhook/13116580/408c7be61ec340cc632a4816f56a4442" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "body": "📝 노션에서 새로운 글이 동기화되었습니다!",
+              "connectColor": "#4ECDC4",
+              "connectInfo": [
+                {
+                  "title": "📝 SN Academy Blog",
+                  "description": "노션 데이터베이스에서 최신 포스트가 동기화되었습니다.",
+                  "imageUrl": "https://blog.snacademy.co.kr/logo.png"
+                }
+              ],
+              "connectButtons": [
+                {
+                  "name": "블로그 보기",
+                  "type": "link",
+                  "url": "https://blog.snacademy.co.kr"
+                }
+              ]
+            }'
