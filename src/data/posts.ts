@@ -103,6 +103,21 @@ export const allPosts: Post[] = [
     author: 'SN Academy',
     published: true
   },
+  // SN Originals 소개글 (고정)
+  {
+    id: 'sn-originals-intro',
+    title: 'SN Originals 고전문학 시리즈를 소개합니다',
+    excerpt: '최재천 선생님의 "알면 사랑한다"는 말처럼, 고전문학도 충분히 알아가는 과정이 필요합니다. SN Originals는 AI 기술을 활용해 고전문학을 만화영화처럼 재미있게 접할 수 있도록 도와드립니다.',
+    date: '2024-10-03',
+    readTime: '8 min read',
+    tags: ['SN Originals', '고전문학', '소개', 'AI교육'],
+    category: 'SN Originals',
+    url: '/originals/intro',
+    thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
+    author: 'SN Academy',
+    featured: true,
+    published: true
+  },
   // AI 스타트업 글
   {
     id: 'ai-startup',
