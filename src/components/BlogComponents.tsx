@@ -115,22 +115,6 @@ export function SuccessBox({ children }: { children: React.ReactNode }) {
   );
 }
 
-// CodeBlock 컴포넌트 (코드 블록)
-export function CodeBlock({ children, language }: { children: React.ReactNode; language?: string }) {
-  return (
-    <div className="bg-gray-900 rounded-lg p-4 my-6 overflow-x-auto">
-      {language && (
-        <div className="text-gray-400 text-sm mb-2 font-mono">
-          {language}
-        </div>
-      )}
-      <pre className="text-gray-100 font-mono text-sm">
-        <code>{children}</code>
-      </pre>
-    </div>
-  );
-}
-
 // Section 컴포넌트 (섹션 구분)
 export function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
