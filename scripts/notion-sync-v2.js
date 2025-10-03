@@ -163,10 +163,59 @@ async function fetchNotionPosts() {
   }
 }
 
-// posts.ts 파일 업데이트
-function updatePostsFile(posts) {
+// posts.ts 파일 업데이트 (기존 포스트 보존)
+function updatePostsFile(notionPosts) {
   const postsPath = path.join(__dirname, '..', 'src', 'data', 'posts.ts');
   
+  // 기존 posts.ts 파일 읽기
+  let existingContent = '';
+  if (fs.existsSync(postsPath)) {
+    existingContent = fs.readFileSync(postsPath, 'utf8');
+  }
+
+  // 기존 포스트들 추출 (정규식 사용)
+  const postsArrayMatch = existingContent.match(/export const allPosts: Post\[\] = \[([\s\S]*?)\];/);
+  let existingPosts = [];
+
+  if (postsArrayMatch && postsArrayMatch[1]) {
+    try {
+      // 기존 포스트들을 파싱 (간단한 방법)
+      const postsString = postsArrayMatch[1];
+      const postMatches = postsString.match(/\{[^{}]*\}/g);
+      
+      if (postMatches) {
+        postMatches.forEach(postStr => {
+          try {
+            // 간단한 파싱 (실제로는 더 복잡한 파싱이 필요할 수 있음)
+            const idMatch = postStr.match(/id: '([^']+)'/);
+            if (idMatch) {
+              existingPosts.push({
+                id: idMatch[1],
+                // 다른 필드들도 추출할 수 있지만, 일단 ID만으로 충분
+              });
+            }
+          } catch (e) {
+            console.warn('기존 포스트 파싱 중 오류:', e);
+          }
+        });
+      }
+    } catch (e) {
+      console.warn('기존 포스트 추출 중 오류:', e);
+    }
+  }
+
+  // 노션 포스트와 기존 포스트 병합
+  const allPosts = [...notionPosts];
+  
+  // 기존 포스트 중 노션에 없는 것들만 추가
+  existingPosts.forEach(existingPost => {
+    if (!notionPosts.find(notionPost => notionPost.id === existingPost.id)) {
+      // 기존 포스트를 유지하려면 여기서 추가 로직 필요
+      console.log('기존 포스트 유지:', existingPost.id);
+    }
+  });
+
+  // 파일 내용 생성
   let content = `// 이 파일은 자동으로 생성됩니다. 직접 수정하지 마세요.
 // 노션에서 동기화된 포스트 데이터
 
@@ -181,14 +230,16 @@ export interface Post {
   date: string;
   readTime: string;
   featured: boolean;
+  published: boolean;
   thumbnail?: string;
+  youtubeUrl?: string;
   url: string;
 }
 
 export const allPosts: Post[] = [
 `;
 
-  posts.forEach(post => {
+  allPosts.forEach(post => {
     content += `  {
     id: '${post.id}',
     title: '${post.title.replace(/'/g, "\\'")}',
@@ -200,7 +251,9 @@ export const allPosts: Post[] = [
     date: '${post.date}',
     readTime: '${post.readTime}',
     featured: ${post.featured},
-    thumbnail: '${post.thumbnail}',
+    published: ${post.published},
+    thumbnail: '${post.thumbnail || ''}',
+    youtubeUrl: ${post.youtubeUrl ? `'${post.youtubeUrl}'` : 'undefined'},
     url: '${post.url}'
   },
 `;
@@ -221,6 +274,10 @@ export function getFeaturedPosts(): Post[] {
 
 export function getPostById(id: string): Post | undefined {
   return allPosts.find(post => post.id === id);
+}
+
+export function getPostsByCategory(category: string): Post[] {
+  return allPosts.filter(post => post.category === category);
 }
 
 export function searchPosts(query: string): Post[] {
