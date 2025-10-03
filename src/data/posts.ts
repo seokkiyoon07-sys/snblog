@@ -214,7 +214,7 @@ This work inherits the East Asian tradition of popular literature while reflecti
     category: 'originals',
     tags: ['고전문학', '갑민가', '민중문학', '사회비판'],
     author: 'SN Academy',
-    date: '2025-09-28',
+    date: '2025-09-22',
     readTime: '6',
     featured: false,
     published: true,
@@ -281,7 +281,7 @@ This work inherits the East Asian tradition of satirical literature while reflec
   },
   {
     id: 'bukcheonga',
-    title: '북천가',
+    title: '좋긴 한데 유배 생활 이래도 됨? 고전문학 「북천가」',
     excerpt: '조선 후기 민중의 아픔과 저항을 담은 「북천가」로 진정한 문학의 힘을 만나보세요.',
     content: `## 「북천가」- 민중 문학의 진수
 
@@ -338,7 +338,7 @@ This work inherits the East Asian tradition of popular literature while reflecti
   },
   {
     id: 'gwandong-byeolgok',
-    title: '관동별곡',
+    title: '정철의 강원도 브이로그 (고전문학 「관동별곡」)',
     excerpt: '정철의 대표작 「관동별곡」으로 조선 가사 문학의 아름다움을 만나보세요.',
     content: `## 「관동별곡」- 조선 가사 문학의 백미
 
@@ -385,7 +385,7 @@ This work inherits the East Asian tradition of nature poetry while achieving a u
     category: 'originals',
     tags: ['고전문학', '관동별곡', '정철', '가사문학'],
     author: 'SN Academy',
-    date: '2025-09-22',
+    date: '2025-09-28',
     readTime: '12',
     featured: false,
     published: true,

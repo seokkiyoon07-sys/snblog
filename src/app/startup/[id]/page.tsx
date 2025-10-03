@@ -113,8 +113,8 @@ export default async function StartupPostPage({ params }: PostPageProps) {
             </div>
           </div>
 
-          {/* 썸네일 */}
-          {post.thumbnail && (
+          {/* 썸네일 (YouTube 영상이 없을 때만) */}
+          {post.thumbnail && !post.youtubeUrl && (
             <div className="mb-12">
               <Image
                 src={post.thumbnail}
