@@ -185,12 +185,16 @@ export default async function StartupPostPage({ params }: PostPageProps) {
 
       {/* AI 학습 데이터 */}
       <AIDataGenerator
-        data={{
-          learningObjectives: ['AI 교육 기술 이해', '스타트업 창업 과정 학습', '혁신적인 교육 솔루션 탐구'],
+        content={{
+          title: post.title,
+          description: post.excerpt,
+          author: post.author,
+          category: post.category,
+          tags: post.tags,
+          content: post.content,
           difficulty: 'intermediate',
           subject: '기술',
-          keywords: post.tags.join(', '),
-          estimatedTime: post.readTime,
+          learningObjectives: ['AI 교육 기술 이해', '스타트업 창업 과정 학습', '혁신적인 교육 솔루션 탐구'],
         }}
       />
     </main>

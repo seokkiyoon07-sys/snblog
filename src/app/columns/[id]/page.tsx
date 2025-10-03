@@ -185,12 +185,16 @@ export default async function ColumnsPostPage({ params }: PostPageProps) {
 
       {/* AI 학습 데이터 */}
       <AIDataGenerator
-        data={{
-          learningObjectives: ['교육 전문가의 인사이트 학습', '교육 트렌드 이해', '실용적인 교육 조언 습득'],
+        content={{
+          title: post.title,
+          description: post.excerpt,
+          author: post.author,
+          category: post.category,
+          tags: post.tags,
+          content: post.content,
           difficulty: 'intermediate',
           subject: '교육',
-          keywords: post.tags.join(', '),
-          estimatedTime: post.readTime,
+          learningObjectives: ['교육 전문가의 인사이트 학습', '교육 트렌드 이해', '실용적인 교육 조언 습득'],
         }}
       />
     </main>

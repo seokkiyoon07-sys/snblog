@@ -185,12 +185,16 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
 
       {/* AI 학습 데이터 */}
       <AIDataGenerator
-        data={{
-          learningObjectives: ['고전문학 작품 이해', '수능 국어 감각 향상', '문학적 감상 능력 개발'],
+        content={{
+          title: post.title,
+          description: post.excerpt,
+          author: post.author,
+          category: post.category,
+          tags: post.tags,
+          content: post.content,
           difficulty: 'intermediate',
           subject: '국어',
-          keywords: post.tags.join(', '),
-          estimatedTime: post.readTime,
+          learningObjectives: ['고전문학 작품 이해', '수능 국어 감각 향상', '문학적 감상 능력 개발'],
         }}
       />
     </main>
