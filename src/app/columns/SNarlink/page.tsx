@@ -29,19 +29,25 @@ export const metadata = {
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-// 캐시된 컴포넌트 생성 함수 - 캐시 버스팅 추가
+// Vercel BUILD SHA를 사용한 동적 캐시 키 생성
+const BUILD = process.env.VERCEL_GIT_COMMIT_SHA || 'local-dev';
+const CACHE_KEY = `snarlink-page-content-${BUILD}`;
+const CACHE_TAGS = ['snarlink', 'columns', 'pages', `build:${BUILD}`];
+
+// 캐시된 컴포넌트 생성 함수 - BUILD SHA 기반 캐시 키
 const getCachedPageContent = unstable_cache(
   async () => {
     return {
       title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
       lastUpdated: new Date().toISOString(),
-      cacheVersion: 'v2.0.1' // 캐시 버스팅을 위한 버전
+      buildSha: BUILD,
+      cacheVersion: 'v3.0.0' // BUILD SHA 기반 버전
     };
   },
-  ['snarlink-page-content-v2'], // 캐시 키 변경
+  [CACHE_KEY], // 동적 캐시 키
   {
-    tags: ['snarlink', 'columns', 'pages', 'cache-bust-v2'],
-    revalidate: false // 캐시 비활성화
+    tags: CACHE_TAGS,
+    revalidate: 3600 // 1시간
   }
 );
 

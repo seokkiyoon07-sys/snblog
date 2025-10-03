@@ -10,6 +10,9 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    // Get current build SHA
+    const BUILD = process.env.VERCEL_GIT_COMMIT_SHA || 'local-dev'
+    
     // Revalidate specific paths
     revalidatePath('/columns/SNarlink')
     revalidatePath('/startup/ai-startup')
@@ -21,13 +24,14 @@ export async function POST(request: NextRequest) {
     revalidateTag('pages')
     revalidateTag('startup')
     revalidateTag('originals')
-    revalidateTag('cache-bust-v2') // 새로운 캐시 버스팅 태그
+    revalidateTag(`build:${BUILD}`) // BUILD SHA 기반 태그
     
     return NextResponse.json({ 
       revalidated: true, 
       now: Date.now(),
+      buildSha: BUILD,
       paths: ['/columns/SNarlink', '/startup/ai-startup', '/originals/sn-originals-intro'],
-      tags: ['snarlink', 'columns', 'pages', 'startup', 'originals']
+      tags: ['snarlink', 'columns', 'pages', 'startup', 'originals', `build:${BUILD}`]
     })
   } catch (err) {
     return NextResponse.json({ message: 'Error revalidating' }, { status: 500 })
