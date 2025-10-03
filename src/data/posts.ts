@@ -13,6 +13,7 @@ export interface Post {
   readTime: string;
   featured: boolean;
   thumbnail?: string;
+  youtubeUrl?: string;
   url: string;
 }
 
@@ -105,7 +106,23 @@ URL 단위 예외 처리도 가능합니다. 현재는 베타 버전이지만, U
     readTime: '5',
     featured: false,
     thumbnail: 'null',
+    youtubeUrl: null,
     url: '/columns/2818205a96df801bae59cd1dafaf26b9'
+  },
+  {
+    id: 'sokmieungok',
+    title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」)',
+    excerpt: '보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 6탄으로 「속미인곡」을 준비했습니다.',
+    content: `「속미인곡」을 준비했습니다. 1588~1589년 경 정철이 고향인 전남 창평에 우거하며 「사미인곡」에 이어 지은 가사입니다.`,
+    category: 'originals',
+    tags: ['고전문학', '속미인곡', '정철', '가사'],
+    author: 'SN Academy',
+    date: '2025-10-01',
+    readTime: '8',
+    featured: false,
+    thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
+    youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
+    url: '/originals/sokmieungok'
   },
 ];
 
