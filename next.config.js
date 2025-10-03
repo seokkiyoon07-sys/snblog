@@ -1,11 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    // Turbopack 비활성화
-    turbo: false,
-  },
-  // 빌드 최적화
-  swcMinify: true,
   // 이미지 최적화
   images: {
     domains: ['images.unsplash.com', 'blog.snacademy.co.kr'],

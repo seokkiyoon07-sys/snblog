@@ -108,7 +108,7 @@ URL 단위 예외 처리도 가능합니다. 현재는 베타 버전이지만, U
     featured: false,
     published: true,
     thumbnail: 'null',
-    youtubeUrl: null,
+    youtubeUrl: undefined,
     url: '/columns/2818205a96df801bae59cd1dafaf26b9'
   },
   {
