@@ -124,6 +124,10 @@ export function getPostById(id: string): Post | undefined {
   return allPosts.find(post => post.id === id);
 }
 
+export function getPostsByCategory(category: string): Post[] {
+  return allPosts.filter(post => post.category === category);
+}
+
 export function searchPosts(query: string): Post[] {
   const lowercaseQuery = query.toLowerCase();
   return allPosts.filter(post => 
