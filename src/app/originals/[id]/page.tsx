@@ -327,9 +327,30 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
                 </div>
               </div>
             ) : (
-            <div className="whitespace-pre-wrap">
-              {post.content}
-            </div>
+            <div 
+              className="prose prose-slate max-w-none"
+              dangerouslySetInnerHTML={{ 
+                __html: post.content
+                  // 링크 변환을 가장 먼저 처리
+                  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-sn-primary hover:text-sn-primary-dark underline font-semibold" target="_blank" rel="noopener noreferrer">$1</a>')
+                  // 제목 변환
+                  .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-6 text-gray-900">$1</h1>')
+                  .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-semibold mb-4 text-gray-800">$1</h2>')
+                  .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mb-3 text-gray-700">$1</h3>')
+                  .replace(/^#### (.*$)/gim, '<h4 class="text-lg font-semibold mb-2 text-gray-700">$1</h4>')
+                  // 강조 텍스트 변환
+                  .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
+                  .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
+                  // 문단 처리 - 더 간단하게
+                  .split('\n\n')
+                  .map(paragraph => {
+                    if (paragraph.trim() === '') return '';
+                    if (paragraph.startsWith('#')) return paragraph;
+                    return `<p class="mb-4 text-gray-700 leading-relaxed">${paragraph}</p>`;
+                  })
+                  .join('')
+              }}
+            />
             )}
           </div>
         </div>

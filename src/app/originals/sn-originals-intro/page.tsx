@@ -178,6 +178,18 @@ export default function OriginalsIntroPage() {
                 얻기 위한 자극적 콘텐츠 제작보다는 시간이 오래 지난 시점에 보더라도 재미있게 볼 수 있는, 잔잔하지만 
                 미소 짓게 되는 콘텐츠를 만들고자 하는 마음이 있습니다.
               </p>
+              <p className="text-gray-700 leading-relaxed">
+                <strong className="font-semibold text-gray-900">📺 </strong>
+                <a 
+                  href="https://www.youtube.com/@SN_gisuk_original" 
+                  className="text-sn-primary hover:text-sn-primary-dark underline font-semibold" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  SN 독학기숙학원 YouTube 채널
+                </a>
+                에서 고전문학 시리즈를 확인해보세요!
+              </p>
             </Section>
 
             <Section title="🏫 SN아카데미의 약속">
