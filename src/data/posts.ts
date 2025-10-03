@@ -394,22 +394,6 @@ This work inherits the East Asian tradition of nature poetry while achieving a u
     url: '/originals/gwandong-byeolgok'
   },
   {
-    id: 'ai-startup-vision',
-    title: 'SN AI 스타트업의 비전',
-    excerpt: 'SN Academy AI 스타트업의 비전과 목표를 소개합니다.',
-    content: `SN Academy AI 스타트업의 비전과 목표를 소개합니다.`,
-    category: 'startup',
-    tags: ['AI교육', '스타트업', '비전'],
-    author: 'SN Academy',
-    date: '2025-09-20',
-    readTime: '7',
-    featured: false,
-    published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',
-    youtubeUrl: undefined,
-    url: '/startup/ai-startup-vision'
-  },
-  {
     id: 'ai-startup-intro',
     title: 'SN AI 스타트업 소개',
     excerpt: 'SN Academy AI 스타트업에 대한 전반적인 소개입니다.',
