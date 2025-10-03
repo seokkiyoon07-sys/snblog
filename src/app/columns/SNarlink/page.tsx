@@ -11,6 +11,7 @@ import {
   Callout,
   CodeBlock
 } from '@/components/BlogComponents';
+import { TestComponent } from '@/components/TestComponent';
 
 export const metadata = {
   title: "SNarlink: 공부만을 위한 방화벽, 11년의 진화",
@@ -32,6 +33,9 @@ export default function Page() {
       
       <div className="flex-1">
         <BlogLayout title="SNarlink: 공부만을 위한 방화벽, 11년의 진화">
+          {/* 테스트 컴포넌트 */}
+          <TestComponent />
+          
           {/* 썸네일 */}
           <BlogImage 
             src="/image/SNarlink/thumbnail.png"
