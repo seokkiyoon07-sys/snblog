@@ -3,14 +3,15 @@ import { getPostById, allPosts } from '@/data/posts';
 import { Metadata } from 'next';
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 // 동적 메타데이터 생성
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-  const post = getPostById(params.id);
+  const { id } = await params;
+  const post = getPostById(id);
   
   if (!post) {
     return {
@@ -55,8 +56,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function PostPage({ params }: PostPageProps) {
-  const post = getPostById(params.id);
+export default async function PostPage({ params }: PostPageProps) {
+  const { id } = await params;
+  const post = getPostById(id);
 
   if (!post) {
     notFound();

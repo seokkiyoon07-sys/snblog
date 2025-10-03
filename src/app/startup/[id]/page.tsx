@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const postId = params.id;
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id: postId } = await params;
   
   return {
     title: `SN AI 스타트업 상세 | ${postId} | SN Academy Blog`,
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default function StartupDetailPage({ params }: { params: { id: string } }) {
-  const postId = params.id;
+export default async function StartupDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id: postId } = await params;
   
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-800">
