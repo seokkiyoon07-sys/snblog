@@ -52,14 +52,14 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
 export async function generateStaticParams() {
   const { getPostsByCategory } = await import('@/data/posts');
-  const startupPosts = getPostsByCategory('startup');
+  const originalsPosts = getPostsByCategory('originals');
   
-  return startupPosts.map((post) => ({
+  return originalsPosts.map((post) => ({
     id: post.id,
   }))
 }
 
-export default async function StartupPostPage({ params }: PostPageProps) {
+export default async function OriginalsPostPage({ params }: PostPageProps) {
   const { id } = await params;
   const post = getPostById(id);
 
@@ -73,10 +73,10 @@ export default async function StartupPostPage({ params }: PostPageProps) {
       <div className="px-6 md:px-10 lg:px-16 pt-8">
         <div className="mx-auto max-w-5xl">
           <Link 
-            href="/startup" 
+            href="/originals" 
             className="inline-flex items-center text-sn-primary hover:text-sn-primary-dark transition-colors"
           >
-            ← SN AI 스타트업으로 돌아가기
+            ← SN Originals로 돌아가기
           </Link>
         </div>
       </div>
@@ -186,9 +186,9 @@ export default async function StartupPostPage({ params }: PostPageProps) {
       {/* AI 학습 데이터 */}
       <AIDataGenerator
         data={{
-          learningObjectives: ['AI 교육 기술 이해', '스타트업 창업 과정 학습', '혁신적인 교육 솔루션 탐구'],
+          learningObjectives: ['고전문학 작품 이해', '수능 국어 감각 향상', '문학적 감상 능력 개발'],
           difficulty: 'intermediate',
-          subject: '기술',
+          subject: '국어',
           keywords: post.tags.join(', '),
           estimatedTime: post.readTime,
         }}
