@@ -26,11 +26,21 @@ jobs:
       - name: Install Notion SDK
         run: npm install @notionhq/client
 
+      - name: Debug environment
+        run: |
+          echo "NOTION_TOKEN exists: ${{ secrets.NOTION_TOKEN != '' }}"
+          echo "NOTION_DATABASE_ID exists: ${{ secrets.NOTION_DATABASE_ID != '' }}"
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"
+
       - name: Sync from Notion
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-        run: node scripts/notion-sync-real.js
+        run: |
+          echo "Starting Notion sync..."
+          node scripts/notion-sync-real.js
+          echo "Notion sync completed with exit code: $?"
 
       - name: Check for changes
         id: changes
