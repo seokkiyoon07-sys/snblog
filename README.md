@@ -88,3 +88,24 @@ npm run test:webhooks
 ### 🔐 GitHub Secrets 설정
 GitHub 저장소의 Settings > Secrets and variables > Actions에서 다음 시크릿을 추가하세요:
 - `SLACK_WEBHOOK_URL`: 슬랙 웹훅 URL
+- `NOTION_TOKEN`: 노션 Integration 토큰
+- `NOTION_DATABASE_ID`: 노션 데이터베이스 ID
+
+## 📝 노션 자동 동기화
+
+노션에서 글을 작성하면 자동으로 블로그에 푸시되는 시스템이 구축되어 있습니다.
+
+### 🚀 기능
+- **자동 동기화**: 30분마다 노션 데이터베이스 확인
+- **마크다운 변환**: 노션 블록을 마크다운으로 자동 변환
+- **실시간 알림**: 동기화 시 잔디/슬랙 알림
+- **수동 동기화**: `npm run sync:notion` 명령어로 즉시 동기화
+
+### 📋 설정 방법
+자세한 설정 방법은 [NOTION_SETUP.md](./NOTION_SETUP.md)를 참고하세요.
+
+### 🧪 테스트
+```bash
+# 노션 동기화 테스트 (환경변수 필요)
+NOTION_TOKEN=your_token NOTION_DATABASE_ID=your_db_id npm run sync:notion
+```

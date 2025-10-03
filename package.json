@@ -8,9 +8,11 @@
     "start": "next start",
     "test:jandi": "node scripts/test-jandi.js",
     "test:slack": "node scripts/test-slack.js",
-    "test:webhooks": "node scripts/test-all-webhooks.js"
+    "test:webhooks": "node scripts/test-all-webhooks.js",
+    "sync:notion": "node scripts/notion-sync.js"
   },
   "dependencies": {
+    "@notionhq/client": "^5.1.0",
     "@uiw/react-md-editor": "^4.0.8",
     "critters": "^0.0.23",
     "lucide-react": "^0.544.0",
