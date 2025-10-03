@@ -43,3 +43,4 @@ try {
   console.error('❌ 백업 실패:', error.message);
   process.exit(1);
 }
+

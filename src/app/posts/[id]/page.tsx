@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getPostById, allPosts } from '@/data/posts';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 interface PostPageProps {
   params: Promise<{
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   return {
     title: `${post.title} | SN Academy Blog`,
     description: post.excerpt,
-    keywords: post.tags.join(', '),
+    keywords: post.tags?.join(', ') || '',
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -99,11 +100,13 @@ export default async function PostPage({ params }: PostPageProps) {
 
         {/* 썸네일이 있는 경우 */}
         {post.thumbnail && !post.youtubeUrl && (
-          <div className="w-full h-64 mb-8 overflow-hidden rounded-lg">
-            <img
+          <div className="relative w-full h-64 mb-8 overflow-hidden rounded-lg">
+            <Image
               src={post.thumbnail}
               alt={post.title}
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width:768px) 100vw, 768px"
+              className="object-cover"
             />
           </div>
         )}
@@ -119,16 +122,18 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
 
         {/* 태그 */}
-        <div className="flex flex-wrap gap-2 mb-8">
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="inline-block px-3 py-1 text-sm font-medium bg-gray-100 text-gray-600 rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        {post.tags && post.tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-8">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-block px-3 py-1 text-sm font-medium bg-gray-100 text-gray-600 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* 콘텐츠 */}
         <div className="prose prose-lg max-w-none">

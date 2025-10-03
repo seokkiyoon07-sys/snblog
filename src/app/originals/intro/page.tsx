@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${post.title} | SN Academy Blog`,
     description: post.excerpt,
-    keywords: post.tags.join(', '),
+    keywords: post.tags?.join(', ') || '',
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -94,11 +94,15 @@ export default function SNOriginalsIntroPage() {
 
           {/* 이미지 섹션 */}
           <div className="my-8 text-center">
-            <img
-              src="/image/originalintro1.png"
-              alt="고전문학 학습 이미지"
-              className="mx-auto rounded-lg shadow-lg max-w-full h-auto"
-            />
+            <div className="relative mx-auto rounded-lg shadow-lg max-w-full h-auto">
+              <Image
+                src="/image/originalintro1.png"
+                alt="고전문학 학습 이미지"
+                width={800}
+                height={400}
+                className="rounded-lg"
+              />
+            </div>
             <p className="text-sm text-gray-500 mt-2">AI로 만든 그림과 목소리입니다</p>
           </div>
 
@@ -116,11 +120,15 @@ export default function SNOriginalsIntroPage() {
 
           {/* 두 번째 이미지 섹션 */}
           <div className="my-8 text-center">
-            <img
-              src="/image/originalintro2.png"
-              alt="SN Academy AI 기술"
-              className="mx-auto rounded-lg shadow-lg max-w-full h-auto"
-            />
+            <div className="relative mx-auto rounded-lg shadow-lg max-w-full h-auto">
+              <Image
+                src="/image/originalintro2.png"
+                alt="SN Academy AI 기술"
+                width={800}
+                height={400}
+                className="rounded-lg"
+              />
+            </div>
             <p className="text-sm text-gray-500 mt-2">SN Academy의 AI 기술 활용</p>
           </div>
 

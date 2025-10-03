@@ -8,11 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'sn-primary': '#122918',
-        'sn-primary-light': '#1a3d2a',
-        'sn-primary-dark': '#0f1f15',
+        'sn-primary': '#1a4d2a', // 더 밝은 녹색으로 변경 (AA 대비 개선)
+        'sn-primary-light': '#2d6b3f', // 더 밝은 색상
+        'sn-primary-dark': '#0f2a1a', // 더 어두운 색상
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }
