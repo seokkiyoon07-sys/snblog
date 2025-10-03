@@ -104,8 +104,8 @@ This work inherits the East Asian tradition of political poetry while reflecting
     readTime: '8',
     featured: false,
     published: true,
-    thumbnail: 'https://img.youtube.com/vi/pqr678stu901/maxresdefault.jpg',
-    youtubeUrl: 'https://www.youtube.com/watch?v=pqr678stu901',
+    thumbnail: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     url: '/originals/sokmieungok'
   },
   {
@@ -161,8 +161,8 @@ This work inherits the East Asian tradition of political poetry while reflecting
     readTime: '7',
     featured: false,
     published: true,
-    thumbnail: 'https://img.youtube.com/vi/mno345pqr678/maxresdefault.jpg',
-    youtubeUrl: 'https://www.youtube.com/watch?v=mno345pqr678',
+    thumbnail: 'https://img.youtube.com/vi/50nJegN2YSQ/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=50nJegN2YSQ',
     url: '/originals/samieungok'
   },
   {
@@ -218,8 +218,8 @@ This work inherits the East Asian tradition of popular literature while reflecti
     readTime: '6',
     featured: false,
     published: true,
-    thumbnail: 'https://img.youtube.com/vi/jkl012mno345/maxresdefault.jpg',
-    youtubeUrl: 'https://www.youtube.com/watch?v=jkl012mno345',
+    thumbnail: 'https://img.youtube.com/vi/3ZGE-RvBinQ/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=3ZGE-RvBinQ',
     url: '/originals/gapminga'
   },
   {
@@ -275,8 +275,8 @@ This work inherits the East Asian tradition of satirical literature while reflec
     readTime: '5',
     featured: false,
     published: true,
-    thumbnail: 'https://img.youtube.com/vi/ghi789jkl012/maxresdefault.jpg',
-    youtubeUrl: 'https://www.youtube.com/watch?v=ghi789jkl012',
+    thumbnail: 'https://img.youtube.com/vi/6tsl5IIMy_o/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=6tsl5IIMy_o',
     url: '/originals/hwangokga'
   },
   {
@@ -332,8 +332,8 @@ This work inherits the East Asian tradition of popular literature while reflecti
     readTime: '9',
     featured: false,
     published: true,
-    thumbnail: 'https://img.youtube.com/vi/def456ghi789/maxresdefault.jpg',
-    youtubeUrl: 'https://www.youtube.com/watch?v=def456ghi789',
+    thumbnail: 'https://img.youtube.com/vi/xhyppBm3_o4/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=xhyppBm3_o4',
     url: '/originals/bukcheonga'
   },
   {
@@ -389,8 +389,8 @@ This work inherits the East Asian tradition of nature poetry while achieving a u
     readTime: '12',
     featured: false,
     published: true,
-    thumbnail: 'https://img.youtube.com/vi/abc123def456/maxresdefault.jpg',
-    youtubeUrl: 'https://www.youtube.com/watch?v=abc123def456',
+    thumbnail: 'https://img.youtube.com/vi/9T06DoJaMHs/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=9T06DoJaMHs',
     url: '/originals/gwandong-byeolgok'
   },
   {
