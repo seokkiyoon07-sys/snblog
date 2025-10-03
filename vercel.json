@@ -3,5 +3,12 @@
   "outputDirectory": ".next",
   "framework": "nextjs",
   "installCommand": "npm install",
-  "devCommand": "npm run dev"
+  "devCommand": "npm run dev",
+  "redirects": [
+    {
+      "source": "http://blog.snacademy.co.kr/(.*)",
+      "destination": "https://blog.snacademy.co.kr/$1",
+      "permanent": true
+    }
+  ]
 }
