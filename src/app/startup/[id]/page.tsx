@@ -76,7 +76,7 @@ export default async function StartupPostPage({ params }: PostPageProps) {
             href="/startup" 
             className="inline-flex items-center text-sn-primary hover:text-sn-primary-dark transition-colors"
           >
-            ← SN AI 스타트업으로 돌아가기
+            ← AI 스타트업으로 돌아가기
           </Link>
         </div>
       </div>
