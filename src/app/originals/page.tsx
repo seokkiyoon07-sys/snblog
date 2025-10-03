@@ -34,7 +34,7 @@ export default function OriginalsPage() {
   const introPost = getPostById('sn-originals-intro')
   
   // SN Originals 카테고리 글들 (소개글 제외)
-  const originalsPosts = getPostsByCategory('SN Originals')
+  const originalsPosts = getPostsByCategory('originals')
     .filter(post => post.id !== 'sn-originals-intro')
 
   return (

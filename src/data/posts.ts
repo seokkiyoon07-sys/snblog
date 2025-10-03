@@ -55,7 +55,45 @@ export const allPosts: Post[] = [
     id: 'sokmieungok',
     title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~" (고전문학 「속미인곡」)',
     excerpt: '보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 6탄으로 「속미인곡」을 준비했습니다.',
-    content: `「속미인곡」을 준비했습니다. 1588~1589년 경 정철이 고향인 전남 창평에 우거하며 「사미인곡」에 이어 지은 가사입니다.`,
+    content: `## 「속미인곡」- 정철의 마지막 사랑 노래
+
+### 📖 작품 개요
+1588~1589년 경 정철이 고향인 전남 창평에 우거하며 「사미인곡」에 이어 지은 가사입니다. 「사미인곡」이 선조에 대한 충성의 마음을 표현한 작품이라면, 「속미인곡」은 그 마음이 더욱 깊어지고 절절해진 모습을 보여줍니다.
+
+### 🎭 작품의 매력
+- **깊은 그리움**: "기다리는 나를 왜 모르시나요"라는 절절한 호소
+- **정치적 배경**: 정철의 정치적 좌절과 고향으로의 귀향
+- **문학적 완성도**: 조선 가사 문학의 백미로 평가받는 작품
+- **감정의 깊이**: 단순한 충성심을 넘어선 진정한 사랑의 표현
+
+### 📚 학습 포인트
+1. **시대적 배경**: 임진왜란 이후의 정치적 상황
+2. **작가의 심경**: 정치적 좌절과 고향에 대한 그리움
+3. **문학적 기법**: 비유와 상징의 활용
+4. **수능 출제 경향**: 고전문학 감상 문제의 단골 출제작
+
+### 🎯 수능 대비 전략
+- 작품의 배경과 작가의 상황을 정확히 파악
+- 비유와 상징의 의미를 정확히 해석
+- 작품에 담긴 감정의 변화 과정 이해
+- 현대적 관점에서의 재해석 능력
+
+---
+
+## English Description
+
+### "Sokmiin-gok" - Jeong Cheol's Final Love Song
+
+**Sokmiin-gok** (속미인곡) is a classical Korean poetry work written by Jeong Cheol (정철) around 1588-1589 during his exile in Changpyeong, Jeollanam-do. This work, which follows "Samiin-gok" (사미인곡), represents the pinnacle of classical Korean poetry and is considered one of the most emotionally profound pieces in Korean literature.
+
+**Key Themes:**
+- **Deep Longing**: The work expresses profound yearning and loyalty
+- **Political Context**: Reflects Jeong Cheol's political struggles and exile
+- **Literary Excellence**: Showcases the highest level of classical Korean poetry
+- **Emotional Depth**: Goes beyond simple loyalty to express genuine love
+
+**Educational Value:**
+This work is essential for Korean language students as it frequently appears in college entrance exams and represents the sophisticated emotional expression found in classical Korean literature.`,
     category: 'originals',
     tags: ['고전문학', '속미인곡', '정철', '가사'],
     author: 'SN Academy',
@@ -63,7 +101,7 @@ export const allPosts: Post[] = [
     readTime: '8',
     featured: false,
     published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
+    thumbnail: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
     youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     url: '/originals/sokmieungok'
   },
@@ -71,7 +109,45 @@ export const allPosts: Post[] = [
     id: 'samieungok',
     title: '선조를 향한 정철의 중독된 사랑 (고전문학 「사미인곡」)',
     excerpt: '보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 5탄으로 「사미인곡」을 준비했습니다.',
-    content: `「사미인곡」을 준비했습니다.`,
+    content: `## 「사미인곡」- 정철의 충성과 사랑의 노래
+
+### 📖 작품 개요
+정철이 선조에 대한 충성과 사랑을 미인에 비유하여 표현한 가사입니다. 정치적 상황에서의 복잡한 감정을 아름다운 비유로 승화시킨 작품으로, 조선 가사 문학의 대표작 중 하나입니다.
+
+### 🎭 작품의 매력
+- **정치적 충성**: 선조에 대한 절대적인 충성심 표현
+- **문학적 비유**: 미인에 비유한 독창적인 표현 기법
+- **감정의 깊이**: 정치적 좌절과 그리움의 복합적 감정
+- **시대적 의미**: 임진왜란 이후의 정치적 상황 반영
+
+### 📚 학습 포인트
+1. **비유와 상징**: 미인 비유의 의미와 효과
+2. **시대적 배경**: 임진왜란과 정유재란의 영향
+3. **작가의 심경**: 정치적 좌절과 충성심의 갈등
+4. **문학적 가치**: 가사 문학의 발전과 완성
+
+### 🎯 수능 대비 전략
+- 비유의 의미를 정확히 파악
+- 작품의 시대적 배경 이해
+- 작가의 정치적 입장과 문학적 표현의 관계 파악
+- 고전문학의 현대적 해석 능력
+
+---
+
+## English Description
+
+### "Samiin-gok" - Jeong Cheol's Song of Loyalty and Love
+
+**Samiin-gok** (사미인곡) is a classical Korean poetry work by Jeong Cheol (정철) that expresses loyalty and love for King Seonjo through the metaphor of a beautiful woman. This work is considered one of the masterpieces of classical Korean poetry and represents the pinnacle of political poetry in the Joseon Dynasty.
+
+**Key Themes:**
+- **Political Loyalty**: Expresses absolute loyalty to King Seonjo
+- **Literary Metaphor**: Uses the metaphor of a beautiful woman innovatively
+- **Complex Emotions**: Reflects the complex feelings of political frustration and longing
+- **Historical Context**: Mirrors the political situation after the Imjin War
+
+**Educational Value:**
+This work is crucial for understanding classical Korean literature and frequently appears in Korean language exams, showcasing the sophisticated emotional expression and political commentary found in Joseon Dynasty poetry.`,
     category: 'originals',
     tags: ['고전문학', '사미인곡', '정철', '가사'],
     author: 'SN Academy',
@@ -79,15 +155,53 @@ export const allPosts: Post[] = [
     readTime: '7',
     featured: false,
     published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
-    youtubeUrl: undefined,
+    thumbnail: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     url: '/originals/samieungok'
   },
   {
     id: 'gapminga',
     title: '내 속도 모르면서 가라 마라 막말하지 마라 (수능 고전문학 「갑민가」)',
     excerpt: '보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄으로 「갑민가」를 준비했습니다.',
-    content: `「갑민가」를 준비했습니다.`,
+    content: `## 「갑민가」- 백성의 아픔을 노래한 작품
+
+### 📖 작품 개요
+「갑민가」는 조선 후기 백성들의 고통과 아픔을 생생하게 표현한 작품입니다. 작자는 알려지지 않았지만, 당시 사회의 모순과 백성들의 삶의 현실을 날카롭게 비판한 작품으로 평가받습니다.
+
+### 🎭 작품의 매력
+- **현실적 비판**: 당시 사회의 모순을 직설적으로 비판
+- **백성의 목소리**: 지배층이 아닌 백성의 시각에서 바라본 사회
+- **문학적 가치**: 조선 후기 사회사 연구의 중요한 자료
+- **감정적 공감**: 현대 독자들도 공감할 수 있는 보편적 메시지
+
+### 📚 학습 포인트
+1. **사회적 배경**: 조선 후기의 사회적 모순과 갈등
+2. **문학적 특징**: 민중 문학의 특징과 의의
+3. **비판적 시각**: 작품에 담긴 사회 비판 의식
+4. **현대적 의미**: 과거와 현재의 연결점
+
+### 🎯 수능 대비 전략
+- 작품의 사회적 배경 정확히 파악
+- 비판적 시각과 문학적 표현 이해
+- 고전문학의 현대적 의미 해석
+- 사회사적 관점에서의 작품 분석
+
+---
+
+## English Description
+
+### "Gapmin-ga" - A Song of the People's Pain
+
+**Gapmin-ga** (갑민가) is a classical Korean work that vividly expresses the suffering and pain of the common people during the late Joseon Dynasty. Although the author is unknown, this work is highly valued for its sharp criticism of social contradictions and realistic portrayal of people's lives.
+
+**Key Themes:**
+- **Social Criticism**: Direct criticism of social contradictions of the time
+- **People's Voice**: A perspective from the common people, not the ruling class
+- **Literary Value**: Important material for studying late Joseon social history
+- **Emotional Resonance**: Universal messages that modern readers can relate to
+
+**Educational Value:**
+This work is essential for understanding the social conditions of late Joseon Dynasty and frequently appears in Korean literature exams, showcasing the critical consciousness and literary expression of the common people.`,
     category: 'originals',
     tags: ['고전문학', '갑민가', '수능국어'],
     author: 'SN Academy',
@@ -95,15 +209,53 @@ export const allPosts: Post[] = [
     readTime: '6',
     featured: false,
     published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
-    youtubeUrl: undefined,
+    thumbnail: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     url: '/originals/gapminga'
   },
   {
     id: 'hwangokga',
     title: '너 그렇게 여자만 좋아하다 피똥싼다 (수능 고전문학 「화왕가」)',
     excerpt: '보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 3탄으로 「화왕가」를 준비했습니다.',
-    content: `「화왕가」를 준비했습니다.`,
+    content: `## 「화왕가」- 조선 후기 풍자 문학의 백미
+
+### 📖 작품 개요
+「화왕가」는 조선 후기 사회의 모순과 인간의 욕망을 풍자적으로 표현한 작품입니다. 특히 당시 지배층의 부패와 백성들의 고통을 날카롭게 비판한 작품으로, 조선 후기 풍자 문학의 대표작 중 하나입니다.
+
+### 🎭 작품의 매력
+- **날카로운 풍자**: 사회 모순을 유머러스하게 비판
+- **현실적 통찰**: 인간의 욕망과 사회적 모순을 정확히 포착
+- **문학적 완성도**: 풍자 문학의 높은 수준을 보여주는 작품
+- **현대적 공감**: 오늘날에도 유효한 메시지
+
+### 📚 학습 포인트
+1. **풍자 문학**: 조선 후기 풍자 문학의 특징과 의의
+2. **사회적 비판**: 작품에 담긴 사회 비판 의식
+3. **문학적 기법**: 풍자와 비유의 효과적 활용
+4. **시대적 의미**: 조선 후기 사회의 특징과 문학의 역할
+
+### 🎯 수능 대비 전략
+- 풍자의 대상과 방법 정확히 파악
+- 작품의 사회적 배경과 비판 의식 이해
+- 문학적 기법과 표현 효과 분석
+- 고전문학의 현대적 의미 해석
+
+---
+
+## English Description
+
+### "Hwangok-ga" - A Masterpiece of Satirical Literature
+
+**Hwangok-ga** (화왕가) is a classical Korean work that satirically expresses the contradictions of late Joseon society and human desires. This work sharply criticizes the corruption of the ruling class and the suffering of the common people, making it one of the representative works of satirical literature in the late Joseon Dynasty.
+
+**Key Themes:**
+- **Sharp Satire**: Criticizes social contradictions with humor
+- **Realistic Insight**: Accurately captures human desires and social contradictions
+- **Literary Excellence**: Shows the high level of satirical literature
+- **Modern Relevance**: Messages that remain valid today
+
+**Educational Value:**
+This work is crucial for understanding satirical literature and frequently appears in Korean literature exams, showcasing the sophisticated social criticism and literary techniques found in late Joseon literature.`,
     category: 'originals',
     tags: ['고전문학', '화왕가', '수능국어'],
     author: 'SN Academy',
@@ -111,15 +263,53 @@ export const allPosts: Post[] = [
     readTime: '5',
     featured: false,
     published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
-    youtubeUrl: undefined,
+    thumbnail: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     url: '/originals/hwangokga'
   },
   {
     id: 'bukcheonga',
     title: '북천가',
     excerpt: '보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 2탄으로 「북천가」를 준비했습니다.',
-    content: `「북천가」를 준비했습니다.`,
+    content: `## 「북천가」- 조선 후기 민중의 목소리
+
+### 📖 작품 개요
+「북천가」는 조선 후기 북한 지역의 민중들이 겪는 고통과 아픔을 생생하게 표현한 작품입니다. 당시 사회의 모순과 지배층의 부패를 날카롭게 비판하며, 민중의 삶의 현실을 솔직하게 드러낸 작품입니다.
+
+### 🎭 작품의 매력
+- **민중의 목소리**: 지배층이 아닌 민중의 시각에서 바라본 사회
+- **현실적 비판**: 당시 사회의 모순을 직설적으로 비판
+- **지역적 특성**: 북한 지역의 특수한 상황과 고통 표현
+- **문학적 가치**: 조선 후기 사회사 연구의 중요한 자료
+
+### 📚 학습 포인트
+1. **사회적 배경**: 조선 후기 북한 지역의 사회적 상황
+2. **민중 문학**: 민중 문학의 특징과 의의
+3. **비판적 시각**: 작품에 담긴 사회 비판 의식
+4. **지역적 특성**: 지역별 문학의 특징과 차이점
+
+### 🎯 수능 대비 전략
+- 작품의 사회적 배경과 지역적 특성 파악
+- 민중 문학의 특징과 의의 이해
+- 비판적 시각과 문학적 표현 분석
+- 고전문학의 현대적 의미 해석
+
+---
+
+## English Description
+
+### "Bukcheon-ga" - The Voice of the People
+
+**Bukcheon-ga** (북천가) is a classical Korean work that vividly expresses the suffering and pain experienced by the people of the northern regions during the late Joseon Dynasty. This work sharply criticizes the social contradictions and corruption of the ruling class while honestly revealing the reality of the people's lives.
+
+**Key Themes:**
+- **People's Voice**: A perspective from the common people, not the ruling class
+- **Realistic Criticism**: Direct criticism of social contradictions of the time
+- **Regional Characteristics**: Expression of the unique situation and suffering of the northern regions
+- **Literary Value**: Important material for studying late Joseon social history
+
+**Educational Value:**
+This work is essential for understanding the social conditions of late Joseon Dynasty and frequently appears in Korean literature exams, showcasing the critical consciousness and literary expression of the common people.`,
     category: 'originals',
     tags: ['고전문학', '북천가', '수능국어'],
     author: 'SN Academy',
@@ -127,15 +317,53 @@ export const allPosts: Post[] = [
     readTime: '9',
     featured: false,
     published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
-    youtubeUrl: undefined,
+    thumbnail: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     url: '/originals/bukcheonga'
   },
   {
     id: 'gwandong-byeolgok',
     title: '관동별곡',
     excerpt: '보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 1탄으로 「관동별곡」을 준비했습니다.',
-    content: `「관동별곡」을 준비했습니다.`,
+    content: `## 「관동별곡」- 정철의 대표작
+
+### 📖 작품 개요
+「관동별곡」은 정철이 관동 지역(강원도)의 아름다운 경치를 노래한 가사입니다. 조선 가사 문학의 대표작으로, 자연의 아름다움과 인간의 감정을 조화롭게 표현한 작품입니다.
+
+### 🎭 작품의 매력
+- **자연의 아름다움**: 관동 지역의 아름다운 경치를 생생하게 묘사
+- **문학적 완성도**: 조선 가사 문학의 최고 수준을 보여주는 작품
+- **감정의 깊이**: 자연에 대한 사랑과 그리움의 감정 표현
+- **시대적 의미**: 조선 중기 문학의 특징을 잘 보여주는 작품
+
+### 📚 학습 포인트
+1. **가사 문학**: 조선 가사 문학의 특징과 발전
+2. **자연 묘사**: 자연을 통한 감정 표현 기법
+3. **작가의 심경**: 정철의 관동 지역에 대한 애정
+4. **문학적 가치**: 조선 문학사에서의 의의
+
+### 🎯 수능 대비 전략
+- 가사 문학의 특징과 구조 이해
+- 자연 묘사와 감정 표현의 관계 파악
+- 작품의 시대적 배경과 문학사적 의의 이해
+- 고전문학의 현대적 해석 능력
+
+---
+
+## English Description
+
+### "Gwandong-byeolgok" - Jeong Cheol's Masterpiece
+
+**Gwandong-byeolgok** (관동별곡) is a classical Korean poetry work by Jeong Cheol (정철) that celebrates the beautiful scenery of the Gwandong region (Gangwon Province). This work is considered a masterpiece of classical Korean poetry and represents the pinnacle of Joseon Dynasty poetry literature.
+
+**Key Themes:**
+- **Natural Beauty**: Vividly describes the beautiful scenery of the Gwandong region
+- **Literary Excellence**: Shows the highest level of classical Korean poetry
+- **Emotional Depth**: Expresses love and longing for nature
+- **Historical Significance**: Represents the characteristics of mid-Joseon literature
+
+**Educational Value:**
+This work is essential for understanding classical Korean literature and frequently appears in Korean language exams, showcasing the sophisticated natural description and emotional expression found in Joseon Dynasty poetry.`,
     category: 'originals',
     tags: ['고전문학', '관동별곡', '수능국어'],
     author: 'SN Academy',
@@ -143,8 +371,8 @@ export const allPosts: Post[] = [
     readTime: '12',
     featured: false,
     published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center',
-    youtubeUrl: undefined,
+    thumbnail: 'https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     url: '/originals/gwandong-byeolgok'
   },
   {
