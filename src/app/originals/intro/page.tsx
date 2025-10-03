@@ -48,14 +48,6 @@ export default function SNOriginalsIntroPage() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 py-8">
-        {/* 썸네일 이미지 */}
-        <div className="w-full h-64 mb-8 overflow-hidden rounded-lg">
-          <img
-            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center"
-            alt="SN Originals 고전문학 시리즈 소개"
-            className="w-full h-full object-cover"
-          />
-        </div>
 
         <div className="prose prose-lg max-w-none">
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -86,9 +78,9 @@ export default function SNOriginalsIntroPage() {
           {/* 이미지 섹션 */}
           <div className="my-8 text-center">
             <img
-              src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop&crop=center"
+              src="/image/originalintro1.png"
               alt="고전문학 학습 이미지"
-              className="mx-auto rounded-lg shadow-lg"
+              className="mx-auto rounded-lg shadow-lg max-w-full h-auto"
             />
             <p className="text-sm text-gray-500 mt-2">AI로 만든 그림과 목소리입니다</p>
           </div>
@@ -108,9 +100,9 @@ export default function SNOriginalsIntroPage() {
           {/* 두 번째 이미지 섹션 */}
           <div className="my-8 text-center">
             <img
-              src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop&crop=center"
+              src="/image/originalintro2.png"
               alt="SN Academy AI 기술"
-              className="mx-auto rounded-lg shadow-lg"
+              className="mx-auto rounded-lg shadow-lg max-w-full h-auto"
             />
             <p className="text-sm text-gray-500 mt-2">SN Academy의 AI 기술 활용</p>
           </div>
