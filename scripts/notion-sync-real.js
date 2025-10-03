@@ -218,6 +218,14 @@ export function searchPosts(query: string): Post[] {
 // 메인 실행 함수
 async function main() {
   try {
+    // 환경변수 확인
+    if (!process.env.NOTION_TOKEN) {
+      throw new Error('NOTION_TOKEN 환경변수가 설정되지 않았습니다.');
+    }
+    if (!process.env.NOTION_DATABASE_ID) {
+      throw new Error('NOTION_DATABASE_ID 환경변수가 설정되지 않았습니다.');
+    }
+    
     console.log('노션에서 포스트를 가져오는 중...');
     const posts = await fetchNotionPosts();
     console.log(`${posts.length}개의 포스트를 찾았습니다.`);
@@ -231,6 +239,7 @@ async function main() {
     }
   } catch (error) {
     console.error('동기화 중 오류 발생:', error);
+    console.error('오류 스택:', error.stack);
     process.exit(1);
   }
 }
