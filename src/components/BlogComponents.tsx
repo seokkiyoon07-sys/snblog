@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+"use client";
+import { ReactNode, useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
 
 // BlogLayout 컴포넌트
 interface BlogLayoutProps {
