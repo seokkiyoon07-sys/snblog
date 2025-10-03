@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { unstable_cache } from 'next/cache'
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blog.snacademy.co.kr"),
@@ -35,6 +36,21 @@ export const metadata: Metadata = {
     follow: true 
   },
 };
+
+// 캐시된 컴포넌트 생성 함수
+const getCachedPageContent = unstable_cache(
+  async () => {
+    return {
+      title: "SN에서 교육 AI 스타트업을 창업했습니다",
+      lastUpdated: new Date().toISOString()
+    };
+  },
+  ['ai-startup-page-content'],
+  {
+    tags: ['startup', 'ai-startup', 'pages'],
+    revalidate: 3600 // 1시간
+  }
+);
 
 export default function AIStartupPage() {
   return (

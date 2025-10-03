@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { Section, FeatureList, Callout, BlogImage } from '@/components/BlogComponents'
+import { unstable_cache } from 'next/cache'
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://blog.snacademy.co.kr"),
@@ -36,6 +37,21 @@ export const metadata: Metadata = {
     follow: true 
   },
 };
+
+// 캐시된 컴포넌트 생성 함수
+const getCachedPageContent = unstable_cache(
+  async () => {
+    return {
+      title: "SN Originals 고전문학 시리즈를 소개합니다",
+      lastUpdated: new Date().toISOString()
+    };
+  },
+  ['sn-originals-intro-page-content'],
+  {
+    tags: ['originals', 'sn-originals', 'pages'],
+    revalidate: 3600 // 1시간
+  }
+);
 
 export default function OriginalsIntroPage() {
   return (

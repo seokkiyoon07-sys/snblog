@@ -1,4 +1,4 @@
-import { revalidatePath } from 'next/cache'
+import { revalidatePath, revalidateTag } from 'next/cache'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
@@ -15,10 +15,18 @@ export async function POST(request: NextRequest) {
     revalidatePath('/startup/ai-startup')
     revalidatePath('/originals/sn-originals-intro')
     
+    // Revalidate tags for more granular cache control
+    revalidateTag('snarlink')
+    revalidateTag('columns')
+    revalidateTag('pages')
+    revalidateTag('startup')
+    revalidateTag('originals')
+    
     return NextResponse.json({ 
       revalidated: true, 
       now: Date.now(),
-      paths: ['/columns/SNarlink', '/startup/ai-startup', '/originals/sn-originals-intro']
+      paths: ['/columns/SNarlink', '/startup/ai-startup', '/originals/sn-originals-intro'],
+      tags: ['snarlink', 'columns', 'pages', 'startup', 'originals']
     })
   } catch (err) {
     return NextResponse.json({ message: 'Error revalidating' }, { status: 500 })
