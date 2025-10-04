@@ -56,14 +56,14 @@ export default function Header() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
                 <Image
-                  src="/next.svg"
+                       src="/image/sn-logo.avif"
                   alt="SN"
                   width={32}
                   height={32}
                   className="h-8 w-auto dark:hidden"
                 />
                 <Image
-                  src="/next.svg"
+                       src="/image/sn-logo.avif"
                   alt="SN"
                   width={32}
                   height={32}
@@ -156,14 +156,14 @@ export default function Header() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
                 <Image
-                  src="/next.svg"
+                       src="/image/sn-logo.avif"
                   alt="SN"
                   width={24}
                   height={24}
                   className="h-6 w-auto dark:hidden"
                 />
                 <Image
-                  src="/next.svg"
+                       src="/image/sn-logo.avif"
                   alt="SN"
                   width={24}
                   height={24}

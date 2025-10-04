@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
-        <StructuredData 
+        <StructuredData
           type="organization"
           data={{}}
         />

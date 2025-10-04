@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ['image/webp', 'image/avif'],
-    qualities: [75, 85, 95],
+    qualities: [75, 85, 95, 100],
     unoptimized: false, // Vercel에서 이미지 최적화 활성화
   },
   experimental: {

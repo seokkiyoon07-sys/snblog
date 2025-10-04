@@ -23,7 +23,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
             "name": "SN Academy",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://blog.snacademy.co.kr/next.svg"
+              "url": "https://blog.snacademy.co.kr/image/sn-logo.avif"
             }
           },
           "datePublished": data.datePublished,
@@ -43,7 +43,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           "name": "SN Academy",
           "description": "독학기숙학원의 명가 SN Academy",
           "url": "https://blog.snacademy.co.kr",
-          "logo": "https://blog.snacademy.co.kr/next.svg",
+          "logo": "https://blog.snacademy.co.kr/image/sn-logo.avif",
           "sameAs": [
             "https://blog.snacademy.co.kr"
           ],
