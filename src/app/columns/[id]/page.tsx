@@ -6,6 +6,7 @@ import StructuredData from '@/components/StructuredData'
 import AIDataGenerator from '@/components/AIDataGenerator'
 import { getPostById } from '@/data/posts'
 
+
 interface PostPageProps {
   params: Promise<{
     id: string;
@@ -15,7 +16,7 @@ interface PostPageProps {
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { id } = await params;
   const post = getPostById(id);
-  
+
   if (!post) {
     return {
       title: 'Post Not Found | SN Academy Blog',
@@ -53,7 +54,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 export async function generateStaticParams() {
   const { getPostsByCategory } = await import('@/data/posts');
   const columnsPosts = getPostsByCategory('columns');
-  
+
   return columnsPosts.map((post) => ({
     id: post.id,
   }))
@@ -72,8 +73,8 @@ export default async function ColumnsPostPage({ params }: PostPageProps) {
       {/* 뒤로가기 버튼 */}
       <div className="px-6 md:px-10 lg:px-16 pt-8">
         <div className="mx-auto max-w-5xl">
-          <Link 
-            href="/columns" 
+          <Link
+            href="/columns"
             className="inline-flex items-center text-sn-primary hover:text-sn-primary-dark transition-colors"
           >
             ← 컬럼으로 돌아가기

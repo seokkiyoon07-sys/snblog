@@ -9,8 +9,8 @@ import {
   FeatureList,
   Callout,
   CodeBlock
-} from '@/components/BlogComponents';
-import Image from 'next/image';
+} from '@/components/BlogComponents'
+import Image from 'next/image'
 
 export const metadata = {
   title: "SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)",
