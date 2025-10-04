@@ -6,9 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "test:jandi": "node scripts/test-jandi.js",
     "backup:posts": "node scripts/backup-posts.js",
-    "restore:posts": "node scripts/restore-posts.js"
+    "restore:posts": "node scripts/restore-posts.js",
+    "deploy": "./scripts/deploy.sh",
+    "deploy:github": "./scripts/deploy.sh github",
+    "deploy:vercel": "./scripts/deploy.sh vercel",
+    "deploy:docker": "./scripts/deploy.sh docker",
+    "docker:build": "docker build -t snblog .",
+    "docker:run": "docker run -p 3000:3000 snblog",
+    "docker:compose": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
   },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",

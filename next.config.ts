@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'standalone', // Docker를 위한 standalone 빌드
   images: {
     domains: ['img.youtube.com', 'blog.snacademy.co.kr'],
     formats: ['image/webp', 'image/avif'],
