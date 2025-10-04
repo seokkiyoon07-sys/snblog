@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
     ],
     formats: ['image/webp', 'image/avif'],
     qualities: [75, 85, 95],
+    unoptimized: false, // Vercel에서 이미지 최적화 활성화
   },
   experimental: {
     optimizeCss: true,
@@ -23,6 +24,9 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
+  // Vercel 배포 최적화
+  trailingSlash: false,
+  skipTrailingSlashRedirect: true,
   async headers() {
     return [
       {

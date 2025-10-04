@@ -35,7 +35,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           "image": data.image,
           "keywords": data.keywords
         }
-      
+
       case 'organization':
         return {
           "@context": "https://schema.org",
@@ -52,7 +52,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
             "addressCountry": "KR"
           }
         }
-      
+
       case 'video':
         return {
           "@context": "https://schema.org",
@@ -68,7 +68,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
             "name": "SN Academy"
           }
         }
-      
+
       default:
         return {
           "@context": "https://schema.org",

@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.snacademy.co.kr'),
   title: "SN Academy Blog",
   description: "SN 학원의 주요 사업내용, 컬럼, 입시정보, 후기를 공유하는 블로그입니다.",
   keywords: "SN, 학원, 입시, 교육, 블로그, 컬럼, 후기",

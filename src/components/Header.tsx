@@ -52,25 +52,25 @@ export default function Header() {
         {/* 데스크톱 헤더 */}
         <div className="hidden lg:block">
           <div className="flex items-center justify-between">
-                {/* 로고 */}
-                 <div className="flex items-center">
-                   <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                     <Image
-                       src="/next.svg"
-                       alt="SN"
-                       width={32}
-                       height={32}
-                       className="h-8 w-auto dark:hidden"
-                     />
-                     <Image
-                       src="/next.svg"
-                       alt="SN"
-                       width={32}
-                       height={32}
-                       className="h-8 w-auto hidden dark:block"
-                     />
-                   </Link>
-                 </div>
+            {/* 로고 */}
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+                <Image
+                  src="/next.svg"
+                  alt="SN"
+                  width={32}
+                  height={32}
+                  className="h-8 w-auto dark:hidden"
+                />
+                <Image
+                  src="/next.svg"
+                  alt="SN"
+                  width={32}
+                  height={32}
+                  className="h-8 w-auto hidden dark:block"
+                />
+              </Link>
+            </div>
 
             {/* 검색바 */}
             <div className="flex-1 max-w-md mx-8">
@@ -97,7 +97,7 @@ export default function Header() {
                   onChange={(e) => {
                     const newSelection = e.target.value;
                     setSelectedInfo(newSelection);
-                    
+
                     const selectedOption = infoOptions.find(option => option.key === newSelection);
                     if (selectedOption?.link) {
                       window.open(selectedOption.link, '_blank', 'noopener,noreferrer');
@@ -152,25 +152,25 @@ export default function Header() {
         {/* 모바일 헤더 */}
         <div className="lg:hidden">
           <div className="flex items-center justify-between">
-                {/* 로고 */}
-                 <div className="flex items-center">
-                   <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                     <Image
-                       src="/next.svg"
-                       alt="SN"
-                       width={24}
-                       height={24}
-                       className="h-6 w-auto dark:hidden"
-                     />
-                     <Image
-                       src="/next.svg"
-                       alt="SN"
-                       width={24}
-                       height={24}
-                       className="h-6 w-auto hidden dark:block"
-                     />
-                   </Link>
-                 </div>
+            {/* 로고 */}
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+                <Image
+                  src="/next.svg"
+                  alt="SN"
+                  width={24}
+                  height={24}
+                  className="h-6 w-auto dark:hidden"
+                />
+                <Image
+                  src="/next.svg"
+                  alt="SN"
+                  width={24}
+                  height={24}
+                  className="h-6 w-auto hidden dark:block"
+                />
+              </Link>
+            </div>
 
             {/* 모바일 메뉴 버튼 */}
             <div className="flex items-center space-x-2">
@@ -220,7 +220,7 @@ export default function Header() {
               onChange={(e) => {
                 const newSelection = e.target.value;
                 setSelectedInfo(newSelection);
-                
+
                 const selectedOption = infoOptions.find(option => option.key === newSelection);
                 if (selectedOption?.link) {
                   window.open(selectedOption.link, '_blank', 'noopener,noreferrer');

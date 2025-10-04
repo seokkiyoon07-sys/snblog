@@ -624,10 +624,10 @@ This work inherits the East Asian tradition of political poetry while reflecting
     youtubeUrl: 'https://www.youtube.com/watch?v=50nJegN2YSQ',
     url: '/originals/samieungok'
   },
-    {
-      id: 'gapminga',
-      title: '내 속도 모르면서 가라 마라 막말하지 마라\n(수능 고전문학 「갑민가」)',
-      excerpt: '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
+  {
+    id: 'gapminga',
+    title: '내 속도 모르면서 가라 마라 막말하지 마라\n(수능 고전문학 「갑민가」)',
+    excerpt: '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄으로 「갑민가」를 준비했습니다.
@@ -944,12 +944,12 @@ export function getPostsByCategory(category: string): Post[] {
 export function searchPosts(query: string): Post[] {
   const lowercaseQuery = query.toLowerCase();
   return allPosts
-    .filter(post => 
+    .filter(post =>
       post.published && // published 된 글만 검색
       (post.title.toLowerCase().includes(lowercaseQuery) ||
-      post.excerpt.toLowerCase().includes(lowercaseQuery) ||
-      post.content.toLowerCase().includes(lowercaseQuery) ||
-      post.tags?.some(tag => tag.toLowerCase().includes(lowercaseQuery)))
+        post.excerpt.toLowerCase().includes(lowercaseQuery) ||
+        post.content.toLowerCase().includes(lowercaseQuery) ||
+        post.tags?.some(tag => tag.toLowerCase().includes(lowercaseQuery)))
     )
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // 날짜 내림차순 정렬 추가
 }
@@ -963,7 +963,7 @@ export function getPaginatedPosts(page: number = 1, limit: number = 6): { posts:
   const startIndex = (page - 1) * limit;
   const endIndex = startIndex + limit;
   const posts = publishedPosts.slice(startIndex, endIndex);
-  
+
   return {
     posts,
     totalPages,
