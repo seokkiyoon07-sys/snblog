@@ -43,7 +43,7 @@ const options = {
 const req = https.request(webhookUrl, options, (res) => {
   console.log(`Status: ${res.statusCode}`);
   console.log(`Headers: ${JSON.stringify(res.headers)}`);
-  
+
   res.setEncoding('utf8');
   res.on('data', (chunk) => {
     console.log(`Body: ${chunk}`);
