@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://blog.snacademy.co.kr"),
   title: 'AI 스타트업 | 교육 AI 혁신과 에듀테크 솔루션',
   description: 'SN Academy의 AI 스타트업을 소개합니다. SNarlink, SNarGPT, SNarGO 등 교육 AI 제품과 팀 구성, 비전을 확인하세요. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
-  alternates: { 
-    canonical: "/startup" 
+  alternates: {
+    canonical: "/startup"
   },
   openGraph: {
     title: 'AI 스타트업 | 교육 AI 혁신과 에듀테크 솔루션',
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     description: 'SN Academy의 AI 스타트업을 소개합니다. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
     images: ['/og/startup.jpg'],
   },
-  robots: { 
-    index: true, 
-    follow: true 
+  robots: {
+    index: true,
+    follow: true
   },
 };
 

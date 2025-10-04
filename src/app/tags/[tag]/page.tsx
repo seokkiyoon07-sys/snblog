@@ -12,10 +12,10 @@ interface TagPageProps {
 export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
   const { tag } = await params
   const decodedTag = decodeURIComponent(tag)
-  const posts = allPosts.filter(post => 
+  const posts = allPosts.filter(post =>
     post.published && post.tags?.some(t => t === decodedTag)
   )
-  
+
   if (posts.length === 0) {
     return {
       title: '태그를 찾을 수 없습니다',
@@ -26,8 +26,8 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
     metadataBase: new URL("https://blog.snacademy.co.kr"),
     title: `#${decodedTag} | SN Academy Blog`,
     description: `#${decodedTag} 태그가 포함된 포스트들을 확인하세요. SN Academy의 교육 콘텐츠를 태그별로 정리했습니다.`,
-    alternates: { 
-      canonical: `/tags/${encodeURIComponent(decodedTag)}` 
+    alternates: {
+      canonical: `/tags/${encodeURIComponent(decodedTag)}`
     },
     openGraph: {
       title: `#${decodedTag} | SN Academy Blog`,
@@ -50,9 +50,9 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
       description: `#${decodedTag} 태그가 포함된 포스트들을 확인하세요.`,
       images: [`/og/tags/${encodeURIComponent(decodedTag)}.jpg`],
     },
-    robots: { 
-      index: true, 
-      follow: true 
+    robots: {
+      index: true,
+      follow: true
     },
   }
 }
@@ -63,7 +63,7 @@ export async function generateStaticParams() {
     .filter(post => post.published && post.tags)
     .flatMap(post => post.tags!)
   const uniqueTags = [...new Set(allTags)]
-  
+
   return uniqueTags.map((tag) => ({
     tag: encodeURIComponent(tag),
   }))
@@ -72,7 +72,7 @@ export async function generateStaticParams() {
 export default async function TagPage({ params }: TagPageProps) {
   const { tag } = await params
   const decodedTag = decodeURIComponent(tag)
-  const posts = allPosts.filter(post => 
+  const posts = allPosts.filter(post =>
     post.published && post.tags?.some(t => t === decodedTag)
   )
 

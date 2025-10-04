@@ -62,3 +62,4 @@ const webhookUrl = process.env.JANDI_WEBHOOK_URL;
 ---
 
 **보안은 모든 개발자의 책임입니다! 🛡️**
+

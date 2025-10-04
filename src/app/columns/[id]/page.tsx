@@ -163,12 +163,21 @@ export default async function ColumnsPostPage({ params }: PostPageProps) {
       {/* 콘텐츠 */}
       <section className="px-6 md:px-10 lg:px-16 pb-24">
         <div className="mx-auto max-w-4xl">
-          <BlogLayout title={post.title}>
-            <div 
+          <BlogLayout>
+            <div
               className="prose prose-slate max-w-none"
-              dangerouslySetInnerHTML={{ 
+              dangerouslySetInnerHTML={{
                 __html: post.content
-                  // 링크 변환
+                  // 이미지 변환을 먼저 처리 (링크 변환보다 먼저)
+                  .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, src) => {
+                    // 이미지 경로가 /image/로 시작하는 경우 Next.js Image 컴포넌트 사용
+                    if (src.startsWith('/image/')) {
+                      return `<figure class="my-8"><div class="relative w-full h-auto"><img src="${src}" alt="${alt}" class="rounded-xl shadow-md mx-auto w-full h-auto object-contain" loading="lazy" /></div><figcaption class="text-center text-gray-500 mt-2 text-sm">${alt}</figcaption></figure>`;
+                    }
+                    // 외부 이미지의 경우 일반 img 태그 사용
+                    return `<figure class="my-8"><div class="relative w-full h-auto"><img src="${src}" alt="${alt}" class="rounded-xl shadow-md mx-auto w-full h-auto object-contain" loading="lazy" /></div><figcaption class="text-center text-gray-500 mt-2 text-sm">${alt}</figcaption></figure>`;
+                  })
+                  // 링크 변환 (이미지 변환 후)
                   .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-sn-primary hover:text-sn-primary-dark underline font-semibold" target="_blank" rel="noopener noreferrer">$1</a>')
                   // 제목 변환
                   .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-6 text-gray-900">$1</h1>')
@@ -178,8 +187,6 @@ export default async function ColumnsPostPage({ params }: PostPageProps) {
                   // 강조 텍스트 변환
                   .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
                   .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
-                  // 이미지 변환
-                  .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure class="my-8"><div class="relative w-full h-auto"><img src="$2" alt="$1" class="rounded-xl shadow-md mx-auto w-full h-auto object-contain" /></div><figcaption class="text-center text-gray-500 mt-2 text-sm">$1</figcaption></figure>')
                   // 문단 처리
                   .split('\n\n')
                   .map(paragraph => {
@@ -187,7 +194,7 @@ export default async function ColumnsPostPage({ params }: PostPageProps) {
                     if (paragraph.startsWith('#')) return paragraph;
                     if (paragraph.startsWith('![')) return paragraph;
                     if (paragraph.startsWith('- ')) {
-                      return `<ul class="list-disc list-inside mb-4 space-y-2">${paragraph.split('\n').map(item => 
+                      return `<ul class="list-disc list-inside mb-4 space-y-2">${paragraph.split('\n').map(item =>
                         item.trim().startsWith('- ') ? `<li class="text-gray-700">${item.replace(/^- /, '')}</li>` : ''
                       ).join('')}</ul>`;
                     }

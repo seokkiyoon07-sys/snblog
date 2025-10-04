@@ -30,3 +30,4 @@ services:
 networks:
   snblog-network:
     driver: bridge
+

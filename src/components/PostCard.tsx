@@ -20,17 +20,17 @@ interface PostCardProps {
   className?: string;
 }
 
-export default function PostCard({ 
-  post, 
-  variant = 'default', 
+export default function PostCard({
+  post,
+  variant = 'default',
   showThumbnail = true,
-  className = '' 
+  className = ''
 }: PostCardProps) {
   const isFeatured = variant === 'featured';
-  
+
   // ISO 날짜 형식으로 변환 (YYYY-MM-DD)
   const isoDate = post.date.replace(/\//g, '-');
-  
+
   // BlogPosting 스키마 마크업
   const blogPostingSchema = {
     "@context": "https://schema.org",
@@ -64,9 +64,9 @@ export default function PostCard({
       }
     })
   };
-  
+
   return (
-    <article 
+    <article
       className={`${isFeatured ? 'border border-sn-primary/20 dark:border-sn-primary/30 rounded-lg p-4 bg-sn-primary/5 dark:bg-sn-primary/10' : 'border-b border-gray-200 dark:border-gray-700 pb-4 lg:pb-6 last:border-b-0'} ${className}`}
       itemScope
       itemType="https://schema.org/BlogPosting"
@@ -76,7 +76,7 @@ export default function PostCard({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
       />
-      
+
       <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-4 lg:gap-6">
         {/* 썸네일 */}
         {showThumbnail && post.thumbnail && (
@@ -90,7 +90,7 @@ export default function PostCard({
             />
           </div>
         )}
-        
+
         {/* 콘텐츠 */}
         <div className="space-y-3 order-2 sm:order-2">
           {/* 태그 (데스크톱에서만 상단 표시) */}
@@ -98,7 +98,7 @@ export default function PostCard({
             <ul className="hidden sm:flex flex-wrap gap-2" role="list" aria-label="포스트 태그">
               {post.tags.map((tag) => (
                 <li key={tag}>
-                  <Link 
+                  <Link
                     href={`/tags/${encodeURIComponent(tag)}`}
                     className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded hover:bg-sn-primary/10 dark:hover:bg-sn-primary/20 hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors"
                   >
@@ -110,7 +110,7 @@ export default function PostCard({
           )}
 
           {/* 제목 */}
-          <h2 className={`${isFeatured ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl'} font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors`}>
+          <h2 className={`${isFeatured ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl'} font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200`}>
             <Link href={post.url} itemProp="url">
               <span itemProp="headline" className="whitespace-pre-line">
                 {isFeatured ? '📚' : '🎥'} {post.title}
@@ -131,8 +131,8 @@ export default function PostCard({
             <span aria-hidden="true">•</span>
             <span itemProp="wordCount">{post.readTime}</span>
             <span aria-hidden="true">•</span>
-            <Link 
-              href={`/categories/${encodeURIComponent(post.category)}`}
+            <Link
+              href={post.category === 'columns' ? '/columns' : post.category === 'SN Originals' ? '/originals' : post.category === 'startup' ? '/startup' : '#'}
               className="text-sn-primary dark:text-sn-primary-light font-medium hover:underline"
               itemProp="articleSection"
             >
@@ -145,7 +145,7 @@ export default function PostCard({
             <ul className="flex sm:hidden flex-wrap gap-1.5" role="list" aria-label="포스트 태그">
               {post.tags.map((tag) => (
                 <li key={tag}>
-                  <Link 
+                  <Link
                     href={`/tags/${encodeURIComponent(tag)}`}
                     className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded hover:bg-sn-primary/10 dark:hover:bg-sn-primary/20 hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors"
                   >

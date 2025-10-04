@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import StructuredData from "@/components/StructuredData";
+import QueryProvider from "@/components/providers/query-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,19 +52,21 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen">
-            <Header />
-            <div className="max-w-6xl mx-auto px-4 py-4 sm:py-6 lg:py-8">
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
-                <main className="lg:col-span-3 order-1">
-                  {children}
-                </main>
-                <aside className="order-2 lg:order-2">
-                  <Sidebar />
-                </aside>
+          <QueryProvider>
+            <div className="min-h-screen">
+              <Header />
+              <div className="max-w-6xl mx-auto px-4 py-4 sm:py-6 lg:py-8">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
+                  <main className="lg:col-span-3 order-1">
+                    {children}
+                  </main>
+                  <aside className="order-2 lg:order-2">
+                    <Sidebar />
+                  </aside>
+                </div>
               </div>
             </div>
-          </div>
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>

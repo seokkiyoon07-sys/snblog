@@ -3,40 +3,15 @@ import PostCard from '@/components/PostCard'
 import FeaturedPost from '@/components/FeaturedPost'
 import Pagination from '@/components/Pagination'
 import { Metadata } from 'next'
+import { generateMetadata } from '@/lib/utils'
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://blog.snacademy.co.kr"),
+export const metadata: Metadata = generateMetadata({
   title: "SN Academy Blog | 독학기숙학원의 교육 혁신과 AI 스타트업",
   description: "SN Academy의 교육 혁신, AI 스타트업, 독학기숙학원 정보를 제공합니다. 수능 대비, 입시 정보, 학습법, 합격 후기까지 모든 교육 정보를 한 곳에서 확인하세요.",
-  alternates: { 
-    canonical: "/" 
-  },
-  openGraph: {
-    title: "SN Academy Blog | 독학기숙학원의 교육 혁신과 AI 스타트업",
-    description: "SN Academy의 교육 혁신, AI 스타트업, 독학기숙학원 정보를 제공합니다. 수능 대비, 입시 정보, 학습법, 합격 후기까지 모든 교육 정보를 한 곳에서 확인하세요.",
-    type: "website",
-    locale: "ko_KR",
-    url: "https://blog.snacademy.co.kr/",
-    images: [
-      { 
-        url: "/og/home.jpg", 
-        width: 1200, 
-        height: 630, 
-        alt: "SN Academy Blog - 독학기숙학원의 교육 혁신과 AI 스타트업" 
-      }
-    ],
-  },
-  twitter: { 
-    card: "summary_large_image",
-    title: "SN Academy Blog | 독학기숙학원의 교육 혁신과 AI 스타트업",
-    description: "SN Academy의 교육 혁신, AI 스타트업, 독학기숙학원 정보를 제공합니다.",
-    images: ["/og/home.jpg"]
-  },
-  robots: { 
-    index: true, 
-    follow: true 
-  },
-};
+  keywords: ["교육", "AI", "독학기숙학원", "수능", "입시"],
+  canonical: "/",
+  ogImage: "/og/home.jpg"
+});
 
 interface HomeProps {
   searchParams: Promise<{ page?: string }>
@@ -46,10 +21,10 @@ export default async function Home({ searchParams }: HomeProps) {
   // 페이지네이션을 위한 현재 페이지
   const resolvedSearchParams = await searchParams
   const currentPage = parseInt(resolvedSearchParams.page || '1', 10)
-  
-  // 동적으로 최신 글과 고정 글 가져오기
-  const { posts: latestPosts, totalPages } = getPaginatedPosts(currentPage, 6)
-  const featuredPosts = getFeaturedPosts()
+
+  // 서버에서 데이터 패칭 (캐시됨)
+  const { posts: latestPosts, totalPages } = await getPaginatedPosts(currentPage, 6)
+  const featuredPosts = await getFeaturedPosts()
 
   // 스키마 마크업 데이터
   const blogSchema = {
@@ -112,7 +87,7 @@ export default async function Home({ searchParams }: HomeProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
       />
-      
+
       <div className="space-y-6 lg:space-y-8">
         {/* 고정 글 섹션 */}
         {featuredPosts.length > 0 && (
@@ -147,9 +122,9 @@ export default async function Home({ searchParams }: HomeProps) {
                 <PostCard key={post.id} post={post} />
               ))}
             </div>
-            
+
             {/* 페이지네이션 */}
-            <Pagination 
+            <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
               baseUrl="/"

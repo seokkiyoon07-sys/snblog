@@ -16,7 +16,7 @@ interface PostPageProps {
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { id } = await params;
   const post = getPostById(id);
-  
+
   if (!post) {
     return {
       title: 'Post Not Found | SN Academy Blog',
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 export async function generateStaticParams() {
   const { getPostsByCategory } = await import('@/data/posts');
   const originalsPosts = getPostsByCategory('originals');
-  
+
   return originalsPosts.map((post) => ({
     id: post.id,
   }))
@@ -73,8 +73,8 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
       {/* 뒤로가기 버튼 */}
       <div className="px-6 md:px-10 lg:px-16 pt-8">
         <div className="mx-auto max-w-5xl">
-          <Link 
-            href="/originals" 
+          <Link
+            href="/originals"
             className="inline-flex items-center text-sn-primary hover:text-sn-primary-dark transition-colors"
           >
             ← SN Originals로 돌아가기
@@ -86,7 +86,7 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
       <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
-            <h1 
+            <h1
               className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 mb-6 leading-tight"
               dangerouslySetInnerHTML={{ __html: post.title }}
             />
@@ -175,7 +175,7 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
                   {post.id === 'bukcheonga' && (
                     <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 mb-3 rounded">
                       <p className="text-sm text-gray-700">
-                        <strong>북천가</strong>는 이번 수능에 출제될 확률이 높은 작품인데요.<br/>
+                        <strong>북천가</strong>는 이번 수능에 출제될 확률이 높은 작품인데요.<br />
                         이동하실 때, 머리를 잠시 식히실 때 보시면 도움이 되실 겁니다!
                       </p>
                     </div>
@@ -219,7 +219,7 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
                           「사미인곡」은 1588년(선조 21) 정철이 고향인 전남 창평에 우거하며 지은 가사입니다.
                         </p>
                         <p>
-                          임금과 이별한 본인이 처지를 남편과 이별한 한 여인의 상황으로 그려내면서,<br/>
+                          임금과 이별한 본인이 처지를 남편과 이별한 한 여인의 상황으로 그려내면서,<br />
                           계절의 변화에 따라 매화, 옷, 달, 별, 눈 등 다양한 비유와 대구 등을 사용하여 감각적으로 그려낸 작품입니다.
                         </p>
                       </div>
@@ -237,7 +237,7 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="space-y-8">
                   <Section title={`「${post.id === 'gapminga' ? '갑민가' : post.id === 'hwangokga' ? '화왕가' : post.id === 'bukcheonga' ? '북천가' : post.id === 'gwandong-byeolgok' ? '관동별곡' : post.id === 'samieungok' ? '사미인곡' : '속미인곡'}」- ${post.id === 'gapminga' ? '민중의 절규와 저항' : post.id === 'hwangokga' ? '풍자 문학의 진수' : post.id === 'bukcheonga' ? '민중 문학의 진수' : post.id === 'gwandong-byeolgok' ? '조선 가사 문학의 백미' : post.id === 'samieungok' ? '정치적 사랑의 문학적 승화' : '사랑의 절정과 문학의 완성'}`}>
                     <div className="space-y-6">
@@ -247,17 +247,17 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
                           {post.id === 'gapminga' ? '시대의 아픔을 담은 문학' : post.id === 'hwangokga' ? '유머로 승화된 사회 비판' : post.id === 'bukcheonga' ? '시대의 아픔을 담은 문학' : post.id === 'gwandong-byeolgok' ? '작품의 진정한 아름다움' : post.id === 'samieungok' ? '사랑과 충성의 문학적 표현' : '사랑의 절정을 담은 문학'}
                         </h3>
                         <p className="text-gray-700 leading-relaxed">
-                          {post.id === 'gapminga' 
+                          {post.id === 'gapminga'
                             ? '「갑민가」는 조선 후기 백성들의 고통과 절망을 생생하게 담아낸 작품입니다. 이 작품은 단순한 문학 작품을 넘어서, 당시 사회의 모순과 지배층의 부패를 날카롭게 비판하는 사회적 메시지를 담고 있습니다.'
-                            : post.id === 'hwangokga' 
-                            ? '「화왕가」는 조선 후기 사회의 모순과 인간의 욕망을 풍자적으로 표현한 문학적 걸작입니다. 이 작품은 단순한 비판을 넘어서, 유머와 해학을 통해 사회의 부조리를 날카롭게 지적하는 문학의 힘을 보여줍니다.'
-                            : post.id === 'bukcheonga'
-                            ? '「북천가」는 조선 후기 북한 지역 민중들의 고통과 절망을 생생하게 담아낸 작품입니다. 이 작품은 단순한 문학 작품을 넘어서, 당시 사회의 모순과 지배층의 부패를 날카롭게 비판하는 사회적 메시지를 담고 있습니다.'
-                            : post.id === 'gwandong-byeolgok'
-                            ? '「관동별곡」은 단순한 풍경 묘사를 넘어서, 정철이 관동 지역(강원도)의 자연을 통해 인간의 내면세계를 표현한 문학적 걸작입니다. 이 작품은 조선 가사 문학의 최고봉으로 평가받으며, 자연과 인간의 조화를 통해 문학의 본질을 보여줍니다.'
-                            : post.id === 'samieungok'
-                            ? '「사미인곡」은 정철이 선조에 대한 충성과 사랑을 미인에 비유하여 표현한 문학적 걸작입니다. 이 작품은 단순한 정치적 충성을 넘어서, 복잡한 인간의 감정을 아름다운 문학적 비유로 승화시킨 조선 가사 문학의 대표작입니다.'
-                            : '「속미인곡」은 정철이 1588~1589년 경 고향인 전남 창평에서 「사미인곡」에 이어 지은 가사입니다. 이 작품은 단순한 정치적 충성을 넘어서, 진정한 사랑의 절정과 그리움의 깊이를 보여주는 조선 가사 문학의 최고봉입니다.'
+                            : post.id === 'hwangokga'
+                              ? '「화왕가」는 조선 후기 사회의 모순과 인간의 욕망을 풍자적으로 표현한 문학적 걸작입니다. 이 작품은 단순한 비판을 넘어서, 유머와 해학을 통해 사회의 부조리를 날카롭게 지적하는 문학의 힘을 보여줍니다.'
+                              : post.id === 'bukcheonga'
+                                ? '「북천가」는 조선 후기 북한 지역 민중들의 고통과 절망을 생생하게 담아낸 작품입니다. 이 작품은 단순한 문학 작품을 넘어서, 당시 사회의 모순과 지배층의 부패를 날카롭게 비판하는 사회적 메시지를 담고 있습니다.'
+                                : post.id === 'gwandong-byeolgok'
+                                  ? '「관동별곡」은 단순한 풍경 묘사를 넘어서, 정철이 관동 지역(강원도)의 자연을 통해 인간의 내면세계를 표현한 문학적 걸작입니다. 이 작품은 조선 가사 문학의 최고봉으로 평가받으며, 자연과 인간의 조화를 통해 문학의 본질을 보여줍니다.'
+                                  : post.id === 'samieungok'
+                                    ? '「사미인곡」은 정철이 선조에 대한 충성과 사랑을 미인에 비유하여 표현한 문학적 걸작입니다. 이 작품은 단순한 정치적 충성을 넘어서, 복잡한 인간의 감정을 아름다운 문학적 비유로 승화시킨 조선 가사 문학의 대표작입니다.'
+                                    : '「속미인곡」은 정철이 1588~1589년 경 고향인 전남 창평에서 「사미인곡」에 이어 지은 가사입니다. 이 작품은 단순한 정치적 충성을 넘어서, 진정한 사랑의 절정과 그리움의 깊이를 보여주는 조선 가사 문학의 최고봉입니다.'
                           }
                         </p>
                       </div>
@@ -301,7 +301,7 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
                       </div>
                     </div>
                   </Section>
-                  
+
                   <Callout variant="info" title="K-Classic Literature 관점">
                     <div className="space-y-4">
                       <h4 className="font-semibold text-lg">"{post.id === 'gapminga' ? 'Gapmin-ga' : post.id === 'hwangokga' ? 'Hwangok-ga' : post.id === 'bukcheonga' ? 'Bukcheon-ga' : post.id === 'gwandong-byeolgok' ? 'Gwandong-byeolgok' : post.id === 'samieungok' ? 'Samiin-gok' : 'Sokmiin-gok'}" - {post.id === 'gapminga' ? 'The Cry of the People' : post.id === 'hwangokga' ? 'The Art of Satirical Literature' : post.id === 'bukcheonga' ? 'The Voice of the Oppressed' : post.id === 'gwandong-byeolgok' ? 'A Masterpiece of Korean Classical Literature' : post.id === 'samieungok' ? 'The Literary Sublimation of Political Love' : 'The Culmination of Love and Literature'}: A Masterpiece of K-Classic Literature</h4>
@@ -309,17 +309,17 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
                         <strong>{post.id === 'gapminga' ? 'Gapmin-ga' : post.id === 'hwangokga' ? 'Hwangok-ga' : post.id === 'bukcheonga' ? 'Bukcheon-ga' : post.id === 'gwandong-byeolgok' ? 'Gwandong-byeolgok' : post.id === 'samieungok' ? 'Samiin-gok' : 'Sokmiin-gok'}</strong> ({post.id === 'gapminga' ? '갑민가' : post.id === 'hwangokga' ? '화왕가' : post.id === 'bukcheonga' ? '북천가' : post.id === 'gwandong-byeolgok' ? '관동별곡' : post.id === 'samieungok' ? '사미인곡' : '속미인곡'}) stands as one of the most powerful works in Korean classical literature, {post.id === 'gapminga' ? 'representing the authentic voice of the oppressed during the late Joseon Dynasty (1392-1910). This masterpiece transcends mere literary expression to become a profound social document that exposes the contradictions and corruption of the ruling class while giving voice to the voiceless masses.' : post.id === 'hwangokga' ? 'using humor and satire to expose the contradictions of late Joseon society and human desires. This work transcends mere criticism to demonstrate the power of literature to address social injustice through wit and humor.' : post.id === 'bukcheonga' ? 'giving voice to the suffering and resistance of the common people in the northern regions during the late Joseon Dynasty. This work transcends mere literary expression to become a social document that exposes the contradictions and corruption of the ruling class while highlighting the unique suffering of the northern regions.' : post.id === 'gwandong-byeolgok' ? 'not merely a description of beautiful landscapes, but a profound literary work that explores the relationship between nature and human consciousness. Written by Jeong Cheol (정철), this piece represents the pinnacle of classical Korean poetry and showcases the unique beauty of Joseon Dynasty literature.' : post.id === 'samieungok' ? 'expressing Jeong Cheol\'s loyalty and love for King Seonjo through the metaphor of a beautiful woman. This work transcends mere political loyalty to become a profound literary expression of complex human emotions.' : 'written by Jeong Cheol (정철) around 1588-1589 during his exile in Changpyeong, Jeollanam-do. This work, which follows "Samiin-gok" (사미인곡), represents the pinnacle of classical Korean poetry and showcases the deepest expression of love and longing in Korean literature.'}
                       </p>
                       <p>
-                        {post.id === 'gapminga' 
+                        {post.id === 'gapminga'
                           ? 'This work represents the pinnacle of Korean classical literature\'s engagement with social issues. Unlike court literature that often idealized the ruling class, "Gapmin-ga" provides an unfiltered view of the common people\'s suffering and resistance.'
                           : post.id === 'hwangokga'
-                          ? 'This work inherits the East Asian tradition of satirical literature while reflecting the unique social conditions of Joseon. The way it uses humor and wit for social criticism represents a valuable contribution to world literature, demonstrating how literature can address social issues through entertainment.'
-                          : post.id === 'bukcheonga'
-                          ? 'This work inherits the East Asian tradition of popular literature while reflecting the unique social conditions of Joseon. The way it transforms the suffering and resistance of the people into literary expression represents a valuable contribution to world literature, demonstrating the power of literature to give voice to the voiceless.'
-                          : post.id === 'gwandong-byeolgok'
-                          ? 'This work inherits the East Asian tradition of nature poetry while achieving a uniquely Korean literary accomplishment. The way it harmoniously expresses human emotions through nature represents a valuable contribution to world literature, demonstrating the sophisticated relationship between humanity and the natural world.'
-                          : post.id === 'samieungok'
-                          ? 'This work inherits the East Asian tradition of political poetry while reflecting the unique political conditions of Joseon. The way it transforms political loyalty into literary expression represents a valuable contribution to world literature, demonstrating how literature can sublimate political emotions into art.'
-                          : 'This work inherits the East Asian tradition of political poetry while reflecting the unique political conditions of Joseon. The way it transforms political loyalty into genuine love represents a valuable contribution to world literature, demonstrating how literature can sublimate political emotions into the highest form of human expression.'
+                            ? 'This work inherits the East Asian tradition of satirical literature while reflecting the unique social conditions of Joseon. The way it uses humor and wit for social criticism represents a valuable contribution to world literature, demonstrating how literature can address social issues through entertainment.'
+                            : post.id === 'bukcheonga'
+                              ? 'This work inherits the East Asian tradition of popular literature while reflecting the unique social conditions of Joseon. The way it transforms the suffering and resistance of the people into literary expression represents a valuable contribution to world literature, demonstrating the power of literature to give voice to the voiceless.'
+                              : post.id === 'gwandong-byeolgok'
+                                ? 'This work inherits the East Asian tradition of nature poetry while achieving a uniquely Korean literary accomplishment. The way it harmoniously expresses human emotions through nature represents a valuable contribution to world literature, demonstrating the sophisticated relationship between humanity and the natural world.'
+                                : post.id === 'samieungok'
+                                  ? 'This work inherits the East Asian tradition of political poetry while reflecting the unique political conditions of Joseon. The way it transforms political loyalty into literary expression represents a valuable contribution to world literature, demonstrating how literature can sublimate political emotions into art.'
+                                  : 'This work inherits the East Asian tradition of political poetry while reflecting the unique political conditions of Joseon. The way it transforms political loyalty into genuine love represents a valuable contribution to world literature, demonstrating how literature can sublimate political emotions into the highest form of human expression.'
                         }
                       </p>
                     </div>
@@ -327,30 +327,33 @@ export default async function OriginalsPostPage({ params }: PostPageProps) {
                 </div>
               </div>
             ) : (
-            <div 
-              className="prose prose-slate max-w-none"
-              dangerouslySetInnerHTML={{ 
-                __html: post.content
-                  // 링크 변환을 가장 먼저 처리
-                  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-sn-primary hover:text-sn-primary-dark underline font-semibold" target="_blank" rel="noopener noreferrer">$1</a>')
-                  // 제목 변환
-                  .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-6 text-gray-900">$1</h1>')
-                  .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-semibold mb-4 text-gray-800">$1</h2>')
-                  .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mb-3 text-gray-700">$1</h3>')
-                  .replace(/^#### (.*$)/gim, '<h4 class="text-lg font-semibold mb-2 text-gray-700">$1</h4>')
-                  // 강조 텍스트 변환
-                  .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
-                  .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
-                  // 문단 처리 - 더 간단하게
-                  .split('\n\n')
-                  .map(paragraph => {
-                    if (paragraph.trim() === '') return '';
-                    if (paragraph.startsWith('#')) return paragraph;
-                    return `<p class="mb-4 text-gray-700 leading-relaxed">${paragraph}</p>`;
-                  })
-                  .join('')
-              }}
-            />
+              <div
+                className="prose prose-slate max-w-none"
+                dangerouslySetInnerHTML={{
+                  __html: post.content
+                    // 이미지 변환을 링크 변환보다 먼저 처리
+                    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure class="my-8"><div class="relative w-full h-auto"><img src="$2" alt="$1" class="rounded-xl shadow-md mx-auto w-full h-auto object-contain" /></div><figcaption class="text-center text-gray-500 mt-2 text-sm">$1</figcaption></figure>')
+                    // 링크 변환 (이미지가 아닌 링크만)
+                    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-sn-primary hover:text-sn-primary-dark underline font-semibold" target="_blank" rel="noopener noreferrer">$1</a>')
+                    // 제목 변환
+                    .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-6 text-gray-900">$1</h1>')
+                    .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-semibold mb-4 text-gray-800">$1</h2>')
+                    .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mb-3 text-gray-700">$1</h3>')
+                    .replace(/^#### (.*$)/gim, '<h4 class="text-lg font-semibold mb-2 text-gray-700">$1</h4>')
+                    // 강조 텍스트 변환
+                    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
+                    .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
+                    // 문단 처리 - 더 간단하게
+                    .split('\n\n')
+                    .map(paragraph => {
+                      if (paragraph.trim() === '') return '';
+                      if (paragraph.startsWith('#')) return paragraph;
+                      if (paragraph.startsWith('<figure')) return paragraph;
+                      return `<p class="mb-4 text-gray-700 leading-relaxed">${paragraph}</p>`;
+                    })
+                    .join('')
+                }}
+              />
             )}
           </div>
         </div>

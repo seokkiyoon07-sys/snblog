@@ -13,7 +13,7 @@ interface PostPageProps {
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { id } = await params;
   const post = getPostById(id);
-  
+
   if (!post) {
     return {
       title: 'Post Not Found | SN Academy Blog',
@@ -138,7 +138,7 @@ export default async function PostPage({ params }: PostPageProps) {
         {/* 콘텐츠 */}
         <div className="prose prose-lg max-w-none">
           <p className="text-gray-700 leading-relaxed">
-            이 글은 동적 시스템을 통해 자동으로 생성된 페이지입니다. 
+            이 글은 동적 시스템을 통해 자동으로 생성된 페이지입니다.
             새로운 글을 추가하면 자동으로 이 페이지가 생성되고 사이트맵에도 포함됩니다.
           </p>
         </div>

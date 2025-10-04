@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://blog.snacademy.co.kr"),
   title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
   description: 'SN Academy의 교육 전문가들이 제공하는 학습법, 입시 전략, 자기주도학습 방법 등을 확인하세요. 검증된 교육 노하우로 학습 효과를 극대화할 수 있습니다.',
-  alternates: { 
-    canonical: "/columns" 
+  alternates: {
+    canonical: "/columns"
   },
   openGraph: {
     title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     description: 'SN Academy의 교육 전문가들이 제공하는 학습법과 입시 조언을 확인하세요.',
     images: ['/og/columns.jpg'],
   },
-  robots: { 
-    index: true, 
-    follow: true 
+  robots: {
+    index: true,
+    follow: true
   },
 };
 

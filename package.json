@@ -10,6 +10,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky install",
     "test:jandi": "node scripts/test-jandi.js",
     "backup:posts": "node scripts/backup-posts.js",
     "restore:posts": "node scripts/restore-posts.js",
@@ -24,6 +29,8 @@
     "docker:logs": "docker-compose logs -f"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.8.4",
+    "@tanstack/react-query-devtools": "^5.8.4",
     "@tailwindcss/line-clamp": "^0.4.4",
     "critters": "^0.0.23",
     "lucide-react": "^0.544.0",
@@ -33,10 +40,22 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "clsx": "^2.0.0",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "15.5.4",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.0",
+    "tailwind-merge": "^2.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

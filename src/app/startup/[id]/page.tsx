@@ -16,7 +16,7 @@ interface PostPageProps {
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { id } = await params;
   const post = getPostById(id);
-  
+
   if (!post) {
     return {
       title: 'Post Not Found | SN Academy Blog',
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 export async function generateStaticParams() {
   const { getPostsByCategory } = await import('@/data/posts');
   const startupPosts = getPostsByCategory('startup');
-  
+
   return startupPosts.map((post) => ({
     id: post.id,
   }))
@@ -73,8 +73,8 @@ export default async function StartupPostPage({ params }: PostPageProps) {
       {/* 뒤로가기 버튼 */}
       <div className="px-6 md:px-10 lg:px-16 pt-8">
         <div className="mx-auto max-w-5xl">
-          <Link 
-            href="/startup" 
+          <Link
+            href="/startup"
             className="inline-flex items-center text-sn-primary hover:text-sn-primary-dark transition-colors"
           >
             ← AI 스타트업으로 돌아가기
@@ -163,9 +163,9 @@ export default async function StartupPostPage({ params }: PostPageProps) {
       <section className="px-6 md:px-10 lg:px-16 pb-24">
         <div className="mx-auto max-w-4xl">
           <BlogLayout title={post.title}>
-            <div 
+            <div
               className="prose prose-slate max-w-none"
-              dangerouslySetInnerHTML={{ 
+              dangerouslySetInnerHTML={{
                 __html: post.content
                   // 링크 변환
                   .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-sn-primary hover:text-sn-primary-dark underline font-semibold" target="_blank" rel="noopener noreferrer">$1</a>')
@@ -186,7 +186,7 @@ export default async function StartupPostPage({ params }: PostPageProps) {
                     if (paragraph.startsWith('#')) return paragraph;
                     if (paragraph.startsWith('![')) return paragraph;
                     if (paragraph.startsWith('- ')) {
-                      return `<ul class="list-disc list-inside mb-4 space-y-2">${paragraph.split('\n').map(item => 
+                      return `<ul class="list-disc list-inside mb-4 space-y-2">${paragraph.split('\n').map(item =>
                         item.trim().startsWith('- ') ? `<li class="text-gray-700">${item.replace(/^- /, '')}</li>` : ''
                       ).join('')}</ul>`;
                     }
