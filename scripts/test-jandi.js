@@ -1,7 +1,15 @@
 // 테스트용 잔디 웹훅 스크립트
 const https = require('https');
+require('dotenv').config();
 
-const webhookUrl = 'https://wh.jandi.com/connect-api/webhook/13116580/408c7be61ec340cc632a4816f56a4442';
+const webhookUrl = process.env.JANDI_WEBHOOK_URL;
+
+if (!webhookUrl) {
+  console.error('❌ JANDI_WEBHOOK_URL 환경 변수가 설정되지 않았습니다.');
+  console.log('💡 .env.local 파일에 다음을 추가하세요:');
+  console.log('JANDI_WEBHOOK_URL=your_webhook_url_here');
+  process.exit(1);
+}
 
 const testMessage = {
   body: "🧪 테스트 메시지입니다!",

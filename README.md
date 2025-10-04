@@ -71,8 +71,10 @@ npm run test:jandi
 - `src/app/reviews/**/page.tsx` 새 페이지 추가
 - `src/app/admissions/**/page.tsx` 새 페이지 추가
 
-### 🔗 잔디 웹훅 URL
-```
-https://wh.jandi.com/connect-api/webhook/13116580/408c7be61ec340cc632a4816f56a4442
-```
+### 🔗 잔디 웹훅 설정
+웹훅 URL은 환경 변수로 관리됩니다:
+- GitHub Secrets: `JANDI_WEBHOOK_URL`
+- 로컬 환경: `.env.local` 파일에 설정
+
+**보안 주의**: 웹훅 URL을 코드에 직접 포함하지 마세요!
 
