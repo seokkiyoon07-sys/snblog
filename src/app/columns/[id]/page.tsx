@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import StructuredData from '@/components/StructuredData'
 import AIDataGenerator from '@/components/AIDataGenerator'
 import { getPostById } from '@/data/posts'
+import { BlogLayout, BlogImage, Quote, Highlight, InfoBox, SuccessBox, Section, FeatureList, Callout, CodeBlock } from '@/components/BlogComponents'
 
 
 interface PostPageProps {
@@ -162,11 +163,40 @@ export default async function ColumnsPostPage({ params }: PostPageProps) {
       {/* 콘텐츠 */}
       <section className="px-6 md:px-10 lg:px-16 pb-24">
         <div className="mx-auto max-w-4xl">
-          <div className="prose prose-lg prose-slate max-w-none">
-            <div className="whitespace-pre-wrap">
-              {post.content}
-            </div>
-          </div>
+          <BlogLayout title={post.title}>
+            <div 
+              className="prose prose-slate max-w-none"
+              dangerouslySetInnerHTML={{ 
+                __html: post.content
+                  // 링크 변환
+                  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-sn-primary hover:text-sn-primary-dark underline font-semibold" target="_blank" rel="noopener noreferrer">$1</a>')
+                  // 제목 변환
+                  .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-6 text-gray-900">$1</h1>')
+                  .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-semibold mb-4 text-gray-800">$1</h2>')
+                  .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mb-3 text-gray-700">$1</h3>')
+                  .replace(/^#### (.*$)/gim, '<h4 class="text-lg font-semibold mb-2 text-gray-700">$1</h4>')
+                  // 강조 텍스트 변환
+                  .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
+                  .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
+                  // 이미지 변환
+                  .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure class="my-8"><div class="relative w-full h-auto"><img src="$2" alt="$1" class="rounded-xl shadow-md mx-auto w-full h-auto object-contain" /></div><figcaption class="text-center text-gray-500 mt-2 text-sm">$1</figcaption></figure>')
+                  // 문단 처리
+                  .split('\n\n')
+                  .map(paragraph => {
+                    if (paragraph.trim() === '') return '';
+                    if (paragraph.startsWith('#')) return paragraph;
+                    if (paragraph.startsWith('![')) return paragraph;
+                    if (paragraph.startsWith('- ')) {
+                      return `<ul class="list-disc list-inside mb-4 space-y-2">${paragraph.split('\n').map(item => 
+                        item.trim().startsWith('- ') ? `<li class="text-gray-700">${item.replace(/^- /, '')}</li>` : ''
+                      ).join('')}</ul>`;
+                    }
+                    return `<p class="mb-4 text-gray-700 leading-relaxed">${paragraph}</p>`;
+                  })
+                  .join('')
+              }}
+            />
+          </BlogLayout>
         </div>
       </section>
 
