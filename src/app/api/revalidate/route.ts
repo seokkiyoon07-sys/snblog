@@ -1,0 +1,39 @@
+import { revalidatePath, revalidateTag } from 'next/cache'
+import { NextRequest, NextResponse } from 'next/server'
+
+export async function POST(request: NextRequest) {
+  const secret = request.nextUrl.searchParams.get('secret')
+  
+  // Check for secret to confirm this is a valid request
+  if (secret !== process.env.REVALIDATE_SECRET) {
+    return NextResponse.json({ message: 'Invalid secret' }, { status: 401 })
+  }
+
+  try {
+    // Get current build SHA
+    const BUILD = process.env.VERCEL_GIT_COMMIT_SHA || 'local-dev'
+    
+    // Revalidate specific paths
+    revalidatePath('/columns/SNarlink')
+    revalidatePath('/startup/ai-startup')
+    revalidatePath('/originals/sn-originals-intro')
+    
+    // Revalidate tags for more granular cache control
+    revalidateTag('snarlink')
+    revalidateTag('columns')
+    revalidateTag('pages')
+    revalidateTag('startup')
+    revalidateTag('originals')
+    revalidateTag(`build:${BUILD}`) // BUILD SHA 기반 태그
+    
+    return NextResponse.json({ 
+      revalidated: true, 
+      now: Date.now(),
+      buildSha: BUILD,
+      paths: ['/columns/SNarlink', '/startup/ai-startup', '/originals/sn-originals-intro'],
+      tags: ['snarlink', 'columns', 'pages', 'startup', 'originals', `build:${BUILD}`]
+    })
+  } catch (err) {
+    return NextResponse.json({ message: 'Error revalidating' }, { status: 500 })
+  }
+}

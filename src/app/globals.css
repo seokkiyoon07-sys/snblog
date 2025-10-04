@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --sn-primary: #122918;
+  --sn-primary-light: #1a3d2a;
+  --sn-primary-dark: #0f1f15;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sn-primary: #122918;
+  --color-sn-primary-light: #1a3d2a;
+  --color-sn-primary-dark: #0f1f15;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* 다크모드 개선 */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+.dark body {
+  background-color: #0a0a0a;
+  color: #ededed;
+}
+
+/* 다크모드 카드 및 컴포넌트 개선 */
+.dark .bg-white {
+  background-color: #1a1a1a !important;
+  border-color: #333333 !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #1a1a1a !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: #2a2a2a !important;
+}
+
+.dark .bg-gray-200 {
+  background-color: #333333 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #333333 !important;
+}
+
+.dark .border-gray-300 {
+  border-color: #404040 !important;
+}
+
+.dark .text-gray-600 {
+  color: #a0a0a0 !important;
+}
+
+.dark .text-gray-700 {
+  color: #c0c0c0 !important;
+}
+
+.dark .text-gray-800 {
+  color: #d0d0d0 !important;
+}
+
+.dark .text-gray-900 {
+  color: #ededed !important;
+}
+
+/* 다크모드 입력 필드 개선 */
+.dark input {
+  background-color: #1a1a1a !important;
+  border-color: #333333 !important;
+  color: #ededed !important;
+}
+
+.dark input::placeholder {
+  color: #666666 !important;
+}
+
+/* 다크모드 버튼 개선 */
+.dark button {
+  background-color: #2a2a2a !important;
+  border-color: #333333 !important;
+  color: #ededed !important;
+}
+
+.dark button:hover {
+  background-color: #333333 !important;
+}
+
+/* 다크모드 링크 개선 */
+.dark a {
+  color: #60a5fa !important;
+}
+
+.dark a:hover {
+  color: #93c5fd !important;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* 다크모드 개선 */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #0a0a0a;
+  color: #ededed;
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  /* SN 컬러 강제 적용 */
+  .text-sn-primary {
+    color: #122918 !important;
+  }
+  
+  .hover\:text-sn-primary:hover {
+    color: #122918 !important;
+  }
+  
+  .bg-sn-primary {
+    background-color: #122918 !important;
+  }
+  
+  .border-sn-primary {
+    border-color: #122918 !important;
+  }
+  
+  .text-sn-primary-light {
+    color: #1a3d2a !important;
+  }
+  
+  .hover\:text-sn-primary-light:hover {
+    color: #1a3d2a !important;
+  }
+}
