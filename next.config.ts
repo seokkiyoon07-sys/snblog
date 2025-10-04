@@ -4,7 +4,16 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: 'standalone', // Docker를 위한 standalone 빌드
   images: {
-    domains: ['img.youtube.com', 'blog.snacademy.co.kr'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'blog.snacademy.co.kr',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
     qualities: [75, 85, 95],
   },

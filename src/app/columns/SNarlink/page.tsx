@@ -295,7 +295,7 @@ export default function Page() {
             </Highlight>
 
             <BlogImage 
-              src="/image/SNarlink/SNarlink Logo.png"
+              src="/image/SNarlink/thumbnail.png"
               alt="SNarlink 로고"
               caption="SNarlink 로고"
               priority={true}
