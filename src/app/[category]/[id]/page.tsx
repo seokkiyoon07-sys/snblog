@@ -20,6 +20,16 @@ export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
   const { id } = await params;
+
+  // SNargopost_1은 별도 페이지가 있으므로 제외
+  if (id === 'SNargopost_1') {
+    return {
+      title: 'SNarGO — 수능 특화 Vertical AI | SN Academy',
+      description:
+        'SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵까지.',
+    };
+  }
+
   const post = getPostById(id);
 
   if (!post) {
