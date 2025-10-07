@@ -77,6 +77,12 @@ export async function generateStaticParams() {
 
 export default async function PostPage({ params }: PostPageProps) {
   const { category, id } = await params;
+
+  // SNargopost_1에 대해서는 특별한 처리를 하지 않음 (별도 페이지가 있음)
+  if (id === 'SNargopost_1') {
+    notFound();
+  }
+
   const post = getPostById(id);
 
   if (!post) {
