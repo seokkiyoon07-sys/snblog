@@ -48,27 +48,6 @@ export default async function Home({ searchParams }: HomeProps) {
   );
   const featuredPosts = await getFeaturedPosts();
 
-  // SNargopost_1을 수동으로 추가 (전용 페이지가 있지만 홈페이지에서도 표시)
-  const snargoPost = {
-    id: 'SNargopost_1',
-    title: 'SNarGO — 수능 특화 Vertical AI',
-    excerpt:
-      'SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵까지.',
-    thumbnail: '/images/startup/SNarGo/SNargo thumbnail.PNG',
-    category: 'startup',
-    tags: ['AI', '수능', '수학', '교육기술'],
-    author: 'SN Academy',
-    date: '2025-10-07',
-    readTime: '12',
-    featured: true,
-    published: true,
-    youtubeUrl: undefined,
-    url: '/startup/SNargopost_1',
-  };
-
-  // featuredPosts에 SNarGO 추가
-  const allFeaturedPosts = [snargoPost, ...featuredPosts];
-
   // 스키마 마크업 데이터
   const blogSchema = {
     '@context': 'https://schema.org',
@@ -83,7 +62,7 @@ export default async function Home({ searchParams }: HomeProps) {
       url: 'https://snacademy.co.kr',
     },
     blogPost: [
-      ...allFeaturedPosts.map(post => ({
+      ...featuredPosts.map(post => ({
         '@type': 'BlogPosting',
         headline: post.title,
         description: post.excerpt,
@@ -138,23 +117,115 @@ export default async function Home({ searchParams }: HomeProps) {
 
       <div className="space-y-6 lg:space-y-8">
         {/* 고정 글 섹션 */}
-        {allFeaturedPosts.length > 0 && (
-          <section aria-labelledby="featured-heading">
+        {featuredPosts.length > 0 && (
+          <section aria-labelledby="featured-heading" className="relative">
             <h2 id="featured-heading" className="sr-only">
               추천 글
             </h2>
-            <div className="space-y-4 lg:space-y-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <div
-                  className="w-2 h-2 bg-sn-primary rounded-full"
-                  aria-hidden="true"
-                ></div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  추천 글
-                </h3>
+
+            {/* 헤더 섹션 */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-full border border-blue-200 dark:border-blue-800 mb-4">
+                <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                  Editor's Pick
+                </span>
               </div>
-              {allFeaturedPosts.map(post => (
-                <FeaturedPost key={post.id} post={post} />
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                추천 포스트
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base">
+                SN Academy가 엄선한 특별한 콘텐츠를 만나보세요
+              </p>
+            </div>
+
+            {/* 추천 포스트 그리드 - 동적 레이아웃 */}
+            <div
+              className={`grid gap-6 ${
+                featuredPosts.length === 1
+                  ? 'grid-cols-1 max-w-2xl mx-auto'
+                  : featuredPosts.length === 2
+                    ? 'md:grid-cols-2'
+                    : featuredPosts.length === 3
+                      ? 'md:grid-cols-2 lg:grid-cols-3'
+                      : 'md:grid-cols-2 lg:grid-cols-2'
+              }`}
+            >
+              {featuredPosts.map((post, index) => (
+                <a key={post.id} href={post.url} className="group block">
+                  <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    {/* 그라데이션 오버레이 */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                    {/* 순위 배지 */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <div className="flex items-center justify-center w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-sm font-bold rounded-full shadow-lg">
+                        {index + 1}
+                      </div>
+                    </div>
+
+                    {/* 썸네일 */}
+                    {post.thumbnail && (
+                      <div className="relative h-48 overflow-hidden">
+                        <img
+                          src={post.thumbnail}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      </div>
+                    )}
+
+                    {/* 콘텐츠 */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full">
+                          {post.category}
+                        </span>
+                        <span className="text-gray-500 dark:text-gray-400 text-xs">
+                          {post.readTime}분 읽기
+                        </span>
+                      </div>
+
+                      <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {post.title}
+                      </h4>
+
+                      <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 mb-4">
+                        {post.excerpt}
+                      </p>
+
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">
+                              S
+                            </span>
+                          </div>
+                          <span className="text-sm text-gray-600 dark:text-gray-400">
+                            {post.author}
+                          </span>
+                        </div>
+                        <span className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 text-sm font-medium group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                          읽기
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               ))}
             </div>
           </section>

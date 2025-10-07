@@ -83,6 +83,17 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
+  // 특별한 타입의 포스트는 전용 컴포넌트 사용
+  if (post.type === 'special') {
+    if (id === 'SNargopost_1') {
+      const SNarGOClient = (
+        await import('@/components/special-posts/SNarGOClient')
+      ).default;
+      return <SNarGOClient />;
+    }
+    // 다른 특별한 포스트들도 여기에 추가 가능
+  }
+
   const config = getCategoryConfig(category);
 
   return (
