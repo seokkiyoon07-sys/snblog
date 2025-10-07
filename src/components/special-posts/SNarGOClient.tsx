@@ -37,8 +37,8 @@ export default function SNarGOClient() {
         </h1>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
           SN이 직접 개발한 수능 특화 AI. 내부 벤치마크 기준{' '}
-          <strong>약 2,000문제 중 1문제 오답</strong> 수준의 정확도를 목표로
-          합니다. 모르는 문제가 나오면 <strong>해설 AI 'SNarVIS'</strong>가
+          <strong>약 2,000문제 중 1문제 오답</strong> 수준의 정확도를 보이고
+          있습니다. 모르는 문제가 나오면 <strong>해설 AI 'SNarVIS'</strong>가
           이해될 때까지 여러 각도에서 설명합니다.
         </p>
         <div className="flex items-center justify-center gap-3">
@@ -300,6 +300,27 @@ export default function SNarGOClient() {
           </strong>{' '}
           <br />— 그것이 SN의 AI가 교육을 바꾸는 방식입니다.
         </Callout>
+      </section>
+
+      {/* YouTube Video */}
+      <section className="mt-16">
+        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center">
+          SNarGO 개발자 영상
+        </h2>
+        <div className="flex justify-center">
+          <div className="w-full max-w-2xl">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/EDZfzgMSYkg"
+              title="SNarGO 개발자 영상"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="rounded-lg shadow-lg"
+            ></iframe>
+          </div>
+        </div>
       </section>
 
       {/* FAQ */}
