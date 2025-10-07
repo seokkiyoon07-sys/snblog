@@ -5,6 +5,8 @@ import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import StructuredData from "@/components/StructuredData";
+import QueryProvider from "@/components/providers/query-provider";
+// import ThemeDebugger from "@/components/ThemeDebugger";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,9 +19,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.snacademy.co.kr'),
   title: "SN Academy Blog",
   description: "SN 학원의 주요 사업내용, 컬럼, 입시정보, 후기를 공유하는 블로그입니다.",
   keywords: "SN, 학원, 입시, 교육, 블로그, 컬럼, 후기",
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/sn-logo.png', sizes: 'any', type: 'image/png' },
+    ],
+    shortcut: '/favicon-32x32.png',
+    apple: '/apple-touch-icon.png',
+    other: [
+      {
+        rel: 'icon',
+        url: '/android-chrome-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        rel: 'icon',
+        url: '/android-chrome-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
+  },
+  manifest: '/site.webmanifest',
   verification: {
     google: "Y6sre3jJPoA9rk5rlvcAP-3Zv4c704_j7XVCmhOxgRI",
     other: {
@@ -36,7 +63,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
-        <StructuredData 
+        <StructuredData
           type="organization"
           data={{}}
         />
@@ -46,23 +73,27 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
+          storageKey="sn-blog-theme-v2"
         >
-          <div className="min-h-screen">
-            <Header />
-            <div className="max-w-6xl mx-auto px-4 py-4 sm:py-6 lg:py-8">
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
-                <main className="lg:col-span-3 order-1">
-                  {children}
-                </main>
-                <aside className="order-2 lg:order-2">
-                  <Sidebar />
-                </aside>
+          <QueryProvider>
+            {/* <ThemeDebugger /> */}
+            <div className="min-h-screen">
+              <Header />
+              <div className="max-w-6xl mx-auto px-4 py-4 sm:py-6 lg:py-8">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
+                  <main className="lg:col-span-3 order-1">
+                    {children}
+                  </main>
+                  <aside className="order-2 lg:order-2">
+                    <Sidebar />
+                  </aside>
+                </div>
               </div>
             </div>
-          </div>
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>

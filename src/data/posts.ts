@@ -1,6 +1,8 @@
 // ⚠️ 중요: 이 파일은 수동으로 관리됩니다. Notion 동기화로 덮어쓰지 마세요!
 // 📝 포스트 추가/수정 시 이 파일을 직접 편집하세요.
-// 🔒 Notion 동기화는 비활성화되어 있습니다.
+// 🔒 Notion 포스트는 notion-posts.ts에서 자동으로 가져옵니다.
+
+import { notionPosts } from './notion-posts'
 
 export interface Post {
   id: string;
@@ -21,12 +23,266 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'design-guide-demo',
+    title: '디자인 시스템 가이드 - 미니멀 블로그 디자인',
+    excerpt: 'SN Academy 블로그의 새로운 디자인 시스템을 소개합니다. Stripe, Notion, Medium에서 영감을 받은 심플하고 깔끔한 디자인 철학을 확인해보세요.',
+    thumbnail: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=400&fit=crop&crop=center',
+    content: `SN Academy 블로그의 새로운 디자인 시스템을 소개합니다. 이 포스트는 디자인 가이드에 정의된 모든 컴포넌트와 스타일을 시연하는 더미 포스트입니다.
+
+## 디자인 철학
+
+<callout type="info">
+**미니멀리즘, 일관성, 가독성, 전문성**
+
+우리의 디자인은 Stripe, Notion, Medium에서 영감을 받았습니다.
+</callout>
+
+블로그 디자인의 핵심은 **콘텐츠**입니다. 화려한 장식이 아닌, 독자가 글을 편안하게 읽을 수 있도록 하는 것이 최우선 목표입니다.
+
+## 색상 시스템
+
+우리는 3-4가지 색상만 사용하여 시각적 일관성을 유지합니다.
+
+<toggle title="주요 색상 팔레트">
+- **Navy (#0f2942)**: 전문성과 신뢰감을 전달하는 메인 색상
+- **Slate (#475569)**: 가독성이 뛰어난 본문 텍스트 색상
+- **Sage Green (#5f7a61)**: SN 브랜드와 연결되는 부드러운 악센트
+
+이 색상들은 충분한 대비를 제공하여 접근성 기준(WCAG AA)을 충족합니다.
+</toggle>
+
+### 배경 색상의 중요성
+
+배경색은 아주 미묘하게 사용됩니다:
+- 순백 (#ffffff): 기본 배경
+- 연한 그레이 (#f8fafc): 섹션 구분
+- 중간 그레이 (#f1f5f9): 카드와 패널
+
+## 타이포그래피
+
+<callout type="success">
+**타이포그래피는 디자인의 95%입니다.**
+
+명확한 폰트 크기 위계와 적절한 줄 간격(line-height 1.75)으로 최적의 가독성을 제공합니다.
+</callout>
+
+### 폰트 크기 스케일
+
+우리는 1.25 비율의 모듈러 스케일을 사용합니다:
+
+<table>
+| 크기 | 용도 | 픽셀 |
+|------|------|------|
+| text-6xl | 히어로 제목 | 60px |
+| text-5xl | 메인 제목 | 48px |
+| text-4xl | 서브 제목 | 36px |
+| text-3xl | H2 제목 | 30px |
+| text-2xl | H3 제목 | 24px |
+| text-xl | H4 제목 | 20px |
+| text-base | 본문 | 16px |
+</table>
+
+## 컴포넌트 가이드
+
+### Callout 박스
+
+다양한 타입의 Callout 박스를 제공합니다:
+
+<callout type="info">
+**정보 전달**
+
+이것은 정보성 callout입니다. 중요한 정보를 강조할 때 사용합니다.
+</callout>
+
+<callout type="success">
+**성공 메시지**
+
+긍정적인 내용이나 성공 사례를 전달할 때 사용합니다.
+</callout>
+
+<callout type="warning">
+**주의사항**
+
+독자의 주의를 환기시켜야 할 때 사용합니다.
+</callout>
+
+### Toggle (Accordion)
+
+긴 내용을 접었다 펼 수 있습니다:
+
+<toggle title="토글 내용 보기">
+이것은 토글 안의 내용입니다. 부가적인 정보나 선택적으로 읽을 수 있는 내용을 넣을 때 유용합니다.
+
+- 리스트 항목 1
+- 리스트 항목 2
+- 리스트 항목 3
+</toggle>
+
+<toggle title="고급 기능">
+토글은 중첩도 가능합니다. FAQ, 상세 설명, 보충 자료 등에 활용하세요.
+</toggle>
+
+### 코드 블록
+
+코드는 중성적인 회색 배경에 모노스페이스 폰트로 표시됩니다:
+
+<code>
+const greeting = "Hello, World!";
+console.log(greeting);
+</code>
+
+### 하이라이트 (강조)
+
+텍스트 중 <mark className="bg-yellow-100 px-1 rounded">중요한 부분을 강조</mark>할 때 사용합니다.
+
+예를 들어, "디자인의 핵심은 <mark className="bg-yellow-100 px-1 rounded">콘텐츠</mark>입니다"처럼 핵심 단어를 부각시킬 수 있습니다.
+
+### 줄바꿈
+
+주소나 연락처를 표시할 때 유용합니다:
+
+**SN Academy**<br />
+경기도 양평군 양평읍<br />
+전화: 031-771-0300<br />
+이메일: ai@snacademy.co.kr
+
+## 레이아웃 원칙
+
+### 여백의 힘
+
+<callout type="info">
+**충분한 여백은 디자인의 숨결입니다.**
+
+섹션 간 최소 4rem(64px), 요소 간 1.5rem(24px)의 여백을 유지합니다.
+</callout>
+
+여백은 단순히 빈 공간이 아닙니다. 콘텐츠에 숨을 불어넣고, 독자의 시선을 자연스럽게 안내하는 중요한 디자인 요소입니다.
+
+### 최대 텍스트 너비
+
+본문 텍스트는 최대 **65자(65ch)** 너비로 제한됩니다. 이는 가독성 연구에서 권장하는 최적의 줄 길이입니다.
+
+<columns>
+<column>
+
+### 왼쪽 컬럼
+
+컬럼 레이아웃을 사용하면 내용을 나란히 배치할 수 있습니다.
+
+이는 비교, 대조, 또는 관련 정보를 함께 보여줄 때 유용합니다.
+
+</column>
+<column>
+
+### 오른쪽 컬럼
+
+같은 높이로 정렬되는 두 컬럼은 시각적 균형을 제공합니다.
+
+모바일에서는 자동으로 세로로 쌓입니다.
+
+</column>
+</columns>
+
+## 실전 적용 예시
+
+### 블로그 포스트 구조
+
+<toggle title="권장 구조 보기">
+1. **제목**: 명확하고 간결하게 (H1)
+2. **요약**: 핵심 내용을 2-3문장으로
+3. **본문**: 섹션별로 H2, H3 제목 사용
+4. **시각 자료**: 이미지, 표, 코드 블록 적절히 활용
+5. **Callout**: 중요 정보 강조
+6. **결론**: 핵심 메시지 재확인
+</toggle>
+
+### 색상 사용 가이드
+
+<table>
+| 용도 | 색상 | 언제 사용하나요? |
+|------|------|------------------|
+| 제목 | Navy | 모든 제목과 중요 텍스트 |
+| 본문 | Slate | 일반 문단과 설명 |
+| 악센트 | Sage Green | 링크, 버튼, 강조 |
+| 배경 | White/Gray | 섹션 구분과 카드 |
+</table>
+
+## 하지 말아야 할 것
+
+<callout type="warning">
+**피해야 할 디자인 실수**
+
+1. ❌ 너무 많은 색상 (최대 3-4가지로 제한)
+2. ❌ 형광색이나 원색 사용
+3. ❌ 불필요한 애니메이션
+4. ❌ 작은 폰트 크기 (14px 미만)
+5. ❌ 불충분한 여백
+6. ❌ 일관성 없는 스타일
+</callout>
+
+## 해야 할 것
+
+<callout type="success">
+**좋은 디자인의 핵심**
+
+1. ✅ 충분한 여백 사용
+2. ✅ 명확한 타이포그래피 위계
+3. ✅ 일관된 색상 팔레트
+4. ✅ 모바일 우선 디자인
+5. ✅ 접근성 고려
+6. ✅ 빠른 로딩 속도
+</callout>
+
+## 디자인 체크리스트
+
+<toggle title="포스트 작성 전 체크리스트">
+- [ ] 제목이 명확하고 간결한가?
+- [ ] 색상 사용이 3-4가지로 제한되어 있는가?
+- [ ] 여백이 충분한가?
+- [ ] 본문 텍스트가 65ch를 넘지 않는가?
+- [ ] 이미지에 적절한 alt 텍스트가 있는가?
+- [ ] 모바일에서도 읽기 편한가?
+- [ ] Callout과 Toggle을 적절히 활용했는가?
+</toggle>
+
+## 마치며
+
+<callout type="success">
+**미니멀 디자인의 힘**
+
+좋은 디자인은 눈에 띄지 않습니다. 독자가 콘텐츠에만 집중할 수 있도록 조용히 뒷받침하는 것이 진정한 디자인입니다.
+</callout>
+
+이 디자인 가이드는 지속적으로 발전합니다. 피드백과 제안은 언제나 환영합니다.
+
+**참고 자료:**
+- [Stripe Design System](https://stripe.com/blog)
+- [Notion Design](https://notion.so)
+- [Medium Typography](https://medium.design)
+
+---
+
+**디자인 가이드 버전**: 1.0.0
+**마지막 업데이트**: 2025-10-05`,
+    category: 'columns',
+    tags: ['디자인', '가이드', '블로그'],
+    author: 'SN Academy',
+    date: '2025-10-05',
+    readTime: '8',
+    featured: false,
+    published: false,
+    url: '/columns/design-guide-demo'
+  },
+  {
     id: 'SNarlink',
     title: 'SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)',
-    excerpt: 'SN의 인터넷 방화벽은 국내 최고 수준의 보안을 자랑합니다.',
-    content: `# SN독학기숙학원 방화벽의 모든 것!
-
-> **SN의 인터넷 방화벽은 국내 최고 수준의 보안을 자랑합니다.**
+    excerpt: 'SN의 인터넷 방화벽은 국내 최고 수준의 보안을 자랑합니다. 11년간 축적한 방화벽 기술력과 2025년 새롭게 선보인 SNarlink 시스템에 대해 다룹니다.',
+    thumbnail: '/images/SNarlink/thumbnail.png',
+    content: `<div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 rounded-r-lg">
+  <p class="font-medium text-blue-800">
+    <strong>SN의 인터넷 방화벽은 국내 최고 수준의 보안을 자랑합니다.</strong>
+  </p>
+</div>
 
 이 글은 SN독학기숙학원이 11년간 축적한 방화벽 기술력과 2025년 새롭게 선보인 **SNarlink** 시스템에 대해 다룹니다. 단순한 차단을 넘어서 AI 기반의 지능형 방어 시스템으로 진화한 우리의 이야기를 들어보세요.
 
@@ -60,7 +316,7 @@ SN도 처음 도입 후 불완전한 방화벽으로 시행착오를 겪었기�
 - 미국 CISCO 장비 도입
 - 당시 최상위 사양의 방화벽
 
-![2018년 도입된 Cisco 방화벽 장비](/image/SNarlink/cisco firewall.png)
+![2018년 도입된 Cisco 방화벽 장비](/images/SNarlink/cisco firewall.png)
 
 2018년 Cisco 장비 도입 이후 방화벽이 혁신 수준으로 한층 더 업그레이드되었습니다. 도입 이후부터 2025년 올해 업그레이드 전까지도 기숙학원 내에서는 가장 선두주자였습니다.
 
@@ -92,9 +348,16 @@ SN도 처음 도입 후 불완전한 방화벽으로 시행착오를 겪었기�
 
 결국 **커뮤니티와 클래스 모두를 차단**할 수밖에 없었고, **강의를 들어야 하는 학생들은 별도로 핫스팟을 켜서 이용**해야만 했습니다. 여기에서 관리의 공백이 생기죠.
 
-![오르비 커뮤니티와 클래스의 차이점](/image/SNarlink/orbi1.png)
-
-![오르비 클래스 접근 화면](/image/SNarlink/orbi2.png)
+<div style="display: flex; gap: 20px; margin: 20px 0;">
+  <div style="flex: 1;">
+    <img src="/images/SNarlink/orbi1.png" alt="오르비 커뮤니티와 클래스의 차이점" style="width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">오르비 커뮤니티와 클래스의 차이점</p>
+  </div>
+  <div style="flex: 1;">
+    <img src="/images/SNarlink/orbi2.png" alt="오르비 클래스 접근 화면" style="width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 8px;">오르비 클래스 접근 화면</p>
+  </div>
+</div>
 
 ### 외부 의존의 한계
 
@@ -132,7 +395,7 @@ SN독학기숙학원에 다니는 대부분의 학생들, 특히 약 90%는 학�
 
 단순한 **'차단'이 아니라, 학생의 '시도'와 '의도'를 읽는 지능형 방어 시스템**으로 말입니다.
 
-![SNarlink 로고](/image/SNarlink/SNarlink Logo.png)
+![SNarlink 로고](/images/SNarlink/SNarlink_Logo.png)
 
 우리는 이 방화벽 시스템을 **SNarlink_study**라고 명명했습니다. SN + Starlink. 공부에만 집중할 수 있도록 설계된 전용 네트워크입니다.
 
@@ -196,7 +459,7 @@ SNarlink는 단순한 차단 시스템을 넘어서 **AI가 학습하고 진화�
 
 (이번 5월에 방화벽을 교체하면서 불완전한 시기가 있었습니다... 당시 방화벽 안정화 및 AI가 학습 과정이어서 그랬습니다. 학생들에게는 정말 미안했네요 ㅠㅠ)
 
-![학생들이 공부하는 모습](/image/SNarlink/study room.png)
+![학생들이 공부하는 모습](/images/SNarlink/study room.png)
 
 ## 🍎 애플 기기는 왜 까다로웠나?
 
@@ -242,7 +505,7 @@ SNarlink는 단순한 차단 시스템을 넘어서 **AI가 학습하고 진화�
 
 *기본은 15분이며, 30분 이후는 필요시에만 부여됩니다.
 
-![모니터링 시스템 화면](/image/SNarlink/monitor.png)
+![모니터링 시스템 화면](/images/SNarlink/monitor.png)
 
 ### 핫스팟 방식의 한계를 극복하다
 
@@ -268,7 +531,7 @@ SNarlink는 단순한 차단 시스템을 넘어서 **AI가 학습하고 진화�
 
 또한 기기만 방화벽 시스템에 등록할 뿐, 학생들 기기에 인증서나 기타 프로그램 등을 별도로 깔지 않습니다.
 
-![학습 데이터 리포트 화면](/image/SNarlink/report.png)
+![학습 데이터 리포트 화면](/images/SNarlink/report.png)
 
 ### 초개인화된 피드백 제공
 
@@ -288,7 +551,7 @@ SNarlink는 단순한 차단 시스템을 넘어서 **AI가 학습하고 진화�
 
 **우리는 마케팅보다 기술에 투자하는 기업**입니다. 화려한 포장이 아닌, 실질적인 성과로 이야기하려 합니다.
 
-![SN Academy 건물 외관](/image/SNarlink/SN academy.png)
+![SN Academy 건물 외관](/images/SNarlink/SN academy.png)
 
 그래서 자신 있게 말씀드립니다. **SN독학기숙학원은 기술적, 윤리적으로 대한민국 최상위 수준의 보안 교육 환경을 갖춘 교육 기관입니다.** 
 
@@ -314,95 +577,441 @@ SN독학기숙학원의 방화벽은 개발이 모두 완료되었으며, 본원
     readTime: '12',
     featured: false,
     published: true,
-    thumbnail: '/image/SNarlink/thumbnail.png',
     youtubeUrl: undefined,
     url: '/columns/SNarlink'
   },
   {
     id: 'ai-startup',
-    title: 'SN에서 교육 AI 스타트업을 창업했습니다.',
+    title: 'SN에서 교육 AI 스타트업을 창업했습니다',
     excerpt: '교육과 AI의 융합으로 학생 개개인의 잠재력을 극대화하는 초개인화 학습 혁신을 실현하는 SN Academy AI 스타트업을 소개합니다.',
-    content: `# SN에서 교육 AI 스타트업을 창업했습니다
+    content: `<div class="bg-gray-50 border-l-4 border-gray-400 p-6 my-8 rounded-r-lg">
+  <p class="text-gray-800 text-lg leading-relaxed">
+    교육과 AI의 융합으로 학생 개개인의 잠재력을 극대화하는 <strong>초개인화 학습 혁신</strong>을 실현합니다.
+  </p>
+</div>
 
-교육과 AI의 융합으로 학생 개개인의 잠재력을 극대화하는 초개인화 학습 혁신을 실현하는 SN Academy AI 스타트업을 소개합니다.
+## 우리의 미션
 
-## 🚀 혁신적인 교육 AI 솔루션
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-8">
+  <div class="mb-6">
+    <div class="flex items-start">
+      <div class="w-2 h-2 bg-gray-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+      <span class="text-gray-800 text-lg font-medium">더 낮은 가격에 교육서비스를 제공하면서도 입시에 성공시키겠습니다.</span>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="flex items-start">
+      <div class="w-2 h-2 bg-gray-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+      <span class="text-gray-700">교육의 <strong>불균형·비효율·정보 격차</strong>를 해소합니다</span>
+    </div>
+    <div class="flex items-start">
+      <div class="w-2 h-2 bg-gray-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+      <span class="text-gray-700">학생에게는 <strong>맞춤형 학습 경험</strong>을 제공합니다</span>
+    </div>
+    <div class="flex items-start">
+      <div class="w-2 h-2 bg-gray-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+      <span class="text-gray-700">교사·학부모에게는 <strong>투명한 학습 데이터 분석</strong>을 제공합니다</span>
+    </div>
+    <div class="flex items-start">
+      <div class="w-2 h-2 bg-gray-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+      <span class="text-gray-700">교육 시장에는 <strong>혁신적인 AI 도구</strong>를 제공합니다</span>
+    </div>
+  </div>
+</div>
 
-SN Academy는 교육 분야의 혁신을 위해 AI 스타트업을 창업했습니다. 우리의 목표는 모든 학습자가 자신만의 맞춤형 학습 경험을 할 수 있도록 하는 것입니다.
+## 핵심 가치
 
-## 🎯 핵심 가치
+<div class="grid grid-cols-1 gap-8 mb-12">
+  <div class="bg-white border border-gray-200 rounded-lg p-8">
+    <h3 class="text-xl font-semibold text-gray-800 mb-4">초개인화 학습</h3>
+    <ul class="space-y-3 text-gray-600">
+      <li class="flex items-start">
+        <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+        각 학습자의 학습 패턴과 속도를 분석
+      </li>
+      <li class="flex items-start">
+        <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+        개인별 최적화된 학습 경로 제공
+      </li>
+      <li class="flex items-start">
+        <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+        실시간 학습 진도 추적 및 피드백
+      </li>
+    </ul>
+  </div>
 
-### 초개인화 학습
-- 각 학습자의 학습 패턴과 속도를 분석
-- 개인별 최적화된 학습 경로 제공
-- 실시간 학습 진도 추적 및 피드백
+  <div class="bg-white border border-gray-200 rounded-lg p-8">
+    <h3 class="text-xl font-semibold text-gray-800 mb-4">AI 기반 교육 기술</h3>
+    <ul class="space-y-3 text-gray-600">
+      <li class="flex items-start">
+        <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+        자연어 처리 기술을 활용한 질문-답변 시스템
+      </li>
+      <li class="flex items-start">
+        <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+        학습 내용 이해도 자동 평가
+      </li>
+      <li class="flex items-start">
+        <span class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+        개인별 학습 약점 분석 및 보완 방안 제시
+      </li>
+    </ul>
+  </div>
+</div>
 
-### AI 기반 교육 기술
-- 자연어 처리 기술을 활용한 질문-답변 시스템
-- 학습 내용 이해도 자동 평가
-- 개인별 학습 약점 분석 및 보완 방안 제시
+## 우리의 비전
 
-## 🌟 우리의 비전
+<div class="bg-gray-50 border-l-4 border-gray-400 p-8 my-12 rounded-r-lg">
+  <p class="text-gray-800 text-xl font-medium leading-relaxed">
+    AI의 기술과 인간의 자기주도학습 능력을 결합하여 학생의 지적 성장을 로켓처럼 가속합니다.
+  </p>
+</div>
 
-**"AI로 학생의 미래를 더 깊고, 더 정확하게, 더 빠르게 열어주는 것."**
+## Our Team
 
-## 🎯 우리의 미션
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-12">
+  <h3 class="text-2xl font-semibold text-gray-800 mb-6">작지만 강력한 팀이 교육의 미래를 다시 씁니다</h3>
+  
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="text-center">
+      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-gray-600 text-2xl">👑</span>
+      </div>
+      <h4 class="font-semibold text-gray-800 mb-2">대표 (CEO)</h4>
+      <p class="text-sm text-gray-600">교육 현장 12년 경험, 전략과 비전을 이끄는 리더</p>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-gray-600 text-2xl">🤖</span>
+      </div>
+      <h4 class="font-semibold text-gray-800 mb-2">AI 개발자 2명</h4>
+      <p class="text-sm text-gray-600">대규모 언어모델과 AI 솔루션 연구</p>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-gray-600 text-2xl">⚙️</span>
+      </div>
+      <h4 class="font-semibold text-gray-800 mb-2">백엔드 개발자 1명</h4>
+      <p class="text-sm text-gray-600">안정적인 데이터 처리와 서버 아키텍처</p>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-gray-600 text-2xl">📊</span>
+      </div>
+      <h4 class="font-semibold text-gray-800 mb-2">마케팅/데이터 분석 1명</h4>
+      <p class="text-sm text-gray-600">학습 데이터 기반 전략 수립</p>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-gray-600 text-2xl">🎨</span>
+      </div>
+      <h4 class="font-semibold text-gray-800 mb-2">디자이너 1명</h4>
+      <p class="text-sm text-gray-600">직관적이고 감각적인 UX/UI 구현</p>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-gray-600 text-2xl">💻</span>
+      </div>
+      <h4 class="font-semibold text-gray-800 mb-2">프론트엔드 개발자 1명</h4>
+      <p class="text-sm text-gray-600">웹/앱 인터페이스 개발</p>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-gray-600 text-2xl">🏷️</span>
+      </div>
+      <h4 class="font-semibold text-gray-800 mb-2">라벨링 전문가 1명</h4>
+      <p class="text-sm text-gray-600">AI 학습 데이터셋 구축 및 정제</p>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-gray-600 text-2xl">⚡</span>
+      </div>
+      <h4 class="font-semibold text-gray-800 mb-2">운영 인력 1명</h4>
+      <p class="text-sm text-gray-600">현장 운영 및 사용자 피드백</p>
+    </div>
+  </div>
+</div>
 
-- 교육의 **불균형·비효율·정보 격차**를 해소합니다
-- 학생에게는 **맞춤형 학습 경험**을 제공합니다
-- 교사·학부모에게는 **투명한 학습 데이터 분석**을 제공합니다
-- 교육 시장에는 **혁신적인 AI 도구**를 제공합니다
+## Our Products
 
-## 👥 Our Team
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-12">
+  <h3 class="text-2xl font-semibold text-gray-800 mb-6">SN 생태계를 구성하는 핵심 AI 제품들입니다</h3>
+  
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="border border-gray-200 rounded-lg p-6">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+          <span class="text-gray-600 text-xl">🔗</span>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-800 text-lg">SNarlink</h4>
+          <p class="text-sm text-gray-600">초정밀 학습 분석 방화벽 시스템</p>
+        </div>
+      </div>
+      <ul class="text-sm text-gray-600 space-y-2">
+        <li>• 온라인 학습 활동을 데이터화하여 집중도 측정</li>
+        <li>• 학부모/교사에게 투명한 리포트 제공</li>
+        <li>• AI 기반 시도와 의도 탐지 능력</li>
+      </ul>
+    </div>
 
-작지만 강력한 팀이 교육의 미래를 다시 씁니다.
+    <div class="border border-gray-200 rounded-lg p-6">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+          <span class="text-gray-600 text-xl">🎯</span>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-800 text-lg">SNarGO</h4>
+          <p class="text-sm text-gray-600">수학문제풀이 AI</p>
+        </div>
+      </div>
+      <ul class="text-sm text-gray-600 space-y-2">
+        <li>• 수능 수학문제를 99%+ 확률로 풀이</li>
+        <li>• 정확한 개념 설명과 단계별 풀이</li>
+        <li>• 오답 분석 및 학습 방향 제시</li>
+      </ul>
+    </div>
 
-### 🏢 팀 구성
-- **대표 (CEO)**: 교육 현장 20년 경험, 전략과 비전을 이끄는 리더
-- **AI 개발자 2명**: 대규모 언어모델과 AI 솔루션 연구
-- **백엔드 개발자 1명**: 안정적인 데이터 처리와 서버 아키텍처
-- **마케팅/데이터 분석 1명**: 학습 데이터 기반 전략 수립
-- **디자이너 1명**: 직관적이고 감각적인 UX/UI 구현
-- **프론트엔드 개발자 1명**: 웹/앱 인터페이스 개발
-- **라벨링 전문가 1명**: AI 학습 데이터셋 구축 및 정제
-- **운영 인력 1명**: 현장 운영 및 사용자 피드백
+    <div class="border border-gray-200 rounded-lg p-6">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+          <span class="text-gray-600 text-xl">🤖</span>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-800 text-lg">SNarGPT</h4>
+          <p class="text-sm text-gray-600">질문 받아주는 AI</p>
+        </div>
+      </div>
+      <ul class="text-sm text-gray-600 space-y-2">
+        <li>• 다양한 학습 관련 질문에 답변</li>
+        <li>• 학습자 개인별 맞춤형 조언 제공</li>
+        <li>• 24/7 학습 코칭</li>
+      </ul>
+    </div>
 
-## 🛠️ Our Products
+    <div class="border border-gray-200 rounded-lg p-6">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+          <span class="text-gray-600 text-xl">⚡</span>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-800 text-lg">SNarGEN</h4>
+          <p class="text-sm text-gray-600">문제 생성 AI</p>
+        </div>
+      </div>
+      <ul class="text-sm text-gray-600 space-y-2">
+        <li>• 기존 교육 업체의 1% 비용으로 고퀄 문제 생성</li>
+        <li>• 평가원 수준의 문항 자동 생성</li>
+        <li>• 난이도별 맞춤 문제 제작</li>
+      </ul>
+    </div>
 
-SN 생태계를 구성하는 핵심 AI 제품들입니다.
+    <div class="border border-gray-200 rounded-lg p-6">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+          <span class="text-gray-600 text-xl">📱</span>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-800 text-lg">SNarOCR</h4>
+          <p class="text-sm text-gray-600">시험지 인식 AI</p>
+        </div>
+      </div>
+      <ul class="text-sm text-gray-600 space-y-2">
+        <li>• 촬영만 하면 자동 인식·분석하는 시험지 OCR</li>
+        <li>• 문제 영역 자동 인식 및 정규화</li>
+        <li>• 채점 및 분석 자동화</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-### 🔗 SNarlink
-**초정밀 학습 분석 방화벽 시스템**
-- 온라인 학습 활동을 데이터화하여 집중도 측정
-- 학부모/교사에게 투명한 리포트 제공
+## 주요 성과
 
-### 🤖 SNarGPT
-**수능 수학 문제를 99%+ 정확도로 풀이**
-- 정확한 개념 설명과 단계별 풀이
-- 실제 수험생에게 필요한 피드백 제공
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-12">
+  <h3 class="text-2xl font-semibold text-gray-800 mb-6">주요 성과</h3>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="text-center">
+      <div class="text-3xl font-bold text-gray-800 mb-2">8명</div>
+      <div class="text-gray-600">전문 AI 개발팀</div>
+    </div>
+    <div class="text-center">
+      <div class="text-3xl font-bold text-gray-800 mb-2">5개</div>
+      <div class="text-gray-600">핵심 AI 제품</div>
+    </div>
+    <div class="text-center">
+      <div class="text-3xl font-bold text-gray-800 mb-2">12년</div>
+      <div class="text-gray-600">현장 노하우</div>
+    </div>
+  </div>
+</div>
 
-### 🎯 SNarGO
-**수능문제 풀이 전문 AI**
-- 평가원 기출부터 최신 모의고사까지 정밀 해설
-- 원하는 방식으로 빠르고 정확한 풀이
+## 사업 영역
 
-### ⚡ SNarGEN
-**기존 교육 업체의 1% 비용으로 고퀄 문제 생성**
-- 평가원 수준의 문항 자동 생성
-- 콘텐츠 제작의 패러다임 전환
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-12">
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">SN독학기숙학원 (양평점)</h3>
+        <p class="text-gray-600">기존 교육 서비스 운영, AI 기술 적용 및 검증, 실시간 피드백 수집</p>
+      </div>
+    </div>
+    
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">SN독학재수학원 (대치점 예정)</h3>
+        <p class="text-gray-600 mb-2">2026년 1월 오픈 예정, AI 기반 교육 혁신 실현, 프리미엄 교육 서비스 제공</p>
+        <p class="text-gray-800 font-medium">🚀 SNarGPT 런칭 (26.1.1)</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-### 📱 SNarOCR
-**촬영만 하면 자동 인식·분석하는 시험지 OCR**
-- 문제 영역 자동 인식 및 정규화
-- 문제은행 연동으로 즉시 학습 관리
+## AI 기술 스택
 
-## 🌟 교육의 새로운 패러다임을 설계합니다
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-12">
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-800 mb-3">자연어 처리 (NLP)</h4>
+        <p class="text-gray-600">학습자 질문 이해 및 답변 생성, 학습 내용 자동 요약 및 정리, 대화형 AI 인터페이스</p>
+      </div>
+    </div>
 
-우리는 작은 팀이지만 변화의 파급력은 결코 작지 않습니다. 우리의 목표는 단 하나, **모든 학생이 자신만의 맞춤형 학습 여정**을 걷도록 돕는 것입니다.
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-800 mb-3">머신러닝 (ML)</h4>
+        <p class="text-gray-600">학습 패턴 분석 및 예측, 개인별 학습 최적화 알고리즘, 성적 향상 예측 모델</p>
+      </div>
+    </div>
 
----
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-800 mb-3">데이터 분석</h4>
+        <p class="text-gray-600">학습 진도 및 성과 추적, 학습 효과성 측정 및 개선, 실시간 대시보드 제공</p>
+      </div>
+    </div>
+  </div>
+</div>
 
-**SN Academy AI · 초개인화 학습 혁신**`,
+## 향후 계획
+
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-12">
+  <h3 class="text-2xl font-semibold text-gray-800 mb-6">향후 계획</h3>
+  <div class="space-y-6">
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-800 mb-2">단기 (2025년)</h4>
+        <p class="text-gray-600">AI 기반 학습 관리 시스템 완성, 개인별 학습 계획 자동 생성 기능</p>
+      </div>
+    </div>
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-800 mb-2">중기 (2026년)</h4>
+        <p class="text-gray-600">대치점 오픈 및 AI 교육 혁신 실현, 교육 AI 플랫폼 상용화</p>
+      </div>
+    </div>
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-800 mb-2">장기 (2027년+)</h4>
+        <p class="text-gray-600">전국 교육 기관 대상 AI 솔루션 제공, 교육 분야 AI 기술 선도 기업으로 성장</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+## 혁신 포인트
+
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-12">
+  <div class="space-y-6">
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-800 mb-2">교육 현장 중심의 AI 개발</h4>
+        <p class="text-gray-600">실제 교육 현장에서 검증된 기술과 교육 전문가와 AI 개발자의 협업</p>
+      </div>
+    </div>
+
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-800 mb-2">개인별 맞춤형 학습</h4>
+        <p class="text-gray-600">기존 일괄 교육 방식의 한계를 극복하고 각 학습자의 특성에 맞는 최적화</p>
+      </div>
+    </div>
+
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h4 class="text-lg font-semibold text-gray-800 mb-2">지속적인 학습 효과 측정</h4>
+        <p class="text-gray-600">AI를 통한 실시간 학습 진도 추적과 데이터 기반 교육 방법론 개선</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+## 파트너십
+
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-12">
+  <div class="grid grid-cols-1 gap-8">
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">기술 파트너</h3>
+        <p class="text-gray-600">AI 기술 연구 기관과의 협력, 최신 AI 기술 도입 및 적용, 공동 연구 개발</p>
+      </div>
+    </div>
+
+    <div class="flex items-start">
+      <div class="w-3 h-3 bg-gray-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+      <div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">교육 파트너</h3>
+        <p class="text-gray-600">교육 전문가 네트워크 구축, 교육 현장 피드백 수집 및 반영, 커리큘럼 공동 개발</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+## 문의 및 연락
+
+<div class="bg-white border border-gray-200 rounded-lg p-8 mb-12">
+  <h3 class="text-2xl font-semibold text-gray-800 mb-6">문의 및 연락</h3>
+  <div class="grid md:grid-cols-2 gap-8">
+    <div>
+      <h4 class="text-lg font-semibold text-gray-800 mb-3">AI 스타트업 문의</h4>
+      <ul class="text-gray-600 space-y-2">
+        <li>• 이메일: SNACADEMY@naver.com</li>
+        <li>• 전화: 031-771-0300</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-lg font-semibold text-gray-800 mb-3">입학 문의</h4>
+      <ul class="text-gray-600 space-y-2">
+        <li>• SN독학기숙학원: https://www.snacademy.co.kr</li>
+        <li>• 대치점 오픈 정보: 2026년 1월 예정</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gray-50 border-l-4 border-gray-400 p-8 rounded-r-lg text-center">
+  <h3 class="text-2xl font-bold text-gray-800 mb-2">SN Academy AI</h3>
+  <p class="text-gray-700 text-lg">초개인화 학습 혁신</p>
+</div>`,
     category: 'startup',
     tags: ['AI교육', '스타트업', '에듀테크'],
     author: 'SN Academy',
@@ -418,72 +1027,114 @@ SN 생태계를 구성하는 핵심 AI 제품들입니다.
     id: 'sn-originals-intro',
     title: 'SN Originals 고전문학 시리즈를 소개합니다',
     excerpt: '최재천 선생님의 "알면 사랑한다"는 지혜로 시작하는 SN Originals 고전문학 시리즈. 만화영화처럼 익숙하게, AI 기술과 함께하는 새로운 고전문학 학습법을 소개합니다.',
-    content: `# SN Originals 고전문학 시리즈를 소개합니다
+    content: `알면 사랑한다는 최재천 선생님의 지혜로 시작하는 SN Originals 고전문학 시리즈. AI 기술과 함께하는 새로운 고전문학 학습법을 만나보세요.
+
+![SN Originals 고전문학 시리즈의 시작](/images/originalintro1.png)
 
 ## 💭 "알면 사랑한다" - 최재천 선생님의 지혜
 
-이 시대의 석학 최재천 선생님께서 자주 하시는 말씀 중에서, '알면 사랑한다'는 말이 있습니다. 꽤 직관적으로 이해할 수 있는 말인 저 말은, 무언가에 대해 더 많이 알게 될수록 그것을 더 아끼고 좋아하게 될 수밖에 없다는 뜻입니다. 그만큼 무엇이든 충분히 알아가는 과정이 필요하다는 뜻이 되기도 하구요.
+이 시대의 석학 최재천 선생님께서 자주 하시는 말씀 중에서, '알면 사랑한다'는 말이 있습니다. 
+꽤 직관적으로 이해할 수 있는 말인 저 말은, 무언가에 대해 더 많이 알게 될수록 그것을 더 아끼고 
+좋아하게 될 수밖에 없다는 뜻입니다. 그만큼 무엇이든 충분히 알아가는 과정이 필요하다는 뜻이 되기도 하구요.
 
 ## 🤔 수능에서 가장 어려운 것, 고전문학
 
-여러분들께서는 수능시험을 준비함에 있어서 '알기 어려운 것'을 꼽아보라면 어떤 것들을 꼽으실 건가요? 미적분? 유전자 발현과 조절? 맞습니다. 이런 개념들은 단어부터 생소하고, 저 단어에 숨은 뜻을 충분히 배우고 익히느라 한 달 이상의 시간을 쏟기도 하죠.
+여러분들께서는 수능시험을 준비함에 있어서 '알기 어려운 것'을 꼽아보라면 어떤 것들을 꼽으실 건가요? 
+미적분? 유전자 발현과 조절? 맞습니다. 이런 개념들은 단어부터 생소하고, 저 단어에 숨은 뜻을 충분히 
+배우고 익히느라 한 달 이상의 시간을 쏟기도 하죠.
 
-고전문학은 어떤가요? 분명 우리 말 같은 글이 써있기는 하는데, 일상 생활에서는 잘 쓰이지도 않는 한자어에 아래아 등 고어도 섞여있고, 각종 비유가 잔뜩 섞여있지만 그럼에도 열심히 한 번 겨우 읽어서 '아, 사랑 얘기구나'라고 이해했는데 해설을 읽어보니 임금이니 독립에 대한 염원이니 상징적인 의미를 담고 있다고 하여, 안 그래도 수면 부족에 시달리는 우리에게는 더할 나위 없는 마취제로 다가오는 것이 고전문학입니다.
+고전문학은 어떤가요? 분명 우리 말 같은 글이 써있기는 하는데, 일상 생활에서는 잘 쓰이지도 않는 
+한자어에 아래아 등 고어도 섞여있고, 각종 비유가 잔뜩 섞여있지만 그럼에도 열심히 한 번 겨우 읽어서 
+'아, 사랑 얘기구나'라고 이해했는데 해설을 읽어보니 임금이니 독립에 대한 염원이니 상징적인 의미를 
+담고 있다고 하여, 안 그래도 수면 부족에 시달리는 우리에게는 더할 나위 없는 마취제로 다가오는 것이 고전문학입니다.
 
 ## 🎬 만화영화처럼 익숙하게
 
-그렇지만, 그 외계어 같은 고전문학을 마치 우리 어렸을 때 TV에서 보았던 만화영화처럼 전체적인 이야기의 줄기를 얼추 알고 있다면 어떨까요? 
+그렇지만, 그 외계어 같은 고전문학을 마치 우리 어렸을 때 TV에서 보았던 만화영화처럼 전체적인 
+이야기의 줄기를 얼추 알고 있다면 어떨까요? 예를 들어 「화왕가」에서는 할미꽃이 충신이라 왕이 중용해야 
+할 인재라는 걸 알고 있다거나, 「관동별곡」은 임금의 명을 받은 정철이 한양에서 강원도로, 다시 강원도 
+내에서 금강산과 동해를 관찰(이라고 쓰고 유람이라고 읽겠습니다)하는 여정을 담고 있다는 큰 맥락이라도 
+파악하고 있고, 혹시라도 그 안에서 정철이 놀라워했던 금강산에 담긴 조물주의 손길, 망양정에서 나눴던 
+신선과의 대화 등까지 기억하고 있다면, 여기에 이어서 각종 비유나 대구를 파고들어 공부해야 하는 상황이 
+오더라도 거부감이 훨씬 줄어들지 않을까요?
 
-예를 들어 「화왕가」에서는 할미꽃이 충신이라 왕이 중용해야 할 인재라는 걸 알고 있다거나, 「관동별곡」은 임금의 명을 받은 정철이 한양에서 강원도로, 다시 강원도 내에서 금강산과 동해를 관찰(이라고 쓰고 유람이라고 읽겠습니다)하는 여정을 담고 있다는 큰 맥락이라도 파악하고 있고, 혹시라도 그 안에서 정철이 놀라워했던 금강산에 담긴 조물주의 손길, 망양정에서 나눴던 신선과의 대화 등까지 기억하고 있다면, 여기에 이어서 각종 비유나 대구를 파고들어 공부해야 하는 상황이 오더라도 거부감이 훨씬 줄어들지 않을까요?
-
-![SN오리지날 고전문학 시리즈 - 북천가 예시](https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center)
+![SN오리지날 고전문학 시리즈 - 북천가 예시](/images/originalintro2.png)
 
 ## 🏰 머릿속 성을 쌓는 과정
 
-아쉽게도 공부는 대신 해드릴 수가 없죠. 공부는 여러분들께서 여러분들 머리에 누구도 빼앗을 수 없게 성을 직접 축조하는 과정과도 같으니까요. 그럼 저희 SN아카데미가 여러분들이 머릿속 성을 쌓는데 있어서 어떤 도움을 드릴 수 있을까? 하는 것이 고민의 시작점이었습니다.
+아쉽게도 공부는 대신 해드릴 수가 없죠. 공부는 여러분들께서 여러분들 머리에 누구도 빼앗을 수 없게 
+성을 직접 축조하는 과정과도 같으니까요. 그럼 저희 SN아카데미가 여러분들이 머릿속 성을 쌓는데 있어서 
+어떤 도움을 드릴 수 있을까? 하는 것이 고민의 시작점이었습니다.
 
-그래서 저희가 내린 결론은, **'우리가 좋아해서 흥미롭게 보았던 콘텐츠는 기억하려 하지 않아도 기억이 날 수밖에 없다'**였습니다.
+**핵심 철학**: "우리가 좋아해서 흥미롭게 보았던 콘텐츠는 기억하려 하지 않아도 기억이 날 수밖에 없다"
 
-SN오리지날 고전문학 시리즈는 딱 그 생각에서 시작했습니다. 여러분들께서 쉽게 고전문학의 내용을 익숙하게 자주 접하고 많이 알고 있을수록, 억지로 공부해야 하더라도 좋아할 수 있다. 또 그렇게 하기에 세상은 어느새 많이 발전해서, 고전문학을 읽고 이해하는 단계에서부터 필요하면 이를 그림으로 즐기고 목소리를 듣는 것에 이르기까지 AI가 수많은 도움을 줄 수 있는 시대가 되었습니다.
-
-![챗GPT를 활용해 AI 그림을 그리는 과정 - 사미인곡 예시](https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=400&fit=crop&crop=center)
+SN오리지날 고전문학 시리즈는 딱 그 생각에서 시작했습니다. 
+여러분들께서 쉽게 고전문학의 내용을 익숙하게 자주 접하고 많이 알고 있을수록, 억지로 공부해야 하더라도 
+좋아할 수 있다. 또 그렇게 하기에 세상은 어느새 많이 발전해서, 고전문학을 읽고 이해하는 단계에서부터 
+필요하면 이를 그림으로 즐기고 목소리를 듣는 것에 이르기까지 AI가 수많은 도움을 줄 수 있는 시대가 되었습니다.
 
 ## 🚀 AI 기술과 함께하는 고전문학
 
-이렇게, 전통적인 방식의 전문 콘텐츠 제작 과정을 거치지 않더라도, 상대적으로 적은 비용과 노력, 또 매우 중요하게는 짧은 콘텐츠 제작 시간으로 우리의 공부를 다채롭게 만들어줄 수 있는 기술들을 저희 SN아카데미는 다수 보유하고 있고 계속 개발해 나가고 있습니다.
+이렇게, 전통적인 방식의 전문 콘텐츠 제작 과정을 거치지 않더라도, 상대적으로 적은 비용과 노력, 
+또 매우 중요하게는 짧은 콘텐츠 제작 시간으로 우리의 공부를 다채롭게 만들어줄 수 있는 기술들을 
+저희 SN아카데미는 다수 보유하고 있고 계속 개발해 나가고 있습니다.
 
 ## 📅 업로드 계획
 
-현재의 계획은 **주2회(화/금) 베이스**로 고전문학 시리즈를 업로드하여 비단 금번 2026 수능만을 위해서가 아니더라도, 「관동별곡」, 「사미인곡」, 「속미인곡」 등 수능을 준비하는 수험생이라면 필수적으로 알아야 하는 고전 명문부터 차곡차곡 콘텐츠를 쌓아 나가고자 하고, 향후 SN아카데미에서 출시 준비 중인 SNarGPT, SNarPortal 등 타 서비스 출시에 따라 SNarGPT를 활용한 공부 방법, SN 단편선 등도 선보이고자 하는 원대한 계획을 가슴 속에 품고 있습니다.
+현재의 계획은 **주2회(화/금) 베이스**로 고전문학 시리즈를 업로드하여 비단 금번 2026 수능만을 
+위해서가 아니더라도, 「관동별곡」, 「사미인곡」, 「속미인곡」 등 수능을 준비하는 수험생이라면 필수적으로 
+알아야 하는 고전 명문부터 차곡차곡 콘텐츠를 쌓아 나가고자 하고, 향후 SN아카데미에서 출시 준비 중인 
+SNarGPT, SNarPortal 등 타 서비스 출시에 따라 SNarGPT를 활용한 공부 방법, SN 단편선 등도 선보이고자 
+하는 원대한 계획을 가슴 속에 품고 있습니다.
+
+- 주2회(화/금) 정기 업로드
+- 수능 필수 고전 명문 완주
+- SNarGPT, SNarPortal 연동 예정
+- SN 단편선 등 확장 콘텐츠
 
 ## 🎥 YouTube 채널 계획
 
-유튜브에 한정한 계획을 조금 더 구체적으로 밝히자면 유튜브 채널을 막 시작한 지금(2025년 9월말) 기준으로는 롱폼 형태의 동영상만 올라가고 있지만, 조만간 숏폼과 모든 영상에 한/영 자막이 추가될 예정입니다. 
+유튜브에 한정한 계획을 조금 더 구체적으로 밝히자면 유튜브 채널을 막 시작한 지금(2025년 9월말)
+기준으로는 롱폼 형태의 동영상만 올라가고 있지만, 조만간 **숏폼**과 모든 영상에 **한/영 자막**이 추가될 예정입니다.
 
-그렇지만 한편으로는 고전문학을 공부하는 것은 시대를 적게 탄다고도 생각하기 때문에, 특별히 당장의 관심만을 얻기 위한 자극적 콘텐츠 제작보다는 시간이 오래 지난 시점에 보더라도 재미있게 볼 수 있는, 잔잔하지만 미소 짓게 되는 콘텐츠를 만들고자 하는 마음이 있습니다.
+그렇지만 한편으로는 고전문학을 공부하는 것은 시대를 적게 탄다고도 생각하기 때문에, 특별히 당장의 관심만을
+얻기 위한 자극적 콘텐츠 제작보다는 시간이 오래 지난 시점에 보더라도 재미있게 볼 수 있는, **잔잔하지만
+미소 짓게 되는 콘텐츠**를 만들고자 하는 마음이 있습니다.
 
-**📺 [SN 독학기숙학원 YouTube 채널](https://www.youtube.com/@SN_gisuk_original)에서 고전문학 시리즈를 확인해보세요!**
+**채널 특징**:
+- 롱폼 고전문학 해설 (현재 운영 중)
+- 숏폼 콘텐츠 추가 예정
+- 한글/영어 자막 지원 예정
+- 시간이 지나도 가치 있는 콘텐츠 지향
+
+<callout type="info">
+**SN 유튜브 채널 바로가기**
+
+[SN독학기숙학원 Originals](https://www.youtube.com/@SN_gisuk_original)
+</callout>
 
 ## 🏫 SN아카데미의 약속
 
-SN아카데미는 2014년부터 경기도 양평에서 꾸준히 독학기숙학원을 운영하며 여러분들의 수능 준비가 수월할 수 있도록 일 24시간, 주 7일 내내 고민하고 있습니다. 
+SN아카데미는 2014년부터 경기도 양평에서 꾸준히 독학기숙학원을 운영하며 여러분들의 수능 준비가 
+수월할 수 있도록 일 24시간, 주 7일 내내 고민하고 있습니다. 시대의 트렌드를 따라가는 것도 중요하지만, 
+시대가 빠르게 변하더라도 수험생 여러분들이 원칙에 기반하여 급하지 않은 마음으로 차분하게 공부에만 
+전념할 수 있는 환경을 제공하는데 최선의 가치를 두고 정진하도록 하겠습니다.
 
-시대의 트렌드를 따라가는 것도 중요하지만, 시대가 빠르게 변하더라도 수험생 여러분들이 원칙에 기반하여 급하지 않은 마음으로 차분하게 공부에만 전념할 수 있는 환경을 제공하는데 최선의 가치를 두고 정진하도록 하겠습니다. 
-
-수험생 여러분들뿐만 아니라 학부모님, 일반 시청자분들 등 다양한 관련자분들께서 많은 관심 보여주시고 문의와 피드백 등으로 참여해 주신다면 저희 SN아카데미가 성실함으로 보답하도록 하겠습니다.
+수험생 여러분들뿐만 아니라 학부모님, 일반 시청자분들 등 다양한 관련자분들께서 많은 관심 보여주시고 
+문의와 피드백 등으로 참여해 주신다면 저희 SN아카데미가 성실함으로 보답하도록 하겠습니다.
 
 ## 🙏 마무리
 
 모든 수험생 여러분의 건승을 바라며, 또 다른 재미있는 읽을거리를 들고 찾아뵙겠습니다. 감사합니다.`,
     category: 'SN Originals',
-    tags: ['SN Originals', '고전문학', '수능국어'],
+    tags: [],
     author: 'SN Academy',
     date: '2025-10-02',
     readTime: '12',
     featured: false,
     published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=center',
-    youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
+    thumbnail: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop&crop=center',
+    youtubeUrl: undefined,
     url: '/originals/sn-originals-intro'
   },
   {
@@ -505,24 +1156,29 @@ SN아카데미는 2014년부터 경기도 양평에서 꾸준히 독학기숙학
 ## 「속미인곡」- 사랑의 절정과 문학의 완성
 
 ### 💔 사랑의 절정을 담은 문학
+
 「속미인곡」은 정철이 1588~1589년 경 고향인 전남 창평에서 「사미인곡」에 이어 지은 가사입니다. 이 작품은 단순한 정치적 충성을 넘어서, 진정한 사랑의 절정과 그리움의 깊이를 보여주는 조선 가사 문학의 최고봉입니다.
 
 ### 🎭 문학적 완성도
-- **감정의 절정**: "기다리는 나를 왜 모르시나요"라는 절절한 호소
-- **정치적 배경**: 정철의 정치적 좌절과 고향으로의 귀향
-- **문학적 완성도**: 조선 가사 문학의 백미로 평가받는 작품
+
+- **감정의 절정**: "기다리는 나를 왜 모르시나요"라는 절절한 호소<br>
+- **정치적 배경**: 정철의 정치적 좌절과 고향으로의 귀향<br>
+- **문학적 완성도**: 조선 가사 문학의 백미로 평가받는 작품<br>
 - **감정의 깊이**: 단순한 충성심을 넘어선 진정한 사랑의 표현
 
 ### 🌍 세계 문학사적 의의
+
 이 작품은 동아시아 정치시의 전통을 계승하면서도, 조선만의 독특한 정치적 상황을 반영합니다. 정치적 충성을 진정한 사랑으로 승화시키는 방식은 세계 정치 문학사에서도 높이 평가받을 만한 문학적 성취입니다.
 
 ### 📚 깊이 있는 문학적 이해
-1. **사랑의 문학적 표현**: 정치적 충성을 사랑으로 승화시키는 방법
-2. **시대적 배경**: 임진왜란 이후의 복잡한 정치적 상황
-3. **작가의 심경**: 정치적 좌절과 고향에 대한 그리움
+
+1. **사랑의 문학적 표현**: 정치적 충성을 사랑으로 승화시키는 방법<br>
+2. **시대적 배경**: 임진왜란 이후의 복잡한 정치적 상황<br>
+3. **작가의 심경**: 정치적 좌절과 고향에 대한 그리움<br>
 4. **문학적 가치**: 조선 가사 문학의 완성도
 
 ### 🎭 문학 감상의 진정한 즐거움
+
 「속미인곡」을 읽는 것은 단순한 학습이 아닙니다. 이 작품은 우리에게 문학이 가진 감정 표현의 힘과 진정한 사랑의 의미를 일깨워줍니다. 진정한 문학은 개인의 감정을 넘어서 시대의 아픔과 기쁨을 담아낼 수 있다는 것을 보여줍니다.
 
 ---
@@ -551,7 +1207,7 @@ This work inherits the East Asian tradition of political poetry while reflecting
     readTime: '8',
     featured: false,
     published: true,
-    thumbnail: '/image/thumbnail/sokmieungok_thumbnail.png',
+    thumbnail: '/images/thumbnail/sokmieungok_thumbnail.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
     url: '/originals/sokmieungok'
   },
@@ -574,24 +1230,29 @@ This work inherits the East Asian tradition of political poetry while reflecting
 ## 「사미인곡」- 정치적 사랑의 문학적 승화
 
 ### 💕 사랑과 충성의 문학적 표현
+
 「사미인곡」은 정철이 선조에 대한 충성과 사랑을 미인에 비유하여 표현한 문학적 걸작입니다. 이 작품은 단순한 정치적 충성을 넘어서, 복잡한 인간의 감정을 아름다운 문학적 비유로 승화시킨 조선 가사 문학의 대표작입니다.
 
 ### 🎭 문학적 완성도
-- **정교한 비유 기법**: 미인에 비유한 독창적이고 정교한 표현
-- **감정의 깊이**: 정치적 좌절과 그리움의 복합적 감정 표현
-- **시대적 의미**: 임진왜란 이후의 복잡한 정치적 상황 반영
+
+- **정교한 비유 기법**: 미인에 비유한 독창적이고 정교한 표현<br>
+- **감정의 깊이**: 정치적 좌절과 그리움의 복합적 감정 표현<br>
+- **시대적 의미**: 임진왜란 이후의 복잡한 정치적 상황 반영<br>
 - **문학적 가치**: 조선 가사 문학의 발전과 완성
 
 ### 🌍 세계 문학사적 의의
+
 이 작품은 동아시아 정치시의 전통을 계승하면서도, 조선만의 독특한 정치적 상황을 반영합니다. 정치적 충성을 문학적으로 승화시키는 방식은 세계 정치 문학사에서도 높이 평가받을 만한 문학적 성취입니다.
 
 ### 📚 깊이 있는 문학적 이해
-1. **비유와 상징**: 미인 비유의 의미와 문학적 효과
-2. **시대적 배경**: 임진왜란과 정유재란의 정치적 영향
-3. **작가의 심경**: 정치적 좌절과 충성심의 복잡한 갈등
+
+1. **비유와 상징**: 미인 비유의 의미와 문학적 효과<br>
+2. **시대적 배경**: 임진왜란과 정유재란의 정치적 영향<br>
+3. **작가의 심경**: 정치적 좌절과 충성심의 복잡한 갈등<br>
 4. **문학적 가치**: 가사 문학의 발전과 완성도
 
 ### 🎭 문학 감상의 진정한 즐거움
+
 「사미인곡」을 읽는 것은 단순한 학습이 아닙니다. 이 작품은 우리에게 문학이 가진 감정 표현의 힘과 정치적 상황을 문학적으로 승화시키는 방법을 보여줍니다. 진정한 문학은 개인의 감정을 넘어서 시대의 아픔과 기쁨을 담아낼 수 있다는 것을 보여줍니다.
 
 ---
@@ -620,14 +1281,14 @@ This work inherits the East Asian tradition of political poetry while reflecting
     readTime: '7',
     featured: false,
     published: true,
-    thumbnail: '/image/thumbnail/22_thumbnail2.png',
+    thumbnail: '/images/thumbnail/22_thumbnail2.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=50nJegN2YSQ',
     url: '/originals/samieungok'
   },
-    {
-      id: 'gapminga',
-      title: '내 속도 모르면서 가라 마라 막말하지 마라\n(수능 고전문학 「갑민가」)',
-      excerpt: '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
+  {
+    id: 'gapminga',
+    title: '내 속도 모르면서 가라 마라 막말하지 마라\n(수능 고전문학 「갑민가」)',
+    excerpt: '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄으로 「갑민가」를 준비했습니다.
@@ -639,24 +1300,29 @@ This work inherits the East Asian tradition of political poetry while reflecting
 ## 「갑민가」- 민중의 절규와 저항
 
 ### 💔 시대의 아픔을 담은 문학
+
 「갑민가」는 조선 후기 백성들의 고통과 절망을 생생하게 담아낸 작품입니다. 이 작품은 단순한 문학 작품을 넘어서, 당시 사회의 모순과 지배층의 부패를 날카롭게 비판하는 사회적 메시지를 담고 있습니다.
 
 ### 🎭 문학적 가치와 의미
-- **민중의 진실한 목소리**: 지배층이 아닌 백성의 시각에서 바라본 사회
-- **날카로운 사회 비판**: 당시 사회의 모순을 직설적으로 폭로
-- **문학사적 의의**: 조선 후기 민중 문학의 대표작
+
+- **민중의 진실한 목소리**: 지배층이 아닌 백성의 시각에서 바라본 사회<br>
+- **날카로운 사회 비판**: 당시 사회의 모순을 직설적으로 폭로<br>
+- **문학사적 의의**: 조선 후기 민중 문학의 대표작<br>
 - **감정적 공감**: 현대 독자들도 공감할 수 있는 보편적 메시지
 
 ### 🌍 세계 문학사적 관점
+
 이 작품은 동아시아 민중 문학의 전통을 계승하면서도, 조선만의 독특한 사회적 상황을 반영합니다. 민중의 고통과 저항을 문학적으로 승화시킨 방식은 세계 민중 문학사에서도 높이 평가받을 만한 가치를 지닙니다.
 
 ### 📚 깊이 있는 문학적 이해
-1. **민중 문학의 전통**: 동아시아 민중 문학의 흐름과 특징
-2. **사회적 배경**: 조선 후기 사회의 모순과 갈등
-3. **문학과 사회**: 문학이 사회 변화에 미치는 영향
+
+1. **민중 문학의 전통**: 동아시아 민중 문학의 흐름과 특징<br>
+2. **사회적 배경**: 조선 후기 사회의 모순과 갈등<br>
+3. **문학과 사회**: 문학이 사회 변화에 미치는 영향<br>
 4. **현대적 의미**: 과거와 현재의 연결점과 교훈
 
 ### 🎭 문학 감상의 진정한 즐거움
+
 「갑민가」를 읽는 것은 과거의 아픔을 되새기는 것만이 아닙니다. 이 작품은 우리에게 문학이 가진 사회적 힘과 민중의 목소리가 얼마나 소중한지를 일깨워줍니다. 진정한 문학은 아름다움만이 아니라, 진실과 정의를 추구하는 힘을 가지고 있다는 것을 보여줍니다.
 
 ---
@@ -691,7 +1357,7 @@ This work is particularly valuable for those studying Korean culture and literat
     readTime: '6',
     featured: false,
     published: true,
-    thumbnail: '/image/thumbnail/GABMINGA_2_sn_series.png',
+    thumbnail: '/images/thumbnail/GABMINGA_2_sn_series.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=3ZGE-RvBinQ',
     url: '/originals/gapminga'
   },
@@ -710,24 +1376,29 @@ This work is particularly valuable for those studying Korean culture and literat
 ## 「화왕가」- 풍자 문학의 진수
 
 ### 😂 유머로 승화된 사회 비판
+
 「화왕가」는 조선 후기 사회의 모순과 인간의 욕망을 풍자적으로 표현한 문학적 걸작입니다. 이 작품은 단순한 비판을 넘어서, 유머와 해학을 통해 사회의 부조리를 날카롭게 지적하는 문학의 힘을 보여줍니다.
 
 ### 🎭 문학적 완성도
-- **정교한 풍자 기법**: 사회 모순을 유머러스하게 비판하는 문학적 기교
-- **현실적 통찰력**: 인간의 욕망과 사회적 모순을 정확히 포착
-- **문학적 완성도**: 조선 후기 풍자 문학의 최고 수준
+
+- **정교한 풍자 기법**: 사회 모순을 유머러스하게 비판하는 문학적 기교<br>
+- **현실적 통찰력**: 인간의 욕망과 사회적 모순을 정확히 포착<br>
+- **문학적 완성도**: 조선 후기 풍자 문학의 최고 수준<br>
 - **시대를 초월한 메시지**: 오늘날에도 유효한 보편적 가치
 
 ### 🌍 세계 문학사적 의의
+
 이 작품은 동아시아 풍자 문학의 전통을 계승하면서도, 조선만의 독특한 사회적 상황을 반영합니다. 유머와 해학을 통한 사회 비판의 방식은 세계 풍자 문학사에서도 높이 평가받을 만한 문학적 성취입니다.
 
 ### 📚 깊이 있는 문학적 이해
-1. **풍자 문학의 전통**: 동아시아 풍자 문학의 흐름과 특징
-2. **사회적 배경**: 조선 후기 사회의 모순과 갈등
-3. **문학적 기법**: 풍자와 해학의 효과적 활용
+
+1. **풍자 문학의 전통**: 동아시아 풍자 문학의 흐름과 특징<br>
+2. **사회적 배경**: 조선 후기 사회의 모순과 갈등<br>
+3. **문학적 기법**: 풍자와 해학의 효과적 활용<br>
 4. **현대적 의미**: 과거와 현재의 연결점과 교훈
 
 ### 🎭 문학 감상의 진정한 즐거움
+
 「화왕가」를 읽는 것은 단순한 학습이 아닙니다. 이 작품은 우리에게 문학이 가진 유머의 힘과 사회 비판의 정신을 일깨워줍니다. 진정한 문학은 아름다움뿐만 아니라, 사회의 부조리를 지적하고 개선하려는 의지를 담고 있다는 것을 보여줍니다.
 
 ---
@@ -756,7 +1427,7 @@ This work inherits the East Asian tradition of satirical literature while reflec
     readTime: '5',
     featured: false,
     published: true,
-    thumbnail: '/image/thumbnail/hwawangga_sn_series.png',
+    thumbnail: '/images/thumbnail/hwawangga_sn_series.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=6tsl5IIMy_o',
     url: '/originals/hwangokga'
   },
@@ -778,24 +1449,29 @@ This work inherits the East Asian tradition of satirical literature while reflec
 ## 「북천가」- 민중 문학의 진수
 
 ### 💔 시대의 아픔을 담은 문학
+
 「북천가」는 조선 후기 북한 지역 민중들의 고통과 절망을 생생하게 담아낸 작품입니다. 이 작품은 단순한 문학 작품을 넘어서, 당시 사회의 모순과 지배층의 부패를 날카롭게 비판하는 사회적 메시지를 담고 있습니다.
 
 ### 🎭 문학적 가치와 의미
-- **민중의 진실한 목소리**: 지배층이 아닌 민중의 시각에서 바라본 사회
-- **날카로운 사회 비판**: 당시 사회의 모순을 직설적으로 폭로
-- **지역적 특수성**: 북한 지역의 고유한 상황과 고통을 생생하게 표현
+
+- **민중의 진실한 목소리**: 지배층이 아닌 민중의 시각에서 바라본 사회<br>
+- **날카로운 사회 비판**: 당시 사회의 모순을 직설적으로 폭로<br>
+- **지역적 특수성**: 북한 지역의 고유한 상황과 고통을 생생하게 표현<br>
 - **문학사적 의의**: 조선 후기 민중 문학의 대표작
 
 ### 🌍 세계 문학사적 관점
+
 이 작품은 동아시아 민중 문학의 전통을 계승하면서도, 조선만의 독특한 사회적 상황을 반영합니다. 민중의 고통과 저항을 문학적으로 승화시킨 방식은 세계 민중 문학사에서도 높이 평가받을 만한 가치를 지닙니다.
 
 ### 📚 깊이 있는 문학적 이해
-1. **민중 문학의 전통**: 동아시아 민중 문학의 흐름과 특징
-2. **사회적 배경**: 조선 후기 사회의 모순과 갈등
-3. **문학과 사회**: 문학이 사회 변화에 미치는 영향
+
+1. **민중 문학의 전통**: 동아시아 민중 문학의 흐름과 특징<br>
+2. **사회적 배경**: 조선 후기 사회의 모순과 갈등<br>
+3. **문학과 사회**: 문학이 사회 변화에 미치는 영향<br>
 4. **현대적 의미**: 과거와 현재의 연결점과 교훈
 
 ### 🎭 문학 감상의 진정한 즐거움
+
 「북천가」를 읽는 것은 과거의 아픔을 되새기는 것만이 아닙니다. 이 작품은 우리에게 문학이 가진 사회적 힘과 민중의 목소리가 얼마나 소중한지를 일깨워줍니다. 진정한 문학은 아름다움만이 아니라, 진실과 정의를 추구하는 힘을 가지고 있다는 것을 보여줍니다.
 
 ---
@@ -824,7 +1500,7 @@ This work inherits the East Asian tradition of popular literature while reflecti
     readTime: '9',
     featured: false,
     published: true,
-    thumbnail: '/image/thumbnail/bukcheonga_thumbnail_02.png',
+    thumbnail: '/images/thumbnail/bukcheonga_thumbnail_02.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=xhyppBm3_o4',
     url: '/originals/bukcheonga'
   },
@@ -867,24 +1543,29 @@ This work inherits the East Asian tradition of popular literature while reflecti
 ## 「관동별곡」- 조선 가사 문학의 백미
 
 ### 🌄 작품의 진정한 아름다움
+
 「관동별곡」은 단순한 풍경 묘사를 넘어서, 정철이 관동 지역(강원도)의 자연을 통해 인간의 내면세계를 표현한 문학적 걸작입니다. 이 작품은 조선 가사 문학의 최고봉으로 평가받으며, 자연과 인간의 조화를 통해 문학의 본질을 보여줍니다.
 
 ### 🎨 문학적 완성도
-- **시각적 묘사**: 관동의 산천을 생생하게 그려내는 회화적 표현
-- **음악적 리듬**: 가사의 운율과 리듬이 자연의 흐름과 일치
-- **감정의 깊이**: 단순한 감탄을 넘어선 철학적 사유
+
+- **시각적 묘사**: 관동의 산천을 생생하게 그려내는 회화적 표현<br>
+- **음악적 리듬**: 가사의 운율과 리듬이 자연의 흐름과 일치<br>
+- **감정의 깊이**: 단순한 감탄을 넘어선 철학적 사유<br>
 - **상징적 의미**: 자연을 통한 인간 존재의 의미 탐구
 
 ### 🌍 세계 문학사적 의의
+
 이 작품은 동아시아 자연시의 전통을 계승하면서도, 조선만의 독특한 문학적 성취를 보여줍니다. 자연에 대한 사랑과 경외심, 그리고 인간의 감정을 자연과 조화롭게 표현하는 방식은 세계 문학사에서도 높이 평가받을 만한 가치를 지닙니다.
 
 ### 📚 깊이 있는 이해
-1. **자연과 문학**: 자연을 통한 문학적 표현의 전통
-2. **조선 문학의 특성**: 중국 문학과 구별되는 조선 문학의 독창성
-3. **가사 문학의 발전**: 조선 가사 문학의 완성도
+
+1. **자연과 문학**: 자연을 통한 문학적 표현의 전통<br>
+2. **조선 문학의 특성**: 중국 문학과 구별되는 조선 문학의 독창성<br>
+3. **가사 문학의 발전**: 조선 가사 문학의 완성도<br>
 4. **현대적 의미**: 자연과 인간의 관계에 대한 현대적 해석
 
 ### 🎭 작품 감상의 즐거움
+
 「관동별곡」을 읽는 것은 단순한 학습이 아닙니다. 정철이 바라본 관동의 아름다운 풍경을 마음속으로 그려보며, 자연과 인간의 조화로운 관계를 느껴보는 문학적 여행입니다. 이 작품은 우리에게 자연의 소중함과 문학의 아름다움을 동시에 일깨워줍니다.
 
 ---
@@ -913,49 +1594,167 @@ This work inherits the East Asian tradition of nature poetry while achieving a u
     readTime: '12',
     featured: false,
     published: true,
-    thumbnail: '/image/thumbnail/gwandongbealgok_sn_series.png',
+    thumbnail: '/images/thumbnail/gwandongbealgok_sn_series.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=9T06DoJaMHs',
     url: '/originals/gwandong-byeolgok'
   },
+  {
+    id: 'sunsnagtan',
+    title: '45세면 지금은 한창인데 자꾸 자기가 노장이라고 하네...\n(고전문학 「선상탄」)',
+    excerpt: '박인로의 「선상탄」으로 배 위에서의 탄식과 나라 걱정, 무관의 절개를 만나보세요.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈. 제7탄으로 박인로의 「선상탄」을 준비했습니다.
+
+'배 위에서 하는 탄식'이라는 의미의 「선상탄」은 1605년(선조 38) 무관 박인로가 부산 진동영에 통주사로서 머무를 때 배 위에서 지은 가사입니다.
+
+대마도를 바라보며 왜적과 마주한 상황에서, 배의 유래와 왜적의 유래, 배의 쓸모 등에 대한 다양한 설화가 등장하고 나라에 대한 걱정과 무관으로서의 절개 또한 드러내는 재미있는 작품입니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「선상탄」- 배 위에서 부르는 나라 걱정
+
+### 🌊 작품의 배경과 의미
+
+「선상탄」은 단순한 탄식이 아닙니다. 45세의 무관 박인로가 배 위에서 대마도를 바라보며 느낀 나라에 대한 걱정과 충정을 담은 애국적 가사 문학입니다. 임진왜란의 상처가 채 아물지 않은 시기, 해안 방어의 최전선에서 지은 이 작품은 무관의 시선으로 본 시대상을 생생하게 전달합니다.
+
+### 🎨 문학적 특징
+
+- **다양한 설화**: 배의 유래, 왜적의 유래, 배의 쓸모에 대한 흥미로운 이야기<br>
+- **역사적 배경**: 임진왜란 이후 긴장감 넘치는 시대상 반영<br>
+- **충정의 표현**: 나라를 걱정하는 무관의 진솔한 마음<br>
+- **서사적 구성**: 설화와 감정이 어우러진 독특한 전개
+
+### 🌍 문학사적 의의
+
+이 작품은 무관 출신 작가가 남긴 귀한 가사 문학으로, 당대 사대부 문학과는 다른 실용적이고 직설적인 표현이 특징입니다. 문학이 단순히 풍류를 즐기는 것이 아니라, 나라의 안위를 걱정하고 백성을 생각하는 도구가 될 수 있음을 보여줍니다.
+
+### 📚 작품 감상 포인트
+
+1. **45세 노장?**: 작가가 자신을 노장이라 칭하는 겸손함과 시대적 배경<br>
+2. **배의 의미**: 단순한 교통수단을 넘어선 방어와 생존의 상징<br>
+3. **왜적에 대한 경계**: 임진왜란의 트라우마와 경각심<br>
+4. **무관의 절개**: 나이 들어도 나라를 지키겠다는 충성심
+
+### 🎭 현대적 의미
+
+「선상탄」을 읽는 것은 과거 무관의 마음을 이해하는 것을 넘어, 자신의 위치에서 나라와 사회를 걱정하는 태도가 무엇인지 생각해보는 기회입니다. 45세를 노장이라 부르던 시대, 그럼에도 끝까지 나라를 지키려는 한 무관의 진심 어린 탄식이 오늘날 우리에게 전하는 메시지를 느껴보세요.
+
+---
+
+## English Description
+
+### "Seonsan-tan" - A Warrior's Lament on the Sea
+
+**Seonsan-tan** (선상탄) is a classical Korean gasa (가사) poem written in 1605 by military officer Park In-ro (박인로) while stationed at Jindong Naval Command in Busan. The title means "Lament on a Ship," and the work reflects the author's deep concerns for the nation while stationed at the coastal defense line, facing Tsushima Island and the Japanese threat.
+
+**Literary Significance:**
+- **Unique Perspective**: Written by a military officer, offering a practical and direct voice unlike typical scholarly literature
+- **Historical Context**: Reflects the tense atmosphere following the Imjin War (Japanese invasions of 1592-1598)
+- **Narrative Elements**: Incorporates various tales about ships, Japanese invaders, and maritime history
+- **Patriotic Spirit**: Expresses unwavering loyalty and concern for the nation
+
+**Cultural Value:**
+This work demonstrates that literature can serve not merely as entertainment but as a medium for expressing patriotic duty and social responsibility. Park In-ro's perspective as a 45-year-old warrior (whom he calls an "old soldier") provides valuable insights into the mindset of those who defended the nation during turbulent times.
+
+**Contemporary Relevance:**
+"Seonsan-tan" reminds us of the importance of dedication to one's duty and concern for society, regardless of age or position. The warrior's heartfelt lament continues to resonate with modern readers who seek to understand the value of loyalty and service.`,
+    category: 'SN Originals',
+    tags: ['고전문학', '선상탄', '박인로', '가사문학', '수능국어'],
+    author: 'SN Academy',
+    date: '2025-10-07',
+    readTime: '10',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/sunsangtan_thumbnail.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=9ogmj2rSwLY',
+    url: '/originals/sunsnagtan'
+  },
 ];
+
+// 🔗 개발 환경에서 노션 포스트 자동 병합 (임시 비활성화)
+function getMergedPosts(): Post[] {
+  // 노션 포스트 비활성화 - 디버깅 중
+  return allPosts;
+
+  // if (process.env.NODE_ENV !== 'development') {
+  //   return allPosts;
+  // }
+
+  // try {
+  //   const manualPostIds = new Set(allPosts.map(p => p.id));
+  //   const uniqueNotionPosts = notionPosts.filter(
+  //     (p: Post) => !manualPostIds.has(p.id)
+  //   );
+  //   const merged = [...allPosts, ...uniqueNotionPosts]
+  //     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  //   return merged;
+  // } catch (error) {
+  //   return allPosts;
+  // }
+}
+
+// getAllPosts: 개발 환경에서는 노션 포스트 포함, 프로덕션에서는 수동 포스트만
+export function getAllPosts(): Post[] {
+  return getMergedPosts();
+}
 
 // 헬퍼 함수들
 export function getLatestPosts(limit: number = 5): Post[] {
-  return allPosts
+  const mergedPosts = getMergedPosts();
+  return mergedPosts
     .filter(post => post.published) // published 된 글만 가져오기
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, limit);
 }
 
+export function getPosts(): Post[] {
+  const mergedPosts = getMergedPosts();
+  return mergedPosts.filter(post => post.published);
+}
+
 export function getFeaturedPosts(): Post[] {
-  return allPosts.filter(post => post.featured && post.published); // featured 이고 published 된 글만 가져오기
+  const mergedPosts = getMergedPosts();
+  return mergedPosts.filter(post => post.featured && post.published); // featured 이고 published 된 글만 가져오기
 }
 
 export function getPostById(id: string): Post | undefined {
-  return allPosts.find(post => post.id === id && post.published); // published 된 글만 찾기
+  const mergedPosts = getMergedPosts();
+  // URL slug 또는 ID로 검색 (URL 우선)
+  return mergedPosts.find(post => {
+    if (!post.published) return false;
+    // URL의 마지막 부분과 매칭
+    const urlSlug = post.url.split('/').pop();
+    return urlSlug === id || post.id === id;
+  });
 }
 
 export function getPostsByCategory(category: string): Post[] {
-  return allPosts
+  const mergedPosts = getMergedPosts();
+  return mergedPosts
     .filter(post => post.category === category && post.published) // published 된 글만 가져오기
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // 날짜 내림차순 정렬 추가
 }
 
 export function searchPosts(query: string): Post[] {
+  const mergedPosts = getMergedPosts();
   const lowercaseQuery = query.toLowerCase();
-  return allPosts
-    .filter(post => 
+  return mergedPosts
+    .filter(post =>
       post.published && // published 된 글만 검색
       (post.title.toLowerCase().includes(lowercaseQuery) ||
-      post.excerpt.toLowerCase().includes(lowercaseQuery) ||
-      post.content.toLowerCase().includes(lowercaseQuery) ||
-      post.tags?.some(tag => tag.toLowerCase().includes(lowercaseQuery)))
+        post.excerpt.toLowerCase().includes(lowercaseQuery) ||
+        post.content.toLowerCase().includes(lowercaseQuery) ||
+        post.tags?.some(tag => tag.toLowerCase().includes(lowercaseQuery)))
     )
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // 날짜 내림차순 정렬 추가
 }
 
 export function getPaginatedPosts(page: number = 1, limit: number = 6): { posts: Post[], totalPages: number, currentPage: number } {
-  const publishedPosts = allPosts
+  const mergedPosts = getMergedPosts();
+  const publishedPosts = mergedPosts
     .filter(post => post.published)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // 날짜 내림차순 정렬 추가
   const totalPosts = publishedPosts.length;
@@ -963,10 +1762,39 @@ export function getPaginatedPosts(page: number = 1, limit: number = 6): { posts:
   const startIndex = (page - 1) * limit;
   const endIndex = startIndex + limit;
   const posts = publishedPosts.slice(startIndex, endIndex);
-  
+
   return {
     posts,
     totalPages,
     currentPage: page
   };
+}
+
+// 🔗 노션 포스트와 수동 포스트 통합
+// 노션에서 가져온 포스트를 기존 포스트와 합칩니다
+// 개발 환경에서만 노션 포스트를 보여줍니다
+export function getAllPostsWithNotion(): Post[] {
+  // 개발 환경이 아니면 기존 포스트만 반환
+  if (process.env.NODE_ENV !== 'development') {
+    return allPosts
+  }
+
+  try {
+
+    // 중복 제거 (ID 기준)
+    const manualPostIds = new Set(allPosts.map(p => p.id))
+    const uniqueNotionPosts = notionPosts.filter(
+      (p: Post) => !manualPostIds.has(p.id)
+    )
+
+    console.log(`[DEV] 노션 포스트 ${uniqueNotionPosts.length}개 로드됨`)
+
+    // 합치고 날짜순 정렬
+    return [...allPosts, ...uniqueNotionPosts]
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  } catch (error) {
+    // notion-posts.ts가 없거나 에러가 발생하면 기존 포스트만 반환
+    console.warn('[DEV] 노션 포스트를 불러올 수 없습니다:', error)
+    return allPosts
+  }
 }
