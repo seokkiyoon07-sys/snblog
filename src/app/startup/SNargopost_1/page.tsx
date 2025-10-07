@@ -157,7 +157,7 @@ export default function SNarGOPage() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="flex justify-center">
               <Image
-                src="/images/startup/SNarGo/SNargo1.png"
+                src="/images/startup/SNarGo/Snargo1.png"
                 alt="스나고가 2025학년도 수능 22번 풀이 - Part 1"
                 width={600}
                 height={400}
