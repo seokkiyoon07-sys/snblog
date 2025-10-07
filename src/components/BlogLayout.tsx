@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 interface BlogLayoutProps {
   title: string;
@@ -13,4 +13,3 @@ export default function BlogLayout({ title, children }: BlogLayoutProps) {
     </article>
   );
 }
-

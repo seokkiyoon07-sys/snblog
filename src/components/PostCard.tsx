@@ -20,53 +20,63 @@ interface PostCardProps {
   className?: string;
 }
 
-export default function PostCard({ 
-  post, 
-  variant = 'default', 
+export default function PostCard({
+  post,
+  variant = 'default',
   showThumbnail = true,
-  className = '' 
+  className = '',
 }: PostCardProps) {
   const isFeatured = variant === 'featured';
-  
+
+  // 카테고리별 이모지 선택 함수
+  const getEmoji = (category: string) => {
+    if (category === 'SN Originals') return '🎥';
+    if (category === 'startup') return '🤖';
+    return '📚';
+  };
+
+  // 추천글도 원글의 카테고리 이모지 사용
+  const emoji = getEmoji(post.category);
+
   // ISO 날짜 형식으로 변환 (YYYY-MM-DD)
   const isoDate = post.date.replace(/\//g, '-');
-  
+
   // BlogPosting 스키마 마크업
   const blogPostingSchema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
-    "url": `https://blog.snacademy.co.kr${post.url}`,
-    "datePublished": isoDate,
-    "author": {
-      "@type": "Organization",
-      "name": "SN Academy"
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    url: `https://blog.snacademy.co.kr${post.url}`,
+    datePublished: isoDate,
+    author: {
+      '@type': 'Organization',
+      name: 'SN Academy',
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "SN Academy",
-      "url": "https://snacademy.co.kr"
+    publisher: {
+      '@type': 'Organization',
+      name: 'SN Academy',
+      url: 'https://snacademy.co.kr',
     },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://blog.snacademy.co.kr${post.url}`
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://blog.snacademy.co.kr${post.url}`,
     },
-    "keywords": post.tags?.join(", ") || "",
-    "articleSection": post.category,
-    "wordCount": post.readTime,
+    keywords: post.tags?.join(', ') || '',
+    articleSection: post.category,
+    wordCount: post.readTime,
     ...(post.thumbnail && {
-      "image": {
-        "@type": "ImageObject",
-        "url": post.thumbnail,
-        "width": 800,
-        "height": 400
-      }
-    })
+      image: {
+        '@type': 'ImageObject',
+        url: post.thumbnail,
+        width: 800,
+        height: 400,
+      },
+    }),
   };
-  
+
   return (
-    <article 
+    <article
       className={`${isFeatured ? 'border border-sn-primary/20 dark:border-sn-primary/30 rounded-lg p-4 bg-sn-primary/5 dark:bg-sn-primary/10' : 'border-b border-gray-200 dark:border-gray-700 pb-4 lg:pb-6 last:border-b-0'} ${className}`}
       itemScope
       itemType="https://schema.org/BlogPosting"
@@ -76,7 +86,7 @@ export default function PostCard({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
       />
-      
+
       <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-4 lg:gap-6">
         {/* 썸네일 */}
         {showThumbnail && post.thumbnail && (
@@ -90,19 +100,22 @@ export default function PostCard({
             />
           </div>
         )}
-        
+
         {/* 콘텐츠 */}
         <div className="space-y-3 order-2 sm:order-2">
           {/* 태그 (데스크톱에서만 상단 표시) */}
           {post.tags && post.tags.length > 0 && (
-            <ul className="hidden sm:flex flex-wrap gap-2" role="list" aria-label="포스트 태그">
-              {post.tags.map((tag) => (
+            <ul
+              className="hidden sm:flex flex-wrap gap-2"
+              aria-label="포스트 태그"
+            >
+              {post.tags.map(tag => (
                 <li key={tag}>
-                  <Link 
+                  <Link
                     href={`/tags/${encodeURIComponent(tag)}`}
                     className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded hover:bg-sn-primary/10 dark:hover:bg-sn-primary/20 hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors"
                   >
-                    {tag}
+                    #{tag}
                   </Link>
                 </li>
               ))}
@@ -110,29 +123,46 @@ export default function PostCard({
           )}
 
           {/* 제목 */}
-          <h2 className={`${isFeatured ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl'} font-semibold text-gray-900 dark:text-white hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors`}>
+          <h2
+            className={`${isFeatured ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl'} font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200`}
+          >
             <Link href={post.url} itemProp="url">
               <span itemProp="headline" className="whitespace-pre-line">
-                {isFeatured ? '📚' : '🎥'} {post.title}
+                {emoji} {post.title}
               </span>
             </Link>
           </h2>
 
           {/* 요약 */}
-          <p className="text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3" itemProp="description">
+          <p
+            className="text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3"
+            itemProp="description"
+          >
             {post.excerpt}
           </p>
 
           {/* 메타 정보 */}
           <div className="flex items-center space-x-3 sm:space-x-4 text-sm lg:text-base text-gray-500 dark:text-gray-400">
-            <time dateTime={isoDate} className="font-medium" itemProp="datePublished">
+            <time
+              dateTime={isoDate}
+              className="font-medium"
+              itemProp="datePublished"
+            >
               {post.date}
             </time>
             <span aria-hidden="true">•</span>
             <span itemProp="wordCount">{post.readTime}</span>
             <span aria-hidden="true">•</span>
-            <Link 
-              href={`/categories/${encodeURIComponent(post.category)}`}
+            <Link
+              href={
+                post.category === 'columns'
+                  ? '/columns'
+                  : post.category === 'SN Originals'
+                    ? '/originals'
+                    : post.category === 'startup'
+                      ? '/startup'
+                      : '#'
+              }
               className="text-sn-primary dark:text-sn-primary-light font-medium hover:underline"
               itemProp="articleSection"
             >
@@ -142,14 +172,17 @@ export default function PostCard({
 
           {/* 태그 (모바일에서만 하단 표시) */}
           {post.tags && post.tags.length > 0 && (
-            <ul className="flex sm:hidden flex-wrap gap-1.5" role="list" aria-label="포스트 태그">
-              {post.tags.map((tag) => (
+            <ul
+              className="flex sm:hidden flex-wrap gap-1.5"
+              aria-label="포스트 태그"
+            >
+              {post.tags.map(tag => (
                 <li key={tag}>
-                  <Link 
+                  <Link
                     href={`/tags/${encodeURIComponent(tag)}`}
                     className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded hover:bg-sn-primary/10 dark:hover:bg-sn-primary/20 hover:text-sn-primary dark:hover:text-sn-primary-light transition-colors"
                   >
-                    {tag}
+                    #{tag}
                   </Link>
                 </li>
               ))}

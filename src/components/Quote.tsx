@@ -5,4 +5,3 @@ export function Quote({ children }: { children: React.ReactNode }) {
     </blockquote>
   );
 }
-

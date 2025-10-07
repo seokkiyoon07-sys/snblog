@@ -2,7 +2,7 @@
 // 📝 포스트 추가/수정 시 이 파일을 직접 편집하세요.
 // 🔒 Notion 포스트는 notion-posts.ts에서 자동으로 가져옵니다.
 
-import { notionPosts } from './notion-posts'
+import { notionPosts } from './notion-posts';
 
 export interface Post {
   id: string;
@@ -23,10 +23,48 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'SNargopost_1',
+    title: 'SNarGO — 수능 특화 Vertical AI',
+    excerpt:
+      'SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵까지.',
+    thumbnail: '/images/startup/SNarGo/SNargo thumbnail.png',
+    content: `SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵을 소개합니다.
+
+## SNarGO란?
+
+SNarGO는 **수능 수학 문제 전용** Vertical AI로, 학생들의 수학 실력 향상을 위해 특별히 설계된 AI 시스템입니다.
+
+### 핵심 기능
+
+1. **2,000문제 중 1문제 수준의 정확도**
+2. **SNarVIS 시각적 해설 시스템**
+3. **차세대 문제 생성 AI SNarGEN**
+
+## 주요 특징
+
+- 수능 출제 패턴 완벽 분석
+- 개인별 맞춤 문제 추천
+- 실시간 오답 분석 및 피드백
+- 체계적인 학습 진도 관리
+
+자세한 내용은 SNarGO 페이지에서 확인하실 수 있습니다.`,
+    category: 'startup',
+    tags: ['AI', '수능', '수학', '교육기술'],
+    author: 'SN Academy',
+    date: '2025-10-07',
+    readTime: '12',
+    featured: true,
+    published: true,
+    youtubeUrl: undefined,
+    url: '/startup/SNargopost_1',
+  },
+  {
     id: 'design-guide-demo',
     title: '디자인 시스템 가이드 - 미니멀 블로그 디자인',
-    excerpt: 'SN Academy 블로그의 새로운 디자인 시스템을 소개합니다. Stripe, Notion, Medium에서 영감을 받은 심플하고 깔끔한 디자인 철학을 확인해보세요.',
-    thumbnail: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=400&fit=crop&crop=center',
+    excerpt:
+      'SN Academy 블로그의 새로운 디자인 시스템을 소개합니다. Stripe, Notion, Medium에서 영감을 받은 심플하고 깔끔한 디자인 철학을 확인해보세요.',
+    thumbnail:
+      'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=400&fit=crop&crop=center',
     content: `SN Academy 블로그의 새로운 디자인 시스템을 소개합니다. 이 포스트는 디자인 가이드에 정의된 모든 컴포넌트와 스타일을 시연하는 더미 포스트입니다.
 
 ## 디자인 철학
@@ -271,12 +309,13 @@ console.log(greeting);
     readTime: '8',
     featured: false,
     published: false,
-    url: '/columns/design-guide-demo'
+    url: '/columns/design-guide-demo',
   },
   {
     id: 'SNarlink',
     title: 'SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)',
-    excerpt: 'SN의 인터넷 방화벽은 국내 최고 수준의 보안을 자랑합니다. 11년간 축적한 방화벽 기술력과 2025년 새롭게 선보인 SNarlink 시스템에 대해 다룹니다.',
+    excerpt:
+      'SN의 인터넷 방화벽은 국내 최고 수준의 보안을 자랑합니다. 11년간 축적한 방화벽 기술력과 2025년 새롭게 선보인 SNarlink 시스템에 대해 다룹니다.',
     thumbnail: '/images/SNarlink/thumbnail.png',
     content: `<div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 rounded-r-lg">
   <p class="font-medium text-blue-800">
@@ -578,12 +617,13 @@ SN독학기숙학원의 방화벽은 개발이 모두 완료되었으며, 본원
     featured: false,
     published: true,
     youtubeUrl: undefined,
-    url: '/columns/SNarlink'
+    url: '/columns/SNarlink',
   },
   {
     id: 'ai-startup',
     title: 'SN에서 교육 AI 스타트업을 창업했습니다',
-    excerpt: '교육과 AI의 융합으로 학생 개개인의 잠재력을 극대화하는 초개인화 학습 혁신을 실현하는 SN Academy AI 스타트업을 소개합니다.',
+    excerpt:
+      '교육과 AI의 융합으로 학생 개개인의 잠재력을 극대화하는 초개인화 학습 혁신을 실현하는 SN Academy AI 스타트업을 소개합니다.',
     content: `<div class="bg-gray-50 border-l-4 border-gray-400 p-6 my-8 rounded-r-lg">
   <p class="text-gray-800 text-lg leading-relaxed">
     교육과 AI의 융합으로 학생 개개인의 잠재력을 극대화하는 <strong>초개인화 학습 혁신</strong>을 실현합니다.
@@ -1019,14 +1059,16 @@ SN독학기숙학원의 방화벽은 개발이 모두 완료되었으며, 본원
     readTime: '15',
     featured: true,
     published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',
+    thumbnail:
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',
     youtubeUrl: undefined,
-    url: '/startup/ai-startup'
+    url: '/startup/ai-startup',
   },
   {
     id: 'sn-originals-intro',
     title: 'SN Originals 고전문학 시리즈를 소개합니다',
-    excerpt: '최재천 선생님의 "알면 사랑한다"는 지혜로 시작하는 SN Originals 고전문학 시리즈. 만화영화처럼 익숙하게, AI 기술과 함께하는 새로운 고전문학 학습법을 소개합니다.',
+    excerpt:
+      '최재천 선생님의 "알면 사랑한다"는 지혜로 시작하는 SN Originals 고전문학 시리즈. 만화영화처럼 익숙하게, AI 기술과 함께하는 새로운 고전문학 학습법을 소개합니다.',
     content: `알면 사랑한다는 최재천 선생님의 지혜로 시작하는 SN Originals 고전문학 시리즈. AI 기술과 함께하는 새로운 고전문학 학습법을 만나보세요.
 
 ![SN Originals 고전문학 시리즈의 시작](/images/originalintro1.png)
@@ -1133,14 +1175,17 @@ SN아카데미는 2014년부터 경기도 양평에서 꾸준히 독학기숙학
     readTime: '12',
     featured: false,
     published: true,
-    thumbnail: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop&crop=center',
+    thumbnail:
+      'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop&crop=center',
     youtubeUrl: undefined,
-    url: '/originals/sn-originals-intro'
+    url: '/originals/sn-originals-intro',
   },
   {
     id: 'sokmieungok',
-    title: '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~"\n(고전문학 「속미인곡」)',
-    excerpt: '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 6탄으로 「속미인곡」을 준비했습니다.',
+    title:
+      '조선시대 정철의 "기다리는 나를~ 왜 모르시나요~~"\n(고전문학 「속미인곡」)',
+    excerpt:
+      '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 6탄으로 「속미인곡」을 준비했습니다.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 6탄으로 「속미인곡」을 준비했습니다.
@@ -1209,12 +1254,13 @@ This work inherits the East Asian tradition of political poetry while reflecting
     published: true,
     thumbnail: '/images/thumbnail/sokmieungok_thumbnail.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=TQEkvJsu5UY',
-    url: '/originals/sokmieungok'
+    url: '/originals/sokmieungok',
   },
   {
     id: 'samieungok',
     title: '선조를 향한 정철의 중독된 사랑\n(고전문학 「사미인곡」)',
-    excerpt: '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 5탄으로 「사미인곡」을 준비했습니다.',
+    excerpt:
+      '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 5탄으로 「사미인곡」을 준비했습니다.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 5탄으로 「사미인곡」을 준비했습니다.
@@ -1283,12 +1329,14 @@ This work inherits the East Asian tradition of political poetry while reflecting
     published: true,
     thumbnail: '/images/thumbnail/22_thumbnail2.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=50nJegN2YSQ',
-    url: '/originals/samieungok'
+    url: '/originals/samieungok',
   },
   {
     id: 'gapminga',
-    title: '내 속도 모르면서 가라 마라 막말하지 마라\n(수능 고전문학 「갑민가」)',
-    excerpt: '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
+    title:
+      '내 속도 모르면서 가라 마라 막말하지 마라\n(수능 고전문학 「갑민가」)',
+    excerpt:
+      '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄으로 「갑민가」를 준비했습니다.
@@ -1359,12 +1407,13 @@ This work is particularly valuable for those studying Korean culture and literat
     published: true,
     thumbnail: '/images/thumbnail/GABMINGA_2_sn_series.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=3ZGE-RvBinQ',
-    url: '/originals/gapminga'
+    url: '/originals/gapminga',
   },
   {
     id: 'hwangokga',
     title: '너 그렇게 여자만 좋아하다 피똥싼다\n(수능 고전문학 「화왕가」)',
-    excerpt: '조선 후기 풍자 문학의 백미 「화왕가」로 문학의 유머와 비판정신을 만나보세요.',
+    excerpt:
+      '조선 후기 풍자 문학의 백미 「화왕가」로 문학의 유머와 비판정신을 만나보세요.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 2탄으로 「화왕가」를 준비했습니다.
@@ -1429,12 +1478,13 @@ This work inherits the East Asian tradition of satirical literature while reflec
     published: true,
     thumbnail: '/images/thumbnail/hwawangga_sn_series.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=6tsl5IIMy_o',
-    url: '/originals/hwangokga'
+    url: '/originals/hwangokga',
   },
   {
     id: 'bukcheonga',
     title: '좋긴 한데 유배 생활 이래도 됨?\n고전문학 「북천가」',
-    excerpt: '조선 후기 민중의 아픔과 저항을 담은 「북천가」로 진정한 문학의 힘을 만나보세요.',
+    excerpt:
+      '조선 후기 민중의 아픔과 저항을 담은 「북천가」로 진정한 문학의 힘을 만나보세요.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 3탄으로 「북천가」를 준비했습니다.
@@ -1502,12 +1552,13 @@ This work inherits the East Asian tradition of popular literature while reflecti
     published: true,
     thumbnail: '/images/thumbnail/bukcheonga_thumbnail_02.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=xhyppBm3_o4',
-    url: '/originals/bukcheonga'
+    url: '/originals/bukcheonga',
   },
   {
     id: 'gwandong-byeolgok',
     title: '정철의 강원도 브이로그\n(고전문학 「관동별곡」)',
-    excerpt: '정철의 대표작 「관동별곡」으로 조선 가사 문학의 아름다움을 만나보세요.',
+    excerpt:
+      '정철의 대표작 「관동별곡」으로 조선 가사 문학의 아름다움을 만나보세요.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄으로 「관동별곡」을 준비했습니다.
@@ -1596,12 +1647,14 @@ This work inherits the East Asian tradition of nature poetry while achieving a u
     published: true,
     thumbnail: '/images/thumbnail/gwandongbealgok_sn_series.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=9T06DoJaMHs',
-    url: '/originals/gwandong-byeolgok'
+    url: '/originals/gwandong-byeolgok',
   },
   {
-    id: 'sunsnagtan',
-    title: '45세면 지금은 한창인데 자꾸 자기가 노장이라고 하네...\n(고전문학 「선상탄」)',
-    excerpt: '박인로의 「선상탄」으로 배 위에서의 탄식과 나라 걱정, 무관의 절개를 만나보세요.',
+    id: 'sunsangtan',
+    title:
+      '45세면 지금은 한창인데 자꾸 자기가 노장이라고 하네...\n(고전문학 「선상탄」)',
+    excerpt:
+      '박인로의 「선상탄」으로 배 위에서의 탄식과 나라 걱정, 무관의 절개를 만나보세요.',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈. 제7탄으로 박인로의 「선상탄」을 준비했습니다.
@@ -1670,7 +1723,7 @@ This work demonstrates that literature can serve not merely as entertainment but
     published: true,
     thumbnail: '/images/thumbnail/sunsangtan_thumbnail.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=9ogmj2rSwLY',
-    url: '/originals/sunsnagtan'
+    url: '/originals/sunsangtan',
   },
 ];
 
@@ -1742,17 +1795,21 @@ export function searchPosts(query: string): Post[] {
   const mergedPosts = getMergedPosts();
   const lowercaseQuery = query.toLowerCase();
   return mergedPosts
-    .filter(post =>
-      post.published && // published 된 글만 검색
-      (post.title.toLowerCase().includes(lowercaseQuery) ||
-        post.excerpt.toLowerCase().includes(lowercaseQuery) ||
-        post.content.toLowerCase().includes(lowercaseQuery) ||
-        post.tags?.some(tag => tag.toLowerCase().includes(lowercaseQuery)))
+    .filter(
+      post =>
+        post.published && // published 된 글만 검색
+        (post.title.toLowerCase().includes(lowercaseQuery) ||
+          post.excerpt.toLowerCase().includes(lowercaseQuery) ||
+          post.content.toLowerCase().includes(lowercaseQuery) ||
+          post.tags?.some(tag => tag.toLowerCase().includes(lowercaseQuery)))
     )
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // 날짜 내림차순 정렬 추가
 }
 
-export function getPaginatedPosts(page: number = 1, limit: number = 6): { posts: Post[], totalPages: number, currentPage: number } {
+export function getPaginatedPosts(
+  page: number = 1,
+  limit: number = 6
+): { posts: Post[]; totalPages: number; currentPage: number } {
   const mergedPosts = getMergedPosts();
   const publishedPosts = mergedPosts
     .filter(post => post.published)
@@ -1766,7 +1823,7 @@ export function getPaginatedPosts(page: number = 1, limit: number = 6): { posts:
   return {
     posts,
     totalPages,
-    currentPage: page
+    currentPage: page,
   };
 }
 
@@ -1776,25 +1833,25 @@ export function getPaginatedPosts(page: number = 1, limit: number = 6): { posts:
 export function getAllPostsWithNotion(): Post[] {
   // 개발 환경이 아니면 기존 포스트만 반환
   if (process.env.NODE_ENV !== 'development') {
-    return allPosts
+    return allPosts;
   }
 
   try {
-
     // 중복 제거 (ID 기준)
-    const manualPostIds = new Set(allPosts.map(p => p.id))
+    const manualPostIds = new Set(allPosts.map(p => p.id));
     const uniqueNotionPosts = notionPosts.filter(
       (p: Post) => !manualPostIds.has(p.id)
-    )
+    );
 
-    console.log(`[DEV] 노션 포스트 ${uniqueNotionPosts.length}개 로드됨`)
+    console.log(`[DEV] 노션 포스트 ${uniqueNotionPosts.length}개 로드됨`);
 
     // 합치고 날짜순 정렬
-    return [...allPosts, ...uniqueNotionPosts]
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    return [...allPosts, ...uniqueNotionPosts].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
   } catch (error) {
     // notion-posts.ts가 없거나 에러가 발생하면 기존 포스트만 반환
-    console.warn('[DEV] 노션 포스트를 불러올 수 없습니다:', error)
-    return allPosts
+    console.warn('[DEV] 노션 포스트를 불러올 수 없습니다:', error);
+    return allPosts;
   }
 }
