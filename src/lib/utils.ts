@@ -61,34 +61,56 @@ export function generateMetadata(
 }
 
 export function getCategoryConfig(category: string) {
-  const configs: Record<string, { backLink: string; backText: string }> = {
+  const configs: Record<
+    string,
+    {
+      backLink: string;
+      backText: string;
+      subject?: string;
+      learningObjectives?: string[];
+    }
+  > = {
     posts: {
       backLink: '/posts',
       backText: '← 블로그 목록으로 돌아가기',
+      subject: '프로그래밍',
+      learningObjectives: ['기술적 이해', '실무 적용', '문제 해결 능력'],
     },
     originals: {
       backLink: '/originals',
       backText: '← 오리지널 목록으로 돌아가기',
+      subject: '창작 콘텐츠',
+      learningObjectives: ['창의적 사고', '콘텐츠 제작', '스토리텔링'],
     },
     startup: {
       backLink: '/startup',
       backText: '← 스타트업 목록으로 돌아가기',
+      subject: '창업',
+      learningObjectives: ['비즈니스 모델', '시장 분석', '투자 전략'],
     },
     problems: {
       backLink: '/problems',
       backText: '← 문제 목록으로 돌아가기',
+      subject: '문제 해결',
+      learningObjectives: ['논리적 사고', '알고리즘', '코딩 실력'],
     },
     reviews: {
       backLink: '/reviews',
       backText: '← 리뷰 목록으로 돌아가기',
+      subject: '기술 리뷰',
+      learningObjectives: ['기술 평가', '비판적 사고', '분석 능력'],
     },
     columns: {
       backLink: '/columns',
       backText: '← 칼럼 목록으로 돌아가기',
+      subject: '칼럼',
+      learningObjectives: ['인사이트', '전문성', '의견 형성'],
     },
     admissions: {
       backLink: '/admissions',
       backText: '← 입시 목록으로 돌아가기',
+      subject: '입시',
+      learningObjectives: ['전형 이해', '전략 수립', '준비 방법'],
     },
   };
 
@@ -96,6 +118,8 @@ export function getCategoryConfig(category: string) {
     configs[category] || {
       backLink: '/',
       backText: '← 홈으로 돌아가기',
+      subject: '일반',
+      learningObjectives: ['기본 이해', '지식 습득'],
     }
   );
 }
