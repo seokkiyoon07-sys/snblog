@@ -238,8 +238,11 @@ export default async function PostPage({ params }: PostPageProps) {
           tags: post.tags || [],
           content: post.content,
           difficulty: 'intermediate',
-          subject: config.subject,
-          learningObjectives: config.learningObjectives,
+          subject: config.subject || '일반',
+          learningObjectives: config.learningObjectives || [
+            '기본 이해',
+            '지식 습득',
+          ],
         }}
       />
     </main>
