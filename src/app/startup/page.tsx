@@ -42,6 +42,27 @@ export const metadata: Metadata = {
 export default function StartupPage() {
   const startups = getPostsByCategory('startup');
 
+  // SNargopost_1을 수동으로 추가 (전용 페이지가 있지만 스타트업 페이지에서도 표시)
+  const snargoPost = {
+    id: 'SNargopost_1',
+    title: 'SNarGO — 수능 특화 Vertical AI',
+    excerpt:
+      'SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵까지.',
+    thumbnail: '/images/startup/SNarGo/SNargo thumbnail.PNG',
+    category: 'startup',
+    tags: ['AI', '수능', '수학', '교육기술'],
+    author: 'SN Academy',
+    date: '2025-10-07',
+    readTime: '12',
+    featured: true,
+    published: true,
+    youtubeUrl: undefined,
+    url: '/startup/SNargopost_1',
+  };
+
+  // startups 배열에 SNarGO 추가
+  const allStartups = [snargoPost, ...startups];
+
   return (
     <div className="space-y-6 lg:space-y-8">
       {/* 페이지 헤더 */}
@@ -64,7 +85,7 @@ export default function StartupPage() {
           role="list"
           aria-label="AI 스타트업 포스트 목록"
         >
-          {startups.map(post => (
+          {allStartups.map(post => (
             <PostCard key={post.id} post={post} />
           ))}
         </div>
