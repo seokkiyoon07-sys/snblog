@@ -48,6 +48,27 @@ export default async function Home({ searchParams }: HomeProps) {
   );
   const featuredPosts = await getFeaturedPosts();
 
+  // SNargopost_1을 수동으로 추가 (전용 페이지가 있지만 홈페이지에서도 표시)
+  const snargoPost = {
+    id: 'SNargopost_1',
+    title: 'SNarGO — 수능 특화 Vertical AI',
+    excerpt:
+      'SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵까지.',
+    thumbnail: '/images/startup/SNarGo/SNargo thumbnail.PNG',
+    category: 'startup',
+    tags: ['AI', '수능', '수학', '교육기술'],
+    author: 'SN Academy',
+    date: '2025-10-07',
+    readTime: '12',
+    featured: true,
+    published: true,
+    youtubeUrl: undefined,
+    url: '/startup/SNargopost_1',
+  };
+
+  // featuredPosts에 SNarGO 추가
+  const allFeaturedPosts = [snargoPost, ...featuredPosts];
+
   // 스키마 마크업 데이터
   const blogSchema = {
     '@context': 'https://schema.org',
@@ -62,7 +83,7 @@ export default async function Home({ searchParams }: HomeProps) {
       url: 'https://snacademy.co.kr',
     },
     blogPost: [
-      ...featuredPosts.map(post => ({
+      ...allFeaturedPosts.map(post => ({
         '@type': 'BlogPosting',
         headline: post.title,
         description: post.excerpt,
@@ -117,7 +138,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
       <div className="space-y-6 lg:space-y-8">
         {/* 고정 글 섹션 */}
-        {featuredPosts.length > 0 && (
+        {allFeaturedPosts.length > 0 && (
           <section aria-labelledby="featured-heading">
             <h2 id="featured-heading" className="sr-only">
               추천 글
@@ -132,7 +153,7 @@ export default async function Home({ searchParams }: HomeProps) {
                   추천 글
                 </h3>
               </div>
-              {featuredPosts.map(post => (
+              {allFeaturedPosts.map(post => (
                 <FeaturedPost key={post.id} post={post} />
               ))}
             </div>
