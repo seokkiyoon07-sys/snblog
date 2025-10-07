@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 interface BlogImageProps {
   src: string;
@@ -7,7 +7,12 @@ interface BlogImageProps {
   priority?: boolean;
 }
 
-export default function BlogImage({ src, alt, caption, priority = false }: BlogImageProps) {
+export default function BlogImage({
+  src,
+  alt,
+  caption,
+  priority = false,
+}: BlogImageProps) {
   return (
     <figure className="my-8">
       <div className="relative w-full h-auto">
@@ -30,4 +35,3 @@ export default function BlogImage({ src, alt, caption, priority = false }: BlogI
     </figure>
   );
 }
-

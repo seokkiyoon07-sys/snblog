@@ -1,33 +1,36 @@
-import { allPosts } from '@/data/posts'
-import PostCard from '@/components/PostCard'
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { getAllPosts } from '@/data/posts';
+import PostCard from '@/components/PostCard';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 interface TagPageProps {
   params: Promise<{
-    tag: string
-  }>
+    tag: string;
+  }>;
 }
 
-export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
-  const { tag } = await params
-  const decodedTag = decodeURIComponent(tag)
-  const posts = allPosts.filter(post => 
-    post.published && post.tags?.some(t => t === decodedTag)
-  )
-  
+export async function generateMetadata({
+  params,
+}: TagPageProps): Promise<Metadata> {
+  const { tag } = await params;
+  const decodedTag = decodeURIComponent(tag);
+  const allPosts = getAllPosts();
+  const posts = allPosts.filter(
+    post => post.published && post.tags?.some(t => t === decodedTag)
+  );
+
   if (posts.length === 0) {
     return {
       title: '태그를 찾을 수 없습니다',
-    }
+    };
   }
 
   return {
-    metadataBase: new URL("https://blog.snacademy.co.kr"),
+    metadataBase: new URL('https://blog.snacademy.co.kr'),
     title: `#${decodedTag} | SN Academy Blog`,
     description: `#${decodedTag} 태그가 포함된 포스트들을 확인하세요. SN Academy의 교육 콘텐츠를 태그별로 정리했습니다.`,
-    alternates: { 
-      canonical: `/tags/${encodeURIComponent(decodedTag)}` 
+    alternates: {
+      canonical: `/tags/${encodeURIComponent(decodedTag)}`,
     },
     openGraph: {
       title: `#${decodedTag} | SN Academy Blog`,
@@ -50,34 +53,36 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
       description: `#${decodedTag} 태그가 포함된 포스트들을 확인하세요.`,
       images: [`/og/tags/${encodeURIComponent(decodedTag)}.jpg`],
     },
-    robots: { 
-      index: true, 
-      follow: true 
+    robots: {
+      index: true,
+      follow: true,
     },
-  }
+  };
 }
 
 export async function generateStaticParams() {
   // 모든 태그 목록 생성
+  const allPosts = getAllPosts();
   const allTags = allPosts
     .filter(post => post.published && post.tags)
-    .flatMap(post => post.tags!)
-  const uniqueTags = [...new Set(allTags)]
-  
-  return uniqueTags.map((tag) => ({
+    .flatMap(post => post.tags!);
+  const uniqueTags = [...new Set(allTags)];
+
+  return uniqueTags.map(tag => ({
     tag: encodeURIComponent(tag),
-  }))
+  }));
 }
 
 export default async function TagPage({ params }: TagPageProps) {
-  const { tag } = await params
-  const decodedTag = decodeURIComponent(tag)
-  const posts = allPosts.filter(post => 
-    post.published && post.tags?.some(t => t === decodedTag)
-  )
+  const { tag } = await params;
+  const decodedTag = decodeURIComponent(tag);
+  const allPosts = getAllPosts();
+  const posts = allPosts.filter(
+    post => post.published && post.tags?.some(t => t === decodedTag)
+  );
 
   if (posts.length === 0) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -94,13 +99,19 @@ export default async function TagPage({ params }: TagPageProps) {
 
       {/* 포스트 목록 */}
       <section aria-labelledby="tag-posts-heading">
-        <h2 id="tag-posts-heading" className="sr-only">#{decodedTag} 포스트</h2>
-        <div className="space-y-4 lg:space-y-6" role="list" aria-label={`#${decodedTag} 포스트 목록`}>
-          {posts.map((post) => (
+        <h2 id="tag-posts-heading" className="sr-only">
+          #{decodedTag} 포스트
+        </h2>
+        <div
+          className="space-y-4 lg:space-y-6"
+          role="list"
+          aria-label={`#${decodedTag} 포스트 목록`}
+        >
+          {posts.map(post => (
             <PostCard key={post.id} post={post} />
           ))}
         </div>
       </section>
     </div>
-  )
+  );
 }

@@ -2,7 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import { Sun, Moon, Search, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -11,6 +11,12 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedInfo, setSelectedInfo] = useState('독학기숙');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Hydration 에러 방지: 클라이언트에서만 테마 아이콘 렌더링
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,22 +32,22 @@ export default function Header() {
       title: '독학기숙(남학생점)',
       link: 'https://www.snacademy.co.kr',
       linkText: 'www.snacademy.co.kr',
-      color: 'text-sn-primary dark:text-sn-primary-light'
+      color: 'text-sn-primary dark:text-sn-primary-light',
     },
     {
       key: '대치점',
       title: '대치점',
       link: null,
       linkText: '26.1.1 오픈예정',
-      color: 'text-orange-600 dark:text-orange-400'
+      color: 'text-orange-600 dark:text-orange-400',
     },
     {
       key: 'SNarGPT',
       title: 'SNarGPT',
       link: 'https://snarGPT.ai',
       linkText: 'snarGPT.ai',
-      color: 'text-green-600 dark:text-green-400'
-    }
+      color: 'text-green-600 dark:text-green-400',
+    },
   ];
 
   const currentInfo = infoOptions.find(option => option.key === selectedInfo);
@@ -52,25 +58,28 @@ export default function Header() {
         {/* 데스크톱 헤더 */}
         <div className="hidden lg:block">
           <div className="flex items-center justify-between">
-                {/* 로고 */}
-                 <div className="flex items-center">
-                   <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                     <Image
-                       src="/sn-logo.png"
-                       alt="SN"
-                       width={32}
-                       height={32}
-                       className="h-8 w-auto dark:hidden"
-                     />
-                     <Image
-                       src="/sn-logo-white.png"
-                       alt="SN"
-                       width={32}
-                       height={32}
-                       className="h-8 w-auto hidden dark:block"
-                     />
-                   </Link>
-                 </div>
+            {/* 로고 */}
+            <div className="flex items-center">
+              <Link
+                href="/"
+                className="flex items-center hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/images/sn-logo.png"
+                  alt="SN"
+                  width={32}
+                  height={32}
+                  className="h-8 w-auto dark:hidden"
+                />
+                <Image
+                  src="/images/sn-logo.png"
+                  alt="SN"
+                  width={32}
+                  height={32}
+                  className="h-8 w-auto hidden dark:block"
+                />
+              </Link>
+            </div>
 
             {/* 검색바 */}
             <div className="flex-1 max-w-md mx-8">
@@ -81,7 +90,7 @@ export default function Header() {
                     type="text"
                     placeholder="검색..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={e => setSearchQuery(e.target.value)}
                     className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sn-primary focus:border-transparent"
                   />
                 </div>
@@ -94,18 +103,24 @@ export default function Header() {
               <div className="flex items-center space-x-2">
                 <select
                   value={selectedInfo}
-                  onChange={(e) => {
+                  onChange={e => {
                     const newSelection = e.target.value;
                     setSelectedInfo(newSelection);
-                    
-                    const selectedOption = infoOptions.find(option => option.key === newSelection);
+
+                    const selectedOption = infoOptions.find(
+                      option => option.key === newSelection
+                    );
                     if (selectedOption?.link) {
-                      window.open(selectedOption.link, '_blank', 'noopener,noreferrer');
+                      window.open(
+                        selectedOption.link,
+                        '_blank',
+                        'noopener,noreferrer'
+                      );
                     }
                   }}
                   className="text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-sn-primary cursor-pointer"
                 >
-                  {infoOptions.map((option) => (
+                  {infoOptions.map(option => (
                     <option key={option.key} value={option.key}>
                       {option.title}
                     </option>
@@ -117,8 +132,11 @@ export default function Header() {
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label="테마 토글"
               >
-                {theme === 'dark' ? (
+                {!mounted ? (
+                  <div className="h-5 w-5" />
+                ) : theme === 'dark' ? (
                   <Sun className="h-5 w-5" />
                 ) : (
                   <Moon className="h-5 w-5" />
@@ -137,7 +155,7 @@ export default function Header() {
               { name: '입시정보', href: '/admissions' },
               { name: '후기', href: '/reviews' },
               { name: 'SN Originals', href: '/originals' },
-            ].map((item) => (
+            ].map(item => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -152,33 +170,39 @@ export default function Header() {
         {/* 모바일 헤더 */}
         <div className="lg:hidden">
           <div className="flex items-center justify-between">
-                {/* 로고 */}
-                 <div className="flex items-center">
-                   <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-                     <Image
-                       src="/sn-logo.png"
-                       alt="SN"
-                       width={24}
-                       height={24}
-                       className="h-6 w-auto dark:hidden"
-                     />
-                     <Image
-                       src="/sn-logo-white.png"
-                       alt="SN"
-                       width={24}
-                       height={24}
-                       className="h-6 w-auto hidden dark:block"
-                     />
-                   </Link>
-                 </div>
+            {/* 로고 */}
+            <div className="flex items-center">
+              <Link
+                href="/"
+                className="flex items-center hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/images/sn-logo.png"
+                  alt="SN"
+                  width={24}
+                  height={24}
+                  className="h-6 w-auto dark:hidden"
+                />
+                <Image
+                  src="/images/sn-logo.png"
+                  alt="SN"
+                  width={24}
+                  height={24}
+                  className="h-6 w-auto hidden dark:block"
+                />
+              </Link>
+            </div>
 
             {/* 모바일 메뉴 버튼 */}
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label="테마 토글"
               >
-                {theme === 'dark' ? (
+                {!mounted ? (
+                  <div className="h-5 w-5" />
+                ) : theme === 'dark' ? (
                   <Sun className="h-5 w-5" />
                 ) : (
                   <Moon className="h-5 w-5" />
@@ -206,7 +230,7 @@ export default function Header() {
                   type="text"
                   placeholder="검색..."
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onChange={e => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sn-primary focus:border-transparent"
                 />
               </div>
@@ -217,18 +241,24 @@ export default function Header() {
           <div className="mt-3">
             <select
               value={selectedInfo}
-              onChange={(e) => {
+              onChange={e => {
                 const newSelection = e.target.value;
                 setSelectedInfo(newSelection);
-                
-                const selectedOption = infoOptions.find(option => option.key === newSelection);
+
+                const selectedOption = infoOptions.find(
+                  option => option.key === newSelection
+                );
                 if (selectedOption?.link) {
-                  window.open(selectedOption.link, '_blank', 'noopener,noreferrer');
+                  window.open(
+                    selectedOption.link,
+                    '_blank',
+                    'noopener,noreferrer'
+                  );
                 }
               }}
               className="w-full text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sn-primary cursor-pointer"
             >
-              {infoOptions.map((option) => (
+              {infoOptions.map(option => (
                 <option key={option.key} value={option.key}>
                   {option.title}
                 </option>
@@ -247,7 +277,7 @@ export default function Header() {
                 { name: '입시정보', href: '/admissions' },
                 { name: '후기', href: '/reviews' },
                 { name: 'SN Originals', href: '/originals' },
-              ].map((item) => (
+              ].map(item => (
                 <Link
                   key={item.name}
                   href={item.href}

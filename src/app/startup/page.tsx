@@ -3,15 +3,17 @@ import { Metadata } from 'next';
 import { getPostsByCategory } from '@/data/posts';
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://blog.snacademy.co.kr"),
+  metadataBase: new URL('https://blog.snacademy.co.kr'),
   title: 'AI 스타트업 | 교육 AI 혁신과 에듀테크 솔루션',
-  description: 'SN Academy의 AI 스타트업을 소개합니다. SNarlink, SNarGPT, SNarGO 등 교육 AI 제품과 팀 구성, 비전을 확인하세요. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
-  alternates: { 
-    canonical: "/startup" 
+  description:
+    'SN Academy의 AI 스타트업을 소개합니다. SNarlink, SNarGPT, SNarGO 등 교육 AI 제품과 팀 구성, 비전을 확인하세요. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
+  alternates: {
+    canonical: '/startup',
   },
   openGraph: {
     title: 'AI 스타트업 | 교육 AI 혁신과 에듀테크 솔루션',
-    description: 'SN Academy의 AI 스타트업을 소개합니다. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
+    description:
+      'SN Academy의 AI 스타트업을 소개합니다. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
     type: 'website',
     locale: 'ko_KR',
     url: 'https://blog.snacademy.co.kr/startup',
@@ -27,12 +29,13 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'AI 스타트업 | 교육 AI 혁신과 에듀테크 솔루션',
-    description: 'SN Academy의 AI 스타트업을 소개합니다. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
+    description:
+      'SN Academy의 AI 스타트업을 소개합니다. 교육과 AI의 융합으로 초개인화 학습 혁신을 실현합니다.',
     images: ['/og/startup.jpg'],
   },
-  robots: { 
-    index: true, 
-    follow: true 
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -53,13 +56,21 @@ export default function StartupPage() {
 
       {/* 포스트 목록 */}
       <section aria-labelledby="startup-posts-heading">
-        <h2 id="startup-posts-heading" className="sr-only">AI 스타트업 관련 포스트</h2>
-        <div className="space-y-4 lg:space-y-6" role="list" aria-label="AI 스타트업 포스트 목록">
-          {startups.map((post) => (
+        <h2 id="startup-posts-heading" className="sr-only">
+          AI 스타트업 관련 포스트
+        </h2>
+        <div
+          className="space-y-4 lg:space-y-6"
+          role="list"
+          aria-label="AI 스타트업 포스트 목록"
+        >
+          {startups.map(post => (
             <PostCard key={post.id} post={post} />
           ))}
         </div>
       </section>
+
+      {/* 개별 상세 포스트는 /startup/[slug] 등 하위 경로에서 렌더링됩니다. */}
     </div>
   );
 }

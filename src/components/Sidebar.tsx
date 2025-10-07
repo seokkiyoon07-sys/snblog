@@ -1,30 +1,33 @@
 'use client';
 
-import { getLatestPosts, allPosts } from '@/data/posts'
+import { getLatestPosts, allPosts } from '@/data/posts';
 
 export default function Sidebar() {
   // 동적으로 태그 데이터 생성
   const tagCounts = allPosts
     .filter(post => post.published && post.tags)
     .flatMap(post => post.tags!)
-    .reduce((acc, tag) => {
-      acc[tag] = (acc[tag] || 0) + 1
-      return acc
-    }, {} as Record<string, number>)
+    .reduce(
+      (acc, tag) => {
+        acc[tag] = (acc[tag] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>
+    );
 
   const tags = Object.entries(tagCounts)
     .map(([name, count]) => ({ name, count }))
     .sort((a, b) => b.count - a.count)
-    .slice(0, 6)
+    .slice(0, 6);
 
   // 최근 포스트 데이터 (동적)
-  const recentPosts = getLatestPosts(6)
+  const recentPosts = getLatestPosts(6);
 
   // 인기 블로그 데이터 (조회수 시뮬레이션)
   const popularPosts = getLatestPosts(5).map((post, index) => ({
     ...post,
-    views: 2500 - (index * 300) // 조회수 시뮬레이션
-  }))
+    views: 2500 - index * 300, // 조회수 시뮬레이션
+  }));
 
   return (
     <aside className="space-y-6 lg:space-y-8">
@@ -34,7 +37,7 @@ export default function Sidebar() {
           Tags
         </h3>
         <div className="flex flex-wrap gap-1.5 lg:gap-2">
-          {tags.map((tag) => (
+          {tags.map(tag => (
             <a
               key={tag.name}
               href="/originals"

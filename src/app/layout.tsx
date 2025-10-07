@@ -1,28 +1,31 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "next-themes";
-import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
-import StructuredData from "@/components/StructuredData";
-import QueryProvider from "@/components/providers/query-provider";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
+import { ThemeProvider } from 'next-themes';
+import Header from '@/components/Header';
+import Sidebar from '@/components/Sidebar';
+import StructuredData from '@/components/StructuredData';
+import QueryProvider from '@/components/providers/query-provider';
 // import ThemeDebugger from "@/components/ThemeDebugger";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.snacademy.co.kr'),
-  title: "SN Academy Blog",
-  description: "SN 학원의 주요 사업내용, 컬럼, 입시정보, 후기를 공유하는 블로그입니다.",
-  keywords: "SN, 학원, 입시, 교육, 블로그, 컬럼, 후기",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.snacademy.co.kr'
+  ),
+  title: 'SN Academy Blog',
+  description:
+    'SN 학원의 주요 사업내용, 컬럼, 입시정보, 후기를 공유하는 블로그입니다.',
+  keywords: 'SN, 학원, 입시, 교육, 블로그, 컬럼, 후기',
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -48,9 +51,9 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   verification: {
-    google: "Y6sre3jJPoA9rk5rlvcAP-3Zv4c704_j7XVCmhOxgRI",
+    google: 'Y6sre3jJPoA9rk5rlvcAP-3Zv4c704_j7XVCmhOxgRI',
     other: {
-      "naver-site-verification": "009b8ffadd30a56b1c984244f455759c1eb54200",
+      'naver-site-verification': '009b8ffadd30a56b1c984244f455759c1eb54200',
     },
   },
 };
@@ -63,10 +66,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
-        <StructuredData
-          type="organization"
-          data={{}}
-        />
+        <StructuredData type="organization" data={{}} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
@@ -84,9 +84,7 @@ export default function RootLayout({
               <Header />
               <div className="max-w-6xl mx-auto px-4 py-4 sm:py-6 lg:py-8">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
-                  <main className="lg:col-span-3 order-1">
-                    {children}
-                  </main>
+                  <main className="lg:col-span-3 order-1">{children}</main>
                   <aside className="order-2 lg:order-2">
                     <Sidebar />
                   </aside>

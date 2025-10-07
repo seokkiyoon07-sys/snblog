@@ -1,19 +1,22 @@
-export default function YouTubeEmbed({ 
-  id, 
-  title, 
-  caption 
+export default function YouTubeEmbed({
+  id,
+  title,
+  caption,
 }: {
-  id: string; 
-  title?: string; 
+  id: string;
+  title?: string;
   caption?: string;
 }) {
   return (
     <figure className="my-8">
-      <div className="relative w-full rounded-xl overflow-hidden shadow-lg" style={{ paddingTop: "56.25%" }}>
+      <div
+        className="relative w-full rounded-xl overflow-hidden shadow-lg"
+        style={{ paddingTop: '56.25%' }}
+      >
         <iframe
           className="absolute left-0 top-0 h-full w-full"
           src={`https://www.youtube.com/embed/${id}`}
-          title={title ?? "YouTube video"}
+          title={title ?? 'YouTube video'}
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -27,4 +30,3 @@ export default function YouTubeEmbed({
     </figure>
   );
 }
-

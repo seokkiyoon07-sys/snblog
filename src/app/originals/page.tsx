@@ -1,18 +1,20 @@
-import { getPostsByCategory, getPostById } from '@/data/posts'
-import PostCard from '@/components/PostCard'
-import FeaturedPost from '@/components/FeaturedPost'
-import { Metadata } from 'next'
+import { getPostsByCategory, getPostById } from '@/data/posts';
+import PostCard from '@/components/PostCard';
+import FeaturedPost from '@/components/FeaturedPost';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://blog.snacademy.co.kr"),
+  metadataBase: new URL('https://blog.snacademy.co.kr'),
   title: 'SN Originals | 보기만 해도 수능 점수가 오르는 컨텐츠',
-  description: 'SN Originals에서 수능 고전문학을 재미있게 배우세요. 갑민가, 화왕가, 북천가, 관동별곡 등 고전문학을 AI 그림과 친절한 해설로 즐기며 수능 국어 감각을 기를 수 있습니다.',
-  alternates: { 
-    canonical: "/originals" 
+  description:
+    'SN Originals에서 수능 고전문학을 재미있게 배우세요. 갑민가, 화왕가, 북천가, 관동별곡 등 고전문학을 AI 그림과 친절한 해설로 즐기며 수능 국어 감각을 기를 수 있습니다.',
+  alternates: {
+    canonical: '/originals',
   },
   openGraph: {
     title: 'SN Originals | 보기만 해도 수능 점수가 오르는 컨텐츠',
-    description: 'SN Originals에서 수능 고전문학을 재미있게 배우세요. AI 그림과 친절한 해설로 수능 국어 감각을 기를 수 있습니다.',
+    description:
+      'SN Originals에서 수능 고전문학을 재미있게 배우세요. AI 그림과 친절한 해설로 수능 국어 감각을 기를 수 있습니다.',
     type: 'website',
     locale: 'ko_KR',
     url: 'https://blog.snacademy.co.kr/originals',
@@ -28,32 +30,39 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'SN Originals | 보기만 해도 수능 점수가 오르는 컨텐츠',
-    description: 'SN Originals에서 수능 고전문학을 재미있게 배우세요. AI 그림과 친절한 해설로 수능 국어 감각을 기를 수 있습니다.',
+    description:
+      'SN Originals에서 수능 고전문학을 재미있게 배우세요. AI 그림과 친절한 해설로 수능 국어 감각을 기를 수 있습니다.',
     images: ['https://img.youtube.com/vi/TQEkvJsu5UY/maxresdefault.jpg'],
   },
-  robots: { 
-    index: true, 
-    follow: true 
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
 export default function OriginalsPage() {
   // SN Originals 소개글 (고정)
-  const introPost = getPostById('sn-originals-intro')
-  
+  const introPost = getPostById('sn-originals-intro');
+
   // SN Originals 카테고리 글들 (소개글 제외)
-  const originalsPosts = getPostsByCategory('SN Originals')
-    .filter(post => post.id !== 'sn-originals-intro')
+  const originalsPosts = getPostsByCategory('SN Originals').filter(
+    post => post.id !== 'sn-originals-intro'
+  );
 
   return (
     <div className="space-y-6 lg:space-y-8">
       {/* SN Originals 소개글 (고정) */}
       {introPost && (
         <section aria-labelledby="intro-heading">
-          <h2 id="intro-heading" className="sr-only">SN Originals 소개</h2>
+          <h2 id="intro-heading" className="sr-only">
+            SN Originals 소개
+          </h2>
           <div className="space-y-4 lg:space-y-6">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-2 h-2 bg-sn-primary rounded-full" aria-hidden="true"></div>
+              <div
+                className="w-2 h-2 bg-sn-primary rounded-full"
+                aria-hidden="true"
+              ></div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                 SN Originals 소개
               </h3>
@@ -65,16 +74,25 @@ export default function OriginalsPage() {
 
       {/* 고전문학 시리즈 글들 */}
       <section aria-labelledby="series-heading">
-        <h2 id="series-heading" className="sr-only">고전문학 시리즈</h2>
+        <h2 id="series-heading" className="sr-only">
+          고전문학 시리즈
+        </h2>
         <div className="space-y-4 lg:space-y-6">
           <div className="flex items-center space-x-2 mb-4">
-            <div className="w-2 h-2 bg-blue-500 rounded-full" aria-hidden="true"></div>
+            <div
+              className="w-2 h-2 bg-blue-500 rounded-full"
+              aria-hidden="true"
+            ></div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
               고전문학 시리즈
             </h3>
           </div>
-          <div className="space-y-4 lg:space-y-6" role="list" aria-label="고전문학 시리즈 목록">
-            {originalsPosts.map((post) => (
+          <div
+            className="space-y-4 lg:space-y-6"
+            role="list"
+            aria-label="고전문학 시리즈 목록"
+          >
+            {originalsPosts.map(post => (
               <PostCard key={post.id} post={post} />
             ))}
           </div>

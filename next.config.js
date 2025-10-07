@@ -9,6 +9,6 @@ const nextConfig = {
   compress: true,
   // 빌드 타임아웃 증가
   staticPageGenerationTimeout: 1000,
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
