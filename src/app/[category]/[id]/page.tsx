@@ -65,10 +65,13 @@ export async function generateStaticParams() {
   for (const category of categories) {
     const posts = getPostsByCategory(category);
     posts.forEach(post => {
-      params.push({
-        category,
-        id: post.id,
-      });
+      // SNargopost_1은 별도 페이지가 있으므로 제외
+      if (post.id !== 'SNargopost_1') {
+        params.push({
+          category,
+          id: post.id,
+        });
+      }
     });
   }
 
@@ -77,12 +80,6 @@ export async function generateStaticParams() {
 
 export default async function PostPage({ params }: PostPageProps) {
   const { category, id } = await params;
-
-  // SNargopost_1에 대해서는 특별한 처리를 하지 않음 (별도 페이지가 있음)
-  if (id === 'SNargopost_1') {
-    notFound();
-  }
-
   const post = getPostById(id);
 
   if (!post) {
