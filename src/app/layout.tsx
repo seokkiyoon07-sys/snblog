@@ -22,10 +22,63 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.snacademy.co.kr'
   ),
-  title: 'SN Academy Blog',
+  title: {
+    default: 'SN Academy Blog',
+    template: '%s | SN Academy Blog',
+  },
   description:
-    'SN 학원의 주요 사업내용, 컬럼, 입시정보, 후기를 공유하는 블로그입니다.',
-  keywords: 'SN, 학원, 입시, 교육, 블로그, 컬럼, 후기',
+    'SN Academy의 교육 혁신과 AI 기술을 소개합니다. SNarGO, SNarGPT, SNarlink 등 교육 AI 제품과 입시 정보, 학습 컬럼을 확인하세요.',
+  keywords: [
+    'SN Academy',
+    'SNarGO',
+    'SNarGPT',
+    'SNarlink',
+    '수능 AI',
+    '교육 AI',
+    '입시 정보',
+    '학습 컬럼',
+    '교육 혁신',
+    'AI 스타트업',
+    '수학',
+    '교육기술',
+  ],
+  authors: [{ name: 'SN Academy' }],
+  creator: 'SN Academy',
+  publisher: 'SN Academy',
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: 'https://blog.snacademy.co.kr',
+    siteName: 'SN Academy Blog',
+    title: 'SN Academy Blog',
+    description:
+      'SN Academy의 교육 혁신과 AI 기술을 소개합니다. SNarGO, SNarGPT, SNarlink 등 교육 AI 제품과 입시 정보, 학습 컬럼을 확인하세요.',
+    images: [
+      {
+        url: '/images/sn-logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'SN Academy Blog',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SN Academy Blog',
+    description: 'SN Academy의 교육 혁신과 AI 기술을 소개합니다.',
+    images: ['/images/sn-logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
