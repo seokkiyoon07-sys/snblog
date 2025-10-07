@@ -40,7 +40,7 @@ export default function Sidebar() {
           {tags.map(tag => (
             <a
               key={tag.name}
-              href="/originals"
+              href={`/tags/${encodeURIComponent(tag.name)}`}
               className="inline-flex items-center px-2.5 py-1 lg:px-3 lg:py-1.5 rounded-full text-xs lg:text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               {tag.name}
