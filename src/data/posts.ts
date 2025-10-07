@@ -23,6 +23,42 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'SNargopost_1',
+    title: 'SNarGO — 수능 특화 Vertical AI',
+    excerpt:
+      'SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵까지.',
+    thumbnail: '/images/startup/SNarGo/SNargo thumbnail.PNG',
+    content: `SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵을 소개합니다.
+
+## SNarGO란?
+
+SNarGO는 **수능 수학 문제 전용** Vertical AI로, 학생들의 수학 실력 향상을 위해 특별히 설계된 AI 시스템입니다.
+
+### 핵심 기능
+
+1. **2,000문제 중 1문제 수준의 정확도**
+2. **SNarVIS 시각적 해설 시스템**
+3. **차세대 문제 생성 AI SNarGEN**
+
+## 주요 특징
+
+- 수능 출제 패턴 완벽 분석
+- 개인별 맞춤 문제 추천
+- 실시간 오답 분석 및 피드백
+- 체계적인 학습 진도 관리
+
+자세한 내용은 SNarGO 페이지에서 확인하실 수 있습니다.`,
+    category: 'startup',
+    tags: ['AI', '수능', '수학', '교육기술'],
+    author: 'SN Academy',
+    date: '2025-10-07',
+    readTime: '12',
+    featured: true,
+    published: true,
+    youtubeUrl: undefined,
+    url: '/startup/SNargopost_1',
+  },
+  {
     id: 'design-guide-demo',
     title: '디자인 시스템 가이드 - 미니멀 블로그 디자인',
     excerpt:
