@@ -120,6 +120,19 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <head>
         <StructuredData type="organization" data={{}} />
+        {/* Privacy-friendly analytics by Plausible */}
+        <script
+          async
+          src="https://plausible.io/js/pa-0afPP1VTnRwf7otAMX-fJ.js"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+              plausible.init()
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
