@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import { getPostById, allPosts } from '@/data/posts';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import StructuredData from '@/components/StructuredData';
+import AIDataGenerator from '@/components/AIDataGenerator';
 
 interface PostPageProps {
   params: Promise<{
@@ -139,12 +141,47 @@ export default async function PostPage({ params }: PostPageProps) {
 
         {/* 콘텐츠 */}
         <div className="prose prose-lg max-w-none">
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
             이 글은 동적 시스템을 통해 자동으로 생성된 페이지입니다. 새로운 글을
             추가하면 자동으로 이 페이지가 생성되고 사이트맵에도 포함됩니다.
           </p>
         </div>
       </div>
+
+      {/* SEO: StructuredData */}
+      <StructuredData
+        type="article"
+        data={{
+          title: post.title,
+          description: post.excerpt,
+          author: post.author,
+          datePublished: post.date,
+          dateModified: post.date,
+          image: post.thumbnail,
+          url: `https://blog.snacademy.co.kr/posts/${post.id}`,
+          category: post.category,
+          keywords: post.tags?.join(', ') || '',
+        }}
+      />
+
+      {/* AI Learning Data */}
+      <AIDataGenerator
+        content={{
+          title: post.title,
+          description: post.excerpt,
+          author: post.author,
+          category: post.category,
+          tags: post.tags || [],
+          content: post.content,
+          difficulty: 'intermediate',
+          subject: post.category,
+          learningObjectives: [
+            `${post.category} 이해`,
+            '주요 개념 학습',
+            '실전 적용 능력',
+          ],
+        }}
+      />
     </div>
   );
 }

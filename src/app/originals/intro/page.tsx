@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { getPostById } from '@/data/posts';
+import StructuredData from '@/components/StructuredData';
+import AIDataGenerator from '@/components/AIDataGenerator';
 
 export async function generateMetadata(): Promise<Metadata> {
   const post = getPostById('sn-originals-intro');
@@ -248,6 +250,41 @@ export default function SNOriginalsIntroPage() {
           </div>
         </section>
       </div>
+
+      {/* SEO: StructuredData */}
+      <StructuredData
+        type="article"
+        data={{
+          title: post.title,
+          description: post.excerpt,
+          author: post.author,
+          datePublished: post.date,
+          dateModified: post.date,
+          image: post.thumbnail ? `https://blog.snacademy.co.kr${post.thumbnail}` : undefined,
+          url: `https://blog.snacademy.co.kr${post.url}`,
+          category: post.category,
+          keywords: post.tags?.join(', ') || '',
+        }}
+      />
+
+      {/* AI Learning Data */}
+      <AIDataGenerator
+        content={{
+          title: post.title,
+          description: post.excerpt,
+          author: post.author,
+          category: post.category,
+          tags: post.tags || [],
+          content: post.content,
+          difficulty: 'beginner',
+          subject: '고전문학',
+          learningObjectives: [
+            'SN Originals 고전문학 시리즈 이해',
+            '고전문학 학습 방법론 습득',
+            'AI 기반 학습 콘텐츠 활용',
+          ],
+        }}
+      />
     </div>
   );
 }

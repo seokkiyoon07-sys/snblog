@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'postfiles.pstatic.net',
+      },
     ],
     formats: ['image/webp', 'image/avif'],
     qualities: [75, 85, 95, 100],

@@ -539,11 +539,52 @@ export async function convertNotionPageToPost(pageId: string) {
   }
 }
 
+// 페이지 내부의 데이터베이스 찾기
+async function findDatabaseInPage(pageId: string) {
+  const notion = getNotionClient();
+
+  try {
+    const blocks = await notion.blocks.children.list({
+      block_id: pageId,
+    });
+
+    for (const block of blocks.results) {
+      if ('type' in block && block.type === 'child_database') {
+        return block.id;
+      }
+    }
+
+    return null;
+  } catch (error) {
+    console.error('Failed to find database in page:', error);
+    return null;
+  }
+}
+
 // 데이터베이스의 모든 페이지 가져오기
 export async function fetchNotionDatabase() {
   try {
     const notion = getNotionClient();
-    const databaseId = process.env.NOTION_DATABASE_ID!;
+    let databaseId = process.env.NOTION_DATABASE_ID!;
+
+    // 페이지 ID인 경우 내부의 데이터베이스 찾기
+    try {
+      await notion.databases.retrieve({ database_id: databaseId });
+    } catch (error: any) {
+      if (error.code === 'validation_error' && error.message.includes('is a page')) {
+        console.log('📄 페이지 ID 감지됨. 내부의 데이터베이스를 찾는 중...');
+        const foundDbId = await findDatabaseInPage(databaseId);
+
+        if (foundDbId) {
+          console.log(`✅ 데이터베이스 발견: ${foundDbId}\n`);
+          databaseId = foundDbId;
+        } else {
+          throw new Error('페이지 내부에 데이터베이스를 찾을 수 없습니다. Notion에서 데이터베이스 ID를 직접 확인해주세요.');
+        }
+      } else {
+        throw error;
+      }
+    }
 
     const response = await notion.databases.query({
       database_id: databaseId,
