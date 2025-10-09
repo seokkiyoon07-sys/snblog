@@ -214,12 +214,21 @@ export default async function PostPage({ params }: PostPageProps) {
       {/* 콘텐츠 */}
       <section className="px-6 md:px-10 lg:px-16 pb-24">
         <div className="mx-auto max-w-4xl">
-          <BlogLayout title={post.title}>
-            <div
-              className="prose prose-slate max-w-none"
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
+            <article
+              className="prose prose-lg prose-slate dark:prose-invert max-w-none
+                prose-headings:font-bold prose-headings:tracking-tight
+                prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+                prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300
+                prose-a:text-sn-primary prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
+                prose-ul:my-6 prose-li:my-2
+                prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
+                prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
               dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
             />
-          </BlogLayout>
+          </div>
         </div>
       </section>
 

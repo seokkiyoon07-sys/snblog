@@ -2,7 +2,7 @@
 const nextConfig = {
   // 이미지 최적화
   images: {
-    domains: ['images.unsplash.com', 'blog.snacademy.co.kr'],
+    domains: ['images.unsplash.com', 'blog.snacademy.co.kr', 'postfiles.pstatic.net'],
     formats: ['image/webp', 'image/avif'],
   },
   // 성능 최적화
