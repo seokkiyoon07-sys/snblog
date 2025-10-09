@@ -260,7 +260,9 @@ export default function SNOriginalsIntroPage() {
           author: post.author,
           datePublished: post.date,
           dateModified: post.date,
-          image: post.thumbnail ? `https://blog.snacademy.co.kr${post.thumbnail}` : undefined,
+          image: post.thumbnail
+            ? `https://blog.snacademy.co.kr${post.thumbnail}`
+            : undefined,
           url: `https://blog.snacademy.co.kr${post.url}`,
           category: post.category,
           keywords: post.tags?.join(', ') || '',

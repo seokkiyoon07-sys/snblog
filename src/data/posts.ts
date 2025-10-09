@@ -318,7 +318,8 @@ console.log(greeting);
     title: 'SN독학(獨學)기숙학원 – 왜 우리는 독학을 강조하는가',
     excerpt:
       '안녕하세요. SN독학기숙학원 대표 윤석기 입니다. SN독학기숙학원은 수업보다 독학을 항상 강조해 왔습니다. SN의 탄생철학이죠. 저희 SN독학기숙학원이 런칭이 2014년 11월 입니다. 1기는 2015년부터 시작했죠.',
-    thumbnail: '/images/notion/2868205a-96df-80aa-8000-cc5a3f31d660/image-0.png',
+    thumbnail:
+      '/images/notion/2868205a-96df-80aa-8000-cc5a3f31d660/image-0.png',
     content: `이 포스트는 전용 페이지에서 렌더링됩니다. /columns/dokhak을 방문하세요.`,
     category: 'columns',
     tags: ['독학', '독학기숙학원', 'AI', '학습전략담임'],

@@ -571,7 +571,10 @@ export async function fetchNotionDatabase() {
     try {
       await notion.databases.retrieve({ database_id: databaseId });
     } catch (error: any) {
-      if (error.code === 'validation_error' && error.message.includes('is a page')) {
+      if (
+        error.code === 'validation_error' &&
+        error.message.includes('is a page')
+      ) {
         console.log('📄 페이지 ID 감지됨. 내부의 데이터베이스를 찾는 중...');
         const foundDbId = await findDatabaseInPage(databaseId);
 
@@ -579,7 +582,9 @@ export async function fetchNotionDatabase() {
           console.log(`✅ 데이터베이스 발견: ${foundDbId}\n`);
           databaseId = foundDbId;
         } else {
-          throw new Error('페이지 내부에 데이터베이스를 찾을 수 없습니다. Notion에서 데이터베이스 ID를 직접 확인해주세요.');
+          throw new Error(
+            '페이지 내부에 데이터베이스를 찾을 수 없습니다. Notion에서 데이터베이스 ID를 직접 확인해주세요.'
+          );
         }
       } else {
         throw error;
