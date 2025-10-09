@@ -69,7 +69,7 @@ export async function generateStaticParams() {
   const uniqueTags = [...new Set(allTags)];
 
   return uniqueTags.map(tag => ({
-    tag: encodeURIComponent(tag),
+    tag: tag, // Next.js가 자동으로 인코딩하므로 여기서는 인코딩하지 않음
   }));
 }
 
