@@ -124,11 +124,15 @@ export default function PostCard({
 
           {/* 제목 */}
           <h2
-            className={`${isFeatured ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl'} font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200`}
+            className={`${isFeatured ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl'} font-semibold text-gray-900 dark:text-white`}
           >
-            <Link href={post.url} itemProp="url">
-              <span itemProp="headline" className="whitespace-pre-line">
-                {emoji} {post.title}
+            <Link href={post.url} itemProp="url" className="inline-flex">
+              <span className="mr-2">{emoji}</span>
+              <span
+                itemProp="headline"
+                className="whitespace-pre-line relative inline-block hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 dark:hover:from-blue-400 dark:hover:to-purple-400 transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 dark:after:from-blue-400 dark:after:to-purple-400 after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {post.title}
               </span>
             </Link>
           </h2>
