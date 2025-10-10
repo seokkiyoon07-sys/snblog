@@ -185,7 +185,11 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="mb-12">
               <div className="relative w-full h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <iframe
-                  src={post.youtubeUrl.replace('watch?v=', 'embed/')}
+                  src={
+                    post.youtubeUrl.includes('embed/')
+                      ? post.youtubeUrl
+                      : post.youtubeUrl.replace('watch?v=', 'embed/')
+                  }
                   title={post.title}
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
