@@ -1744,6 +1744,93 @@ This work demonstrates that literature can serve not merely as entertainment but
     youtubeUrl: 'https://www.youtube.com/watch?v=9ogmj2rSwLY',
     url: '/originals/sunsangtan',
   },
+  {
+    id: 'yongbuga',
+    title: '조선 부녀자 악행 모음집 (고전문학 「용부가」)',
+    excerpt:
+      '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈. 여덟 번째 작품으로 조선시대 후기 작자 미상의 가사인 「용부가」를 준비했습니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈. 여덟 번째 작품으로 조선시대 후기 작자 미상의 가사인 「용부가」를 준비했습니다.
+
+'마음이 변변치 못하고 졸렬하다'는 의미의 '용렬(庸劣)하다'라는 말이 있는데요, 용부가는 용렬스러운 아녀자, 즉 '용부(庸婦)'의 행실을 다룬 가사입니다. 당시 유교적 가치관에 입각하여 부녀자의 악행을 나열하고 비판함으로써 유교적 질서와 규범이 준수되고 회복될 수 있도록 교훈하고 있는 작품입니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「용부가」- 조선시대 부녀자 악행 모음집
+
+### 🏛️ 작품의 배경과 의미
+
+「용부가」는 조선시대 후기 작자 미상의 가사로, '용렬한 부녀자'의 행실을 다룬 교훈적 작품입니다. 당시 유교적 가치관에 입각하여 부녀자의 악행을 나열하고 비판함으로써 유교적 질서와 규범이 준수되고 회복될 수 있도록 교훈하고 있습니다.
+
+### 🎭 문학적 특징
+
+- **교훈적 성격**: 유교적 가치관에 따른 부녀자 교육서 역할<br>
+- **비판적 시각**: 당시 사회의 부녀자 문제점을 직설적으로 지적<br>
+- **열거적 구성**: 다양한 악행 사례를 체계적으로 나열<br>
+- **사회적 목적**: 유교적 질서 회복을 위한 교화 의도
+
+### 🌍 문학사적 의의
+
+이 작품은 조선시대 후기 가사 문학의 한 특징을 보여주는 작품으로, 단순한 개인적 감정 표현을 넘어서 사회적 교화 목적을 가진 실용적 문학의 성격을 띱니다. 당시 유교 사회에서 부녀자의 역할과 행실에 대한 기대와 우려를 생생하게 반영하고 있습니다.
+
+### 📚 작품 감상 포인트
+
+1. **용부의 정의**: '용렬한 부녀자'가 의미하는 바와 당시 사회적 맥락<br>
+2. **악행의 유형**: 나열된 부녀자들의 구체적인 악행 사례들<br>
+3. **교훈적 메시지**: 유교적 가치관에 입각한 올바른 부녀자상 제시<br>
+4. **사회적 비판**: 당시 사회의 부녀자 문제에 대한 인식과 대응
+
+### 🎨 현대적 의미
+
+「용부가」를 읽는 것은 과거 유교 사회의 가치관을 이해하는 것을 넘어, 당시 사회가 부녀자에게 기대했던 역할과 행실이 무엇이었는지, 그리고 그런 기대가 어떤 사회적 맥락에서 나온 것인지 생각해보는 기회입니다. 물론 현대적 관점에서는 성차별적 요소가 있지만, 역사적 문헌으로서 당시 사회상을 이해하는 데 중요한 자료가 됩니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 교훈적 가사, 사회적 목적의 문학<br>
+- **구성 방식**: 열거적 구성, 비판적 서술<br>
+- **주제 의식**: 유교적 질서 회복, 사회 교화<br>
+- **시대적 배경**: 조선 후기 유교 사회의 가치관
+
+---
+
+## English Description
+
+### "Yongbuga" - A Collection of Women's Misdeeds in Joseon Dynasty
+
+**Yongbuga** (용부가) is a classical Korean gasa (가사) poem from the late Joseon Dynasty, written by an unknown author. The title means "Song of the Vulgar Woman," and the work serves as a didactic piece that lists and criticizes various misdeeds of women from a Confucian perspective.
+
+**Literary Significance:**
+- **Didactic Nature**: Functions as an educational text for women's conduct according to Confucian values
+- **Critical Perspective**: Directly points out social problems related to women's behavior
+- **Enumerative Structure**: Systematically lists various examples of misconduct
+- **Social Purpose**: Aims to restore Confucian order through moral instruction
+
+**Cultural Context:**
+This work reflects the Confucian society's expectations and concerns about women's roles and conduct during the late Joseon period. It represents a shift from purely personal emotional expression to practical literature with social educational purposes.
+
+**Contemporary Relevance:**
+While "Yongbuga" contains elements that would be considered sexist by modern standards, it serves as an important historical document for understanding the social values and gender expectations of the Joseon Dynasty. It provides insight into how the society of that time viewed women's roles and the mechanisms used to maintain social order.
+
+**Educational Value:**
+For students preparing for the Korean SAT, this work is significant for understanding:
+- The didactic nature of late Joseon literature
+- Confucian social values and their literary expression
+- The relationship between literature and social education
+- Historical perspectives on gender roles in Korean society`,
+    category: 'SN Originals',
+    tags: ['고전문학', '용부가', '가사문학', '수능국어', '교훈문학'],
+    author: 'SN Academy',
+    date: '2025-10-08',
+    readTime: '8',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_work_v2_F.png',
+    youtubeUrl: 'https://www.youtube.com/embed/kEWPbC_-ehc',
+    url: '/originals/yongbuga',
+  },
 ];
 
 // 🔗 개발 환경에서 노션 포스트 자동 병합 (임시 비활성화)
