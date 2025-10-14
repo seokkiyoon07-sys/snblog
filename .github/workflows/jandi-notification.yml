@@ -252,8 +252,14 @@ jobs:
             echo "  Post URL: $FULL_POST_URL"
             echo "  Thumbnail URL: $THUMBNAIL_URL"
             
-            # Build JSON payload
-            JANDI_PAYLOAD=$(cat <<EOF
+            echo "📤 Sending to Jandi..."
+            echo "  Button URL: $FULL_POST_URL"
+            echo "  Image URL: $THUMBNAIL_URL"
+            
+            curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
+              -H "Content-Type: application/json" \
+              -H "Accept: application/vnd.tosslab.jandi-v2+json" \
+              -d @- <<JANDI_JSON
 {
   "body": "$BODY",
   "connectColor": "$COLOR",
@@ -277,18 +283,13 @@ jobs:
     }
   ]
 }
-EOF
-)
-            
-            echo "📋 Jandi JSON Payload:"
-            echo "$JANDI_PAYLOAD"
-            
-            curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
-              -H "Content-Type: application/json" \
-              -d "$JANDI_PAYLOAD"
+JANDI_JSON
           else
             # General update notification
-            JANDI_PAYLOAD=$(cat <<EOF
+            curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
+              -H "Content-Type: application/json" \
+              -H "Accept: application/vnd.tosslab.jandi-v2+json" \
+              -d @- <<JANDI_JSON
 {
   "body": "$BODY",
   "connectColor": "$COLOR",
@@ -312,12 +313,7 @@ EOF
     }
   ]
 }
-EOF
-)
-            
-            curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
-              -H "Content-Type: application/json" \
-              -d "$JANDI_PAYLOAD"
+JANDI_JSON
           fi
 
           # Send to Slack
