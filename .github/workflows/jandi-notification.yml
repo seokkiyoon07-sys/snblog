@@ -41,30 +41,91 @@ jobs:
           COMMIT_AUTHOR=$(git log -1 --pretty=%an)
           COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
 
-          # Extract new post info from posts.ts if modified
+          # Extract changed post info using Git diff analysis
           if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ]; then
-            # Get the latest post from posts.ts (assuming it's the first in allPosts array)
-            POST_TITLE=$(grep -A 20 "allPosts.*=.*\[" src/data/posts.ts | grep -m 1 "title:" | sed "s/.*title: *['\"]//; s/['\"].*//")
-            POST_EXCERPT=$(grep -A 20 "allPosts.*=.*\[" src/data/posts.ts | grep -m 1 "excerpt:" | sed "s/.*excerpt: *['\"]//; s/['\"].*//")
-            POST_THUMBNAIL=$(grep -A 30 "allPosts.*=.*\[" src/data/posts.ts | grep -m 1 "thumbnail:" | sed "s/.*thumbnail: *['\"]//; s/['\"].*//")
-            POST_URL=$(grep -A 30 "allPosts.*=.*\[" src/data/posts.ts | grep -m 1 "url:" | sed "s/.*url: *['\"]//; s/['\"].*//")
+            # Determine diff range based on event type
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+              DIFF_BASE="${{ github.base_ref }}"
+              DIFF_HEAD="${{ github.sha }}"
+            else
+              # For push events, use before..after or fallback to HEAD~1..HEAD
+              if [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
+                DIFF_BASE="${{ github.event.before }}"
+              else
+                DIFF_BASE="HEAD~1"
+              fi
+              DIFF_HEAD="${{ github.sha }}"
+            fi
+            
+            echo "🔍 Analyzing diff range: $DIFF_BASE..$DIFF_HEAD"
+            
+            # Get changed lines in posts.ts with line numbers and detect renames
+            CHANGED_LINES=$(git diff --unified=10 --find-renames "$DIFF_BASE" "$DIFF_HEAD" -- src/data/posts.ts | grep -E "^\+.*\s+(id|title|excerpt|thumbnail|url):" | head -20)
+            
+            # Extract post ID from changed content (look for id: 'postname')
+            CHANGED_POST_ID=$(echo "$CHANGED_LINES" | grep -oE "id:\s*['\"][^'\"]+['\"]" | head -1 | sed "s/id:\s*['\"]//; s/['\"]//")
+            
+            if [ -n "$CHANGED_POST_ID" ]; then
+              echo "📝 Detected changed post ID: $CHANGED_POST_ID"
+              
+              # Extract post info for the specific changed post ID
+              POST_BLOCK_START=$(grep -n "id: *['\"]$CHANGED_POST_ID['\"]" src/data/posts.ts | cut -d: -f1)
+              if [ -n "$POST_BLOCK_START" ]; then
+                # Get the post block (from id to the closing brace, max 100 lines)
+                POST_BLOCK=$(sed -n "${POST_BLOCK_START},$((POST_BLOCK_START + 100))p" src/data/posts.ts | sed '/^  },$/q')
+                
+                # Extract fields from the post block
+                POST_TITLE=$(echo "$POST_BLOCK" | grep -m 1 "title:" | sed "s/.*title: *['\"]//; s/['\"].*//")
+                POST_EXCERPT=$(echo "$POST_BLOCK" | grep -m 1 "excerpt:" | sed "s/.*excerpt: *['\"]//; s/['\"].*//")
+                POST_THUMBNAIL=$(echo "$POST_BLOCK" | grep -m 1 "thumbnail:" | sed "s/.*thumbnail: *['\"]//; s/['\"].*//")
+                POST_URL=$(echo "$POST_BLOCK" | grep -m 1 "url:" | sed "s/.*url: *['\"]//; s/['\"].*//")
+                
+                echo "📄 Extracted post info:"
+                echo "  Title: $POST_TITLE"
+                echo "  URL: $POST_URL"
+                echo "  Thumbnail: $POST_THUMBNAIL"
+              fi
+            fi
+            
+            # Fallback: if no specific post ID found, get the most recently modified post by date
+            if [ -z "$CHANGED_POST_ID" ] || [ -z "$POST_TITLE" ]; then
+              echo "⚠️ Fallback: Using most recent post by date"
+              # Get all posts with dates and sort by date (newest first)
+              LATEST_POST_LINE=$(grep -n -A 5 -B 2 "date: *['\"]20" src/data/posts.ts | sort -t: -k3 -r | head -1)
+              if [ -n "$LATEST_POST_LINE" ]; then
+                LATEST_POST_START=$(echo "$LATEST_POST_LINE" | cut -d- -f1)
+                POST_BLOCK=$(sed -n "$((LATEST_POST_START - 10)),$((LATEST_POST_START + 50))p" src/data/posts.ts | sed -n '/^  {$/,/^  },$/p' | head -50)
+                
+                POST_TITLE=$(echo "$POST_BLOCK" | grep -m 1 "title:" | sed "s/.*title: *['\"]//; s/['\"].*//")
+                POST_EXCERPT=$(echo "$POST_BLOCK" | grep -m 1 "excerpt:" | sed "s/.*excerpt: *['\"]//; s/['\"].*//")
+                POST_THUMBNAIL=$(echo "$POST_BLOCK" | grep -m 1 "thumbnail:" | sed "s/.*thumbnail: *['\"]//; s/['\"].*//")
+                POST_URL=$(echo "$POST_BLOCK" | grep -m 1 "url:" | sed "s/.*url: *['\"]//; s/['\"].*//")
+              fi
+            fi
             
             # Clean up title (remove newlines and extra spaces)
             POST_TITLE=$(echo "$POST_TITLE" | tr '\n' ' ' | sed 's/\\n/ /g' | xargs)
+            POST_EXCERPT=$(echo "$POST_EXCERPT" | head -c 200)  # Limit excerpt length
             
-            # Set thumbnail URL (use default if not found)
-            if [ -z "$POST_THUMBNAIL" ] || [ "$POST_THUMBNAIL" = "undefined" ]; then
+            # Set thumbnail URL (use default if not found or invalid)
+            if [ -z "$POST_THUMBNAIL" ] || [ "$POST_THUMBNAIL" = "undefined" ] || [ "$POST_THUMBNAIL" = "null" ]; then
               THUMBNAIL_URL="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop"
             else
               THUMBNAIL_URL="https://blog.snacademy.co.kr$POST_THUMBNAIL"
             fi
             
             # Set post URL
-            if [ -n "$POST_URL" ]; then
+            if [ -n "$POST_URL" ] && [ "$POST_URL" != "undefined" ]; then
               FULL_POST_URL="https://blog.snacademy.co.kr$POST_URL"
             else
               FULL_POST_URL="https://blog.snacademy.co.kr"
             fi
+            
+            echo "🎯 Final notification data:"
+            echo "  Title: $POST_TITLE"
+            echo "  Excerpt: ${POST_EXCERPT:0:100}..."
+            echo "  Thumbnail: $THUMBNAIL_URL"
+            echo "  URL: $FULL_POST_URL"
           fi
 
           # Create message based on changes
