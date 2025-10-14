@@ -59,14 +59,48 @@ jobs:
             
             echo "🔍 Analyzing diff range: $DIFF_BASE..$DIFF_HEAD"
             
-            # Get changed lines in posts.ts with line numbers and detect renames
-            CHANGED_LINES=$(git diff --unified=10 --find-renames "$DIFF_BASE" "$DIFF_HEAD" -- src/data/posts.ts | grep -E "^\+.*\s+(id|title|excerpt|thumbnail|url):" | head -20)
+            # Get all changed lines with more context to find the post block
+            DIFF_OUTPUT=$(git diff --unified=15 --find-renames "$DIFF_BASE" "$DIFF_HEAD" -- src/data/posts.ts)
             
-            # Extract post ID from changed content (look for id: 'postname')
-            CHANGED_POST_ID=$(echo "$CHANGED_LINES" | grep -oE "id:\s*['\"][^'\"]+['\"]" | head -1 | sed "s/id:\s*['\"]//; s/['\"]//")
+            # Find the line numbers of changes
+            CHANGED_LINE_NUMS=$(echo "$DIFF_OUTPUT" | grep -n "^+" | grep -v "^++" | head -5 | cut -d: -f1)
+            
+            # Look for post ID in the context around changed lines
+            CHANGED_POST_ID=""
+            for line_num in $CHANGED_LINE_NUMS; do
+              # Get context around the changed line (±20 lines from diff output)
+              CONTEXT_START=$((line_num - 20))
+              CONTEXT_END=$((line_num + 10))
+              if [ $CONTEXT_START -lt 1 ]; then CONTEXT_START=1; fi
+              
+              CONTEXT_BLOCK=$(echo "$DIFF_OUTPUT" | sed -n "${CONTEXT_START},${CONTEXT_END}p")
+              
+              # Look for id: pattern in the context (both old and new lines)
+              FOUND_ID=$(echo "$CONTEXT_BLOCK" | grep -oE "id:\s*['\"][^'\"]+['\"]" | head -1 | sed "s/id:\s*['\"]//; s/['\"]//")
+              
+              if [ -n "$FOUND_ID" ]; then
+                CHANGED_POST_ID="$FOUND_ID"
+                echo "📝 Detected changed post ID from context: $CHANGED_POST_ID"
+                break
+              fi
+            done
+            
+            # If still not found, try to find any post ID near the changes in the actual file
+            if [ -z "$CHANGED_POST_ID" ]; then
+              echo "⚠️ Looking for post ID in actual file around changes..."
+              CHANGED_LINE_IN_FILE=$(echo "$DIFF_OUTPUT" | grep "^@@.*+[0-9]" | head -1 | sed 's/.*+\([0-9]*\).*/\1/')
+              if [ -n "$CHANGED_LINE_IN_FILE" ]; then
+                # Search backwards from the changed line to find the nearest post ID
+                SEARCH_START=$((CHANGED_LINE_IN_FILE - 50))
+                if [ $SEARCH_START -lt 1 ]; then SEARCH_START=1; fi
+                
+                CHANGED_POST_ID=$(sed -n "${SEARCH_START},${CHANGED_LINE_IN_FILE}p" src/data/posts.ts | grep -oE "id:\s*['\"][^'\"]+['\"]" | tail -1 | sed "s/id:\s*['\"]//; s/['\"]//")
+                echo "📝 Found post ID by searching backwards: $CHANGED_POST_ID"
+              fi
+            fi
             
             if [ -n "$CHANGED_POST_ID" ]; then
-              echo "📝 Detected changed post ID: $CHANGED_POST_ID"
+              echo "✅ Final detected post ID: $CHANGED_POST_ID"
               
               # Extract post info for the specific changed post ID
               POST_BLOCK_START=$(grep -n "id: *['\"]$CHANGED_POST_ID['\"]" src/data/posts.ts | cut -d: -f1)
