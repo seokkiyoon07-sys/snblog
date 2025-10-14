@@ -1907,7 +1907,7 @@ Reading "Chulsaegok" offers an opportunity to understand not only the hearts of 
     author: 'SN Academy',
     date: '2025-10-14',
     readTime: '8',
-    featured: false,
+    featured: true,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_F.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=ThaMhDbZuNc',
