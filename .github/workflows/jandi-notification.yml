@@ -10,32 +10,8 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
-    ste          # Create message based on changes
-          # Only send notification if we successfully detected a post change
-          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ -z "$CHANGED_POST_ID" ]; then
-            echo "⚠️ posts.ts was modified but no post change detected - skipping notification"
-            exit 0
-          fi
-          
-          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ "${{ steps.changes.outputs.pages_modified }}" == "true" ]; then
-            BODY="블로그 콘텐츠가 업데이트되었습니다!"
-            DESCRIPTION="새로운 글이 추가되고 데이터가 업데이트되었습니다."
-            COLOR="#FF6B6B"
-            SLACK_COLOR="danger"
-            JANDI_TITLE="SN Academy Blog 업데이트"
-          elif [ "${{ steps.changes.outputs.posts_modified }}" == "true" ]; then
-            BODY="새 포스트가 게시되었어요!"
-            DESCRIPTION="$POST_TITLE"
-            COLOR="#4ECDC4"
-            SLACK_COLOR="good"
-            JANDI_TITLE="$POST_TITLE"
-          else
-            BODY="새로운 블로그 글이 추가되었습니다!"
-            DESCRIPTION="새로운 페이지가 생성되었습니다."
-            COLOR="#45B7D1"
-            SLACK_COLOR="good"
-            JANDI_TITLE="SN Academy Blog"
-          fieckout
+    steps:
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
@@ -98,12 +74,20 @@ jobs:
             
             CHANGED_POST_ID=""
             if [ -n "$CHANGED_LINE_IN_FILE" ] && [ -n "$ALLPOSTS_START" ] && [ "$CHANGED_LINE_IN_FILE" -ge "$ALLPOSTS_START" ]; then
-              # Only process if change is within allPosts array
               echo "✅ Change is within allPosts array"
-              
               # Search backwards from changed line to find the most recent post ID
               SEARCH_START=$((CHANGED_LINE_IN_FILE - 100))
               if [ $SEARCH_START -lt $ALLPOSTS_START ]; then SEARCH_START=$ALLPOSTS_START; fi
+            elif [ -n "$CHANGED_LINE_IN_FILE" ] && [ "$CHANGED_LINE_IN_FILE" -lt "$ALLPOSTS_START" ]; then
+              echo "⚠️ Change is outside allPosts array (imports/comments) - will skip"
+              CHANGED_POST_ID="SKIP"
+            elif [ -n "$CHANGED_LINE_IN_FILE" ]; then
+              # Fallback if allPosts not found
+              SEARCH_START=$((CHANGED_LINE_IN_FILE - 100))
+              if [ $SEARCH_START -lt 1 ]; then SEARCH_START=1; fi
+            fi
+            
+            if [ "$CHANGED_POST_ID" != "SKIP" ] && [ -n "$CHANGED_LINE_IN_FILE" ]; then
               
               echo "🔍 Searching for post ID from line $SEARCH_START to $CHANGED_LINE_IN_FILE"
               
@@ -114,8 +98,6 @@ jobs:
               
               CHANGED_POST_ID=$(echo "$FILE_SECTION" | grep -oE "id:\s*['\"][^'\"]+['\"]" | tail -1 | sed "s/id:\s*['\"]//; s/['\"]//")
               echo "🎯 Detected post ID: '$CHANGED_POST_ID'"
-            elif [ -n "$CHANGED_LINE_IN_FILE" ] && [ "$CHANGED_LINE_IN_FILE" -lt "$ALLPOSTS_START" ]; then
-              echo "⚠️ Change is outside allPosts array (in imports/comments) - skipping post detection"
             fi
             
             # Alternative: if line-based approach fails, use git blame to find the post
@@ -216,29 +198,35 @@ jobs:
             echo "  URL: $FULL_POST_URL"
           fi
 
+          # Skip notification if post change was outside allPosts array
+          if [ "$CHANGED_POST_ID" == "SKIP" ]; then
+            echo "⚠️ Skipping notification - changes were outside allPosts array"
+            exit 0
+          fi
+
           # Create message based on changes
           if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ "${{ steps.changes.outputs.pages_modified }}" == "true" ]; then
-            BODY="🔄 블로그 콘텐츠가 업데이트되었습니다!"
+            BODY="블로그 콘텐츠가 업데이트되었습니다"
             DESCRIPTION="새로운 글이 추가되고 데이터가 업데이트되었습니다."
             COLOR="#FF6B6B"
             SLACK_COLOR="danger"
-            JANDI_TITLE="📝 SN Academy Blog 업데이트"
+            JANDI_TITLE="SN Academy Blog 업데이트"
           elif [ "${{ steps.changes.outputs.posts_modified }}" == "true" ]; then
-            BODY="� 새 포스트가 게시되었어요!"
+            BODY="새 포스트가 게시되었어요"
             DESCRIPTION="$POST_TITLE"
             COLOR="#4ECDC4"
             SLACK_COLOR="good"
             JANDI_TITLE="$POST_TITLE"
           else
-            BODY="📝 새로운 블로그 글이 추가되었습니다!"
+            BODY="새로운 블로그 글이 추가되었습니다"
             DESCRIPTION="새로운 페이지가 생성되었습니다."
             COLOR="#45B7D1"
             SLACK_COLOR="good"
-            JANDI_TITLE="📝 SN Academy Blog"
+            JANDI_TITLE="SN Academy Blog"
           fi
 
           # Send to Jandi
-          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ]; then
+          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ "$CHANGED_POST_ID" != "SKIP" ]; then
             # New post notification with thumbnail and title
             curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
               -H "Content-Type: application/json" \
