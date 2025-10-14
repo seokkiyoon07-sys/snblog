@@ -254,24 +254,11 @@ jobs:
             curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
               -H "Content-Type: application/json" \
               -d "{
-                \"body\": \"$BODY\",
+                \"body\": \"$BODY - $JANDI_TITLE\",
                 \"connectColor\": \"$COLOR\",
                 \"connectInfo\": [
                   {
-                    \"title\": \"$JANDI_TITLE\",
-                    \"description\": \"$POST_EXCERPT\"
-                  }
-                ],
-                \"connectButtons\": [
-                  {
-                    \"name\": \"📖 지금 읽기\",
-                    \"type\": \"link\",
-                    \"url\": \"$FULL_POST_URL\"
-                  },
-                  {
-                    \"name\": \"🏠 블로그 홈\",
-                    \"type\": \"link\",
-                    \"url\": \"https://blog.snacademy.co.kr\"
+                    \"description\": \"$POST_EXCERPT\\n\\n� $FULL_POST_URL\"
                   }
                 ]
               }"
