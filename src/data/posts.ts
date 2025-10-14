@@ -1831,6 +1831,88 @@ For students preparing for the Korean SAT, this work is significant for understa
     youtubeUrl: 'https://www.youtube.com/embed/kEWPbC_-ehc',
     url: '/originals/yongbuga',
   },
+  {
+    id: 'chulsaegok',
+    title: '변방으로 떠나는 무관의 마음\n(고전문학 「출새곡」)',
+    excerpt:
+      '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 그 아홉 번째 시간. 오늘은 조선시대 후기 조우인이 지은 가사인 「출새곡」 준비했습니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 그 아홉 번째 시간. 오늘은 조선시대 후기 조우인이 지은 가사인 「출새곡」 준비했습니다.
+
+'출새곡(出塞曲)'은 '변방으로 나아가는 노래'라는 뜻으로, 왕명을 받아 평화로운 조정이 아닌 변방으로 부임하게 된 상황에서 느끼는 화자(조우인)의 심정을 담은 노래입니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「출새곡」- 변방으로 떠나는 문신의 마음
+
+### 🏰 작품의 배경과 의미
+
+「출새곡」은 조선시대 후기 조우인(曺友仁)이 지은 기행가사로, '변방으로 나아가는 노래'라는 뜻입니다. 1616년(광해군 8) 가을, 56세의 나이에 함경도 경성판관으로 부임하면서 서울에서 경성까지의 여정과 변방 생활에서 느낀 복잡한 심정을 솔직하게 담아낸 작품입니다.
+
+### 🎭 문학적 특징
+
+- **기행가사**: 서울에서 함경도 경성까지 2,000여 리의 여정을 생생하게 묘사<br>
+- **개인적 감정 표현**: 문신 개인의 진솔한 내면을 드러냄<br>
+- **현실적 묘사**: 변방 생활의 어려움과 고충을 구체적으로 서술<br>
+- **충정과 갈등**: 충성심과 개인적 어려움 사이의 내적 갈등<br>
+- **서사적 구성**: 시간의 흐름에 따른 감정 변화를 보여줌
+
+### 🌍 문학사적 의의
+
+이 작품은 조선시대 문신이 지방관으로 부임하며 겪은 경험을 담은 귀한 자료로, 당시 변방 근무의 실상과 문신들의 생활상을 생생하게 전해줍니다. 단순한 충정 표현을 넘어서 인간적인 고뇌와 현실적 어려움을 솔직하게 드러낸 점에서 문학사적 가치가 높습니다. 조우인은 시·서예·음악에 뛰어나 삼절(三絶)이라는 평을 받은 문인으로, 그의 문학적 역량이 잘 드러난 작품입니다.
+
+### 📚 작품 감상 포인트
+
+1. **출새의 의미**: '변방으로 나감'이 담고 있는 시대적 무게감<br>
+2. **문신의 현실**: 서울과 험난한 변방 사이의 대비<br>
+3. **내적 갈등**: 충성심과 개인적 고충 사이의 복잡한 감정<br>
+4. **시대적 배경**: 조선 후기 국방 체제와 지방관의 역할
+
+### 🎨 현대적 의미
+
+「출새곡」을 읽는 것은 과거 문신의 마음을 이해하는 것을 넘어, 자신의 위치에서 맡은 바 임무를 다하면서도 느끼는 인간적 고뇌가 무엇인지 생각해보는 기회입니다. 공적 의무와 사적 감정 사이에서 균형을 잡으려는 한 사람의 진솔한 마음이 오늘날 우리에게도 깊은 공감을 불러일으킵니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 기행가사, 개인적 감정 표현<br>
+- **주요 갈등**: 충성심과 개인적 어려움의 대립<br>
+- **표현 기법**: 대조법, 점층법, 영탄법<br>
+- **시대적 의미**: 조선 후기 변방 근무의 현실
+
+---
+
+## English Description
+
+### "Chulsaegok" - A Scholar-Official's Heart Heading to the Frontier
+
+**Chulsaegok** (출새곡) is a classical Korean gasa (가사) travel narrative poem written by Jo U-in (曺友仁) during the late Joseon Dynasty. The title means "Song of Heading to the Frontier," and the work honestly captures the complex emotions of a civil official who must leave Seoul to serve as a magistrate at a remote frontier post in Gyeongsong, Hamgyong Province, by royal command in 1616.
+
+**Literary Significance:**
+- **Travel Narrative**: Vividly describes the journey of over 2,000 li from Seoul to Gyeongsong
+- **Personal Expression**: Reveals the honest inner feelings of an individual scholar-official
+- **Realistic Description**: Specifically describes the difficulties and hardships of frontier life
+- **Loyalty and Conflict**: Shows the internal struggle between loyalty and personal difficulties
+- **Narrative Structure**: Demonstrates emotional changes over time
+
+**Cultural Value:**
+This work serves as valuable material for understanding the experiences of Joseon Dynasty civil officials serving in remote posts, vividly conveying the realities of frontier service and the lives of scholar-officials of that time. It has high literary historical value for honestly revealing human anguish and realistic difficulties beyond simple expressions of loyalty. Jo U-in was renowned for his excellence in poetry, calligraphy, and music, earning him the title of "Three Perfections" (삼절), and this work showcases his literary prowess.
+
+**Contemporary Relevance:**
+Reading "Chulsaegok" offers an opportunity to understand not only the hearts of past scholar-officials but also to reflect on the human struggles we face when fulfilling our duties while dealing with personal hardships. The honest heart of one person trying to balance public duty and private emotions deeply resonates with us today.`,
+    category: 'SN Originals',
+    tags: ['고전문학', '출새곡', '조우인', '기행가사', '수능국어'],
+    author: 'SN Academy',
+    date: '2025-10-14',
+    readTime: '9',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_F.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=ThaMhDbZuNc',
+    url: '/originals/chulsaegok',
+  },
 ];
 
 // 🔗 개발 환경에서 노션 포스트 자동 병합 (임시 비활성화)
