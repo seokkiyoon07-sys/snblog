@@ -248,58 +248,76 @@ jobs:
           # Send to Jandi
           if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ "$CHANGED_POST_ID" != "SKIP" ]; then
             # New post notification with thumbnail and title
+            echo "📤 Sending to Jandi..."
+            echo "  Post URL: $FULL_POST_URL"
+            echo "  Thumbnail URL: $THUMBNAIL_URL"
+            
+            # Build JSON payload
+            JANDI_PAYLOAD=$(cat <<EOF
+{
+  "body": "$BODY",
+  "connectColor": "$COLOR",
+  "connectInfo": [
+    {
+      "title": "$JANDI_TITLE",
+      "description": "$POST_EXCERPT",
+      "imageUrl": "$THUMBNAIL_URL"
+    }
+  ],
+  "connectButtons": [
+    {
+      "name": "📖 지금 읽기",
+      "type": "link",
+      "url": "$FULL_POST_URL"
+    },
+    {
+      "name": "🏠 블로그 홈",
+      "type": "link",
+      "url": "https://blog.snacademy.co.kr"
+    }
+  ]
+}
+EOF
+)
+            
+            echo "📋 Jandi JSON Payload:"
+            echo "$JANDI_PAYLOAD"
+            
             curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
               -H "Content-Type: application/json" \
-              -d "{
-                \"body\": \"$BODY\",
-                \"connectColor\": \"$COLOR\",
-                \"connectInfo\": [
-                  {
-                    \"title\": \"$JANDI_TITLE\",
-                    \"description\": \"$POST_EXCERPT\",
-                    \"imageUrl\": \"$THUMBNAIL_URL\"
-                  }
-                ],
-                \"connectButtons\": [
-                  {
-                    \"name\": \"📖 지금 읽기\",
-                    \"type\": \"link\",
-                    \"url\": \"$FULL_POST_URL\"
-                  },
-                  {
-                    \"name\": \"🏠 블로그 홈\",
-                    \"type\": \"link\",
-                    \"url\": \"https://blog.snacademy.co.kr\"
-                  }
-                ]
-              }"
+              -d "$JANDI_PAYLOAD"
           else
             # General update notification
+            JANDI_PAYLOAD=$(cat <<EOF
+{
+  "body": "$BODY",
+  "connectColor": "$COLOR",
+  "connectInfo": [
+    {
+      "title": "$JANDI_TITLE",
+      "description": "$DESCRIPTION",
+      "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop"
+    }
+  ],
+  "connectButtons": [
+    {
+      "name": "🏠 블로그 홈",
+      "type": "link",
+      "url": "https://blog.snacademy.co.kr"
+    },
+    {
+      "name": "💻 변경사항 보기",
+      "type": "link",
+      "url": "$COMMIT_URL"
+    }
+  ]
+}
+EOF
+)
+            
             curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
               -H "Content-Type: application/json" \
-              -d "{
-                \"body\": \"$BODY\",
-                \"connectColor\": \"$COLOR\",
-                \"connectInfo\": [
-                  {
-                    \"title\": \"$JANDI_TITLE\",
-                    \"description\": \"$DESCRIPTION\",
-                    \"imageUrl\": \"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop\"
-                  }
-                ],
-                \"connectButtons\": [
-                  {
-                    \"name\": \"🏠 블로그 홈\",
-                    \"type\": \"link\",
-                    \"url\": \"https://blog.snacademy.co.kr\"
-                  },
-                  {
-                    \"name\": \"💻 변경사항 보기\",
-                    \"type\": \"link\",
-                    \"url\": \"$COMMIT_URL\"
-                  }
-                ]
-              }"
+              -d "$JANDI_PAYLOAD"
           fi
 
           # Send to Slack
