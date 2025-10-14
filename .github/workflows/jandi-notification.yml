@@ -247,11 +247,7 @@ jobs:
 
           # Send to Jandi
           if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ "$CHANGED_POST_ID" != "SKIP" ]; then
-            # New post notification with thumbnail and title
-            echo "📤 Sending to Jandi..."
-            echo "  Post URL: $FULL_POST_URL"
-            echo "  Thumbnail URL: $THUMBNAIL_URL"
-            
+            # New post notification
             echo "📤 Sending to Jandi..."
             echo "  Post URL: $FULL_POST_URL"
             
@@ -283,32 +279,28 @@ jobs:
             # General update notification
             curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
               -H "Content-Type: application/json" \
-              -H "Accept: application/vnd.tosslab.jandi-v2+json" \
-              -d @- <<JANDI_JSON
-{
-  "body": "$BODY",
-  "connectColor": "$COLOR",
-  "connectInfo": [
-    {
-      "title": "$JANDI_TITLE",
-      "description": "$DESCRIPTION",
-      "imageUrl": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop"
-    }
-  ],
-  "connectButtons": [
-    {
-      "name": "🏠 블로그 홈",
-      "type": "link",
-      "url": "https://blog.snacademy.co.kr"
-    },
-    {
-      "name": "💻 변경사항 보기",
-      "type": "link",
-      "url": "$COMMIT_URL"
-    }
-  ]
-}
-JANDI_JSON
+              -d "{
+                \"body\": \"$BODY\",
+                \"connectColor\": \"$COLOR\",
+                \"connectInfo\": [
+                  {
+                    \"title\": \"$JANDI_TITLE\",
+                    \"description\": \"$DESCRIPTION\"
+                  }
+                ],
+                \"connectButtons\": [
+                  {
+                    \"name\": \"🏠 블로그 홈\",
+                    \"type\": \"link\",
+                    \"url\": \"https://blog.snacademy.co.kr\"
+                  },
+                  {
+                    \"name\": \"💻 변경사항 보기\",
+                    \"type\": \"link\",
+                    \"url\": \"$COMMIT_URL\"
+                  }
+                ]
+              }"
           fi
 
           # Send to Slack
