@@ -1903,7 +1903,7 @@ This work serves as valuable material for understanding the experiences of Joseo
 **Contemporary Relevance:**
 Reading "Chulsaegok" offers an opportunity to understand not only the hearts of past scholar-officials but also to reflect on the human struggles we face when fulfilling our duties while dealing with personal hardships. The honest heart of one person trying to balance public duty and private emotions deeply resonates with us today.`,
     category: 'SN Originals',
-    tags: ['고전문학', '출새곡', '조우인', '기행가사', '수능국어'],
+    tags: ['고전문학', '출새곡', '조우인', '기행가사', '수능국어', '테스트'],
     author: 'SN Academy',
     date: '2025-10-14',
     readTime: '9',
