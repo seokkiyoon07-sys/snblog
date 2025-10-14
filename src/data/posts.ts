@@ -1906,7 +1906,7 @@ Reading "Chulsaegok" offers an opportunity to understand not only the hearts of 
     tags: ['고전문학', '출새곡', '조우인', '기행가사', '수능국어'],
     author: 'SN Academy',
     date: '2025-10-14',
-    readTime: '8',
+    readTime: '7',
     featured: true,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_F.png',
