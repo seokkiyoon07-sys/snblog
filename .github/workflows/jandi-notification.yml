@@ -144,16 +144,17 @@ jobs:
                 # Get the post block (from id to the closing brace, max 100 lines)
                 POST_BLOCK=$(sed -n "${POST_BLOCK_START},$((POST_BLOCK_START + 100))p" src/data/posts.ts | sed '/^  },$/q')
                 
-                # Extract fields from the post block
-                POST_TITLE=$(echo "$POST_BLOCK" | grep -m 1 "title:" | sed "s/.*title: *['\"]//; s/['\"].*//")
-                POST_EXCERPT=$(echo "$POST_BLOCK" | grep -m 1 "excerpt:" | sed "s/.*excerpt: *['\"]//; s/['\"].*//")
-                POST_THUMBNAIL=$(echo "$POST_BLOCK" | grep -m 1 "thumbnail:" | sed "s/.*thumbnail: *['\"]//; s/['\"].*//")
-                POST_URL=$(echo "$POST_BLOCK" | grep -m 1 "url:" | sed "s/.*url: *['\"]//; s/['\"].*//")
+                # Extract fields from the post block - improved extraction
+                POST_TITLE=$(echo "$POST_BLOCK" | grep -m 1 "title:" | sed -E "s/^[^'\"]*['\"]([^'\"]*)['\"].*/\1/" | head -1)
+                POST_EXCERPT=$(echo "$POST_BLOCK" | grep -m 1 "excerpt:" | sed -E "s/^[^'\"]*['\"]([^'\"]*)['\"].*/\1/" | head -1)
+                POST_THUMBNAIL=$(echo "$POST_BLOCK" | grep -m 1 "thumbnail:" | sed -E "s/^[^'\"]*['\"]([^'\"]*)['\"].*/\1/" | head -1)
+                POST_URL=$(echo "$POST_BLOCK" | grep -m 1 "url:" | sed -E "s/^[^'\"]*['\"]([^'\"]*)['\"].*/\1/" | head -1)
                 
                 echo "📄 Extracted post info:"
                 echo "  Title: $POST_TITLE"
                 echo "  URL: $POST_URL"
                 echo "  Thumbnail: $POST_THUMBNAIL"
+                echo "  Excerpt: ${POST_EXCERPT:0:50}..."
               fi
             fi
             
@@ -242,12 +243,12 @@ jobs:
                 ],
                 \"connectButtons\": [
                   {
-                    \"name\": \"포스트 보기\",
+                    \"name\": \"📖 지금 읽기\",
                     \"type\": \"link\",
                     \"url\": \"$FULL_POST_URL\"
                   },
                   {
-                    \"name\": \"블로그 홈\",
+                    \"name\": \"🏠 블로그 홈\",
                     \"type\": \"link\",
                     \"url\": \"https://blog.snacademy.co.kr\"
                   }
@@ -269,12 +270,12 @@ jobs:
                 ],
                 \"connectButtons\": [
                   {
-                    \"name\": \"블로그 보기\",
+                    \"name\": \"🏠 블로그 홈\",
                     \"type\": \"link\",
                     \"url\": \"https://blog.snacademy.co.kr\"
                   },
                   {
-                    \"name\": \"커밋 보기\",
+                    \"name\": \"💻 변경사항 보기\",
                     \"type\": \"link\",
                     \"url\": \"$COMMIT_URL\"
                   }
@@ -299,12 +300,12 @@ jobs:
                     \"actions\": [
                       {
                         \"type\": \"button\",
-                        \"text\": \"포스트 보기\",
+                        \"text\": \"📖 지금 읽기\",
                         \"url\": \"$FULL_POST_URL\"
                       },
                       {
                         \"type\": \"button\",
-                        \"text\": \"블로그 홈\",
+                        \"text\": \"🏠 블로그 홈\",
                         \"url\": \"https://blog.snacademy.co.kr\"
                       }
                     ]
@@ -326,12 +327,12 @@ jobs:
                     \"actions\": [
                       {
                         \"type\": \"button\",
-                        \"text\": \"블로그 보기\",
+                        \"text\": \"🏠 블로그 홈\",
                         \"url\": \"https://blog.snacademy.co.kr\"
                       },
                       {
                         \"type\": \"button\",
-                        \"text\": \"커밋 보기\",
+                        \"text\": \"💻 변경사항 보기\",
                         \"url\": \"$COMMIT_URL\"
                       }
                     ]
