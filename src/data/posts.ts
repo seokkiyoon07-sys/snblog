@@ -1,7 +1,6 @@
 // ⚠️ 중요: 이 파일은 수동으로 관리됩니다. Notion 동기화로 덮어쓰지 마세요!
 // 📝 포스트 추가/수정 시 이 파일을 직접 편집하세요.
 // 🔒 Notion 포스트는 notion-posts.ts에서 자동으로 가져옵니다.
-// 🚀 알림 테스트용 수정
 
 import { notionPosts } from './notion-posts';
 
@@ -1907,7 +1906,7 @@ Reading "Chulsaegok" offers an opportunity to understand not only the hearts of 
     tags: ['고전문학', '출새곡', '조우인', '기행가사', '수능국어', '테스트'],
     author: 'SN Academy',
     date: '2025-10-14',
-    readTime: '8',
+    readTime: '9',
     featured: true,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_F.png',

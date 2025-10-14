@@ -10,8 +10,32 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
+    ste          # Create message based on changes
+          # Only send notification if we successfully detected a post change
+          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ -z "$CHANGED_POST_ID" ]; then
+            echo "⚠️ posts.ts was modified but no post change detected - skipping notification"
+            exit 0
+          fi
+          
+          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ "${{ steps.changes.outputs.pages_modified }}" == "true" ]; then
+            BODY="블로그 콘텐츠가 업데이트되었습니다!"
+            DESCRIPTION="새로운 글이 추가되고 데이터가 업데이트되었습니다."
+            COLOR="#FF6B6B"
+            SLACK_COLOR="danger"
+            JANDI_TITLE="SN Academy Blog 업데이트"
+          elif [ "${{ steps.changes.outputs.posts_modified }}" == "true" ]; then
+            BODY="새 포스트가 게시되었어요!"
+            DESCRIPTION="$POST_TITLE"
+            COLOR="#4ECDC4"
+            SLACK_COLOR="good"
+            JANDI_TITLE="$POST_TITLE"
+          else
+            BODY="새로운 블로그 글이 추가되었습니다!"
+            DESCRIPTION="새로운 페이지가 생성되었습니다."
+            COLOR="#45B7D1"
+            SLACK_COLOR="good"
+            JANDI_TITLE="SN Academy Blog"
+          fieckout
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
@@ -68,11 +92,18 @@ jobs:
             CHANGED_LINE_IN_FILE=$(echo "$DIFF_OUTPUT" | grep "^@@" | head -1 | sed 's/.*+\([0-9]*\).*/\1/')
             echo "📍 Changed line number in file: $CHANGED_LINE_IN_FILE"
             
+            # Find where allPosts array starts (to ignore changes in imports/comments)
+            ALLPOSTS_START=$(grep -n "export const allPosts" src/data/posts.ts | cut -d: -f1)
+            echo "📦 allPosts array starts at line: $ALLPOSTS_START"
+            
             CHANGED_POST_ID=""
-            if [ -n "$CHANGED_LINE_IN_FILE" ]; then
+            if [ -n "$CHANGED_LINE_IN_FILE" ] && [ -n "$ALLPOSTS_START" ] && [ "$CHANGED_LINE_IN_FILE" -ge "$ALLPOSTS_START" ]; then
+              # Only process if change is within allPosts array
+              echo "✅ Change is within allPosts array"
+              
               # Search backwards from changed line to find the most recent post ID
               SEARCH_START=$((CHANGED_LINE_IN_FILE - 100))
-              if [ $SEARCH_START -lt 1 ]; then SEARCH_START=1; fi
+              if [ $SEARCH_START -lt $ALLPOSTS_START ]; then SEARCH_START=$ALLPOSTS_START; fi
               
               echo "🔍 Searching for post ID from line $SEARCH_START to $CHANGED_LINE_IN_FILE"
               
@@ -83,6 +114,8 @@ jobs:
               
               CHANGED_POST_ID=$(echo "$FILE_SECTION" | grep -oE "id:\s*['\"][^'\"]+['\"]" | tail -1 | sed "s/id:\s*['\"]//; s/['\"]//")
               echo "🎯 Detected post ID: '$CHANGED_POST_ID'"
+            elif [ -n "$CHANGED_LINE_IN_FILE" ] && [ "$CHANGED_LINE_IN_FILE" -lt "$ALLPOSTS_START" ]; then
+              echo "⚠️ Change is outside allPosts array (in imports/comments) - skipping post detection"
             fi
             
             # Alternative: if line-based approach fails, use git blame to find the post
