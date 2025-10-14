@@ -59,48 +59,69 @@ jobs:
             
             echo "🔍 Analyzing diff range: $DIFF_BASE..$DIFF_HEAD"
             
-            # Get all changed lines with more context to find the post block
-            DIFF_OUTPUT=$(git diff --unified=15 --find-renames "$DIFF_BASE" "$DIFF_HEAD" -- src/data/posts.ts)
+            # Simplified approach: Get actual file line numbers from diff hunk headers
+            DIFF_OUTPUT=$(git diff --unified=0 --find-renames "$DIFF_BASE" "$DIFF_HEAD" -- src/data/posts.ts)
+            echo "🔍 Raw diff output:"
+            echo "$DIFF_OUTPUT"
             
-            # Find the line numbers of changes
-            CHANGED_LINE_NUMS=$(echo "$DIFF_OUTPUT" | grep -n "^+" | grep -v "^++" | head -5 | cut -d: -f1)
+            # Extract the line number where changes occurred
+            CHANGED_LINE_IN_FILE=$(echo "$DIFF_OUTPUT" | grep "^@@" | head -1 | sed 's/.*+\([0-9]*\).*/\1/')
+            echo "📍 Changed line number in file: $CHANGED_LINE_IN_FILE"
             
-            # Look for post ID in the context around changed lines
             CHANGED_POST_ID=""
-            for line_num in $CHANGED_LINE_NUMS; do
-              # Get context around the changed line (±20 lines from diff output)
-              CONTEXT_START=$((line_num - 20))
-              CONTEXT_END=$((line_num + 10))
-              if [ $CONTEXT_START -lt 1 ]; then CONTEXT_START=1; fi
+            if [ -n "$CHANGED_LINE_IN_FILE" ]; then
+              # Search backwards from changed line to find the most recent post ID
+              SEARCH_START=$((CHANGED_LINE_IN_FILE - 100))
+              if [ $SEARCH_START -lt 1 ]; then SEARCH_START=1; fi
               
-              CONTEXT_BLOCK=$(echo "$DIFF_OUTPUT" | sed -n "${CONTEXT_START},${CONTEXT_END}p")
+              echo "🔍 Searching for post ID from line $SEARCH_START to $CHANGED_LINE_IN_FILE"
               
-              # Look for id: pattern in the context (both old and new lines)
-              FOUND_ID=$(echo "$CONTEXT_BLOCK" | grep -oE "id:\s*['\"][^'\"]+['\"]" | head -1 | sed "s/id:\s*['\"]//; s/['\"]//")
+              # Get the section and find the last (most recent) post ID
+              FILE_SECTION=$(sed -n "${SEARCH_START},${CHANGED_LINE_IN_FILE}p" src/data/posts.ts)
+              echo "📄 File section around changes:"
+              echo "$FILE_SECTION" | tail -20
               
-              if [ -n "$FOUND_ID" ]; then
-                CHANGED_POST_ID="$FOUND_ID"
-                echo "📝 Detected changed post ID from context: $CHANGED_POST_ID"
-                break
-              fi
-            done
+              CHANGED_POST_ID=$(echo "$FILE_SECTION" | grep -oE "id:\s*['\"][^'\"]+['\"]" | tail -1 | sed "s/id:\s*['\"]//; s/['\"]//")
+              echo "🎯 Detected post ID: '$CHANGED_POST_ID'"
+            fi
             
-            # If still not found, try to find any post ID near the changes in the actual file
+            # Alternative: if line-based approach fails, use git blame to find the post
             if [ -z "$CHANGED_POST_ID" ]; then
-              echo "⚠️ Looking for post ID in actual file around changes..."
-              CHANGED_LINE_IN_FILE=$(echo "$DIFF_OUTPUT" | grep "^@@.*+[0-9]" | head -1 | sed 's/.*+\([0-9]*\).*/\1/')
-              if [ -n "$CHANGED_LINE_IN_FILE" ]; then
-                # Search backwards from the changed line to find the nearest post ID
-                SEARCH_START=$((CHANGED_LINE_IN_FILE - 50))
-                if [ $SEARCH_START -lt 1 ]; then SEARCH_START=1; fi
+              echo "⚠️ Fallback: Using git show to find changed post content"
+              
+              # Get the actual changed content (the + lines)
+              CHANGED_CONTENT=$(echo "$DIFF_OUTPUT" | grep "^+" | grep -v "^+++" | head -5)
+              echo "📝 Changed content lines:"
+              echo "$CHANGED_content"
+              
+              # If we find any recognizable post fields in the changes, search around them
+              if echo "$CHANGED_CONTENT" | grep -qE "(readTime|tags|author|date|featured|published|thumbnail|youtubeUrl|url):"; then
+                # Get all post IDs and their line numbers, find the closest one
+                POST_LINES=$(grep -n "id:\s*['\"]" src/data/posts.ts | tail -10)
+                echo "📋 Recent post IDs and line numbers:"
+                echo "$POST_LINES"
                 
-                CHANGED_POST_ID=$(sed -n "${SEARCH_START},${CHANGED_LINE_IN_FILE}p" src/data/posts.ts | grep -oE "id:\s*['\"][^'\"]+['\"]" | tail -1 | sed "s/id:\s*['\"]//; s/['\"]//")
-                echo "📝 Found post ID by searching backwards: $CHANGED_POST_ID"
+                # Find the post ID with line number closest to (but less than) the changed line
+                CLOSEST_POST=""
+                CLOSEST_DISTANCE=99999
+                
+                while IFS=':' read -r line_num line_content; do
+                  if [ -n "$line_num" ] && [ "$line_num" -le "$CHANGED_LINE_IN_FILE" ]; then
+                    DISTANCE=$((CHANGED_LINE_IN_FILE - line_num))
+                    if [ "$DISTANCE" -lt "$CLOSEST_DISTANCE" ]; then
+                      CLOSEST_DISTANCE=$DISTANCE
+                      CLOSEST_POST=$(echo "$line_content" | grep -oE "['\"][^'\"]+['\"]" | sed "s/['\"]//g")
+                    fi
+                  fi
+                done <<< "$POST_LINES"
+                
+                CHANGED_POST_ID="$CLOSEST_POST"
+                echo "🎯 Found closest post ID: '$CHANGED_POST_ID' (distance: $CLOSEST_DISTANCE lines)"
               fi
             fi
             
             if [ -n "$CHANGED_POST_ID" ]; then
-              echo "✅ Final detected post ID: $CHANGED_POST_ID"
+              echo "✅ Final detected post ID: '$CHANGED_POST_ID'"
               
               # Extract post info for the specific changed post ID
               POST_BLOCK_START=$(grep -n "id: *['\"]$CHANGED_POST_ID['\"]" src/data/posts.ts | cut -d: -f1)
