@@ -253,37 +253,32 @@ jobs:
             echo "  Thumbnail URL: $THUMBNAIL_URL"
             
             echo "📤 Sending to Jandi..."
-            echo "  Button URL: $FULL_POST_URL"
-            echo "  Image URL: $THUMBNAIL_URL"
+            echo "  Post URL: $FULL_POST_URL"
             
             curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
               -H "Content-Type: application/json" \
-              -H "Accept: application/vnd.tosslab.jandi-v2+json" \
-              -d @- <<JANDI_JSON
-{
-  "body": "$BODY",
-  "connectColor": "$COLOR",
-  "connectInfo": [
-    {
-      "title": "$JANDI_TITLE",
-      "description": "$POST_EXCERPT",
-      "imageUrl": "$THUMBNAIL_URL"
-    }
-  ],
-  "connectButtons": [
-    {
-      "name": "📖 지금 읽기",
-      "type": "link",
-      "url": "$FULL_POST_URL"
-    },
-    {
-      "name": "🏠 블로그 홈",
-      "type": "link",
-      "url": "https://blog.snacademy.co.kr"
-    }
-  ]
-}
-JANDI_JSON
+              -d "{
+                \"body\": \"$BODY\",
+                \"connectColor\": \"$COLOR\",
+                \"connectInfo\": [
+                  {
+                    \"title\": \"$JANDI_TITLE\",
+                    \"description\": \"$POST_EXCERPT\"
+                  }
+                ],
+                \"connectButtons\": [
+                  {
+                    \"name\": \"📖 지금 읽기\",
+                    \"type\": \"link\",
+                    \"url\": \"$FULL_POST_URL\"
+                  },
+                  {
+                    \"name\": \"🏠 블로그 홈\",
+                    \"type\": \"link\",
+                    \"url\": \"https://blog.snacademy.co.kr\"
+                  }
+                ]
+              }"
           else
             # General update notification
             curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
