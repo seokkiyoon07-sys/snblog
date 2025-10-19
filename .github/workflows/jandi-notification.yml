@@ -12,17 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v            curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
-              -H "Content-Type: application/json" \
-              -d "{
-                \"body\": \"$BODY - $JANDI_TITLE\",
-                \"connectColor\": \"$COLOR\",
-                \"connectInfo\": [
-                  {
-                    \"description\": \"$POST_EXCERPT\\n\\n포스트 URL: $FULL_POST_URL\\n블로그 홈: https://blog.snacademy.co.kr\"
-                  }
-                ]
-              }"ith:
+        uses: actions/checkout@v4
+        with:
           fetch-depth: 2
 
       - name: Detect changes

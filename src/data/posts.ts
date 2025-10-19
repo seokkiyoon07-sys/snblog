@@ -1833,7 +1833,8 @@ For students preparing for the Korean SAT, this work is significant for understa
   },
   {
     id: 'chulsaegok',
-    title: '나 경성 발령났어. 어디, 서울 경성? 아니 함경북도 경성.\n(고전문학 「출새곡」)',
+    title:
+      '나 경성 발령났어. 어디, 서울 경성? 아니 함경북도 경성.\n(고전문학 「출새곡」)',
     excerpt:
       '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 그 아홉 번째 시간. 오늘은 조선시대 후기 조우인이 지은 가사인 「출새곡」 준비했습니다.',
     content: `안녕하세요 SN독학기숙학원입니다😊
@@ -1912,6 +1913,89 @@ Reading "Chulsaegok" offers an opportunity to understand not only the hearts of 
     thumbnail: '/images/thumbnail/thumbnail_F.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=ThaMhDbZuNc',
     url: '/originals/chulsaegok',
+  },
+  {
+    id: 'mongcheonyo',
+    title:
+      '이럴거면 잘 쉬고 있던 사람 복직은 뭣하러 시키셨어요 (고전문학 「몽천요」)',
+    excerpt:
+      '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 어느새 그 열 번째 시간. 오늘은 조선시대 후기(1652년, 효종 3년)에 제작된 윤선도의 연시조 「몽천요」를 준비했습니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 어느새 그 열 번째 시간. 오늘은 조선시대 후기(1652년, 효종 3년)에 제작된 윤선도의 연시조 「몽천요」를 준비했습니다.
+
+「몽천요」(夢天謠)는 '꿈속에서 본 하늘을 노래한다'는 뜻으로, 정계를 은퇴했던 윤선도가 17년만에 왕명을 받아 부름을 받았을 때 신하들로터 받은 시기와 헐뜯음에서 비롯된 허탈한 심정을 담은 노래입니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「몽천요」- 이럴거면 잘 쉬고 있던 사람 복직은 뭣하러 시키셨어요
+
+### 🏰 작품의 배경과 의미
+
+「몽천요」는 조선시대 후기 윤선도(尹善道, 1587-1671)가 지은 연시조로, '꿈속에서 본 하늘을 노래한다'는 뜻입니다. 1652년(효종 3년) 66세의 나이에 17년간의 은퇴 생활을 끝내고 왕명을 받아 복직했을 때, 조정의 신하들로부터 받은 시기와 헐뜯음에 대한 허탈한 심정을 담은 작품입니다.
+
+### 🎭 문학적 특징
+
+- **연시조**: 3연으로 구성된 시조의 연작 형태<br>
+- **개인적 감정 표현**: 문신 개인의 진솔한 내면을 드러냄<br>
+- **현실적 묘사**: 조정의 시기와 헐뜯음에 대한 구체적 서술<br>
+- **허탈과 좌절**: 복직에 대한 기대와 현실의 괴리감<br>
+- **꿈의 상징**: 꿈속 하늘을 통한 이상과 현실의 대비
+
+### 🌍 문학사적 의의
+
+이 작품은 조선시대 문신이 정치적 복귀 과정에서 겪은 경험을 담은 귀한 자료로, 당시 조정의 권력 구조와 문신들의 현실적 어려움을 생생하게 전해줍니다. 단순한 충정 표현을 넘어서 인간적인 고뇌와 정치적 현실을 솔직하게 드러낸 점에서 문학사적 가치가 높습니다. 윤선도는 시조문학의 대가로, 그의 문학적 역량이 잘 드러난 작품입니다.
+
+### 📚 작품 감상 포인트
+
+1. **몽천의 의미**: '꿈속 하늘'이 담고 있는 이상과 현실의 대비<br>
+2. **복직의 현실**: 은퇴와 복직 사이의 괴리감<br>
+3. **내적 갈등**: 충성심과 개인적 좌절 사이의 복잡한 감정<br>
+4. **시대적 배경**: 조선 후기 정치적 상황과 문신의 역할
+
+### 🎨 현대적 의미
+
+「몽천요」를 읽는 것은 과거 문신의 마음을 이해하는 것을 넘어, 자신의 위치에서 맡은 바 임무를 다하면서도 느끼는 인간적 고뇌가 무엇인지 생각해보는 기회입니다. 공적 의무와 사적 감정 사이에서 균형을 잡으려는 한 사람의 진솔한 마음이 오늘날 우리에게도 깊은 공감을 불러일으킵니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 연시조, 개인적 감정 표현<br>
+- **주요 갈등**: 이상과 현실의 대립<br>
+- **표현 기법**: 상징법, 대조법, 영탄법<br>
+- **시대적 의미**: 조선 후기 정치적 상황과 문신의 역할
+
+---
+
+## English Description
+
+### "Mongcheonyo" - A Retired Scholar-Official's Frustration with Reinstatement
+
+**Mongcheonyo** (몽천요) is a classical Korean yeonsijo (연시조) poem written by Yun Seon-do (尹善道, 1587-1671) during the late Joseon Dynasty. The title means "Song of Dreaming of Heaven," and the work honestly captures the frustrated emotions of a civil official who, after 17 years of retirement, was called back to service by royal command in 1652 at the age of 66, only to face jealousy and criticism from other court officials.
+
+**Literary Significance:**
+- **Yeonsijo**: A series of three sijo poems forming a connected narrative<br>
+- **Personal Expression**: Reveals the honest inner feelings of an individual scholar-official<br>
+- **Realistic Description**: Specifically describes the difficulties and hardships of political life<br>
+- **Frustration and Disappointment**: Shows the gap between expectations and reality of reinstatement<br>
+- **Dream Symbolism**: Uses the symbolism of dreaming of heaven to contrast ideals with reality
+
+**Cultural Value:**
+This work serves as valuable material for understanding the experiences of Joseon Dynasty civil officials in the political arena, vividly conveying the realities of court politics and the lives of scholar-officials of that time. It has high literary historical value for honestly revealing human anguish and political realities beyond simple expressions of loyalty. Yun Seon-do was a master of sijo literature, and this work showcases his literary prowess.
+
+**Contemporary Relevance:**
+Reading "Mongcheonyo" offers an opportunity to understand not only the hearts of past scholar-officials but also to reflect on the human struggles we face when fulfilling our duties while dealing with personal hardships. The honest heart of one person trying to balance public duty and private emotions deeply resonates with us today.`,
+    category: 'SN Originals',
+    tags: ['고전문학', '몽천요', '윤선도', '연시조', '수능국어'],
+    author: 'SN Academy',
+    date: '2025-10-19',
+    readTime: '8',
+    featured: true,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_F_mongcheonyo.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=HmzoVsJUBFE',
+    url: '/originals/mongcheonyo',
   },
 ];
 
