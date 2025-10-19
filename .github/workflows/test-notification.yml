@@ -1,0 +1,16 @@
+name: Test Notification
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test step
+        run: |
+          echo "🚀 GitHub Actions 테스트 성공!"
+          echo "커밋: ${{ github.event.head_commit.message }}"
+          echo "작성자: ${{ github.event.head_commit.author.name }}"
+          echo "리포지토리: ${{ github.repository }}"
