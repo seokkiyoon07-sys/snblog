@@ -13,13 +13,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Detect changes
         id: changes
         run: |
-          # Check if posts.ts was modified using GitHub API
+          # Check if posts.ts was modified
           if echo "${{ github.event.head_commit.modified }}" | grep -q "src/data/posts.ts"; then
             echo "posts_modified=true" >> $GITHUB_OUTPUT
           else
@@ -37,313 +35,33 @@ jobs:
         if: steps.changes.outputs.posts_modified == 'true' || steps.changes.outputs.pages_modified == 'true'
         run: |
           # Get commit details
-          COMMIT_MSG=$(git log -1 --pretty=%B)
-          COMMIT_AUTHOR=$(git log -1 --pretty=%an)
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          COMMIT_AUTHOR="${{ github.event.head_commit.author.name }}"
           COMMIT_URL="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
 
-          # Extract changed post info using Git diff analysis
-          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ]; then
-            # Determine diff range based on event type
-            if [ "${{ github.event_name }}" == "pull_request" ]; then
-              DIFF_BASE="${{ github.base_ref }}"
-              DIFF_HEAD="${{ github.sha }}"
-            else
-              # For push events, use before..after or fallback to HEAD~1..HEAD
-              if [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-                DIFF_BASE="${{ github.event.before }}"
-              else
-                DIFF_BASE="HEAD~1"
-              fi
-              DIFF_HEAD="${{ github.sha }}"
-            fi
-            
-            echo "🔍 Analyzing diff range: $DIFF_BASE..$DIFF_HEAD"
-            
-            # Simplified approach: Get actual file line numbers from diff hunk headers
-            DIFF_OUTPUT=$(git diff --unified=0 --find-renames "$DIFF_BASE" "$DIFF_HEAD" -- src/data/posts.ts)
-            echo "🔍 Raw diff output:"
-            echo "$DIFF_OUTPUT"
-            
-            # Extract the line number where changes occurred
-            CHANGED_LINE_IN_FILE=$(echo "$DIFF_OUTPUT" | grep "^@@" | head -1 | sed 's/.*+\([0-9]*\).*/\1/')
-            echo "📍 Changed line number in file: $CHANGED_LINE_IN_FILE"
-            
-            # Find where allPosts array starts (to ignore changes in imports/comments)
-            ALLPOSTS_START=$(grep -n "export const allPosts" src/data/posts.ts | cut -d: -f1)
-            echo "📦 allPosts array starts at line: $ALLPOSTS_START"
-            
-            CHANGED_POST_ID=""
-            if [ -n "$CHANGED_LINE_IN_FILE" ] && [ -n "$ALLPOSTS_START" ] && [ "$CHANGED_LINE_IN_FILE" -ge "$ALLPOSTS_START" ]; then
-              echo "✅ Change is within allPosts array"
-              # Search backwards from changed line to find the most recent post ID
-              SEARCH_START=$((CHANGED_LINE_IN_FILE - 100))
-              if [ $SEARCH_START -lt $ALLPOSTS_START ]; then SEARCH_START=$ALLPOSTS_START; fi
-            elif [ -n "$CHANGED_LINE_IN_FILE" ] && [ "$CHANGED_LINE_IN_FILE" -lt "$ALLPOSTS_START" ]; then
-              echo "⚠️ Change is outside allPosts array (imports/comments) - will skip"
-              CHANGED_POST_ID="SKIP"
-            elif [ -n "$CHANGED_LINE_IN_FILE" ]; then
-              # Fallback if allPosts not found
-              SEARCH_START=$((CHANGED_LINE_IN_FILE - 100))
-              if [ $SEARCH_START -lt 1 ]; then SEARCH_START=1; fi
-            fi
-            
-            if [ "$CHANGED_POST_ID" != "SKIP" ] && [ -n "$CHANGED_LINE_IN_FILE" ]; then
-              
-              echo "🔍 Searching for post ID from line $SEARCH_START to $CHANGED_LINE_IN_FILE"
-              
-              # Get the section and find the last (most recent) post ID
-              FILE_SECTION=$(sed -n "${SEARCH_START},${CHANGED_LINE_IN_FILE}p" src/data/posts.ts)
-              echo "📄 File section around changes:"
-              echo "$FILE_SECTION" | tail -20
-              
-              CHANGED_POST_ID=$(echo "$FILE_SECTION" | grep -oE "id:\s*['\"][^'\"]+['\"]" | tail -1 | sed "s/id:\s*['\"]//; s/['\"]//")
-              echo "🎯 Detected post ID: '$CHANGED_POST_ID'"
-            fi
-            
-            # Alternative: if line-based approach fails, use git blame to find the post
-            if [ -z "$CHANGED_POST_ID" ]; then
-              echo "⚠️ Fallback: Using git show to find changed post content"
-              
-              # Get the actual changed content (the + lines)
-              CHANGED_CONTENT=$(echo "$DIFF_OUTPUT" | grep "^+" | grep -v "^+++" | head -5)
-              echo "📝 Changed content lines:"
-              echo "$CHANGED_content"
-              
-              # If we find any recognizable post fields in the changes, search around them
-              if echo "$CHANGED_CONTENT" | grep -qE "(readTime|tags|author|date|featured|published|thumbnail|youtubeUrl|url):"; then
-                # Get all post IDs and their line numbers, find the closest one
-                POST_LINES=$(grep -n "id:\s*['\"]" src/data/posts.ts | tail -10)
-                echo "📋 Recent post IDs and line numbers:"
-                echo "$POST_LINES"
-                
-                # Find the post ID with line number closest to (but less than) the changed line
-                CLOSEST_POST=""
-                CLOSEST_DISTANCE=99999
-                
-                while IFS=':' read -r line_num line_content; do
-                  if [ -n "$line_num" ] && [ "$line_num" -le "$CHANGED_LINE_IN_FILE" ]; then
-                    DISTANCE=$((CHANGED_LINE_IN_FILE - line_num))
-                    if [ "$DISTANCE" -lt "$CLOSEST_DISTANCE" ]; then
-                      CLOSEST_DISTANCE=$DISTANCE
-                      CLOSEST_POST=$(echo "$line_content" | grep -oE "['\"][^'\"]+['\"]" | sed "s/['\"]//g")
-                    fi
-                  fi
-                done <<< "$POST_LINES"
-                
-                CHANGED_POST_ID="$CLOSEST_POST"
-                echo "🎯 Found closest post ID: '$CHANGED_POST_ID' (distance: $CLOSEST_DISTANCE lines)"
-              fi
-            fi
-            
-            if [ -n "$CHANGED_POST_ID" ]; then
-              echo "✅ Final detected post ID: '$CHANGED_POST_ID'"
-              
-              # Extract post info for the specific changed post ID
-              POST_BLOCK_START=$(grep -n "id: *['\"]$CHANGED_POST_ID['\"]" src/data/posts.ts | cut -d: -f1)
-              if [ -n "$POST_BLOCK_START" ]; then
-                # Get the post block (from id to the closing brace, max 100 lines)
-                POST_BLOCK=$(sed -n "${POST_BLOCK_START},$((POST_BLOCK_START + 100))p" src/data/posts.ts | sed '/^  },$/q')
-                
-                # Extract fields from the post block - handle multiline values
-                # For title (may be multiline)
-                POST_TITLE=$(echo "$POST_BLOCK" | grep -A 2 "title:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
-                
-                # For excerpt (often multiline - excerpt:\n  'value')
-                POST_EXCERPT=$(echo "$POST_BLOCK" | grep -A 2 "excerpt:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
-                
-                # For thumbnail (single line)
-                POST_THUMBNAIL=$(echo "$POST_BLOCK" | grep "thumbnail:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
-                
-                # For url (single line)
-                POST_URL=$(echo "$POST_BLOCK" | grep "url:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
-                
-                echo "📄 Extracted post info:"
-                echo "  Title: $POST_TITLE"
-                echo "  URL: $POST_URL"
-                echo "  Thumbnail: $POST_THUMBNAIL"
-                echo "  Excerpt: ${POST_EXCERPT:0:50}..."
-              fi
-            fi
-            
-            # Fallback: if no specific post ID found, get the most recently modified post by date
-            if [ -z "$CHANGED_POST_ID" ] || [ -z "$POST_TITLE" ]; then
-              echo "⚠️ Fallback: Using most recent post by date"
-              # Get all posts with dates and sort by date (newest first)
-              LATEST_POST_LINE=$(grep -n -A 5 -B 2 "date: *['\"]20" src/data/posts.ts | sort -t: -k3 -r | head -1)
-              if [ -n "$LATEST_POST_LINE" ]; then
-                LATEST_POST_START=$(echo "$LATEST_POST_LINE" | cut -d- -f1)
-                POST_BLOCK=$(sed -n "$((LATEST_POST_START - 10)),$((LATEST_POST_START + 50))p" src/data/posts.ts | sed -n '/^  {$/,/^  },$/p' | head -50)
-                
-                POST_TITLE=$(echo "$POST_BLOCK" | grep -A 2 "title:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
-                POST_EXCERPT=$(echo "$POST_BLOCK" | grep -A 2 "excerpt:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
-                POST_THUMBNAIL=$(echo "$POST_BLOCK" | grep "thumbnail:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
-                POST_URL=$(echo "$POST_BLOCK" | grep "url:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
-              fi
-            fi
-            
-            # Clean up title (remove newlines and extra spaces)
-            POST_TITLE=$(echo "$POST_TITLE" | tr '\n' ' ' | sed 's/\\n/ /g' | xargs)
-            
-            # Clean up and limit excerpt length, ensure it's not empty
-            if [ -n "$POST_EXCERPT" ]; then
-              POST_EXCERPT=$(echo "$POST_EXCERPT" | tr '\n' ' ' | sed 's/\\n/ /g' | xargs | head -c 200)
-            else
-              POST_EXCERPT="새로운 포스트를 확인해보세요"
-            fi
-            
-            # Set thumbnail URL (use default if not found or invalid)
-            if [ -z "$POST_THUMBNAIL" ] || [ "$POST_THUMBNAIL" = "undefined" ] || [ "$POST_THUMBNAIL" = "null" ]; then
-              THUMBNAIL_URL="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop"
-              echo "⚠️ Using default thumbnail"
-            else
-              THUMBNAIL_URL="https://blog.snacademy.co.kr$POST_THUMBNAIL"
-              echo "✅ Using post thumbnail: $POST_THUMBNAIL"
-            fi
-            
-            # Set post URL
-            if [ -n "$POST_URL" ] && [ "$POST_URL" != "undefined" ]; then
-              FULL_POST_URL="https://blog.snacademy.co.kr$POST_URL"
-              echo "✅ Using post URL: $POST_URL"
-            else
-              FULL_POST_URL="https://blog.snacademy.co.kr"
-              echo "⚠️ Using default blog URL"
-            fi
-            
-            echo ""
-            echo "🎯 Final notification data:"
-            echo "  Title: $POST_TITLE"
-            echo "  Excerpt: ${POST_EXCERPT:0:100}..."
-            echo "  Thumbnail URL: $THUMBNAIL_URL"
-            echo "  Post URL: $FULL_POST_URL"
-            echo ""
-          fi
+          # Simple notification message
+          MESSAGE="🚀 새로운 블로그 포스트가 업데이트되었습니다!
 
-          # Skip notification if post change was outside allPosts array
-          if [ "$CHANGED_POST_ID" == "SKIP" ]; then
-            echo "⚠️ Skipping notification - changes were outside allPosts array"
-            exit 0
-          fi
-
-          # Create message based on changes
-          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ "${{ steps.changes.outputs.pages_modified }}" == "true" ]; then
-            BODY="블로그 콘텐츠가 업데이트되었습니다"
-            DESCRIPTION="새로운 글이 추가되고 데이터가 업데이트되었습니다."
-            COLOR="#FF6B6B"
-            SLACK_COLOR="danger"
-            JANDI_TITLE="SN Academy Blog 업데이트"
-          elif [ "${{ steps.changes.outputs.posts_modified }}" == "true" ]; then
-            BODY="새 포스트가 게시되었어요"
-            DESCRIPTION="$POST_TITLE"
-            COLOR="#4ECDC4"
-            SLACK_COLOR="good"
-            JANDI_TITLE="$POST_TITLE"
-          else
-            BODY="새로운 블로그 글이 추가되었습니다"
-            DESCRIPTION="새로운 페이지가 생성되었습니다."
-            COLOR="#45B7D1"
-            SLACK_COLOR="good"
-            JANDI_TITLE="SN Academy Blog"
-          fi
+          📝 커밋: $COMMIT_MSG
+          👤 작성자: $COMMIT_AUTHOR
+          🔗 링크: $COMMIT_URL
+          🌐 블로그: https://blog.snacademy.co.kr"
 
           # Send to Jandi
-          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ] && [ "$CHANGED_POST_ID" != "SKIP" ]; then
-            # New post notification
-            echo "📤 Sending to Jandi..."
-            echo "  Post URL: $FULL_POST_URL"
-            
+          if [ -n "${{ secrets.JANDI_WEBHOOK_URL }}" ]; then
             curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
               -H "Content-Type: application/json" \
               -d "{
-                \"body\": \"$BODY - $JANDI_TITLE\",
-                \"connectColor\": \"$COLOR\",
-                \"connectInfo\": [
-                  {
-                    \"description\": \"$POST_EXCERPT\\n\\n� $FULL_POST_URL\"
-                  }
-                ]
-              }"
-          else
-            # General update notification
-            curl -X POST "${{ secrets.JANDI_WEBHOOK_URL }}" \
-              -H "Content-Type: application/json" \
-              -d "{
-                \"body\": \"$BODY\",
-                \"connectColor\": \"$COLOR\",
-                \"connectInfo\": [
-                  {
-                    \"title\": \"$JANDI_TITLE\",
-                    \"description\": \"$DESCRIPTION\"
-                  }
-                ],
-                \"connectButtons\": [
-                  {
-                    \"name\": \"🏠 블로그 홈\",
-                    \"type\": \"link\",
-                    \"url\": \"https://blog.snacademy.co.kr\"
-                  },
-                  {
-                    \"name\": \"💻 변경사항 보기\",
-                    \"type\": \"link\",
-                    \"url\": \"$COMMIT_URL\"
-                  }
-                ]
+                \"body\": \"$MESSAGE\",
+                \"connectColor\": \"#FF6B6B\"
               }"
           fi
 
           # Send to Slack
-          if [ "${{ steps.changes.outputs.posts_modified }}" == "true" ]; then
-            # New post notification with thumbnail and title
+          if [ -n "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
             curl -X POST "${{ secrets.SLACK_WEBHOOK_URL }}" \
               -H "Content-Type: application/json" \
               -d "{
-                \"text\": \"$BODY\",
-                \"attachments\": [
-                  {
-                    \"color\": \"$SLACK_COLOR\",
-                    \"title\": \"$JANDI_TITLE\",
-                    \"text\": \"$POST_EXCERPT\",
-                    \"thumb_url\": \"$THUMBNAIL_URL\",
-                    \"title_link\": \"$FULL_POST_URL\",
-                    \"actions\": [
-                      {
-                        \"type\": \"button\",
-                        \"text\": \"📖 지금 읽기\",
-                        \"url\": \"$FULL_POST_URL\"
-                      },
-                      {
-                        \"type\": \"button\",
-                        \"text\": \"🏠 블로그 홈\",
-                        \"url\": \"https://blog.snacademy.co.kr\"
-                      }
-                    ]
-                  }
-                ]
-              }"
-          else
-            # General update notification
-            curl -X POST "${{ secrets.SLACK_WEBHOOK_URL }}" \
-              -H "Content-Type: application/json" \
-              -d "{
-                \"text\": \"$BODY\",
-                \"attachments\": [
-                  {
-                    \"color\": \"$SLACK_COLOR\",
-                    \"title\": \"$JANDI_TITLE\",
-                    \"text\": \"$DESCRIPTION\",
-                    \"thumb_url\": \"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop\",
-                    \"actions\": [
-                      {
-                        \"type\": \"button\",
-                        \"text\": \"🏠 블로그 홈\",
-                        \"url\": \"https://blog.snacademy.co.kr\"
-                      },
-                      {
-                        \"type\": \"button\",
-                        \"text\": \"💻 변경사항 보기\",
-                        \"url\": \"$COMMIT_URL\"
-                      }
-                    ]
-                  }
-                ]
+                \"text\": \"$MESSAGE\"
               }"
           fi
