@@ -24,6 +24,138 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'why-we-invest-in-ai',
+    title: '왜 우리는 AI에 투자하는가',
+    excerpt:
+      'SN독학기숙학원의 AI 투자 철학과 방향성. 30년 전과 달라진 교육 환경, 감이 아닌 데이터 기반 개입, 그리고 성장을 넘어 입시 결과로 완결하는 우리의 이야기.',
+    thumbnail: '/images/startup/Why_we_invest_in_AI/Why_we_invest_in_AI.png',
+    content: `안녕하세요. SN독학기숙학원 대표 윤석기입니다. 한국의 입시는 빠르게 변하고 있고, AI는 교육 산업의 기준을 다시 쓰고 있습니다. 우리는 학생 한 명 한 명의 데이터를 바탕으로 성장에서 멈추지 않고, <strong>결과(입시 실적)</strong>까지 완결하려 합니다.
+
+## 30년 전과 달라진 것은 무엇인가?
+
+스포츠는 훈련과 장비의 과학화, 데이터의 축적으로 비약적으로 발전했습니다. 반면 교육은 여전히 개별 학생의 맥락보다 '평균적인 방식'에 의존하는 경우가 많습니다. 데이터가 쌓이지 않으면 '관리'는 존재해도 '개입의 정밀도'는 나오지 않습니다. SN의 문제의식은 여기서 출발했습니다.
+
+---
+
+## 1. 사람의 감(感)만으로는 부족한 시대
+
+한 학생이 하루 동안 무엇을 듣고 어디서 멈췄는지, 어떤 유형에서 반복 오류가 나는지 — 이를 실시간으로 파악하는 것은 사람의 기억만으로는 불가능합니다. 그래서 상담은 종종 '겉으로 드러난 현상'에 머물죠.
+
+- "왜 집중이 안 되지?"
+- "국어가 어려운 거야?"
+- "왜 점수가 떨어졌을까?"
+
+그러나 진짜 원인은 더 깊은 곳에 있습니다. 시간대별 집중 리듬, 디바이스 사용 습관, 반복 오류 지점… <strong>감(感)</strong>으로 추정은 가능하지만 <strong>근거</strong> 없이 확정할 수 없습니다. AI는 이 공백을 메워 경험이 보는 바깥과 데이터가 보여주는 안쪽을 연결합니다.
+
+---
+
+## 2. AI는 교사를 대체하지 않는다 — 역량을 확장한다
+
+SN의 AI는 '보조 프로그램'이 아니라 <strong>교사의 시야를 확장</strong>하는 도구입니다.
+
+### 기존 vs AI 결합 후
+
+<div class="my-6 grid gap-4 sm:grid-cols-2">
+  <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm">
+    <div class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3">기존</div>
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+      <li>• 관찰: 제한적</li>
+      <li>• 판단: 경험 중심</li>
+      <li>• 지도: 사후 대처</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 shadow-sm">
+    <div class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3">AI 결합 후</div>
+    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+      <li>• 관찰: 전면 기록·분석</li>
+      <li>• 판단: 데이터 기반 정밀 판단</li>
+      <li>• 지도: 최적 개입 타이밍 제공</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+## 3. 교육은 사람, 입시는 정확한 방향
+
+입시는 감성으로 해결되지 않습니다. <strong>정확한 시점에 정확한 개입</strong>을 해야 성과가 납니다. 왜 정체되는지, 왜 특정 과목에서 반복 오류가 이어지는지 등 핵심 질문의 답은 데이터에서 출발합니다. 그래서 우리는 감이 아니라 <strong>근거</strong>로 코칭합니다.
+
+<div class="my-8 rounded-2xl bg-gradient-to-br from-amber-50 to-white dark:from-gray-800 dark:to-gray-900 p-6 border border-amber-100 dark:border-amber-900">
+  <div class="mb-2 font-semibold text-amber-800 dark:text-amber-300">핵심 원칙</div>
+  <div class="text-gray-700 dark:text-gray-300">성장에서 멈추지 않고, <strong>성과(입시 실적)</strong>로 완결한다 — 이것이 학원의 책임입니다.</div>
+</div>
+
+---
+
+## 4. SN의 AI는 '외부'가 아니다 — 학원 안에 내재화한다
+
+일반형 AI는 우리 학생을 모릅니다. 데이터는 외부 DB로 사라지고, 입시의 승패를 가르는 <em>정확한 개입 시점</em>은 맥락 없이 포착되지 않습니다. 그래서 SN은 핵심 AI 시스템을 <strong>직접 개발</strong>해 학원 안에 내재화합니다.
+
+### SN AI 시스템
+
+<div class="my-6 overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
+  <table class="w-full text-left text-sm">
+    <thead class="bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+      <tr>
+        <th class="px-4 py-3 font-semibold">시스템</th>
+        <th class="px-4 py-3 font-semibold">역할</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+      <tr class="bg-white dark:bg-gray-900">
+        <td class="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">SNarLINK</td>
+        <td class="px-4 py-3 text-gray-600 dark:text-gray-300">학습 시간·디지털 행동·집중 패턴 수집</td>
+      </tr>
+      <tr class="bg-white dark:bg-gray-900">
+        <td class="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">SNarVIS</td>
+        <td class="px-4 py-3 text-gray-600 dark:text-gray-300">데이터를 해석해 <strong>"어디에 개입해야 승산이 있는가"</strong>를 판단하는 교육 의사결정형 에이전트 (리포트 도구가 아니라 <strong>개입 시점을 찾아주는 AI</strong>)</td>
+      </tr>
+      <tr class="bg-white dark:bg-gray-900">
+        <td class="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">SNarGPT</td>
+        <td class="px-4 py-3 text-gray-600 dark:text-gray-300">풀이·개념 즉시 질의응답, 학습 병목의 즉각 보완</td>
+      </tr>
+      <tr class="bg-white dark:bg-gray-900">
+        <td class="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">SNarGEN</td>
+        <td class="px-4 py-3 text-gray-600 dark:text-gray-300">평가원급 문항 생성/변형으로 정밀한 훈련 세트 제공</td>
+      </tr>
+      <tr class="bg-white dark:bg-gray-900">
+        <td class="px-4 py-3 font-medium text-gray-900 dark:text-gray-100">SN Portal</td>
+        <td class="px-4 py-3 text-gray-600 dark:text-gray-300">모든 AI와 운영 시스템의 통합 인프라</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+---
+
+## 5. 우리는 성장에서 멈추지 않는다 — 학원은 결과를 만든다
+
+학교는 성장을 목표로 할 수 있지만, 학원은 거기서 멈출 수 없습니다. 성장은 과정이고, <strong>결과는 입시 실적</strong>입니다. SN이 AI에 투자하는 목적은 학생의 가능성을 찾아내는 데서 끝내지 않고 그것을 <strong>'합격'이라는 결과</strong>로 증명하기 위해서입니다.
+
+---
+
+## 결론 — AI 시대 입시 실적을 구조화하는 학원
+
+곧 모든 학원에 AI가 들어올 것입니다. 진짜 차이는 <em>유무</em>가 아니라, <strong>얼마나 깊이 내재화했는가</strong>에서 갈립니다. SN독학기숙학원은 감 중심 관리에서 <strong>근거 기반 개입</strong>으로, 경험 중심 관찰에서 <strong>데이터 기반 판단</strong>으로, 성장 중심 관리에서 <strong>합격 중심 구조</strong>로 전환하고 있습니다.
+
+우리는 '감으로 지도하는 학원'이 아니라, <strong>데이터 위에 경험을 더해 성과를 완성하는 학원</strong>입니다. 이 방향이 AI 시대 새로운 입시 표준이 될 것이라 확신합니다.
+
+---
+
+<div class="mt-8 rounded-2xl bg-gray-50 dark:bg-gray-800 p-6 text-sm text-gray-600 dark:text-gray-300 border border-gray-100 dark:border-gray-700">
+  <p class="mb-2 font-medium text-gray-900 dark:text-gray-100">작성자</p>
+  <p>SN독학기숙학원 대표 윤석기</p>
+</div>`,
+    category: 'startup',
+    tags: ['AI', '교육혁신', '데이터', '입시전략', '에듀테크'],
+    author: 'SN독학기숙학원 대표 윤석기',
+    date: '2025-10-19',
+    readTime: '15',
+    featured: true,
+    published: true,
+    url: '/startup/why-we-invest-in-ai',
+  },
+  {
     id: 'SNargopost_1',
     title: 'SNarGO — 수능 특화 Vertical AI',
     excerpt:
@@ -1908,7 +2040,7 @@ Reading "Chulsaegok" offers an opportunity to understand not only the hearts of 
     author: 'SN Academy',
     date: '2025-10-14',
     readTime: '9',
-    featured: true,
+    featured: false,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_F.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=ThaMhDbZuNc',
