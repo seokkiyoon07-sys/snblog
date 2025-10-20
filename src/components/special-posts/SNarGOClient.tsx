@@ -63,6 +63,20 @@ export default function SNarGOClient() {
         </div>
       </section>
 
+      {/* Thumbnail */}
+      <section className="mt-12">
+        <div className="flex justify-center">
+          <Image
+            src="/images/startup/SNarGo/SNargo-thumbnail.PNG"
+            alt="SNarGO 썸네일"
+            width={1200}
+            height={600}
+            className="rounded-2xl shadow-2xl w-full max-w-4xl object-cover"
+            priority
+          />
+        </div>
+      </section>
+
       {/* Why Vertical */}
       <section id="why" className="mt-16 space-y-8">
         <h2 className="text-2xl md:text-3xl font-semibold">왜 스나고인가</h2>
