@@ -160,7 +160,7 @@ SN의 AI는 '보조 프로그램'이 아니라 <strong>교사의 시야를 확�
     title: 'SNarGO — 수능 특화 Vertical AI',
     excerpt:
       'SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵까지.',
-    thumbnail: '/images/startup/SNarGo/SNargo thumbnail.PNG',
+    thumbnail: '/images/startup/SNarGo/SNargo-thumbnail.PNG',
     content: `SNarGO는 수능에 최적화된 Vertical AI입니다. 2,000문제 중 1문제 수준 오답, SNarVIS 해설, 그리고 차세대 문제 생성 AI SNarGEN 로드맵을 소개합니다.
 
 ## SNarGO란?
@@ -936,55 +936,61 @@ SN독학기숙학원의 방화벽은 개발이 모두 완료되었으며, 본원
   <h3 class="text-2xl font-semibold text-gray-800 mb-6">SN 생태계를 구성하는 핵심 AI 제품들입니다</h3>
   
   <div class="grid md:grid-cols-2 gap-6">
-    <div class="border border-gray-200 rounded-lg p-6">
-      <div class="flex items-center mb-4">
-        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
-          <span class="text-gray-600 text-xl">🔗</span>
+    <div class="border border-gray-200 rounded-lg p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-blue-50 cursor-pointer group">
+      <a href="/columns/SNarlink" class="block">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+            <span class="text-gray-600 text-xl">🔗</span>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 text-lg">SNarlink</h4>
+            <p class="text-sm text-gray-600">초정밀 학습 분석 방화벽 시스템</p>
+          </div>
         </div>
-        <div>
-          <h4 class="font-semibold text-gray-800 text-lg">SNarlink</h4>
-          <p class="text-sm text-gray-600">초정밀 학습 분석 방화벽 시스템</p>
-        </div>
-      </div>
-      <ul class="text-sm text-gray-600 space-y-2">
-        <li>• 온라인 학습 활동을 데이터화하여 집중도 측정</li>
-        <li>• 학부모/교사에게 투명한 리포트 제공</li>
-        <li>• AI 기반 시도와 의도 탐지 능력</li>
-      </ul>
+        <ul class="text-sm text-gray-600 space-y-2">
+          <li>• 온라인 학습 활동을 데이터화하여 집중도 측정</li>
+          <li>• 학부모/교사에게 투명한 리포트 제공</li>
+          <li>• AI 기반 인터넷 우회 시도와 의도 탐지 가능</li>
+        </ul>
+      </a>
     </div>
 
-    <div class="border border-gray-200 rounded-lg p-6">
-      <div class="flex items-center mb-4">
-        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
-          <span class="text-gray-600 text-xl">🎯</span>
+    <div class="border border-gray-200 rounded-lg p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-blue-50 cursor-pointer group">
+      <a href="/startup/SNargopost_1" class="block">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+            <span class="text-gray-600 text-xl">🎯</span>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 text-lg">SNarGO</h4>
+            <p class="text-sm text-gray-600">수학문제풀이 AI</p>
+          </div>
         </div>
-        <div>
-          <h4 class="font-semibold text-gray-800 text-lg">SNarGO</h4>
-          <p class="text-sm text-gray-600">수학문제풀이 AI</p>
-        </div>
-      </div>
-      <ul class="text-sm text-gray-600 space-y-2">
-        <li>• 수능 수학문제를 99%+ 확률로 풀이</li>
-        <li>• 정확한 개념 설명과 단계별 풀이</li>
-        <li>• 오답 분석 및 학습 방향 제시</li>
-      </ul>
+        <ul class="text-sm text-gray-600 space-y-2">
+          <li>• 수능 수학문제를 99%+ 확률로 풀이</li>
+          <li>• 정확한 개념 설명과 단계별 풀이</li>
+          <li>• 오답 분석 및 학습 방향 제시</li>
+        </ul>
+      </a>
     </div>
 
-    <div class="border border-gray-200 rounded-lg p-6">
-      <div class="flex items-center mb-4">
-        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
-          <span class="text-gray-600 text-xl">🤖</span>
+    <div class="border border-gray-200 rounded-lg p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-blue-50 cursor-pointer group">
+      <a href="https://snargpt.ai" target="_blank" rel="noopener noreferrer" class="block">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4">
+            <span class="text-gray-600 text-xl">🤖</span>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 text-lg">SNarGPT</h4>
+            <p class="text-sm text-gray-600">질문 받아주는 AI</p>
+          </div>
         </div>
-        <div>
-          <h4 class="font-semibold text-gray-800 text-lg">SNarGPT</h4>
-          <p class="text-sm text-gray-600">질문 받아주는 AI</p>
-        </div>
-      </div>
-      <ul class="text-sm text-gray-600 space-y-2">
-        <li>• 다양한 학습 관련 질문에 답변</li>
-        <li>• 학습자 개인별 맞춤형 조언 제공</li>
-        <li>• 24/7 학습 코칭</li>
-      </ul>
+        <ul class="text-sm text-gray-600 space-y-2">
+          <li>• 다양한 학습 관련 질문에 답변</li>
+          <li>• 학습자 개인별 맞춤형 조언 제공</li>
+          <li>• 24/7 학습 코칭</li>
+        </ul>
+      </a>
     </div>
 
     <div class="border border-gray-200 rounded-lg p-6">
