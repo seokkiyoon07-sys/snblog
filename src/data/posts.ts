@@ -149,9 +149,10 @@ SN의 AI는 '보조 프로그램'이 아니라 <strong>교사의 시야를 확�
     category: 'startup',
     tags: ['AI', '교육혁신', '데이터', '입시전략', '에듀테크'],
     author: 'SN독학기숙학원 대표 윤석기',
-    date: '2025-10-19',
+    date: '2025-10-18',
     readTime: '15',
     featured: true,
+    featuredOrder: 2,
     published: true,
     url: '/startup/why-we-invest-in-ai',
   },
@@ -2165,6 +2166,7 @@ Reading "Mongcheonyo" offers an opportunity to understand not only the hearts of
     date: '2025-10-26',
     readTime: '12',
     featured: true,
+    featuredOrder: 3,
     published: true,
     thumbnail: '/images/thumbnail/DokRakDang_thumbnail_F_v3.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=NlLizA-5u1M',
@@ -2202,11 +2204,153 @@ Reading "Mongcheonyo" offers an opportunity to understand not only the hearts of
     date: '2025-10-27',
     readTime: '12',
     featured: true,
+    featuredOrder: 4,
     published: true,
     thumbnail: '/images/thumbnail/Oryun-ga_thumbnail_a2_v2.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=G3ojQuQXMxE',
     url: '/originals/oryun-ga',
     type: 'special',
+  },
+  {
+    id: 'ai-study-method',
+    title: 'AI에게 배우는 진짜 공부법',
+    excerpt:
+      'AI가 똑똑해진 비밀은 설계가 아니라 노출량이었습니다. 인간의 공부도 마찬가지입니다. SN독학기숙학원 대표 윤석기가 AI 학습 원리를 통해 발견한 진짜 공부법을 소개합니다.',
+    content: `안녕하세요. SN독학기숙학원 대표 윤석기입니다.
+
+오늘은 조금 조심스럽지만, 꼭 한번 글로 남겨보고 싶었던 주제 — **"공부하는 법"**에 대해 이야기해 보려 합니다.
+
+공부법은 사람마다 다릅니다. 똑같은 책을 보고 똑같은 문제를 풀어도, 어떤 학생은 성장이 빠르고, 어떤 학생은 느립니다. 저 역시 오랫동안 수많은 학생을 지도하며 '정답 같은 공부법'은 없다는 사실을 잘 알고 있습니다.
+
+하지만, 아이러니하게도 AI(인공지능) 덕분에 저는 오히려 '공부란 무엇인가'라는 질문에 조금 더 확실한 답을 얻게 되었습니다.
+
+## AI는 어떻게 학습하는가?
+
+잠시 공부 이야기로 가기 전에, AI 이야기를 해 보겠습니다. AI는 어떻게 이렇게 똑똑해졌을까요?
+
+우리는 흔히 AI가 '천재 알고리즘' 때문에 뛰어나다고 생각합니다. 하지만 실제 발전 역사를 보면, AI가 똑똑해진 핵심 비밀은 **구조(설계)보다 노출량(학습량)**이었습니다.
+
+쉽게 말해,
+**"두뇌가 뛰어나서"가 아니라 "많이 보고 많이 배웠기 때문에"** 잘하게 된 것입니다.
+
+예를 들어
+
+- 단어 500개만 아는 사람과
+- 단어 5만 개를 아는 사람은
+
+대화 능력이 완전히 다르죠?
+
+AI도 비슷합니다. 제가 AI 전문가는 아니지만, 제가 이해한 바로는 모델 안의 "파라미터(parameter)"라는 것은 일종의 '더 큰 그릇'과 같습니다. 더 많은 패턴과 경험을 담을 수 있는 용량이라고 볼 수 있습니다.
+
+<div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 rounded-r-lg">
+  <p class="font-medium text-blue-800">
+    <strong>파라미터가 많다</strong> = 더 복잡하고 많은 패턴을 학습해 저장할 수 있다<br>
+    <strong>파라미터가 적다</strong> = 담을 수 있는 패턴이 제한적이다
+  </p>
+</div>
+
+그래서 요즘 AI는 정교한 알고리즘을 더 다듬는 것보다, 그저 **"훨씬 더 많은 데이터"**를 집어넣는 방식으로 발전했습니다. 그래서 ChatGPT도 몇 천억, 몇 조 개의 파라미터를 가진 '초거대' 모델이 된 것이죠.
+
+즉, **AI의 지능을 키운 것은 '설계'가 아니라 '노출량(학습량)'**이었습니다.
+
+## 인간의 공부도 다르지 않습니다
+
+AI는 설계도보다 **반복 노출(학습량)**이 실력을 키웁니다. 사람의 공부도 똑같습니다.
+
+많은 학생이 "저는 공부 머리가 안 좋아서요" "방법을 몰라서 성적이 안 나옵니다"라고 말하지만, 실제로는 **'방법의 문제'가 아니라 '노출량의 부족'**인 경우가 훨씬 많습니다.
+
+특히 수능은 이 특징이 더 강하게 나타납니다.
+
+수능은 '깊은 이해'와 '패턴 숙련'이 결합되어야 하는 시험입니다. 물론 기본 개념과 원리를 모르면 문제를 풀 수 없습니다. 하지만 많은 학생이 "개념은 어느 정도 이해했는데 문제는 못 풀겠어요"라고 말하는 이유는, 바로 패턴 노출이 부족하기 때문입니다.
+
+같은 개념과 유형에 10번 노출된 학생과 30번 노출된 학생은 이해력과 정확도, 그리고 '자동화된 풀이 속도'가 전혀 다릅니다.
+
+<div class="bg-green-50 border-l-4 border-green-400 p-4 my-6 rounded-r-lg">
+  <p class="font-medium text-green-800">
+    <strong>실제 사례:</strong> 한 학생이 수학 킬러 문제를 처음 봤을 때 20분이 걸렸지만, 같은 유형을 15번 반복한 후에는 3분 만에 풀었습니다. 머리가 좋아진 게 아니라, 패턴이 몸에 각인된 것이죠.
+  </p>
+</div>
+
+즉, 수능은 머리가 좋은 사람이 이기는 시험이 아니라, **같은 유형을 질릴 만큼 많이 본 사람이 체계적으로 이기는 시험**입니다.
+
+이게 바로 상위권 학생들이 마지막 2~3개월에 '급상승'하는 이유이기도 합니다. 지능이 올라서가 아니라, 패턴이 임계점을 넘어서면서 뇌에 내재화되기 때문입니다.
+
+<div class="bg-amber-50 border-l-4 border-amber-400 p-4 my-6 rounded-r-lg">
+  <p class="font-medium text-amber-800">
+    <strong>핵심 원리:</strong> 최소한 수능 공부는 똑똑해야 하는 게 아니라 충분히 많이 접하는 사람이 이기는 게임에 가깝습니다.
+  </p>
+</div>
+
+## 그렇다면, 실전에서는 어떻게 적용할까?
+
+결국 좋은 수능 공부법의 본질은 간단합니다.
+
+**"생각보다 더 많이 반복하고, 잊을 때마다 다시 보고, 패턴이 체화될 때까지 풀어 보는 것."**
+
+AI가 벡터를 통해 '패턴'을 내재화하듯, 우리 역시 지식을 몸에 각인시키는 과정이 필요합니다.
+
+바꿔 말하면,
+
+- 지금 당장 1차 이해는 완벽하지 않아도 괜찮습니다.
+- 반복 노출이 쌓이면 어느 순간 '전이(transfer)'가 일어납니다.
+- 그때 비로소 실력이 '튀어오르는 구간'이 나옵니다.
+
+다만, 여기서 중요한 점이 있습니다. 무작정 반복하는 것이 아니라, **'능동적 회상(active recall)'과 '간격 반복'**이 동반되어야 진짜 내재화가 일어납니다. 그저 교재를 계속 읽기만 하는 것과, 스스로 문제를 풀며 기억을 꺼내 보는 것은 전혀 다른 학습입니다.
+
+실제로 공부 잘하는 학생들의 공통점은 머리가 좋은 게 아니라, **반복 구간을 끝까지 버티는 사람들**입니다.
+
+## 그렇다면 이 원리를 어떻게 실현할 것인가?
+
+문제는 '알고 있다'와 '실행한다'는 완전히 다른 이야기라는 점입니다.
+
+저는 SN에서 이 원리를 시스템으로 구현하려고 노력하고 있습니다. 반복이 '의지'가 아니라 '환경'으로 작동하도록 말이죠.
+
+<div class="bg-gray-50 border-l-4 border-gray-400 p-4 my-6 rounded-r-lg">
+  <p class="font-medium text-gray-800">
+    <strong>SN의 시스템적 접근:</strong><br>
+    • 하루 14시간 이상의 순수 학습량<br>
+    • 일정이 흐트러지지 않는 몰입형 구조<br>
+    • 반복과 회독이 자동으로 누적되는 루틴 설계
+  </p>
+</div>
+
+즉, "공부 시간이 많다"가 아니라 **"패턴 노출량이 압도적으로 빠르게 쌓인다"**는 점에서 수능 구조와 가장 잘 맞아떨어지는 환경을 만들려고 합니다.
+
+## 마무리
+
+AI가 보여준 학습의 원리처럼, 우리도 설계가 아니라 노출량, 지능이 아니라 반복과 내재화로 성장하고 성공할 수 있습니다.
+
+다음 글에서는 이 원리를 실제 공부 루틴으로 어떻게 옮기는지, SN의 14시간 환경 속에서 반복이 '의지'가 아니라 '시스템'으로 작동하는 방법을 구체적으로 풀어보겠습니다.
+
+그 외에도 "반복을 어떻게 설계할 것인가", "양을 늘리되 질도 떨어지지 않게 하는 법", "지겨움·슬럼프를 관리하는 법" 같은 현실적인 방법을 하나씩 풀어 보려고 합니다.
+
+<div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 rounded-r-lg">
+  <p class="font-medium text-blue-800">
+    <strong>다음 글 예고:</strong><br>
+    • 반복이 시스템으로 작동하는 구체적 방법<br>
+    • 양과 질의 균형을 맞추는 전략<br>
+    • 학습 슬럼프 극복법
+  </p>
+</div>
+
+읽어 주셔서 감사합니다.
+
+---
+
+<div class="mt-8 rounded-2xl bg-gray-50 dark:bg-gray-800 p-6 text-sm text-gray-600 dark:text-gray-300 border border-gray-100 dark:border-gray-700">
+  <p class="mb-2 font-medium text-gray-900 dark:text-gray-100">작성자</p>
+  <p>SN독학기숙학원 대표 윤석기</p>
+</div>`,
+    category: 'columns',
+    tags: ['공부법', 'AI', '학습법', '반복학습', '수능전략'],
+    author: 'SN독학기숙학원 대표 윤석기',
+    date: '2025-10-27',
+    readTime: '12',
+    featured: true,
+    featuredOrder: 1,
+    published: true,
+    thumbnail: '/images/thumbnail/howtostudythumbnail.gif',
+    url: '/columns/ai-study-method',
   },
 ];
 
@@ -2253,7 +2397,22 @@ export function getPosts(): Post[] {
 
 export function getFeaturedPosts(): Post[] {
   const mergedPosts = getMergedPosts();
-  return mergedPosts.filter(post => post.featured && post.published); // featured 이고 published 된 글만 가져오기
+  const featuredPosts = mergedPosts.filter(
+    post => post.featured && post.published
+  );
+
+  // featuredOrder 기준으로 정렬 (낮을수록 먼저, 없으면 날짜 기준)
+  return featuredPosts.sort((a, b) => {
+    // featuredOrder가 있는 경우 우선 정렬
+    if (a.featuredOrder !== undefined && b.featuredOrder !== undefined) {
+      return a.featuredOrder - b.featuredOrder;
+    }
+    if (a.featuredOrder !== undefined) return -1;
+    if (b.featuredOrder !== undefined) return 1;
+
+    // featuredOrder가 없으면 날짜 기준 정렬 (최신순)
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 }
 
 export function getPostById(id: string): Post | undefined {
