@@ -28,49 +28,73 @@ jobs:
           # Find allPosts array start line
           ALLPOSTS_START=$(grep -n "export const allPosts" src/data/posts.ts | cut -d: -f1)
 
-          # Get changed lines
-          CHANGED_LINES=$(git diff HEAD~1 HEAD src/data/posts.ts | grep "^@@" | sed 's/.*+\([0-9]*\).*/\1/')
+          # Get the actual diff content
+          DIFF_CONTENT=$(git diff HEAD~1 HEAD src/data/posts.ts)
 
-          # Check if changes are inside allPosts array
-          CHANGED_POST_ID=""
-          for line in $CHANGED_LINES; do
-            if [ "$line" -ge "$ALLPOSTS_START" ]; then
-              # Find the post ID for this line
-              POST_BLOCK_START=$(sed -n "1,${line}p" src/data/posts.ts | grep -n "id:" | tail -1 | cut -d: -f1)
-              if [ ! -z "$POST_BLOCK_START" ]; then
-                POST_ID=$(sed -n "${POST_BLOCK_START}p" src/data/posts.ts | grep -oE "id: *['\"][^'\"]*['\"]" | sed "s/id: *['\"]//; s/['\"].*//")
+          # Look for added posts (new posts)
+          ADDED_POST_ID=""
+          if echo "$DIFF_CONTENT" | grep -q "^+.*id:"; then
+            # Find the first added post ID
+            ADDED_POST_ID=$(echo "$DIFF_CONTENT" | grep "^+.*id:" | head -1 | grep -oE "id: *['\"][^'\"]*['\"]" | sed "s/id: *['\"]//; s/['\"].*//")
+          fi
+
+          # If no new post found, look for modified posts
+          if [ -z "$ADDED_POST_ID" ]; then
+            # Get changed lines and find the most recent post ID
+            CHANGED_LINES=$(echo "$DIFF_CONTENT" | grep "^@@" | sed 's/.*+\([0-9]*\).*/\1/')
+            
+            for line in $CHANGED_LINES; do
+              if [ "$line" -ge "$ALLPOSTS_START" ]; then
+                # Find the post ID that contains this line
+                POST_ID=$(sed -n "1,${line}p" src/data/posts.ts | grep -n "id:" | tail -1 | cut -d: -f2 | grep -oE "['\"][^'\"]*['\"]" | sed "s/['\"]//g")
                 if [ ! -z "$POST_ID" ]; then
-                  CHANGED_POST_ID="$POST_ID"
+                  ADDED_POST_ID="$POST_ID"
                   break
                 fi
               fi
-            fi
-          done
+            done
+          fi
 
-          if [ -z "$CHANGED_POST_ID" ]; then
+          if [ -z "$ADDED_POST_ID" ]; then
             echo "No post changes detected"
             echo "changed=false" >> $GITHUB_OUTPUT
             exit 0
           fi
 
           echo "changed=true" >> $GITHUB_OUTPUT
-          echo "post_id=$CHANGED_POST_ID" >> $GITHUB_OUTPUT
+          echo "post_id=$ADDED_POST_ID" >> $GITHUB_OUTPUT
+          echo "🔍 Detected post ID: $ADDED_POST_ID"
 
       - name: Extract post info
         id: extract
         if: steps.detect.outputs.changed == 'true'
         run: |
           POST_ID="${{ steps.detect.outputs.post_id }}"
+          echo "🔍 Extracting info for post ID: $POST_ID"
 
-          # Find post block
+          # Find post block more accurately
           POST_BLOCK_START=$(grep -n "id: *['\"]${POST_ID}['\"]" src/data/posts.ts | cut -d: -f1)
-          POST_BLOCK=$(sed -n "${POST_BLOCK_START},$((POST_BLOCK_START + 100))p" src/data/posts.ts | sed '/^  },$/q')
+          if [ -z "$POST_BLOCK_START" ]; then
+            echo "❌ Post ID not found: $POST_ID"
+            exit 1
+          fi
 
-          # Extract post information
-          POST_TITLE=$(echo "$POST_BLOCK" | grep -A 2 "title:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
-          POST_EXCERPT=$(echo "$POST_BLOCK" | grep -A 2 "excerpt:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
+          # Extract the complete post block
+          POST_BLOCK=$(sed -n "${POST_BLOCK_START},/^  },$/p" src/data/posts.ts)
+
+          # Extract post information with better parsing
+          POST_TITLE=$(echo "$POST_BLOCK" | grep -A 1 "title:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
+          POST_EXCERPT=$(echo "$POST_BLOCK" | grep -A 3 "excerpt:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
           POST_URL=$(echo "$POST_BLOCK" | grep -A 1 "url:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
           POST_THUMBNAIL=$(echo "$POST_BLOCK" | grep -A 1 "thumbnail:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
+
+          # Validate extracted data
+          if [ -z "$POST_TITLE" ] || [ -z "$POST_URL" ]; then
+            echo "❌ Failed to extract post information"
+            echo "Title: $POST_TITLE"
+            echo "URL: $POST_URL"
+            exit 1
+          fi
 
           # Set outputs
           echo "title=$POST_TITLE" >> $GITHUB_OUTPUT
@@ -80,6 +104,7 @@ jobs:
 
           # Debug output
           echo "📄 Extracted post info:"
+          echo "  ID: $POST_ID"
           echo "  Title: $POST_TITLE"
           echo "  URL: $POST_URL"
           echo "  Thumbnail: $POST_THUMBNAIL"
