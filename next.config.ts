@@ -2,7 +2,8 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: 'standalone', // Docker를 위한 standalone 빌드
+  // Docker를 위한 standalone 빌드 (Vercel에서는 사용하지 않음)
+  ...(process.env.DOCKER_BUILD === 'true' ? { output: 'standalone' } : {}),
   images: {
     remotePatterns: [
       {
@@ -24,10 +25,7 @@ const nextConfig: NextConfig = {
     ],
     formats: ['image/webp', 'image/avif'],
     qualities: [75, 85, 95, 100],
-    unoptimized: true, // Vercel에서 이미지 최적화 비활성화 (임시)
-  },
-  experimental: {
-    optimizeCss: true,
+    unoptimized: false, // Vercel에서 이미지 최적화 활성화
   },
   compress: true,
   poweredByHeader: false,
