@@ -149,23 +149,26 @@ function transformParagraph(paragraph: string): string {
 export function renderMarkdown(content: string): string {
   return (
     content
-      // 1. 이미지 변환 (링크보다 먼저 처리해야 함)
+      // 1. Horizontal Rule 변환 (다른 변환보다 먼저)
+      .replace(/^---$/gim, '<hr class="my-12 border-t border-gray-200 dark:border-gray-700" />')
+      
+      // 2. 이미지 변환 (링크보다 먼저 처리해야 함)
       .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, transformImage)
 
-      // 2. 링크 변환
+      // 3. 링크 변환
       .replace(/\[([^\]]+)\]\(([^)]+)\)/g, transformLink)
 
-      // 3. 제목 변환
+      // 4. 제목 변환
       .replace(/^# (.*$)/gim, transformH1)
       .replace(/^## (.*$)/gim, transformH2)
       .replace(/^### (.*$)/gim, transformH3)
       .replace(/^#### (.*$)/gim, transformH4)
 
-      // 4. 강조 텍스트 변환
+      // 5. 강조 텍스트 변환
       .replace(/\*\*(.*?)\*\*/g, transformBold)
       .replace(/\*(.*?)\*/g, transformItalic)
 
-      // 5. 문단 처리
+      // 6. 문단 처리
       .split('\n\n')
       .map(transformParagraph)
       .join('')
