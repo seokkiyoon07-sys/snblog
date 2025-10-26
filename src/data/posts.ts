@@ -186,7 +186,7 @@ SNarGO는 **수능 수학 문제 전용** Vertical AI로, 학생들의 수학 �
     author: 'SN Academy',
     date: '2025-10-07',
     readTime: '12',
-    featured: true,
+    featured: false,
     published: true,
     youtubeUrl: undefined,
     url: '/startup/SNargopost_1',
@@ -1214,7 +1214,7 @@ SN독학기숙학원의 방화벽은 개발이 모두 완료되었으며, 본원
     author: 'SN Academy',
     date: '2025-09-29',
     readTime: '15',
-    featured: true,
+    featured: false,
     published: true,
     thumbnail:
       'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=400&fit=crop&crop=center',
@@ -2129,11 +2129,84 @@ Reading "Mongcheonyo" offers an opportunity to understand not only the hearts of
     author: 'SN Academy',
     date: '2025-10-19',
     readTime: '8',
-    featured: true,
+    featured: false,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_F_mongcheonyo.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=HmzoVsJUBFE',
     url: '/originals/mongcheonyo',
+  },
+  {
+    id: 'dokrakdang',
+    title: '산 좋고 물 좋은 자연에서 공부할 맛 났겠어 (고전문학 「독락당」)',
+    excerpt:
+      '박인로의 「독락당」으로 조선 성리학의 정통을 세운 회재 이언적의 학문 공간을 만나보세요. 1619년 박인로가 59세의 나이에 지은 가사로, 홀로 누리는 즐거움과 학문의 진수를 담은 작품입니다.',
+    content: `안녕하세요, SN독학기숙학원입니다 😊
+
+보기만 해도 국어 감각이 살아나는 고전문학 시리즈 제11탄,
+오늘 소개할 작품은 조선 중기에서 후기로 넘어가던 1619년에 박인로가 지은 가사 「독락당(獨樂堂)」입니다.
+
+'독락당'은 조선 성리학의 정통을 세운 회재 이언적 선생이 학문을 닦고 거처했던 공간으로,
+그 품격과 고요함 속에서 선비가 추구하던 **'홀로 누리는 즐거움, 학문 그 자체'**가 고스란히 담겨 있습니다.
+후대에는 그 학덕을 기리기 위해 건너편에 옥산서원이 세워졌고, 지금도 수많은 방문객이 찾는 학문의 성소로 남아 있습니다.
+
+박인로는 59세의 나이에 독락당 주변을 거닐며 회재의 발자취를 체험하고,
+선배 지성인에 대한 깊은 존경과 사모의 마음을 가사 문학의 정갈한 언어로 풀어내었습니다.
+이 작품은 단순한 감상문이 아니라, 학문과 인격이 어떻게 삶으로 이어지는지 보여주는 기록이기도 합니다.`,
+    category: 'SN Originals',
+    tags: [
+      '고전문학',
+      '독락당',
+      '박인로',
+      '회재 이언적',
+      '가사문학',
+      '수능국어',
+    ],
+    author: 'SN Academy',
+    date: '2025-10-26',
+    readTime: '10',
+    featured: true,
+    published: true,
+    thumbnail: '/images/thumbnail/DokRakDang_thumbnail_F_v3.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=NlLizA-5u1M',
+    url: '/originals/dokrakdang',
+    type: 'special',
+  },
+  {
+    id: 'oryun-ga',
+    title: '내 요즘 것들 버르장머리를 그냥 (고전문학 「오륜가」)',
+    excerpt:
+      '박선장의 「오륜가」로 조선 중기 유교 윤리의 핵심인 다섯 가지 인간관계를 만나보세요. 1612년 광해군 시대에 지어진 교훈 가사로, 사회 혼란 속에서도 지켜야 할 삶의 기준을 담은 작품입니다.',
+    content: `안녕하세요, SN독학기숙학원입니다 😊
+
+보기만 해도 수능 점수가 오르는 고전문학 시리즈 제12탄.
+오늘은 조선 중기 문인 박선장이 지은 교훈 가사, 「오륜가(五倫歌)」를 소개합니다.
+
+'오륜(五倫)'이란 유교 윤리의 핵심인 다섯 가지 인간관계를 말합니다.
+
+부자유친(父子有親) – 부모와 자식 사이에는 인(仁)과 친애가 있어야 하며
+군신유의(君臣有義) – 임금과 신하의 관계에는 의(義)가 있어야 하고
+부부유별(夫婦有別) – 부부는 서로의 역할과 예를 지키며
+장유유서(長幼有序) – 어른과 아이 사이에는 질서가 있으며
+붕우유신(朋友有信) – 친구 간에는 믿음이 있어야 한다
+
+박선장은 1612년(광해군 4년), 혼탁해지는 세태 속에서
+올바른 질서와 인간관계의 회복이 필요하다고 느껴,
+마을의 젊은 선비들에게 삶의 기준을 세워주기 위해 이 작품을 지었다고 전해집니다.
+
+즉 「오륜가」는 단순한 '윤리 암송문'이 아니라,
+사회가 혼란할수록 개인이 지켜야 할 삶의 기준을 되돌아보게 하는 작품입니다.
+지금 시대에도 여전히 유효한, '품격 있는 관계의 조건'이 담겨 있습니다.`,
+    category: 'SN Originals',
+    tags: ['고전문학', '오륜가', '박선장', '교훈가사', '수능국어', '유교윤리'],
+    author: 'SN Academy',
+    date: '2025-10-27',
+    readTime: '12',
+    featured: true,
+    published: true,
+    thumbnail: '/images/thumbnail/Oryun-ga_thumbnail_a2_v2.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=G3ojQuQXMxE',
+    url: '/originals/oryun-ga',
+    type: 'special',
   },
 ];
 

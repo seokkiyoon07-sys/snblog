@@ -150,8 +150,11 @@ export function renderMarkdown(content: string): string {
   return (
     content
       // 1. Horizontal Rule 변환 (다른 변환보다 먼저)
-      .replace(/^---$/gim, '<hr class="my-12 border-t border-gray-200 dark:border-gray-700" />')
-      
+      .replace(
+        /^---$/gim,
+        '<hr class="my-12 border-t border-gray-200 dark:border-gray-700" />'
+      )
+
       // 2. 이미지 변환 (링크보다 먼저 처리해야 함)
       .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, transformImage)
 
