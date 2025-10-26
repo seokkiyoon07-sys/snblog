@@ -134,7 +134,8 @@ jobs:
               \"connectInfo\": [
                 {
                   \"title\": \"${POST_TITLE}\",
-                  \"description\": \"${POST_EXCERPT}\n\n포스트 URL: ${FULL_POST_URL}\n블로그 홈: https://blog.snacademy.co.kr\"
+                  \"description\": \"${POST_EXCERPT}\n\n포스트 URL: ${FULL_POST_URL}\n블로그 홈: https://blog.snacademy.co.kr\",
+                  \"imageUrl\": \"${THUMBNAIL_URL}\"
                 }
               ],
               \"connectButtons\": [
