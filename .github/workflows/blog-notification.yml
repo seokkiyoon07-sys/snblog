@@ -1,0 +1,129 @@
+name: Blog Post Notification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/posts.ts'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect post changes
+        id: detect
+        run: |
+          # Check if posts.ts was modified
+          if ! git diff HEAD~1 HEAD --name-only | grep -q "src/data/posts.ts"; then
+            echo "No changes in posts.ts"
+            echo "changed=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Find allPosts array start line
+          ALLPOSTS_START=$(grep -n "export const allPosts" src/data/posts.ts | cut -d: -f1)
+
+          # Get changed lines
+          CHANGED_LINES=$(git diff HEAD~1 HEAD src/data/posts.ts | grep "^@@" | sed 's/.*+\([0-9]*\).*/\1/')
+
+          # Check if changes are inside allPosts array
+          CHANGED_POST_ID=""
+          for line in $CHANGED_LINES; do
+            if [ "$line" -ge "$ALLPOSTS_START" ]; then
+              # Find the post ID for this line
+              POST_BLOCK_START=$(sed -n "1,${line}p" src/data/posts.ts | grep -n "id:" | tail -1 | cut -d: -f1)
+              if [ ! -z "$POST_BLOCK_START" ]; then
+                POST_ID=$(sed -n "${POST_BLOCK_START}p" src/data/posts.ts | grep -oE "id: *['\"][^'\"]*['\"]" | sed "s/id: *['\"]//; s/['\"].*//")
+                if [ ! -z "$POST_ID" ]; then
+                  CHANGED_POST_ID="$POST_ID"
+                  break
+                fi
+              fi
+            fi
+          done
+
+          if [ -z "$CHANGED_POST_ID" ]; then
+            echo "No post changes detected"
+            echo "changed=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "changed=true" >> $GITHUB_OUTPUT
+          echo "post_id=$CHANGED_POST_ID" >> $GITHUB_OUTPUT
+
+      - name: Extract post info
+        id: extract
+        if: steps.detect.outputs.changed == 'true'
+        run: |
+          POST_ID="${{ steps.detect.outputs.post_id }}"
+
+          # Find post block
+          POST_BLOCK_START=$(grep -n "id: *['\"]${POST_ID}['\"]" src/data/posts.ts | cut -d: -f1)
+          POST_BLOCK=$(sed -n "${POST_BLOCK_START},$((POST_BLOCK_START + 100))p" src/data/posts.ts | sed '/^  },$/q')
+
+          # Extract post information
+          POST_TITLE=$(echo "$POST_BLOCK" | grep -A 2 "title:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
+          POST_EXCERPT=$(echo "$POST_BLOCK" | grep -A 2 "excerpt:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
+          POST_URL=$(echo "$POST_BLOCK" | grep -A 1 "url:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
+          POST_THUMBNAIL=$(echo "$POST_BLOCK" | grep -A 1 "thumbnail:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
+
+          # Set outputs
+          echo "title=$POST_TITLE" >> $GITHUB_OUTPUT
+          echo "excerpt=$POST_EXCERPT" >> $GITHUB_OUTPUT
+          echo "url=$POST_URL" >> $GITHUB_OUTPUT
+          echo "thumbnail=$POST_THUMBNAIL" >> $GITHUB_OUTPUT
+
+          # Debug output
+          echo "📄 Extracted post info:"
+          echo "  Title: $POST_TITLE"
+          echo "  URL: $POST_URL"
+          echo "  Thumbnail: $POST_THUMBNAIL"
+          echo "  Excerpt: ${POST_EXCERPT:0:50}..."
+
+      - name: Send Jandi notification
+        if: steps.detect.outputs.changed == 'true'
+        run: |
+          POST_TITLE="${{ steps.extract.outputs.title }}"
+          POST_EXCERPT="${{ steps.extract.outputs.excerpt }}"
+          POST_URL="${{ steps.extract.outputs.url }}"
+          POST_THUMBNAIL="${{ steps.extract.outputs.thumbnail }}"
+
+          # Build URLs
+          FULL_POST_URL="https://blog.snacademy.co.kr${POST_URL}"
+          THUMBNAIL_URL="https://blog.snacademy.co.kr${POST_THUMBNAIL}"
+
+          # Create notification message
+          BODY="새 포스트가 게시되었어요 - ${POST_TITLE}"
+
+          # Send to Jandi
+          curl -X POST "https://wh.jandi.com/connect-api/webhook/13116580/2eb500fa1618a7c8b4d5ee7e29b46523" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"body\": \"${BODY}\",
+              \"connectColor\": \"#FAC11B\",
+              \"connectInfo\": [
+                {
+                  \"title\": \"${POST_TITLE}\",
+                  \"description\": \"${POST_EXCERPT}\n\n포스트 URL: ${FULL_POST_URL}\n블로그 홈: https://blog.snacademy.co.kr\"
+                }
+              ],
+              \"connectButtons\": [
+                {
+                  \"name\": \"포스트 보기\",
+                  \"type\": \"link\",
+                  \"url\": \"${FULL_POST_URL}\"
+                },
+                {
+                  \"name\": \"블로그 홈\",
+                  \"type\": \"link\",
+                  \"url\": \"https://blog.snacademy.co.kr\"
+                }
+              ]
+            }"
+
+          echo "✅ Jandi notification sent successfully!"
