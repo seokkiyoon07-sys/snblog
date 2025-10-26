@@ -2163,7 +2163,7 @@ Reading "Mongcheonyo" offers an opportunity to understand not only the hearts of
     ],
     author: 'SN Academy',
     date: '2025-10-26',
-    readTime: '10',
+    readTime: '12',
     featured: true,
     published: true,
     thumbnail: '/images/thumbnail/DokRakDang_thumbnail_F_v3.png',
