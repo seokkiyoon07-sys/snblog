@@ -30,32 +30,73 @@ export async function generateMetadata({
     };
   }
 
+  // AI 학습을 위한 특별한 메타데이터
+  const isAISStudyMethod = id === 'ai-study-method';
+
   return {
-    title: `${post.title} | SN Academy Blog`,
-    description: post.excerpt,
-    keywords: post.tags?.join(', ') || '',
+    title: isAISStudyMethod
+      ? `${post.title} | SN Academy 교육 칼럼`
+      : `${post.title} | SN Academy Blog`,
+    description: isAISStudyMethod
+      ? 'AI 학습 원리를 통해 발견한 진짜 공부법. 반복 학습과 패턴 인식의 중요성, 수능 공부 전략을 SN독학기숙학원 대표가 제시합니다.'
+      : post.excerpt,
+    keywords: isAISStudyMethod
+      ? '공부법, AI 학습, 반복학습, 수능전략, 학습법, 교육, 독학기숙학원, SN Academy, 패턴학습, 능동적회상, 간격반복'
+      : post.tags?.join(', ') || '',
+    authors: [{ name: post.author }],
+    category: post.category,
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: isAISStudyMethod
+        ? `${post.title} - AI가 알려주는 진짜 공부법`
+        : post.title,
+      description: isAISStudyMethod
+        ? 'AI 학습 원리를 인간 공부에 적용한 혁신적인 학습법. 반복과 패턴 인식으로 수능 성적을 향상시키는 방법을 알아보세요.'
+        : post.excerpt,
       type: 'article',
       locale: 'ko_KR',
       url: `https://blog.snacademy.co.kr${post.url}`,
+      siteName: 'SN Academy Blog',
+      publishedTime: post.date,
+      modifiedTime: post.date,
       images: post.thumbnail
         ? [
             {
-              url: post.thumbnail,
-              width: 800,
-              height: 400,
-              alt: post.title,
+              url: `https://blog.snacademy.co.kr${post.thumbnail}`,
+              width: 1200,
+              height: 630,
+              alt: isAISStudyMethod
+                ? 'AI 학습 원리를 통한 공부법 가이드'
+                : post.title,
             },
           ]
         : [],
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: post.thumbnail ? [post.thumbnail] : [],
+      title: isAISStudyMethod
+        ? `${post.title} - AI가 알려주는 진짜 공부법`
+        : post.title,
+      description: isAISStudyMethod
+        ? 'AI 학습 원리를 인간 공부에 적용한 혁신적인 학습법을 SN독학기숙학원 대표가 제시합니다.'
+        : post.excerpt,
+      images: post.thumbnail
+        ? [`https://blog.snacademy.co.kr${post.thumbnail}`]
+        : [],
+      creator: '@snacademy',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    alternates: {
+      canonical: `https://blog.snacademy.co.kr${post.url}`,
     },
   };
 }
@@ -166,6 +207,44 @@ function TableOfContents() {
   );
 }
 
+function TableOfContentsAI() {
+  const items = [
+    { id: 'intro', label: '인사 및 서문' },
+    { id: 'ai-learning', label: 'AI는 어떻게 학습하는가?' },
+    { id: 'human-study', label: '인간의 공부도 다르지 않습니다' },
+    {
+      id: 'practical-application',
+      label: '그렇다면, 실전에서는 어떻게 적용할까?',
+    },
+    {
+      id: 'system-implementation',
+      label: '그렇다면 이 원리를 어떻게 실현할 것인가?',
+    },
+    { id: 'conclusion', label: '마무리' },
+  ];
+  return (
+    <nav>
+      <div className="rounded-2xl border border-gray-200 dark:border-gray-700 p-4 bg-white dark:bg-gray-800">
+        <div className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300">
+          이 글의 목차
+        </div>
+        <ul className="space-y-1 text-sm">
+          {items.map(it => (
+            <li key={it.id}>
+              <a
+                href={`#${it.id}`}
+                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:underline underline-offset-4"
+              >
+                {it.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
 // Main Page Component
 export default async function Page({ params }: PageProps) {
   const { id } = await params;
@@ -175,8 +254,8 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  // dokhak가 아닌 경우 일반 템플릿 사용
-  if (id !== 'dokhak') {
+  // dokhak나 ai-study-method가 아닌 경우 일반 템플릿 사용
+  if (id !== 'dokhak' && id !== 'ai-study-method') {
     return (
       <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-800 text-slate-800 dark:text-gray-100">
         {/* Hero */}
@@ -266,10 +345,14 @@ export default async function Page({ params }: PageProps) {
         </section>
 
         {/* 콘텐츠 */}
-        <section className="px-6 md:px-10 lg:px-16 pb-24">
+        <section
+          className="px-6 md:px-10 lg:px-16 pb-24"
+          aria-labelledby="article-content"
+        >
           <div className="mx-auto max-w-4xl">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
               <article
+                id="article-content"
                 className="prose prose-lg prose-slate dark:prose-invert max-w-none
                   prose-headings:font-bold prose-headings:tracking-tight
                   prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -280,6 +363,8 @@ export default async function Page({ params }: PageProps) {
                   prose-ul:my-6 prose-li:my-2
                   prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
                   prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
+                role="main"
+                aria-label="기사 본문"
                 dangerouslySetInnerHTML={{
                   __html: renderMarkdown(post.content),
                 }}
@@ -301,6 +386,27 @@ export default async function Page({ params }: PageProps) {
             url: `https://blog.snacademy.co.kr${post.url}`,
             category: post.category,
             keywords: post.tags?.join(', ') || '',
+            wordCount: post.content.length,
+            readingTime: post.readTime,
+            educationalLevel: '고등학교',
+            learningResourceType: '기사',
+            teaches: [
+              'AI 학습 원리',
+              '반복 학습 전략',
+              '수능 공부법',
+              '패턴 인식 기법',
+            ],
+            audience: {
+              '@type': 'EducationalAudience',
+              educationalRole: '학생',
+              audienceType: '고등학생',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'SN Academy',
+              url: 'https://snacademy.co.kr',
+              logo: 'https://blog.snacademy.co.kr/images/sn-logo.png',
+            },
           }}
         />
 
@@ -316,6 +422,317 @@ export default async function Page({ params }: PageProps) {
             difficulty: 'intermediate',
             subject: '칼럼',
             learningObjectives: ['기본 이해', '지식 습득'],
+          }}
+        />
+      </main>
+    );
+  }
+
+  // ai-study-method 전용 템플릿
+  if (id === 'ai-study-method') {
+    const aiStudyContent = (
+      <>
+        {/* Intro */}
+        <section id="intro">
+          <p>안녕하세요. SN독학기숙학원 대표 윤석기입니다.</p>
+          <p>
+            오늘은 조금 조심스럽지만, 꼭 한번 글로 남겨보고 싶었던 주제 —{' '}
+            <strong>"공부하는 법"</strong>에 대해 이야기해 보려 합니다.
+          </p>
+          <p>
+            공부법은 사람마다 다릅니다. 똑같은 책을 보고 똑같은 문제를 풀어도,
+            어떤 학생은 성장이 빠르고, 어떤 학생은 느립니다. 저 역시 오랫동안
+            수많은 학생을 지도하며 '정답 같은 공부법'은 없다는 사실을 잘 알고
+            있습니다.
+          </p>
+          <p>
+            하지만, 아이러니하게도 AI(인공지능) 덕분에 저는 오히려 '공부란
+            무엇인가'라는 질문에 조금 더 확실한 답을 얻게 되었습니다.
+          </p>
+        </section>
+        <Divider />
+
+        {/* AI 학습 원리 */}
+        <section id="ai-learning">
+          <H2 id="ai-learning">AI는 어떻게 학습하는가?</H2>
+          <p>
+            잠시 공부 이야기로 가기 전에, AI 이야기를 해 보겠습니다. AI는 어떻게
+            이렇게 똑똑해졌을까요?
+          </p>
+          <p>
+            우리는 흔히 AI가 '천재 알고리즘' 때문에 뛰어나다고 생각합니다.
+            하지만 실제 발전 역사를 보면, AI가 똑똑해진 핵심 비밀은{' '}
+            <strong>구조(설계)보다 노출량(학습량)</strong>이었습니다.
+          </p>
+          <p>
+            쉽게 말해,{' '}
+            <strong>
+              "두뇌가 뛰어나서"가 아니라 "많이 보고 많이 배웠기 때문에"
+            </strong>{' '}
+            잘하게 된 것입니다.
+          </p>
+          <Callout type="info" title="파라미터의 의미">
+            <p>
+              <strong>파라미터가 많다</strong> = 더 복잡하고 많은 패턴을 학습해
+              저장할 수 있다
+              <br />
+              <strong>파라미터가 적다</strong> = 담을 수 있는 패턴이 제한적이다
+            </p>
+          </Callout>
+          <p>
+            그래서 요즘 AI는 정교한 알고리즘을 더 다듬는 것보다, 그저{' '}
+            <strong>"훨씬 더 많은 데이터"</strong>를 집어넣는 방식으로
+            발전했습니다. 그래서 ChatGPT도 몇 천억, 몇 조 개의 파라미터를 가진
+            '초거대' 모델이 된 것이죠.
+          </p>
+          <p>
+            즉,{' '}
+            <strong>
+              AI의 지능을 키운 것은 '설계'가 아니라 '노출량(학습량)'
+            </strong>
+            이었습니다.
+          </p>
+          <img
+            src="/images/columns/howtostudy/Data_parameter.png"
+            alt="AI 파라미터와 학습량의 관계"
+            className="rounded-2xl border border-gray-200 dark:border-gray-700 my-6 w-full max-w-xl mx-auto"
+            style={{ width: '70%' }}
+          />
+          <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+            이미지 출처:{' '}
+            <a
+              href="https://soccom.tistory.com/656"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              https://soccom.tistory.com/656
+            </a>
+          </p>
+        </section>
+        <Divider />
+
+        {/* 인간의 공부 */}
+        <section id="human-study">
+          <H2 id="human-study">인간의 공부도 다르지 않습니다</H2>
+          <p>
+            AI는 설계도보다 <strong>반복 노출(학습량)</strong>이 실력을
+            키웁니다. 사람의 공부도 똑같습니다.
+          </p>
+          <p>
+            많은 학생이 "저는 공부 머리가 안 좋아서요" "방법을 몰라서 성적이 안
+            나옵니다"라고 말하지만, 실제로는{' '}
+            <strong>'방법의 문제'가 아니라 '노출량의 부족'</strong>인 경우가
+            훨씬 많습니다.
+          </p>
+          <p>특히 수능은 이 특징이 더 강하게 나타납니다.</p>
+          <Callout type="success" title="실제 사례">
+            <p>
+              한 학생이 수학 킬러 문제를 처음 봤을 때 20분이 걸렸지만, 같은
+              유형을 15번 반복한 후에는 3분 만에 풀었습니다. 머리가 좋아진 게
+              아니라, 패턴이 몸에 각인된 것이죠.
+            </p>
+          </Callout>
+          <img
+            src="/images/columns/howtostudy/25.5.27-05989.jpg"
+            alt="수능 공부와 패턴 학습"
+            className="rounded-2xl border border-gray-200 dark:border-gray-700 my-6 w-full max-w-xl mx-auto"
+            style={{ width: '70%' }}
+          />
+          <p>
+            즉, 수능은 머리가 좋은 사람이 이기는 시험이 아니라,{' '}
+            <strong>
+              같은 유형을 질릴 만큼 많이 본 사람이 체계적으로 이기는 시험
+            </strong>
+            입니다.
+          </p>
+          <Callout type="warning" title="핵심 원리">
+            <p>
+              최소한 수능 공부는 똑똑해야 하는 게 아니라 충분히 많이 접하는
+              사람이 이기는 게임에 가깝습니다.
+            </p>
+          </Callout>
+        </section>
+        <Divider />
+
+        {/* 실전 적용 */}
+        <section id="practical-application">
+          <H2 id="practical-application">
+            그렇다면, 실전에서는 어떻게 적용할까?
+          </H2>
+          <p>결국 좋은 수능 공부법의 본질은 간단합니다.</p>
+          <p>
+            <strong>
+              "생각보다 더 많이 반복하고, 잊을 때마다 다시 보고, 패턴이 체화될
+              때까지 풀어 보는 것."
+            </strong>
+          </p>
+          <p>
+            AI가 벡터를 통해 '패턴'을 내재화하듯, 우리 역시 지식을 몸에
+            각인시키는 과정이 필요합니다.
+          </p>
+          <p>바꿔 말하면,</p>
+          <br />
+          <ul className="list-disc pl-5">
+            <li>지금 당장 1차 이해는 완벽하지 않아도 괜찮습니다.</li>
+            <li>반복 노출이 쌓이면 어느 순간 '전이(transfer)'가 일어납니다.</li>
+            <li>그때 비로소 실력이 '튀어오르는 구간'이 나옵니다.</li>
+          </ul>
+          <img
+            src="/images/columns/howtostudy/Learningcurve.jpg"
+            alt="학습 곡선과 실력 향상 구간"
+            className="rounded-2xl border border-gray-200 dark:border-gray-700 my-6 w-full max-w-xl mx-auto"
+            style={{ width: '70%' }}
+          />
+          <br />
+          <p>
+            다만, 여기서 중요한 점이 있습니다. 무작정 반복하는 것이 아니라,{' '}
+            <strong>'능동적 회상(active recall)'과 '간격 반복'</strong>이
+            동반되어야 진짜 내재화가 일어납니다. 그저 교재를 계속 읽기만 하는
+            것과, 스스로 문제를 풀며 기억을 꺼내 보는 것은 전혀 다른 학습입니다.
+          </p>
+          <p>
+            실제로 공부 잘하는 학생들의 공통점은 머리가 좋은 게 아니라,{' '}
+            <strong>반복 구간을 끝까지 버티는 사람들</strong>입니다.
+          </p>
+        </section>
+        <Divider />
+
+        {/* 시스템 구현 */}
+        <section id="system-implementation">
+          <H2 id="system-implementation">
+            그렇다면 이 원리를 어떻게 실현할 것인가?
+          </H2>
+          <p>
+            문제는 '알고 있다'와 '실행한다'는 완전히 다른 이야기라는 점입니다.
+          </p>
+          <p>
+            저는 SN에서 이 원리를 시스템으로 구현하려고 노력하고 있습니다.
+            반복이 '의지'가 아니라 '환경'으로 작동하도록 말이죠.
+          </p>
+          <Callout type="info" title="SN의 시스템적 접근">
+            <ul className="list-disc pl-5">
+              <li>하루 14시간 이상의 순수 학습량</li>
+              <li>일정이 흐트러지지 않는 몰입형 구조</li>
+              <li>반복과 회독이 자동으로 누적되는 루틴 설계</li>
+            </ul>
+          </Callout>
+          <img
+            src="/images/columns/howtostudy/SNstudy.jpg"
+            alt="SN 학습 시스템"
+            className="rounded-2xl border border-gray-200 dark:border-gray-700 my-6 w-full max-w-xl mx-auto"
+            style={{ width: '70%' }}
+          />
+          <p>
+            즉, "공부 시간이 많다"가 아니라{' '}
+            <strong>"패턴 노출량이 압도적으로 빠르게 쌓인다"</strong>는 점에서
+            수능 구조와 가장 잘 맞아떨어지는 환경을 만들려고 합니다.
+          </p>
+        </section>
+        <Divider />
+
+        {/* 마무리 */}
+        <section id="conclusion">
+          <H2 id="conclusion">마무리</H2>
+          <p>
+            AI가 보여준 학습의 원리처럼, 우리도 설계가 아니라 노출량, 지능이
+            아니라 반복과 내재화로 성장하고 성공할 수 있습니다.
+          </p>
+          <p>
+            다음 글에서는 이 원리를 실제 공부 루틴으로 어떻게 옮기는지, SN의
+            14시간 환경 속에서 반복이 '의지'가 아니라 '시스템'으로 작동하는
+            방법을 구체적으로 풀어보겠습니다.
+          </p>
+          <Callout type="info" title="다음 글 예고">
+            <ul className="list-disc pl-5">
+              <li>반복이 시스템으로 작동하는 구체적 방법</li>
+              <li>양과 질의 균형을 맞추는 전략</li>
+              <li>학습 슬럼프 극복법</li>
+            </ul>
+          </Callout>
+          <p>읽어 주셔서 감사합니다.</p>
+        </section>
+      </>
+    );
+
+    return (
+      <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="mx-auto max-w-4xl px-4 sm:px-8 py-10">
+          <header className="mb-10">
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+              {post.title}
+            </h1>
+            <p className="mt-3 text-gray-600 dark:text-gray-300">
+              {post.excerpt}
+            </p>
+            <div className="flex gap-2 mt-4 flex-wrap">
+              {post.tags?.map(tag => (
+                <span
+                  key={tag}
+                  className="inline-block bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-semibold px-3 py-1 rounded-full"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </header>
+          <TableOfContentsAI />
+          <article className="min-w-0 mt-8">
+            <Prose>{aiStudyContent}</Prose>
+          </article>
+        </div>
+
+        {/* SEO: StructuredData */}
+        <StructuredData
+          type="article"
+          data={{
+            title: post.title,
+            description: post.excerpt,
+            author: post.author,
+            datePublished: post.date,
+            dateModified: post.date,
+            image: post.thumbnail,
+            url: `https://blog.snacademy.co.kr${post.url}`,
+            category: post.category,
+            keywords: post.tags?.join(', ') || '',
+          }}
+        />
+
+        {/* AI Learning Data */}
+        <AIDataGenerator
+          content={{
+            title: post.title,
+            description: post.excerpt,
+            author: post.author,
+            category: post.category,
+            tags: post.tags || [],
+            content: post.content,
+            difficulty: 'intermediate',
+            subject: '교육학',
+            learningObjectives: [
+              'AI 학습 원리 이해',
+              '반복 학습의 중요성',
+              '수능 공부 전략',
+              '학습 시스템 구축',
+            ],
+            keyConcepts: [
+              '파라미터와 학습량의 관계',
+              '패턴 인식과 내재화',
+              '능동적 회상 (Active Recall)',
+              '간격 반복 (Spaced Repetition)',
+              '학습 곡선과 전이 효과',
+              'SN의 14시간 학습 시스템',
+            ],
+            practicalApplications: [
+              '수능 문제 풀이 패턴 분석',
+              '반복 학습 스케줄 설계',
+              '학습 효과 측정 방법',
+              '슬럼프 극복 전략',
+            ],
+            targetAudience: '고등학생, 수능 준비생, 학부모, 교육자',
+            estimatedReadingTime: post.readTime,
+            prerequisites: '기본적인 학습 경험',
+            relatedTopics: ['인지과학', '교육심리학', '학습이론', 'AI 교육'],
           }}
         />
       </main>
