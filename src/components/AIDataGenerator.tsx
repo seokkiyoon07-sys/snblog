@@ -11,6 +11,12 @@ interface AIDataProps {
     difficulty: 'beginner' | 'intermediate' | 'advanced';
     subject: string;
     learningObjectives: string[];
+    keyConcepts?: string[];
+    practicalApplications?: string[];
+    targetAudience?: string;
+    estimatedReadingTime?: string;
+    prerequisites?: string;
+    relatedTopics?: string[];
   };
 }
 
@@ -37,7 +43,7 @@ export default function AIDataGenerator({ content }: AIDataProps) {
       inLanguage: 'ko',
       isPartOf: {
         '@type': 'Course',
-        name: 'SN Academy 고전문학 시리즈',
+        name: 'SN Academy 교육 콘텐츠',
       },
       provider: {
         '@type': 'Organization',
@@ -51,6 +57,34 @@ export default function AIDataGenerator({ content }: AIDataProps) {
         '@type': 'Thing',
         name: tag,
       })),
+      // 추가된 AI 학습 데이터
+      ...(content.keyConcepts && {
+        keyConcepts: content.keyConcepts.map(concept => ({
+          '@type': 'Thing',
+          name: concept,
+        })),
+      }),
+      ...(content.practicalApplications && {
+        practicalApplications: content.practicalApplications,
+      }),
+      ...(content.targetAudience && {
+        audience: {
+          '@type': 'EducationalAudience',
+          educationalRole: content.targetAudience,
+        },
+      }),
+      ...(content.estimatedReadingTime && {
+        timeRequired: `PT${content.estimatedReadingTime}M`,
+      }),
+      ...(content.prerequisites && {
+        prerequisites: content.prerequisites,
+      }),
+      ...(content.relatedTopics && {
+        relatedTopics: content.relatedTopics.map(topic => ({
+          '@type': 'Thing',
+          name: topic,
+        })),
+      }),
     };
   };
 
