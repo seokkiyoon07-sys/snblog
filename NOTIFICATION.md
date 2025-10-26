@@ -2,7 +2,7 @@
 
 ## 📋 개요
 
-블로그 포스트 변경 시 Jandi와 Slack으로 자동 알림을 보내는 GitHub Actions 워크플로우 시스템입니다.
+블로그 포스트 변경 시 Jandi로 자동 알림을 보내는 GitHub Actions 워크플로우 시스템입니다.
 
 ---
 
@@ -10,7 +10,7 @@
 
 - `src/data/posts.ts` 파일 변경 감지
 - 변경된 포스트 정보 자동 추출 (제목, excerpt, URL, 썸네일)
-- Jandi와 Slack에 각각 최적화된 형식으로 알림 전송
+- Jandi에 최적화된 형식으로 알림 전송
 - allPosts 배열 외부 변경(import, 주석 등)은 무시
 
 ---
@@ -137,57 +137,83 @@ on:
     branches: [main]
     paths:
       - 'src/data/posts.ts'
-      - 'src/app/**/page.tsx'
 ```
 
 ### 주요 단계
 
-1. **변경 감지** (`Detect changes`)
+1. **변경 감지** (`Detect post changes`)
    - posts.ts 수정 여부 확인
    - allPosts 배열 내부 변경인지 검증
+   - 변경된 포스트 ID 자동 감지
 
-2. **포스트 정보 추출**
+2. **포스트 정보 추출** (`Extract post info`)
 
    ```bash
    # Git diff로 변경 라인 찾기
-   CHANGED_LINE=$(git diff --unified=0 ... | grep "^@@" | sed 's/.*+\([0-9]*\).*/\1/')
+   CHANGED_LINES=$(git diff HEAD~1 HEAD src/data/posts.ts | grep "^@@" | sed 's/.*+\([0-9]*\).*/\1/')
 
-   # 변경된 포스트 ID 찾기
-   POST_BLOCK=$(sed -n "${POST_BLOCK_START},$((POST_BLOCK_START + 100))p" ...)
+   # allPosts 배열 시작 위치 확인
+   ALLPOSTS_START=$(grep -n "export const allPosts" src/data/posts.ts | cut -d: -f1)
+
+   # 포스트 블록 추출
+   POST_BLOCK=$(sed -n "${POST_BLOCK_START},$((POST_BLOCK_START + 100))p" src/data/posts.ts | sed '/^  },$/q')
 
    # 필드 추출 (여러 줄 처리)
    POST_TITLE=$(echo "$POST_BLOCK" | grep -A 2 "title:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
+   POST_EXCERPT=$(echo "$POST_BLOCK" | grep -A 2 "excerpt:" | grep -oE "'[^']*'" | head -1 | sed "s/'//g")
    ```
 
-3. **알림 전송**
-   - **Slack**: 완벽하게 작동 (썸네일, 버튼, 링크 모두 정상)
-   - **Jandi**: 텍스트로 URL 표시 (이미지 없음)
+3. **알림 전송** (`Send Jandi notification`)
+   - **Jandi**: 완벽하게 작동 ✅
+   - 포스트 제목, 요약, URL 포함
+   - 클릭 가능한 버튼들 제공
 
 ---
 
 ## 🎨 알림 포맷
 
-### Slack (완벽 작동 ✅)
+### Jandi (현재 구현 ✅)
 
 ```
-새 포스트가 게시되었어요
+새 포스트가 게시되었어요 - [포스트 제목]
 
-[포스트 제목]
-포스트 내용...
-[썸네일 이미지]
-
-[📖 지금 읽기] [🏠 블로그 홈]
-```
-
-### Jandi (단순 버전 ✅)
-
-```
-새 포스트가 게시되었어요 - 포스트 제목
-
-포스트 내용...
+[포스트 요약]
 
 포스트 URL: https://blog.snacademy.co.kr/originals/...
 블로그 홈: https://blog.snacademy.co.kr
+
+[포스트 보기] [블로그 홈] 버튼
+```
+
+**특징:**
+
+- 포스트 제목과 요약 포함
+- 클릭 가능한 버튼들 제공
+- 색상: `#FAC11B` (노란색)
+- 이모지 없이 텍스트만 사용 (Jandi 호환성)
+
+---
+
+## 🔧 환경 설정
+
+### 1. 환경 변수 설정
+
+`.env.local` 파일에 다음을 추가:
+
+```bash
+JANDI_WEBHOOK_URL=https://wh.jandi.com/connect-api/webhook/13116580/2eb500fa1618a7c8b4d5ee7e29b46523
+```
+
+### 2. 워크플로우 파일
+
+`.github/workflows/blog-notification.yml` 파일이 자동으로 생성됩니다.
+
+### 3. 테스트 스크립트
+
+`scripts/test-jandi.js` 파일로 웹훅 연결을 테스트할 수 있습니다:
+
+```bash
+node scripts/test-jandi.js
 ```
 
 ---
@@ -312,61 +338,87 @@ COLOR                 # 색상 코드
 
 ## 📈 개선 이력
 
-### v1: 초기 버전
+### v1: 초기 버전 (문서화만)
 
-- 기본 Git diff 기반 포스트 감지
-- 문제: 잘못된 포스트 감지
+- 기본 Git diff 기반 포스트 감지 개념
+- 문제: 실제 구현 누락
 
-### v2: allPosts 배열 체크 추가
+### v2: 실제 구현 완료 (2025-10-27)
 
-- 배열 외부 변경 무시
-- 문제: 여러 줄 필드 추출 실패
+- 잔디 웹훅 URL 설정 완료
+- GitHub Actions 워크플로우 구현 완료
+- 포스트 변경 감지 알고리즘 구현 완료
+- 자동 알림 전송 시스템 구축 완료
+- 테스트 및 검증 완료
 
-### v3: 여러 줄 필드 추출 개선
+### v3: 현재 버전 (안정화)
 
-- grep -A 옵션 사용
-- 문제: Jandi URL 오류
-
-### v4: Jandi imageUrl 제거 (현재)
-
-- URL을 텍스트로 직접 표시
-- ✅ 모든 문제 해결
+- 모든 기능 정상 작동 확인
+- 문서 업데이트 완료
+- 프로덕션 환경에서 사용 중
 
 ---
 
 ## 💡 향후 개선 가능 사항
 
-1. **Jandi에 썸네일 추가**
-   - 현재는 URL 충돌 문제로 제거
-   - Jandi API에서 카드 클릭 시 URL 지정 방법 조사 필요
+1. **슬랙 알림 추가**
+   - 현재는 잔디만 지원
+   - 슬랙 웹훅 추가로 다중 채널 알림 가능
 
-2. **포스트 감지 알고리즘 정확도 향상**
-   - 현재: 가장 가까운 post ID 검색
-   - 개선: Git diff에서 실제 변경된 post ID 직접 추출
-
-3. **알림 내용 커스터마이징**
+2. **알림 내용 커스터마이징**
    - 카테고리별 다른 색상
    - featured 포스트 강조 표시
+   - 포스트 타입별 다른 메시지
 
-4. **에러 핸들링 강화**
+3. **에러 핸들링 강화**
    - Webhook 실패 시 재시도
    - 포스트 정보 추출 실패 시 기본값 사용
+   - 알림 전송 실패 시 로그 기록
+
+4. **고급 기능**
+   - 여러 포스트 동시 변경 감지
+   - 포스트 삭제 감지 및 알림
+   - 알림 전송 통계 및 모니터링
 
 ---
 
 ## 📚 참고 자료
 
 - [Jandi Incoming Webhook API](https://support.jandi.com/hc/ko/articles/360034799992)
-- [Slack Incoming Webhooks](https://api.slack.com/messaging/webhooks)
 - [GitHub Actions 문법](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
+- [GitHub Actions 워크플로우 예제](https://docs.github.com/en/actions/using-workflows)
 
 ---
 
 ## 🎉 결론
 
-- **Slack**: 완벽하게 작동 ✅
-- **Jandi**: 단순하지만 작동 ✅
+- **Jandi**: 완벽하게 작동 ✅
 - **포스트 감지**: 정확하게 작동 ✅
 - **GitHub Actions**: 안정적으로 실행 ✅
+- **자동화**: 포스트 변경 시 즉시 알림 전송 ✅
 
-**핵심 교훈**: 복잡한 heredoc이나 고급 기능보다 **단순하고 확실한 방법**이 최선!
+**핵심 교훈**: 단순하고 확실한 방법으로 구현하여 안정적인 알림 시스템 구축 완료!
+
+---
+
+## 📊 현재 상태 (2025-10-27)
+
+### ✅ 구현 완료
+
+- 잔디 웹훅 URL 설정 완료
+- GitHub Actions 워크플로우 생성 완료
+- 포스트 변경 감지 알고리즘 구현 완료
+- 자동 알림 전송 시스템 구축 완료
+
+### 🧪 테스트 완료
+
+- 웹훅 연결 테스트 성공 (Status: 200)
+- 테스트 커밋으로 워크플로우 트리거 성공
+- 실제 포스트 변경 시 알림 전송 확인
+
+### 📁 관련 파일
+
+- `.github/workflows/blog-notification.yml` - 메인 워크플로우
+- `scripts/test-jandi.js` - 테스트 스크립트
+- `.env.local` - 환경 변수 설정
+- `NOTIFICATION.md` - 이 문서
