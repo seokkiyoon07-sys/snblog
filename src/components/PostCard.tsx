@@ -32,6 +32,7 @@ export default function PostCard({
   const getEmoji = (category: string) => {
     if (category === 'SN Originals') return '🎥';
     if (category === 'startup') return '🤖';
+    if (category === 'notice') return '📢';
     return '📚';
   };
 
@@ -155,7 +156,7 @@ export default function PostCard({
               {post.date}
             </time>
             <span aria-hidden="true">•</span>
-            <span itemProp="wordCount">{post.readTime}분 읽기</span>
+            <span itemProp="wordCount">{post.readTime} 읽기</span>
             <span aria-hidden="true">•</span>
             <Link
               href={
@@ -165,7 +166,9 @@ export default function PostCard({
                     ? '/originals'
                     : post.category === 'startup'
                       ? '/startup'
-                      : '#'
+                      : post.category === 'notice'
+                        ? '/notice'
+                        : '#'
               }
               className="text-sn-primary dark:text-sn-primary-light font-medium hover:underline"
               itemProp="articleSection"
