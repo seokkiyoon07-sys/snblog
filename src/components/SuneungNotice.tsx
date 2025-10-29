@@ -30,8 +30,8 @@ export default function SuneungNotice() {
       name: 'SN독학기숙학원',
       url: 'https://snacademy.co.kr',
     },
-    datePublished: '2025-11-11',
-    dateModified: '2025-11-11',
+    datePublished: '2025-10-31',
+    dateModified: '2025-10-31',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': 'https://blog.snacademy.co.kr/notice/251113suneungnotice',
@@ -267,8 +267,7 @@ export default function SuneungNotice() {
                   <strong>흰색 수정테이프</strong>
                 </li>
                 <li>
-                  <strong>컴퓨터용 검은색 사인펜</strong> (평가원이 시험장에
-                  나눠주기도 함)
+                  <strong>컴퓨터용 검은색 사인펜</strong>
                 </li>
                 <li>
                   <strong>수험용 아날로그 시계</strong> (전자기기, 스마트워치는
@@ -415,9 +414,18 @@ export default function SuneungNotice() {
                     </strong>
                     합니다
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 italic">
-                    본원 퇴소 및 고사장 퇴소 학부모님들은 학원에서 꼭 학생
-                    스마트폰을 수령해 가시기 바랍니다
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    고사장에서 퇴소하는 학생의 스마트폰은{' '}
+                    <strong>픽업 담당 선생님이 일괄 보관</strong>합니다.
+                  </p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    퇴소 학생 및 학부모님께서는{' '}
+                    <strong>고사장 픽업 담당 선생님께 스마트폰을 수령</strong>해
+                    주세요.
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                    (본원에서 퇴소하시는 경우에도 1차로는 고사장에서 스마트폰
+                    수령이 가능합니다.)
                   </p>
                 </div>
               </div>
@@ -566,6 +574,12 @@ export default function SuneungNotice() {
             수능 전후 문의는{' '}
             <strong>전화보다 카카오톡 채널("SN독학기숙학원")</strong>을 이용해
             주시면 보다 신속하고 정확하게 안내드릴 수 있습니다.
+          </p>
+          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
+            또한 <strong>고사장 또는 본원에서 퇴소한 뒤</strong>에는 인원 파악을
+            위해
+            <strong>본원 카카오톡 채널로 퇴소 여부를 꼭 알려</strong>주시기
+            바랍니다.
           </p>
         </section>
 
