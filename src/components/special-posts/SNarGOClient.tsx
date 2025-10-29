@@ -253,9 +253,8 @@ export default function SNarGOClient() {
               승부합니다.
             </p>
             <p>
-              현재 <strong>처리 속도</strong>와{' '}
-              <strong>그래프/도형 생성</strong> 기능은 개발 중이며, 순차적으로
-              업데이트될 예정입니다.
+              <strong>25.10.29 현재</strong> 그래프 및 도형 생성 기능이 개발
+              완료되어, 그래프로도 풀이를 받아볼 수 있습니다.
             </p>
           </CardContent>
         </Card>

@@ -161,7 +161,7 @@ export default async function PostPage({ params }: PostPageProps) {
                     clipRule="evenodd"
                   />
                 </svg>
-                {post.readTime} min read
+                {post.readTime}분 읽기
               </span>
             </div>
           </div>
