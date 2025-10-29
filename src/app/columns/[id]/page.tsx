@@ -309,7 +309,7 @@ export default async function Page({ params }: PageProps) {
                       clipRule="evenodd"
                     />
                   </svg>
-                  {post.readTime} min read
+                  {post.readTime}분 읽기
                 </span>
               </div>
             </div>

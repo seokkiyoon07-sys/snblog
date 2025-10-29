@@ -151,7 +151,7 @@ SN의 AI는 '보조 프로그램'이 아니라 <strong>교사의 시야를 확�
     tags: ['AI', '교육혁신', '데이터', '입시전략', '에듀테크'],
     author: 'SN독학기숙학원 대표 윤석기',
     date: '2025-10-18',
-    readTime: '15',
+    readTime: '11',
     featured: true,
     featuredOrder: 2,
     published: true,
@@ -187,7 +187,7 @@ SNarGO는 **수능 수학 문제 전용** Vertical AI로, 학생들의 수학 �
     tags: ['AI', '수능', '수학', '교육기술'],
     author: 'SN Academy',
     date: '2025-10-07',
-    readTime: '12',
+    readTime: '4',
     featured: false,
     published: true,
     youtubeUrl: undefined,
@@ -442,7 +442,7 @@ console.log(greeting);
     tags: ['디자인', '가이드', '블로그'],
     author: 'SN Academy',
     date: '2025-10-05',
-    readTime: '8',
+    readTime: '4',
     featured: false,
     published: false,
     url: '/columns/design-guide-demo',
@@ -459,7 +459,7 @@ console.log(greeting);
     tags: ['독학', '독학기숙학원', 'AI', '학습전략담임'],
     author: 'SN Academy',
     date: '2025-10-08',
-    readTime: '7',
+    readTime: '4',
     featured: false,
     published: true,
     url: '/columns/dokhak',
@@ -766,7 +766,7 @@ SN독학기숙학원의 방화벽은 개발이 모두 완료되었으며, 본원
     tags: ['방화벽', '보안', 'AI', '교육기술'],
     author: 'SN Academy',
     date: '2025-10-03',
-    readTime: '12',
+    readTime: '4',
     featured: false,
     published: true,
     youtubeUrl: undefined,
@@ -1215,7 +1215,7 @@ SN독학기숙학원의 방화벽은 개발이 모두 완료되었으며, 본원
     tags: ['AI교육', '스타트업', '에듀테크'],
     author: 'SN Academy',
     date: '2025-09-29',
-    readTime: '15',
+    readTime: '11',
     featured: false,
     published: true,
     thumbnail:
@@ -1331,7 +1331,7 @@ SN아카데미는 2014년부터 경기도 양평에서 꾸준히 독학기숙학
     tags: [],
     author: 'SN Academy',
     date: '2025-10-02',
-    readTime: '12',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail:
@@ -1408,7 +1408,7 @@ This work inherits the East Asian tradition of political poetry while reflecting
     tags: ['고전문학', '속미인곡', '정철', '가사문학'],
     author: 'SN Academy',
     date: '2025-10-01',
-    readTime: '8',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/sokmieungok_thumbnail.png',
@@ -1483,7 +1483,7 @@ This work inherits the East Asian tradition of political poetry while reflecting
     tags: ['고전문학', '사미인곡', '정철', '가사문학'],
     author: 'SN Academy',
     date: '2025-09-30',
-    readTime: '7',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/22_thumbnail2.png',
@@ -1561,7 +1561,7 @@ This work is particularly valuable for those studying Korean culture and literat
     tags: ['고전문학', '갑민가', '민중문학', '사회비판'],
     author: 'SN Academy',
     date: '2025-09-22',
-    readTime: '6',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/GABMINGA_2_sn_series.png',
@@ -1632,7 +1632,7 @@ This work inherits the East Asian tradition of satirical literature while reflec
     tags: ['고전문학', '화왕가', '풍자문학', '사회비판'],
     author: 'SN Academy',
     date: '2025-09-26',
-    readTime: '5',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/hwawangga_sn_series.png',
@@ -1706,7 +1706,7 @@ This work inherits the East Asian tradition of popular literature while reflecti
     tags: ['고전문학', '북천가', '민중문학', '사회비판'],
     author: 'SN Academy',
     date: '2025-09-24',
-    readTime: '9',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/bukcheonga_thumbnail_02.png',
@@ -1801,7 +1801,7 @@ This work inherits the East Asian tradition of nature poetry while achieving a u
     tags: ['고전문학', '관동별곡', '정철', '가사문학'],
     author: 'SN Academy',
     date: '2025-09-28',
-    readTime: '12',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/gwandongbealgok_sn_series.png',
@@ -1877,7 +1877,7 @@ This work demonstrates that literature can serve not merely as entertainment but
     tags: ['고전문학', '선상탄', '박인로', '가사문학', '수능국어'],
     author: 'SN Academy',
     date: '2025-10-07',
-    readTime: '10',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/sunsangtan_thumbnail.png',
@@ -1964,7 +1964,7 @@ For students preparing for the Korean SAT, this work is significant for understa
     tags: ['고전문학', '용부가', '가사문학', '수능국어', '교훈문학'],
     author: 'SN Academy',
     date: '2025-10-08',
-    readTime: '8',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_work_v2_F.png',
@@ -2047,7 +2047,7 @@ Reading "Chulsaegok" offers an opportunity to understand not only the hearts of 
     tags: ['고전문학', '출새곡', '조우인', '기행가사', '수능국어'],
     author: 'SN Academy',
     date: '2025-10-14',
-    readTime: '9',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_F.png',
@@ -2130,7 +2130,7 @@ Reading "Mongcheonyo" offers an opportunity to understand not only the hearts of
     tags: ['고전문학', '몽천요', '윤선도', '연시조', '수능국어'],
     author: 'SN Academy',
     date: '2025-10-19',
-    readTime: '8',
+    readTime: '4',
     featured: false,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_F_mongcheonyo.png',
@@ -2165,9 +2165,8 @@ Reading "Mongcheonyo" offers an opportunity to understand not only the hearts of
     ],
     author: 'SN Academy',
     date: '2025-10-26',
-    readTime: '12',
-    featured: true,
-    featuredOrder: 3,
+    readTime: '4',
+    featured: false,
     published: true,
     thumbnail: '/images/thumbnail/DokRakDang_thumbnail_F_v3.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=NlLizA-5u1M',
@@ -2203,13 +2202,89 @@ Reading "Mongcheonyo" offers an opportunity to understand not only the hearts of
     tags: ['고전문학', '오륜가', '박선장', '교훈가사', '수능국어', '유교윤리'],
     author: 'SN Academy',
     date: '2025-10-27',
-    readTime: '12',
+    readTime: '4',
     featured: true,
     featuredOrder: 4,
     published: true,
     thumbnail: '/images/thumbnail/Oryun-ga_thumbnail_a2_v2.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=G3ojQuQXMxE',
     url: '/originals/oryun-ga',
+    type: 'special',
+  },
+  {
+    id: 'chohanga',
+    title:
+      '이제 그만 끝내자 항우야 너네 애들 다 넘어왔단다 (고전문학 「초한가」)',
+    excerpt:
+      '우희(虞姬)와의 이별을 노래한 항우의 「초한가(楚漢歌)」. 초한전쟁의 마지막 밤, 사면초가에 갇힌 영웅 항우가 자신의 운명과 사랑하는 여인과의 이별을 노래한 비장미 넘치는 고전 시가입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 제13탄. 오늘은 작자 미상의 판소리 「초한가」를 준비했습니다.
+
+「초한가」는 고대 중국 초(楚)나라와 한(漢)나라가 천하를 두고 벌인 역사적 대결을 그린 작품으로, 특히 항우와 유방의 마지막 결전인 해하(垓下) 전투를 중심으로 한 이야기입니다. '사면초가(四面楚歌)'라는 사자성어로도 잘 알려져 있습니다.
+
+<div class="my-8 rounded-2xl bg-gradient-to-br from-slate-50 to-gray-50 dark:from-gray-800 dark:to-gray-900 p-8 border-l-4 border-slate-600 dark:border-slate-400">
+  <div class="space-y-3 text-base leading-relaxed text-gray-800 dark:text-gray-200">
+    <p class="font-semibold">"힘은 산을 뽑을 만하고, 기개는 세상을 덮을 만한데(力拔山兮氣蓋世)"</p>
+    <p class="font-semibold">"때가 불리하니 오추마도 나아가지 못하는구나(時不利兮騅不逝)"</p>
+    <p class="font-semibold">"오추마가 나아가지 못하니 어찌할 것인가(騅不逝兮可奈何)"</p>
+    <p class="font-semibold">"우희여 우희여, 그대를 어찌할 것인가(虞兮虞兮奈若何)"</p>
+  </div>
+</div>
+
+<p class="text-sm text-gray-600 dark:text-gray-400 italic -mt-4 mb-6">
+  * 오추마(烏騅馬): 항우가 평생 타고 다닌 명마. 검은색 몸에 흰 갈기를 가진 말로, 항우와 함께 수많은 전투를 승리로 이끈 동반자였습니다.
+</p>
+
+항우는 천하를 호령하던 영웅이었습니다. 하지만 사면초가의 밤, 그는 자신의 힘으로도 바꿀 수 없는 '시운(時運)'의 무게를 절감합니다. 그리고 가장 사랑하는 여인 우희마저 지킬 수 없는 자신의 처지를 한탄합니다.
+
+이 서사시를 판소리로 낸 것이 이번의 고전문학 초한가지요.
+
+## 💡 영상 하이라이트
+
+SN독학기숙학원이 제작한 이번 영상에서는 장량의 옥퉁소로 시작된 '초가(楚歌)'의 심리전 전략을 깊이 있게 다룹니다. 한나라가 초나라 병사들의 가장 약한 고리인 **가족과 고향**을 공략한 방법—백발의 부모님, 홀로 빈방 지키는 아내, 배고픈 어린 자식들의 모습을 생생하게 노래로 전하며 초나라 병사들의 마음을 무너뜨린 과정을 생생하게 보여줍니다.
+
+작품의 핵심 주제는 **'개인의 용맹을 넘어선 천하 백성의 마음을 얻는 것'**이 진정한 리더십임을 강조합니다.
+
+---
+
+## About Chohanga (English)
+
+**Chohanga (楚漢歌)** is a traditional Chinese epic poem about the historical conflict between the Chu (楚) and Han (漢) dynasties, particularly focusing on the final battle of Gaixia (垓下). This Chinese classic was later adapted into Korean pansori (traditional narrative musical performance), making it one of the few pansori works based on Chinese historical material.
+
+This work centers on **Xiang Yu (項羽)**, the mighty warrior-king of Chu, who finds himself surrounded by enemy forces in a situation known as "**Simyeonchoga (四面楚歌)**" — literally "songs of Chu from all sides," meaning being surrounded by enemies with no escape.
+
+### The Famous Verse
+
+The most iconic part of this work is Xiang Yu's lament:
+
+- **"My strength could uproot mountains, my spirit covered the world" (力拔山兮氣蓋世)**
+- **"But fortune turned against me, even my beloved horse Zhui refuses to advance" (時不利兮騅不逝)**
+- **"What can I do when my horse won't go forward?" (騅不逝兮可奈何)**
+- **"Oh Yu Ji, Yu Ji, what shall I do with you?" (虞兮虞兮奈若何)**
+
+### Themes
+
+This pansori adaptation explores:
+
+- **The weight of destiny (時運)** that even the mightiest hero cannot overcome
+
+- **The tragedy of love** as Xiang Yu faces the reality that he cannot protect his beloved concubine Yu Ji (虞姬)
+
+- **The humanization of a legendary hero** through his vulnerability and emotional depth
+
+The Korean pansori version transforms this Chinese historical epic into a uniquely Korean musical narrative tradition, preserving the emotional core while adding the distinctive vocal techniques and dramatic expressions characteristic of pansori performance art.`,
+    category: 'SN Originals',
+    tags: ['고전문학', '초한가', '항우', '우희', '수능국어', '중국고전'],
+    author: 'SN Academy',
+    date: '2025-10-29',
+    readTime: '4',
+    featured: true,
+    featuredOrder: 3,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_a4_chohanga.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=Wv6KFsP_V94',
+    url: '/originals/chohanga',
     type: 'special',
   },
   {
@@ -2346,7 +2421,7 @@ AI가 보여준 학습의 원리처럼, 우리도 설계가 아니라 노출량,
     tags: ['공부법', 'AI', '학습법', '반복학습', '수능전략'],
     author: 'SN독학기숙학원 대표 윤석기',
     date: '2025-10-27',
-    readTime: '13',
+    readTime: '4',
     featured: true,
     featuredOrder: 1,
     published: true,

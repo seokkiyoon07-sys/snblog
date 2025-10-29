@@ -155,7 +155,7 @@ export default function PostCard({
               {post.date}
             </time>
             <span aria-hidden="true">•</span>
-            <span itemProp="wordCount">{post.readTime}</span>
+            <span itemProp="wordCount">{post.readTime}분 읽기</span>
             <span aria-hidden="true">•</span>
             <Link
               href={

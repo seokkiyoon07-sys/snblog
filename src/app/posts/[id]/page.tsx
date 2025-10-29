@@ -84,7 +84,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <span className="text-sm">•</span>
             <span className="text-sm">{post.date}</span>
             <span className="text-sm">•</span>
-            <span className="text-sm">{post.readTime}</span>
+            <span className="text-sm">{post.readTime}분 읽기</span>
           </div>
         </div>
       </div>
