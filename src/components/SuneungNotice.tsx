@@ -381,7 +381,7 @@ export default function SuneungNotice() {
                   </h4>
                   <p className="mb-1">
                     원내 <strong>주차 가능</strong>하나, 혼잡 시 현장 직원
-                    안내에 따라 <strong>임시 주차구역</strong> 이용 요청될 수
+                    안내에 따라 <strong>임시 주차구역</strong> 이용을 요청할 수
                     있음
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 italic">
@@ -447,12 +447,11 @@ export default function SuneungNotice() {
             <li>
               <strong>학생들의 짐이 많습니다.</strong>
               <br />
-              <strong>튼튼한 박스·타포린백</strong> 등을 많이 지참하시면 정리에
-              큰 도움이 됩니다.
+              <strong>튼튼한 박스·캐리어·타포린백</strong> 등을 많이 지참하시면
+              정리에 큰 도움이 됩니다.
               <br />
               <strong>미지참 시 학원에서도 구매 가능</strong>하나,{' '}
-              <u>수량 한정</u> 및 <u>시중가보다 다소 비용</u>이 발생할 수
-              있습니다.
+              <u>수량 한정</u> 및 <u>시중가보다 다소 비쌀 수</u> 있습니다.
               <br />
               <span className="text-red-600 dark:text-red-400 font-semibold">
                 당일에는 학원내 카트의 수량이 절대적으로 부족합니다. 캠핑카트
@@ -577,8 +576,7 @@ export default function SuneungNotice() {
           </p>
           <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
             또한 <strong>고사장 또는 본원에서 퇴소한 뒤</strong>에는 인원 파악을
-            위해
-            <strong>본원 카카오톡 채널로 퇴소 여부를 꼭 알려</strong>주시기
+            위해 <strong>본원 카카오톡 채널로 퇴소 여부를 꼭 알려</strong>주시기
             바랍니다.
           </p>
         </section>
