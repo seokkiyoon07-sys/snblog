@@ -152,9 +152,8 @@ export default function Header() {
               { name: 'AI 스타트업', href: '/startup' },
               { name: '컬럼', href: '/columns' },
               { name: '문제 다운로드', href: '/problems' },
-              { name: '입시정보', href: '/admissions' },
-              { name: '후기', href: '/reviews' },
               { name: 'SN Originals', href: '/originals' },
+              { name: '공지사항', href: '/notice' },
             ].map(item => (
               <Link
                 key={item.name}
@@ -274,9 +273,8 @@ export default function Header() {
                 { name: 'AI 스타트업', href: '/startup' },
                 { name: '컬럼', href: '/columns' },
                 { name: '문제 다운로드', href: '/problems' },
-                { name: '입시정보', href: '/admissions' },
-                { name: '후기', href: '/reviews' },
                 { name: 'SN Originals', href: '/originals' },
+                { name: '공지사항', href: '/notice' },
               ].map(item => (
                 <Link
                   key={item.name}

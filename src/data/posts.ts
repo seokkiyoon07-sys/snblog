@@ -25,6 +25,24 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: '251113suneungnotice',
+    title: '2026학년도 수능 전·당일 안내문(25.11.13 시행)',
+    excerpt:
+      '2026학년도 대학수학능력시험 전·당일 주요 일정을 안내드립니다. 수험표 배부, 고사장 배정, 당일 일정 및 학원 지원 사항을 확인하세요.',
+    content: 'special-component',
+    category: 'notice',
+    tags: ['수능', '안내', '일정'],
+    author: 'SN독학기숙학원',
+    date: '2025-11-11',
+    readTime: '5분',
+    featured: true,
+    featuredOrder: 1,
+    published: true,
+    thumbnail: '/images/thumbnail/2026_k-sat_notice.png',
+    url: '/notice/251113suneungnotice',
+    type: 'special',
+  },
+  {
     id: 'why-we-invest-in-ai',
     title: '왜 우리는 AI에 투자하는가',
     excerpt:
@@ -2551,6 +2569,33 @@ export function getPaginatedPosts(
   const startIndex = (page - 1) * limit;
   const endIndex = startIndex + limit;
   const posts = publishedPosts.slice(startIndex, endIndex);
+
+  return {
+    posts,
+    totalPages,
+    currentPage: page,
+  };
+}
+
+// SN Originals 카테고리용 페이지네이션 함수
+export function getPaginatedOriginalsPosts(
+  page: number = 1,
+  limit: number = 6
+): { posts: Post[]; totalPages: number; currentPage: number } {
+  const mergedPosts = getMergedPosts();
+  const originalsPosts = mergedPosts
+    .filter(
+      post =>
+        post.published &&
+        post.category === 'SN Originals' &&
+        post.id !== 'sn-originals-intro'
+    )
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const totalPosts = originalsPosts.length;
+  const totalPages = Math.ceil(totalPosts / limit);
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+  const posts = originalsPosts.slice(startIndex, endIndex);
 
   return {
     posts,
