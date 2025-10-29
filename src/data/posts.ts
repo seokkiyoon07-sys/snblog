@@ -2333,6 +2333,10 @@ AI도 비슷합니다. 제가 AI 전문가는 아니지만, 제가 이해한 바
 
 즉, **AI의 지능을 키운 것은 '설계'가 아니라 '노출량(학습량)'**이었습니다.
 
+<img src="/images/columns/howtostudy/Data_parameter.png" alt="AI 파라미터와 학습량의 관계" class="rounded-2xl border border-gray-200 dark:border-gray-700 my-6 w-full max-w-xl mx-auto" style="width: 70%;" />
+
+<p class="text-sm text-center text-gray-600 dark:text-gray-400">이미지 출처: <a href="https://soccom.tistory.com/656" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">https://soccom.tistory.com/656</a></p>
+
 ## 인간의 공부도 다르지 않습니다
 
 AI는 설계도보다 **반복 노출(학습량)**이 실력을 키웁니다. 사람의 공부도 똑같습니다.
@@ -2350,6 +2354,8 @@ AI는 설계도보다 **반복 노출(학습량)**이 실력을 키웁니다. �
     <strong>실제 사례:</strong> 한 학생이 수학 킬러 문제를 처음 봤을 때 20분이 걸렸지만, 같은 유형을 15번 반복한 후에는 3분 만에 풀었습니다. 머리가 좋아진 게 아니라, 패턴이 몸에 각인된 것이죠.
   </p>
 </div>
+
+![수능 공부와 패턴 학습](/images/columns/howtostudy/25.5.27-05989.jpg)
 
 즉, 수능은 머리가 좋은 사람이 이기는 시험이 아니라, **같은 유형을 질릴 만큼 많이 본 사람이 체계적으로 이기는 시험**입니다.
 
@@ -2375,6 +2381,8 @@ AI가 벡터를 통해 '패턴'을 내재화하듯, 우리 역시 지식을 몸�
 - 반복 노출이 쌓이면 어느 순간 '전이(transfer)'가 일어납니다.
 - 그때 비로소 실력이 '튀어오르는 구간'이 나옵니다.
 
+![학습 곡선과 실력 향상 구간](/images/columns/howtostudy/Learningcurve.jpg)
+
 다만, 여기서 중요한 점이 있습니다. 무작정 반복하는 것이 아니라, **'능동적 회상(active recall)'과 '간격 반복'**이 동반되어야 진짜 내재화가 일어납니다. 그저 교재를 계속 읽기만 하는 것과, 스스로 문제를 풀며 기억을 꺼내 보는 것은 전혀 다른 학습입니다.
 
 실제로 공부 잘하는 학생들의 공통점은 머리가 좋은 게 아니라, **반복 구간을 끝까지 버티는 사람들**입니다.
@@ -2393,6 +2401,8 @@ AI가 벡터를 통해 '패턴'을 내재화하듯, 우리 역시 지식을 몸�
     • 반복과 회독이 자동으로 누적되는 루틴 설계
   </p>
 </div>
+
+![SN 학습 시스템](/images/columns/howtostudy/SNstudy.jpg)
 
 즉, "공부 시간이 많다"가 아니라 **"패턴 노출량이 압도적으로 빠르게 쌓인다"**는 점에서 수능 구조와 가장 잘 맞아떨어지는 환경을 만들려고 합니다.
 

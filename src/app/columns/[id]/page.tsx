@@ -224,7 +224,7 @@ export default async function Page({ params }: PageProps) {
         <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24">
           <div className="mx-auto max-w-5xl">
             <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
                 {post.title}
               </h1>
               <p className="text-xl text-slate-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
