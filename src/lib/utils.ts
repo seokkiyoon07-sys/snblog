@@ -60,6 +60,15 @@ export function generateMetadata(
   return metadata;
 }
 
+/**
+ * Formats read time consistently across the application
+ * @param readTime - Read time as string (e.g., '5', '11')
+ * @returns Formatted string (e.g., '5분 읽기', '11분 읽기')
+ */
+export function formatReadTime(readTime: string): string {
+  return `${readTime}분 읽기`;
+}
+
 export function getCategoryConfig(category: string) {
   const configs: Record<
     string,

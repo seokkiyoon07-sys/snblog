@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { formatReadTime } from '@/lib/utils';
 
 interface Post {
   id: string;
@@ -156,7 +157,7 @@ export default function PostCard({
               {post.date}
             </time>
             <span aria-hidden="true">•</span>
-            <span itemProp="wordCount">{post.readTime} 읽기</span>
+            <span itemProp="wordCount">{formatReadTime(post.readTime)}</span>
             <span aria-hidden="true">•</span>
             <Link
               href={
