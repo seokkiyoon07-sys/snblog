@@ -7,7 +7,7 @@ import AIDataGenerator from '@/components/AIDataGenerator';
 import { getPostById, getPostsByCategory } from '@/data/posts';
 import { BlogLayout } from '@/components/BlogComponents';
 import { renderMarkdown } from '@/lib/markdown-renderer';
-import { getCategoryConfig } from '@/lib/utils';
+import { getCategoryConfig, formatReadTime } from '@/lib/utils';
 
 interface PostPageProps {
   params: Promise<{
@@ -161,7 +161,7 @@ export default async function PostPage({ params }: PostPageProps) {
                     clipRule="evenodd"
                   />
                 </svg>
-                {post.readTime}분 읽기
+                {formatReadTime(post.readTime)}
               </span>
             </div>
           </div>

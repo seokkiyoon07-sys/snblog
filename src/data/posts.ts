@@ -34,7 +34,7 @@ export const allPosts: Post[] = [
     tags: ['수능', '안내', '일정'],
     author: 'SN독학기숙학원',
     date: '2025-10-31',
-    readTime: '5분',
+    readTime: '5',
     featured: true,
     featuredOrder: 1,
     published: true,

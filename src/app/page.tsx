@@ -1,7 +1,7 @@
 import { getFeaturedPosts, getPaginatedPosts } from '@/data/posts';
 import PostCard from '@/components/PostCard';
-import FeaturedPost from '@/components/FeaturedPost';
 import Pagination from '@/components/Pagination';
+import { formatReadTime } from '@/lib/utils';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -183,7 +183,7 @@ export default async function Home({ searchParams }: HomeProps) {
                           {post.category}
                         </span>
                         <span className="text-gray-500 dark:text-gray-400 text-xs">
-                          {post.readTime}분 읽기
+                          {formatReadTime(post.readTime)}
                         </span>
                       </div>
 

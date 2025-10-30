@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import StructuredData from '@/components/StructuredData';
 import AIDataGenerator from '@/components/AIDataGenerator';
+import { formatReadTime } from '@/lib/utils';
 
 interface PostPageProps {
   params: Promise<{
@@ -84,7 +85,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <span className="text-sm">•</span>
             <span className="text-sm">{post.date}</span>
             <span className="text-sm">•</span>
-            <span className="text-sm">{post.readTime}분 읽기</span>
+            <span className="text-sm">{formatReadTime(post.readTime)}</span>
           </div>
         </div>
       </div>

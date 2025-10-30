@@ -6,6 +6,7 @@ import { getPostById, getPostsByCategory } from '@/data/posts';
 import StructuredData from '@/components/StructuredData';
 import AIDataGenerator from '@/components/AIDataGenerator';
 import { renderMarkdown } from '@/lib/markdown-renderer';
+import { formatReadTime } from '@/lib/utils';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -271,7 +272,7 @@ export default async function Page({ params }: PageProps) {
                       clipRule="evenodd"
                     />
                   </svg>
-                  {post.readTime}분 읽기
+                  {formatReadTime(post.readTime)}
                 </span>
               </div>
             </div>
