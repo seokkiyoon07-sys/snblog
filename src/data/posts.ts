@@ -2221,8 +2221,7 @@ Reading "Mongcheonyo" offers an opportunity to understand not only the hearts of
     author: 'SI KIM',
     date: '2025-10-27',
     readTime: '4',
-    featured: true,
-    featuredOrder: 4,
+    featured: false,
     published: true,
     thumbnail: '/images/thumbnail/Oryun-ga_thumbnail_a2_v2.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=G3ojQuQXMxE',
@@ -2307,6 +2306,132 @@ The Korean pansori version transforms this Chinese historical epic into a unique
     thumbnail: '/images/thumbnail/thumbnail_a4_chohanga.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=Wv6KFsP_V94',
     url: '/originals/chohanga',
+    type: 'special',
+  },
+  {
+    id: 'buksaegok',
+    title:
+      'MBTI F인 사람이 암행어사로 임명되면 이런 느낌일까? (고전문학 「북새곡」)',
+    excerpt:
+      '조선 후기 구강(具康)이 지은 가사 「북새곡」. 57세의 노인이 험준한 관북지방 산길을 추운 겨울에 다니면서 민정을 시찰하며 경험한 여러가지 견문을 사실적으로 익살스레 표출한 재미있는 작품입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 제14탄. 오늘은 조선 후기 구강(具康)이 지은 가사 「북새곡」을 준비했습니다.
+
+'북새(北塞)'란 북쪽 변방이나 국경을 뜻합니다. 북새곡은 구강이 1812년(순조 12) 9월 조선의 북쪽 국경이라 할 수 있는 관북지방 암행어사로 임명되어 민정을 시찰한 후 이듬해 3월에 복명하고서 지은 기행가사입니다.
+
+57세의 노인이 험준한 관북지방 산길을 추운 겨울에 다니면서 민정을 시찰하며 경험한 여러가지 견문을 사실적으로 익살스레 표출한 재미있는 작품입니다(해설 출처 : 한국민족문화대백과사전).
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「북새곡」- MBTI F인 사람이 암행어사로 임명되면 이런 느낌일까?
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+당신이 수험생이라면 이것도 한번 읽어보세요.
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 🏰 작품의 배경과 의미
+
+「북새곡」은 조선 후기 구강(具康, 1756-1822)이 지은 기행가사로, '북쪽 변방의 노래'라는 뜻입니다. 1812년(순조 12년) 9월, 57세의 구강이 관북지방(함경도) 암행어사로 임명되어 추운 겨울 동안 험준한 산길을 오가며 민정을 시찰한 후, 이듬해 3월에 복명하고 나서 지은 작품입니다.
+
+이 작품은 단순한 기행 기록이 아니라, 57세 노인의 눈으로 본 민중의 고통과 현실을 진솔하고 익살스럽게 표현한 점이 특징입니다. 암행어사로서의 공적 임무와 개인적 감정이 교차하며, 특히 감정 기반(MBTI F)의 인간적 공감과 따뜻한 시선이 두드러집니다.
+
+### 🎭 문학적 특징
+
+- **기행가사**: 관북지방 시찰 여정을 생생하게 묘사<br>
+- **익살과 해학**: 어려운 상황을 유머러스하게 표현<br>
+- **현실적 묘사**: 민중의 어려움과 사회 현실을 구체적으로 서술<br>
+- **인간적 공감**: 관료로서의 냉정함보다 인간으로서의 따뜻한 시선<br>
+- **개인적 감정**: 노인의 체력적 한계와 심리적 고민을 솔직하게 드러냄
+
+### 🌍 문학사적 의의
+
+「북새곡」은 조선 후기 암행어사의 실제 시찰 경험을 담은 귀한 자료로, 당시 관북지방의 실상과 민중의 생활상을 생생하게 전해줍니다. 특히 구강의 인간적이고 감성적인 시각이 작품 전반에 흐르며, 공무를 수행하는 관료의 내면을 솔직하게 보여준다는 점에서 문학사적 가치가 높습니다.
+
+이 작품은 관료 문학의 전형인 '뜻있는 시'의 형식을 따르면서도, 개인적 감정과 현실 인식이 잘 조화를 이루고 있습니다. 57세 노인이 겨울철 험난한 여정을 감내하며 민정을 살펴본 경험이 생생하게 드러나며, 이는 조선 후기 지식인의 사회적 의식과 인간적 공감 능력을 보여주는 사례입니다.
+
+### 📚 작품 감상 포인트
+
+1. **북새의 의미**: '북쪽 변방'이 담고 있는 거리감과 현실<br>
+2. **암행어사의 현실**: 임금의 명과 실제 현장 사이의 괴리<br>
+3. **인간적 시각**: 관료적 시선을 넘어선 민중에 대한 공감<br>
+4. **익살과 해학**: 어려운 상황을 유머로 승화시키는 지혜<br>
+5. **시대적 배경**: 조선 후기 변방 지역의 실상과 사회 문제
+
+### 🎨 현대적 의미
+
+「북새곡」을 읽는 것은 과거 관료의 여정을 이해하는 것을 넘어, 자신의 역할과 위치에서 사회를 바라보는 시각이 무엇인지 생각해보는 기회입니다. 공적 임무를 수행하면서도 인간적인 따뜻함을 잃지 않는 것, 어려운 상황 속에서도 유머와 해학으로 극복해내는 것—이런 자세가 오늘날 우리에게도 깊은 교훈을 줍니다.
+
+특히 MBTI F(감정형) 성향을 가진 사람이라면, 구강의 인간적 공감과 따뜻한 시선에서 공감을 느낄 수 있을 것입니다. 냉정한 판단보다는 사람과 상황에 대한 깊은 이해를 우선시하는 접근이 이 작품의 핵심이기 때문입니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 기행가사, 익살과 해학<br>
+- **주요 특징**: 현실적 묘사, 인간적 공감, 개인적 감정 표현<br>
+- **표현 기법**: 대조법, 영탄법, 직설적 표현<br>
+- **시대적 의미**: 조선 후기 암행어사의 역할과 변방의 실상
+
+</div>
+</details>
+
+---
+
+## 💡 영상 하이라이트
+
+SN독학기숙학원이 제작한 이번 영상에서는 57세 구강이 암행어사로서 겪은 험난한 여정을 생생하게 담아냅니다.
+
+추운 겨울, 험준한 산길을 오가며 느낀 피로와 고민 속에서도 드러나는 따뜻한 인간적 시선—익살스러운 문체 안에 녹아든 민중의 삶과 애환을 만나보실 수 있습니다.
+
+작품의 핵심 주제는 **'공적 임무와 인간적 감정의 조화'**입니다. 특히 감정에 기반한 접근이 오히려 더 깊은 이해와 공감을 이끌어낸다는 점을 효과적으로 보여줍니다.
+
+**시각적 연출에 특별히 공을 많이 들였습니다.** 소주장수가 암행어사에게 술을 권하는 장면, 얼음에 빠진 순간의 긴박함, 임금님이 춤추는 유쾌한 장면 등이 개성 있게 표현되어 작품의 재미를 더합니다.
+
+앞으로도 더욱 개성 있는 영상으로 찾아뵙겠습니다.
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Buksaegok" - When an Emotional Type Becomes an Undercover Inspector
+
+**Buksaegok (北塞曲)** is a classical Korean gasa (가사) travel narrative poem written by Gu Gang (具康, 1756-1822) during the late Joseon Dynasty. The title means "Song of the Northern Frontier," and the work vividly describes Gu Gang's experience as an undercover royal inspector (암행어사) in the northern border region (관북지방, Hamgyong Province) in 1812.
+
+**Literary Significance:**
+- **Travel Narrative**: Vividly describes the difficult journey through harsh winter mountains as a 57-year-old official
+- **Humorous and Witty**: Expresses difficult situations with humor and wit
+- **Realistic Description**: Specifically describes the hardships of the people and social realities
+- **Human Empathy**: Shows warm human perspective rather than cold bureaucratic judgment
+- **Personal Expression**: Honestly reveals the physical limitations and psychological struggles of an elderly official
+
+**Cultural Value:**
+This work serves as valuable material for understanding the actual inspection experiences of undercover royal inspectors during the late Joseon Dynasty, vividly conveying the realities of the northern frontier region and the lives of the people. Gu Gang's humanistic and emotional perspective flows throughout the work, giving it high literary historical value for honestly showing the inner world of a bureaucrat performing official duties.
+
+**Contemporary Relevance:**
+Reading "Buksaegok" offers an opportunity to reflect on how we view society from our own roles and positions, beyond simply understanding a past official's journey. It teaches us the importance of maintaining human warmth while performing public duties, and overcoming difficult situations with humor and wit—attitudes that still hold deep lessons for us today.
+
+The work particularly resonates with those who prioritize emotional understanding (like MBTI Feeling types), as Gu Gang's human empathy and warm perspective form the core of this piece.
+
+</div>
+</details>`,
+    category: 'SN Originals',
+    tags: ['고전문학', '북새곡', '구강', '기행가사', '암행어사', '수능국어'],
+    author: 'SI KIM',
+    date: '2025-11-01',
+    readTime: '4',
+    featured: true,
+    featuredOrder: 4,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_b_buksaegok.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=nRZYC5lLLIY',
+    url: '/originals/buksaegok',
     type: 'special',
   },
   {
