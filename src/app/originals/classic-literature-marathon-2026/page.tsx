@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://blog.snacademy.co.kr/originals/classic-literature-marathon-2026',
     images: [
       {
-        url: 'https://blog.snacademy.co.kr/images/thumbnail/thumnail_VF.png',
+        url: 'https://blog.snacademy.co.kr/images/thumbnail/thumbnail_VF.png',
         width: 800,
         height: 400,
         alt: 'SN 고전문학 몰아보기 2026 수능 대비',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description:
       '2026 수능을 앞둔 수험생을 위한 특별 영상! SN독학기숙학원이 엄선한 고전문학 작품 13편을 1시간 동안 몰아보세요.',
     images: [
-      'https://blog.snacademy.co.kr/images/thumbnail/thumnail_VF.png',
+      'https://blog.snacademy.co.kr/images/thumbnail/thumbnail_VF.png',
     ],
   },
   robots: {
@@ -545,7 +545,7 @@ export default function ClassicLiteratureMarathonPage() {
           datePublished: '2025-11-05',
           dateModified: '2025-11-05',
           image:
-            'https://blog.snacademy.co.kr/images/thumbnail/thumnail_VF.png',
+            'https://blog.snacademy.co.kr/images/thumbnail/thumbnail_VF.png',
           url: 'https://blog.snacademy.co.kr/originals/classic-literature-marathon-2026',
           category: 'SN Originals',
           keywords:

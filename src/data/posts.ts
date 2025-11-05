@@ -48,7 +48,7 @@ export const allPosts: Post[] = [
     featured: true,
     featuredOrder: 1,
     published: true,
-    thumbnail: '/images/thumbnail/thumnail_VF.png',
+    thumbnail: '/images/thumbnail/thumbnail_VF.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=lsR6vGdm_Mo',
     url: '/originals/classic-literature-marathon-2026',
     type: 'special',
