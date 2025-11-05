@@ -141,7 +141,7 @@ export default function SuneungNotice() {
   const schedule2025Data = [
     { date: '11/14(금) - 16(일)', content: '가채점 결과 학원 설문지 입력' },
     { date: '12/5 (금)', content: '수능 성적 발표일' },
-    { date: '12/7 (토) - 8 (일)', content: '정시 상담 사전예약 안내' },
+    { date: '12/7 (일) - 8 (월)', content: '정시 상담 사전예약 안내' },
     { date: '12/12 (금)', content: '수시 합격자 발표 마감' },
     { date: '12/23(화) - 28(일)', content: '정시 상담 기간' },
     { date: '12/29 (월) - 31 (수)', content: '정시모집 원서 접수' },
