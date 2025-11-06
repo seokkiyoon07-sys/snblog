@@ -55,9 +55,9 @@ export const metadata: Metadata = {
       'SN Academy의 교육 혁신과 AI 기술을 소개합니다. SNarGO, SNarGPT, SNarlink 등 교육 AI 제품과 입시 정보, 학습 컬럼을 확인하세요.',
     images: [
       {
-        url: '/images/sn-logo.png',
-        width: 1200,
-        height: 630,
+        url: '/sn_logo.png',
+        width: 501,
+        height: 424,
         alt: 'SN Academy Blog',
       },
     ],
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SN Academy Blog',
     description: 'SN Academy의 교육 혁신과 AI 기술을 소개합니다.',
-    images: ['/images/sn-logo.png'],
+    images: ['/sn_logo.png'],
   },
   robots: {
     index: true,
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/images/sn-logo.png', sizes: 'any', type: 'image/png' },
+      { url: '/sn_logo.png', sizes: 'any', type: 'image/png' },
     ],
     shortcut: '/favicon-32x32.png',
     apple: '/apple-touch-icon.png',
