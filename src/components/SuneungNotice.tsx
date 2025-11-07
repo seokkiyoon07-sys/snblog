@@ -151,7 +151,7 @@ export default function SuneungNotice() {
   // 도시락 메뉴 데이터
   const menuData = [
     { category: '국물', menu: '쇠고기무국' },
-    { category: '주식', menu: '쌀밥(죽)' },
+    { category: '주식', menu: '쌀밥\n(희망자에 한해 죽 제공)' },
     { category: '메인', menu: '돈육바싹불고기' },
     {
       category: '반찬',
@@ -424,8 +424,8 @@ export default function SuneungNotice() {
                     주세요.
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                    (본원에서 퇴소하시는 경우에도 1차로는 고사장에서 스마트폰
-                    수령이 가능합니다.)
+                    (본원에서 퇴소하시는 경우에도 고사장 픽업 담당 선생님이 귀원
+                    후에 스마트폰 수령이 가능합니다.)
                   </p>
                 </div>
               </div>
@@ -462,8 +462,8 @@ export default function SuneungNotice() {
 
           <CalloutBox variant="warning">
             ※ 수능 당일 응원은 <strong>학원 내</strong>가 아닌{' '}
-            <strong>고사장</strong>에서 부탁드립니다. 당일 본원은 학생 지원에
-            집중하겠습니다.
+            <strong>고사장</strong>에서 부탁드립니다. 당일 본원은 학생들에게 더
+            집중하도록 하겠습니다.
           </CalloutBox>
 
           <h3 className="mt-6 text-base sm:text-lg font-semibold">
