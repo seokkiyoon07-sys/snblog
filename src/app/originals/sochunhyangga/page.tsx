@@ -210,8 +210,6 @@ export default function SochunhyanggaPage() {
           <p className="text-gray-800 dark:text-gray-200">
             이몽룡과 춘향이 처음 만나는 장면은 조선시대 연애 문학의 백미입니다.
             절제된 표현 속에서도 두 사람의 설레는 감정이 고스란히 느껴집니다.
-            광한루 앞 그네 뛰는 춘향을 본 이몽룡의 마음이 요동치는 순간부터
-            이야기는 시작됩니다.
           </p>
         </div>
 
@@ -222,17 +220,6 @@ export default function SochunhyanggaPage() {
           <p className="text-gray-800 dark:text-gray-200">
             춘향을 향한 이몽룡의 연정이 깊어지고, 두 사람은 백년가약을 맺습니다.
             신분의 차이를 뛰어넘은 순수한 사랑의 약속이 감동적으로 그려집니다.
-          </p>
-        </div>
-
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-500 p-6 my-6 rounded-r-lg">
-          <h3 className="text-xl font-bold text-blue-900 dark:text-blue-100 mb-3">
-            😢 이별의 아픔
-          </h3>
-          <p className="text-gray-800 dark:text-gray-200">
-            이몽룡이 과거를 보기 위해 서울로 떠나야 하는 상황. 이별을 앞둔
-            춘향의 마음은 찢어질 듯 아픕니다. "언제 다시 만날 수 있을까"라는
-            불안과 그리움이 절절하게 표현됩니다.
           </p>
         </div>
 
