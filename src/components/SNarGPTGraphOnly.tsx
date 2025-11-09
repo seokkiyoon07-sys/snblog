@@ -22,8 +22,18 @@ export default function SNarGPTGraphOnly() {
 
           {/* 주소창 */}
           <div className="bg-gray-700 dark:bg-gray-950 rounded-lg px-4 py-2 flex items-center gap-3">
-            <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            <svg
+              className="w-4 h-4 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              />
             </svg>
             <span className="text-gray-300 text-sm flex-1">snargpt.ai</span>
           </div>
@@ -36,7 +46,9 @@ export default function SNarGPTGraphOnly() {
             {/* 헤더 */}
             <div className="border-b border-gray-700 pb-4 mb-6">
               <h2 className="text-2xl font-bold text-white">SNarGPT</h2>
-              <p className="text-sm text-gray-400 mt-1">수능 전문 AI 학습 파트너</p>
+              <p className="text-sm text-gray-400 mt-1">
+                수능 전문 AI 학습 파트너
+              </p>
             </div>
 
             {/* 채팅 메시지 영역 - 그래프 시각화만 표시 */}
@@ -52,32 +64,44 @@ export default function SNarGPTGraphOnly() {
                 {/* AI 응답 - 그래프 */}
                 <div className="flex justify-start">
                   <div className="bg-purple-600/20 border border-purple-500/50 text-purple-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
-                    <p className="font-semibold text-purple-200 text-sm mb-2">(From SNarVIS)</p>
+                    <p className="font-semibold text-purple-200 text-sm mb-2">
+                      (From SNarVIS)
+                    </p>
                     <div className="text-xs space-y-3">
                       <p className="text-purple-100">
-                        네, 방금 그렸어요! 왼쪽은 등비수열 <InlineMath math="a_n" />의 stem 그래프, 오른쪽은 부분합 <InlineMath math="S_n" />과 극한값 <InlineMath math="S_\infty" />를 표시했어요.
+                        네, 방금 그렸어요! 왼쪽은 등비수열{' '}
+                        <InlineMath math="a_n" />의 stem 그래프, 오른쪽은 부분합{' '}
+                        <InlineMath math="S_n" />과 극한값{' '}
+                        <InlineMath math="S_\infty" />를 표시했어요.
                       </p>
                       <p className="text-purple-100">
-                        정수 항 <InlineMath math="a_2 = -9, a_3 = 6, a_4 = -4" />는 빨간색으로 강조했습니다.
+                        정수 항{' '}
+                        <InlineMath math="a_2 = -9, a_3 = 6, a_4 = -4" />는
+                        빨간색으로 강조했습니다.
                       </p>
                       <p className="text-purple-100">
-                        부분합은 공비가 음수라 진동하며 <InlineMath math="S_\infty = \frac{a_1}{1-r} = \frac{27/2}{1-(-2/3)} = \frac{81}{10} = 8.1" />로 수렴하는 모습이 보입니다.
+                        부분합은 공비가 음수라 진동하며{' '}
+                        <InlineMath math="S_\infty = \frac{a_1}{1-r} = \frac{27/2}{1-(-2/3)} = \frac{81}{10} = 8.1" />
+                        로 수렴하는 모습이 보입니다.
                       </p>
 
                       <div className="mt-3 bg-gray-800/50 border border-gray-700 rounded-lg p-3 overflow-hidden">
-                        <img
-                          src="/images/startup/snargpt-guide-1/6958-1_solution.png"
-                          alt="등비수열 그래프"
-                          className="w-full rounded cursor-pointer hover:opacity-80 transition-opacity"
+                        <button
                           onClick={() => setIsImageModalOpen(true)}
-                          onKeyDown={(e) => e.key === 'Enter' && setIsImageModalOpen(true)}
-                          role="button"
-                          tabIndex={0}
-                        />
+                          className="w-full block"
+                          aria-label="그래프 이미지 확대"
+                        >
+                          <img
+                            src="/images/startup/snargpt-guide-1/6958-1_solution.png"
+                            alt="등비수열 그래프"
+                            className="w-full rounded hover:opacity-80 transition-opacity"
+                          />
+                        </button>
                       </div>
 
                       <p className="text-purple-100 text-xs">
-                        원하시면 n 범위를 늘리거나, 막대 대신 꺾은선/점 표기, 주석 위치 등 스타일을 바꿀 수 있어요.
+                        원하시면 n 범위를 늘리거나, 막대 대신 꺾은선/점 표기,
+                        주석 위치 등 스타일을 바꿀 수 있어요.
                       </p>
                     </div>
                   </div>
@@ -110,13 +134,15 @@ export default function SNarGPTGraphOnly() {
       {isImageModalOpen && (
         <div
           className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-          onClick={() => setIsImageModalOpen(false)}
-          onKeyDown={(e) => e.key === 'Escape' && setIsImageModalOpen(false)}
           role="dialog"
           aria-modal="true"
-          tabIndex={-1}
         >
-          <div className="relative max-w-5xl w-full">
+          <button
+            onClick={() => setIsImageModalOpen(false)}
+            className="absolute inset-0 w-full h-full"
+            aria-label="모달 닫기"
+          />
+          <div className="relative max-w-5xl w-full z-10">
             <button
               onClick={() => setIsImageModalOpen(false)}
               className="absolute -top-10 right-0 text-white hover:text-gray-300 text-2xl font-bold"
@@ -128,10 +154,6 @@ export default function SNarGPTGraphOnly() {
               src="/images/startup/snargpt-guide-1/6958-1_solution.png"
               alt="이미지 확대"
               className="w-full h-auto rounded-lg"
-              onClick={(e) => e.stopPropagation()}
-              onKeyDown={(e) => e.key === 'Enter' && e.stopPropagation()}
-              role="img"
-              tabIndex={0}
             />
           </div>
         </div>
