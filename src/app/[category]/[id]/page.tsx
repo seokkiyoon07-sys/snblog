@@ -225,12 +225,19 @@ export default async function PostPage({ params }: PostPageProps) {
               <>
                 {/* SNarGPT 게시글: 인터페이스를 여러 곳에 삽입 */}
                 {(() => {
-                  const parts = post.content.split('<!-- SNARGPT_INTERFACE_2 -->');
+                  const parts = post.content.split(
+                    '<!-- SNARGPT_INTERFACE_2 -->'
+                  );
                   const beforeInterface2 = parts[0];
                   const afterInterface2 = parts[1] || '';
 
-                  const beforeMainInterface = beforeInterface2.split('## 🧠 SNarGPT로 할 수 있는 일들')[0];
-                  const afterMainInterface = beforeInterface2.split('## 🧠 SNarGPT로 할 수 있는 일들')[1] || '';
+                  const beforeMainInterface = beforeInterface2.split(
+                    '## 🧠 SNarGPT로 할 수 있는 일들'
+                  )[0];
+                  const afterMainInterface =
+                    beforeInterface2.split(
+                      '## 🧠 SNarGPT로 할 수 있는 일들'
+                    )[1] || '';
 
                   return (
                     <>
@@ -247,7 +254,7 @@ export default async function PostPage({ params }: PostPageProps) {
                           prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
                           prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
                         dangerouslySetInnerHTML={{
-                          __html: renderMarkdown(beforeMainInterface)
+                          __html: renderMarkdown(beforeMainInterface),
                         }}
                       />
 
@@ -269,7 +276,10 @@ export default async function PostPage({ params }: PostPageProps) {
                           prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
                           prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
                         dangerouslySetInnerHTML={{
-                          __html: renderMarkdown('## 🧠 SNarGPT로 할 수 있는 일들' + afterMainInterface)
+                          __html: renderMarkdown(
+                            '## 🧠 SNarGPT로 할 수 있는 일들' +
+                              afterMainInterface
+                          ),
                         }}
                       />
 
@@ -291,7 +301,7 @@ export default async function PostPage({ params }: PostPageProps) {
                           prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
                           prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
                         dangerouslySetInnerHTML={{
-                          __html: renderMarkdown(afterInterface2)
+                          __html: renderMarkdown(afterInterface2),
                         }}
                       />
                     </>
@@ -311,7 +321,9 @@ export default async function PostPage({ params }: PostPageProps) {
                   prose-ul:my-6 prose-li:my-2
                   prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
                   prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
-                dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
+                dangerouslySetInnerHTML={{
+                  __html: renderMarkdown(post.content),
+                }}
               />
             )}
           </div>

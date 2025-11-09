@@ -182,17 +182,17 @@ export default function SochunhyanggaPage() {
 
         <Callout type="info" title="판소리에서 잡가로">
           <p>
-            「소춘향가」는 판소리 「춘향가」의 명장면들을 선별하여 노래로 재구성한
-            작품입니다. 긴 판소리를 짧은 잡가로 압축하면서도 춘향과 이몽룡의 사랑
-            이야기의 핵심을 생생하게 전달합니다.
+            「소춘향가」는 판소리 「춘향가」의 명장면들을 선별하여 노래로
+            재구성한 작품입니다. 긴 판소리를 짧은 잡가로 압축하면서도 춘향과
+            이몽룡의 사랑 이야기의 핵심을 생생하게 전달합니다.
           </p>
         </Callout>
 
         <Callout type="info" title="십이 잡가의 하나">
           <p>
-            십이 잡가는 조선 후기 서울 지역에서 유행했던 12가지 잡가를 의미합니다.
-            「소춘향가」는 그 중 하나로, 당시 사람들에게 큰 사랑을 받았던
-            작품입니다.
+            십이 잡가는 조선 후기 서울 지역에서 유행했던 12가지 잡가를
+            의미합니다. 「소춘향가」는 그 중 하나로, 당시 사람들에게 큰 사랑을
+            받았던 작품입니다.
           </p>
         </Callout>
       </section>
@@ -277,21 +277,22 @@ export default function SochunhyanggaPage() {
             shorter, more accessible format.
           </p>
           <p className="mb-4">
-            The song beautifully captures key moments from the romance between Yi
-            Mongryong, a nobleman's son, and Chunhyang, the daughter of a
-            gisaeng. These include their first encounter, the blossoming of love,
-            the pain of separation, and the longing that follows.
+            The song beautifully captures key moments from the romance between
+            Yi Mongryong, a nobleman's son, and Chunhyang, the daughter of a
+            gisaeng. These include their first encounter, the blossoming of
+            love, the pain of separation, and the longing that follows.
           </p>
           <p className="mb-4">
-            Unlike the full-length pansori narrative, this folk version emphasizes
-            emotional expression over plot development, allowing listeners to
-            connect deeply with the characters' feelings. It's a timeless story of
-            love transcending social boundaries, faithfulness, and hope.
+            Unlike the full-length pansori narrative, this folk version
+            emphasizes emotional expression over plot development, allowing
+            listeners to connect deeply with the characters' feelings. It's a
+            timeless story of love transcending social boundaries, faithfulness,
+            and hope.
           </p>
           <p>
-            This work is a valuable resource for understanding Korean traditional
-            music and literature, and remains a frequently studied text in Korean
-            SAT (Suneung) preparation.
+            This work is a valuable resource for understanding Korean
+            traditional music and literature, and remains a frequently studied
+            text in Korean SAT (Suneung) preparation.
           </p>
         </div>
       </section>

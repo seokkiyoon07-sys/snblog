@@ -35,9 +35,7 @@ export const metadata: Metadata = {
     title: '여기서 26학년도 수능 국어 몇 문제 나올까? (SN 고전문학 몰아보기)',
     description:
       '2026 수능을 앞둔 수험생을 위한 특별 영상! SN독학기숙학원이 엄선한 고전문학 작품 13편을 1시간 동안 몰아보세요.',
-    images: [
-      'https://blog.snacademy.co.kr/images/thumbnail/thumbnail_VF.png',
-    ],
+    images: ['https://blog.snacademy.co.kr/images/thumbnail/thumbnail_VF.png'],
   },
   robots: {
     index: true,
@@ -326,16 +324,13 @@ export default function ClassicLiteratureMarathonPage() {
             않았습니다.
           </p>
           <ul className="list-disc pl-5 text-gray-800 dark:text-gray-200 space-y-2">
-            <li>
-              「관동별곡」의 웅장한 금강산 풍경을 어떻게 그릴 것인가?
-            </li>
+            <li>「관동별곡」의 웅장한 금강산 풍경을 어떻게 그릴 것인가?</li>
             <li>
               「사미인곡」의 애절한 임에 대한 그리움을 어떤 이미지로 표현할
               것인가?
             </li>
             <li>
-              「오륜가」의 다섯 가지 인간관계를 시각적으로 어떻게 구분할
-              것인가?
+              「오륜가」의 다섯 가지 인간관계를 시각적으로 어떻게 구분할 것인가?
             </li>
           </ul>
           <p className="text-gray-800 dark:text-gray-200 leading-relaxed mt-3">
@@ -373,9 +368,7 @@ export default function ClassicLiteratureMarathonPage() {
       <section id="reflection">
         <H2 id="reflection">💭 제작진의 소회</H2>
 
-        <p>
-          이 시리즈를 만들면서, 저희는 하나의 사실을 다시 확인했습니다.
-        </p>
+        <p>이 시리즈를 만들면서, 저희는 하나의 사실을 다시 확인했습니다.</p>
 
         <blockquote className="border-l-4 border-purple-500 pl-6 italic text-gray-700 dark:text-gray-300 my-6 py-2">
           "고전문학은 어렵지 않다. 단지 낯설 뿐이다."
@@ -441,8 +434,8 @@ export default function ClassicLiteratureMarathonPage() {
         <p>어떤 부분이 더 설명이 필요한가요?</p>
         <p>다음에는 어떤 작품을 다뤄주면 좋을까요?</p>
         <p className="mt-4">
-          유튜브 채널에 댓글로 여러분의 의견을 들려주세요. SN독학기숙학원은
-          항상 여러분의 목소리에 귀 기울이고 있습니다. 👂
+          유튜브 채널에 댓글로 여러분의 의견을 들려주세요. SN독학기숙학원은 항상
+          여러분의 목소리에 귀 기울이고 있습니다. 👂
         </p>
 
         <div className="mt-6 text-center">
@@ -587,4 +580,3 @@ export default function ClassicLiteratureMarathonPage() {
     </main>
   );
 }
-
