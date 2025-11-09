@@ -25,6 +25,316 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'snargpt-guide-1',
+    title: 'SNarGPT 활용가이드 1편 - 수능 특화 AI 학습 파트너',
+    excerpt:
+      'SNarGPT는 단순한 대화형 AI가 아닙니다. 문제 풀이, 개념 연결, 복습 루프, 오답 분석 등 실제 학습 행동에 최적화된 수능 중심 AI 학습 파트너입니다.',
+    content: `
+<div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg">
+  <p class="text-gray-800 dark:text-gray-200 text-xl font-semibold leading-relaxed">
+    "SNarGPT는 수험생을 위한 수능 특화 AI입니다."
+  </p>
+</div>
+
+## 🎯 SNarGPT란 무엇인가?
+
+SNarGPT는 ChatGPT처럼 말을 잘하는 AI가 아닙니다.
+
+**'공부'라는 특정 목적에 최적화된, 수능 중심 AI 학습 파트너**입니다.
+
+대형 LLM(언어모델)이지만, SNarGPT는 일반 대화가 아니라 **문제 풀이, 개념 연결, 복습 루프, 오답 분석** 같은 실제 학습 행동에 집중합니다.
+
+<div class="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 p-6 my-6 rounded-lg">
+  <p class="text-gray-800 dark:text-gray-200 text-lg leading-relaxed">
+    ChatGPT가 <strong>'대학생 수준의 조언자'</strong>라면,<br/>
+    SNarGPT는 <strong>'박사급 연구원'</strong>이 옆에서<br/>
+    함께 문제를 분석하고, 사고과정을 설계하며,<br/>
+    학습의 전 과정을 동행하는 AI입니다.
+  </p>
+</div>
+
+---
+
+## 🖥️ SNarGPT 인터페이스 체험
+
+실제 SNarGPT가 어떻게 작동하는지 먼저 체험해보세요. 탭을 클릭하여 다양한 기능을 확인할 수 있습니다.
+
+---
+
+## 🧠 SNarGPT로 할 수 있는 일들
+
+### 1️⃣ 유사문제·해설·개념까지 연결되는 'AI 검색' (RAG 기반)
+
+단순히 '비슷한 문제 찾아줘' 수준이 아닙니다.
+
+**SNarGPT는 문제를 실제로 풀고 난 뒤**, 풀이 과정에서 **핵심 개념·패턴·출제의도를 분석**합니다.
+
+그 분석을 토대로, 같은 개념이 쓰인 평가원/교육청 문제나 비슷한 사고 패턴의 문제를 제시합니다.
+
+<div class="bg-[#0a0e1a] rounded-lg p-6 my-6 border border-gray-700">
+  <p class="text-gray-400 text-xs mb-4">🔍 예시:</p>
+
+  {/* 사용자 메시지 */}
+  <div class="flex justify-end mb-4">
+    <div class="bg-blue-600/20 border border-blue-500/50 text-blue-100 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
+      <p class="text-sm">2023 수능 수학 30번과 비슷한 구조의 기하 문제 찾아줘</p>
+    </div>
+  </div>
+
+  {/* AI 응답 */}
+  <div class="flex justify-start">
+    <div class="bg-purple-600/20 border border-purple-500/50 text-purple-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
+      <p class="font-semibold text-purple-200 text-xs mb-2">(From SNarVIS)</p>
+      <p class="text-purple-100 text-xs">
+        AI가 직접 풀이한 결과를 기준으로, 동일한 사고트리의 문제를 추천해드립니다.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-5 my-6 rounded-lg">
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">📍 기존 LLM과의 차이</h4>
+  <p class="text-gray-700 dark:text-gray-300">
+    일반 LLM이나 시중의 문제은행 등은 "텍스트 유사도"로 비슷한 문제를 찾지만,<br/>
+    SNarGPT는 <strong>"풀이 논리의 유사도"</strong>로 찾습니다.<br/>
+    즉, 문제의 표면이 아니라, <strong>본질</strong>을 이해합니다.
+  </p>
+</div>
+
+---
+
+### 2️⃣ 99.9% 정확도의 문제 풀이 (그래프까지)
+
+SNarGPT는 수능/사설/교재 문제를 거의 완벽히 풉니다.
+
+**그래프를 직접 그리고, 계산과정을 단계별로 보여주며, 여러 문제를 한 번에 병렬로 해결**합니다.
+
+<div class="bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-500 p-6 my-6 rounded-r-lg">
+  <p class="text-gray-700 dark:text-gray-300 mb-3">
+    <strong>🧩 예시:</strong>
+  </p>
+  <p class="text-gray-800 dark:text-gray-200 italic">
+    "이 3문제 다 풀어줘"
+  </p>
+  <p class="text-gray-700 dark:text-gray-300 mt-3">
+    → 문제별 풀이 + 정답 + 그래프 시각화 + 사고과정 비교표까지 제공.
+  </p>
+</div>
+
+<div class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-5 my-6 rounded-lg">
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">📍 기존 LLM과의 차이</h4>
+  <p class="text-gray-700 dark:text-gray-300">
+    다른 LLM은 종종 엉뚱한 숫자나 근사치를 냅니다.<br/>
+    SNarGPT는 <strong>수능 정확도는 현재 99.78% 이며, 초고난도, 고난도 문항은 오히려 100%에 가깝습니다.</strong><br/>
+    문항번호·단원·출처를 함께 표기합니다.
+  </p>
+</div>
+
+<!-- SNARGPT_INTERFACE_2 -->
+
+---
+
+### 3️⃣ 인터넷에서 '저작권 없는 문제' 자동 수집
+
+교재 저작권에 걸리지 않는 오픈 소스 문제를 수집해
+학생의 취약 단원 중심으로 자동 큐레이션합니다.
+
+<div class="bg-orange-50 dark:bg-orange-900/30 border-l-4 border-orange-500 p-6 my-6 rounded-r-lg">
+  <p class="text-gray-700 dark:text-gray-300 mb-3">
+    <strong>📚 예시:</strong>
+  </p>
+  <p class="text-gray-800 dark:text-gray-200 italic">
+    "지수로그 단원 중 고난도 문제 5개만 줘"
+  </p>
+  <p class="text-gray-700 dark:text-gray-300 mt-3">
+    → AI가 오픈문항 DB를 뒤져 직접 선별해줍니다.
+  </p>
+</div>
+
+<div class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-5 my-6 rounded-lg">
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">📍 기존 LLM과의 차이</h4>
+  <p class="text-gray-700 dark:text-gray-300">
+    ChatGPT는 자체 지식만 답하지만,<br/>
+    SNarGPT는 <strong>'합법적 외부 소스'를 연결해 실제 문제 데이터</strong>를 제공합니다.
+  </p>
+</div>
+
+---
+
+### 4️⃣ 강의 요약·복습 루프 (영상 URL 입력)
+
+유튜브나 오픈 강의 URL을 주면
+AI가 내용을 요약하고 **핵심 개념 퀴즈**를 만들어줍니다.
+
+<div class="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-500 p-6 my-6 rounded-r-lg">
+  <p class="text-gray-700 dark:text-gray-300 mb-3">
+    <strong>🎥 예시:</strong>
+  </p>
+  <p class="text-gray-800 dark:text-gray-200 italic">
+    "이 강의 복습용 퀴즈 만들어줘."
+  </p>
+  <p class="text-gray-700 dark:text-gray-300 mt-3">
+    → 10문제 요약형 퀴즈 + 복습노트 자동 생성.
+  </p>
+</div>
+
+<div class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-5 my-6 rounded-lg">
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">📍 기존 LLM과의 차이</h4>
+  <p class="text-gray-700 dark:text-gray-300">
+    일반 LLM은 영상 내용을 몰라도 요약을 "만드는 척" 하지만,<br/>
+    SNarGPT는 <strong>실제 영상 자막을 분석한 후 학습용 포맷으로 가공</strong>합니다.
+  </p>
+</div>
+
+---
+
+### 5️⃣ 학원/독학 관리 연동 (SN 시스템 통합)
+
+SN독학기숙학원과 연동되어 학생의 실제 모의고사 오답, 주간 계획, 개념 복습 내역까지 연동됩니다.
+
+<div class="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 p-6 my-6 rounded-r-lg">
+  <p class="text-gray-700 dark:text-gray-300 mb-3">
+    <strong>📊 예시:</strong>
+  </p>
+  <p class="text-gray-800 dark:text-gray-200 italic">
+    "지난주에 내가 오답 많이 낸 단원 복습 문제 만들어줘."
+  </p>
+  <p class="text-gray-700 dark:text-gray-300 mt-3">
+    → SNarGPT가 자동으로 오답패턴을 기반으로 문제를 생성합니다.
+  </p>
+</div>
+
+<div class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-5 my-6 rounded-lg">
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">📍 기존 LLM과의 차이</h4>
+  <p class="text-gray-700 dark:text-gray-300">
+    일반 LLM은 '사용자 맥락'을 기억하지 않습니다.<br/>
+    SNarGPT는 <strong>학원 학습 로그와 연결된 '개인화 메모리'</strong>를 기반으로 작동합니다.
+  </p>
+</div>
+
+---
+
+### 6️⃣ 문제 생성 (평가원 수준의 AI 문제 제작)
+
+AI가 평가원 문제의 출제 패턴을 학습해
+학생이 약한 영역을 기준으로 **새로운 문제를 생성**합니다.
+
+<div class="bg-indigo-50 dark:bg-indigo-900/30 border-l-4 border-indigo-500 p-6 my-6 rounded-r-lg">
+  <p class="text-gray-700 dark:text-gray-300 mb-3">
+    <strong>✏️ 예시:</strong>
+  </p>
+  <p class="text-gray-800 dark:text-gray-200 italic">
+    "삼각함수 그래프 문제 중 중상난이도 1개 만들어줘."
+  </p>
+  <p class="text-gray-700 dark:text-gray-300 mt-3">
+    → 출제의도, 난이도 지표, 해설까지 자동 생성.
+  </p>
+</div>
+
+<div class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-5 my-6 rounded-lg">
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">📍 기존 LLM과의 차이</h4>
+  <p class="text-gray-700 dark:text-gray-300">
+    ChatGPT의 문제 생성은 감(heuristic)에 의존하지만,<br/>
+    SNarGPT는 <strong>실제 평가원 문항 통계와 논리 트리를 기반</strong>으로 합니다.
+  </p>
+</div>
+
+---
+
+## 🔸 곧 추가될 기능 예시
+
+<div class="grid md:grid-cols-2 gap-6 my-8">
+  <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">🔄 복습 루프 자동화</h3>
+    <p class="text-gray-700 dark:text-gray-300">
+      하루 학습 기록 기반으로 자동 오답/개념 복습 스케줄 생성
+    </p>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">👁️ SNarVIS 연동</h3>
+    <p class="text-gray-700 dark:text-gray-300">
+      시각형 공부를 좋아하는 학생을 위해, SNarVIS에서 시각자료·그래프·패턴 분석을 자동 표시
+    </p>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">📈 모의고사 맞춤 리포트</h3>
+    <p class="text-gray-700 dark:text-gray-300">
+      문항별 오답률 + 사고패턴 + 추천 복습문항 자동 리포트
+    </p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+      본 기능은 SN독학기숙학원, SN독학관리 학원 재원생에 한해 제공됩니다.
+    </p>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">🎯 학습 효율 분석</h3>
+    <p class="text-gray-700 dark:text-gray-300">
+      개인별 학습 패턴 분석을 통한 최적 학습 시간대 및 방법 추천
+    </p>
+  </div>
+
+  <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">📅 2026년 내 과탐풀이도 update</h3>
+    <p class="text-gray-700 dark:text-gray-300">
+      현재는 수학 풀이만 완성되었고 26년내 과탐, 국어 풀이도 업데이트 될 예정입니다.
+    </p>
+  </div>
+</div>
+
+---
+
+## ✨ 마무리
+
+<div class="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-l-4 border-purple-500 p-8 my-8 rounded-r-lg">
+  <p class="text-gray-800 dark:text-gray-200 text-lg leading-relaxed mb-4">
+    SNarGPT는 <strong>"AI니까 대단하다"</strong>는 게 아니라,<br/>
+    <strong>"AI가 공부에 실제로 도움이 된다"</strong>는 걸 보여주는 시스템입니다.
+  </p>
+
+  <p class="text-gray-800 dark:text-gray-200 text-lg leading-relaxed mb-4">
+    <strong>LLM은 언어모델</strong>이고, <strong>SNarGPT는 학습모델</strong>입니다.
+  </p>
+
+  <p class="text-gray-800 dark:text-gray-200 text-lg leading-relaxed mb-4">
+    학생의 하루 공부가 쌓일수록, AI도 함께 성장합니다.
+  </p>
+
+  <p class="text-gray-800 dark:text-gray-200 text-lg leading-relaxed mb-4">
+    당신이 문제를 풀수록, SNarGPT는 당신을 더 잘 이해하게 됩니다.
+  </p>
+
+  <p class="text-gray-800 dark:text-gray-200 text-xl font-bold">
+    이제 2026년에 SN에서 만날 수 있습니다.
+  </p>
+</div>
+
+---
+
+## 📞 문의하기
+
+SNarGPT에 대해 더 궁금하신가요?
+
+**입학 문의**
+- 📞 전화 상담: 031-771-0300 (내선번호 1번)
+- 💬 카카오톡 채널: [SN독학기숙학원] 검색 후 문의
+- 📧 이메일: snacademy@naver.com
+
+**SNarGPT 체험**
+- 🌐 웹사이트: [https://snargpt.ai](https://snargpt.ai)
+`,
+    category: 'startup',
+    tags: ['AI', 'SNarGPT', '수능', '학습', 'LLM', '교육기술'],
+    author: 'SN Academy',
+    date: '2025-11-09',
+    readTime: '7',
+    featured: true,
+    published: true,
+    thumbnail: '/images/thumbnail/SNarGPT_guide_thumbnail.png',
+    url: '/startup/snargpt-guide-1',
+  },
+  {
     id: 'sochunhyangga',
     title: '절제된 설렘, K-연애의 원조 (수능 고전문학 「소춘향가」)',
     excerpt:
