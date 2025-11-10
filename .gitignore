@@ -127,3 +127,7 @@ test-notion.ts
 
 # Backup files
 backups/
+
+# Student data (IMPORTANT: Keep actual student data private!)
+# Note: data/students.csv is included in the repo as sample data
+# For production, replace with real student data before deployment
