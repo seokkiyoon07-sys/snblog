@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Papa from 'papaparse';
+import fs from 'fs';
+import path from 'path';
 
 interface Student {
   studentId: string;
@@ -21,17 +23,22 @@ export async function GET(request: NextRequest) {
     const phone = searchParams.get('phone');
     const masterPassword = searchParams.get('master');
 
-    // 환경변수에서 CSV 데이터 읽기
-    const csvData = process.env.STUDENTS_CSV_DATA;
     const masterPass = process.env.MASTER_PASSWORD || 'sn2025';
 
-    if (!csvData) {
-      console.error('STUDENTS_CSV_DATA environment variable is not set');
+    // CSV 파일 경로 (프로젝트 루트의 /data/students.csv)
+    const csvFilePath = path.join(process.cwd(), 'data', 'students.csv');
+
+    // CSV 파일 존재 확인
+    if (!fs.existsSync(csvFilePath)) {
+      console.error('CSV file not found:', csvFilePath);
       return NextResponse.json(
-        { error: '학생 정보를 불러올 수 없습니다. 관리자에게 문의하세요.' },
+        { error: '학생 정보 파일을 찾을 수 없습니다. 관리자에게 문의하세요.' },
         { status: 500 }
       );
     }
+
+    // CSV 파일 읽기
+    const csvData = fs.readFileSync(csvFilePath, 'utf-8');
 
     // CSV 파싱
     const parseResult = Papa.parse(csvData, {
