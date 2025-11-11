@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Papa from 'papaparse';
 import fs from 'fs';
 import path from 'path';
+import iconv from 'iconv-lite';
 
 interface Student {
   studentId: string;
@@ -37,14 +38,16 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // CSV 파일 읽기
-    const csvData = fs.readFileSync(csvFilePath, 'utf-8');
+    // CSV 파일 읽기 (EUC-KR/CP949 인코딩 처리)
+    const csvBuffer = fs.readFileSync(csvFilePath);
+    const csvData = iconv.decode(csvBuffer, 'EUC-KR');
 
     // CSV 파싱
     const parseResult = Papa.parse(csvData, {
       header: true,
       skipEmptyLines: true,
       transformHeader: (header: string) => header.trim(),
+      dynamicTyping: false, // 앞자리 0 보존 (문자열로 처리)
     });
 
     if (parseResult.errors.length > 0) {
@@ -78,19 +81,25 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 전화번호 4자리 검증
-    if (phone.length !== 4 || !/^\d{4}$/.test(phone)) {
+    // 전화번호 검증 (1-4자리 숫자)
+    if (phone.length < 1 || phone.length > 4 || !/^\d+$/.test(phone)) {
       return NextResponse.json(
-        { error: '전화번호 뒷자리 4자리를 정확히 입력해주세요' },
+        { error: '전화번호 뒷자리를 1-4자리 숫자로 입력해주세요' },
         { status: 400 }
       );
     }
 
-    // 학생 검색 (이름 + 전화번호 뒷자리 매칭)
-    const student = students.find(
-      (s: Student) =>
-        s.name?.trim() === name.trim() && s.phone?.trim() === phone.trim()
-    );
+    // 학생 검색 (이름 일치 + 전화번호 부분 일치)
+    // 입력한 번호가 실제 전화번호 뒷자리에 포함되어 있으면 매칭
+    const student = students.find((s: Student) => {
+      const studentPhone = s.phone?.trim() || '';
+      const inputPhone = phone.trim();
+      const studentName = s.name?.trim() || '';
+      const inputName = name.trim();
+
+      // 이름이 일치하고, 입력한 번호가 저장된 번호에 포함되어 있으면 매칭
+      return studentName === inputName && studentPhone.includes(inputPhone);
+    });
 
     if (!student) {
       return NextResponse.json(
