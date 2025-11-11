@@ -55,6 +55,7 @@ export default function SuneungSearchPage() {
   const handleMasterLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setStudent(null); // 이전 검색 결과 초기화
     setStudents([]);
     setLoading(true);
 
@@ -115,7 +116,11 @@ export default function SuneungSearchPage() {
         <div className="flex justify-end mb-4">
           {!isMasterMode ? (
             <button
-              onClick={() => setShowMasterInput(!showMasterInput)}
+              onClick={() => {
+                setShowMasterInput(!showMasterInput);
+                setStudent(null); // 선생님 로그인 버튼 클릭 시 이전 검색 결과 초기화
+                setError('');
+              }}
               className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
             >
               선생님 로그인
@@ -135,7 +140,7 @@ export default function SuneungSearchPage() {
         <p className="text-lg text-gray-600 dark:text-gray-400">
           {isMasterMode
             ? '전체 학생 목록'
-            : '학생 이름과 전화번호 뒷자리를 입력하여 고사장, 독서실, 기숙사 정보를 확인하세요.'}
+            : '학생 이름과 학생 전화번호 뒷자리 4자리를 입력하여 고사장, 독서실, 기숙사 정보를 확인하세요.'}
         </p>
       </header>
 
@@ -200,7 +205,7 @@ export default function SuneungSearchPage() {
                 htmlFor="phone"
                 className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
               >
-                전화번호 뒷자리 4자리
+                학생 전화번호 뒷자리 4자리
               </label>
               <input
                 id="phone"
@@ -219,7 +224,7 @@ export default function SuneungSearchPage() {
 
             <button
               type="submit"
-              disabled={loading || !name || phone.length !== 4}
+              disabled={loading || !name || phone.length < 1}
               className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
             >
               {loading ? '조회 중...' : '학생 정보 조회'}
@@ -240,7 +245,7 @@ export default function SuneungSearchPage() {
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 space-y-6">
           <div className="border-b border-gray-200 dark:border-gray-700 pb-4">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-              {student.name} 학생 (학번: {student.studentId})
+              {student.name} 학생 (생년월일: {student.studentId})
             </h2>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
               전화번호: ***-****-{student.phone}
@@ -265,7 +270,16 @@ export default function SuneungSearchPage() {
               독서실
             </h3>
             <p className="text-base font-medium text-gray-800 dark:text-gray-200">
-              {student.studyRoom} - {student.studySeat}번 좌석
+              {student.studyRoom}독서실 {student.studySeat}번 좌석
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              {parseInt(student.studyRoom) >= 1 &&
+              parseInt(student.studyRoom) <= 5
+                ? '📍 학습동 2층'
+                : parseInt(student.studyRoom) >= 6 &&
+                    parseInt(student.studyRoom) <= 9
+                  ? '📍 학습동 1층'
+                  : ''}
             </p>
           </div>
 
@@ -289,6 +303,11 @@ export default function SuneungSearchPage() {
             <p className="text-base font-medium text-gray-800 dark:text-gray-200">
               {student.secondLanguage}
             </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              {student.secondLanguage === '미응시'
+                ? '⏰ 18:00 학원 도착'
+                : '⏰ 19:00 학원 도착'}
+            </p>
           </div>
 
           {/* 기타 정보 (있을 경우에만 표시) */}
@@ -306,10 +325,159 @@ export default function SuneungSearchPage() {
 
           {/* 안내사항 */}
           <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mt-6">
-            <p className="text-sm text-blue-800 dark:text-blue-300">
+            <p className="text-sm text-blue-800 dark:text-blue-300 mb-4">
               <strong>안내:</strong> 수능 당일 위 정보를 확인하시어 시간에 맞춰
               이동해주시기 바랍니다.
             </p>
+
+            {/* 수능 당일 일정 테이블 */}
+            <div className="mt-4 overflow-x-auto">
+              <h4 className="text-sm font-semibold text-blue-900 dark:text-blue-200 mb-2">
+                📅 수능 당일 일정
+              </h4>
+              <table className="min-w-full border border-gray-300 dark:border-gray-600 text-xs">
+                <thead className="bg-gray-100 dark:bg-gray-700">
+                  <tr>
+                    <th className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      시간대
+                    </th>
+                    <th className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      내용
+                    </th>
+                    <th className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      세부 내용
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white dark:bg-gray-800">
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      06:00
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      기상
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs whitespace-pre-line">
+                      • 인원파악{'\n'}• 기상과 동시에 세면 또는 식사 지도
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      06:00 - 06:40
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      세면 및 식사
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs whitespace-pre-line">
+                      • 취침 인원 없이 전원 식사 마칠수 있도록 지도{'\n'}• 숙소
+                      퇴실지도
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      06:40 - 06:50
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      준비물 불출
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs whitespace-pre-line">
+                      • 도시락 내용물 확인 필수{'\n'}• 학습/생활담임 식당대기 후
+                      준비물 불출
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      06:50 - 07:00
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      도시락 수령{'\n'}수송차량 탑승
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs whitespace-pre-line">
+                      • 식당에서 도시락 수령{'\n'}• 수송차량 확인 및 탑승{'\n'}•
+                      탑승 후 인원확인 필수{'\n'}⚠️ 양서고 06:50 출발 / 나머지
+                      7시 출발 / 용문고 7:20 출발
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      07:00 - 07:30
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      시험장 이동
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs whitespace-pre-line">
+                      • 차량인솔자 복귀{'\n'}• 학생들 시험종료 후 픽업장소 안내
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      07:30 - 08:00
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      시험장 도착 입실
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs">
+                      • 시험장 입구까지 인솔
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      17:00
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      탐구 영역까지 종료
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs">
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      17:45
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      제2외국어/한문 종료
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs">
+                      -
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      18:00
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      학원 도착 (1차)
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs">
+                      • 탐구까지 응시하는 학생들 학원 도착
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      19:00
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      학원 도착 (2차)
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs">
+                      • 제2외국어 종료 학생들 학원 도착
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      20:00
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-center">
+                      종강
+                    </td>
+                    <td className="border border-gray-300 dark:border-gray-600 px-2 py-1 text-xs">
+                      • 전원 종강
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       )}
@@ -323,7 +491,7 @@ export default function SuneungSearchPage() {
               <div className="flex-1">
                 <input
                   type="text"
-                  placeholder="이름, 학번, 전화번호, 고사장, 독서실, 기숙사로 검색..."
+                  placeholder="이름, 생년월일, 전화번호, 고사장, 독서실, 기숙사로 검색..."
                   value={searchQuery}
                   onChange={e => handleMasterSearch(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent dark:bg-gray-700 dark:text-gray-100"
@@ -343,7 +511,7 @@ export default function SuneungSearchPage() {
                   <thead className="bg-gray-50 dark:bg-gray-700">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300">
-                        학번
+                        생년월일
                       </th>
                       <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300">
                         이름
@@ -430,7 +598,7 @@ export default function SuneungSearchPage() {
       {!student && !error && !loading && !isMasterMode && !showMasterInput && (
         <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6 text-center">
           <p className="text-gray-600 dark:text-gray-400">
-            학생 이름과 전화번호 뒷자리를 입력하여 정보를 조회하세요.
+            학생 이름과 학생 전화번호 뒷자리 4자리를 입력하여 정보를 조회하세요.
           </p>
         </div>
       )}
