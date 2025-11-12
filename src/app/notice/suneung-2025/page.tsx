@@ -258,8 +258,62 @@ export default function SuneungSearchPage() {
               <span className="inline-block w-2 h-2 bg-green-400 dark:bg-green-600 rounded-full mr-2"></span>
               수능응시 고사장
             </h3>
-            <p className="text-base font-medium text-gray-800 dark:text-gray-200">
+            <p className="text-base font-medium text-gray-800 dark:text-gray-200 mb-2">
               {student.examLocation}
+            </p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              {student.examLocation === '양일고' && (
+                <>
+                  <a
+                    href="https://map.naver.com/p/search/경기도 양평군 양평읍 관문2길 9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 underline"
+                  >
+                    📍 경기도 양평군 양평읍 관문2길 9
+                  </a><br />
+                  📞 031-772-2281
+                </>
+              )}
+              {student.examLocation === '양일중' && (
+                <>
+                  <a
+                    href="https://map.naver.com/p/search/경기도 양평군 양평읍 관문2길 9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 underline"
+                  >
+                    📍 경기도 양평군 양평읍 관문2길 9
+                  </a><br />
+                  📞 031-772-2405
+                </>
+              )}
+              {student.examLocation === '용문고' && (
+                <>
+                  <a
+                    href="https://map.naver.com/p/search/경기도 양평군 용문면 용문로 437"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 underline"
+                  >
+                    📍 경기도 양평군 용문면 용문로 437
+                  </a><br />
+                  📞 031-773-3533
+                </>
+              )}
+              {student.examLocation === '양서고' && (
+                <>
+                  <a
+                    href="https://map.naver.com/p/search/경기도 양평군 양서면 상촌길 31-12"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 underline"
+                  >
+                    📍 경기도 양평군 양서면 상촌길 31-12
+                  </a><br />
+                  📞 031-771-1419
+                </>
+              )}
             </p>
           </div>
 
