@@ -628,7 +628,7 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
 <div class="space-y-3 my-6">
   <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
     <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-      <span class="font-medium text-gray-900 dark:text-gray-100">22번 해설</span>
+      <span class="font-medium text-gray-900 dark:text-gray-100">공통 22번 수정 해설(교육과정 준수)</span>
     </summary>
     <div class="px-6 py-4 bg-white dark:bg-gray-900 space-y-4">
       <div>
@@ -644,7 +644,7 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
 
   <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
     <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-      <span class="font-medium text-gray-900 dark:text-gray-100">30번 해설</span>
+      <span class="font-medium text-gray-900 dark:text-gray-100">미적 30번 수정 해설(교육과정 준수)</span>
     </summary>
     <div class="px-6 py-4 bg-white dark:bg-gray-900 space-y-4">
       <div>
