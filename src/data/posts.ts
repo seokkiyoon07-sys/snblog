@@ -604,12 +604,16 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
       </div>
     </summary>
     <div class="px-6 py-4 bg-white dark:bg-gray-900">
-      <a href="/pdfs/2026-suneung-math-full-solution.pdf" download class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+      <a href="/pdfs/2026-suneung-math-full-solution.pdf" download class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline mb-3">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
         PDF 다운로드
       </a>
+      <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        공통문항 22개, 기하 8문제, 미적 8문제, 확통 8문제 순으로 구성되어 있으며<br/>
+        기하 27, 29번은 문항 표기 오류로 추후 수정 예정입니다.
+      </p>
     </div>
   </details>
 </div>
