@@ -483,7 +483,7 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
   },
   {
     id: 'suneung-math-solution-10min',
-    title: '수학 시험지 공개 후 20분, SNarGPT가 전국 최초 해설을 완성합니다.',
+    title: '2026학년도 수능 수학 문제 전체 해설 pdf(25.11.13 시행)',
     excerpt:
       'SN독학기숙학원이 SNarGPT·SNarGO 문제풀이 엔진을 통해 수능 수학 시험지 공개 후 20분 안에 전국 최초로 전문 해설을 제공합니다.',
     content: `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">
