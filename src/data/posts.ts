@@ -600,7 +600,7 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
     <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
       <div class="flex items-center justify-between">
         <span class="font-medium text-gray-900 dark:text-gray-100">3. 2026학년도 수능 수학 46문제(기하, 미적, 확통) 전체 해설지</span>
-        <span class="text-sm text-green-600 dark:text-green-400 font-medium">15:32 업로드</span>
+        <span class="text-sm text-green-600 dark:text-green-400 font-medium">수정본</span>
       </div>
     </summary>
     <div class="px-6 py-4 bg-white dark:bg-gray-900">
@@ -610,54 +610,12 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
         </svg>
         PDF 다운로드
       </a>
-      <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+      <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
         공통문항 22개, 기하 8문제, 미적 8문제, 확통 8문제 순으로 구성되어 있습니다.
       </p>
-    </div>
-  </details>
-</div>
-
-<hr class="my-8 border-gray-300 dark:border-gray-700" />
-
-<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">📝 해설 수정 사항</h2>
-
-<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-공통 22번, 미적 30번이 고등학교 교육과정을 벗어난 풀이가 제공되었다는 제보가 있어, 고등학교 교육과정에 맞춰 한번 더 풀이 하였습니다.
-</p>
-
-<div class="space-y-3 my-6">
-  <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
-    <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-      <span class="font-medium text-gray-900 dark:text-gray-100">공통 22번 수정 해설(교육과정 준수)</span>
-    </summary>
-    <div class="px-6 py-4 bg-white dark:bg-gray-900 space-y-4">
-      <div>
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">원본 풀이</p>
-        <img src="/images/notice/suneung-math-solution-10min/22.png" alt="22번 원본 해설" class="w-full rounded border border-gray-200 dark:border-gray-700" />
-      </div>
-      <div>
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">수정 풀이 (교육과정 준수)</p>
-        <img src="/images/notice/suneung-math-solution-10min/22-1.png" alt="22번 수정 해설" class="w-full rounded border border-gray-200 dark:border-gray-700" />
-      </div>
-    </div>
-  </details>
-
-  <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
-    <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-      <span class="font-medium text-gray-900 dark:text-gray-100">미적 30번 수정 해설(교육과정 준수)</span>
-    </summary>
-    <div class="px-6 py-4 bg-white dark:bg-gray-900 space-y-4">
-      <div>
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">원본 풀이</p>
-        <img src="/images/notice/suneung-math-solution-10min/30.png" alt="30번 원본 해설" class="w-full rounded border border-gray-200 dark:border-gray-700" />
-      </div>
-      <div>
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">수정 풀이 1 (교육과정 준수)</p>
-        <img src="/images/notice/suneung-math-solution-10min/30-1.png" alt="30번 수정 해설 1" class="w-full rounded border border-gray-200 dark:border-gray-700" />
-      </div>
-      <div>
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">수정 풀이 2 (교육과정 준수)</p>
-        <img src="/images/notice/suneung-math-solution-10min/30-2.png" alt="30번 수정 해설 2" class="w-full rounded border border-gray-200 dark:border-gray-700" />
+      <div class="text-xs text-gray-500 dark:text-gray-500 leading-relaxed border-t border-gray-200 dark:border-gray-700 pt-3">
+        <p class="mb-1">최초 업로드: 15:33</p>
+        <p>22번, 30번 풀이는 맞으나 교육과정을 벗어났다는 풀이가 있어 20:40에 교육과정 내의 해설로 진행한 수정본을 업로드 합니다.</p>
       </div>
     </div>
   </details>
