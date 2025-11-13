@@ -482,6 +482,177 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
     type: 'special',
   },
   {
+    id: 'suneung-math-solution-10min',
+    title: '수학 시험지 공개 후 20분, SNarGPT가 전국 최초 해설을 완성합니다.',
+    excerpt:
+      'SN독학기숙학원이 SNarGPT·SNarGO 문제풀이 엔진을 통해 수능 수학 시험지 공개 후 20분 안에 전국 최초로 전문 해설을 제공합니다.',
+    content: `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">
+2026학년도 수능 수학(2025.11.13 시행)
+</p>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+안녕하세요, SN독학기숙학원입니다.<br/>
+<strong>2026학년도 대학수학능력시험, 드디어 오늘입니다.</strong>
+</p>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+올해 SN은 전국에서 누구보다 빠르게, 누구보다 정확하게
+<strong>수능 수학 영역 해설</strong>을 제공하기 위해 특별한 프로젝트를 준비했습니다.
+</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">🚀 시험지 공개 후 20분 안에 '전국 1등 속도'로 해설 업로드</h2>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+수학 시험지가 공개되는 즉시,
+저희는 자체 개발한 <strong>SNarGPT·SNarGO 문제풀이 엔진</strong>을 통해
+<strong>20분 컷 최종 해설 PDF</strong>를 업로드합니다.
+</p>
+
+<div class="border-l-2 border-gray-300 dark:border-gray-600 pl-6 py-2 my-6">
+  <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+    <li>• 수능 전문 AI 'SNarGO'로 실시간 문제 풀이</li>
+    <li>• 사람보다 빠른 정확도, 99%+ 검증된 로직</li>
+    <li>• 전 문항 풀이 + 그래프 + 해석 + 개념 연결까지 반영</li>
+    <li>• PDF 즉시 다운로드 링크 제공</li>
+    <li>• 전국 커뮤니티·블로그·카페 등에 동시 업로드</li>
+  </ul>
+</div>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+"어떤 해설이 맞는지" 확인해야 하는 귀한 시간을 줄여드리고,
+<strong>학생·학부모·선생님 누구나 가장 빠르고 정확한 정보에 접근</strong>할 수 있도록 준비했습니다.
+</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">🔍 왜 SNarGPT가 가장 빠를 수밖에 없는가?</h2>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+<strong>SNarGPT는 단순한 챗봇이 아닙니다.</strong>
+</p>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+우리가 개발한 <strong>SNarGO</strong>는 <strong>수능 수학 전용 모델</strong>로,
+</p>
+
+<div class="border-l-2 border-gray-300 dark:border-gray-600 pl-6 py-2 my-6">
+  <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+    <li>• 교육청·평가원 기출 데이터 기반</li>
+    <li>• 수능 난이도에 최적화된 문제풀이 엔진</li>
+    <li>• 실수하지 않는 미적분·확통·기하 계산 처리</li>
+    <li>• 난이도 상 문항일수록 정확도가 더 올라가는 구조</li>
+  </ul>
+</div>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+즉, <strong>사람이 1번 풀 때 AI는 수십 번의 시뮬레이션을 돌려</strong>
+단 <strong>0.1초 만에 최적 풀이를 찾는 시스템</strong>입니다.
+</p>
+
+<div class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-8">
+  <p class="text-lg text-gray-900 dark:text-gray-100">
+    올해도 저희는 그 기술력을 수능 당일에 그대로 증명해보이려 많은 준비를 했습니다.
+  </p>
+</div>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">📥 해설지 다운로드</h2>
+
+<div class="space-y-3 my-6">
+  <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+    <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+      <div class="flex items-center justify-between">
+        <span class="font-medium text-gray-900 dark:text-gray-100">1. 2026학년도 수능 수학</span>
+        <span class="text-sm text-green-600 dark:text-green-400 font-medium">14:28 업로드</span>
+      </div>
+    </summary>
+    <div class="px-6 py-4 bg-white dark:bg-gray-900">
+      <a href="/pdfs/2026-suneung-math.pdf" download class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        PDF 다운로드
+      </a>
+    </div>
+  </details>
+
+  <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+    <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+      <div class="flex items-center justify-between">
+        <span class="font-medium text-gray-900 dark:text-gray-100">2. 2026학년도 수능 수학 답안지</span>
+        <span class="text-sm text-green-600 dark:text-green-400 font-medium">14:28 업로드</span>
+      </div>
+    </summary>
+    <div class="px-6 py-4 bg-white dark:bg-gray-900">
+      <a href="/pdfs/2026-suneung-math-answer.pdf" download class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        PDF 다운로드
+      </a>
+    </div>
+  </details>
+
+  <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+    <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+      <div class="flex items-center justify-between">
+        <span class="font-medium text-gray-900 dark:text-gray-100">3. 2026학년도 수능 수학 46문제(기하, 미적, 확통) 전체 해설지</span>
+        <span class="text-sm text-green-600 dark:text-green-400 font-medium">15:32 업로드</span>
+      </div>
+    </summary>
+    <div class="px-6 py-4 bg-white dark:bg-gray-900">
+      <a href="/pdfs/2026-suneung-math-full-solution.pdf" download class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        PDF 다운로드
+      </a>
+    </div>
+  </details>
+</div>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">🎓 SN의 약속</h2>
+
+<div class="border-l-2 border-gray-300 dark:border-gray-600 pl-6 py-2 my-6">
+  <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+    SN독학기숙학원은 단순히 "빠른 해설"을 넘어,<br/>
+    <strong>정확하고, 신뢰할 수 있으며, 학습에 도움이 되는 콘텐츠</strong>를 제공하기 위해 노력합니다.
+  </p>
+  <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+    수능을 준비하는 모든 학생들에게<br/>
+    <strong>가장 빠르고 정확한 정보가 가장 먼저 전달되기를</strong> 바랍니다.
+  </p>
+</div>
+
+<p class="text-gray-900 dark:text-gray-100 text-lg font-bold my-6">
+모든 수험생 여러분의 건투를 빕니다. 🍀<br/>
+특히! 우리 SN독학기숙학원 수험생 여러분들! 수능 대박!
+</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<div class="text-center text-sm text-gray-500 dark:text-gray-400 mt-8">
+  <p>SN독학기숙학원 · SNarGPT 개발팀 일동</p>
+  <p class="mt-2">문의: <a href="mailto:contact@snacademy.com" class="text-blue-600 dark:text-blue-400 hover:underline">contact@snacademy.com</a></p>
+</div>
+`,
+    category: 'notice',
+    tags: ['수능', 'SNarGPT', 'AI', '해설', '수학'],
+    author: 'SN독학기숙학원',
+    date: '2025-11-13',
+    readTime: '3',
+    featured: true,
+    featuredOrder: 1,
+    published: true,
+    thumbnail: '/images/thumbnail/SNarGPT-2026-Math-Answer-Release.png',
+    url: '/notice/suneung-math-solution-10min',
+  },
+  {
     id: 'why-we-invest-in-ai',
     title: '왜 우리는 AI에 투자하는가',
     excerpt:
