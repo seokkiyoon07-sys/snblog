@@ -619,6 +619,52 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
 
 <hr class="my-8 border-gray-300 dark:border-gray-700" />
 
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">📝 해설 수정 사항</h2>
+
+<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+공통 22번, 미적 30번이 고등학교 교육과정을 벗어난 풀이가 제공되었다는 제보가 있어, 고등학교 교육과정에 맞춰 한번 더 풀이 하였습니다.
+</p>
+
+<div class="space-y-3 my-6">
+  <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+    <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+      <span class="font-medium text-gray-900 dark:text-gray-100">22번 해설</span>
+    </summary>
+    <div class="px-6 py-4 bg-white dark:bg-gray-900 space-y-4">
+      <div>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">원본 풀이</p>
+        <img src="/images/notice/suneung-math-solution-10min/22.png" alt="22번 원본 해설" class="w-full rounded border border-gray-200 dark:border-gray-700" />
+      </div>
+      <div>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">수정 풀이 (교육과정 준수)</p>
+        <img src="/images/notice/suneung-math-solution-10min/22-1.png" alt="22번 수정 해설" class="w-full rounded border border-gray-200 dark:border-gray-700" />
+      </div>
+    </div>
+  </details>
+
+  <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+    <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+      <span class="font-medium text-gray-900 dark:text-gray-100">30번 해설</span>
+    </summary>
+    <div class="px-6 py-4 bg-white dark:bg-gray-900 space-y-4">
+      <div>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">원본 풀이</p>
+        <img src="/images/notice/suneung-math-solution-10min/30.png" alt="30번 원본 해설" class="w-full rounded border border-gray-200 dark:border-gray-700" />
+      </div>
+      <div>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">수정 풀이 1 (교육과정 준수)</p>
+        <img src="/images/notice/suneung-math-solution-10min/30-1.png" alt="30번 수정 해설 1" class="w-full rounded border border-gray-200 dark:border-gray-700" />
+      </div>
+      <div>
+        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">수정 풀이 2 (교육과정 준수)</p>
+        <img src="/images/notice/suneung-math-solution-10min/30-2.png" alt="30번 수정 해설 2" class="w-full rounded border border-gray-200 dark:border-gray-700" />
+      </div>
+    </div>
+  </details>
+</div>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
 <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">🎓 SN의 약속</h2>
 
 <div class="border-l-2 border-gray-300 dark:border-gray-600 pl-6 py-2 my-6">
