@@ -121,6 +121,36 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
     }
   }
 
+  // Article Schema JSON-LD 생성
+  const generateArticleSchema = () => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": post.title,
+      "author": {
+        "@type": "Organization",
+        "name": "SN독학기숙학원",
+        "url": "https://blog.snacademy.co.kr"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SN독학기숙학원",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://blog.snacademy.co.kr/images/sn-logo.png"
+        }
+      },
+      "datePublished": new Date().toISOString().split('T')[0],
+      "dateModified": new Date().toISOString().split('T')[0],
+      "description": post.title,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://blog.snacademy.co.kr/problem-download/${post.id}`
+      }
+    };
+    return schema;
+  };
+
   // 기본 마크다운 렌더링
   return (
     <>
@@ -136,6 +166,10 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
       <Script
         src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
         strategy="afterInteractive"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateArticleSchema()) }}
       />
       <article className="prose lg:prose-xl mx-auto p-6">
         <h1 className="text-3xl font-bold mb-6">{post.title}</h1>

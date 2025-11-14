@@ -35,11 +35,20 @@ export async function generateMetadata({
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
+      images: post.thumbnail ? [
+        {
+          url: `https://blog.snacademy.co.kr${post.thumbnail}`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        }
+      ] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title: `${post.title} | SN독학기숙학원 문제 다운로드`,
       description: post.excerpt,
+      images: post.thumbnail ? [`https://blog.snacademy.co.kr${post.thumbnail}`] : undefined,
     },
     robots: {
       index: true,

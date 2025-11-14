@@ -28,7 +28,7 @@ export const allPosts: Post[] = [
     id: '2026-suneung-similar-problems',
     title: '2026학년도 수능 수학 문제와 비슷한 문제를 기출에서 찾기!',
     excerpt:
-      'AI가 분석한 2026 수능 수학 각 문항별 유사 기출문제를 확인하세요. 평가원, 교육청 기출에서 엄선한 추천 문제로 효과적인 복습이 가능합니다.',
+      'AI가 분석한 2026 수능 수학 각 문항별 유사 기출문제 3개씩 총 138개를 확인하세요. SNarGPT의 RAG 시스템이 평가원·교육청 10년치 기출에서 유사도·난이도·출제의도까지 종합 분석한 추천 문제로 효과적인 복습과 실력 향상이 가능합니다.',
     content: `
 <p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
 안녕하세요, SN독학기숙학원입니다.<br/>
@@ -781,9 +781,9 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
   },
   {
     id: 'suneung-math-solution-10min',
-    title: '2026학년도 수능 수학 문제 전체 해설 pdf(25.11.13 시행)',
+    title: '2026 수능 수학 전체 해설 PDF | 시험 후 20분 만에 전국 최초 공개',
     excerpt:
-      'SN독학기숙학원이 SNarGPT·SNarGO 문제풀이 엔진을 통해 수능 수학 시험지 공개 후 20분 안에 전국 최초로 전문 해설을 제공합니다.',
+      'SN독학기숙학원이 SNarGPT·SNarGO AI 문제풀이 엔진으로 수능 시험지 공개 후 단 20분 만에 전국 최초로 전문 해설을 제공합니다. 공통 22문항 + 미적·확통·기하 각 8문항, 총 46문제 완벽 해설 PDF를 지금 바로 무료 다운로드하세요.',
     content: `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">
 2026학년도 수능 수학(2025.11.13 시행)
 </p>
