@@ -1,3 +1,7 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { allPosts } from '@/data/posts';
+
 export const metadata = {
   title: '문제 다운로드 | SN Academy 수학 문제집',
   description:
@@ -13,9 +17,15 @@ export const metadata = {
   },
 };
 
+// Force static generation
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export default function ProblemsPage() {
-  const announcements: any[] = []; // 전체 공지사항
-  const mathContents: any[] = []; // 수학 컨텐츠
+  // problem-download 카테고리의 게시글 가져오기
+  const problemDownloadPosts = allPosts
+    .filter((post) => post.category === 'problem-download' && post.published)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <div className="space-y-8">
@@ -29,66 +39,42 @@ export default function ProblemsPage() {
         </p>
       </div>
 
-      {/* 전체 공지사항 */}
-      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-          📢 전체 공지사항
-        </h2>
-        {announcements.length > 0 ? (
-          <div className="space-y-3">
-            {announcements.map((announcement, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-blue-200 dark:border-blue-700"
-              >
-                <h3 className="font-medium text-gray-900 dark:text-white mb-2">
-                  {announcement.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                  {announcement.content}
-                </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {announcement.date}
-                </p>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-8">
-            <p className="text-gray-500 dark:text-gray-400">
-              공지사항이 없습니다.
-            </p>
-          </div>
-        )}
-      </div>
-
       {/* 수학 컨텐츠 */}
       <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
           📚 수학 컨텐츠
         </h2>
-        {mathContents.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {mathContents.map((content, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:shadow-md transition-shadow"
+        {problemDownloadPosts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {problemDownloadPosts.map((post) => (
+              <Link
+                key={post.id}
+                href={post.url}
+                className="group bg-white dark:bg-gray-700 rounded-lg overflow-hidden border-2 border-gray-200 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-2xl hover:scale-105 transition-all duration-300"
               >
-                <h3 className="font-medium text-gray-900 dark:text-white mb-2">
-                  {content.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
-                  {content.description}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500 dark:text-gray-400">
-                    {content.date}
-                  </span>
-                  <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
-                    {content.type}
-                  </span>
+                {post.thumbnail && (
+                  <div className="relative w-full h-48 overflow-hidden">
+                    <Image
+                      src={post.thumbnail}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                <div className="p-4">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+                    <span>{post.date}</span>
+                    <span>{post.readTime}분 읽기</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (
