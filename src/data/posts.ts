@@ -25,6 +25,304 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: '2026-suneung-similar-problems',
+    title: '2026학년도 수능 수학 문제와 비슷한 문제를 기출에서 찾기!',
+    excerpt:
+      'AI가 분석한 2026 수능 수학 각 문항별 유사 기출문제를 확인하세요. 평가원, 교육청 기출에서 엄선한 추천 문제로 효과적인 복습이 가능합니다.',
+    content: `
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+안녕하세요, SN독학기숙학원입니다.<br/>
+2026학년도 수능 수학 시험이 끝났습니다. 이제 중요한 것은 <strong>복습과 분석</strong>입니다.
+</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg">
+  <p class="text-gray-800 dark:text-gray-200 text-lg font-semibold leading-relaxed">
+    "수능 문제와 비슷한 유형을 기출에서 찾아 다시 풀어보는 것이<br/>
+    가장 효과적인 복습 방법입니다."
+  </p>
+</div>
+
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4">🎯 이 글의 목적</h2>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+SN독학기숙학원의 AI 분석 시스템이 2026 수능 수학 각 문항을 분석하여,<br/>
+<strong>평가원 및 교육청 기출 문제 중 가장 유사한 문제 3개씩</strong>을 추천합니다.
+</p>
+
+<ul class="list-disc list-inside text-gray-800 dark:text-gray-200 space-y-2 mb-6">
+  <li>각 문항의 <strong>핵심 개념</strong>과 <strong>풀이 패턴</strong>을 정확히 분석</li>
+  <li>SN RAG 시스템을 통해 <strong>실제 유사도가 높은</strong> 기출 문제 검색</li>
+  <li>난이도, 정답률, 출제 의도까지 종합적으로 고려한 추천</li>
+</ul>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">📊 2026학년도 수능 수학 문항별 유사 기출 문제 검색</h2>
+
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
+각 과목별 탭을 클릭하여 문항별 유사 문제를 확인하세요.
+</p>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+<style>
+  .subject-tab {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    background-color: #e5e7eb;
+    color: #6b7280;
+    border-radius: 0.5rem;
+  }
+  .subject-tab:hover {
+    background-color: #d1d5db;
+  }
+  .subject-tab.active {
+    background-color: #3b82f6;
+    color: white;
+  }
+  @media (prefers-color-scheme: dark) {
+    .subject-tab {
+      background-color: #374151;
+      color: #9ca3af;
+    }
+    .subject-tab:hover {
+      background-color: #4b5563;
+    }
+    .subject-tab.active {
+      background-color: #2563eb;
+      color: white;
+    }
+  }
+  .subject-content {
+    display: none;
+  }
+  #subject-common {
+    display: block;
+  }
+  .col-item { width: 8%; }
+  .col-topic { width: 27%; }
+  .col-problems { width: 30%; }
+  .col-reason { width: 35%; }
+</style>
+
+<div class="mb-6">
+  <div class="flex flex-wrap gap-2 mb-4">
+    <button class="subject-tab active" onclick="showSubject('subject-common', event)">공통 (1~22번)</button>
+    <button class="subject-tab" onclick="showSubject('subject-prob', event)">확률과통계 (23~30번)</button>
+    <button class="subject-tab" onclick="showSubject('subject-calc', event)">미적분 (23~30번)</button>
+    <button class="subject-tab" onclick="showSubject('subject-geo', event)">기하 (23~30번)</button>
+  </div>
+</div>
+
+<div id="subject-common" class="subject-content active overflow-x-auto">
+  <table class="w-full border-collapse text-sm">
+    <thead>
+      <tr class="bg-gray-100 dark:bg-gray-800">
+        <th class="col-item border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">문항</th>
+        <th class="col-topic border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">주제</th>
+        <th class="col-problems border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">유사 문제</th>
+        <th class="col-reason border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">유사 이유</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700 dark:text-gray-300">
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">1번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">지수법칙 계산·정의역·방정식/부등식</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 교육청 고3 2015.10.13 학력평가 22번<br/>• 교육청 고2 2014.11.18 학력평가 1번<br/>• 평가원 고3 2021.09.01 모의평가 16번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">지수법칙으로 식을 정리하고 방정식/부등식을 푸는 동일 뼈대. 밑 조건과 단조성, 정의역 점검 구조가 같다.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">2번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">미분계수 정의와 좌우미분·미분가능 판정</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2024.09.04 모의평가 2번<br/>• 평가원 2025.06.04 모의평가 2번<br/>• 교육청 2025.07.10 학력평가 2번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">미분계수의 정의로 좌‧우미분계수를 대조해 미분가능을 판정하는 표준형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">3번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">미분계수 정의로 도함수·접선기울기 산출</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2023.06 모의평가 2번<br/>• 교육청 2025.05.08 학력평가 2번<br/>• 평가원 2025.09.03 모의평가 2번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">f′(a)=lim[h→0] (f(a+h)−f(a))/h 정의로 직접 기울기를 구하는형. 인수분해/약분/유리화로 미정형 극한 해소가 공통.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">4번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">시그마 계산(등차·등비 합, 망원합)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2023.06 모의평가 3번<br/>• 평가원 2025.06 모의평가 3번<br/>• 교육청 2025.05 학력평가 18번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">등차/등비 합 공식과 망원합(텔레스코핑)으로 닫힌꼴을 만드는 시그마 계산 표준형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">5번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">다항함수 미분과 극값 판정</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 교육청 고3 2022.03.24 학력평가 2번<br/>• 교육청 고3 2022.04.13 학력평가 2번<br/>• 평가원 2022.11.17 수능 4번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">다항함수 미분 → 임계점 → 증감표/극값 판정의 동일 루틴.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">6번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">로그 법칙과 방정식/부등식(정의역·밑의 단조)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 교육청 고2 2014.11.18 학력평가 1번<br/>• 교육청 고2 2014.06.12 학력평가 2번<br/>• 평가원 고3 2021.09.01 모의평가 16번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">로그 법칙과 정의역, 밑의 단조성을 활용해 식을 정리하고 방정식/부등식을 해결하는 동일 구조.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">7번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">포물선–직선 사이 넓이(정적분·대칭)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2015 수능 A형 13번<br/>• 평가원 2020 수능(나) 27번<br/>• 교육청 2014.10.07 학력평가 16번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">포물선과 직선 사이 넓이를 교점 분할과 대칭성으로 적분하는 도형-정적분 결합 표준형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">8번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">삼각함수 식·그래프와 방정식/부등식</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2025.06.04 모의평가 8번<br/>• 평가원 2022.11.17 수능 5번<br/>• 교육청 2022.10.12 학력평가 5번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">기본 삼각식 변형과 그래프의 주기/위상 이동을 이용한 방정식·부등식 풀이형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">9번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">매개 직선의 접선 조건(판별식/동시조건)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2023.09.06 모의평가 10번<br/>• 교육청 2023.03.23 학력평가 17번<br/>• 평가원 2022.08.31 모의평가 8번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">직선이 곡선에 한 점에서만 만나는 접선 판별. 대입 → 이차식 판별식 D=0 또는 접점 동시조건이 공통.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">10번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">지수함수 그래프와 도형의 넓이·좌표</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2025.09.03 모의평가 12번<br/>• 교육청 2014.07.10 학력평가 8번<br/>• 교육청 2013.11.14 학력평가 13번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">y=aˣ 그래프의 평행이동/스케일과 직선·축과의 교점으로 둘러싼 도형의 좌표·넓이를 해석하는 동일 틀.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">11번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">속도–시간 해석과 이동거리·변위</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 교육청 2023.07.11 학력평가 8번<br/>• 교육청 2021.07.07 학력평가 14번<br/>• 교육청 2024.03.28 학력평가 10번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">v–t 그래프 면적 해석으로 변위/이동거리·평균속도를 구하는 구간분할형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">12번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">등비수열 일반항·부분합·수렴</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 교육청 2014.11.18 학력평가 25번<br/>• 평가원 2020.06.18 모의평가(수학 나) 25번<br/>• 교육청 2013.04.11 학력평가 14번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">등비수열의 일반항/부분합/수렴 조건을 연립해 초기항·공비를 결정하는 동일 구조.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">13번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">이차/곱함수의 접선 조건과 판별</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2015 수능 9번<br/>• 교육청 2015.07.09 학력평가 14번<br/>• 평가원 2021.06.03 모의평가 27번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">이차함수 또는 곱함수에서 접선 존재 조건을 판별식 D=0 또는 (fg)′=f′g+fg′ 와 접점 동시조건으로 처리하는 공통형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">14번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">원의 현·접선·외접원 성질과 길이/각</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 교육청 2024.07.11 학력평가 13번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">원의 현·접선·외접원 성질을 결합해 각/길이/반지름을 구하는 전형적 원기하 한 세트.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">15번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">정적분의 미분과 매개변수 극값 탐색</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 교육청 2025.07.10 학력평가 28번<br/>• 교육청 2024.03.28 학력평가 12번<br/>• 교육청 2023.05.10 학력평가 14번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">정적분의 미분(라이프니츠)과 가변 상·하한 미분으로 F′(t)를 구하고 임계점에서 극값을 판단하는 동일 메커니즘.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">16번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">선형 점화식의 일반항·부분합·수렴</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2025.09.03 모의평가 16번<br/>• 교육청 2013.10.08 학력평가 5번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">1·2차 선형 점화와 초기값, 부분합 연계(망원합)로 일반항·부분합·수렴을 해석하는 표준형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">17번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">기초 함수 그래프 해석(지수·로그·삼각)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 평가원 2022.08.31 모의평가 17번<br/>• 평가원 2023.09.06 모의평가 8번<br/>• 교육청 2025.03.26 학력평가 7번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">다항식 항별 적분 + 초기조건으로 적분상수 결정 + 특정값 대입의 기본형. 부정적분 표준 계산 문제</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">18번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">미분계수 정의·접선기울기 계산</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2013.06.05 모의평가(평가원) 11번<br/>• 2024.06.04 모의평가(평가원) 10번<br/>• 2023.03.23 학력평가(교육청) 11번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">두 변과 끼인각의 코사인 값으로부터 sin을 구해 넓이 S=(1/2)absinC로 즉시 계산하는 삼각형 넓이 기본형</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">19번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">도함수→증감·극값·그래프 판정</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 교육청 2021.04.14 학력평가 미적분 12번<br/>• 교육청 2021.10.12 학력평가 미적분 15번<br/>• 평가원 2022.08.31 모의평가 미적분 6번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">닫힌구간 최댓값 판정 및 기본 극값 판정 문제. 임계점과 끝점에서 함수값을 계산하고 절댓값으로 비교하는 표준 절차</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">20번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">정적분 성질·대칭·넓이 해석</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2014.06.12 모의평가(평가원) 수학B형 13번<br/>• 2021.11.18 대학수학능력시험(평가원) 18번<br/>• 2021.03.25 학력평가(교육청) 27번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">수열의 부분합 S(n) 차분으로 항 도출, 보정항 f(n) 도출, 선형관계 이용, 인덱스 치환으로 홀수항 포함 합 재구성 등 복합 단계를 요구하는 문제</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">21번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">수열(등차·등비/점화)과 부분합·극한</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2021.09.01 모의평가(평가원) 수학 22번<br/>• 2021.07.07 학력평가(교육청) 수학 22번<br/>• 2023.10.12 학력평가(교육청) 수학 22번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">삼차함수와 조각함수의 연속성, 분모 영점에서의 우극한 존재 조건, 케이스 분류와 집합 조건 일치를 요구하는 최상 난이도 문제</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">22번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">지수법칙 기반 식 정리·방정식/부등식</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 고2 2014.11.18 학력평가(교육청) 1번<br/>• 고2 2014.06.12 학력평가(교육청) 2번<br/>• 고3 2015.10.13 학력평가(교육청) 22번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">지수·로그 대칭 문제. 좌표기하 조건(대칭·직선·중점)과 지수·로그의 구조 매칭을 결합한 단계적 사고가 필요한 중상 난이도 문제</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div id="subject-prob" class="subject-content overflow-x-auto">
+  <table class="w-full border-collapse text-sm">
+    <thead>
+      <tr class="bg-gray-100 dark:bg-gray-800">
+        <th class="col-item border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">문항</th>
+        <th class="col-topic border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">주제</th>
+        <th class="col-problems border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">유사 문제</th>
+        <th class="col-reason border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">유사 이유</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700 dark:text-gray-300">
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">23번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">제약 있는 순열(인접 금지/블록화·포함배제)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2025.09.03 평가원 모의 23번<br/>• 2025.03.26 교육청 학평 25번<br/>• 2022.07.06 교육청 학평 26번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">인접 금지 등 제약을 블록화·간격배치(갭 메서드)로 모델링하고, 겹치는 제약은 포함배제 원리로 처리하는 동일 구조.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">24번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">이항분포의 정규근사와 연속성 보정</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2022.08.31 평가원 모의 24번<br/>• 2023.10.12 교육청 학평 24번<br/>• 2021.07.07 교육청 학평 23번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">이항분포의 정규근사 조건 np, n(1−p) 충분히 큼 → 연속성 보정 ±0.5 적용 → 표준화 Z=(X−np)/√(np(1−p)) 로 확률 계산하는 공통 틀.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">25번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">베이즈·전체확률·조건부확률 결합</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2022.07.06 교육청 학평 25번<br/>• 2023.06.01 평가원 모의 25번<br/>• 2023.07.11 교육청 학평 26번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">표본공간 분할 후 전체확률로 사전확률 갱신, 베이즈 정리 P(A∣B)=P(B∣A)P(A)/P(B) 로 사후확률 계산하는 동일 흐름.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">26번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">이산확률변수의 기댓값·분산과 합의 분산</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2025.09.03 평가원 모의 26번<br/>• 2023.10.12 교육청 학평 26번<br/>• 2021.11.18 수능 27번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">이산확률변수의 선형성 E[aX+b]=aE[X]+b, 합의 분산(독립 시 합산)과 공분산 반영 Var(X+Y)=VarX+VarY+2Cov(X,Y) 사용이 공통.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">27번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">모평균/모비율 신뢰구간·표본크기 설계</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2022.10.12 교육청 학평 25번<br/>• 2022.08.31 평가원 모의 27번<br/>• 2024 수능 27번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">모평균/모비율의 신뢰구간을 표본분포(z/t)로 구성, 오차한계·신뢰수준 연계 및 필요 표본크기 설계가 동일 패턴.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">28번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">조합 기반 확률(하이퍼지오메트릭 포함)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2024.07.11 교육청 학평 28번<br/>• 2025.06.04 평가원 모의 28번<br/>• 2023.09.06 평가원 모의 28번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">비복원 추출 상황을 조합으로 모델링하여 전체 경우의 수 대비 유리한 경우의 수의 비로 확률을 구한다.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">29번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">확률의 기본 공식(합사건·여사건·독립)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2024 수능 27번<br/>• 2022.10.12 교육청 25번<br/>• 2022.08.31 평가원 27번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">확률 기본 법칙 P(A∪B)=P(A)+P(B)−P(AB), 여사건 P(Aᶜ)=1−P(A), 독립 P(AB)=P(A)P(B) 적용이 핵심인 동일형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">30번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">중복허용 나열(중복조합·반복순열·제약 처리)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2021.06.03 평가원 모의 29번<br/>• 2023.07.11 교육청 학평 27번<br/>• 2023.05.10 교육청 학평 28번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">중복을 허용하는 나열을 동일한 물건의 배분(정수해 개수) 문제로 환원하여 (n+r−1)Cr 등 조합으로 계산하고, '적어도/최대' 제약은 변수치환이나 포함배제로 조정한다.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div id="subject-calc" class="subject-content overflow-x-auto">
+  <table class="w-full border-collapse text-sm">
+    <thead>
+      <tr class="bg-gray-100 dark:bg-gray-800">
+        <th class="col-item border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">문항</th>
+        <th class="col-topic border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">주제</th>
+        <th class="col-problems border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">유사 문제</th>
+        <th class="col-reason border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">유사 이유</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700 dark:text-gray-300">
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">23번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">역함수와의 교점 개수 ↔ f(x)=x 근 개수</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2014.03 교육청 학평 B형 3번<br/>• 2015.09 평가원 모의 2번<br/>• 2024 수능 23번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">역함수와의 교점 ↔ f(x)=x 의 근 개수로 환원, 단조성·극값·y=x 와의 위치관계로 교점 개수를 판정하는 동일 논리.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">24번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">등차·등비수열 결합 조건 연립</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2024.10.15 교육청 학평 24번<br/>• 2021.07.07 교육청 학평 24번<br/>• 2014.04.10 교육청 학평 15번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">등차·등비 조건을 일반항으로 표현해 주어진 관계를 연립, 공차/공비·초기항을 결정하는 매개 해법이 공통.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">25번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">역함수 도함수와 역함수–정적분 항등</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2024.03.28 교육청 학평 25번<br/>• 2013.06.05 평가원 모의 24번<br/>• 2023.03.23 교육청 학평 23번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">역함수 도함수 (f⁻¹)′(a)=1/f′(f⁻¹(a)) 과 함수–역함수 정적분 항등을 이용해 기울기·넓이를 연계하는 유형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">26번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">매개변수 곡선의 접선 기울기와 접선식</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2024 수능 26번<br/>• 2023 수능 26번<br/>• 2024.10 교육청 학평 26번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">매개곡선에서 dy/dx = (dy/dt)/(dx/dt) 로 기울기 산출, 해당 매개값에서 접선 방정식 세우는 동일 루틴.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">27번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">단면 넓이 적분으로 넓이/부피 구하기</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2023.06.01 평가원 모의 24번<br/>• 2021.09.01 평가원 모의 25번<br/>• 2025.05.08 교육청 학평 24번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">단면적 함수 A(⋅) 설정 후 슬라이싱(와셔/셸)으로 넓이·부피를 적분, 경계 분할·대칭 활용이 공통.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">28번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">끼워넣기 정리와 삼각함수 근사</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2022.08.31 평가원 모의 29번<br/>• 2014.09.03 평가원 모의 27번<br/>• 2024.05.08 교육청 학평 27번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">끼워넣기 정리와 소각근사 sinx∼x, tanx∼x 등을 사용해 극한을 상·하한으로 조이는 동일 전략.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">29번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">정적분 계산(성질·대칭·치환)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2023.10.12 교육청 학평 3번<br/>• 2022.03.24 교육청 학평 13번<br/>• 2025.05.08 교육청 학평 3번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">정적분의 성질(구간 분할·대칭·우함수/기함수)과 치환적분으로 계산을 단순화하는 표준형.</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">30번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">미정형 극한의 표준기법 해소</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2025.07.10 교육청 학평 13번<br/>• 2021.03.25 교육청 학평 20번<br/>• 2013.04.11 교육청 학평 9번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">0/0, ∞/∞ 형을 인수분해·유리화·공통극한(삼각 기본극한 등)으로 해소해 극한을 구하는 동일 패턴.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div id="subject-geo" class="subject-content overflow-x-auto">
+  <table class="w-full border-collapse text-sm">
+    <thead>
+      <tr class="bg-gray-100 dark:bg-gray-800">
+        <th class="col-item border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">문항</th>
+        <th class="col-topic border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">주제</th>
+        <th class="col-problems border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">유사 문제</th>
+        <th class="col-reason border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">유사 이유</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700 dark:text-gray-300">
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">23번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">로그 성질·정의역·단조 방정식/부등식</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 고2 2014.11.18 학력평가(교육청) 1번<br/>• 고2 2014.06.12 학력평가(교육청) 2번<br/>• 고3 2021.09.01 모의평가(평가원) 16번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">벡터 성분별 덧셈 후 성분 합을 구하는 기초 계산형. 정답률 0.92~0.96의 하 난이도 문제</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">24번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">정적분 계산 표준형(성질+치환+대칭)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2024.11.14 수능(평가원) 24번<br/>• 2022.11.17 수능(평가원) 24번<br/>• 2021.03.25 학력평가(교육청) 25번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">포물선 표준형 비교로 p를 구하고, 초점–준선 거리 2p를 묻는 정형 기본 문항. 정답률 0.90~0.95의 하 난이도</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">25번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">조합 기반 확률 또는 기본 공식형</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2025.09.03 모의평가(평가원) 25번<br/>• 2021.11.18 수능(평가원) 23번<br/>• 2025.09.03 모의평가(평가원) 25번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">3차원 좌표에서 평면/원점 대칭 후 두 점 사이 거리 계산. 기본 계산형으로 정답률 0.90~0.95의 하 난이도</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">26번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">정적분의 미분·가변 상하한 극값 탐색</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2022.08.31 모의평가(평가원) 24번<br/>• 2014.06.12 모의평가(평가원) 12번<br/>• 2025.05.08 학력평가(교육청) 26번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">쌍곡선 접선 문제. 쌍곡선의 표준형과 접선 조건을 활용하는 문제</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">27번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">이항분포의 정규근사와 연속성 보정</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2022.08.31 모의평가(평가원) 27번<br/>• 2014.03.12 학력평가(교육청) 9번<br/>• 2023.10.12 학력평가(교육청) 25번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">원기둥 넓이 문제. 입체도형의 겉넓이 또는 부피를 계산하는 문제</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">28번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">단면적 적분(넓이/부피) 고난도 응용</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2023.10.12 학력평가(교육청) 30번<br/>• 2023.11.16 수능(평가원) 26번<br/>• 2021.10.12 학력평가(교육청) 30번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">사면체와 구 문제. 3차원 공간에서 사면체와 구의 기하학적 관계를 분석하는 고난도 문제</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">29번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">포물선–타원 결합 기하 고난도</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-yellow-700 dark:text-yellow-400"><strong>유사 문항 없음</strong></td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">포물선 정의와 타원 조건을 결합. 넓이와 결합해 대수식 도출, 조건 분기 판단과 기하적 해석이 결합된 상 난이도 문제</td></tr>
+      <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-center">30번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm">정적분 응용 최상난도(슬라이싱·매개)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2">• 2022.11.17 수능(평가원) 26번<br/>• 2024.07.11 학력평가(교육청) 29번<br/>• 2023.07.11 학력평가(교육청) 29번</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-sm text-gray-700 dark:text-gray-300">원과 벡터 내적 문제. 원 위의 점과 벡터의 내적을 활용하는 문제</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  function showSubject(subjectId, event) {
+    // Hide all subject contents
+    const allContents = document.querySelectorAll('.subject-content');
+    allContents.forEach(content => {
+      content.classList.remove('active');
+    });
+
+    // Remove active class from all buttons
+    const allButtons = document.querySelectorAll('.tab-button');
+    allButtons.forEach(button => {
+      button.classList.remove('active');
+      button.classList.add('inactive');
+    });
+
+    // Show selected subject content
+    const selectedContent = document.getElementById(subjectId);
+    if (selectedContent) {
+      selectedContent.classList.add('active');
+    }
+
+    // Add active class to clicked button
+    if (event && event.target) {
+      event.target.classList.remove('inactive');
+      event.target.classList.add('active');
+    }
+  }
+</script>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">🔍 AI 분석 방법</h2>
+
+<h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-6 mb-3">1️⃣ 문제 풀이 및 개념 추출</h3>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+SNarGPT가 각 수능 문제를 실제로 풀면서 사용된 <strong>핵심 개념, 풀이 전략, 사고 패턴</strong>을 추출합니다.
+</p>
+
+<h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-6 mb-3">2️⃣ RAG 기반 유사 문제 검색</h3>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+평가원·교육청 10년치 이상의 기출 문제 데이터베이스에서<br/>
+<strong>풀이 논리의 유사도</strong>를 기준으로 가장 비슷한 문제를 검색합니다.
+</p>
+
+<h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-6 mb-3">3️⃣ 난이도·정답률 고려</h3>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+단순히 유사한 문제가 아니라, <strong>난이도와 정답률</strong>까지 고려하여<br/>
+실제 학습에 도움이 되는 문제를 우선적으로 추천합니다.
+</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">💡 활용 방법</h2>
+
+<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-4">
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">1. 틀린 문제 집중 복습</h4>
+  <p class="text-gray-700 dark:text-gray-300 text-sm">
+    수능에서 틀렸거나 헷갈렸던 문항의 유사 문제를 찾아 다시 풀어보세요.
+  </p>
+</div>
+
+<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-4">
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">2. 개념 완전 정복</h4>
+  <p class="text-gray-700 dark:text-gray-300 text-sm">
+    같은 개념이 적용된 다양한 문제를 풀면서 개념을 완전히 내 것으로 만드세요.
+  </p>
+</div>
+
+<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-4">
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">3. 패턴 파악 훈련</h4>
+  <p class="text-gray-700 dark:text-gray-300 text-sm">
+    유사한 사고 패턴의 문제들을 연속으로 풀면서 출제 패턴을 체득하세요.
+  </p>
+</div>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<div class="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 p-6 rounded-lg">
+  <p class="text-gray-800 dark:text-gray-200 text-center">
+    <strong>더 자세한 분석이 필요하신가요?</strong><br/>
+    <a href="/problem-download/suneung-math-solution-10min" class="text-blue-600 dark:text-blue-400 hover:underline">
+      2026 수능 수학 전체 해설 및 AI 분석 보기 →
+    </a>
+  </p>
+</div>
+`,
+    category: 'problem-download',
+    tags: ['수능', '기출', '유사문제', 'AI', '수학', '2026'],
+    author: 'SN독학기숙학원',
+    date: '2025-11-14',
+    readTime: '5',
+    featured: true,
+    featuredOrder: 2,
+    published: true,
+    thumbnail: '/images/thumbnails/2026-suneung-similar.jpg',
+    url: '/problem-download/2026-suneung-similar-problems',
+  },
+  {
     id: 'snargpt-guide-1',
     title: 'SNarGPT 활용가이드 1편 - 수능 특화 AI 학습 파트너',
     excerpt:
@@ -596,21 +894,24 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
     </div>
   </details>
 
-  <details class="border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
-    <summary class="px-6 py-4 bg-gray-50 dark:bg-gray-800 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+  <details class="border-2 border-blue-500 dark:border-blue-400 rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20">
+    <summary class="px-6 py-5 bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-600 dark:to-indigo-600 cursor-pointer hover:from-blue-600 hover:to-indigo-600 dark:hover:from-blue-700 dark:hover:to-indigo-700 transition-all duration-300 transform hover:scale-[1.01]">
       <div class="flex items-center justify-between">
-        <span class="font-medium text-gray-900 dark:text-gray-100">3. 2026학년도 수능 수학 46문제(기하, 미적, 확통) 전체 해설지</span>
-        <span class="text-sm text-green-600 dark:text-green-400 font-medium">수정본</span>
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">📚</span>
+          <span class="font-bold text-lg text-white">3. 2026학년도 수능 수학 46문제(기하, 미적, 확통) 전체 해설지</span>
+        </div>
+        <span class="text-sm bg-green-400 dark:bg-green-500 text-green-900 dark:text-green-100 font-bold px-3 py-1 rounded-full shadow-md">수정본</span>
       </div>
     </summary>
-    <div class="px-6 py-4 bg-white dark:bg-gray-900">
-      <a href="/pdfs/2026-suneung-math-full-solution.pdf" download class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline mb-3">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="px-6 py-5 bg-white dark:bg-gray-900">
+      <a href="/pdfs/2026-suneung-math-full-solution.pdf" download class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
-        PDF 다운로드
+        <span class="text-base">PDF 다운로드</span>
       </a>
-      <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+      <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3 font-medium">
         공통문항 22개, 기하 8문제, 미적 8문제, 확통 8문제 순으로 구성되어 있습니다.
       </p>
       <div class="text-xs text-gray-500 dark:text-gray-500 leading-relaxed border-t border-gray-200 dark:border-gray-700 pt-3">
@@ -620,6 +921,166 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
     </div>
   </details>
 </div>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">📊 AI가 정리한 26년 수능 문항별 과목, 오답률(추정)</h2>
+
+<style>
+  .tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    color: #374151;
+    transition: all 0.2s;
+  }
+  .dark .tab-button {
+    border-color: #4b5563;
+    background: #1f2937;
+    color: #d1d5db;
+  }
+  .tab-button:hover {
+    background: #e5e7eb;
+  }
+  .dark .tab-button:hover {
+    background: #374151;
+  }
+  .active-tab {
+    background: #3b82f6 !important;
+    color: white !important;
+    border-color: #3b82f6 !important;
+  }
+  .tab-content {
+    display: none;
+  }
+  #tab-common {
+    display: block;
+  }
+</style>
+
+<div class="my-6">
+  <div class="flex gap-2 mb-4">
+    <button class="tab-button active-tab" onclick="showTab('tab-common', event)">공통</button>
+    <button class="tab-button" onclick="showTab('tab-prob', event)">확통</button>
+    <button class="tab-button" onclick="showTab('tab-calc', event)">미적</button>
+    <button class="tab-button" onclick="showTab('tab-geo', event)">기하</button>
+  </div>
+
+  <div id="tab-common" class="tab-content overflow-x-auto">
+    <table class="min-w-full border border-gray-300 dark:border-gray-700 text-sm">
+      <thead class="bg-gray-100 dark:bg-gray-800">
+        <tr>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">문항번호</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">주제</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">난이도</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">AI 추정 오답률</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">실제 채점 오답률</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white dark:bg-gray-900">
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">1</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">지수법칙 기초 계산</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">4% ~ 6%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">2</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">도함수 정의형 극한</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">2% ~ 5%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">3</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">차분몫 = 미분계수 정의</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">2% ~ 5%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">4</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">시그마 선형성 적용</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">10% ~ 14%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">5</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">다항함수 도함수 값 계산</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">4% ~ 8%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">6</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">로그 기본 성질과 지수 변환</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">4% ~ 8%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">7</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">두 포물선 넓이 (정적분)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">10% ~ 15%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">8</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">삼각함수 선형결합과 부호 판정</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">8% ~ 14%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">9</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">수평선 접선 조건 (극값)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">12% ~ 16%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">10</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">지수함수 그래프와 넓이 조건</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">15% ~ 20%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">11</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">속도함수로 이동거리 계산</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">15% ~ 25%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">12</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">등비수열 항 간격과 합 조건</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">12% ~ 18%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">13</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">접선과 삼각형 넓이</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">12% ~ 20%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">14</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">삼각형 외접원, 사인법칙 복합</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">42% ~ 52%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">15</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">정적분의 미분과 극값</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">35% ~ 45%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">16</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">점화식 직접 대입</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">4% ~ 8%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">17</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">부정적분 기초 계산</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">4% ~ 6%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">18</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">삼각형 넓이 문제</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">4% ~ 8%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">19</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">닫힌구간 절댓값 최댓값</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중하~중</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">7% ~ 12%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">20</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">수열의 부분합 문제</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">35% ~ 45%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">21</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">삼차함수와 조각함수</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">55% ~ 65%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">22</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">지수·로그 대칭 문제</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">45% ~ 55%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="tab-prob" class="tab-content overflow-x-auto">
+    <table class="min-w-full border border-gray-300 dark:border-gray-700 text-sm">
+      <thead class="bg-gray-100 dark:bg-gray-800">
+        <tr>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">문항번호</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">주제</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">난이도</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">AI 추정 오답률</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">실제 채점 오답률</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white dark:bg-gray-900">
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">23</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">중복허용 나열</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">4% ~ 10%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">24</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">확률의 기본 공식</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">5% ~ 10%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">25</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">조합 확률</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">7% ~ 12%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">26</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">신뢰구간</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하~중하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">10% ~ 18%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">27</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">이산확률변수의 분산</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">15% ~ 25%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">28</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">조건부확률 복합</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">40% ~ 50%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">29</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">정규근사</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">8% ~ 15%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">30</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">인접 제약이 있는 배치</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">45% ~ 60%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="tab-calc" class="tab-content overflow-x-auto">
+    <table class="min-w-full border border-gray-300 dark:border-gray-700 text-sm">
+      <thead class="bg-gray-100 dark:bg-gray-800">
+        <tr>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">문항번호</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">주제</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">난이도</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">AI 추정 오답률</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">실제 채점 오답률</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white dark:bg-gray-900">
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">23</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">극한 문제 (표준극한)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">3% ~ 6%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">24</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">정적분 문제 (치환적분)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">9% ~ 14%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">25</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">샌드위치정리 극한</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">10% ~ 15%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">26</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">정적분 부피 (정삼각형)</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">12% ~ 18%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">27</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">매개변수 곡선 접선</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하~중하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">5% ~ 12%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">28</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">역함수 미분과 적분</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">35% ~ 50%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">29</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">등비급수</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">25% ~ 40%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">30</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">역함수와 교점 개수</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">40% ~ 55%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="tab-geo" class="tab-content overflow-x-auto">
+    <table class="min-w-full border border-gray-300 dark:border-gray-700 text-sm">
+      <thead class="bg-gray-100 dark:bg-gray-800">
+        <tr>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">문항번호</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100">주제</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">난이도</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">AI 추정 오답률</th>
+          <th class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-900 dark:text-gray-100 text-center">실제 채점 오답률</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white dark:bg-gray-900">
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">23</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">벡터 성분합 계산</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">4% ~ 8%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">24</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">포물선 초점-준선 거리</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">5% ~ 10%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">25</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">3차원 좌표 대칭과 거리</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">5% ~ 10%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">26</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">쌍곡선 접선 문제</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중하</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">12% ~ 17%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">27</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">원기둥 넓이 문제</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">35% ~ 45%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">28</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">사면체와 구 문제</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">55% ~ 70%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">29</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">포물선-타원 결합</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">53% ~ 67%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+        <tr><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">30</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300">원과 벡터 내적</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">중상</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">45% ~ 55%</td><td class="border border-gray-300 dark:border-gray-700 px-4 py-2 text-gray-700 dark:text-gray-300 text-center">업데이트 예정</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<p class="text-sm text-gray-600 dark:text-gray-400 mt-4">
+  AI 추정 오답률은 과거 데이터를 기반으로 AI가 추론한 추정치입니다. AI는 오답률을 낮게 설정하는 경향이 있어, 이는 추후 데이터를 쌓아 개선할 예정입니다. 개선을 위한 참고 자료로만 봐주시면 감사하겠습니다.
+</p>
 
 <hr class="my-8 border-gray-300 dark:border-gray-700" />
 
@@ -648,7 +1109,7 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
   <p class="mt-2">문의: <a href="mailto:contact@snacademy.com" class="text-blue-600 dark:text-blue-400 hover:underline">contact@snacademy.com</a></p>
 </div>
 `,
-    category: 'notice',
+    category: 'problem-download',
     tags: ['수능', 'SNarGPT', 'AI', '해설', '수학'],
     author: 'SN독학기숙학원',
     date: '2025-11-13',
@@ -657,7 +1118,7 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
     featuredOrder: 1,
     published: true,
     thumbnail: '/images/thumbnail/SNarGPT-2026-Math-Answer-Release.png',
-    url: '/notice/suneung-math-solution-10min',
+    url: '/problem-download/suneung-math-solution-10min',
   },
   {
     id: 'why-we-invest-in-ai',
