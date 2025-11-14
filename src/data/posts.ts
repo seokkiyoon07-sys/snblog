@@ -101,7 +101,7 @@ SN독학기숙학원의 AI 분석 시스템이 2026 수능 수학 각 문항을 
   .subject-content {
     display: none;
   }
-  #subject-common {
+  .subject-content.active {
     display: block;
   }
   .col-item { width: 8%; }
@@ -319,7 +319,7 @@ SNarGPT가 각 수능 문제를 실제로 풀면서 사용된 <strong>핵심 개
     featured: true,
     featuredOrder: 2,
     published: true,
-    thumbnail: '/images/thumbnails/2026-suneung-similar.jpg',
+    thumbnail: '/images/thumbnail/AI_26_suneung.png',
     url: '/problem-download/2026-suneung-similar-problems',
   },
   {
