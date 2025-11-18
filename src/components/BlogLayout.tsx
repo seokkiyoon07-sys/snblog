@@ -21,11 +21,14 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
     const initFunctions = () => {
       if (typeof window !== 'undefined') {
         // AI 분석표 탭 전환 함수
-        (window as any).showTab = function(tabName: string, event: MouseEvent) {
+        (window as any).showTab = function (
+          tabName: string,
+          event: MouseEvent
+        ) {
           const tabs = document.querySelectorAll('.tab-content');
           const buttons = document.querySelectorAll('.tab-button');
 
-          tabs.forEach(tab => (tab as HTMLElement).style.display = 'none');
+          tabs.forEach(tab => ((tab as HTMLElement).style.display = 'none'));
           buttons.forEach(btn => btn.classList.remove('active-tab'));
 
           const targetTab = document.getElementById(tabName);
@@ -36,7 +39,10 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
         };
 
         // 유사 문제 과목별 탭 전환 함수
-        (window as any).showSubject = function(subjectId: string, event: MouseEvent) {
+        (window as any).showSubject = function (
+          subjectId: string,
+          event: MouseEvent
+        ) {
           const contents = document.querySelectorAll('.subject-content');
           const buttons = document.querySelectorAll('.subject-tab');
 
@@ -51,7 +57,10 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
         };
 
         // 툴팁 토글 함수
-        (window as any).toggleTooltip = function(tooltipId: string, event: Event) {
+        (window as any).toggleTooltip = function (
+          tooltipId: string,
+          event: Event
+        ) {
           event.stopPropagation();
           const tooltip = document.getElementById(tooltipId);
           if (tooltip) {
@@ -80,20 +89,25 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
     // DOM이 완전히 로드된 후에도 한 번 더 실행
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', initFunctions);
-      return () => document.removeEventListener('DOMContentLoaded', initFunctions);
+      return () =>
+        document.removeEventListener('DOMContentLoaded', initFunctions);
     }
   }, [post.id]);
 
   // KaTeX 렌더링
   useEffect(() => {
     const renderKaTeX = () => {
-      if (typeof window !== 'undefined' && (window as any).renderMathInElement && contentRef.current) {
+      if (
+        typeof window !== 'undefined' &&
+        (window as any).renderMathInElement &&
+        contentRef.current
+      ) {
         (window as any).renderMathInElement(contentRef.current, {
           delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false}
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
           ],
-          throwOnError: false
+          throwOnError: false,
         });
       }
     };
@@ -124,29 +138,29 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
   // Article Schema JSON-LD 생성
   const generateArticleSchema = () => {
     const schema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": post.title,
-      "author": {
-        "@type": "Organization",
-        "name": "SN독학기숙학원",
-        "url": "https://blog.snacademy.co.kr"
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: post.title,
+      author: {
+        '@type': 'Organization',
+        name: 'SN독학기숙학원',
+        url: 'https://blog.snacademy.co.kr',
       },
-      "publisher": {
-        "@type": "Organization",
-        "name": "SN독학기숙학원",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://blog.snacademy.co.kr/images/sn-logo.png"
-        }
+      publisher: {
+        '@type': 'Organization',
+        name: 'SN독학기숙학원',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://blog.snacademy.co.kr/images/sn-logo.png',
+        },
       },
-      "datePublished": new Date().toISOString().split('T')[0],
-      "dateModified": new Date().toISOString().split('T')[0],
-      "description": post.title,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `https://blog.snacademy.co.kr/problem-download/${post.id}`
-      }
+      datePublished: new Date().toISOString().split('T')[0],
+      dateModified: new Date().toISOString().split('T')[0],
+      description: post.title,
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `https://blog.snacademy.co.kr/problem-download/${post.id}`,
+      },
     };
     return schema;
   };
@@ -169,11 +183,16 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateArticleSchema()) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateArticleSchema()),
+        }}
       />
       <article className="prose lg:prose-xl mx-auto p-6">
         <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
-        <div ref={contentRef} dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div
+          ref={contentRef}
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
       </article>
     </>
   );

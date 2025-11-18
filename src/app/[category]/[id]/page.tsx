@@ -116,6 +116,13 @@ export default async function PostPage({ params }: PostPageProps) {
       <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24">
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
+            {post.badge && (
+              <div className="mb-4">
+                <span className="inline-flex items-center px-3 py-1 text-sm font-medium border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded">
+                  {post.badge}
+                </span>
+              </div>
+            )}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
               {post.title}
             </h1>

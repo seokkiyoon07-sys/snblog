@@ -24,7 +24,7 @@ export const revalidate = false;
 export default function ProblemsPage() {
   // problem-download 카테고리의 게시글 가져오기
   const problemDownloadPosts = allPosts
-    .filter((post) => post.category === 'problem-download' && post.published)
+    .filter(post => post.category === 'problem-download' && post.published)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
@@ -46,7 +46,7 @@ export default function ProblemsPage() {
         </h2>
         {problemDownloadPosts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {problemDownloadPosts.map((post) => (
+            {problemDownloadPosts.map(post => (
               <Link
                 key={post.id}
                 href={post.url}
