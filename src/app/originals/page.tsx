@@ -1,6 +1,7 @@
-import { getPostsByCategory, getPostById } from '@/data/posts';
+import { getPaginatedOriginalsPosts, getPostById } from '@/data/posts';
 import PostCard from '@/components/PostCard';
 import FeaturedPost from '@/components/FeaturedPost';
+import Pagination from '@/components/Pagination';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -40,14 +41,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function OriginalsPage() {
+interface OriginalsPageProps {
+  searchParams: Promise<{ page?: string }>;
+}
+
+export default async function OriginalsPage({
+  searchParams,
+}: OriginalsPageProps) {
+  // 페이지네이션을 위한 현재 페이지
+  const resolvedSearchParams = await searchParams;
+  const currentPage = parseInt(resolvedSearchParams.page || '1', 10);
+
   // SN Originals 소개글 (고정)
   const introPost = getPostById('sn-originals-intro');
 
-  // SN Originals 카테고리 글들 (소개글 제외)
-  const originalsPosts = getPostsByCategory('SN Originals').filter(
-    post => post.id !== 'sn-originals-intro'
-  );
+  // SN Originals 카테고리 글들 (페이지네이션 적용, 소개글 제외)
+  const { posts: originalsPosts, totalPages } =
+    await getPaginatedOriginalsPosts(currentPage, 6);
 
   return (
     <div className="space-y-6 lg:space-y-8">
@@ -96,6 +106,13 @@ export default function OriginalsPage() {
               <PostCard key={post.id} post={post} />
             ))}
           </div>
+
+          {/* 페이지네이션 */}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            baseUrl="/originals"
+          />
         </div>
       </section>
     </div>

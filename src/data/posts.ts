@@ -21,9 +21,423 @@ export interface Post {
   youtubeUrl?: string;
   url: string;
   type?: 'standard' | 'special'; // 'standard'는 기본값, 'special'은 전용 컴포넌트 사용
+  badge?: string; // 뱃지 텍스트 (예: "2026 수능출제 작품")
 }
 
 export const allPosts: Post[] = [
+  {
+    id: 'imgyetan',
+    title:
+      '사는 동네를 옮긴다 한들 살인적인 세금을 피할 수는 없었다 (고전문학 「임계탄」)',
+    excerpt:
+      '조선 후기 장흥 지역의 대기근과 탐관오리의 학정을 고발한 가사 「임계탄」. 1732~1733년 3년간의 재난 속에서 백성들의 고통과 절망을 사실적으로 담아낸 현실비판 가사입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 제17탄. 오늘은 조선 후기 작자 미상의 가사 「임계탄」을 준비했습니다.
+
+「임계탄(壬癸歎)」은 제목에서 짐작할 수 있듯이 임자년(1732)∼계축년(1733)년에 발생한 재난에 대해 탄식하는 내용을 담은 가사작품으로, 이후 1733년까지 연속 3년간 전라도 장흥지역을 휩쓸었던 대기근으로 인한 고통과 백성들에 대한 탐관오리의 학정을 풍자적으로 그려 낸 현실비판가사입니다.
+
+현실 고발적인 성격만이 아니라, 유가의 정치이념에 입각한 인정(仁政)의 회복을 촉구하고 있다는 점에서 민본과 민생의식이 투철하게 투영된 작품이라고 할 수 있습니다(해설 출처 : 한국민족문화대백과사전).
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「임계탄」- 사는 동네를 옮긴다 한들 살인적인 세금을 피할 수는 없었다
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+당신이 수험생이라면 이것도 한번 읽어보세요.
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 🏰 작품의 배경과 의미
+
+「임계탄」은 조선 후기인 1732년(임자년)부터 1733년(계축년)까지 전라도 장흥 지역에서 발생한 대기근과 탐관오리의 학정을 고발한 현실비판 가사입니다. 작자는 미상이지만, 직접 그 참상을 목격하고 경험한 것으로 추정됩니다.
+
+연속 3년간의 재난으로 백성들은 굶주림에 시달렸고, 설상가상으로 탐관오리들의 가혹한 수탈이 이어졌습니다. 이 작품은 그러한 백성들의 고통을 생생하게 전하면서도, 단순한 고발을 넘어 유교적 이상인 인정(仁政)의 회복을 촉구합니다.
+
+제목의 '임계(壬癸)'는 임자년과 계축년을 의미하며, '탄(歎)'은 탄식을 뜻합니다. 즉, 이 비극적인 시기에 대한 깊은 슬픔과 분노를 담은 노래입니다.
+
+### 🎭 문학적 특징
+
+- **현실비판 가사**: 당대 사회의 모순과 부조리를 직접적으로 고발
+- **사실적 묘사**: 기근과 학정의 참상을 구체적이고 생생하게 표현
+- **풍자와 비판**: 탐관오리에 대한 날카로운 풍자와 비판
+- **민본사상**: 백성을 위한 정치, 인정(仁政)의 회복 촉구
+- **서사적 구성**: 시간 순서에 따라 사건을 전개하는 서사시적 특징
+
+### 🌍 문학사적 의의
+
+「임계탄」은 조선 후기 민중문학의 대표작 중 하나로, 지배층의 시각이 아닌 백성의 입장에서 사회 현실을 고발한 작품입니다. 특히 구체적인 시기(1732-1733)와 장소(장흥)를 특정하여 역사적 사실성을 확보했다는 점에서 문학사적 가치가 높습니다.
+
+이 작품은 「갑민가」, 「농가월령가」 등과 함께 조선 후기 현실비판 가사의 전통을 보여주며, 문학이 사회적 발언과 개혁의 도구가 될 수 있음을 증명합니다. 민중의 고통에 대한 공감과 정의로운 사회에 대한 열망이 문학적으로 승화된 작품입니다.
+
+### 📚 작품 감상 포인트
+
+1. **기근의 참상**: 3년간의 흉년으로 인한 백성들의 고통
+2. **탐관오리의 학정**: 재난 상황에서도 계속되는 가혹한 수탈
+3. **백성의 절망**: "사는 동네를 옮긴다 한들 세금을 피할 수 없다"는 절규
+4. **인정의 촉구**: 유교적 이상인 인자한 정치의 회복 요구
+5. **사실적 고발**: 구체적 사례를 통한 생생한 현실 폭로
+
+### 🎨 현대적 의미
+
+「임계탄」은 천 년 가까운 시간이 흘렀지만, 여전히 현대 사회에 중요한 메시지를 전합니다. 재난 상황에서 더욱 취약해지는 서민들의 삶, 권력의 부패와 무책임, 공정하지 못한 부담의 분배—이러한 문제들은 시대를 초월한 보편적 과제입니다.
+
+특히 "사는 동네를 옮긴다 한들 살인적인 세금을 피할 수는 없었다"는 구절은, 개인의 노력만으로는 해결할 수 없는 구조적 불평등에 대한 절규입니다. 이는 오늘날에도 많은 이들이 공감하는 문제입니다.
+
+이 작품은 우리에게 묻습니다. 진정한 좋은 사회란 무엇인가? 재난 앞에서 정부와 권력은 어떤 역할을 해야 하는가? 문학은 단순한 미적 향유를 넘어, 사회의 부조리를 고발하고 정의를 추구하는 힘이 될 수 있음을 보여줍니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 현실비판 가사, 민중가사, 사회고발 문학
+- **주요 주제**: 기근과 학정에 대한 고발, 탐관오리 비판, 인정(仁政) 회복 촉구
+- **표현 기법**: 사실적 묘사, 풍자, 대조법, 과장법
+- **시대적 배경**: 조선 후기 사회의 모순, 민본사상
+- **문학사적 의의**: 민중문학, 현실참여문학의 전통
+- **유사 작품 비교**: 「갑민가」와의 공통점(탐관오리 비판, 백성의 고통)
+
+</div>
+</details>
+
+---
+
+## 💡 영상 하이라이트
+
+SN독학기숙학원이 제작한 이번 영상에서는 조선 후기 백성들의 처절한 삶을 담아낸 「임계탄」의 고발 정신을 생생하게 전달합니다.
+
+3년간의 대기근 속에서도 멈추지 않는 탐관오리의 수탈—굶주림과 절망 속에서 "사는 동네를 옮긴다 한들 세금을 피할 수 없다"고 절규하는 백성들의 목소리가 시대를 넘어 우리에게 울림을 줍니다.
+
+작품의 핵심 주제는 **'구조적 불의에 대한 고발과 인정(仁政)의 회복'**입니다. 개인의 힘으로는 벗어날 수 없는 부조리한 현실을 고발하면서도, 더 나은 사회에 대한 희망을 잃지 않는 민중의 저항 정신을 보여줍니다.
+
+**시각적 연출에 특별히 공을 많이 들였습니다.** 황폐한 들판과 굶주린 백성들, 탐관오리의 횡포, 이사를 가도 피할 수 없는 세금의 무게 등이 상징적으로 표현되어 작품의 비극적 정서를 더욱 깊이 있게 전달합니다.
+
+앞으로도 더욱 의미 있는 영상으로 찾아뵙겠습니다.
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Imgyetan" - A Cry Against Injustice: Even Moving Cannot Escape Crushing Taxes
+
+**Imgyetan (壬癸歎)** is a classical Korean gasa (가사) poem from the late Joseon Dynasty that exposes the devastating famine and corrupt officials' tyranny in the Jangheung region of Jeolla Province from 1732-1733. The title combines the cyclical year names Im (壬, 1732) and Gye (癸, 1733) with "tan" (歎), meaning lamentation.
+
+**Literary Significance:**
+- **Social Criticism Gasa**: Directly condemns social contradictions and injustice
+- **Realistic Description**: Vividly portrays the horrors of famine and official oppression
+- **Satire and Critique**: Sharp criticism of corrupt officials (탐관오리)
+- **Minbon Philosophy**: Advocates for benevolent governance (仁政) centered on the people
+- **Narrative Structure**: Chronicles events in chronological order like an epic poem
+
+**Historical Context:**
+This work documents three consecutive years of famine (1732-1733) in Jangheung, during which the people suffered not only from natural disaster but also from ruthless exploitation by corrupt officials. The poem captures the desperate cry: "Even if we move to another town, we cannot escape the murderous taxes."
+
+**Cultural Value:**
+"Imgyetan" represents a masterpiece of late Joseon minjung (people's) literature, telling the story from the common people's perspective rather than the ruling class. Its historical specificity—naming exact years (1732-1733) and location (Jangheung)—gives it documentary value alongside its literary merit.
+
+The work stands in the tradition of social criticism gasa like "Gapmin-ga," demonstrating how literature can serve as a tool for social commentary and reform. It shows profound empathy for the people's suffering and yearning for a just society, transformed into literary art.
+
+**Contemporary Relevance:**
+Despite nearly three centuries passing, "Imgyetan" remains relevant today. The vulnerability of ordinary people during disasters, corruption and irresponsibility of power, and unjust distribution of burdens—these remain universal challenges transcending time.
+
+The phrase "even moving to another town cannot escape murderous taxes" expresses despair over structural inequality that individual effort alone cannot overcome—a sentiment that resonates with many today.
+
+The work asks us: What constitutes a truly good society? What role should government and power play in the face of disaster? It demonstrates that literature can transcend mere aesthetic enjoyment to become a force that exposes social injustice and pursues justice.
+
+</div>
+</details>`,
+    category: 'SN Originals',
+    tags: [
+      '고전문학',
+      '임계탄',
+      '가사',
+      '현실비판',
+      '민중문학',
+      '조선후기',
+      '수능국어',
+    ],
+    author: 'SI KIM',
+    date: '2025-11-11',
+    readTime: '4',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_imgyetan.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=sfoHYLjRLIo',
+    url: '/originals/imgyetan',
+    type: 'special',
+  },
+  {
+    id: 'changiparangga',
+    title: '기파랑을 닮고 싶었던 한 스님의 노래 (고전문학 「찬기파랑가」)',
+    excerpt:
+      '신라 경덕왕 때 충담사가 화랑 기파랑을 추모하며 지은 향가. 승려 충담사가 이상적 인간상이었던 기파랑을 찬양하고, 그와 같은 사람이 되고 싶다는 소망을 담은 10구체 향가입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 시험 점수가 오르는 국어 고전문학 시리즈 20번째 작품. 오늘은 「제망매가」와 더불어 고등학교 국어 필수작품인 신라시대 향가 「찬기파랑가」를 준비했습니다.
+
+「찬기파랑가(讚耆婆郞歌)」는 충담사(忠談師)라는 승려가 '기파랑(耆婆郞)'이라는 화랑의 사후에 그를 추종하고 추모하는 의미로 만든 노래입니다. 제목을 풀이하면 한자 그대로 기파랑을 찬양하는 노래라는 뜻입니다.
+
+승려였던 충담사가 세속의 화랑을 이토록 그리워하고 찬양했다는 것은 기파랑이 단순한 무사가 아니라, 당대 최고의 이상적 인간상이었음을 보여줍니다. 충담사는 이 노래를 통해 기파랑과 같은 사람이 되고 싶다는 간절한 소망을 표현했습니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「찬기파랑가」- 기파랑을 닮고 싶었던 한 스님의 노래
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+당신이 수험생이라면 이것도 한번 읽어보세요.
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 🏰 작품의 배경과 의미
+
+「찬기파랑가」는 신라 경덕왕(景德王, 재위 742-765) 때 승려 충담사(忠談師)가 지은 10구체 향가입니다. 이 작품은 화랑(花郞) 기파랑(耆婆郞)이라는 인물을 찬양하고 추모하는 내용을 담고 있습니다.
+
+화랑은 신라의 청년 수양 조직으로, 문무를 겸비하고 도덕적으로 완성된 인물을 길러내는 것이 목적이었습니다. 기파랑은 이러한 화랑 중에서도 특히 뛰어난 인물로, 충담사에게는 존경과 흠모의 대상이었습니다.
+
+승려인 충담사가 세속의 화랑을 이토록 찬양했다는 것은, 기파랑이 단순한 무인이 아니라 인격적·정신적으로 완성된 이상적 인간상이었음을 보여줍니다. 충담사는 기파랑을 본받아 그와 같은 사람이 되고 싶다는 간절한 소망을 이 노래에 담았습니다.
+
+### 🎭 문학적 특징
+
+- **10구체 향가**: 신라 향가의 정형적 형식으로, 4구-4구-2구의 구조
+- **찬양가**: 특정 인물을 칭송하고 그의 덕을 기리는 형식
+- **추모가**: 사후에 고인을 그리워하고 추모하는 내용
+- **이상적 인간상**: 문무를 겸비한 완벽한 인격체에 대한 동경
+- **롤모델 정신**: 닮고 싶은 인물에 대한 존경과 추종
+
+### 🌍 문학사적 의의
+
+「찬기파랑가」는 신라 화랑도의 정신과 당대의 이상적 인간상을 잘 보여주는 작품입니다. 특히 승려가 세속의 화랑을 찬양했다는 점에서, 신라 사회에서 화랑이 차지하던 위상과 그들이 구현했던 가치를 엿볼 수 있습니다.
+
+이 작품은 「제망매가」와 함께 신라 경덕왕 시대를 대표하는 10구체 향가로, 둘 다 승려가 지었으면서도 인간적 감정을 솔직하게 드러낸다는 공통점이 있습니다. 다만 「제망매가」가 가족에 대한 애정을 노래했다면, 「찬기파랑가」는 이상적 인간상에 대한 존경과 추모를 담았다는 차이가 있습니다.
+
+### 📚 작품 감상 포인트
+
+1. **화랑 기파랑**: 이상적 화랑의 표상, 문무겸전의 인물
+2. **충담사의 마음**: 승려가 화랑을 존경하고 닮고 싶어 하는 간절함
+3. **화랑도 정신**: 신라 청년 조직의 가치와 이상
+4. **찬양과 추모**: 죽은 후에도 그의 덕을 기리는 마음
+5. **롤모델의 의미**: 존경하는 인물을 본받고자 하는 인간의 보편적 심리
+
+### 🎨 현대적 의미
+
+「찬기파랑가」는 천년이 넘는 시간을 초월하여 오늘날에도 중요한 메시지를 전합니다. 누구에게나 닮고 싶은 사람, 존경하는 롤모델이 있습니다. 그 대상을 향한 순수한 동경과 그처럼 되고자 하는 노력은 인간을 성장시키는 원동력이 됩니다.
+
+현대 사회에서 우리는 종종 외적 성취나 물질적 성공만을 추구하는 경향이 있습니다. 하지만 「찬기파랑가」는 진정한 롤모델이란 인격적·정신적으로 완성된 사람임을 보여줍니다. 기파랑이 충담사에게 그러했듯, 우리도 단순한 성공이 아닌 인간적 완성을 이룬 사람을 존경하고 본받아야 한다는 교훈을 줍니다.
+
+특히 승려인 충담사가 신분과 지위를 초월하여 기파랑을 존경했다는 점은, 진정한 존경은 겉모습이 아닌 내면의 가치에서 비롯됨을 알려줍니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 10구체 향가, 찬양가, 추모가
+- **주요 주제**: 기파랑에 대한 찬양, 롤모델에 대한 동경, 이상적 인간상 추구
+- **표현 기법**: 찬양법, 영탄법, 직접 호명
+- **시대적 배경**: 신라 화랑도, 경덕왕 시대, 향가 문학
+- **작가의 태도**: 존경과 흠모, 본받고자 하는 소망
+- **제망매가와의 비교**: 같은 시대, 같은 형식, 승려 작가, 추모의 정서 / 다른 대상(가족 vs 롤모델)
+
+</div>
+</details>
+
+---
+
+## 💡 영상 하이라이트
+
+SN독학기숙학원이 제작한 이번 영상에서는 충담사가 기파랑을 향한 존경과 동경을 담아낸 「찬기파랑가」의 깊은 의미를 생생하게 전달합니다.
+
+승려로서 세속을 떠났지만, 이상적 인간상이었던 기파랑을 잊지 못하고 그를 찬양하는 충담사의 마음—단순한 추모를 넘어 그와 같은 사람이 되고 싶다는 간절한 소망이 천년을 넘어 깊은 울림을 전합니다.
+
+작품의 핵심 주제는 **'이상적 인간상에 대한 존경과 추종'**입니다. 진정한 롤모델을 향한 순수한 동경과 그를 본받고자 하는 마음이 인간을 성장시키는 원동력임을 보여줍니다.
+
+**시각적 연출에 특별히 공을 많이 들였습니다.** 화랑으로서의 기파랑의 모습, 충담사가 그를 그리워하는 장면, 이상적 인간상을 향한 염원 등이 아름답게 표현되어 작품의 정서를 더욱 풍부하게 전달합니다.
+
+앞으로도 더욱 감동적인 영상으로 찾아뵙겠습니다.
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Changiparangga" - A Monk's Song of Admiration for Giparang
+
+**Changiparangga (讚耆婆郞歌)** is a classical Korean hyangga (향가) poem written by the Buddhist monk Chungdamsa (忠談師) during the reign of King Gyeongdeok of Silla (742-765 CE). The title literally means "Song in Praise of Giparang," composed to honor and memorialize the Hwarang (花郞) warrior Giparang (耆婆郞).
+
+**Literary Significance:**
+- **10-line Hyangga**: Written in the standard 10-line hyangga format (4-4-2 structure)
+- **Eulogy Format**: A song of praise and admiration for an exemplary individual
+- **Memorial Poem**: Composed after Giparang's death to honor his memory
+- **Ideal Human Model**: Expresses longing to emulate a person of complete virtue
+- **Role Model Spirit**: Demonstrates respect and aspiration toward an admired figure
+
+**Cultural Value:**
+This work beautifully illustrates the spirit of the Silla Hwarang (aristocratic youth warrior corps) and the ideal human character valued in that era. The fact that a Buddhist monk praised a secular Hwarang warrior reveals the high status and values that the Hwarang embodied in Silla society.
+
+Like "Jemangmaega," this is a representative 10-line hyangga from King Gyeongdeok's reign, both composed by monks who honestly expressed human emotions. However, while "Jemangmaega" sang of familial love, "Changiparangga" expresses respect and admiration for an ideal human character.
+
+**Contemporary Relevance:**
+"Changiparangga" delivers an important message that transcends more than a millennium. Everyone has someone they admire and wish to emulate—a role model. The pure admiration for such a person and the effort to become like them serve as the driving force for human growth.
+
+The work teaches us that a true role model is someone who has achieved personal and spiritual completeness, not merely external success. It reminds us that genuine respect comes from inner values rather than outward appearances, as demonstrated by Chungdamsa's admiration for Giparang across differences in status and position.
+
+</div>
+</details>`,
+    category: 'SN Originals',
+    tags: [
+      '고전문학',
+      '찬기파랑가',
+      '충담사',
+      '향가',
+      '신라',
+      '화랑',
+      '수능국어',
+    ],
+    author: 'SI KIM',
+    date: '2025-11-18',
+    readTime: '4',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_changiparangga.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=17SWxuMhvFQ',
+    url: '/originals/changiparangga',
+    type: 'special',
+  },
+  {
+    id: 'jemangmaega',
+    title: '누이를 잃은 슬픔의 노래 (고전문학 「제망매가」)',
+    excerpt:
+      '신라 경덕왕 때 월명사가 죽은 누이를 추모하며 지은 향가. 불교 승려였던 월명사가 육친에 대한 그리움과 죽음의 슬픔을 담아낸 10구체 향가로, 인간적 애정과 불교적 세계관이 조화를 이룬 작품입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+드디어 26학년도 수능이 끝났네요. 이제는 잠시 쉬어가는 의미에서 수능 특강 말고, 수험생이라면 알아야 하는 작품 위주로 선별해서 제작하고자 합니다. 오늘은 그 첫 작품으로 신라 경덕왕 때 월명사가 지은 향가 「제망매가」를 준비했습니다.
+
+「제망매가(祭亡妹歌)」는 '죽은 누이를 제사지내는 노래'라는 뜻으로, 월명사(月明師)가 세상을 떠난 누이동생의 명복을 빌며 지은 10구체 향가입니다.
+
+불교 승려였던 월명사가 육친에 대한 인간적 그리움과 슬픔을 솔직하게 드러내면서도, 극락왕생을 기원하는 불교적 세계관을 함께 담아낸 아름다운 작품입니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「제망매가」- 누이를 잃은 슬픔의 노래
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+당신이 수험생이라면 이것도 한번 읽어보세요.
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 🏰 작품의 배경과 의미
+
+「제망매가」는 신라 경덕왕(景德王, 재위 742-765) 때 승려 월명사(月明師)가 지은 10구체 향가입니다. 작품의 제목인 '제망매가(祭亡妹歌)'는 문자 그대로 '죽은 누이를 제사지내며 부르는 노래'를 의미합니다.
+
+월명사는 불교 승려로서 출가하여 세속의 인연을 끊었지만, 누이동생의 죽음 앞에서는 한 사람의 형제로서 깊은 슬픔과 그리움을 느꼈습니다. 이 작품은 그러한 인간적 감정을 솔직하게 드러내면서도, 죽은 누이가 극락왕생하기를 기원하는 불교적 신념을 함께 담아냈습니다.
+
+### 🎭 문학적 특징
+
+- **10구체 향가**: 신라 향가의 정형적 형식으로, 4구-4구-2구의 구조
+- **제문(祭文) 형식**: 죽은 이를 추모하고 명복을 비는 제사 형식
+- **인간적 애정**: 승려로서의 초월적 자세를 넘어선 육친에 대한 그리움
+- **불교적 세계관**: 극락왕생에 대한 믿음과 기원
+- **감정의 절제**: 슬픔을 직접적으로 드러내기보다 은유적으로 표현
+
+### 🌍 문학사적 의의
+
+「제망매가」는 신라 향가 중에서도 개인적 감정을 가장 진솔하게 표현한 작품으로 평가받습니다. 특히 승려라는 신분에도 불구하고 가족에 대한 애틋한 감정을 드러낸 점이 인상적입니다.
+
+이 작품은 불교적 세계관과 인간적 감정이 조화롭게 어우러진다는 점에서 문학사적 가치가 높습니다. 죽음이라는 절대적 이별 앞에서 느끼는 슬픔을 표현하면서도, 극락왕생이라는 불교적 위안을 함께 제시하여 삶과 죽음에 대한 깊은 성찰을 담아냈습니다.
+
+### 📚 작품 감상 포인트
+
+1. **생사의 경계**: 이승과 저승을 가르는 절대적 단절
+2. **남매의 정**: 승려가 된 후에도 남아있는 육친에 대한 애정
+3. **극락왕생의 기원**: 죽은 누이가 좋은 곳으로 가기를 바라는 마음
+4. **감정의 표현**: 슬픔을 직접 토로하지 않고 절제되게 표현
+5. **현세와 내세**: 불교적 세계관이 투영된 삶과 죽음의 이해
+
+### 🎨 현대적 의미
+
+「제망매가」는 천년이 넘는 시간을 초월하여 오늘날에도 큰 울림을 줍니다. 사랑하는 사람을 잃은 슬픔, 다시는 만날 수 없다는 상실감은 시대를 막론하고 인간이라면 누구나 경험하는 보편적 감정이기 때문입니다.
+
+특히 현대 사회에서 우리는 죽음을 점점 더 멀리하고 회피하는 경향이 있습니다. 하지만 이 작품은 죽음을 직시하면서도, 그것을 또 다른 시작으로 받아들이는 성숙한 태도를 보여줍니다. 슬픔을 부정하지 않되, 그 슬픔 너머의 희망을 함께 노래하는 것—이것이 바로 「제망매가」가 우리에게 전하는 메시지입니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 10구체 향가, 제문 형식, 추모가
+- **주요 주제**: 누이에 대한 그리움, 죽음의 슬픔, 극락왕생 기원
+- **표현 기법**: 은유법, 영탄법, 대비법
+- **시대적 배경**: 신라 향가 문학, 불교적 세계관
+- **작가의 태도**: 인간적 슬픔과 불교적 초월의 조화
+
+</div>
+</details>
+
+---
+
+## 💡 영상 하이라이트
+
+SN독학기숙학원이 제작한 이번 영상에서는 월명사가 누이를 잃은 슬픔을 담담하게 노래한 「제망매가」의 깊은 정서를 생생하게 담아냅니다.
+
+승려로서 세속을 떠났지만, 누이의 죽음 앞에서는 한 사람의 형제로 돌아온 월명사의 마음—슬픔을 억누르지 않되, 극락왕생을 기원하는 불교적 신념으로 위로를 찾는 과정을 만나보실 수 있습니다.
+
+작품의 핵심 주제는 **'인간적 애정과 불교적 믿음의 조화'**입니다. 슬픔을 있는 그대로 받아들이되, 그 너머의 희망을 놓지 않는 성숙한 태도가 천년을 넘어 깊은 감동을 전합니다.
+
+**시각적 연출에 특별히 공을 많이 들였습니다.** 달빛 아래 누이를 그리워하는 장면, 극락으로 떠나는 누이의 모습, 연꽃 위에서 미소 짓는 장면 등이 아름답게 표현되어 작품의 정서를 더욱 풍부하게 전달합니다.
+
+앞으로도 더욱 감동적인 영상으로 찾아뵙겠습니다.
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Jemangmaega" - A Song of Mourning for a Lost Sister
+
+**Jemangmaega (祭亡妹歌)** is a classical Korean hyangga (향가) poem written by the Buddhist monk Wolmyeongsa (月明師) during the reign of King Gyeongdeok of Silla (742-765 CE). The title literally means "Song for the Deceased Sister," and the work is a heartfelt elegy mourning the death of the poet's younger sister.
+
+**Literary Significance:**
+- **10-line Hyangga**: Written in the standard 10-line hyangga format (4-4-2 structure)
+- **Memorial Format**: Functions as a ritual prayer (제문) for the deceased
+- **Human Emotion**: Expresses genuine grief and longing despite the author's status as a Buddhist monk
+- **Buddhist Worldview**: Contains prayers for the sister's rebirth in paradise (극락왕생)
+- **Emotional Restraint**: Conveys deep sorrow through metaphor rather than direct expression
+
+**Cultural Value:**
+This work is considered one of the most personally emotional among Silla hyangga poems. It is particularly notable for how a Buddhist monk openly expresses familial affection, showing that even those who have renounced worldly ties cannot entirely transcend human emotions.
+
+The poem beautifully harmonizes Buddhist philosophy with human sentiment. While confronting the absolute separation of death, it provides both expression of grief and Buddhist consolation through the hope of rebirth in paradise, offering profound reflection on life and death.
+
+**Contemporary Relevance:**
+"Jemangmaega" continues to resonate across more than a millennium because it addresses the universal human experience of losing a loved one. The poem demonstrates a mature attitude toward death—not denying grief, but finding hope beyond it. This balance between acknowledging sorrow and maintaining faith offers a timeless message that remains deeply relevant today.
+
+The work teaches us that it is natural to grieve, yet important to find meaning and consolation even in our deepest losses—a lesson that transcends time and culture.
+
+</div>
+</details>`,
+    category: 'SN Originals',
+    tags: ['고전문학', '제망매가', '월명사', '향가', '신라', '수능국어'],
+    author: 'SI KIM',
+    date: '2025-11-18',
+    readTime: '4',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_jemangmaega.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=I215rskzY74',
+    url: '/originals/jemangmaega',
+    type: 'special',
+  },
   {
     id: '2026-suneung-similar-problems',
     title: '2026학년도 수능 수학 문제와 비슷한 문제를 기출에서 찾기!',
@@ -724,8 +1138,7 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
     author: 'SN Academy',
     date: '2025-11-07',
     readTime: '5',
-    featured: true,
-    featuredOrder: 3,
+    featured: false,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_a2_sochunhyangga.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=Nwh6VpYaHvo',
@@ -737,6 +1150,7 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
     title: '여기서 26학년도 수능 국어 몇 문제 나올까? (SN 고전문학 몰아보기)',
     excerpt:
       '2026 수능을 앞둔 수험생을 위한 특별 영상! SN독학기숙학원이 엄선한 고전문학 작품 13편을 1시간 동안 몰아보며 마지막 정리를 해보세요. 보기만 해도 수능 점수가 오르는 SN 고전문학 시리즈의 결정판입니다.',
+    badge: '2026학년도 수능 출제 (북새곡) · 유튜브 2.6만뷰',
     content: 'special-component',
     category: 'SN Originals',
     tags: [
@@ -753,12 +1167,173 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
     author: 'SN Academy',
     date: '2025-11-05',
     readTime: '10',
-    featured: true,
-    featuredOrder: 1,
+    featured: false,
     published: true,
     thumbnail: '/images/thumbnail/thumbnail_VF.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=lsR6vGdm_Mo',
     url: '/originals/classic-literature-marathon-2026',
+    type: 'special',
+  },
+  {
+    id: 'biga',
+    title: '누가 우리 왕자님 좀 구해와주라 (고전문학 「비가」)',
+    excerpt:
+      '병자호란의 치욕과 분노를 담은 이정환의 10수 연시조 「비가」. 청나라에 끌려간 소현 세자와 봉림 대군을 구하지 못하는 조정 신하들을 비판하며, 작가가 느낀 수치심과 비통함을 사실적으로 표현한 현실비판 시조입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 제15탄. 오늘은 조선 후기(1600년대) 이정환의 시조 「비가」(悲歌)를 준비했습니다.
+
+'슬픔의 노래'라는 의미의 제목을 가진 이 작품은 작가가 병자호란의 체험과 그 울분을 담아 지은 10수짜리 연시조입니다. 인조가 청나라에 굴욕적인 항복을 하고 소현 세자와 봉림 대군을 포함해 많은 백성이 잡혀간 현실 속에서 제대로 대응을 못 하는 조정의 신하들을 비판하고, 작가가 느꼈던 수치심과 비통함을 표현하고 있습니다(해설 출처: EBS 수능완성 국어).
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「비가」- 누가 우리 왕자님 좀 구해와주라
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+당신이 수험생이라면 이것도 한번 읽어보세요.
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 🏰 작품의 배경과 의미
+
+「비가」는 조선 후기 이정환이 병자호란(1636-1637) 직후의 참담한 현실을 담아 지은 10수의 연시조입니다. '비가(悲歌)'는 '슬픔의 노래'라는 뜻으로, 작품 전체에 걸쳐 작가의 깊은 비통함과 분노가 담겨 있습니다.
+
+1636년 청나라의 침입으로 시작된 병자호란은 조선에게 큰 치욕이었습니다. 인조는 남한산성에서 항전했으나 결국 삼전도에서 청 태종에게 무릎을 꿇고 항복했습니다. 이 과정에서 소현 세자와 봉림 대군(후일의 효종)을 비롯한 수많은 백성이 청나라에 인질로 끌려가게 됩니다.
+
+이정환은 이러한 비극적 상황 속에서 제대로 대응하지 못하고, 심지어 세자와 대군을 구해오지도 못하는 조정 신하들을 신랄하게 비판합니다. 작품은 단순한 개인의 슬픔을 넘어 나라의 위기 앞에서 무능한 지배층에 대한 분노와 좌절을 담고 있습니다.
+
+### 🎭 문학적 특징
+
+- **연시조 형식**: 10수의 시조를 연결하여 하나의 주제를 전개
+- **현실비판 의식**: 병자호란의 비극을 직접적으로 고발하고 무능한 조정을 비판
+- **강렬한 정서**: 분노, 수치심, 비통함 등 강한 감정을 직설적으로 표현
+- **시대적 증언**: 병자호란이라는 역사적 사건을 문학적으로 기록
+- **충정과 비판의 공존**: 왕실에 대한 충성과 무능한 신하들에 대한 비판이 동시에 나타남
+
+### 🌍 문학사적 의의
+
+「비가」는 조선 후기 시조 문학에서 현실비판 의식이 강하게 드러난 대표적인 작품입니다. 단순히 개인의 정서를 노래하는 데 그치지 않고, 시대의 비극을 문학적으로 승화시켰다는 점에서 의미가 있습니다.
+
+특히 병자호란이라는 국가적 치욕을 직접 체험한 사람의 생생한 증언으로서 문학사적 가치를 지닙니다. 이 작품은 단순한 비탄에 그치지 않고, 무능한 지배층에 대한 날카로운 비판을 담고 있어 당대 지식인의 책임 의식을 보여줍니다.
+
+「비가」는 「임계탄」, 「갑민가」 등과 함께 조선 후기 현실비판 문학의 전통을 잇는 중요한 작품으로 평가받고 있습니다.
+
+### 📚 작품 감상 포인트
+
+1. **병자호란의 치욕**: 청나라에 항복하고 왕자들이 끌려간 굴욕
+2. **소현 세자와 봉림 대군**: 인질로 잡혀간 왕자들에 대한 안타까움
+3. **조정 신하들에 대한 비판**: 제대로 대응하지 못하고 구하지도 못하는 무능함
+4. **작가의 정서**: 수치심, 분노, 비통함이 강렬하게 표현됨
+5. **역사적 증언**: 병자호란을 직접 체험한 문인의 생생한 기록
+
+### 🎨 현대적 의미
+
+「비가」가 담고 있는 '위기 상황에서의 책임'이라는 주제는 현대에도 여전히 유효합니다. 국가나 조직이 위기에 처했을 때, 지도자와 책임자들이 어떤 역할을 해야 하는지에 대한 근본적인 질문을 던집니다.
+
+또한 이 작품은 불의한 현실 앞에서 침묵하지 않고 비판의 목소리를 내는 지식인의 용기를 보여줍니다. 아무리 힘든 상황에서도 옳지 못한 것에 대해 말할 수 있어야 한다는 메시지는 오늘날에도 중요한 의미를 지닙니다.
+
+현대를 살아가는 우리에게 「비가」는 역사의 교훈을 되새기고, 책임 있는 자세로 현실을 직시할 것을 요구합니다.
+
+### 🔍 수능 출제 포인트
+
+- **연시조의 형식적 특징**: 여러 수의 시조가 하나의 주제로 연결됨
+- **시대적 배경**: 병자호란(1636-1637)의 역사적 맥락
+- **화자의 정서**: 분노, 수치심, 비통함 등 복합적 감정
+- **현실비판 의식**: 조정 신하들에 대한 비판과 풍자
+- **표현 기법**: 직설적 표현, 대비, 반어 등
+- **주제 의식**: 국가적 치욕에 대한 비판과 책임 의식
+
+</div>
+</details>
+
+## 💡 영상 하이라이트
+
+**이 영상에서는 다음 내용을 다룹니다:**
+
+- 병자호란의 역사적 배경과 의미
+- 「비가」의 창작 동기와 작가 이정환
+- 10수 연시조의 구조와 내용 분석
+- 소현 세자·봉림 대군과 관련된 역사적 사실
+- 작품 속 비판 의식과 현대적 의미
+- 수능 출제 포인트와 감상 방법
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Biga" (悲歌, Song of Sorrow) - Why Can't Anyone Rescue Our Princes?
+
+"Biga" (Song of Sorrow) is a sequence of 10 sijo poems written by Yi Jeong-hwan in the 17th century, during the late Joseon Dynasty. The work captures the deep shame, anger, and grief following the Byeongja Horan (Manchu Invasion of 1636-1637).
+
+### Historical Context
+
+The Byeongja Horan was one of the most humiliating events in Joseon history. When the Manchu Qing dynasty invaded in 1636, King Injo retreated to Namhansanseong Fortress but was eventually forced to surrender at Samjeondo. As part of the surrender terms, Crown Prince Sohyeon and Prince Bongrim (later King Hyojong) were taken as hostages to Qing China, along with thousands of Joseon subjects.
+
+### Content and Themes
+
+Yi Jeong-hwan's "Biga" sharply criticizes the court officials who failed to respond effectively to the crisis and were unable to rescue the royal princes. The work goes beyond personal grief to express profound national shame and righteous anger at the incompetent leadership.
+
+The 10-poem sequence progressively builds its critique:
+- The humiliation of the king's surrender
+- The tragedy of the princes taken as hostages
+- The failure of court officials to act
+- The author's overwhelming shame and sorrow
+- A call for accountability and justice
+
+### Literary Significance
+
+"Biga" represents an important tradition in late Joseon literature where poetry became a vehicle for social and political criticism. Unlike earlier sijo that focused on personal emotions or natural beauty, this work directly addresses historical events and holds those in power accountable.
+
+The work demonstrates how literature can serve as historical testimony and moral witness. Yi Jeong-hwan's unflinching critique of the establishment, even in the face of national tragedy, exemplifies the Confucian scholar's duty to speak truth to power.
+
+### Modern Relevance
+
+"Biga" raises timeless questions about leadership, responsibility, and moral courage:
+- What are the duties of leaders during national crises?
+- How should we respond when those in power fail their responsibilities?
+- What role should intellectuals and writers play in times of injustice?
+
+The work reminds us that remaining silent in the face of wrongdoing is itself a form of complicity. Yi Jeong-hwan's courage in expressing his criticism, despite the risks, serves as an enduring model of intellectual integrity.
+
+### Korean SAT Connection
+
+"Biga" is a key work for understanding:
+- The sijo form, particularly the yeonsi structure (linked sequence)
+- Historical literature and its connection to real events
+- The development of social criticism in Korean classical poetry
+- Complex emotional expression in classical Korean literature
+
+For modern students, "Biga" offers not just literary study but a window into a pivotal moment in Korean history and the power of literature to bear witness and demand justice.
+
+</div>
+</details>`,
+    category: 'SN Originals',
+    tags: [
+      '고전문학',
+      '비가',
+      '이정환',
+      '시조',
+      '연시조',
+      '병자호란',
+      '수능국어',
+      '조선문학',
+      '현실비판',
+      '소현세자',
+      '봉림대군',
+    ],
+    author: 'SI KIM',
+    date: '2025-11-04',
+    readTime: '4',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_biga.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=aIy9pO6qaMQ',
+    url: '/originals/biga',
     type: 'special',
   },
   {
@@ -772,8 +1347,7 @@ AI 그림과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어
     author: 'SN독학기숙학원',
     date: '2025-10-31',
     readTime: '5',
-    featured: true,
-    featuredOrder: 2,
+    featured: false,
     published: true,
     thumbnail: '/images/thumbnail/2026_k-sat_notice.png',
     url: '/notice/251113suneungnotice',
@@ -2591,6 +3165,7 @@ This work inherits the East Asian tradition of political poetry while reflecting
       '내 속도 모르면서 가라 마라 막말하지 마라\n(수능 고전문학 「갑민가」)',
     excerpt:
       '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
+    badge: '2025 수능출제',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄으로 「갑민가」를 준비했습니다.
@@ -3390,6 +3965,7 @@ The Korean pansori version transforms this Chinese historical epic into a unique
       'MBTI F인 사람이 암행어사로 임명되면 이런 느낌일까? (고전문학 「북새곡」)',
     excerpt:
       '조선 후기 구강(具康)이 지은 가사 「북새곡」. 57세의 노인이 험준한 관북지방 산길을 추운 겨울에 다니면서 민정을 시찰하며 경험한 여러가지 견문을 사실적으로 익살스레 표출한 재미있는 작품입니다.',
+    badge: '2026 수능출제',
     content: `안녕하세요 SN독학기숙학원입니다😊
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 제14탄. 오늘은 조선 후기 구강(具康)이 지은 가사 「북새곡」을 준비했습니다.
