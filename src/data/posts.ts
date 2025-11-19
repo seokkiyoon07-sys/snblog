@@ -54,6 +54,16 @@ export const allPosts: Post[] = [
 
 <img src="/economi_son/graph.png" alt="그래프 분석" class="w-full rounded-lg my-4" />
 
+### 수학 30번 유사 문제
+
+<img src="/economi_son/similar1.png" alt="유사 문제 1" class="w-full rounded-lg my-4" />
+
+<img src="/economi_son/similar2.png" alt="유사 문제 2" class="w-full rounded-lg my-4" />
+
+<img src="/economi_son/similar3.png" alt="유사 문제 3" class="w-full rounded-lg my-4" />
+
+<img src="/economi_son/similar4.png" alt="유사 문제 4" class="w-full rounded-lg my-4" />
+
 </div>
 </details>
 
