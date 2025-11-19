@@ -75,9 +75,9 @@ AI가 틀리는 문제들 모음
 
 <img src="/economi_son/biology.png" alt="AI가 틀린 생명과학 I 문제" class="w-full rounded-lg my-4" />
 
-### 생명과학 II
+### 생명과학 I-1
 
-<img src="/economi_son/biology2.png" alt="AI가 틀린 생명과학 II 문제" class="w-full rounded-lg my-4" />
+<img src="/economi_son/biology2.png" alt="AI가 틀린 생명과학 I-1 문제" class="w-full rounded-lg my-4" />
 
 ### 지구과학
 
