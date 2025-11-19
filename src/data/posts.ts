@@ -26,6 +26,108 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'economi-son',
+    title: '손에잡히는경제',
+    excerpt: '경제 뉴스를 쉽고 재미있게 풀어드립니다.',
+    content: `
+## 손에잡히는경제
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+26학년도 수능 30번 및 풀이
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 문제
+
+<img src="/economi_son/SN30.png" alt="26학년도 수능 30번 문제" class="w-full rounded-lg my-4" />
+
+### 풀이 과정
+
+<img src="/economi_son/30-1.png" alt="풀이 1단계" class="w-full rounded-lg my-4" />
+
+<img src="/economi_son/30-2.png" alt="풀이 2단계" class="w-full rounded-lg my-4" />
+
+<img src="/economi_son/30-3.png" alt="풀이 3단계" class="w-full rounded-lg my-4" />
+
+### 그래프 분석
+
+<img src="/economi_son/graph.png" alt="그래프 분석" class="w-full rounded-lg my-4" />
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+AI가 틀리는 문제들 모음
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 국어
+
+<img src="/economi_son/korean.png" alt="AI가 틀린 국어 문제" class="w-full rounded-lg my-4" />
+
+### 수학 I
+
+<img src="/economi_son/math1.png" alt="AI가 틀린 수학 I 문제" class="w-full rounded-lg my-4" />
+
+### 생명과학 I
+
+<img src="/economi_son/biology.png" alt="AI가 틀린 생명과학 I 문제" class="w-full rounded-lg my-4" />
+
+### 생명과학 II
+
+<img src="/economi_son/biology2.png" alt="AI가 틀린 생명과학 II 문제" class="w-full rounded-lg my-4" />
+
+### 지구과학
+
+<img src="/economi_son/earthscience.png" alt="AI가 틀린 지구과학 문제" class="w-full rounded-lg my-4" />
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+수학관련 어려운 점
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+<img src="/economi_son/mathcase1.png" alt="수학 케이스 1" class="w-full rounded-lg my-4" />
+
+<img src="/economi_son/mathcase2.png" alt="수학 케이스 2" class="w-full rounded-lg my-4" />
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+학생들이 이렇게도 쓴다
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+<img src="/economi_son/dokdo.png" alt="독도 관련 활용" class="w-full rounded-lg my-4" />
+
+<img src="/economi_son/history1.png" alt="역사 활용 사례 1" class="w-full rounded-lg my-4" />
+
+<img src="/economi_son/history2.png" alt="역사 활용 사례 2" class="w-full rounded-lg my-4" />
+
+<img src="/economi_son/social.png" alt="사회 활용 사례" class="w-full rounded-lg my-4" />
+
+</div>
+</details>
+    `,
+    category: 'columns',
+    tags: ['경제', '뉴스', '손에잡히는경제'],
+    author: 'SN Academy',
+    date: '2025-11-19',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail: '/economi_son/SN30.png',
+    url: '/columns/economi-son',
+    type: 'standard',
+  },
+  {
     id: 'imgyetan',
     title:
       '사는 동네를 옮긴다 한들 살인적인 세금을 피할 수는 없었다 (고전문학 「임계탄」)',
