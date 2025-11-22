@@ -7,6 +7,7 @@ import StructuredData from '@/components/StructuredData';
 import AIDataGenerator from '@/components/AIDataGenerator';
 import { renderMarkdown } from '@/lib/markdown-renderer';
 import { formatReadTime } from '@/lib/utils';
+import ArticleContent from '@/components/ArticleContent';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -314,8 +315,8 @@ export default async function Page({ params }: PageProps) {
         >
           <div className="mx-auto max-w-4xl">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
-              <article
-                id="article-content"
+              <ArticleContent
+                content={renderMarkdown(post.content)}
                 className="prose prose-lg prose-slate dark:prose-invert max-w-none
                   prose-headings:font-bold prose-headings:tracking-tight
                   prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -326,11 +327,6 @@ export default async function Page({ params }: PageProps) {
                   prose-ul:my-6 prose-li:my-2
                   prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
                   prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
-                role="main"
-                aria-label="기사 본문"
-                dangerouslySetInnerHTML={{
-                  __html: renderMarkdown(post.content),
-                }}
               />
             </div>
           </div>

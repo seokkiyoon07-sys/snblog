@@ -27,8 +27,10 @@ export interface Post {
 export const allPosts: Post[] = [
   {
     id: 'suneung-korean-17',
-    title: '2025 수능 국어 17번, 정말 오류일까? - 정답 ③을 옹호하는 논리적 근거',
-    excerpt: '온라인에서 논란이 된 수능 국어 17번 문항. 평가원 정답 ③번이 왜 타당한지 과제 규정과 선지 매핑 방식을 기준으로 차분하게 정리합니다.',
+    title:
+      '2025 수능 국어 17번, 정말 오류일까? - 정답 ③을 옹호하는 논리적 근거',
+    excerpt:
+      '온라인에서 논란이 된 수능 국어 17번 문항. 평가원 정답 ③번이 왜 타당한지 과제 규정과 선지 매핑 방식을 기준으로 차분하게 정리합니다.',
     content: `올해 수능 국어 17번 문항을 두고 온라인에서는 "오류 아니냐"는 논쟁이 계속되고 있습니다. 특히 어느 교수님의 해설이 퍼지면서 논란은 더욱 커졌죠.
 
 하지만 평가원 문항의 과제 규정과 선지 매핑 방식을 기준으로 보면, 정답으로 제시된 ③번 선택지는 충분히 타당합니다. 왜 이렇게 말할 수 있는지, 차분하게 정리해보겠습니다.
@@ -250,7 +252,7 @@ a=b, a가 C이면 b도 C? → 철학적으로는 문제 제기 가능
   {
     id: 'economi-son',
     title: '손에잡히는경제',
-    excerpt: '경제 뉴스를 쉽고 재미있게 풀어드립니다.',
+    excerpt: 'SN아카데미에서 손에잡히는 경제 커피타임에 출연했습니다.',
     content: `
 ## 손에잡히는경제
 
@@ -355,7 +357,7 @@ AI가 틀리는 문제들 모음
     readTime: '5',
     featured: false,
     published: true,
-    thumbnail: '/economi_son/SN30.png',
+    thumbnail: '/images/notice/2026-admission-guide/2026-admission-guide.png',
     url: '/columns/economi-son',
     type: 'standard',
   },
@@ -1682,7 +1684,7 @@ For modern students, "Biga" offers not just literary study but a window into a p
     readTime: '5',
     featured: false,
     published: true,
-    thumbnail: '/images/thumbnail/2026_admission_guide.png',
+    thumbnail: '/images/notice/2026-admission-guide/2026-admission-guide.png',
     url: '/notice/2026-admission-guide',
     type: 'special',
   },
