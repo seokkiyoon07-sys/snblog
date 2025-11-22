@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SN Math Analysis - Complete</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.5;
+            background: #fafafa;
+            font-size: 14px;
+        }
+        .problem {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #e74c3c;
+            font-size: 1.3em;
+            margin: 0 0 15px 0;
+            border-left: 4px solid #e74c3c;
+            padding-left: 10px;
+        }
+        .meta {
+            background: #ecf0f1;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+        .estimation {
+            background: #e8f5e8;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #27ae60;
+        }
+        .analysis {
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .formula {
+            text-align: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9ff;
+            border-radius: 5px;
+        }
+        .result {
+            background: #ffebee;
+            padding: 10px;
+            border-left: 4px solid #e91e63;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin: 4px 0;
+            font-size: 13px;
+        }
+        .similar-problems {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📚 SN Math Analysis - 완전 분석</h1>
+
+    <div class="problem">
+        <h2>📝 기하 17번 [10156]: 부정적분 + 초기조건</h2>
+        
+        <div class="similar-problems">
+            <strong>유사 문항:</strong><br>
+            • 평가원 2022.08.31 모의평가 17번<br>
+            • 평가원 2023.09.06 모의평가 8번<br>
+            • 교육청 2025.03.26 학력평가 7번
+        </div>
+
+        <div class="meta">
+            <strong>메타 정보:</strong><br>
+            • 2022.08.31 모평 17번: 미적분, 다항함수의 부정적분+초기값으로 C 결정 후 f(2) 계산. 난이도 하, 정답률 약 0.93, 배점 3점<br>
+            • 2023.09.06 모평 8번: f'(x) 다항식, f(0)=4, f(1) 매개 포함. 부정적분 후 일관성으로 f(1) 결정→ f(2). 난이도 하, 정답률 약 0.96, 배점 3점<br>
+            • 2025.03.26 학평 7번: f'(x)=x³+x, f(0)=-1, f(2) 계산. 부정적분+초기값. 난이도 하, 정답률 약 0.95, 배점 3점
+        </div>
+
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 하, 예상 정답률 약 0.94~0.96(대표값 0.95 내외), 배점 3점급
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 개념:</strong><br>
+            • 거듭제곱 적분: <div class="formula">$$\int x^n dx = \frac{x^{n+1}}{n+1}$$</div>
+            • 적분의 선형성<br>
+            • 초기조건으로 C 결정
+
+            <br><strong>풀이 개략:</strong><br>
+            1) 부정적분 계산:
+            <div class="formula">$$F(x) = \int (4x^3 - 2x) dx = x^4 - x^2 + C$$</div>
+            
+            2) 초기조건 적용:
+            <div class="formula">$$F(0) = 4 \Rightarrow C = 4$$</div>
+            
+            3) 특정값 계산:
+            <div class="formula">$$F(2) = 2^4 - 2^2 + 4 = 16$$</div>
+        </div>
+
+        <div class="result">답: F(2) = 16</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 18번 [10157]: 삼각형 넓이</h2>
+        
+        <div class="similar-problems">
+            <strong>유사 문항:</strong><br>
+            • 2013.06.05 모의평가(평가원) 11번<br>
+            • 2024.06.04 모의평가(평가원) 10번<br>
+            • 2023.03.23 학력평가(교육청) 11번
+        </div>
+
+        <div class="meta">
+            <strong>메타 정보:</strong><br>
+            • 2013.06 모평 11번: 난이도 중하, 정답률 0.84, 3점<br>
+            • 2024.06 모평 10번: 난이도 중, 정답률 0.61, 4점<br>
+            • 2023.03 학평 11번: 난이도 중, 정답률 0.63, 4점
+        </div>
+
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 하, 정답률 약 0.92~0.96(중심값 ≈ 0.94)
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 공식:</strong><br>
+            <div class="formula">$$S = \frac{1}{2}|AB||AC|\sin(\angle BAC)$$</div>
+            
+            <strong>계산 과정:</strong><br>
+            • $\cos(\angle BAC) = -\frac{3}{5}$ (주어진 조건)<br>
+            • 삼각형의 내각이므로 $\sin(\angle BAC) > 0$<br>
+            • 피타고라스 정리 활용:
+            <div class="formula">$$\sin(\angle BAC) = \sqrt{1-\cos^2(\angle BAC)} = \sqrt{1-\left(\frac{3}{5}\right)^2} = \frac{4}{5}$$</div>
+            
+            • 최종 넓이:
+            <div class="formula">$$S = \frac{1}{2} \cdot 5 \cdot 6 \cdot \frac{4}{5} = 12$$</div>
+            
+            <strong>유의점:</strong> 내각에서 $\sin > 0$임을 이용해 양의 제곱근을 취해야 함
+        </div>
+
+        <div class="result">답: 12</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 19번 [10158]: 절댓값 최댓값 문제</h2>
+        
+        <div class="similar-problems">
+            <strong>유사 문항:</strong><br>
+            • 교육청 2021.04.14 학력평가 미적분 12번<br>
+            • 교육청 2021.10.12 학력평가 미적분 15번<br>
+            • 평가원 2022.08.31 모의평가 미적분 6번
+        </div>
+
+        <div class="meta">
+            <strong>메타 정보:</strong><br>
+            • 2021.04.14 학평 12번: 닫힌구간 [0,3]에서 삼차함수의 최댓값 조건으로 a 결정. 난이도 하, 정답률 0.95, 배점 4점<br>
+            • 2021.10.12 학평 15번: 적분값과 절댓값으로 나뉜 조각함수의 연속·극값 조건. 난이도 중상, 정답률 0.50, 배점 4점<br>
+            • 2022.08.31 모평 6번: 삼차함수의 극댓값이 주어질 때 극솟값 구하기. 난이도 하, 정답률 0.95, 배점 3점
+        </div>
+
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 중하~중, 예상 정답률 약 0.88~0.93(대표값 0.90 내외), 배점 3점급
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 개념:</strong><br>
+            • 최댓값 정리: 폐구간에서 연속인 함수는 최대·최솟값을 가짐<br>
+            • 임계점과 끝점 비교: f'(x)=0의 해와 구간 끝점에서 f(x) 평가<br>
+            • 절댓값 처리: 최종적으로 |f(x)| 값들 중 최대가 k의 최솟값
+
+            <br><strong>계산 포인트:</strong><br>
+            1) 임계점 찾기:
+            <div class="formula">$$f'(x) = 6(x+2)(x-1) \Rightarrow x = -2, 1$$</div>
+            
+            2) 후보점에서 함수값: f(-2)=12, f(1)=-15, f(2)=-4
+            
+            3) 절댓값 비교:
+            <div class="formula">$$|12| = 12, \quad |-15| = 15, \quad |-4| = 4$$</div>
+        </div>
+
+        <div class="result">답: k의 최솟값 = 15</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 20번 [10159]: 수열과 부분합</h2>
+        
+        <div class="similar-problems">
+            <strong>유사 문항:</strong><br>
+            • 2014.06.12 모의평가(평가원) 수학B형 13번<br>
+            • 2021.11.18 대학수학능력시험(평가원) 18번<br>
+            • 2021.03.25 학력평가(교육청) 27번
+        </div>
+
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 중, 정답률 약 0.55~0.65 (중심값 ≈ 0.60)
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 아이디어:</strong><br>
+            1) 부분합 정의 활용:
+            <div class="formula">$$S(n) = \sum_{k=1}^n a_k \Rightarrow a_{n+1} = S(n+1) - S(n)$$</div>
+            
+            2) 보정항 f(n) = n/3 도출
+            
+            3) 정리하여 얻는 관계식:
+            <div class="formula">$$2a_n + a_{n+1} = n \quad (n \geq 2)$$</div>
+            
+            4) 홀수 인덱스 치환을 통한 합 계산
+        </div>
+
+        <div class="result">답: (p×q)/f(12) = 130</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 21번 [10160]: 조각함수와 연속성</h2>
+        
+        <div class="similar-problems">
+            <strong>유사 문항:</strong><br>
+            • 2021.09.01 모의평가(평가원) 수학 22번<br>
+            • 2021.07.07 학력평가(교육청) 수학 22번<br>
+            • 2023.10.12 학력평가(교육청) 수학 22번
+        </div>
+
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 상, 정답률 약 0.35~0.45 (중심값 ≈ 0.40)
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 포인트:</strong><br>
+            • 분모 x(x-2)에서 우극한 유한 조건 → f(0) = f(2) = 0<br>
+            • 인수형 설정: f(x) = ax(x-2)(x-b), a > 0<br>
+            • 연속성 조건에서 t ∈ {0, 2, b} 도출<br>
+            • 케이스 분석으로 t = 2만 성립<br>
+            • 집합 조건 매칭으로 a, b, t 결정
+        </div>
+
+        <div class="result">답: g(-5) = 65</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 22번 [10161]: 지수·로그 복합</h2>
+        
+        <div class="similar-problems">
+            <strong>유사 문항:</strong><br>
+            • 고2 2014.11.18 학력평가(교육청) 1번<br>
+            • 고2 2014.06.12 학력평가(교육청) 2번<br>
+            • 고3 2015.10.13 학력평가(교육청) 22번
+        </div>
+
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 중상, 정답률 약 0.45~0.55 (중심값 ≈ 0.50)
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 과정:</strong><br>
+            • 대칭 y=x → 좌표 교환 (a,b)→(b,a)<br>
+            • 벡터 비례 조건과 중점 활용<br>
+            • 지수식 구조 매칭으로 λ=1/2 도출<br>
+            • 연립방정식 해결
+        </div>
+
+        <div class="result">답: p+q = 457</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 23번 [10162]: 벡터 성분합</h2>
+        
+        <div class="similar-problems">
+            <strong>유사 문항:</strong><br>
+            • 고2 2014.11.18 학력평가(교육청) 1번<br>
+            • 고2 2014.06.12 학력평가(교육청) 2번<br>
+            • 고3 2021.09.01 모의평가(평가원) 16번
+        </div>
+
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 하, 정답률 약 0.92~0.96 (중심값 ≈ 0.94)
+        </div>
+
+        <div class="analysis">
+            <strong>계산:</strong><br>
+            <div class="formula">$$\vec{a} = (4,1), \quad \vec{b} = (-1,-1)$$</div>
+            <div class="formula">$$\vec{a} + \vec{b} = (3,0)$$</div>
+            성분 합: 3 + 0 = 3
+        </div>
+
+        <div class="result">답: 3</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 24번 [10163]: 포물선 기본</h2>
+        
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 하, 정답률 약 0.90~0.95 (중심값 ≈ 0.93)
+        </div>
+
+        <div class="analysis">
+            <strong>표준형 비교:</strong><br>
+            <div class="formula">$$y^2 = 12(x-2) = 4p(x-2) \Rightarrow 4p = 12 \Rightarrow p = 3$$</div>
+            초점–준선 사이 거리: 2p = 6
+        </div>
+
+        <div class="result">답: 6</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 25번 [10164]: 3차원 대칭</h2>
+        
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 하, 정답률 약 0.90~0.95 (중심값 ≈ 0.93)
+        </div>
+
+        <div class="analysis">
+            <strong>대칭 변환:</strong><br>
+            • yz평면 대칭: (x,y,z) ↦ (-x,y,z)<br>
+            • 원점 대칭: (x,y,z) ↦ (-x,-y,-z)<br>
+            
+            A(3,-3/2,-2) → B(-3,-3/2,-2) → C(-3,3/2,2)<br>
+            <div class="formula">$$|\overrightarrow{BC}| = \sqrt{0^2 + 3^2 + 4^2} = 5$$</div>
+        </div>
+
+        <div class="result">답: 5</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 26번 [10165]: 쌍곡선과 접선</h2>
+        
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 중하, 정답률 약 0.83~0.88 (중심값 ≈ 0.85)
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 과정:</strong><br>
+            • 종축형 쌍곡선 파악<br>
+            • 접선 기울기 계산: m = 1/√2<br>
+            • 거리 곱 조건으로 a 결정<br>
+            <div class="formula">$$\frac{3a}{2} = 8 \Rightarrow a = \frac{4\sqrt{3}}{3}$$</div>
+        </div>
+
+        <div class="result">답: (2) 4√3/3</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 27번 [10166]: 원기둥 기하</h2>
+        
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 중상, 정답률 약 0.55~0.65 (중심값 ≈ 0.60)
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 아이디어:</strong><br>
+            • 평행 현과 지름의 기하학적 관계<br>
+            • 면적 비 조건 활용<br>
+            • 3차원 피타고라스 정리<br>
+            <div class="formula">$$h^2 + 4 = 5 \Rightarrow h = \sqrt{21}$$</div>
+        </div>
+
+        <div class="result">답: h = √21</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 28번 [10167]: 사면체와 구</h2>
+        
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 상, 정답률 약 0.30~0.45 (중심값 ≈ 0.38)
+        </div>
+
+        <div class="analysis">
+            <strong>복합 요소:</strong><br>
+            • 좌표 배치와 벡터 조건<br>
+            • 구의 접평면과 극평면<br>
+            • 정사영 면적 계산<br>
+            최종 투영 면적 = π/4
+        </div>
+
+        <div class="result">답: π/4</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 29번 [10168]: 포물선-타원 복합</h2>
+        
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 상, 정답률 약 0.33~0.47 (중심값 ≈ 0.40)
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 단계:</strong><br>
+            • 포물선 정의와 넓이 조건 결합<br>
+            • 타원 둘레 조건<br>
+            • p = h±a 분기 분석<br>
+            • p = 9, x = 1, y = 6 결정<br>
+            <div class="formula">$$HF^2 = 4p^2 + y^2 = 360$$</div>
+        </div>
+
+        <div class="result">답: k² = 360</div>
+    </div>
+
+    <div class="problem">
+        <h2>📝 기하 30번 [10169]: 원과 벡터 내적</h2>
+        
+        <div class="estimation">
+            <strong>추정 결과:</strong> 난이도 중상, 정답률 약 0.45~0.55 (중심값 ≈ 0.50)
+        </div>
+
+        <div class="analysis">
+            <strong>핵심 아이디어:</strong><br>
+            • 직각 조건의 벡터 내적 활용<br>
+            • 중심각과 현 길이 관계<br>
+            • 배각공식 적용<br>
+            <div class="formula">$$|\overrightarrow{PA} \cdot \overrightarrow{QB}| = \frac{196}{25}$$</div>
+        </div>
+
+        <div class="result">답: p+q = 221</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

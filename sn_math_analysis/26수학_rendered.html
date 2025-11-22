@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26 수학 - 인덱스 순서대로 정리</title>
+    
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" 
+          integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" 
+          crossorigin="anonymous">
+    
+    <!-- KaTeX JavaScript -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" 
+            integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" 
+            crossorigin="anonymous"></script>
+    
+    <!-- KaTeX auto-render extension -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+            integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" 
+            crossorigin="anonymous"
+            onload="renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ]
+            });"></script>
+    
+    <style>
+        body {
+            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #fafafa;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .problem-container {
+            background: white;
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .problem-header {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 5px;
+        }
+        
+        .section {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .similar-problems {
+            background: #e8f5e8;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .difficulty-analysis {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .current-estimation {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .simple-analysis {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .math-formula {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .note {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #6c757d;
+        }
+        
+        .katex {
+            font-size: 1.1em;
+        }
+        
+        .katex-display {
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .problem-container {
+                padding: 15px;
+            }
+            
+            .katex {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>26 수학 - 인덱스 순서대로 정리</h1>
+
+    <div class="problem-container">
+        <div class="problem-header">[10192] 극한 문제</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">1) 유사 문항 3개(RAG 출처 명시)</div>
+            <ul>
+                <li>2014년 3월 교육청 학력평가 B형 3번</li>
+                <li>2015년 9월 평가원 모의평가 2번</li>
+                <li>2024학년도 수능 23번</li>
+            </ul>
+            <p>위 3개는 모두 SN RAG에서 검색해 인용했습니다.</p>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">2) 정답률·난이도 근거 요약(RAG LABEL_JSON 기준)</div>
+            <ul>
+                <li>2014.03 교육청 B형 3번: 정답률 0.89, 난이도 중하, 2점</li>
+                <li>2015.09 평가원 2번: 정답률 0.97, 난이도 하, 2점</li>
+                <li>2024 수능 23번: 정답률 0.96, 난이도 하, 2점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">3) 현재 문제의 난이도·정답률 추정</div>
+            <p><strong>문항:</strong> $\lim_{x \to 0} \frac{\tan(6x)}{2x}$</p>
+            <p>핵심 개념이 동일한 표준극한($\lim_{u \to 0} \frac{\tan u}{u} = 1$)과 상수배 처리만 요구됩니다. 연산 난이도는 비교 문항들(위 3개)과 동등하거나 오히려 더 직관적입니다.</p>
+            <p><strong>추정 난이도:</strong> 하</p>
+            <p><strong>추정 정답률:</strong> 약 0.94 ~ 0.97</p>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">4) 간단 분석</div>
+            <ul>
+                <li><strong>필수 아이디어:</strong> $\tan u = \frac{\sin u}{\cos u}$, 표준극한 $\lim_{u \to 0} \frac{\tan u}{u} = 1$, 상수배 분리.</li>
+                <li><strong>빠른 풀이:</strong> $\frac{\tan(6x)}{2x} = \left(\frac{\tan(6x)}{6x}\right) \cdot \frac{6x}{2x} \xrightarrow{x \to 0} 1 \cdot 3 = 3$</li>
+                <li><strong>주의 포인트:</strong> 6의 계수 처리를 놓치지 않기($u = 6x$ 치환 관점), $x = 0$ 대입 금지(극한으로 접근).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10193] 정적분 문제</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">1) 유사 문항 3개(SN RAG 출처 명시)</div>
+            <ul>
+                <li>2024.10.15 교육청 학력평가 24번</li>
+                <li>2021.07.07 교육청 학력평가 24번</li>
+                <li>2014.04.10 교육청 학력평가 15번</li>
+            </ul>
+            <p>위 3개는 모두 SN RAG에서 검색해 인용했습니다.</p>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">2) 정답률·난이도 메타정보 요약(LABEL_JSON 기준)</div>
+            <ul>
+                <li>2024.10.15 교육청 24번: 정답률 0.90, 난이도 하, 3점</li>
+                <li>2021.07.07 교육청 24번: 정답률 0.83, 난이도 중하, 3점</li>
+                <li>2014.04.10 교육청 15번: 정답률 0.78, 난이도 중, 4점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">3) 현재 문제의 난이도·정답률 추정</div>
+            <p><strong>문항:</strong> $\int_0^{\pi/2} \sqrt{\sin x - \sin^3 x} \, dx$</p>
+            <p>핵심 절차가 단일 치환적분 한 번으로 끝납니다: $\sin x - \sin^3 x = \sin x(1 - \sin^2 x) = \sin x \cos^2 x$, 구간 $[0, \pi/2]$에서 $\cos x \geq 0$이므로 $\sqrt{\sin x - \sin^3 x} = \cos x \sqrt{\sin x}$. 치환 $u = \sin x$로 $\int_0^1 u^{1/2} du$ 형태.</p>
+            <p><strong>추정 난이도:</strong> 하</p>
+            <p><strong>추정 정답률:</strong> 약 0.86 ~ 0.91</p>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">4) 간단 분석</div>
+            <div><strong>필수 아이디어</strong>
+                <ul>
+                    <li>인수분해: $\sin x - \sin^3 x = \sin x \cos^2 x$</li>
+                    <li>구간 성질: $x \in [0, \pi/2]$에서 $\cos x \geq 0 \Rightarrow \sqrt{\cos^2 x} = \cos x$</li>
+                    <li>치환: $u = \sin x, \, du = \cos x \, dx \Rightarrow \int_0^1 u^{1/2} du = \frac{2}{3}$</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10194] 끼워넣기 정리 문제</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">1) 유사 문항 3개(SN RAG 출처 명시)</div>
+            <ul>
+                <li>2024.03.28 교육청 학력평가 25번</li>
+                <li>2013.06.05 평가원 모의평가 24번</li>
+                <li>2023.03.23 교육청 학력평가 23번</li>
+            </ul>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">2) 정답률·난이도 메타정보 요약(LABEL_JSON 기준)</div>
+            <ul>
+                <li>2024.03.28 교육청 25번: 정답률 0.91, 난이도 하, 3점</li>
+                <li>2013.06.05 평가원 24번: 정답률 0.86, 난이도 중하, 3점</li>
+                <li>2023.03.23 교육청 23번: 정답률 0.94, 난이도 하, 2점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">3) 현재 문제의 난이도·정답률 추정</div>
+            <p><strong>문항:</strong> $\sqrt{9 - \frac{5}{n^2}} + 2n < a_n < 5n + 1$에서 $\lim_{n \to \infty} \frac{(a_n + 2)^2}{na_n + 5n^2 - 2}$</p>
+            <p>핵심 구조가 "경계 부등식 → $a_n/n$의 끼워넣기 수렴 → 분자·분모를 $n^2$로 나눠 극한 계산"으로, 위 유사 문항과 거의 동일 유형입니다.</p>
+            <p><strong>추정 난이도:</strong> 중하</p>
+            <p><strong>추정 정답률:</strong> 약 0.85 ~ 0.90</p>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">4) 간단 분석</div>
+            <div><strong>필수 아이디어</strong>
+                <ul>
+                    <li>양변을 $n$으로 나눠 $\sqrt{9 - 5/n^2} + 2 < a_n/n < 5 + 1/n$, 끼워넣기로 $\lim a_n/n = 5$.</li>
+                    <li>분자·분모를 $n^2$로 나눠 $\frac{\left(\frac{a_n}{n} + \frac{2}{n}\right)^2}{\frac{a_n}{n} + 5 - \frac{2}{n^2}} \xrightarrow{n \to \infty} \frac{5^2}{5 + 5} = \frac{5}{2}$</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10195] 단면적 적분 문제</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">1) 유사 문항 3개(SN RAG 출처 명시)</div>
+            <ul>
+                <li>2024학년도 수능(평가원) 26번 — 정사각형 단면, 단면적 적분 · LABEL_JSON: 정답률 0.82, 난이도 중하, 배점 3</li>
+                <li>2023학년도 수능(평가원) 26번 — 정사각형 단면, 단면적 적분 · LABEL_JSON: 정답률 0.75, 난이도 중, 배점 3</li>
+                <li>2024년 10월 교육청 학력평가 26번 — 정사각형 단면, 단면적 적분 · LABEL_JSON: 정답률 0.87, 난이도 중하, 배점 3</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">2) 현재 문항 난이도·정답률 추정(유사 문항 메타정보 근거)</div>
+            <p><strong>문항:</strong> 밑면이 $1 \leq x \leq 2$ 구간의 $y = 0$과 $y = x + x \ln x$로 둘러싸인 영역, x축에 수직인 단면이 모두 정삼각형.</p>
+            <p><strong>추정 난이도:</strong> 중하</p>
+            <p><strong>추정 정답률:</strong> 약 0.82 ~ 0.88</p>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">3) 간단 분석 포인트</div>
+            <div><strong>세팅:</strong>
+                <ul>
+                    <li>단면 한 변: $s(x) = x + x \ln x$</li>
+                    <li>정삼각형 면적: $A(x) = \frac{\sqrt{3}}{4} s(x)^2 = \frac{\sqrt{3}}{4}(x + x \ln x)^2$</li>
+                    <li>부피: $V = \int_1^2 A(x) \, dx$</li>
+                </ul>
+            </div>
+            <div><strong>계산 핵심:</strong>
+                <ul>
+                    <li>$\int_1^2 x \, dx = \frac{3}{2}$</li>
+                    <li>$\int_1^2 x \ln x \, dx = \left[\frac{x^2}{2}\ln x - \frac{x^2}{4}\right]_1^2 = 2\ln 2 - \frac{3}{4}$</li>
+                </ul>
+            </div>
+            <p><strong>최종</strong> $V = \frac{3\sqrt{3}(3 + 8\ln 2)}{16}$ (선택지 ①)</p>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10196] 매개변수 곡선 접선</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">유사 문항 3개(SN RAG)</div>
+            <ul>
+                <li>2023.06.01 평가원 모의평가 24번(미적분, 매개곡선 도함수)</li>
+                <li>2021.09.01 평가원 모의평가 25번(미적분, 매개곡선 도함수)</li>
+                <li>2025.05.08 교육청 학평 24번(미적분, 매개곡선 도함수)</li>
+            </ul>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">RAG 메타(LABEL_JSON)</div>
+            <ul>
+                <li>2023.06 평가원 24번: 정답률 0.85, 난이도 중하, 3점</li>
+                <li>2021.09 평가원 25번: 정답률 0.92, 난이도 하, 3점</li>
+                <li>2025.05 교육청 24번: 정답률 0.96, 난이도 하, 3점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">현재 문항 추정</div>
+            <ul>
+                <li>난이도: 하~중하</li>
+                <li>정답률: 약 0.88 ~ 0.95</li>
+            </ul>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">간단 분석</div>
+            <p>핵심: 교점 조건에서 $y - 3x = -5e$이고 매개식 대입 시 $y - 3x = -5e^{4t} \Rightarrow e^{4t} = e \Rightarrow t = 1/4$. 접선 기울기는 $\frac{dy}{dx} = \frac{(dy/dt)}{(dx/dt)}$에 $t = 1/4$ 대입.</p>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10197] 역함수 미분과 적분</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">유사 문항 3개(SN RAG)</div>
+            <ul>
+                <li>2022.08.31 평가원 모의평가 29번(거리-접선 수직 조건→역함수 미분, 4점)</li>
+                <li>2014.09.03 평가원 모의평가 27번(점–직선 거리 최소화, 접선 조건, 4점)</li>
+                <li>2024.05.08 교육청 학평 27번(역함수 미분+매개, 3점)</li>
+            </ul>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">RAG 메타(LABEL_JSON)</div>
+            <ul>
+                <li>2022.08 평가원 29번: 정답률 0.22, 난이도 최상, 4점</li>
+                <li>2014.09 평가원 27번: 정답률 0.66, 난이도 중, 4점</li>
+                <li>2024.05 교육청 27번: 정답률 0.80, 난이도 중하, 3점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">현재 문항 추정</div>
+            <ul>
+                <li>난이도: 중상</li>
+                <li>정답률: 약 0.50 ~ 0.65</li>
+            </ul>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">간단 분석</div>
+            <p>핵심: 수선발–접선 y절편 거리 $t$가 $t = sf'(s)$로 귀결되고 $t = T(s) = \frac{s^3}{1+s}$ 단조증가. 역함수 적분 공식 $\int g(t) \, dt = [st] - \int T(s) \, ds$ 적용.</p>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10198] 등차수열·등비수열 연계</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">유사 문항 3개(SN RAG)</div>
+            <ul>
+                <li>2023.10.12 교육청 학평 3번(등차·등비 항 일치, 연립)</li>
+                <li>2022.03.24 교육청 학평 13번(등차합 절댓값 조건, 4점)</li>
+                <li>2025.05.08 교육청 학평 3번(등비 매개 k 추론)</li>
+            </ul>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">RAG 메타(LABEL_JSON)</div>
+            <ul>
+                <li>2023.10 교육청 3번: 정답률 0.89, 난이도 중하, 3점</li>
+                <li>2022.03 교육청 13번: 정답률 0.50, 난이도 중상, 4점</li>
+                <li>2025.05 교육청 3번: 정답률 0.92, 난이도 하, 3점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">현재 문항 추정</div>
+            <ul>
+                <li>난이도: 중</li>
+                <li>정답률: 약 0.60 ~ 0.75</li>
+            </ul>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">간단 분석</div>
+            <p>핵심: $a_n = na_1$, $b_n = b_{k+1}r^{k+1-n}$, 주어진 세 항 비로 공비 일치→ $a_1 = 1/4, r = 1/3$, 총합·제외합 범위로 $k = 2$ 판정, 짝수항 합 등 기하급수 합정리.</p>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10199] 역함수와 교점 개수</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">유사 문항 3개(SN RAG)</div>
+            <ul>
+                <li>2025.07.10 교육청 학평 13번(조각함수의 수평선 교점 개수의 점프와 연속 조건 분석, 4점)</li>
+                <li>2021.03.25 교육청 학평 20번(절댓값-조각함수와 직선 교점 수 g(m)의 불연속, 4점)</li>
+                <li>2013.04.11 교육청 학평 9번(역함수 그래프 평행이동·교점 조건)</li>
+            </ul>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">RAG 메타(LABEL_JSON)</div>
+            <ul>
+                <li>2025.07 교육청 13번: 정답률 0.77, 난이도 중, 4점</li>
+                <li>2021.03 교육청 20번: 정답률 0.53, 난이도 중상, 4점</li>
+                <li>2013.04 교육청 9번: 정답률 0.85, 난이도 중하, 3점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">현재 문항 추정</div>
+            <ul>
+                <li>난이도: 중상</li>
+                <li>정답률: 약 0.45 ~ 0.60</li>
+            </ul>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">간단 분석</div>
+            <p>핵심: $f^{-1}$ 증가·연속. $y = m(x-1)$와 $y = f(x)$ 교점 수는 $y = m(f^{-1}(y)-1)$ 해 개수. 접선 임계는 $F(y) = \phi(y) - y\phi'(y) = 1$에서 발생. 최종 $a = 0$, $b = W(2)/2$, 표현값 계산.</p>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10222] 중복허용 나열</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">1) 유사 문항 3개(SN RAG 출처 명시)</div>
+            <ul>
+                <li>2025.09.03 평가원 모의평가 23번 — 중복 허용 나열(세 문자, 네 자리). 정답률 0.92, 난이도 하, 2점</li>
+                <li>2025.03.26 교육청 학력평가 25번 — 중복 허용 나열(네 문자, 네 자리, 'a' 최소 1회 포함). 정답률 0.82, 난이도 중하, 3점</li>
+                <li>2022.07.06 교육청 학력평가 26번 — 중복 허용 나열(세 문자, 다섯 자리, 각 문자 최소 1회 포함). 정답률 0.77, 난이도 중, 3점</li>
+            </ul>
+            <p>위 3개는 모두 SN RAG에서 검색해 인용했습니다.</p>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">2) 현재 문항의 난이도·정답률 추정(유사 문항 메타 근거)</div>
+            <p><strong>문항:</strong> 네 문자에서 중복 허용, 길이 3의 일렬 나열 수 = $4^3 = 64$</p>
+            <p><strong>추정 난이도:</strong> 하</p>
+            <p><strong>추정 정답률:</strong> 약 0.90 ~ 0.96</p>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">3) 간단 분석 포인트</div>
+            <ul>
+                <li><strong>핵심 개념:</strong> 각 자리 독립 선택(곱의 법칙), 중복 허용이므로 경우의 수는 $n^r$ 형식. 여기서는 $4^3$.</li>
+                <li><strong>빠른 풀이:</strong> 각 자리마다 4가지 선택 → $4 \times 4 \times 4 = 4^3 = 64$.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10223] 확률의 기본 공식</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">1) 유사 문항 3개(SN RAG 출처 명시)</div>
+            <ul>
+                <li>2022.08.31 평가원 모의평가 24번 — 조건: $P(A \cup B) = 1, \, P(A \cap B) = \frac{1}{4}, \, P(A|B) = P(B|A)$. LABEL_JSON: 정답률 0.78, 난이도 중, 배점 3</li>
+                <li>2023.10.12 교육청 학력평가 24번 — 서로 배반 사건, 합집합과 여사건으로 $P(B)$ 구하기. LABEL_JSON: 정답률 0.88, 난이도 중하, 배점 3</li>
+                <li>2021.07.07 교육청 학력평가 23번 — 서로 배반 사건, $P(A), P(A \cup B)$로부터 $P(B)$ 구하기. LABEL_JSON: 정답률 0.91, 난이도 하, 배점 2</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">2) 현재 문항의 난이도·정답률 추정(유사 메타 근거)</div>
+            <p><strong>문항:</strong> $P(A) = \frac{2}{5}, \, P(B|A) = \frac{1}{4}, \, P(A \cup B) = 1$에서 $P(B)$ 구하기.</p>
+            <p><strong>추정 난이도:</strong> 하</p>
+            <p><strong>추정 정답률:</strong> 약 0.90 ~ 0.95</p>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">3) 간단 분석 포인트</div>
+            <div><strong>필수 공식</strong>
+                <ul>
+                    <li>합사건: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$</li>
+                    <li>조건부: $P(A \cap B) = P(A) P(B|A)$</li>
+                </ul>
+            </div>
+            <div><strong>풀이 동선</strong>
+                <ul>
+                    <li>$P(A \cap B) = \frac{1}{10}$을 먼저 계산 → 합사건 공식에 대입 → $P(B)$ 바로 도출.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10224] 조합 확률</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">1) 유사 문항 3개(SN RAG 출처 명시)</div>
+            <ul>
+                <li>2022.07.06 교육청 학력평가 25번 — 주머니에 흰4·검4, 4개 동시 추출, "검은 공 ≥ 2" 확률 LABEL_JSON: 정답률 0.85, 난이도 중하, 배점 3</li>
+                <li>2023.06.01 평가원 모의평가 25번 — 흰 4장·검 5장 중 4장 동시 추출, "흰 ≥ 2" 확률 LABEL_JSON: 정답률 0.81, 난이도 중하, 배점 3</li>
+                <li>2023.07.11 교육청 학력평가 26번 — 옮겨 넣기 후 3개 동시 추출, "적어도 한 개 흰" 확률 LABEL_JSON: 정답률 0.74, 난이도 중, 배점 3</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">2) 현재 문항의 난이도·정답률 추정(LABEL_JSON 메타 근거)</div>
+            <p><strong>구조:</strong> 10개에서 2개 동시 추출, 사건 "같은 색" 또는 "같은 수"의 합사건.</p>
+            <p><strong>추정 난이도:</strong> 하</p>
+            <p><strong>추정 정답률:</strong> 약 0.88 ~ 0.93</p>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">3) 간단 분석 포인트</div>
+            <div><strong>핵심 아이디어</strong>
+                <ul>
+                    <li>표본공간: $\binom{10}{2} = 45$</li>
+                    <li>같은 색: $\binom{5}{2} + \binom{5}{2} = 10 + 10 = 20$</li>
+                    <li>같은 수: 겹치는 숫자 4쌍(2,3,4,5) → 4가지</li>
+                    <li>두 사건은 배타적(같은 수면 색이 다름) → 합사건의 경우의 수는 $20 + 4 = 24$</li>
+                </ul>
+            </div>
+            <p><strong>확률:</strong> $\frac{24}{45} = \frac{8}{15}$</p>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10225] 신뢰구간</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">1) 유사 문항 3개(SN RAG 인용)</div>
+            <ul>
+                <li>2025.09.03 평가원 모의평가 26번 — LABEL_JSON: 정답률 0.79, 난이도 중, 3점</li>
+                <li>2023.10.12 교육청 학력평가 26번 — LABEL_JSON: 정답률 0.76, 난이도 중, 3점</li>
+                <li>2021.11.18 수능 27번 — LABEL_JSON: 정답률 0.63, 난이도 중, 3점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">2) 현재 문항의 난이도·정답률 추정</div>
+            <p><strong>구조:</strong> 모표준편차가 알려진 경우 모평균 신뢰구간. 표준오차 $\sigma/\sqrt{n}$, 주어진 $z$값 사용, 하한으로부터 $\bar{x}$를 구해 상한 $a$ 산출.</p>
+            <p><strong>추정 난이도:</strong> 하 ~ 중하</p>
+            <p><strong>추정 정답률:</strong> 약 0.82 ~ 0.90</p>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">3) 간단 분석 포인트</div>
+            <ul>
+                <li><strong>공식:</strong> $m \in \left[\bar{x} - z \cdot \frac{\sigma}{\sqrt{n}}, \, \bar{x} + z \cdot \frac{\sigma}{\sqrt{n}}\right]$</li>
+                <li><strong>본문 수치:</strong> $\sigma = 5, \, n = 36, \, z = 2.58 \Rightarrow$ 표준오차 $= \frac{5}{6}$, 반폭 $= 2.58 \cdot \frac{5}{6} = 2.15$</li>
+                <li><strong>계산:</strong> 하한 $1.2 = \bar{x} - 2.15 \Rightarrow \bar{x} = 3.35$, 상한 $a = \bar{x} + 2.15 = 5.5$</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10226] 이산확률변수의 분산</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">유사 문항 3개(SN RAG)</div>
+            <ul>
+                <li>2022.10.12 교육청 학평 25번(분산과 스케일: Var(aX)=a^2 Var(X))</li>
+                <li>2022.08.31 평가원 모의 27번(분산·표준편차 조건 계산)</li>
+                <li>2024 수능 27번(표본평균-분산 선형변환, a 추정)</li>
+            </ul>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">RAG 메타(LABEL_JSON)</div>
+            <ul>
+                <li>2022.10 교육청 25번: 정답률 0.81, 난이도 중하, 3점</li>
+                <li>2022.08 평가원 27번: 정답률 0.66, 난이도 중, 3점</li>
+                <li>2024 수능 27번: 정답률 0.31, 난이도 상, 3점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">현재 문항 추정</div>
+            <ul>
+                <li>난이도: 중하</li>
+                <li>정답률: 약 0.75 ~ 0.85</li>
+            </ul>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">간단 분석</div>
+            <p>핵심: 정규화 $a = 1/6$, $E[X], E[X^2], Var(X) = 5/4$ 산출 후 $Var((1/a)X) = (1/a)^2 Var(X) = 36 \cdot 5/4 = 45$.</p>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10227] 조건부확률 복합</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">유사 문항 3개(SN RAG)</div>
+            <ul>
+                <li>2024.07.11 교육청 학평 28번(조건부확률·패리티 분해, 4점, 상)</li>
+                <li>2025.06.04 평가원 모의 28번(조건부확률·이항분포/패리티 전개, 4점, 중상)</li>
+                <li>2023.09.06 평가원 모의 28번(혼합·조건부 모델링, 4점, 상)</li>
+            </ul>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">RAG 메타(LABEL_JSON)</div>
+            <ul>
+                <li>2024.07 교육청 28번: 정답률 0.44, 난이도 상, 4점</li>
+                <li>2025.06 평가원 28번: 정답률 0.59, 난이도 중상, 4점</li>
+                <li>2023.09 평가원 28번: 정답률 0.42, 난이도 상, 4점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">현재 문항 추정</div>
+            <ul>
+                <li>난이도: 중상</li>
+                <li>정답률: 약 0.50 ~ 0.60</li>
+            </ul>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">간단 분석</div>
+            <p>핵심: 유형별 횟수 $(X_O, X_2, X_4, X_6)$ 분해, 총합 홀짝과 C2,C3의 선형관계로 경우 제약 도출, 다항분포로 각 케이스 확률 계산 후 조건부 확률. 최종 $3/16$.</p>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10228] 정규근사</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">유사 문항 3개(SN RAG)</div>
+            <ul>
+                <li>2024 수능 27번(표본평균·분산 선형변환; 정규 근사와는 다르나 분산·스케일 계산 유사)</li>
+                <li>2022.10.12 교육청 25번(분산·스케일)</li>
+                <li>2022.08.31 평가원 27번(표준편차=기댓값 조건 등 분산 계산)</li>
+            </ul>
+        </div>
+        
+        <div class="section difficulty-analysis">
+            <div class="section-title">RAG 메타(LABEL_JSON)</div>
+            <ul>
+                <li>2024 수능 27번: 정답률 0.31, 난이도 상, 3점</li>
+                <li>2022.10 교육청 25번: 정답률 0.81, 난이도 중하, 3점</li>
+                <li>2022.08 평가원 27번: 정답률 0.66, 난이도 중, 3점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">현재 문항 추정</div>
+            <ul>
+                <li>난이도: 중</li>
+                <li>정답률: 약 0.85 ~ 0.92</li>
+            </ul>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">간단 분석</div>
+            <p>핵심: 1회 성공확률 $p = \frac{a}{6} \cdot \frac{\binom{5}{3}}{2^5} + \frac{6-a}{6} \cdot \frac{\binom{3}{3}}{2^3} = \frac{a+4}{32}$, $E(X) = 19200p = 4800 \Rightarrow a = 4$. 이항근사 $X \sim Bin(19200, 1/4)$, $\sigma = \sqrt{3600} = 60$, 연속성보정 생략 시 $z = (4920-4800)/60 = 2.0$, 표로 $P \approx 0.977$.</p>
+        </div>
+    </div>
+
+    <div class="problem-container">
+        <div class="problem-header">[10229] 인접 제약이 있는 배치</div>
+        
+        <div class="section similar-problems">
+            <div class="section-title">1) 유사 문항 3개(SN RAG 인용)</div>
+            <ul>
+                <li>2021.06.03 평가원 모의평가 29번 — 인접 금지(곱=12) 원형 배열, 포함-배제. LABEL_JSON: 정답률 0.37, 난이도 상, 4점</li>
+                <li>2023.07.11 교육청 학력평가 27번 — 0,0,0,1,1,2,2 카드 일렬 배치, 인접 곱 ≤ 1 제약(슬롯/블록). LABEL_JSON: 정답률 0.47, 난이도 상, 3점</li>
+                <li>2023.05.10 교육청 학력평가 28번 — 멀티셋 카드 7장 나열, 인접 곱 짝수 조건(슬롯/케이스분류). LABEL_JSON: 정답률 0.37, 난이도 상, 4점</li>
+            </ul>
+        </div>
+        
+        <div class="section current-estimation">
+            <div class="section-title">2) 현재 문항의 난이도·정답률 추정</div>
+            <p><strong>추정 난이도:</strong> 중상</p>
+            <p><strong>추정 정답률:</strong> 약 0.40 ~ 0.55</p>
+        </div>
+        
+        <div class="section simple-analysis">
+            <div class="section-title">3) 간단 분석 포인트</div>
+            <ul>
+                <li><strong>핵심 정식화:</strong> 각 칸 $a_i \in \{0,1,2\}$, 합 $\sum a_i = 8$, 1의 개수 $o \in \{4,6\}$, 2의 개수 $t$는 $o + 2t = 8$을 만족. 따라서 $(o,t) \in \{(6,1), (4,2)\}$ 두 경우만 고려.</li>
+                <li><strong>제약 해석:</strong> $a_i = 2$인 칸의 이웃은 반드시 0이므로, 2를 먼저 배치하고 그로 인해 강제되는 0의 칸 수 $s$를 세어 남는 자리에서 1을 배치.</li>
+                <li><strong>정리 예시:</strong> 해설형 접근으로 (6,1) 합 112, (4,2) 합 150 → 총 262.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="note">
+        참고: 위의 모든 유사 문항 정보와 메타 데이터는 SN RAG에서 검색하여 인용했습니다.
+    </div>
+</body>
+</html>
