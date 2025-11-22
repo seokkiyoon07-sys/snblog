@@ -108,6 +108,11 @@ function transformParagraph(paragraph: string): string {
     return paragraph;
   }
 
+  // Details/Summary (토글)
+  if (trimmed.startsWith('<details')) {
+    return paragraph;
+  }
+
   // Quote 블록 (여러 줄) - 라이트/다크 모드 지원
   if (trimmed.startsWith('> ')) {
     const lines = paragraph
@@ -149,6 +154,16 @@ function transformParagraph(paragraph: string): string {
 export function renderMarkdown(content: string): string {
   return (
     content
+      // 0. Details 블록 변환 (내부 마크다운 처리 포함)
+      .replace(
+        /<details>\s*<summary>([^<]+)<\/summary>\s*([\s\S]*?)\s*<\/details>/g,
+        (match, summary, innerContent) => {
+          // 내부 이미지 마크다운 변환
+          const processedContent = innerContent.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, transformImage);
+          return `<details class="my-6 border border-gray-200 dark:border-gray-700 rounded-lg"><summary class="cursor-pointer p-4 font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">${summary}</summary><div class="p-4 pt-0">${processedContent}</div></details>`;
+        }
+      )
+
       // 1. Horizontal Rule 변환 (다른 변환보다 먼저)
       .replace(
         /^---$/gim,
