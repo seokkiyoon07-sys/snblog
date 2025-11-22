@@ -1671,6 +1671,22 @@ For modern students, "Biga" offers not just literary study but a window into a p
     type: 'special',
   },
   {
+    id: '2026-admission-guide',
+    title: '2026년도 SN독학기숙학원 입소 안내',
+    excerpt: '2026년도 SN독학기숙학원 입소에 관한 안내사항입니다.',
+    content: 'special-component',
+    category: 'notice',
+    tags: ['입소', '안내', '2026'],
+    author: 'SN독학기숙학원',
+    date: '2025-11-22',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/2026_admission_guide.png',
+    url: '/notice/2026-admission-guide',
+    type: 'special',
+  },
+  {
     id: '251113suneungnotice',
     title: '2026학년도 수능 전·당일 안내문(25.11.13 시행)',
     excerpt:
