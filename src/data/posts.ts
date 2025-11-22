@@ -357,7 +357,7 @@ AI가 틀리는 문제들 모음
     readTime: '5',
     featured: false,
     published: true,
-    thumbnail: '/economi_son/economyson.jfif',
+    thumbnail: '/economi_son/economyson.jpg',
     url: '/columns/economi-son',
     type: 'standard',
   },
