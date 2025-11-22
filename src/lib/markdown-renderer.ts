@@ -159,7 +159,10 @@ export function renderMarkdown(content: string): string {
         /<details>\s*<summary>([^<]+)<\/summary>\s*([\s\S]*?)\s*<\/details>/g,
         (match, summary, innerContent) => {
           // 내부 이미지 마크다운 변환
-          const processedContent = innerContent.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, transformImage);
+          const processedContent = innerContent.replace(
+            /!\[([^\]]*)\]\(([^)]+)\)/g,
+            transformImage
+          );
           return `<details class="my-6 border border-gray-200 dark:border-gray-700 rounded-lg"><summary class="cursor-pointer p-4 font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">${summary}</summary><div class="p-4 pt-0">${processedContent}</div></details>`;
         }
       )

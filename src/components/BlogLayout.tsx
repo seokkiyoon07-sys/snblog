@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
 import SuneungNotice from './SuneungNotice';
 import AdmissionGuide2026 from './posts/2026AdmissionGuide';
@@ -16,6 +16,32 @@ interface BlogLayoutProps {
 
 export default function BlogLayout({ post }: BlogLayoutProps) {
   const contentRef = useRef<HTMLDivElement>(null);
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
+  // 이미지 클릭 이벤트 핸들러
+  useEffect(() => {
+    const handleImageClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (
+        (target.tagName === 'IMG' && target.closest('[ref="contentRef"]')) ||
+        (target.tagName === 'IMG' && contentRef.current?.contains(target))
+      ) {
+        const imgSrc = (target as HTMLImageElement).src;
+        setModalImage(imgSrc);
+      }
+    };
+
+    const currentRef = contentRef.current;
+    if (currentRef) {
+      currentRef.addEventListener('click', handleImageClick);
+    }
+
+    return () => {
+      if (currentRef) {
+        currentRef.removeEventListener('click', handleImageClick);
+      }
+    };
+  }, [post.content]);
 
   useEffect(() => {
     // 탭 전환 함수들을 전역으로 등록 (즉시 실행)
@@ -196,8 +222,39 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
         <div
           ref={contentRef}
           dangerouslySetInnerHTML={{ __html: post.content }}
+          className="[&_img]:cursor-pointer [&_img]:transition-transform [&_img]:hover:scale-[1.02]"
         />
       </article>
+
+      {/* 이미지 모달 */}
+      {modalImage && (
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={() => setModalImage(null)}
+          onKeyDown={e => e.key === 'Escape' && setModalImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="이미지 확대 모달"
+          tabIndex={-1}
+        >
+          <div className="relative max-w-[95vw] max-h-[95vh]">
+            <button
+              onClick={() => setModalImage(null)}
+              className="absolute -top-10 right-0 text-white hover:text-gray-300 text-3xl font-bold"
+              aria-label="닫기"
+            >
+              ×
+            </button>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={modalImage}
+              alt="확대 이미지"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }

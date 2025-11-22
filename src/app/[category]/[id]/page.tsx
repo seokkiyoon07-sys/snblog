@@ -10,6 +10,7 @@ import { renderMarkdown } from '@/lib/markdown-renderer';
 import { getCategoryConfig, formatReadTime } from '@/lib/utils';
 import SNarGPTInterface from '@/components/SNarGPTInterface';
 import SNarGPTGraphOnly from '@/components/SNarGPTGraphOnly';
+import ArticleContent from '@/components/ArticleContent';
 
 interface PostPageProps {
   params: Promise<{
@@ -317,7 +318,8 @@ export default async function PostPage({ params }: PostPageProps) {
               </>
             ) : (
               /* 일반 게시글 */
-              <article
+              <ArticleContent
+                content={renderMarkdown(post.content)}
                 className="prose prose-lg prose-slate dark:prose-invert max-w-none
                   prose-headings:font-bold prose-headings:tracking-tight
                   prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -328,9 +330,6 @@ export default async function PostPage({ params }: PostPageProps) {
                   prose-ul:my-6 prose-li:my-2
                   prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
                   prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
-                dangerouslySetInnerHTML={{
-                  __html: renderMarkdown(post.content),
-                }}
               />
             )}
           </div>
