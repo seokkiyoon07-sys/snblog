@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import StructuredData from '@/components/StructuredData';
 import QueryProvider from '@/components/providers/query-provider';
+import { BASE_URL } from '@/lib/config';
 // import ThemeDebugger from "@/components/ThemeDebugger";
 
 const geistSans = Geist({
@@ -19,9 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.snacademy.co.kr'
-  ),
+  metadataBase: new URL(BASE_URL),
   title: {
     default: 'SN Academy Blog',
     template: '%s | SN Academy Blog',
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    url: 'https://blog.snacademy.co.kr',
+    url: BASE_URL,
     siteName: 'SN Academy Blog',
     title: 'SN Academy Blog',
     description:

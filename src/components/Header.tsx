@@ -5,6 +5,7 @@ import { Sun, Moon, Search, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { NAVIGATION_MENU, EXTERNAL_URLS } from '@/lib/config';
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
@@ -30,7 +31,7 @@ export default function Header() {
     {
       key: '독학기숙',
       title: '독학기숙(남학생점)',
-      link: 'https://www.snacademy.co.kr',
+      link: EXTERNAL_URLS.ACADEMY,
       linkText: 'www.snacademy.co.kr',
       color: 'text-sn-primary dark:text-sn-primary-light',
     },
@@ -44,12 +45,13 @@ export default function Header() {
     {
       key: 'SNarGPT',
       title: 'SNarGPT',
-      link: 'https://snarGPT.ai',
+      link: EXTERNAL_URLS.SNAR_GPT,
       linkText: 'snarGPT.ai',
       color: 'text-green-600 dark:text-green-400',
     },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const currentInfo = infoOptions.find(option => option.key === selectedInfo);
 
   return (
@@ -147,14 +149,7 @@ export default function Header() {
 
           {/* 데스크톱 네비게이션 */}
           <nav className="mt-6 flex space-x-8">
-            {[
-              { name: '홈', href: '/' },
-              { name: 'AI 스타트업', href: '/startup' },
-              { name: '컬럼', href: '/columns' },
-              { name: '문제 다운로드', href: '/problems' },
-              { name: 'SN Originals', href: '/originals' },
-              { name: '공지사항', href: '/notice' },
-            ].map(item => (
+            {NAVIGATION_MENU.map(item => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -268,14 +263,7 @@ export default function Header() {
           {/* 모바일 네비게이션 */}
           {isMobileMenuOpen && (
             <nav className="mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700 pt-4">
-              {[
-                { name: '홈', href: '/' },
-                { name: 'AI 스타트업', href: '/startup' },
-                { name: '컬럼', href: '/columns' },
-                { name: '문제 다운로드', href: '/problems' },
-                { name: 'SN Originals', href: '/originals' },
-                { name: '공지사항', href: '/notice' },
-              ].map(item => (
+              {NAVIGATION_MENU.map(item => (
                 <Link
                   key={item.name}
                   href={item.href}

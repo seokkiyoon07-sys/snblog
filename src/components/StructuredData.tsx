@@ -1,7 +1,9 @@
 import Script from 'next/script';
+import { BASE_URL, ORGANIZATION_INFO } from '@/lib/config';
 
 interface StructuredDataProps {
   type: 'article' | 'organization' | 'website' | 'video';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
 }
 
@@ -16,14 +18,14 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           description: data.description,
           author: {
             '@type': 'Organization',
-            name: 'SN Academy',
+            name: ORGANIZATION_INFO.name,
           },
           publisher: {
             '@type': 'Organization',
-            name: 'SN Academy',
+            name: ORGANIZATION_INFO.name,
             logo: {
               '@type': 'ImageObject',
-              url: 'https://blog.snacademy.co.kr/images/sn-logo.png',
+              url: ORGANIZATION_INFO.logo,
             },
           },
           datePublished: data.datePublished,
@@ -40,11 +42,11 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
         return {
           '@context': 'https://schema.org',
           '@type': 'EducationalOrganization',
-          name: 'SN Academy',
+          name: ORGANIZATION_INFO.name,
           description: '독학기숙학원의 명가 SN Academy',
-          url: 'https://blog.snacademy.co.kr',
-          logo: 'https://blog.snacademy.co.kr/images/sn-logo.png',
-          sameAs: ['https://blog.snacademy.co.kr'],
+          url: BASE_URL,
+          logo: ORGANIZATION_INFO.logo,
+          sameAs: [BASE_URL],
           address: {
             '@type': 'PostalAddress',
             addressCountry: 'KR',
@@ -63,7 +65,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           embedUrl: data.embedUrl,
           publisher: {
             '@type': 'Organization',
-            name: 'SN Academy',
+            name: ORGANIZATION_INFO.name,
           },
         };
 
@@ -74,11 +76,10 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           name: 'SN Academy Blog',
           description:
             'SN Academy의 교육 혁신, AI 스타트업, 독학기숙학원 정보를 제공합니다.',
-          url: 'https://blog.snacademy.co.kr',
+          url: BASE_URL,
           potentialAction: {
             '@type': 'SearchAction',
-            target:
-              'https://blog.snacademy.co.kr/search?q={search_term_string}',
+            target: `${BASE_URL}/search?q={search_term_string}`,
             'query-input': 'required name=search_term_string',
           },
         };

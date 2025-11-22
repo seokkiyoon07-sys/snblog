@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next';
 import { allPosts } from '@/data/posts';
+import { BASE_URL } from '@/lib/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://blog.snacademy.co.kr';
+  const baseUrl = BASE_URL;
 
   const staticPages = [
     {

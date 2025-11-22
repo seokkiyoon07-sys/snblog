@@ -357,7 +357,7 @@ AI가 틀리는 문제들 모음
     readTime: '5',
     featured: false,
     published: true,
-    thumbnail: '/images/notice/2026-admission-guide/2026-admission-guide.png',
+    thumbnail: '/economi_son/economyson.jfif',
     url: '/columns/economi-son',
     type: 'standard',
   },
