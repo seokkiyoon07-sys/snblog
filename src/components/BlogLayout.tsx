@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
 import SuneungNotice from './SuneungNotice';
 import AdmissionGuide2026 from './posts/2026AdmissionGuide';
+import { BASE_URL, ORGANIZATION_INFO } from '@/lib/config';
 
 interface BlogLayoutProps {
   post: {
@@ -173,15 +174,15 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
       headline: post.title,
       author: {
         '@type': 'Organization',
-        name: 'SN독학기숙학원',
-        url: 'https://blog.snacademy.co.kr',
+        name: ORGANIZATION_INFO.name,
+        url: BASE_URL,
       },
       publisher: {
         '@type': 'Organization',
-        name: 'SN독학기숙학원',
+        name: ORGANIZATION_INFO.name,
         logo: {
           '@type': 'ImageObject',
-          url: 'https://blog.snacademy.co.kr/images/sn-logo.png',
+          url: ORGANIZATION_INFO.logo,
         },
       },
       datePublished: new Date().toISOString().split('T')[0],
@@ -189,7 +190,7 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
       description: post.title,
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `https://blog.snacademy.co.kr/problem-download/${post.id}`,
+        '@id': `${BASE_URL}/problem-download/${post.id}`,
       },
     };
     return schema;

@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import type { Metadata } from 'next';
+import { BASE_URL } from './config';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -20,7 +21,7 @@ export function generateMetadata(
 ): Metadata {
   const { title, description, keywords, canonical, ogImage } = options;
 
-  const baseUrl = 'https://blog.snacademy.co.kr';
+  const baseUrl = BASE_URL;
 
   const metadata: Metadata = {
     metadataBase: new URL(baseUrl),

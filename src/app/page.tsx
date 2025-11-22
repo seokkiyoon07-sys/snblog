@@ -3,9 +3,10 @@ import PostCard from '@/components/PostCard';
 import Pagination from '@/components/Pagination';
 import { formatReadTime } from '@/lib/utils';
 import { Metadata } from 'next';
+import { BASE_URL } from '@/lib/config';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://blog.snacademy.co.kr'),
+  metadataBase: new URL(BASE_URL),
   title: 'SN Academy Blog | 독학기숙학원의 교육 혁신과 AI 스타트업',
   description:
     'SN Academy의 교육 혁신, AI 스타트업, 독학기숙학원 정보를 제공합니다. 수능 대비, 입시 정보, 학습법, 합격 후기까지 모든 교육 정보를 한 곳에서 확인하세요.',
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
       'SN Academy의 교육 혁신, AI 스타트업, 독학기숙학원 정보를 제공합니다.',
     type: 'website',
     locale: 'ko_KR',
-    url: 'https://blog.snacademy.co.kr/',
+    url: `${BASE_URL}/`,
     images: [
       { url: '/og/home.jpg', width: 1200, height: 630, alt: 'SN Academy Blog' },
     ],
@@ -55,7 +56,7 @@ export default async function Home({ searchParams }: HomeProps) {
     name: 'SN Academy Blog',
     description:
       'SN Academy의 교육 혁신, AI 스타트업, 독학기숙학원 정보를 제공합니다.',
-    url: 'https://blog.snacademy.co.kr',
+    url: BASE_URL,
     publisher: {
       '@type': 'Organization',
       name: 'SN Academy',
@@ -66,7 +67,7 @@ export default async function Home({ searchParams }: HomeProps) {
         '@type': 'BlogPosting',
         headline: post.title,
         description: post.excerpt,
-        url: `https://blog.snacademy.co.kr${post.url}`,
+        url: `${BASE_URL}${post.url}`,
         datePublished: post.date.replace(/\//g, '-'),
         author: {
           '@type': 'Organization',
@@ -87,7 +88,7 @@ export default async function Home({ searchParams }: HomeProps) {
         '@type': 'BlogPosting',
         headline: post.title,
         description: post.excerpt,
-        url: `https://blog.snacademy.co.kr${post.url}`,
+        url: `${BASE_URL}${post.url}`,
         datePublished: post.date.replace(/\//g, '-'),
         author: {
           '@type': 'Organization',

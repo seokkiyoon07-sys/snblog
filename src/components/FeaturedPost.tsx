@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { formatReadTime } from '@/lib/utils';
+import { BASE_URL, getCategoryEmoji, getCategoryRoute } from '@/lib/config';
 
 interface Post {
   id: string;
@@ -26,13 +27,7 @@ export default function FeaturedPost({
   // ISO 날짜 형식으로 변환 (YYYY-MM-DD)
   const isoDate = post.date.replace(/\//g, '-');
 
-  // 카테고리별 이모지 선택 함수
-  const getEmoji = (category: string) => {
-    if (category === 'SN Originals') return '🎥';
-    if (category === 'startup') return '🤖';
-    return '📚';
-  };
-  const emoji = getEmoji(post.category);
+  const emoji = getCategoryEmoji(post.category);
 
   // BlogPosting 스키마 마크업
   const blogPostingSchema = {
@@ -40,7 +35,7 @@ export default function FeaturedPost({
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
-    url: `https://blog.snacademy.co.kr${post.url}`,
+    url: `${BASE_URL}${post.url}`,
     datePublished: isoDate,
     author: {
       '@type': 'Organization',
@@ -53,7 +48,7 @@ export default function FeaturedPost({
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://blog.snacademy.co.kr${post.url}`,
+      '@id': `${BASE_URL}${post.url}`,
     },
     keywords: post.tags?.join(', ') || '',
     articleSection: post.category,
@@ -145,15 +140,7 @@ export default function FeaturedPost({
             <span itemProp="wordCount">{formatReadTime(post.readTime)}</span>
             <span aria-hidden="true">•</span>
             <Link
-              href={
-                post.category === 'columns'
-                  ? '/columns'
-                  : post.category === 'SN Originals'
-                    ? '/originals'
-                    : post.category === 'startup'
-                      ? '/startup'
-                      : '#'
-              }
+              href={getCategoryRoute(post.category)}
               className="text-sn-primary dark:text-sn-primary-light font-medium hover:underline"
               itemProp="articleSection"
             >
