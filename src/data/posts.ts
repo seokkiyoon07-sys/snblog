@@ -256,6 +256,10 @@ a=b, a가 C이면 b도 C? → 철학적으로는 문제 제기 가능
     content: `
 ## 손에잡히는경제
 
+<div class="my-8 aspect-video">
+<iframe width="100%" height="100%" src="https://www.youtube.com/embed/WWXL3zoOlnk" title="손에잡히는경제" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="aspect-ratio: 16/9;"></iframe>
+</div>
+
 <details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
 <summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
 26학년도 수능 30번 및 풀이
