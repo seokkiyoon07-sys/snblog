@@ -64,10 +64,10 @@ export function generateMetadata(
 /**
  * Formats read time consistently across the application
  * @param readTime - Read time as string (e.g., '5', '11')
- * @returns Formatted string (e.g., '5분 읽기', '11분 읽기')
+ * @returns Formatted string (e.g., '읽기 시간: 5분', '읽기 시간: 11분')
  */
 export function formatReadTime(readTime: string): string {
-  return `${readTime}분 읽기`;
+  return `읽기 시간: ${readTime}분`;
 }
 
 export function getCategoryConfig(category: string) {
