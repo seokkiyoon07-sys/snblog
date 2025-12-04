@@ -26,6 +26,489 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'myeonangjungga',
+    title: '담양에서의 자연힐링 스토리 (고등 고전문학 「면앙정가」)',
+    excerpt:
+      '조선 전기 송순이 지은 가사 「면앙정가」. 전남 담양 면앙정 주변 사계절의 아름다운 모습과 신선적인 풍류 생활을 묘사한 작품입니다.',
+    content: `보기만 해도 시험 점수가 오르는 국어 고전문학 시리즈 24번째 작품. 오늘은 조선 전기(중기) 송순이 지은 가사 「면앙정가」를 준비했습니다.
+
+'면앙정'은 송순이 자신의 고향 전남 담양 제월봉 아래에 지은 정자로, 면앙정가는 면앙정 주변 사계절의 아름다운 모습과 송순 자신의 신선적인 풍류 생활을 묘사한 작품입니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「면앙정가」- 담양의 사계절과 풍류
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+당신이 수험생이라면 이것도 한번 읽어보세요.
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 🏯 작품의 배경과 의미
+
+「면앙정가」는 조선 전기 문인 송순(宋純, 1493~1583)이 지은 가사 작품입니다. '면앙정'은 송순이 벼슬에서 물러난 후 고향 전남 담양군 제월봉 아래에 지은 정자의 이름으로, '하늘을 우러러본다'는 뜻을 담고 있습니다.
+
+이 작품은 면앙정 주변의 아름다운 자연 경치를 사계절에 걸쳐 묘사하면서, 자연 속에서 풍류를 즐기며 살아가는 작자의 삶을 노래하고 있습니다.
+
+### 🎭 문학적 특징
+
+- **가사(歌辭)**: 4음보 연속체의 조선 시대 대표 시가 형식
+- **사계절 구성**: 봄, 여름, 가을, 겨울의 순환적 구조
+- **묘사와 서정**: 객관적 경치 묘사와 주관적 감정의 조화
+- **풍류 정신**: 자연과 함께하는 유유자적한 삶의 모습
+- **열거법**: 아름다운 경물들을 나열하며 전경을 펼쳐냄
+
+### 🌍 문학사적 의의
+
+「면앙정가」는 조선 전기 가사 문학의 대표작으로, 특히 자연 경관을 노래한 '강호가사'의 전통을 확립한 작품입니다. 이후 정철의 「성산별곡」, 「관동별곡」 등에 영향을 미쳤습니다.
+
+송순은 '면앙정 가단(歌壇)'이라 불리는 문학 그룹을 이끌며 호남 가사 문학의 발전에 크게 기여했습니다.
+
+### 📚 작품 감상 포인트
+
+1. **공간 묘사**: 제월봉과 면앙정 주변의 입체적 경관
+2. **시간의 흐름**: 사계절의 변화에 따른 자연의 모습
+3. **풍류 의식**: 신선처럼 살고자 하는 작자의 이상
+4. **자연 친화**: 속세를 떠나 자연과 하나 되는 삶
+5. **음악성**: 4음보의 리듬감 있는 율격
+
+### 🔍 수능 출제 포인트
+
+- **갈래**: 가사, 강호가사, 자연가사
+- **성격**: 전원적, 풍류적, 묘사적
+- **주제**: 면앙정 주변 사계절의 아름다움, 자연 속 풍류 생활의 즐거움
+- **표현**: 열거법, 대구법, 의인법, 4음보 율격
+- **비교 작품**: 정철의 「성산별곡」, 윤선도의 「어부사시사」
+
+</div>
+</details>
+
+---
+
+## 💡 영상 하이라이트
+
+전남 담양, 제월봉 아래 세워진 면앙정. 송순은 이곳에서 사계절 자연의 아름다움을 바라보며 신선처럼 살았습니다.
+
+봄날 피어오르는 꽃, 여름 녹음, 가을 달빛, 겨울 설경—사시사철 변하는 자연의 모습을 담은 이 작품을 통해 조선 선비의 풍류 정신을 만나보세요.
+
+---
+
+<details class="my-4 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-3 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm text-gray-600 dark:text-gray-400">
+English Description
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-sm text-gray-600 dark:text-gray-400">
+
+**"Myeonangjungga"** is a classical Korean poem (gasa) written by Song Sun during the early Joseon dynasty. The poem describes the beautiful four seasons around Myeonangjeong pavilion in Damyang, and the poet's leisurely life in harmony with nature.
+
+**Timestamps:**
+- 00:00 Intro
+- 00:33 Myeonangjungga
+- 05:49 Outro
+
+</div>
+</details>
+`,
+    category: 'SN Originals',
+    tags: ['SN Originals', '면앙정가', '고전문학', '송순', '가사', '담양'],
+    author: 'SN Academy',
+    date: '2025-12-04',
+    readTime: '8',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_a1_ASMR.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=6yD3R5eEnzo',
+    url: '/originals/myeonangjungga',
+    type: 'special',
+  },
+  {
+    id: 'gasiri',
+    title: '가지마 가지마 가지마~ (고등 고전문학 「가시리」)',
+    excerpt:
+      '작자·연대 미상의 고려가요 「가시리」. 떠나는 임을 붙잡고 싶지만 보내면서 반드시 돌아오길 바라는 여성 화자의 애절한 이별 노래입니다.',
+    content: `보기만 해도 시험 점수가 오르는 국어 고전문학 시리즈 23번째 작품. 오늘은 작자·연대 미상의 고려가요 「가시리」를 준비했습니다.
+
+「가시리」는 떠나는 임을 붙잡고 싶지만, 잡으면 더 멀어질까 두려워 끝내 보내면서 반드시 돌아오길 바라는 여성 화자의 애절한 이별 노래죠. 반복과 후렴(여음)이 활용되며, 감정을 점층적으로 드러내는 고려가요의 대표작입니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「가시리」- 애절한 이별의 노래
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+당신이 수험생이라면 이것도 한번 읽어보세요.
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 🏰 작품의 배경과 의미
+
+「가시리」는 작자와 연대가 미상인 고려가요로, 『악장가사(樂章歌詞)』와 『악학편고(樂學便攷)』에 전합니다. '가시리'는 '가시렵니까', '가시려고 합니까'라는 뜻으로, 떠나는 임에 대한 애절한 이별의 정서를 노래한 작품입니다.
+
+이 작품에서 화자는 떠나는 임을 붙잡고 싶은 마음과 붙잡으면 오히려 더 멀어질 것 같은 두려움 사이에서 갈등합니다. 결국 임을 보내면서도 반드시 돌아와 달라는 간절한 소망을 담아내고 있습니다.
+
+### 🎭 문학적 특징
+
+- **고려가요**: 고려 시대 평민들 사이에서 불린 민요적 성격의 노래
+- **여음(후렴)**: 각 연 사이에 반복되는 '위 증즐가 대평성대' 등의 후렴구
+- **반복과 점층**: 동일한 어구의 반복을 통한 감정의 심화
+- **여성 화자**: 떠나는 임을 보내는 여인의 목소리
+- **이별의 정한**: 헤어짐에 대한 슬픔과 재회에 대한 소망
+
+### 🌍 문학사적 의의
+
+「가시리」는 고려가요 중에서도 가장 순수한 서정성을 보여주는 작품으로 평가받습니다. 복잡한 비유나 수사 없이 직접적이고 솔직하게 이별의 감정을 표현하면서도, 깊은 울림을 전달합니다.
+
+특히 같은 시대의 「서경별곡」이 적극적으로 임을 붙잡으려는 모습을 보여주는 것과 달리, 「가시리」는 체념과 기다림의 정서를 보여준다는 점에서 대조적입니다.
+
+### 📚 작품 감상 포인트
+
+1. **이별의 양가감정**: 붙잡고 싶지만 보내야 하는 갈등
+2. **반복의 효과**: 같은 표현의 반복이 주는 감정적 심화
+3. **여음의 기능**: 후렴구가 만들어내는 노래적 리듬감
+4. **체념과 소망**: 떠나보내면서도 돌아오길 바라는 마음
+5. **보편적 정서**: 시대를 초월한 이별의 슬픔
+
+### 🎨 현대적 의미
+
+「가시리」가 담고 있는 이별의 정서는 시대를 초월하여 모든 이에게 공감을 줍니다. 사랑하는 사람과의 헤어짐, 그리고 다시 만나고 싶은 간절한 마음—이것은 어느 시대, 어느 곳에서나 인간이 느끼는 보편적인 감정입니다.
+
+'가지마 가지마 가지마~'라는 간절한 외침은 오늘날에도 여전히 유효합니다. 누군가를 떠나보낸 경험이 있는 사람이라면, 이 작품 속 화자의 마음에 깊이 공감할 수 있을 것입니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 고려가요, 이별가, 서정시
+- **주요 주제**: 이별의 정한, 재회에 대한 소망
+- **표현 기법**: 반복법, 점층법, 여음(후렴), 설의법
+- **시대적 배경**: 고려 시대, 민요적 성격
+- **비교 작품**: 「서경별곡」과의 태도 비교 (적극적 vs 체념적)
+
+</div>
+</details>
+
+---
+
+## 💡 영상 하이라이트
+
+'가지마, 가지마, 가지마~' 떠나는 임의 옷자락을 붙잡고 싶은 마음. 하지만 붙잡으면 더 멀어질 것 같아 끝내 놓아버리는 여인의 마음을 담았습니다.
+
+이번 영상에서는 고려 시대 민초들의 사랑과 이별을 노래한 「가시리」의 애절한 정서를 만나봅니다. 짧지만 강렬한 이 노래가 수백 년의 세월을 넘어 오늘날까지 사랑받는 이유를 느껴보세요.
+
+'보내고 나면 돌아오실 거죠?'—마지막까지 놓지 못하는 그 한 줄기 희망이, 이별을 견디게 하는 힘이 됩니다.
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Gasiri" - A Song of Tender Farewell
+
+**Gasiri (가시리)** is an anonymous Goryeo-era folk song preserved in the Akjang Gasa (樂章歌詞). The title is an archaic form meaning "Are you leaving?" or "Will you go?" and the poem expresses a woman's sorrowful farewell to her departing lover.
+
+**Historical Background:**
+As a Goryeo gayo (Goryeo song), "Gasiri" represents the folk musical tradition of medieval Korea. Unlike the refined poetry of the aristocratic class, these songs captured the raw emotions and experiences of common people, passed down through oral tradition before being recorded in later anthologies.
+
+**Literary Significance:**
+- **Goryeo Gayo Form**: Features the characteristic refrain (yeom) structure of Goryeo folk songs
+- **Repetition and Intensification**: Uses repeated phrases to deepen emotional impact
+- **Female Voice**: Speaks from the perspective of a woman sending off her beloved
+- **Emotional Restraint**: Shows resignation rather than active protest against separation
+- **Universal Theme**: Addresses the timeless experience of parting from loved ones
+
+**Poetic Tension:**
+The central conflict of "Gasiri" lies in the speaker's dilemma: she desperately wants to hold her lover back, yet fears that doing so would only push him further away. This psychological complexity, expressed in simple language, gives the poem its enduring power.
+
+**Comparative Analysis:**
+"Gasiri" is often contrasted with "Seoyeong Byeolgok," another Goryeo farewell song. While the latter shows a woman actively trying to prevent her lover's departure, "Gasiri" presents a more resigned, accepting attitude—making it a valuable text for exploring different responses to loss.
+
+**Contemporary Relevance:**
+The emotions captured in "Gasiri"—the pain of separation, the hope for reunion, the delicate balance between holding on and letting go—remain universally relatable across centuries and cultures.
+
+</div>
+</details>`,
+    category: 'SN Originals',
+    tags: [
+      '고전문학',
+      '가시리',
+      '고려가요',
+      '이별',
+      '서정시',
+      '수능국어',
+    ],
+    author: 'SI KIM',
+    date: '2025-12-04',
+    readTime: '4',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_a1_gasiri.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=lk9cR81JBX0',
+    url: '/originals/gasiri',
+    type: 'special',
+  },
+  {
+    id: 'sangchungok',
+    title: '사실 내 이런 삶을 좀 부러워했으면 좋겠어 (고등 고전문학 「상춘곡」)',
+    excerpt:
+      '조선 전기 정극인이 지은 가사 「상춘곡」. 벼슬을 사임하고 향리에서 자연의 아름다움을 즐기며 안빈낙도의 정신을 노래한 작품입니다.',
+    content: `보기만 해도 시험 점수가 오르는 국어 고전문학 시리즈 22번째 작품. 오늘은 조선 전기 정극인이 지은 가사 「상춘곡」을 준비했습니다.
+
+'상춘(賞春)'은 '봄을 맞이하여 봄 경치를 즐긴다'는 뜻으로, 작가가 벼슬을 사임하고 향리로 내려가 만년을 지내면서, 자연의 아름다움을 즐기는 풍류와 안빈낙도의 정신을 노래하고 있는 작품입니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「상춘곡」- 안빈낙도의 노래
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+당신이 수험생이라면 이것도 한번 읽어보세요.
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 🏰 작품의 배경과 의미
+
+「상춘곡(賞春曲)」은 조선 전기 문신 정극인(丁克仁, 1401~1481)이 지은 가사 작품입니다. '상춘'이란 '봄을 감상한다'는 뜻으로, 작가가 관직에서 물러난 후 고향에서 봄의 아름다운 자연 경치를 즐기며 살아가는 삶을 노래했습니다.
+
+정극인은 세종·문종·단종·세조 시대를 거친 문신으로, 만년에 벼슬을 내려놓고 전라도 태인(현재 정읍시)으로 낙향하여 자연 속에서 유유자적한 삶을 보냈습니다. 이 작품은 그러한 은거 생활 속에서 느낀 자연의 아름다움과 삶의 만족감을 담아냈습니다.
+
+### 🎭 문학적 특징
+
+- **가사(歌辭)**: 4음보 연속체의 율문 형식
+- **강호가사의 효시**: 자연 속 은거 생활을 노래한 최초의 가사
+- **안빈낙도(安貧樂道)**: 가난해도 도를 즐기는 유학적 이상 표현
+- **계절의 순환**: 봄의 풍경을 중심으로 한 계절감 묘사
+- **풍류 정신**: 자연 속에서 누리는 정신적 여유와 즐거움
+
+### 🌍 문학사적 의의
+
+「상춘곡」은 조선 시대 **강호가사(江湖歌辭)**의 효시로 평가받는 중요한 작품입니다. 이후 송순의 「면앙정가」, 정철의 「성산별곡」등 수많은 강호가사에 영향을 주었습니다.
+
+특히 관직에서 물러난 사대부가 자연 속에서 은거하며 안빈낙도의 삶을 노래하는 전형적인 패턴을 확립했다는 점에서 문학사적 가치가 높습니다.
+
+### 📚 작품 감상 포인트
+
+1. **안빈낙도**: 벼슬을 버리고 자연에서 찾은 진정한 행복
+2. **봄의 풍경**: 생동감 넘치는 봄 자연의 묘사
+3. **풍류와 여유**: 속세를 떠난 자의 정신적 만족감
+4. **유학적 이상**: 도(道)를 즐기는 선비의 삶
+5. **자연 친화**: 자연과 하나 되어 살아가는 모습
+
+### 🎨 현대적 의미
+
+「상춘곡」이 노래하는 안빈낙도의 정신은 오늘날에도 깊은 울림을 줍니다. 끊임없이 더 많은 것을 추구하는 현대 사회에서, 작은 것에서 행복을 찾고 자연과 함께하는 소박한 삶의 가치를 일깨워줍니다.
+
+'남들이 부러워할 만한 삶'이 아니라 '내가 진정으로 만족하는 삶'을 선택한 정극인의 모습은, 진정한 행복이 무엇인지 다시 생각하게 합니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 가사, 강호가사, 서정 문학
+- **주요 주제**: 안빈낙도, 자연 예찬, 은거 생활의 만족
+- **표현 기법**: 열거법, 대구법, 설의법, 영탄법
+- **시대적 배경**: 조선 전기, 사대부 문학
+- **작가**: 정극인 - 강호가사의 효시
+
+</div>
+</details>
+
+---
+
+## 💡 영상 하이라이트
+
+벼슬을 내려놓고 고향으로 돌아온 한 선비. 봄날 아침, 창문을 열면 펼쳐지는 꽃과 새, 그리고 산과 물의 아름다운 풍경—이것이 바로 「상춘곡」이 그리는 세계입니다.
+
+이번 영상에서는 정극인이 태인에서 보낸 만년의 봄날을 따라가봅니다. 세상의 출세와 명예를 뒤로하고, 오직 자연과 함께하는 삶을 선택한 그의 당당한 행복을 만나보세요.
+
+'사실 내 이런 삶을 좀 부러워했으면 좋겠어'—이 한 마디에 담긴 정극인의 여유로운 자신감이, 오늘을 사는 우리에게도 묵직한 질문을 던집니다.
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Sangchungok" - A Song of Simple Contentment
+
+**Sangchungok (賞春曲)** is a classical Korean gasa poem written by Jeong Geuk-in (丁克仁, 1401~1481), a scholar-official of the early Joseon Dynasty. The title means "Song of Enjoying Spring," and the work celebrates the beauty of spring nature and the contentment of a simple life in retirement.
+
+**Historical Background:**
+After serving through the reigns of Kings Sejong, Munjong, Danjong, and Sejo, Jeong Geuk-in resigned from his official position and retired to his hometown in Taein (present-day Jeongeup), Jeolla Province. There, he spent his final years enjoying the natural beauty around him, and this poem captures that experience of peaceful retirement.
+
+**Literary Significance:**
+- **Gasa Form**: Written in the 4-beat continuous verse form characteristic of gasa poetry
+- **Pioneer of Gangho Gasa**: Considered the first example of "rivers and lakes" poetry about hermit life in nature
+- **Anbin Nakdo Philosophy**: Expresses the Confucian ideal of finding joy in simple virtue rather than wealth
+- **Seasonal Beauty**: Vivid descriptions of spring landscapes
+- **Pungyu Spirit**: Embodies the refined enjoyment of nature and art
+
+**Cultural Value:**
+"Sangchungok" established the template for numerous later works in the gangho gasa tradition, influencing poets like Song Sun ("Myeonangjeonnga") and Jeong Cheol ("Seongsanbyeolgok"). It represents an important literary response to the political turbulence of early Joseon, offering a vision of fulfillment through withdrawal from worldly affairs.
+
+**Contemporary Relevance:**
+In our modern world obsessed with achievement and accumulation, "Sangchungok" offers a refreshing alternative perspective. The poem's celebration of finding happiness in simple pleasures, in harmony with nature, resonates powerfully with contemporary movements toward mindfulness, minimalism, and work-life balance.
+
+</div>
+</details>`,
+    category: 'SN Originals',
+    tags: [
+      '고전문학',
+      '상춘곡',
+      '정극인',
+      '가사',
+      '안빈낙도',
+      '조선전기',
+      '수능국어',
+    ],
+    author: 'SI KIM',
+    date: '2025-12-04',
+    readTime: '4',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_a3.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=7J0PTTcaD1U',
+    url: '/originals/sangchungok',
+    type: 'special',
+  },
+  {
+    id: 'maehwasa',
+    title: '지조와 절개의 상징 (고등 고전문학 「매화사」)',
+    excerpt:
+      '조선 후기 안민영이 지은 연시조 「매화사」. 추운 겨울 눈 속에서 피는 매화를 통해 고결하고 굳센 절개를 지닌 선비적 삶을 찬양한 작품입니다.',
+    content: `보기만 해도 시험 점수가 오르는 국어 고전문학 시리즈 21번째 작품. 오늘은 조선 후기 안민영이 지은 연시조 「매화사」를 준비했습니다.
+
+「매화사」는 작자가 1870년(고종 7) 겨울에 스승인 박효관(朴孝寬)의 집에서 벗과 기생과 더불어 놀 때, 안상(案上; 책상 위)에 매화가 피어 있는 것을 보고 이를 영탄한 노래입니다(출처: 한국민족문화대백과사전).
+
+추운 겨울 눈 속에서 피는 매화를 통해 고결하고 굳센 절개를 지닌 선비적 삶을 찬양하는 「매화사」를 지금 만나보시죠.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 「매화사」- 지조와 절개의 상징
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+당신이 수험생이라면 이것도 한번 읽어보세요.
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+### 🏰 작품의 배경과 의미
+
+「매화사(梅花詞)」는 조선 후기 가객(歌客) 안민영(安玟英, 1816~?)이 지은 연시조입니다. 1870년(고종 7) 겨울, 작자가 스승인 박효관의 집에서 벗들과 어울려 즐기던 중, 책상 위에 피어 있는 매화를 보고 그 아름다움과 고결함에 감탄하여 지은 작품입니다.
+
+매화는 예로부터 사군자(四君子) 중 하나로, 추운 겨울 눈 속에서도 꿋꿋이 꽃을 피우는 그 성질 때문에 선비의 지조와 절개를 상징하는 꽃으로 여겨져 왔습니다. 안민영은 이러한 매화의 특성을 통해 고결한 선비정신을 노래했습니다.
+
+### 🎭 문학적 특징
+
+- **연시조**: 여러 수의 시조가 하나의 주제로 연결된 형식
+- **영물시(詠物詩)**: 사물(매화)을 통해 인간의 덕성을 노래
+- **사군자 상징**: 매화를 통한 지조와 절개의 표현
+- **감각적 표현**: 시각, 후각을 통한 생생한 묘사
+- **선비정신**: 고결하고 청빈한 삶에 대한 지향
+
+### 🌍 문학사적 의의
+
+「매화사」는 조선 후기 시조 문학의 대표작 중 하나로, 안민영이 엮은 가집 『금옥총부(金玉叢部)』에 수록되어 있습니다. 이 작품은 전통적인 사군자 모티프를 활용하면서도, 섬세한 감각적 묘사와 풍류적 정서를 잘 보여주는 수작입니다.
+
+특히 매화의 아름다움을 단순히 외적으로만 찬미하지 않고, 그 내면에 담긴 지조와 절개의 의미를 함께 읊었다는 점에서 깊은 문학적 가치를 지닙니다.
+
+### 📚 작품 감상 포인트
+
+1. **매화의 상징성**: 추위 속에서도 피어나는 꽃의 의미
+2. **선비의 덕목**: 지조, 절개, 고결함의 표현
+3. **감각적 이미지**: 눈과 매화, 향기의 대비
+4. **풍류 정신**: 시적 정취와 여유로운 삶의 태도
+5. **자연과 인간**: 자연물을 통한 인간 덕성의 비유
+
+### 🎨 현대적 의미
+
+「매화사」가 노래하는 지조와 절개의 정신은 오늘날에도 여전히 의미가 있습니다. 어려운 환경 속에서도 자신의 신념과 가치를 지키며 살아가는 것, 외적인 화려함보다 내면의 아름다움을 추구하는 것—이러한 가치는 시대를 초월하여 우리에게 교훈을 줍니다.
+
+특히 빠르게 변화하고 유혹이 많은 현대 사회에서, 매화처럼 흔들리지 않는 중심을 갖고 자신만의 향기를 피워내는 삶의 자세는 더욱 귀하게 느껴집니다.
+
+### 🔍 수능 출제 포인트
+
+- **작품의 성격**: 연시조, 영물시, 서정시
+- **주요 주제**: 매화 예찬, 지조와 절개, 선비정신
+- **표현 기법**: 의인법, 비유법, 대비법, 영탄법
+- **시대적 배경**: 조선 후기 가객 문화, 사군자 모티프
+- **작가**: 안민영 - 『금옥총부』 편찬자
+
+</div>
+</details>
+
+---
+
+## 💡 영상 하이라이트
+
+추운 겨울, 눈 속에서도 청초하게 피어나는 매화—그 고결한 자태와 은은한 향기를 통해 선비의 지조와 절개를 노래한 「매화사」의 정취를 영상으로 만나보세요.
+
+이번 영상에서는 1870년 겨울, 스승의 집에서 매화를 바라보며 감탄했던 안민영의 시선을 따라가봅니다. 차가운 눈 속에서도 의연하게 꽃을 피우는 매화처럼, 세상의 유혹에 흔들리지 않는 선비정신을 담았습니다.
+
+영상 속 한 장면 한 장면에 담긴 설경과 매화의 조화, 그리고 은은히 퍼지는 매화 향기의 상상까지—작품이 전하는 고결한 정서를 오롯이 느껴보시기 바랍니다.
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Maehwasa" - Symbol of Integrity and Fidelity
+
+**Maehwasa (梅花詞)** is a classical Korean sijo sequence written by An Min-yeong (安玟英, 1816~?), a renowned poet-singer (gagaek) of the late Joseon Dynasty. The title literally means "Song of the Plum Blossom," and the work praises the beauty and noble spirit of the plum flower.
+
+**Historical Background:**
+The poem was composed in the winter of 1870 (7th year of King Gojong's reign) when the poet was visiting his teacher Bak Hyo-gwan's house. Upon seeing plum blossoms blooming on a desk, he was moved to compose this work in admiration of the flower's grace and resilience.
+
+**Literary Significance:**
+- **Yeon-sijo Form**: A sequence of sijos connected by a single theme
+- **Yeongmulsi (Object Poetry)**: Uses the plum blossom to express human virtues
+- **Sagunja Symbolism**: The plum is one of the Four Gentlemen in East Asian art
+- **Sensory Imagery**: Vivid visual and olfactory descriptions
+- **Scholar Spirit**: Expresses ideals of integrity and principled living
+
+**Symbolic Meaning:**
+The plum blossom (maehwa) holds special significance in Korean culture as a symbol of the scholar's integrity (jijo) and fidelity (jeolgae). Unlike other flowers that bloom in warmer seasons, the plum blooms in the harsh cold of winter, often even amid snow. This resilience made it a perfect metaphor for the unwavering principles of the Confucian gentleman.
+
+**Cultural Value:**
+"Maehwasa" exemplifies the elegant literary tradition of late Joseon poetry, where nature was not merely described but used as a vehicle for expressing moral and philosophical ideals. The work demonstrates the sophisticated aesthetic sensibility of the gagaek tradition and its integration of literary expression with moral cultivation.
+
+**Contemporary Relevance:**
+The message of "Maehwasa"—maintaining one's principles and inner beauty regardless of external circumstances—resonates powerfully in our modern age. In a world of rapid change and constant temptation, the plum blossom's lesson of staying true to one's values while blooming beautifully offers timeless wisdom.
+
+</div>
+</details>`,
+    category: 'SN Originals',
+    tags: [
+      '고전문학',
+      '매화사',
+      '안민영',
+      '시조',
+      '사군자',
+      '조선후기',
+      '수능국어',
+    ],
+    author: 'SI KIM',
+    date: '2025-12-04',
+    readTime: '4',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/1thumbnail_F.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=VLuBdOKC0ZI',
+    url: '/originals/maehwasa',
+    type: 'special',
+  },
+  {
     id: 'suneung-korean-17',
     title:
       '2025 수능 국어 17번, 정말 오류일까? - 정답 ③을 옹호하는 논리적 근거',
@@ -1070,8 +1553,7 @@ SNarGPT가 각 수능 문제를 실제로 풀면서 사용된 <strong>핵심 개
     author: 'SN독학기숙학원',
     date: '2025-11-14',
     readTime: '5',
-    featured: true,
-    featuredOrder: 2,
+    featured: false,
     published: true,
     thumbnail: '/images/thumbnail/AI_26_suneung.png',
     url: '/problem-download/2026-suneung-similar-problems',
@@ -1382,6 +1864,7 @@ SNarGPT에 대해 더 궁금하신가요?
     date: '2025-11-09',
     readTime: '7',
     featured: true,
+    featuredOrder: 3,
     published: true,
     thumbnail: '/images/thumbnail/SNarGPT_guide_thumbnail.png',
     url: '/startup/snargpt-guide-1',
@@ -1733,7 +2216,8 @@ SN독학기숙학원은 여러분의 꿈을 응원합니다.
     author: 'SN독학기숙학원',
     date: '2025-12-04',
     readTime: '3',
-    featured: false,
+    featured: true,
+    featuredOrder: 1,
     published: true,
     thumbnail: '/images/thumbnail/vlog_thumbnail_a1.png',
     youtubeUrl: 'https://www.youtube.com/watch?v=8gUWtBFzYuU',
@@ -2108,7 +2592,7 @@ SN독학기숙학원은 여러분의 꿈을 응원합니다.
     date: '2025-11-13',
     readTime: '3',
     featured: true,
-    featuredOrder: 1,
+    featuredOrder: 2,
     published: true,
     thumbnail: '/images/thumbnail/SNarGPT-2026-Math-Answer-Release.png',
     url: '/problem-download/suneung-math-solution-10min',
@@ -4650,7 +5134,7 @@ AI가 보여준 학습의 원리처럼, 우리도 설계가 아니라 노출량,
     date: '2025-10-27',
     readTime: '4',
     featured: true,
-    featuredOrder: 1,
+    featuredOrder: 4,
     published: true,
     thumbnail: '/images/thumbnail/howtostudythumbnail.gif',
     url: '/columns/ai-study-method',
