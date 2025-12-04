@@ -1677,6 +1677,69 @@ For modern students, "Biga" offers not just literary study but a window into a p
     type: 'special',
   },
   {
+    id: '2026-suneung-day-vlog',
+    title: '2026학년도 수능일 Vlog',
+    excerpt:
+      '2026학년도 대학수학능력시험 당일, SN독학기숙학원에서는 어떤 일들이 분주하게 진행되었을까요? 수능일 브이로그를 통해 함께 만나보세요.',
+    content: `<div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-800 dark:text-green-200 rounded-lg p-4 mb-6">
+<p class="text-sm sm:text-base mb-0">
+<strong>2026학년도 대학수학능력시험</strong>이 지난 11월 13일에 진행되었습니다.<br />
+SN독학기숙학원에서 수능 당일 어떤 일들이 있었는지 브이로그로 만나보세요!
+</p>
+</div>
+
+<h2 class="text-lg sm:text-xl font-semibold mt-8 mb-4 pl-3 border-l-4 border-green-700 text-gray-900 dark:text-white">영상으로 보기</h2>
+
+<div class="aspect-video w-full mb-6">
+<iframe
+  class="w-full h-full rounded-lg shadow-lg"
+  src="https://www.youtube.com/embed/8gUWtBFzYuU"
+  title="2026학년도 수능일 Vlog"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen>
+</iframe>
+</div>
+
+<h2 class="text-lg sm:text-xl font-semibold mt-8 mb-4 pl-3 border-l-4 border-green-700 text-gray-900 dark:text-white">수능일, 그날의 기록</h2>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+독학기숙학원에서 가장 중요한 날을 딱 하루만 꼽으라면 언제일까요?<br />
+맞습니다. 바로 <strong>수능 시험을 치르는 날</strong>입니다.
+</p>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+지난 달(11월) 13일. <strong>2026학년도 대학수학능력시험</strong>이 진행되었습니다.<br />
+SN독학기숙학원 친구들도 한 명도 빠짐없이 각자의 시험장에서 시험을 치렀는데요,
+</p>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+새벽부터 일어나서 준비하고 버스 타고 시험장 가서 시험 치르는 동안<br />
+<strong>SN독학기숙학원에서는 어떤 일들이 분주하게 진행되었을까요?</strong>
+</p>
+
+<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200 rounded-lg p-3 my-4 text-sm">
+함께 만나보시죠.
+</div>
+
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg p-4 mt-6">
+<p class="text-sm sm:text-base mb-0">
+수험생 여러분, 정말 수고 많으셨습니다.<br />
+SN독학기숙학원은 여러분의 꿈을 응원합니다.
+</p>
+</div>`,
+    category: 'notice',
+    tags: ['수능', 'Vlog', '2026', '수능일'],
+    author: 'SN독학기숙학원',
+    date: '2025-12-04',
+    readTime: '3',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/vlog_thumbnail_a1.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=8gUWtBFzYuU',
+    url: '/notice/2026-suneung-day-vlog',
+  },
+  {
     id: '2026-admission-guide',
     title: '2026년도 SN독학기숙학원 입소 안내',
     excerpt: '2026년도 SN독학기숙학원 입소에 관한 안내사항입니다.',
