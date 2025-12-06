@@ -154,7 +154,16 @@ export default function ArticleContent({
     });
 
     return () => {
-      roots.forEach(root => root.unmount());
+      // 비동기로 unmount하여 race condition 방지
+      setTimeout(() => {
+        roots.forEach(root => {
+          try {
+            root.unmount();
+          } catch {
+            // unmount 실패 무시
+          }
+        });
+      }, 0);
     };
   }, [revealItems, processedContent]);
 
@@ -180,7 +189,16 @@ export default function ArticleContent({
     });
 
     return () => {
-      roots.forEach(root => root.unmount());
+      // 비동기로 unmount하여 race condition 방지
+      setTimeout(() => {
+        roots.forEach(root => {
+          try {
+            root.unmount();
+          } catch {
+            // unmount 실패 무시
+          }
+        });
+      }, 0);
     };
   }, [printButtonItems, processedContent]);
 

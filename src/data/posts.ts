@@ -39,63 +39,144 @@ export const allPosts: Post[] = [
 보기만 해도 국어 감각이 살아납니다.
 수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
 
-## 「강호사시가」- 사계절과 임금님 은혜
+## 📜 원문 + 현대어 해설
 
-<div class="my-8 p-6 bg-stone-100 dark:bg-stone-800/30 border border-stone-300 dark:border-stone-700 rounded-xl">
+### 🌸 춘사(春詞) - 봄
 
-### 📜 원문
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+江湖(강호)에 봄이 드니 미친 興(흥)이 절로 난다
+濁醪溪邊(탁료계변)에 錦鱗魚(금린어)ㅣ 안주로다
+이 몸이 閑暇(한가)해옴도 亦君恩(역군은)이샷다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+강과 호수에 봄이 오니 이유 없이 신나고 들뜬다.
+시냇가에서 탁한 술을 마시니, 비늘이 반짝이는 물고기까지 안주가 되어 준다.
+이렇게 한가롭게 지내는 것도 모두 임금님 덕분이다.
+</div>
+</details>
 
-**🌸 춘사(春詞)**
+### 🌿 하사(夏詞) - 여름
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+江湖(강호)에 녀름이 드니 草堂(초당)에 일이 업다
+有信(유신)한 江波(강파)난 보내나니 바람이다
+이 몸이 서늘해옴도 亦君恩(역군은)이샷다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+여름이 되니 초가집에서 특별히 할 일이 없다.
+잔잔하고 믿음직한 강물 위로 불어오는 바람만이 오고 간다.
+이렇게 홀가분하게 지내는 것도 임금님 은혜다.
+</div>
+</details>
+
+### 🍂 추사(秋詞) - 가을
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+江湖(강호)에 가알이 드니 고기마다 살져 잇다
+小艇(소정)에 그믈 시러 흘리 띄여 더뎌 두고
+이 몸이 消日(소일)해옴도 亦君恩(역군은)이샷다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+가을이 되니 물고기들이 모두 살이 포동포동 올랐다.
+작은 배에서 그물을 슬슬 흘려 띄워 놓고 느긋하게 기다린다.
+이렇게 시간을 흘려보내듯 여유롭게 지내는 것도 임금님 덕분이다.
+</div>
+</details>
+
+### ❄ 동사(冬詞) - 겨울
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+江湖(강호)에 겨월이 드니 눈 기픠 자히 남다
+삿갓 빗기 쁘고 누역으로 오슬 삼아
+이 몸이 칩지 아니해옴도 亦君恩(역군은)이샷다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+겨울이 오니 눈이 깊게 쌓여 온 세상이 하얗다.
+삿갓을 비스듬히 쓰고, 도롱이를 입어 몸을 가린다.
+이렇게도 춥지 않게 지낼 수 있는 것 역시 임금님의 은혜다.
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="ganghosasiga-original" data-title="강호사시가 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="ganghosasiga-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+🌸 춘사(春詞)
 
 江湖(강호)에 봄이 드니 미친 興(흥)이 절로 난다
 濁醪溪邊(탁료계변)에 錦鱗魚(금린어)ㅣ 안주로다
 이 몸이 閑暇(한가)해옴도 亦君恩(역군은)이샷다
 
-**🌿 하사(夏詞)**
+🌿 하사(夏詞)
 
 江湖(강호)에 녀름이 드니 草堂(초당)에 일이 업다
 有信(유신)한 江波(강파)난 보내나니 바람이다
 이 몸이 서늘해옴도 亦君恩(역군은)이샷다
 
-**🍂 추사(秋詞)**
+🍂 추사(秋詞)
 
 江湖(강호)에 가알이 드니 고기마다 살져 잇다
 小艇(소정)에 그믈 시러 흘리 띄여 더뎌 두고
 이 몸이 消日(소일)해옴도 亦君恩(역군은)이샷다
 
-**❄ 동사(冬詞)**
+❄ 동사(冬詞)
 
 江湖(강호)에 겨월이 드니 눈 기픠 자히 남다
 삿갓 빗기 쁘고 누역으로 오슬 삼아
 이 몸이 칩지 아니해옴도 亦君恩(역군은)이샷다
 
 </div>
+</details>
 
 <details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
 <summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
-📖 현대어 해석 보기
+📖 현대어 해석 전체 보기
 </summary>
-<div class="p-6 bg-white dark:bg-gray-900">
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<div data-print-button data-content-id="ganghosasiga-modern" data-title="강호사시가 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="ganghosasiga-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
 
-**🌸 봄**
+🌸 춘사(春詞) - 봄
 
 강과 호수에 봄이 오니 이유 없이 신나고 들뜬다.
 시냇가에서 탁한 술을 마시니, 비늘이 반짝이는 물고기까지 안주가 되어 준다.
 이렇게 한가롭게 지내는 것도 모두 임금님 덕분이다.
 
-**🌿 여름**
+🌿 하사(夏詞) - 여름
 
 여름이 되니 초가집에서 특별히 할 일이 없다.
 잔잔하고 믿음직한 강물 위로 불어오는 바람만이 오고 간다.
 이렇게 홀가분하게 지내는 것도 임금님 은혜다.
 
-**🍂 가을**
+🍂 추사(秋詞) - 가을
 
 가을이 되니 물고기들이 모두 살이 포동포동 올랐다.
 작은 배에서 그물을 슬슬 흘려 띄워 놓고 느긋하게 기다린다.
 이렇게 시간을 흘려보내듯 여유롭게 지내는 것도 임금님 덕분이다.
 
-**❄ 겨울**
+❄ 동사(冬詞) - 겨울
 
 겨울이 오니 눈이 깊게 쌓여 온 세상이 하얗다.
 삿갓을 비스듬히 쓰고, 도롱이를 입어 몸을 가린다.
@@ -207,322 +288,471 @@ English Description
 보기만 해도 국어 감각이 살아납니다.
 수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
 
-## 「면앙정가」- 담양의 사계절과 풍류
+## 📜 원문 + 현대어 해설
 
-<div class="my-8 p-6 bg-stone-100 dark:bg-stone-800/30 border border-stone-300 dark:border-stone-700 rounded-xl">
+### 🏔️ 서사 - 면앙정의 위치와 모습
 
-### 📜 원문
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+无等山 ᄒᆞᆫ 활기 뫼히 동다히로 버더 이셔
+멀리 ᄯᅦ쳐 와 霽月峯이 되어거ᄂᆞᆯ
+無邊大野의 므ᄉᆞᆷ 짐쟉 ᄒᆞ노라
+닐곱 구ᄇᆡ ᄒᆞᆯ머 움쳐 므득므득 버렷ᄂᆞᆫ ᄃᆞᆺ.
+가온ᄃᆡ 구ᄇᆡᄂᆞᆫ 굼긔 든 늘근 뇽이
+선ᄌᆞᆷ을 ᄀᆞᆺ ᄭᆡ야 머리ᄅᆞᆯ 안쳐시니
+너ᄅᆞ바희 우ᄒᆡ 松竹을 헤혀고
+亭子ᄅᆞᆯ 안쳐시니 구름 ᄐᆞᆫ 쳥학이
+千里를 가리라 두 ᄂᆞ래 버렷ᄂᆞᆫ ᄃᆞᆺ.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+무등산 한 줄기 산맥이 동쪽으로 뻗어 있어
+멀리 떨치고 와서 제월봉이 되었거늘
+끝없이 넓은 들판에 무슨 생각을 하느라고
+일곱 굽이를 한 데 움쳐 무더기무더기 벌려 놓은 듯한가.
+그 가운데 굽이는 구멍에 든 늙은 용이
+선잠에서 막 깨어 머리를 얹혀 놓은 것 같구나
+너럭바위 위에 소나무와 대나무를 헤치고
+정자를 앉혔으니, 마치 구름 탄 청학이
+천 리를 가려고 두 날개를 벌리고 있는 듯하구나.
+</div>
+</details>
+
+### 🌊 본사1 - 흐르는 물과 들판
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+玉泉山 龍泉山 ᄂᆞ린 믈히
+亭子 압 너븐 들ᄒᆡ 올올히 펴진 드시
+넙거든 기노라 프르거든 희디마나
+雙龍이 뒤트ᄂᆞᆫ ᄃᆞᆺ 긴 깁을 ᄎᆡ폇ᄂᆞᆫ ᄃᆞᆺ.
+어드러로 가노라 므ᄉᆞᆷ 일 ᄇᆡ얏바
+ᄃᆞᆺᄂᆞᆫ ᄃᆞᆺ ᄯᅡ르ᄂᆞᆫ ᄃᆞᆺ 밤ᄂᆞᆺ즈로 흐르ᄂᆞᆫ ᄃᆞᆺ.
+므조친 沙汀은 눈ᄀᆞᆺ치 펴졋거든
+어즈러온 기러기ᄂᆞᆫ 므스거슬 어르노라
+안즈락 ᄂᆞ리락 모드락 흐트락
+蘆花를 ᄉᆞ이 두고 우러곰 좃니ᄂᆞᆫ고.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+옥천산 용천산에서 흘러내린 물이
+정자 앞 넓은 들판에 끊임없이 퍼진 듯이
+넓거든 길지나 말지, 푸르거든 희지나 말지
+쌍룡이 몸을 뒤트는 듯, 긴 비단을 쫙 펼쳐 놓은 듯.
+어디를 가느라 무슨 급한 일이 있어서
+달리는 듯, 따르는 듯, 밤낮으로 흐르는 듯한가.
+물 따라 펼쳐진 모래밭은 눈같이 하얗게 퍼져 있는데
+어지러운 기러기는 무엇을 즐기느라고
+앉았다가 내렸다가 모였다가 흩어졌다가
+갈대꽃을 사이에 두고 울면서 쫓아다니는고.
+</div>
+</details>
+
+### ⛰️ 본사2 - 둘러싼 산들
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+너븐 길 밧기오 긴 하ᄂᆞᆯ 아ᄅᆡ
+두르고 ᄭᅩᄌᆞᆫ 거슨 뫼힌가 屛風인가 그림가 아닌가.
+노픈 ᄃᆞᆺ ᄂᆞ즌 ᄃᆞᆺ 긋ᄂᆞᆫ ᄃᆞᆺ 닛ᄂᆞᆫ ᄃᆞᆺ
+숨거니 뵈거니 가거니 머믈거니
+어즈러온 가온ᄃᆡ 일홈 ᄂᆞᆫ 양ᄒᆞ야
+하ᄂᆞᆯ도 젓치 아녀 웃독이 셧ᄂᆞᆫ 거시
+秋月山 머리 짓고
+龍龜山 夢仙山 佛臺山
+魚登山 湧珍山 錦城山이
+虛空에 버러거든
+遠近蒼崖의 머믄 것도 하도 할샤.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+넓은 길 밖이요, 긴 하늘 아래
+두르고 꽂은 것은 산인가, 병풍인가, 그림인가, 아닌가.
+높은 듯 낮은 듯, 끊어지는 듯 이어지는 듯
+숨기도 하고 보이기도 하고, 가기도 하고 머물기도 하고
+어지러운 가운데 유명한 체하며
+하늘도 두려워하지 않고 우뚝 서 있는 것이
+추월산을 머리로 삼고
+용구산, 몽선산, 불대산,
+어등산, 용진산, 금성산이
+허공에 늘어서 있으니
+멀고 가까운 푸른 절벽에 머문 것도 많기도 많구나.
+</div>
+</details>
+
+### 🌸 본사3 - 봄 (구름과 안개, 꾀꼬리)
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+흰구름 브흰 煙霞 프로니ᄂᆞᆫ 山嵐이라.
+千巖萬壑을 제 집으로 사마 두고
+나명셩 들명셩 일ᄒᆡ도 구ᄂᆞᆫ지고.
+오르거니 ᄂᆞ리거니 長空의 ᄯᅥ나거니
+廣野로 거너거니
+프르락 블그락 여트락 지트락
+斜陽과 섯거 디어 細雨조차 ᄲᅮ리ᄂᆞᆫ다.
+籃輿ᄅᆞᆯ ᄇᆡ야 ᄐᆞ고 솔 아ᄅᆡ 구븐 길노
+오며 가며 ᄒᆞᄂᆞᆫ 적의 綠楊의 우ᄂᆞᆫ 黃鶯
+嬌態 겨워 ᄒᆞᄂᆞᆫ고야.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+흰 구름과 뿌연 안개와 푸른 것은 산 아지랑이로다.
+수많은 바위와 골짜기를 제 집으로 삼아 두고
+나면서 들면서 아양도 떠는구나.
+오르기도 하고 내리기도 하고, 넓은 하늘에 떠나기도 하고
+넓은 들판으로 건너가기도 하고
+푸르기도 하고 붉기도 하고, 옅기도 하고 짙기도 하고
+석양과 섞이어 내리며 가랑비까지 뿌리는구나.
+뚜껑 없는 가마인 남여를 타고 소나무 아래 굽은 길로
+오며 가며 할 때에, 푸른 버드나무에서 우는 꾀꼬리는
+흥에 겨워 교태를 부리는구나.
+</div>
+</details>
+
+### 🌿 본사4 - 여름 (나무 그늘과 서늘한 바람)
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+나모 새 ᄌᆞ자지어 樹陰이 얼읜 적의
+百尺欄干의 긴 조으름 내여 펴니
+水面凉風이야 그칠 줄 모르ᄂᆞᆫ가.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+나무와 억새가 우거져 나무 그늘이 드리워진 때에
+높은 난간에서 한숨 푹 자고 나니
+물 위에서 불어오는 서늘한 바람이야 그칠 줄을 모르는구나.
+</div>
+</details>
+
+### 🍂 본사5 - 가을 (서리와 달빛)
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+즌 서리 ᄲᅡ딘 후의 산 빗치 금슈로다.
+黃雲은 ᄯᅩ 엇디 萬頃의 편 거긔요.
+漁笛도 흥을 계워 ᄃᆞᆯᄅᆞᆯ ᄯᆞ롸 브니ᄂᆞᆫ다.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+된서리가 내린 후에 산 빛이 수놓은 비단 같구나.
+누렇게 익은 곡식은 또 어찌하여 넓은 들판에 펼쳐져 있는고.
+어부의 피리 소리도 흥을 이기지 못하여 달을 따라 부는구나.
+</div>
+</details>
+
+### ❄️ 본사6 - 겨울 (빙설의 세계)
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+草木 다 진 후의 江山이 ᄆᆡ몰커ᄂᆞᆯ
+造物리 헌ᄉᆞᄒᆞ야 氷雪로 ᄭᅮ며 내니
+瓊宮瑤臺와 玉海銀山이
+眼低의 버러셰라.
+乾坤도 가ᄋᆞᆷ열사 간 ᄃᆡ마다 경이로다.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+초목이 다 시든 후에 강산이 눈 속에 묻혔거늘
+조물주가 야단스러워 얼음과 눈으로 꾸며 내니
+아름다운 구슬로 꾸민 궁궐과 옥으로 된 바다, 은으로 된 산이
+눈 아래 펼쳐져 있구나.
+하늘과 땅도 풍성하구나, 가는 곳마다 경치로다.
+</div>
+</details>
+
+### 🎋 결사 - 풍류 생활과 임금 은혜
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+人間ᄋᆞᆯ ᄯᅥ나와도 내 몸이 겨를 업다.
+이것도 보려 ᄒᆞ고 져것도 드르려코
+ᄇᆞᄅᆞᆷ도 혀려 ᄒᆞ고 ᄃᆞᆯ도 마즈려코
+밤으란 언제 줍고
+고기란 언제 낙고
+柴扉란 뉘 다드며 딘 곳츠란 뉘 쓸려뇨.
+아ᄎᆞᆷ이 낫브거니 나조ᄒᆡ라 슬흘소냐.
+오ᄂᆞᆯ리 不足커니 來日리라 有餘ᄒᆞ랴.
+이 뫼ᄒᆡ 안자 보고 뎌 뫼ᄒᆡ 거러 보니
+煩勞ᄒᆞᆫ ᄆᆞᄋᆞᆷ의 ᄇᆞ릴 일이 아조 업다.
+쉴 사이 업거든 길히나 젼ᄒᆞ리야.
+다만 ᄒᆞᆫ 靑藜杖이 다 므듸어 가노ᄆᆡ라.
+술리 닉엇거니 벗지라 업슬소냐.
+블리며 ᄐᆞ이며 혀이며 이아며
+온가짓 소ᄅᆡ로 醉興을 ᄇᆡ야거니
+근심이라 이시며 시ᄅᆞᆷ이라 브터시랴.
+누으락 안즈락 구부락 져츠락
+을프락 ᄑᆞ람ᄒᆞ락 노혜로 소긔니
+天地도 넙고넙고 日月도 ᄒᆞᆫ가ᄒᆞ다.
+羲皇을 모ᄅᆞᆯ러니 이젹이야 긔로고야
+神仙이 엇더턴지 이 몸이야 긔로고야.
+江山風月 거ᄂᆞᆯ리고 내 百年을 다 누리면
+岳陽樓上의 李太白이 사라 오다
+浩蕩情懷야 이에서 더ᄒᆞᆯ소냐.
+이 몸이 이렁 굼도 亦君恩이샷다.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+속세를 떠나왔어도 내 몸이 겨를이 없다.
+이것도 보려 하고 저것도 들으려 하고
+바람도 쐬려 하고 달도 맞으려 하고
+밤은 언제 줍고
+고기는 언제 낚고
+사립문은 누가 닫으며 떨어진 꽃은 누가 쓸 것인가.
+아침나절이 시간 가는 줄 모르니 저녁이라고 싫을쏘냐.
+오늘도 부족한데 내일이라고 여유가 있으랴.
+이 산에 앉아 보고 저 산에 걸어 보니
+번거로운 마음이지만 버릴 것이 아예 없다
+쉴 새가 없는데 길이야 온전하겠느냐.
+다만 하나의 명아주 지팡이가 다 닳아 가는구나.
+술이 익었으니 벗이라 없을쏘냐.
+노래를 부르게 하며, 악기를 타게 하며, 악기를 켜게 하며, 몸을 흔들며
+온갖 소리로 취흥을 재촉하니
+근심이라 있으며 시름이라 붙어 있으랴.
+누웠다가 앉았다가 구부렸다가 젖혔다가
+시를 읊었다가 휘파람을 불었다가 마음 놓고 노니
+천지도 넓디넓고 세월도 한가하다.
+복희의 태평성대를 모르고 지냈더니, 이 때가 바로 그것이로구나
+신선이 어떻던지 이 몸이 바로 그것이로구나.
+강산풍월을 거느리고 내 평생을 다 누리면
+악양루 위의 이태백이 살아온다 한들
+넓고 끝없는 이 회포야 이보다 더할쏘냐.
+이 몸이 이렇게 지내는 것도 역시 임금의 은혜이시도다.
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="myeonangjungga-original" data-title="면앙정가 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="myeonangjungga-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
+
+🏔️ 서사 - 면앙정의 위치와 모습
 
 无等山 ᄒᆞᆫ 활기 뫼히 동다히로 버더 이셔
-
 멀리 ᄯᅦ쳐 와 霽月峯이 되어거ᄂᆞᆯ
-
 無邊大野의 므ᄉᆞᆷ 짐쟉 ᄒᆞ노라
-
 닐곱 구ᄇᆡ ᄒᆞᆯ머 움쳐 므득므득 버렷ᄂᆞᆫ ᄃᆞᆺ.
-
 가온ᄃᆡ 구ᄇᆡᄂᆞᆫ 굼긔 든 늘근 뇽이
-
 선ᄌᆞᆷ을 ᄀᆞᆺ ᄭᆡ야 머리ᄅᆞᆯ 안쳐시니
-
 너ᄅᆞ바희 우ᄒᆡ 松竹을 헤혀고
-
 亭子ᄅᆞᆯ 안쳐시니 구름 ᄐᆞᆫ 쳥학이
-
 千里를 가리라 두 ᄂᆞ래 버렷ᄂᆞᆫ ᄃᆞᆺ.
 
+🌊 본사1 - 흐르는 물과 들판
+
 玉泉山 龍泉山 ᄂᆞ린 믈히
-
 亭子 압 너븐 들ᄒᆡ 올올히 펴진 드시
-
 넙거든 기노라 프르거든 희디마나
-
 雙龍이 뒤트ᄂᆞᆫ ᄃᆞᆺ 긴 깁을 ᄎᆡ폇ᄂᆞᆫ ᄃᆞᆺ.
-
 어드러로 가노라 므ᄉᆞᆷ 일 ᄇᆡ얏바
-
 ᄃᆞᆺᄂᆞᆫ ᄃᆞᆺ ᄯᅡ르ᄂᆞᆫ ᄃᆞᆺ 밤ᄂᆞᆺ즈로 흐르ᄂᆞᆫ ᄃᆞᆺ.
-
 므조친 沙汀은 눈ᄀᆞᆺ치 펴졋거든
-
 어즈러온 기러기ᄂᆞᆫ 므스거슬 어르노라
-
 안즈락 ᄂᆞ리락 모드락 흐트락
-
 蘆花를 ᄉᆞ이 두고 우러곰 좃니ᄂᆞᆫ고.
 
+⛰️ 본사2 - 둘러싼 산들
+
 너븐 길 밧기오 긴 하ᄂᆞᆯ 아ᄅᆡ
-
 두르고 ᄭᅩᄌᆞᆫ 거슨 뫼힌가 屛風인가 그림가 아닌가.
-
 노픈 ᄃᆞᆺ ᄂᆞ즌 ᄃᆞᆺ 긋ᄂᆞᆫ ᄃᆞᆺ 닛ᄂᆞᆫ ᄃᆞᆺ
-
 숨거니 뵈거니 가거니 머믈거니
-
 어즈러온 가온ᄃᆡ 일홈 ᄂᆞᆫ 양ᄒᆞ야
-
 하ᄂᆞᆯ도 젓치 아녀 웃독이 셧ᄂᆞᆫ 거시
-
 秋月山 머리 짓고
-
 龍龜山 夢仙山 佛臺山
-
 魚登山 湧珍山 錦城山이
-
 虛空에 버러거든
-
 遠近蒼崖의 머믄 것도 하도 할샤.
 
+🌸 본사3 - 봄 (구름과 안개, 꾀꼬리)
+
 흰구름 브흰 煙霞 프로니ᄂᆞᆫ 山嵐이라.
-
 千巖萬壑을 제 집으로 사마 두고
-
 나명셩 들명셩 일ᄒᆡ도 구ᄂᆞᆫ지고.
-
 오르거니 ᄂᆞ리거니 長空의 ᄯᅥ나거니
-
 廣野로 거너거니
-
 프르락 블그락 여트락 지트락
-
 斜陽과 섯거 디어 細雨조차 ᄲᅮ리ᄂᆞᆫ다.
-
 籃輿ᄅᆞᆯ ᄇᆡ야 ᄐᆞ고 솔 아ᄅᆡ 구븐 길노
-
 오며 가며 ᄒᆞᄂᆞᆫ 적의 綠楊의 우ᄂᆞᆫ 黃鶯
-
 嬌態 겨워 ᄒᆞᄂᆞᆫ고야.
 
+🌿 본사4 - 여름 (나무 그늘과 서늘한 바람)
+
 나모 새 ᄌᆞ자지어 樹陰이 얼읜 적의
-
 百尺欄干의 긴 조으름 내여 펴니
-
 水面凉風이야 그칠 줄 모르ᄂᆞᆫ가.
 
+🍂 본사5 - 가을 (서리와 달빛)
+
 즌 서리 ᄲᅡ딘 후의 산 빗치 금슈로다.
-
 黃雲은 ᄯᅩ 엇디 萬頃의 편 거긔요.
-
 漁笛도 흥을 계워 ᄃᆞᆯᄅᆞᆯ ᄯᆞ롸 브니ᄂᆞᆫ다.
 
+❄️ 본사6 - 겨울 (빙설의 세계)
+
 草木 다 진 후의 江山이 ᄆᆡ몰커ᄂᆞᆯ
-
 造物리 헌ᄉᆞᄒᆞ야 氷雪로 ᄭᅮ며 내니
-
 瓊宮瑤臺와 玉海銀山이
-
 眼低의 버러셰라.
-
 乾坤도 가ᄋᆞᆷ열사 간 ᄃᆡ마다 경이로다.
 
+🎋 결사 - 풍류 생활과 임금 은혜
+
 人間ᄋᆞᆯ ᄯᅥ나와도 내 몸이 겨를 업다.
-
 이것도 보려 ᄒᆞ고 져것도 드르려코
-
 ᄇᆞᄅᆞᆷ도 혀려 ᄒᆞ고 ᄃᆞᆯ도 마즈려코
-
 밤으란 언제 줍고
-
 고기란 언제 낙고
-
 柴扉란 뉘 다드며 딘 곳츠란 뉘 쓸려뇨.
-
 아ᄎᆞᆷ이 낫브거니 나조ᄒᆡ라 슬흘소냐.
-
 오ᄂᆞᆯ리 不足커니 來日리라 有餘ᄒᆞ랴.
-
 이 뫼ᄒᆡ 안자 보고 뎌 뫼ᄒᆡ 거러 보니
-
 煩勞ᄒᆞᆫ ᄆᆞᄋᆞᆷ의 ᄇᆞ릴 일이 아조 업다.
-
 쉴 사이 업거든 길히나 젼ᄒᆞ리야.
-
 다만 ᄒᆞᆫ 靑藜杖이 다 므듸어 가노ᄆᆡ라.
-
 술리 닉엇거니 벗지라 업슬소냐.
-
 블리며 ᄐᆞ이며 혀이며 이아며
-
 온가짓 소ᄅᆡ로 醉興을 ᄇᆡ야거니
-
 근심이라 이시며 시ᄅᆞᆷ이라 브터시랴.
-
 누으락 안즈락 구부락 져츠락
-
 을프락 ᄑᆞ람ᄒᆞ락 노혜로 소긔니
-
 天地도 넙고넙고 日月도 ᄒᆞᆫ가ᄒᆞ다.
-
 羲皇을 모ᄅᆞᆯ러니 이젹이야 긔로고야
-
 神仙이 엇더턴지 이 몸이야 긔로고야.
-
 江山風月 거ᄂᆞᆯ리고 내 百年을 다 누리면
-
 岳陽樓上의 李太白이 사라 오다
-
 浩蕩情懷야 이에서 더ᄒᆞᆯ소냐.
-
 이 몸이 이렁 굼도 亦君恩이샷다.
 
 </div>
+</details>
 
 <details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
 <summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
-📖 현대어 해석 보기
+📖 현대어 해석 전체 보기
 </summary>
-<div class="p-6 bg-white dark:bg-gray-900">
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<div data-print-button data-content-id="myeonangjungga-modern" data-title="면앙정가 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="myeonangjungga-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+🏔️ 서사 - 면앙정의 위치와 모습
 
 무등산 한 줄기 산맥이 동쪽으로 뻗어 있어
-
 멀리 떨치고 와서 제월봉이 되었거늘
-
 끝없이 넓은 들판에 무슨 생각을 하느라고
-
 일곱 굽이를 한 데 움쳐 무더기무더기 벌려 놓은 듯한가.
-
 그 가운데 굽이는 구멍에 든 늙은 용이
-
 선잠에서 막 깨어 머리를 얹혀 놓은 것 같구나
-
 너럭바위 위에 소나무와 대나무를 헤치고
-
 정자를 앉혔으니, 마치 구름 탄 청학이
-
 천 리를 가려고 두 날개를 벌리고 있는 듯하구나.
 
+🌊 본사1 - 흐르는 물과 들판
+
 옥천산 용천산에서 흘러내린 물이
-
 정자 앞 넓은 들판에 끊임없이 퍼진 듯이
-
 넓거든 길지나 말지, 푸르거든 희지나 말지
-
 쌍룡이 몸을 뒤트는 듯, 긴 비단을 쫙 펼쳐 놓은 듯.
-
 어디를 가느라 무슨 급한 일이 있어서
-
 달리는 듯, 따르는 듯, 밤낮으로 흐르는 듯한가.
-
 물 따라 펼쳐진 모래밭은 눈같이 하얗게 퍼져 있는데
-
 어지러운 기러기는 무엇을 즐기느라고
-
 앉았다가 내렸다가 모였다가 흩어졌다가
-
 갈대꽃을 사이에 두고 울면서 쫓아다니는고.
 
+⛰️ 본사2 - 둘러싼 산들
+
 넓은 길 밖이요, 긴 하늘 아래
-
 두르고 꽂은 것은 산인가, 병풍인가, 그림인가, 아닌가.
-
 높은 듯 낮은 듯, 끊어지는 듯 이어지는 듯
-
 숨기도 하고 보이기도 하고, 가기도 하고 머물기도 하고
-
 어지러운 가운데 유명한 체하며
-
 하늘도 두려워하지 않고 우뚝 서 있는 것이
-
 추월산을 머리로 삼고
-
 용구산, 몽선산, 불대산,
-
 어등산, 용진산, 금성산이
-
 허공에 늘어서 있으니
-
 멀고 가까운 푸른 절벽에 머문 것도 많기도 많구나.
 
+🌸 본사3 - 봄 (구름과 안개, 꾀꼬리)
+
 흰 구름과 뿌연 안개와 푸른 것은 산 아지랑이로다.
-
 수많은 바위와 골짜기를 제 집으로 삼아 두고
-
 나면서 들면서 아양도 떠는구나.
-
 오르기도 하고 내리기도 하고, 넓은 하늘에 떠나기도 하고
-
 넓은 들판으로 건너가기도 하고
-
 푸르기도 하고 붉기도 하고, 옅기도 하고 짙기도 하고
-
 석양과 섞이어 내리며 가랑비까지 뿌리는구나.
-
 뚜껑 없는 가마인 남여를 타고 소나무 아래 굽은 길로
-
 오며 가며 할 때에, 푸른 버드나무에서 우는 꾀꼬리는
-
 흥에 겨워 교태를 부리는구나.
 
+🌿 본사4 - 여름 (나무 그늘과 서늘한 바람)
+
 나무와 억새가 우거져 나무 그늘이 드리워진 때에
-
 높은 난간에서 한숨 푹 자고 나니
-
 물 위에서 불어오는 서늘한 바람이야 그칠 줄을 모르는구나.
 
+🍂 본사5 - 가을 (서리와 달빛)
+
 된서리가 내린 후에 산 빛이 수놓은 비단 같구나.
-
 누렇게 익은 곡식은 또 어찌하여 넓은 들판에 펼쳐져 있는고.
-
 어부의 피리 소리도 흥을 이기지 못하여 달을 따라 부는구나.
 
+❄️ 본사6 - 겨울 (빙설의 세계)
+
 초목이 다 시든 후에 강산이 눈 속에 묻혔거늘
-
 조물주가 야단스러워 얼음과 눈으로 꾸며 내니
-
 아름다운 구슬로 꾸민 궁궐과 옥으로 된 바다, 은으로 된 산이
-
 눈 아래 펼쳐져 있구나.
-
 하늘과 땅도 풍성하구나, 가는 곳마다 경치로다.
 
+🎋 결사 - 풍류 생활과 임금 은혜
+
 속세를 떠나왔어도 내 몸이 겨를이 없다.
-
 이것도 보려 하고 저것도 들으려 하고
-
 바람도 쐬려 하고 달도 맞으려 하고
-
 밤은 언제 줍고
-
 고기는 언제 낚고
-
 사립문은 누가 닫으며 떨어진 꽃은 누가 쓸 것인가.
-
 아침나절이 시간 가는 줄 모르니 저녁이라고 싫을쏘냐.
-
 오늘도 부족한데 내일이라고 여유가 있으랴.
-
 이 산에 앉아 보고 저 산에 걸어 보니
-
 번거로운 마음이지만 버릴 것이 아예 없다
-
 쉴 새가 없는데 길이야 온전하겠느냐.
-
 다만 하나의 명아주 지팡이가 다 닳아 가는구나.
-
 술이 익었으니 벗이라 없을쏘냐.
-
 노래를 부르게 하며, 악기를 타게 하며, 악기를 켜게 하며, 몸을 흔들며
-
 온갖 소리로 취흥을 재촉하니
-
 근심이라 있으며 시름이라 붙어 있으랴.
-
 누웠다가 앉았다가 구부렸다가 젖혔다가
-
 시를 읊었다가 휘파람을 불었다가 마음 놓고 노니
-
 천지도 넓디넓고 세월도 한가하다.
-
 복희의 태평성대를 모르고 지냈더니, 이 때가 바로 그것이로구나
-
 신선이 어떻던지 이 몸이 바로 그것이로구나.
-
 강산풍월을 거느리고 내 평생을 다 누리면
-
 악양루 위의 이태백이 살아온다 한들
-
 넓고 끝없는 이 회포야 이보다 더할쏘냐.
-
 이 몸이 이렇게 지내는 것도 역시 임금의 은혜이시도다.
 
 </div>
@@ -624,59 +854,136 @@ English Description
 보기만 해도 국어 감각이 살아납니다.
 수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
 
-## 「가시리」- 애절한 이별의 노래
+## 📜 원문 + 현대어 해설
 
-<div class="my-8 p-6 bg-stone-100 dark:bg-stone-800/30 border border-stone-300 dark:border-stone-700 rounded-xl">
-
-### 📜 원문
-
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제1연】</strong>
 가시리 가시리잇고 나ᄂᆞᆫ
-
 ᄇᆞ리고 가시리잇고 나ᄂᆞᆫ
-
 위 증즐가 대평성ᄃᆡ(大平盛代)
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+가시렵니까, 가시렵니까.
+나를 버리고, 가시렵니까.
+(후렴) 위 증즐가 태평성대
+</div>
+</details>
 
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제2연】</strong>
 날러는 엇디 살라ᄒᆞ고
-
 ᄇᆞ리고 가시리잇고 나ᄂᆞᆫ
-
 위 증즐가 대평성ᄃᆡ(大平盛代)
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+나는 어떻게 살라고
+버리고 가시렵니까.
+(후렴) 위 증즐가 태평성대
+</div>
+</details>
 
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제3연】</strong>
 잡ᄉᆞ와 두어리마ᄂᆞᄂᆞᆫ
-
 선ᄒᆞ면 아니올셰라
+위 증즐가 대평성ᄃᆡ(大平盛代)
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+잡아두고 싶지만
+서운하면 다신 내게 돌아오지 않을까봐.
+(후렴) 위 증즐가 태평성대
+</div>
+</details>
 
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제4연】</strong>
+셜온님 보내ᄋᆞᆸ노니 나ᄂᆞᆫ
+가시ᄂᆞᆫ ᄃᆞᆺ 도셔 오쇼셔 나ᄂᆞᆫ
+위 증즐가 대평성ᄃᆡ(大平盛代)
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+서러운 마음으로 님을 보내 드리니
+가시자마자 돌아오십시오.
+(후렴) 위 증즐가 태평성대
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="gasiri-original" data-title="가시리 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="gasiri-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
+
+【제1연】
+가시리 가시리잇고 나ᄂᆞᆫ
+ᄇᆞ리고 가시리잇고 나ᄂᆞᆫ
 위 증즐가 대평성ᄃᆡ(大平盛代)
 
+【제2연】
+날러는 엇디 살라ᄒᆞ고
+ᄇᆞ리고 가시리잇고 나ᄂᆞᆫ
+위 증즐가 대평성ᄃᆡ(大平盛代)
+
+【제3연】
+잡ᄉᆞ와 두어리마ᄂᆞᄂᆞᆫ
+선ᄒᆞ면 아니올셰라
+위 증즐가 대평성ᄃᆡ(大平盛代)
+
+【제4연】
 셜온님 보내ᄋᆞᆸ노니 나ᄂᆞᆫ
-
 가시ᄂᆞᆫ ᄃᆞᆺ 도셔 오쇼셔 나ᄂᆞᆫ
-
 위 증즐가 대평성ᄃᆡ(大平盛代)
 
 </div>
+</details>
 
 <details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
 <summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
-📖 현대어 해석 보기
+📖 현대어 해석 전체 보기
 </summary>
-<div class="p-6 bg-white dark:bg-gray-900">
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<div data-print-button data-content-id="gasiri-modern" data-title="가시리 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="gasiri-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
 
+【제1연】
 가시렵니까, 가시렵니까.
-
 나를 버리고, 가시렵니까.
+(후렴) 위 증즐가 태평성대
 
+【제2연】
 나는 어떻게 살라고
-
 버리고 가시렵니까.
+(후렴) 위 증즐가 태평성대
 
+【제3연】
 잡아두고 싶지만
-
 서운하면 다신 내게 돌아오지 않을까봐.
+(후렴) 위 증즐가 태평성대
 
+【제4연】
 서러운 마음으로 님을 보내 드리니
-
 가시자마자 돌아오십시오.
+(후렴) 위 증즐가 태평성대
 
 </div>
 </details>
@@ -801,174 +1108,271 @@ The emotions captured in "Gasiri"—the pain of separation, the hope for reunion
 보기만 해도 국어 감각이 살아납니다.
 수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
 
-## 「상춘곡」- 안빈낙도의 노래
+## 📜 원문 + 현대어 해설
 
-<div class="my-8 p-6 bg-stone-100 dark:bg-stone-800/30 border border-stone-300 dark:border-stone-700 rounded-xl">
-
-### 📜 원문
-
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【서사 - 자연에 묻혀 사는 삶의 자랑】</strong>
 홍진(紅塵)에 뭇친 분네 이내 생애(生涯) 엇더ᄒᆞᆫ고
-
 녯사ᄅᆞᆷ 풍류(風流)ᄅᆞᆯ 미ᄎᆞᆯ가 못 미ᄎᆞᆯ가
-
 천지간(天地間) 남자(男子) 몸이 날만ᄒᆞᆫ 이 하건마ᄂᆞᆫ
-
 산림(山林)에 뭇쳐 이셔 지락(至樂)을 ᄆᆞᄅᆞᆯ 것가
-
 수간 모옥(數間茅屋)을 벽계수(碧溪水) 앏픠 두고
+송죽(松竹) 울울리(鬱鬱裏)예 풍월 주인(風月主人) 되어셔라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+속세에 묻혀 사는 사람들아, 이 나의 삶이 어떠한가?
+옛 사람의 풍류에 미칠까 못 미칠까
+세상의 남자로 태어난 몸으로 나만한 사람이 많지마는
+산림에 묻혀 있는 지극한 즐거움을 모른단 말인가
+초가삼간을 맑은 시냇가 앞에 지어 놓고
+소나무와 대나무가 울창한 숲 속에서 자연을 즐기는 주인이 되어 있도다
+</div>
+</details>
 
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【본사1 - 봄의 아름다운 풍경】</strong>
+엇그제 겨을 지나 새봄이 도라오니
+도화 행화(桃花杏花)ᄂᆞᆫ 석양리(夕陽裏)예 퓌여 잇고
+녹양 방초(綠楊芳草)ᄂᆞᆫ 세우 중(細雨中)에 프르도다
+칼로 ᄆᆞᆯ아 낸가 붓으로 그려 낸가
+조화 신공(造化神功)이 물물(物物)마다 헌ᄉᆞᄅᆞᆸ다
+수풀에 우ᄂᆞᆫ 새ᄂᆞᆫ 춘기(春氣)ᄅᆞᆯ ᄆᆞᆺ내 계워 소ᄅᆡ마다 교태(嬌態)로다
+물아 일체(物我一體)어니 흥(興)이ᄋᆡ 다ᄅᆞᆯ소냐
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+엊그제 겨울 지나 새봄이 돌아오니
+복숭아꽃과 살구꽃은 석양 속에 피어 있고
+푸른 버드나무와 향기로운 풀은 가랑비가 내리는 가운데 푸르도다
+칼로 잘라냈는가? 붓으로 그려내었는가?
+조물주의 신통한 재주가 사물마다 야단스럽구나
+수풀에 우는 새는 봄기운에 못내 겨워 소리마다 교태로다
+물아일체이거늘, 흥이야 다르겠는가
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【본사2 - 한가로운 일상의 즐거움】</strong>
+시비(柴扉)예 거러 보고 정자(亭子)에 안자보니
+소요 음영(逍遙吟詠)ᄒᆞ야 산일(山日)이 적적(寂寂)ᄒᆞᆫᄃᆡ
+한중 진미(閑中眞味)ᄅᆞᆯ 알 니 업시 호재로다
+이바 니웃드라 산수(山水) 구경 가쟈스라
+답청(踏靑)으란 오ᄂᆞᆯ ᄒᆞ고 욕기(浴沂)란 내일(來日)ᄒᆞ새
+아ᄎᆞᆷ에 채산(採山)ᄒᆞ고 나조ᄒᆡ 조수(釣水)ᄒᆞ새
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+사립문 주변을 걸어보기도 하고, 정자에 앉아 보기도 하니
+이리저리 거닐며 나직이 시를 읊조려 보며, 산 속의 하루하루가 적적한데
+한가로움 속의 참된 즐거움을 아는 이 없이 나 혼자로구나
+여보게 이웃 사람들아, 산수 구경이나 가자꾸나
+풀을 밟는 것은 오늘하고, 목욕하는 일은 내일 하세
+아침에는 산에서 나물을 캐고, 저녁 때에는 낚시하세
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【본사3 - 술과 자연을 벗 삼아】</strong>
+ᄀᆞᆺ 괴여 닉은 술을 갈건(葛巾)으로 밧타 노코
+곳나모 가지 것거 수 노코 먹으리라
+화풍(和風)이 건ᄃᆞᆺ 부러 녹수(綠水)ᄅᆞᆯ 건너오니
+청향(淸香)은 잔에 지고 낙홍(落紅)은 옷새 진다
+준중(樽中)이 뷔엿거ᄃᆞᆫ 날ᄃᆞ려 알외여라
+소동(小童) 아ᄒᆡ다려 주가(酒家)에 술을 믈어
+얼운은 막대 집고 아ᄒᆡᄂᆞᆫ 술을 메고
+미음완보(微吟緩步)ᄒᆞ야 시냇ᄀᆞ의 호자 안자
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+갓 다 쪄서 익은 술을 칡뿌리 두건으로 걸러 놓고
+꽃나무 가지 꺾어서 잔 수를 세며 먹으리라
+화창한 봄바람이 문득 불어 푸른 물결을 건너오니
+맑은 향기는 술잔에 가득히 담기고, 붉은 꽃잎은 옷에 떨어진다
+술동이가 비었거든 나에게 알리어라
+아이를 시켜 술집에 술이 있는지를 물어서
+어른은 지팡이를 짚고 아이는 술동이를 메고
+나직이 읊조리며 천천히 걸어서 시냇가에 혼자 앉아
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【본사4 - 무릉도원 같은 경치】</strong>
+명사(明沙) 조ᄒᆞᆫ 믈에 잔 시어 부어 들고
+청류(淸流)ᄅᆞᆯ 굽어보니 ᄯᅥ오ᄂᆞ니 도화(桃花)ㅣ로다
+무릉(武陵)이 갓갑도다 져 ᄆᆡ이 긘 거인고
+송간(松間) 세로(細路)에 두견화(杜鵑花)ᄅᆞᆯ 부치 들고
+봉두(峰頭)에 급피 올나 구름 소긔 안자보니
+천촌 만락(千村萬落)이 곳곳이 버러 잇ᄂᆡ
+연하일휘(煙霞日輝)ᄂᆞᆫ 금수(錦繡)ᄅᆞᆯ 재폇ᄂᆞᆫ ᄃᆞᆺ
+엇그제 검은 들이 봄빗도 유여(有餘)ᄒᆞᆯ샤
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+맑은 모래 위로 흐르는 깨끗한 물에 잔을 씻어 부어 들고
+맑은 시냇물을 굽어보니 떠내려 오는 것이 복숭아꽃이로구나
+무릉도원이 가깝구나, 저 들이 무릉도원인가?
+소나무 숲 사이로 난 오솔길에서 진달래꽃을 붙들고
+산봉우리 위에 급히 올라 구름 속에 앉아보니
+수많은 촌락이 여기저기 널려 있네
+안개와 노을과 빛나는 햇살은 수 놓은 비단을 펼쳐 놓은 듯하구나
+엊그제까지 거뭇거뭇하던 들판에 봄빛이 넘쳐 흐르는구나
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【결사 - 안빈낙도의 삶】</strong>
+공명(功名)도 날 ᄭᅴ우고 부귀(富貴)도 날 ᄭᅴ우니
+청풍 명월(淸風明月) 외(外)예 엇던 벗이 잇ᄉᆞ올고
+단표 누항(簞瓢陋巷)에 흣튼 혜음 아니 ᄒᆞᄂᆡ
+아모타 백년 행락(百年行樂)이 이만ᄒᆞᆫᄃᆞᆯ 엇지ᄒᆞ리
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+명예와 부귀도 나를 꺼리니
+맑은 바람과 밝은 달 외에 그 어떤 벗이 있겠는가
+누추한 곳에서 가난한 생활을 하면서도 헛된 생각을 아니 하네
+아무튼 백년 즐겁게 지내는 게 이만한들 어찌하리
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="sangchungok-original" data-title="상춘곡 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="sangchungok-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
+
+【서사】
+홍진(紅塵)에 뭇친 분네 이내 생애(生涯) 엇더ᄒᆞᆫ고
+녯사ᄅᆞᆷ 풍류(風流)ᄅᆞᆯ 미ᄎᆞᆯ가 못 미ᄎᆞᆯ가
+천지간(天地間) 남자(男子) 몸이 날만ᄒᆞᆫ 이 하건마ᄂᆞᆫ
+산림(山林)에 뭇쳐 이셔 지락(至樂)을 ᄆᆞᄅᆞᆯ 것가
+수간 모옥(數間茅屋)을 벽계수(碧溪水) 앏픠 두고
 송죽(松竹) 울울리(鬱鬱裏)예 풍월 주인(風月主人) 되어셔라
 
+【본사1】
 엇그제 겨을 지나 새봄이 도라오니
-
 도화 행화(桃花杏花)ᄂᆞᆫ 석양리(夕陽裏)예 퓌여 잇고
-
 녹양 방초(綠楊芳草)ᄂᆞᆫ 세우 중(細雨中)에 프르도다
-
 칼로 ᄆᆞᆯ아 낸가 붓으로 그려 낸가
-
 조화 신공(造化神功)이 물물(物物)마다 헌ᄉᆞᄅᆞᆸ다
-
 수풀에 우ᄂᆞᆫ 새ᄂᆞᆫ 춘기(春氣)ᄅᆞᆯ ᄆᆞᆺ내 계워 소ᄅᆡ마다 교태(嬌態)로다
-
 물아 일체(物我一體)어니 흥(興)이ᄋᆡ 다ᄅᆞᆯ소냐
 
+【본사2】
 시비(柴扉)예 거러 보고 정자(亭子)에 안자보니
-
 소요 음영(逍遙吟詠)ᄒᆞ야 산일(山日)이 적적(寂寂)ᄒᆞᆫᄃᆡ
-
 한중 진미(閑中眞味)ᄅᆞᆯ 알 니 업시 호재로다
-
 이바 니웃드라 산수(山水) 구경 가쟈스라
-
 답청(踏靑)으란 오ᄂᆞᆯ ᄒᆞ고 욕기(浴沂)란 내일(來日)ᄒᆞ새
-
 아ᄎᆞᆷ에 채산(採山)ᄒᆞ고 나조ᄒᆡ 조수(釣水)ᄒᆞ새
 
+【본사3】
 ᄀᆞᆺ 괴여 닉은 술을 갈건(葛巾)으로 밧타 노코
-
 곳나모 가지 것거 수 노코 먹으리라
-
 화풍(和風)이 건ᄃᆞᆺ 부러 녹수(綠水)ᄅᆞᆯ 건너오니
-
 청향(淸香)은 잔에 지고 낙홍(落紅)은 옷새 진다
-
 준중(樽中)이 뷔엿거ᄃᆞᆫ 날ᄃᆞ려 알외여라
-
 소동(小童) 아ᄒᆡ다려 주가(酒家)에 술을 믈어
-
 얼운은 막대 집고 아ᄒᆡᄂᆞᆫ 술을 메고
-
 미음완보(微吟緩步)ᄒᆞ야 시냇ᄀᆞ의 호자 안자
 
+【본사4】
 명사(明沙) 조ᄒᆞᆫ 믈에 잔 시어 부어 들고
-
 청류(淸流)ᄅᆞᆯ 굽어보니 ᄯᅥ오ᄂᆞ니 도화(桃花)ㅣ로다
-
 무릉(武陵)이 갓갑도다 져 ᄆᆡ이 긘 거인고
-
 송간(松間) 세로(細路)에 두견화(杜鵑花)ᄅᆞᆯ 부치 들고
-
 봉두(峰頭)에 급피 올나 구름 소긔 안자보니
-
 천촌 만락(千村萬落)이 곳곳이 버러 잇ᄂᆡ
-
 연하일휘(煙霞日輝)ᄂᆞᆫ 금수(錦繡)ᄅᆞᆯ 재폇ᄂᆞᆫ ᄃᆞᆺ
-
 엇그제 검은 들이 봄빗도 유여(有餘)ᄒᆞᆯ샤
 
+【결사】
 공명(功名)도 날 ᄭᅴ우고 부귀(富貴)도 날 ᄭᅴ우니
-
 청풍 명월(淸風明月) 외(外)예 엇던 벗이 잇ᄉᆞ올고
-
 단표 누항(簞瓢陋巷)에 흣튼 혜음 아니 ᄒᆞᄂᆡ
-
 아모타 백년 행락(百年行樂)이 이만ᄒᆞᆫᄃᆞᆯ 엇지ᄒᆞ리
 
 </div>
+</details>
 
 <details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
 <summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
-📖 현대어 해석 보기
+📖 현대어 해석 전체 보기
 </summary>
-<div class="p-6 bg-white dark:bg-gray-900">
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<div data-print-button data-content-id="sangchungok-modern" data-title="상춘곡 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="sangchungok-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
 
+【서사】
 속세에 묻혀 사는 사람들아, 이 나의 삶이 어떠한가?
-
 옛 사람의 풍류에 미칠까 못 미칠까
-
 세상의 남자로 태어난 몸으로 나만한 사람이 많지마는
-
 산림에 묻혀 있는 지극한 즐거움을 모른단 말인가
-
 초가삼간을 맑은 시냇가 앞에 지어 놓고
-
 소나무와 대나무가 울창한 숲 속에서 자연을 즐기는 주인이 되어 있도다
 
+【본사1】
 엊그제 겨울 지나 새봄이 돌아오니
-
 복숭아꽃과 살구꽃은 석양 속에 피어 있고
-
 푸른 버드나무와 향기로운 풀은 가랑비가 내리는 가운데 푸르도다
-
 칼로 잘라냈는가? 붓으로 그려내었는가?
-
 조물주의 신통한 재주가 사물마다 야단스럽구나
-
 수풀에 우는 새는 봄기운에 못내 겨워 소리마다 교태로다
-
 물아일체이거늘, 흥이야 다르겠는가
 
+【본사2】
 사립문 주변을 걸어보기도 하고, 정자에 앉아 보기도 하니
-
 이리저리 거닐며 나직이 시를 읊조려 보며, 산 속의 하루하루가 적적한데
-
 한가로움 속의 참된 즐거움을 아는 이 없이 나 혼자로구나
-
 여보게 이웃 사람들아, 산수 구경이나 가자꾸나
-
 풀을 밟는 것은 오늘하고, 목욕하는 일은 내일 하세
-
 아침에는 산에서 나물을 캐고, 저녁 때에는 낚시하세
 
+【본사3】
 갓 다 쪄서 익은 술을 칡뿌리 두건으로 걸러 놓고
-
 꽃나무 가지 꺾어서 잔 수를 세며 먹으리라
-
 화창한 봄바람이 문득 불어 푸른 물결을 건너오니
-
 맑은 향기는 술잔에 가득히 담기고, 붉은 꽃잎은 옷에 떨어진다
-
 술동이가 비었거든 나에게 알리어라
-
 아이를 시켜 술집에 술이 있는지를 물어서
-
 어른은 지팡이를 짚고 아이는 술동이를 메고
-
 나직이 읊조리며 천천히 걸어서 시냇가에 혼자 앉아
 
+【본사4】
 맑은 모래 위로 흐르는 깨끗한 물에 잔을 씻어 부어 들고
-
 맑은 시냇물을 굽어보니 떠내려 오는 것이 복숭아꽃이로구나
-
 무릉도원이 가깝구나, 저 들이 무릉도원인가?
-
 소나무 숲 사이로 난 오솔길에서 진달래꽃을 붙들고
-
 산봉우리 위에 급히 올라 구름 속에 앉아보니
-
 수많은 촌락이 여기저기 널려 있네
-
 안개와 노을과 빛나는 햇살은 수 놓은 비단을 펼쳐 놓은 듯하구나
-
 엊그제까지 거뭇거뭇하던 들판에 봄빛이 넘쳐 흐르는구나
 
+【결사】
 명예와 부귀도 나를 꺼리니
-
 맑은 바람과 밝은 달 외에 그 어떤 벗이 있겠는가
-
 누추한 곳에서 가난한 생활을 하면서도 헛된 생각을 아니 하네
-
 아무튼 백년 즐겁게 지내는 게 이만한들 어찌하리
 
 </div>
@@ -1100,150 +1504,243 @@ In our modern world obsessed with achievement and accumulation, "Sangchungok" of
 보기만 해도 국어 감각이 살아납니다.
 수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
 
-## 「매화사」- 지조와 절개의 상징
+## 📜 원문 + 현대어 해설
 
-<div class="my-8 p-6 bg-stone-100 dark:bg-stone-800/30 border border-stone-300 dark:border-stone-700 rounded-xl">
-
-### 📜 원문
-
-**제1수**
-
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제1수】</strong>
 매영(梅影)이 부드친 창(窓)에 옥인금차(玉人金𨥁) 비겨신져.
-
 이삼 백발옹(白髮翁)은 거문고와 노래로다.
+이윽고 잔 드러 권하랄 제 달이 또한 오르더라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+매화 그림자가 비친 창가에 옥 같은 미인이 금비녀를 꽂은 채 기대어 서 있구나.
+두세 명의 백발 노인들은 거문고를 타며 노래를 부르고 있도다.
+얼마 지나 술잔을 들어 서로 권할 때, 마침 달도 함께 떠오르더라.
+</div>
+</details>
 
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제2수】</strong>
+어리고 성근 가지 너를 밋지 아녀 더니
+눈 기약 능히 직혀 두세 송이 퓌였고나.
+촉(燭) 잡고 갓가이 사랑할 제 암향(暗香)좃차 부동(不動)터라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+연약하고 듬성듬성한 가지라서 너를 믿지 못했는데
+눈 오면 피겠다는 약속을 능히 지켜 두세 송이가 벌써 피었구나.
+촛불을 들고 가까이 다가가 사랑스럽게 바라보니, 그윽한 향기조차 고요하게 감돌더라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제3수】</strong>
+빙자옥질(氷姿玉質)이여 눈 속에 네로구나.
+가만히 향기 노아 황혼월(黃昏月)을 기약하니
+아마도 아치고절(雅致高節)은 너뿐인가 하노라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+얼음 같은 자태와 옥 같은 바탕을 가진 네가 눈 속에 있구나.
+가만히 향기를 흘려 보내며 황혼에 뜨는 달과 마음을 주고 받으니
+아마도 고상한 멋과 높은 절개는 너뿐인가 한다.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제4수】</strong>
+눈으로 기약터니 네 과연 퓌엿고나
+황혼에 달이 오니 그림자도 성기거다.
+청향(淸香)이 잔에 떳스니 취코 놀려 허노라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+눈이 오면 피겠다고 약속했는데 네가 과연 그 약속대로 피었구나.
+황혼에 달이 뜨니 매화의 그림자도 드문드문 비친다.
+맑은 향기가 술잔 위에 떠 있으니 그 향기에 취해 즐겁게 놀고자 한다.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제5수】</strong>
+황혼에 돗는 달이 너와 긔약 두엇더냐.
+합리(閤裏)에 자든 꼿치 향긔 노아 맛는고야.
+내 엇디 매월(每月)이 벗되는 줄 몰낫던고 하노라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+황혼에 떠오르는 달이 너와 약속이라도 한 것이냐.
+방 안에 조용히 잠들어 있던 꽃이 향기를 흘리며 달을 맞이하는구나.
+내가 어찌 매화와 달이 서로 벗처럼 지내는 줄 미처 모르고 있었던가.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제6수】</strong>
+바람이 눈을 몰아 산창(山窓)에 부듸치니
+찬 기운 새여드러 쟘든 매화를 침노(侵擄)한다.
+아무리 어루려한들 봄 뜻이야 아슬소냐.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+바람이 눈을 몰아와 산속 창문에 부딪치니
+찬 기운이 스며들어 자고 있던 매화를 침범하는구나.
+아무리 얼게 하려 한들 봄을 향한 뜻이야 빼앗을 수 있겠느냐.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제7수】</strong>
+저 건너 나부산(羅浮山) 눈속에 검어 웃뚝
+울통불통 광매등걸아
+네 무삼 힘으로 가지 돗쳐 곳조차 져리 퓌엿는다.
+아모리 석은 배 반(半)만 남앗실만졍 봄 뜻즐 어이 하리오.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+저 건너 중국에서 신선이 산다고 전해지는 나부산 눈 속에서도 검게 우뚝 서 있는
+울퉁불퉁한 늙은 매화나무 한 그루야.
+네가 무슨 힘으로 새 가지를 돋아내고 꽃까지 저렇게 피워 냈단 말이냐.
+아무리 썩은 몸통 반만 남았을망정, 봄을 향한 뜻을 어찌 막을 수 있으리오.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제8수】</strong>
+동각(東閣)에 숨은 꼿치 척촉인가 두견화인가.
+건곤(乾坤)이 눈이여늘 제 엇디 감히 퓌리.
+알괘라 백설양춘(白雪陽春)은 매화 밧게 뉘 이시리.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+동쪽 누각에 숨어 있는 꽃이 철쭉인가, 진달래인가.
+온 세상이 아직 눈 투성이인데, 그것이 어찌 감히 피겠는가.
+이제 알겠다. 눈 내린 이른 계절에 피어나는 꽃은 매화밖에 또 누가 있겠는가.
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="maehwasa-original" data-title="매화사 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="maehwasa-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
+
+【제1수】
+매영(梅影)이 부드친 창(窓)에 옥인금차(玉人金𨥁) 비겨신져.
+이삼 백발옹(白髮翁)은 거문고와 노래로다.
 이윽고 잔 드러 권하랄 제 달이 또한 오르더라.
 
-**제2수**
-
+【제2수】
 어리고 성근 가지 너를 밋지 아녀 더니
-
 눈 기약 능히 직혀 두세 송이 퓌였고나.
-
 촉(燭) 잡고 갓가이 사랑할 제 암향(暗香)좃차 부동(不動)터라.
 
-**제3수**
-
+【제3수】
 빙자옥질(氷姿玉質)이여 눈 속에 네로구나.
-
 가만히 향기 노아 황혼월(黃昏月)을 기약하니
-
 아마도 아치고절(雅致高節)은 너뿐인가 하노라.
 
-**제4수**
-
+【제4수】
 눈으로 기약터니 네 과연 퓌엿고나
-
 황혼에 달이 오니 그림자도 성기거다.
-
 청향(淸香)이 잔에 떳스니 취코 놀려 허노라.
 
-**제5수**
-
+【제5수】
 황혼에 돗는 달이 너와 긔약 두엇더냐.
-
 합리(閤裏)에 자든 꼿치 향긔 노아 맛는고야.
-
 내 엇디 매월(每月)이 벗되는 줄 몰낫던고 하노라.
 
-**제6수**
-
+【제6수】
 바람이 눈을 몰아 산창(山窓)에 부듸치니
-
 찬 기운 새여드러 쟘든 매화를 침노(侵擄)한다.
-
 아무리 어루려한들 봄 뜻이야 아슬소냐.
 
-**제7수**
-
+【제7수】
 저 건너 나부산(羅浮山) 눈속에 검어 웃뚝
-
 울통불통 광매등걸아
-
 네 무삼 힘으로 가지 돗쳐 곳조차 져리 퓌엿는다.
-
 아모리 석은 배 반(半)만 남앗실만졍 봄 뜻즐 어이 하리오.
 
-**제8수**
-
+【제8수】
 동각(東閣)에 숨은 꼿치 척촉인가 두견화인가.
-
 건곤(乾坤)이 눈이여늘 제 엇디 감히 퓌리.
-
 알괘라 백설양춘(白雪陽春)은 매화 밧게 뉘 이시리.
 
 </div>
+</details>
 
 <details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
 <summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
-📖 현대어 해석 보기
+📖 현대어 해석 전체 보기
 </summary>
-<div class="p-6 bg-white dark:bg-gray-900">
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<div data-print-button data-content-id="maehwasa-modern" data-title="매화사 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="maehwasa-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
 
-**제1수**
-
+【제1수】
 매화 그림자가 비친 창가에 옥 같은 미인이 금비녀를 꽂은 채 기대어 서 있구나.
-
 두세 명의 백발 노인들은 거문고를 타며 노래를 부르고 있도다.
-
 얼마 지나 술잔을 들어 서로 권할 때, 마침 달도 함께 떠오르더라.
 
-**제2수**
-
+【제2수】
 연약하고 듬성듬성한 가지라서 너를 믿지 못했는데
-
 눈 오면 피겠다는 약속을 능히 지켜 두세 송이가 벌써 피었구나.
-
 촛불을 들고 가까이 다가가 사랑스럽게 바라보니, 그윽한 향기조차 고요하게 감돌더라.
 
-**제3수**
-
+【제3수】
 얼음 같은 자태와 옥 같은 바탕을 가진 네가 눈 속에 있구나.
-
 가만히 향기를 흘려 보내며 황혼에 뜨는 달과 마음을 주고 받으니
-
 아마도 고상한 멋과 높은 절개는 너뿐인가 한다.
 
-**제4수**
-
+【제4수】
 눈이 오면 피겠다고 약속했는데 네가 과연 그 약속대로 피었구나.
-
 황혼에 달이 뜨니 매화의 그림자도 드문드문 비친다.
-
 맑은 향기가 술잔 위에 떠 있으니 그 향기에 취해 즐겁게 놀고자 한다.
 
-**제5수**
-
+【제5수】
 황혼에 떠오르는 달이 너와 약속이라도 한 것이냐.
-
 방 안에 조용히 잠들어 있던 꽃이 향기를 흘리며 달을 맞이하는구나.
-
 내가 어찌 매화와 달이 서로 벗처럼 지내는 줄 미처 모르고 있었던가.
 
-**제6수**
-
+【제6수】
 바람이 눈을 몰아와 산속 창문에 부딪치니
-
 찬 기운이 스며들어 자고 있던 매화를 침범하는구나.
-
 아무리 얼게 하려 한들 봄을 향한 뜻이야 빼앗을 수 있겠느냐.
 
-**제7수**
-
+【제7수】
 저 건너 중국에서 신선이 산다고 전해지는 나부산 눈 속에서도 검게 우뚝 서 있는
-
 울퉁불퉁한 늙은 매화나무 한 그루야.
-
 네가 무슨 힘으로 새 가지를 돋아내고 꽃까지 저렇게 피워 냈단 말이냐.
-
 아무리 썩은 몸통 반만 남았을망정, 봄을 향한 뜻을 어찌 막을 수 있으리오.
 
-**제8수**
-
+【제8수】
 동쪽 누각에 숨어 있는 꽃이 철쭉인가, 진달래인가.
-
 온 세상이 아직 눈 투성이인데, 그것이 어찌 감히 피겠는가.
-
 이제 알겠다. 눈 내린 이른 계절에 피어나는 꽃은 매화밖에 또 누가 있겠는가.
 
 </div>
@@ -5125,6 +5622,371 @@ This work inherits the East Asian tradition of political poetry while reflecting
 **"AI 그림과 친절한 해설로 즐기는 고전문학!
 보기만 해도 국어 감각이 살아납니다.
 수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+---
+
+## 📜 원문 + 현대어 해석 (클릭하여 해설 보기)
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4">
+<summary class="cursor-pointer font-semibold text-lg text-gray-900 dark:text-white">
+<p>이 몸 삼기실 제 님을 조차 삼기시니,<br>
+ᄒᆞᆫᄉᆡᆼ 緣分(연분)이며 하ᄂᆞᆯ 모ᄅᆞᆯ 일이런가.<br>
+나 ᄒᆞ나 졈어 닛고 님 ᄒᆞ나 날 괴시니,<br>
+이 ᄆᆞ음 이 ᄉᆞ랑 견졸 ᄃᆡ 노여 업다.<br>
+平生(평ᄉᆡᆼ)애 願(원)ᄒᆞ요ᄃᆡ ᄒᆞᆫᄃᆡ 녜자 ᄒᆞ얏더니,<br>
+늙거야 므ᄉᆞ 일로 외오 두고 글이ᄂᆞᆫ고.<br>
+엇그제 님을 뫼셔 廣寒殿(광한뎐)의 올낫더니,<br>
+그더ᄃᆡ 엇디ᄒᆞ야 下界(하계)예 ᄂᆞ려오니,<br>
+올 적의 비슨 머리 얼킈연디 三年(삼년)이라.<br>
+臙脂粉(연지분) 잇ᄂᆡ마ᄂᆞᆫ 눌 위ᄒᆞ야 고이 ᄒᆞᆯ고.</p>
+</summary>
+<div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300">
+<p>이 몸 생겼을 때 임을 좇아 생겼으니,<br>
+한평생의 연분임을 하늘이 모를 일이던가.<br>
+나 하나 젊어 있고 임 하나 날 사랑하시니,<br>
+이 마음 이 사랑 견줄 데가 전혀 없다.<br>
+평생에 원하오되 함께 지내자 하였더니<br>
+늙어서야 무슨 일로 외로이 두고 그리는고.<br>
+엊그제 임을 모시고 광한전에 올랐더니<br>
+그 동안에 어찌하여 하계에 내려왔느냐.<br>
+올 적에 빗은 머리 헝클어진지 삼년이라.<br>
+연지분이 있지마는 누구를 위하여 곱게 할꼬.</p>
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4">
+<summary class="cursor-pointer font-semibold text-lg text-gray-900 dark:text-white">
+<p>ᄆᆞ음의 ᄆᆡ친 설음 疊疊(텹텹)이 ᄡᅡ여 이셔,<br>
+짓ᄂᆞ니 한숨이오 디ᄂᆞ니 눈믈이라.<br>
+人生(인ᄉᆡᆼ)은 有限(유ᄒᆞᆫ)ᄒᆞᆫᄃᆡ 시ᄅᆞᆷ도 그지 업다.<br>
+無心(무심)ᄒᆞᆫ 歲月(셰월)은 믈 흐ᄅᆞ듯 ᄒᆞᄂᆞᆫ고야.<br>
+炎凉(염냥)이 ᄯᅢᄅᆞᆯ 아라 가ᄂᆞᆫ ᄃᆞᆺ 고텨 오니,<br>
+듯거니 보거니 늣길 일도 하도 할샤.</p>
+</summary>
+<div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300">
+<p>마음에 맺힌 설움이 첩첩이 쌓여 있어<br>
+짓는 것이 한숨이고 지는 것이 눈물이라.<br>
+인생은 유한한데 시름은 끝이 없다.<br>
+무심한 세월은 물 흐르는 듯 하는구나.<br>
+더위와 추위가 때를 알아 가는 듯 다시 오니<br>
+듣고 보고 느낄 일도 많기도 많구나.</p>
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4">
+<summary class="cursor-pointer font-semibold text-lg text-gray-900 dark:text-white">
+<p>東風(동풍)이 건듯 부러 積雪(젹셜)을 헤텨내니,<br>
+窓(창) 밧긔 심근 梅花(ᄆᆡ화) 두세 가지 픠여셰라.<br>
+ᄀᆞᆺ득 冷淡(ᄂᆡᆼ담)ᄒᆞᆫᄃᆡ 暗香(암향)은 므ᄉᆞ 일고.<br>
+黃昏(황혼)의 ᄃᆞᆯ이 조차 벼마ᄐᆡ 빗최니,<br>
+늣기ᄂᆞᆫ ᄃᆞᆺ 반기ᄂᆞᆫ ᄃᆞᆺ 님이신가 아니신가.<br>
+뎌 梅花(ᄆᆡ화) 것거 내여 님 겨신 ᄃᆡ 보내오져.<br>
+님이 너ᄅᆞᆯ 보고 엇더타 너기실고.</p>
+</summary>
+<div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300">
+<p>동풍이 건듯 불어 쌓은 눈을 헤쳐 내니,<br>
+창밖에 심은 매화 두세 가지 피었구나.<br>
+가뜩이나 냉담한데 그윽한 향은 무슨 일인고.<br>
+황혼의 달이 쫓아와 베갯머리에 비치니,<br>
+흐느끼는 듯 반기는 듯 임이신가 아니신가.<br>
+저 매화 꺾어 내어 임 계신 데 보내고 싶구나.<br>
+임이 너를 보고 어떻다 여기실꼬.</p>
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4">
+<summary class="cursor-pointer font-semibold text-lg text-gray-900 dark:text-white">
+<p>ᄭᅩᆺ 디고 새 닙 나니 綠陰(녹음)이 ᄭᆞᆯ렷ᄂᆞᆫᄃᆡ,<br>
+羅幃(나위) 寂寞(젹막)하고, 繡幕(슈막)이 뷔여 잇다.<br>
+芙蓉(부용)을 거더 노코 孔雀(공쟉)을 둘러 두니,<br>
+ᄀᆞᆺ득 시ᄅᆞᆷ 한ᄃᆡ 날은 엇디 기돗던고.<br>
+鴛鴦錦(원앙금) 버혀 노코 五色線(오ᄉᆡᆨ션) 플텨 내여,<br>
+금자ᄒᆡ 견화 이셔 님의 옷 지어 내니,<br>
+手品(슈품)은ᄏᆞ니와 制度(졔도)도 ᄀᆞᄌᆞᆯ시고,<br>
+珊瑚樹(산호슈) 지게 우ᄒᆡ 白玉函(ᄇᆡᆨ옥함)의 다마 두고,<br>
+님의게 보내오려 님 겨신 ᄃᆡ ᄇᆞ라보니,<br>
+山(산)인가 구롬인가 머흐도 머흘시고.<br>
+千里 萬里(쳔리 만리) 길흘 뉘라셔 ᄎᆞ자갈고.<br>
+니거든 여러 두고 날인가 반기실가.</p>
+</summary>
+<div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300">
+<p>꽃 지고 새 잎 나니 녹음이 깔렸는데,<br>
+비단 장장이 적막하고 수놓은 장막이 비어 있다.<br>
+연꽃 휘장을 걷어 놓고 공작 병풍을 둘러두니,<br>
+가뜩이나 시름 많은데 날은 어찌 길었던고.<br>
+원앙 비단을 베어 놓고 오색실 풀어내어<br>
+금으로 만든 자로 재어 임의 옷 지어내니,<br>
+솜씨는 물론이거니와 격식도 갖추었구나.<br>
+보석 지게 위의 백옥함에 담아두고<br>
+임에게 보내오려 임 계신 데 바라보니,<br>
+산인가 구름인가 험하기도 험하구나.<br>
+천리만리 길을 누가 찾아갈꼬.<br>
+가거든 열어 두고 나를 본 듯 반기실까.</p>
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4">
+<summary class="cursor-pointer font-semibold text-lg text-gray-900 dark:text-white">
+<p>ᄒᆞᄅᆞ밤 서리김의 기려기 우러 녤 제,<br>
+危樓(위루)에 혼자 올나 水晶簾(수졍념) 거든 말이,<br>
+東山(동산)의 ᄃᆞᆯ이 나고 北極(북극)의 별이 뵈니,<br>
+님이신가 반기니 눈믈이 절로 난다.<br>
+淸光(쳥광)을 쥐여 내여 鳳凰樓(봉황누)의 븟티고져.<br>
+樓(누) 우ᄒᆡ 거러 두고 八荒(팔황)의 다 비최여,<br>
+深山窮谷(심산궁곡) 졈낫ᄀᆞ티 ᄆᆡᆼ그쇼서.</p>
+</summary>
+<div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300">
+<p>하룻밤 서리 김에 기러기 울며 갈 적에<br>
+높은 누각에 혼자 올라 수정발을 걷으니,<br>
+동산의 달이 뜨고 북극의 별이 보이니<br>
+임이신가 하여 반기니 눈물이 절로 난다.<br>
+맑은 빛을 쥐어 내어 궁궐에 부치고 싶다.<br>
+누각 위에 걸어두고 온 세상 다 비추어,<br>
+깊은 산골에도 대낮같이 만드소서.</p>
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4">
+<summary class="cursor-pointer font-semibold text-lg text-gray-900 dark:text-white">
+<p>乾坤(건곤)이 閉塞(폐ᄉᆡᆨ)ᄒᆞ야 白雪(ᄇᆡᆨ셜)이 ᄒᆞᆫ 빗친 제,<br>
+사ᄅᆞᆷ은 ᄏᆞ니와 ᄂᆞᆯ새도 긋쳐 잇다.<br>
+蕭湘南畔(쇼상남반)도 치오미 이러커든<br>
+玉樓高處(옥루고쳐)야 더욱 닐러 므ᄉᆞᆷᄒᆞ리.<br>
+陽春(양츈)을 부쳐 내여 님 겨신 ᄃᆡ 쏘이고져.<br>
+茅簷(모쳠) 비쵠 ᄒᆡ를 玉樓(옥루)의 올리고져.</p>
+</summary>
+<div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300">
+<p>천지가 얼어붙어 막히고 흰 눈이 한 빛깔인 때,<br>
+사람은 물론이거니와 날짐승도 그쳐 있다.<br>
+소상강 남쪽도 추위가 이렇거든<br>
+임 계신 곳이야 더욱 일러 무엇하리.<br>
+봄기운을 부쳐 내어 임 계신데 쏘이고자 한다.<br>
+띳집 처마에 비친 해를 대궐에 올리고자 한다.</p>
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4">
+<summary class="cursor-pointer font-semibold text-lg text-gray-900 dark:text-white">
+<p>紅裳(홍샹)을 니믜 ᄎᆞ고 翠袖(ᄎᆔ슈)를 半(반)만 거더,<br>
+日暮脩竹(일모슈듁)의 헴가림도 하도 할샤.<br>
+댜ᄅᆞᆫ ᄒᆡ 수이 디여 긴 밤을 고초 안자,<br>
+靑燈(쳥등) 거른 겻ᄐᆡ 鈿箜篌(뎐공후) 노하 두고,<br>
+ᄭᅮᆷ의나 님을 보려 ᄐᆡᆨ 밧고 비겨시니,<br>
+鴦錦(앙금)도 ᄎᆞ도 챨사 이 밤은 언제 샐고.</p>
+</summary>
+<div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300">
+<p>붉은 치마를 여며 입고 푸른 소매를 반만 걷어<br>
+해 질 무렵 긴 대나무에 헤아림도 많기도 하구나.<br>
+짧은 해가 쉬이 지어 긴 밤을 꼿꼿이 앉아,<br>
+푸른 등 걸어둔 곁에 전공후 놓아 두고,<br>
+꿈에나 임을 보려 턱 받치고 비껴 있으니,<br>
+이불이 차기도 차구나, 이 밤은 언제 샐꼬.</p>
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4">
+<summary class="cursor-pointer font-semibold text-lg text-gray-900 dark:text-white">
+<p>ᄒᆞᄅᆞ도 열 두 ᄯᅢ ᄒᆞᆫ ᄃᆞᆯ도 셜흔 날,<br>
+져근덧 ᄉᆡᆼ각 마라 이 시ᄅᆞᆷ 닛쟈 ᄒᆞ니,<br>
+ᄆᆞ음의 ᄆᆡ쳐 이셔 骨髓(골슈)의 ᄭᅦ텨시니,<br>
+扁鵲(편쟉)이 열히 오나 이 병을 엇디 ᄒᆞ리.<br>
+어와 내 병이야 이 님의 타시로다.</p>
+</summary>
+<div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300">
+<p>하루도 열두 때 한 달도 서른 날,<br>
+잠깐 동안 생각 말아 이 시름 잊자 하니,<br>
+마음에 맺혀 있어 뼛속까지 꿰쳤으니,<br>
+편작이 열이 와도 이 병을 어찌하리.<br>
+아아, 내 병이야 이 임의 탓이로다.</p>
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg p-4 my-4">
+<summary class="cursor-pointer font-semibold text-lg text-gray-900 dark:text-white">
+<p>ᄎᆞᆯ하리 싀어디여 범나븨 되오리라.<br>
+곳나모 가지마다 간 ᄃᆡ 죡죡 안니다가,<br>
+향 므든 날애로 님의 오ᄉᆡ 올므리라.<br>
+님이야 날인 줄 모ᄅᆞ샤도 내 님 조ᄎᆞ려 ᄒᆞ노라.</p>
+</summary>
+<div class="mt-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-700 dark:text-gray-300">
+<p>차라리 사라져서 범나비 되오리라.<br>
+꽃나무 가지마다 간 데 족족 앉았다가,<br>
+향기 묻은 날개로 임의 옷에 옮으리라.<br>
+임이야 나인 줄 모르셔도 나는 임을 좇으려 하노라.</p>
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="samieungok-original" data-title="사미인곡 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="samieungok-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
+
+이 몸 삼기실 제 님을 조차 삼기시니,
+ᄒᆞᆫᄉᆡᆼ 緣分(연분)이며 하ᄂᆞᆯ 모ᄅᆞᆯ 일이런가.
+나 ᄒᆞ나 졈어 닛고 님 ᄒᆞ나 날 괴시니,
+이 ᄆᆞ음 이 ᄉᆞ랑 견졸 ᄃᆡ 노여 업다.
+平生(평ᄉᆡᆼ)애 願(원)ᄒᆞ요ᄃᆡ ᄒᆞᆫᄃᆡ 녜자 ᄒᆞ얏더니,
+늙거야 므ᄉᆞ 일로 외오 두고 글이ᄂᆞᆫ고.
+
+엇그제 님을 뫼셔 廣寒殿(광한뎐)의 올낫더니,
+그더ᄃᆡ 엇디ᄒᆞ야 下界(하계)예 ᄂᆞ려오니,
+올 적의 비슨 머리 얼킈연디 三年(삼년)이라.
+臙脂粉(연지분) 잇ᄂᆡ마ᄂᆞᆫ 눌 위ᄒᆞ야 고이 ᄒᆞᆯ고.
+ᄆᆞ음의 ᄆᆡ친 설음 疊疊(텹텹)이 ᄡᅡ여 이셔,
+짓ᄂᆞ니 한숨이오 디ᄂᆞ니 눈믈이라.
+人生(인ᄉᆡᆼ)은 有限(유ᄒᆞᆫ)ᄒᆞᆫᄃᆡ 시ᄅᆞᆷ도 그지 업다.
+無心(무심)ᄒᆞᆫ 歲月(셰월)은 믈 흐ᄅᆞ듯 ᄒᆞᄂᆞᆫ고야.
+
+炎凉(염냥)이 ᄯᅢᄅᆞᆯ 아라 가ᄂᆞᆫ ᄃᆞᆺ 고텨 오니,
+듯거니 보거니 늣길 일도 하도 할샤.
+東風(동풍)이 건듯 부러 積雪(젹셜)을 헤텨내니,
+窓(창) 밧긔 심근 梅花(ᄆᆡ화) 두세 가지 픠여셰라.
+ᄀᆞᆺ득 冷淡(ᄂᆡᆼ담)ᄒᆞᆫᄃᆡ 暗香(암향)은 므ᄉᆞ 일고.
+黃昏(황혼)의 ᄃᆞᆯ이 조차 벼마ᄐᆡ 빗최니,
+늣기ᄂᆞᆫ ᄃᆞᆺ 반기ᄂᆞᆫ ᄃᆞᆺ 님이신가 아니신가.
+뎌 梅花(ᄆᆡ화) 것거 내여 님 겨신 ᄃᆡ 보내오져.
+님이 너ᄅᆞᆯ 보고 엇더타 너기실고.
+
+ᄭᅩᆺ 디고 새 닙 나니 綠陰(녹음)이 ᄭᆞᆯ렷ᄂᆞᆫᄃᆡ,
+羅幃(나위) 寂寞(젹막)하고, 繡幕(슈막)이 뷔여 잇다.
+芙蓉(부용)을 거더 노코 孔雀(공쟉)을 둘러 두니,
+ᄀᆞᆺ득 시ᄅᆞᆷ 한ᄃᆡ 날은 엇디 기돗던고.
+鴛鴦錦(원앙금) 버혀 노코 五色線(오ᄉᆡᆨ션) 플텨 내여,
+금자ᄒᆡ 견화 이셔 님의 옷 지어 내니,
+手品(슈품)은ᄏᆞ니와 制度(졔도)도 ᄀᆞᄌᆞᆯ시고,
+珊瑚樹(산호슈) 지게 우ᄒᆡ 白玉函(ᄇᆡᆨ옥함)의 다마 두고,
+님의게 보내오려 님 겨신 ᄃᆡ ᄇᆞ라보니,
+山(산)인가 구롬인가 머흐도 머흘시고.
+千里 萬里(쳔리 만리) 길흘 뉘라셔 ᄎᆞ자갈고.
+니거든 여러 두고 날인가 반기실가.
+
+ᄒᆞᄅᆞ밤 서리김의 기려기 우러 녤 제,
+危樓(위루)에 혼자 올나 水晶簾(수졍념) 거든 말이,
+東山(동산)의 ᄃᆞᆯ이 나고 北極(북극)의 별이 뵈니,
+님이신가 반기니 눈믈이 절로 난다.
+淸光(쳥광)을 쥐여 내여 鳳凰樓(봉황누)의 븟티고져.
+樓(누) 우ᄒᆡ 거러 두고 八荒(팔황)의 다 비최여,
+深山窮谷(심산궁곡) 졈낫ᄀᆞ티 ᄆᆡᆼ그쇼서.
+
+乾坤(건곤)이 閉塞(폐ᄉᆡᆨ)ᄒᆞ야 白雪(ᄇᆡᆨ셜)이 ᄒᆞᆫ 빗친 제,
+사ᄅᆞᆷ은 ᄏᆞ니와 ᄂᆞᆯ새도 긋쳐 잇다.
+蕭湘南畔(쇼상남반)도 치오미 이러커든
+玉樓高處(옥루고쳐)야 더욱 닐러 므ᄉᆞᆷᄒᆞ리.
+陽春(양츈)을 부쳐 내여 님 겨신 ᄃᆡ 쏘이고져.
+茅簷(모쳠) 비쵠 ᄒᆡ를 玉樓(옥루)의 올리고져.
+
+紅裳(홍샹)을 니믜 ᄎᆞ고 翠袖(ᄎᆔ슈)를 半(반)만 거더,
+日暮脩竹(일모슈듁)의 헴가림도 하도 할샤.
+댜ᄅᆞᆫ ᄒᆡ 수이 디여 긴 밤을 고초 안자,
+靑燈(쳥등) 거른 겻ᄐᆡ 鈿箜篌(뎐공후) 노하 두고,
+ᄭᅮᆷ의나 님을 보려 ᄐᆡᆨ 밧고 비겨시니,
+鴦錦(앙금)도 ᄎᆞ도 챨사 이 밤은 언제 샐고.
+ᄒᆞᄅᆞ도 열 두 ᄯᅢ ᄒᆞᆫ ᄃᆞᆯ도 셜흔 날,
+져근덧 ᄉᆡᆼ각 마라 이 시ᄅᆞᆷ 닛쟈 ᄒᆞ니,
+ᄆᆞ음의 ᄆᆡ쳐 이셔 骨髓(골슈)의 ᄭᅦ텨시니,
+扁鵲(편쟉)이 열히 오나 이 병을 엇디 ᄒᆞ리.
+
+어와 내 병이야 이 님의 타시로다.
+ᄎᆞᆯ하리 싀어디여 범나븨 되오리라.
+곳나모 가지마다 간 ᄃᆡ 죡죡 안니다가,
+향 므든 날애로 님의 오ᄉᆡ 올므리라.
+님이야 날인 줄 모ᄅᆞ샤도 내 님 조ᄎᆞ려 ᄒᆞ노라.
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📖 현대어 해석 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<div data-print-button data-content-id="samieungok-modern" data-title="사미인곡 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="samieungok-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+이 몸 생겼을 때 임을 좇아 생겼으니,
+한평생의 연분임을 하늘이 모를 일이던가.
+나 하나 젊어 있고 임 하나 날 사랑하시니,
+이 마음 이 사랑 견줄 데가 전혀 없다.
+평생에 원하오되 함께 지내자 하였더니
+늙어서야 무슨 일로 외로이 두고 그리는고.
+
+엇그제 임을 모시고 광한전에 올랐더니
+그 동안에 어찌하여 하계에 내려왔느냐.
+올 적에 빗은 머리 헝클어진지 삼년이라.
+연지분이 있지마는 누구를 위하여 곱게 할꼬.
+마음에 맺힌 설움이 첩첩이 쌓여 있어
+짓는 것이 한숨이고 지는 것이 눈물이라.
+인생은 유한한데 시름은 끝이 없다.
+무심한 세월은 물 흐르는 듯 하는구나.
+
+더위와 추위가 때를 알아 가는 듯 다시 오니
+듣고 보고 느낄 일도 많기도 많구나.
+동풍이 건듯 불어 쌓은 눈을 헤쳐 내니,
+창밖에 심은 매화 두세 가지 피었구나.
+가뜩이나 냉담한데 그윽한 향은 무슨 일인고.
+황혼의 달이 쫓아와 베갯머리에 비치니,
+흐느끼는 듯 반기는 듯 임이신가 아니신가.
+저 매화 꺾어 내어 임 계신 데 보내고 싶구나.
+임이 너를 보고 어떻다 여기실꼬.
+
+꽃 지고 새 잎 나니 녹음이 깔렸는데,
+비단 장장이 적막하고 수놓은 장막이 비어 있다.
+연꽃 휘장을 걷어 놓고 공작 병풍을 둘러두니,
+가뜩이나 시름 많은데 날은 어찌 길었던고.
+원앙 비단을 베어 놓고 오색실 풀어내어
+금으로 만든 자로 재어 임의 옷 지어내니,
+솜씨는 물론이거니와 격식도 갖추었구나.
+보석 지게 위의 백옥함에 담아두고
+임에게 보내오려 임 계신 데 바라보니,
+산인가 구름인가 험하기도 험하구나.
+천리만리 길을 누가 찾아갈꼬.
+가거든 열어 두고 나를 본 듯 반기실까.
+
+하룻밤 서리 김에 기러기 울며 갈 적에
+높은 누각에 혼자 올라 수정발을 걷으니,
+동산의 달이 뜨고 북극의 별이 보이니
+임이신가 하여 반기니 눈물이 절로 난다.
+맑은 빛을 쥐어 내어 궁궐에 부치고 싶다.
+누각 위에 걸어두고 온 세상 다 비추어,
+깊은 산골에도 대낮같이 만드소서.
+
+천지가 얼어붙어 막히고 흰 눈이 한 빛깔인 때,
+사람은 물론이거니와 날짐승도 그쳐 있다.
+소상강 남쪽도 추위가 이렇거든
+임 계신 곳이야 더욱 일러 무엇하리.
+봄기운을 부쳐 내어 임 계신데 쏘이고자 한다.
+띳집 처마에 비친 해를 대궐에 올리고자 한다.
+
+붉은 치마를 여며 입고 푸른 소매를 반만 걷어
+해 질 무렵 긴 대나무에 헤아림도 많기도 하구나.
+짧은 해가 쉬이 지어 긴 밤을 꼿꼿이 앉아,
+푸른 등 걸어둔 곁에 전공후 놓아 두고,
+꿈에나 임을 보려 턱 받치고 비껴 있으니,
+이불이 차기도 차구나, 이 밤은 언제 샐꼬.
+하루도 열두 때 한 달도 서른 날,
+잠깐 동안 생각 말아 이 시름 잊자 하니,
+마음에 맺혀 있어 뼛속까지 꿰쳤으니,
+편작이 열이 와도 이 병을 어찌하리.
+
+아아, 내 병이야 이 임의 탓이로다.
+차라리 사라져서 범나비 되오리라.
+꽃나무 가지마다 간 데 족족 앉았다가,
+향기 묻은 날개로 임의 옷에 옮으리라.
+임이야 나인 줄 모르셔도 나는 임을 좇으려 하노라.
+
+</div>
+</details>
+
+---
 
 ## 「사미인곡」- 정치적 사랑의 문학적 승화
 

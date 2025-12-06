@@ -15,7 +15,7 @@ export interface Post {
   thumbnail?: string;
   youtubeUrl?: string;
   url: string;
-  type?: 'special';
+  type?: 'special' | 'standard';
 }
 
 export interface PostCardProps {

@@ -1,9 +1,48 @@
-import { getPaginatedOriginalsPosts, getPostById } from '@/data/posts';
-import PostCard from '@/components/PostCard';
+import { getPostById, getPostsByCategory } from '@/data/posts';
 import FeaturedPost from '@/components/FeaturedPost';
-import Pagination from '@/components/Pagination';
+import OriginalsTabs from '@/components/OriginalsTabs';
 import { Metadata } from 'next';
 import { BASE_URL } from '@/lib/config';
+
+// 스테디 작품 (수능 출제 빈도 높은 작품)
+const STEADY_WORK_IDS = [
+  'gwandong-byeolgok', // 관동별곡
+  'samieungok', // 사미인곡
+  'sokmieungok', // 속미인곡
+  'gasiri', // 가시리
+  'changiparangga', // 찬기파랑가
+  'sangchungok', // 상춘곡
+];
+
+// 내신대비 작품 (업로드 최신순, 8작품)
+const SCHOOL_EXAM_WORK_IDS = [
+  'ganghosasiga', // 강호사시가 (최신)
+  'jemangmaega', // 제망매가
+  'changiparangga', // 찬기파랑가
+  'maehwasa', // 매화사
+  'sangchungok', // 상춘곡
+  'gasiri', // 가시리
+  'cheongsanbyeolgok', // 청산별곡
+  'myeonangjungga', // 면앙정가
+];
+
+// 2026 수능대비 작품 (업로드 순서)
+const SUNEUNG_2026_WORK_IDS = [
+  'classic-literature-marathon-2026', // SN고전문학 몰아보기 (맨 앞 배치)
+  'imgyetan', // 임계탄
+  'sochunhyangga', // 소춘향가
+  'biga', // 비가
+  'bukcheonga', // 북천가
+  'hwangokga', // 화왕가
+  'sunsangtan', // 선상탄
+  'yongbuga', // 용부가
+  'chulsaegok', // 출새곡
+  'mongcheonyo', // 몽천요
+  'dokrakdang', // 독락당
+  'oryun-ga', // 오륜가
+  'chohanga', // 초한가
+  'buksaegok', // 북새곡 (2025 수능 출제)
+];
 
 // 고전문학 시리즈 작품 목록 (SEO 및 AI 학습용)
 const CLASSICS_LIST = [
@@ -99,23 +138,26 @@ const jsonLd = {
   ],
 };
 
-interface OriginalsPageProps {
-  searchParams: Promise<{ page?: string }>;
-}
-
-export default async function OriginalsPage({
-  searchParams,
-}: OriginalsPageProps) {
-  // 페이지네이션을 위한 현재 페이지
-  const resolvedSearchParams = await searchParams;
-  const currentPage = parseInt(resolvedSearchParams.page || '1', 10);
-
+export default async function OriginalsPage() {
   // SN Originals 소개글 (고정)
   const introPost = getPostById('sn-originals-intro');
 
-  // SN Originals 카테고리 글들 (페이지네이션 적용, 소개글 제외)
-  const { posts: originalsPosts, totalPages } =
-    await getPaginatedOriginalsPosts(currentPage, 6);
+  // 탭별 작품 목록 가져오기 (전체 Post 데이터)
+  const getWorksByIds = (ids: string[]) =>
+    ids
+      .map(id => getPostById(id))
+      .filter(
+        (post): post is NonNullable<typeof post> => post !== undefined
+      );
+
+  // 전체보기: 모든 SN Originals 작품 (소개글 제외)
+  const allOriginalsWorks = getPostsByCategory('SN Originals').filter(
+    post => post.id !== 'sn-originals-intro'
+  );
+
+  const steadyWorks = getWorksByIds(STEADY_WORK_IDS);
+  const schoolExamWorks = getWorksByIds(SCHOOL_EXAM_WORK_IDS);
+  const suneung2026Works = getWorksByIds(SUNEUNG_2026_WORK_IDS);
 
   return (
     <>
@@ -133,50 +175,66 @@ export default async function OriginalsPage({
               SN Originals 소개
             </h2>
             <div className="space-y-4 lg:space-y-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <div
-                  className="w-2 h-2 bg-sn-primary rounded-full"
-                  aria-hidden="true"
-                ></div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  SN Originals 소개
-                </h3>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-2">
+                  <div
+                    className="w-2 h-2 bg-sn-primary rounded-full"
+                    aria-hidden="true"
+                  ></div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    SN Originals 소개
+                  </h3>
+                </div>
+                <div className="flex items-center gap-2">
+                  <a
+                    href="https://www.youtube.com/@SN_gisuk_original"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-full transition-colors"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    <span className="hidden sm:inline">채널 바로가기</span>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@SN_gisuk_original?sub_confirmation=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-full transition-colors"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <span className="hidden sm:inline">구독하기</span>
+                  </a>
+                </div>
               </div>
               <FeaturedPost post={introPost} />
             </div>
           </section>
         )}
 
-        {/* 고전문학 시리즈 글들 */}
-        <section aria-labelledby="series-heading">
-          <h2 id="series-heading" className="sr-only">
-            고전문학 시리즈
+        {/* 작품 분류 탭 */}
+        <section aria-labelledby="featured-heading">
+          <h2 id="featured-heading" className="sr-only">
+            작품 분류
           </h2>
           <div className="space-y-4 lg:space-y-6">
             <div className="flex items-center space-x-2 mb-4">
               <div
-                className="w-2 h-2 bg-blue-500 rounded-full"
+                className="w-2 h-2 bg-amber-500 rounded-full"
                 aria-hidden="true"
               ></div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                고전문학 시리즈
+                작품 분류
               </h3>
             </div>
-            <div
-              className="space-y-4 lg:space-y-6"
-              role="list"
-              aria-label="고전문학 시리즈 목록"
-            >
-              {originalsPosts.map(post => (
-                <PostCard key={post.id} post={post} />
-              ))}
-            </div>
-
-            {/* 페이지네이션 */}
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              baseUrl="/originals"
+            <OriginalsTabs
+              allWorks={allOriginalsWorks}
+              steadyWorks={steadyWorks}
+              schoolExamWorks={schoolExamWorks}
+              suneung2026Works={suneung2026Works}
             />
           </div>
         </section>
