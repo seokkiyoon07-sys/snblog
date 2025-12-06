@@ -5417,29 +5417,736 @@ This work inherits the East Asian tradition of popular literature while reflecti
 
 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 4탄으로 「관동별곡」을 준비했습니다.
 
-[타임스탬프]
-00:00 인트로, 작품 배경
-00:52 서사 - 죽림
-01:06 서사 - 연추문, 이동(평구~치악산)
-01:24 서사 - 소양강
-01:38 서사 - 철원, 태봉국 궁궐터
-01:56 서사 - 회양
-02:08 본사1(금강산) - 회양
-02:23 본사1(금강산) - 만폭동
-02:38 본사1(금강산) - 금강대
-02:55 본사1(금강산) - 진헐대
-03:44 본사1(금강산) - 개심대
-04:04 본사1(금강산) - 비로봉
-04:43 본사1(금강산) - 화룡소
-05:08 본사1(금강산) - 불정대
-05:40 본사2(동해) - 산영루
-06:18 본사2(동해) - 총석정
-06:35 본사2(동해) - 삼일포
-06:59 본사2(동해) - 의상대
-07:42 본사2(동해) - 경포대
-08:20 본사2(동해) - 강릉
-08:40 본사2(동해) - 죽서루
-09:07 본사2(동해)/결사 - 망양정
+---
+
+## 📍 타임스탬프
+
+### 🎬 인트로
+
+- 00:00 인트로, 작품 배경
+
+### 📜 서사 (출발~금강산 도착 전)
+
+- 00:52 죽림
+- 01:06 연추문, 이동(평구~치악산)
+- 01:24 소양강
+- 01:38 철원, 태봉국 궁궐터
+- 01:56 회양
+
+### 🏔️ 본사1 - 금강산
+
+- 02:08 회양
+- 02:23 만폭동
+- 02:38 금강대
+- 02:55 진헐대
+- 03:44 개심대
+- 04:04 비로봉
+- 04:43 화룡소
+- 05:08 불정대
+
+### 🌊 본사2 - 동해 팔경
+
+- 05:40 산영루
+- 06:18 총석정
+- 06:35 삼일포
+- 06:59 의상대
+- 07:42 경포대
+- 08:20 강릉
+- 08:40 죽서루
+- 09:07 망양정 (결사)
+
+---
+
+## 📚 원문 + 현대어 동시 보기
+
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4">원문은 항상 표시되며, 아래 흐릿한 현대어 해석 부분을 클릭하면 내용이 나타납니다.</p>
+
+<div class="space-y-4">
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">江강湖호애 病병이 깁퍼 竹듁林림의 누엇더니,<br/>關관東동八팔百ᄇᆡᆨ 里니에 方방面면을 맛디시니,<br/>어와 聖셩恩은이야 가디록 罔망極극ᄒᆞ다</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+자연을 사랑하는 병이 깊어 대나무숲에 누웠더니<br/>팔백 리나 되는 강원도 관찰사를 맡기시니<br/>아아, 임금의 은혜야말로 갈수록 망극하다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">延연秋츄門문 드리ᄃᆞ라 慶경會회南남門문 ᄇᆞ라보며,<br/>下하直직고 믈너나니 玉옥節졀이 알ᄑᆡ 셧다.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+영추문으로 달려들어 경회루의 남문을 바라보며,<br/>하직하고 물러나니 옥대나무가 앞에 섰다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">平평丘구驛역 ᄆᆞᆯ을 ᄀᆞ라 黑흑水슈로 도라드니,<br/>蟾셤江강은 어듸메오, 雉티岳악이 여긔로다.<br/>昭쇼陽양江강 ᄂᆞ린 믈이 어드러로 든단 말고.<br/>孤고臣신 去거國국에 白ᄇᆡᆨ髮발도 하도 할샤.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+평구역에서 말을 갈아 타고 흑수로 돌아 드니,<br/>섬강이 어디인가 치악산이 여기로다.<br/>소양강에 내리는 물이 어디로 든다는 말인가?<br/>한양을 떠난 외로운 신하는 흰 머리만 늘어가는구나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">東동州ᄌᆔ 밤 계오 새와 北븍寬관亭뎡의 올나ᄒᆞ니,<br/>三삼角각山산 第뎨一일峯봉이 ᄒᆞ마면 뵈리로다.<br/>弓궁王왕 大대闕궐 터희 烏오鵲쟉이 지지괴니,<br/>千쳔古고 興흥亡망을 아ᄂᆞᆫ다, 몰ᄋᆞᄂᆞᆫ다.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+철원에서 밤을 겨우 새워 북관정에 올라가니,<br/>삼각산 제일 높은 봉우리가 보일 것만 같구나.<br/>궁예왕의 대궐터에서 까막까치가 지저귀니,<br/>나라의 흥망을 아는가, 모르는가?
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">淮회陽양 녜 일홈이 마초아 ᄀᆞᄐᆞᆯ시고.<br/>汲급長댱孺유 風풍彩ᄎᆡ를 고텨 아니 볼 게이고.<br/>營영中듕이 無무事ᄉᆞᄒᆞ고 時시節졀이 三삼月월인 제,<br/>花화川쳔 시내길히 風풍岳악으로 버더 잇다.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+옛날 회양 땅과 이곳의 이름이 마침 같으니,<br/>급장유의 풍채를 이 곳에서 다시 볼 것인가.<br/>관내가 무사하고 호시절이 삼월인 때,<br/>화천 시내길은 풍악으로 뻗어 있다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">行ᄒᆡᆼ裝장을 다 ᄯᅥᆯ티고 石셕逕경의 막대 디퍼,<br/>百ᄇᆡᆨ川쳔洞동 겨ᄐᆡ 두고 萬만瀑폭洞동 드러가니,<br/>銀은 ᄀᆞᄐᆞᆫ 무지개, 玉옥 ᄀᆞᄐᆞᆫ 龍룡의 초리,<br/>섯돌며 ᄲᅮᆷᄂᆞᆫ 소ᄅᆡ 十십里리의 ᄌᆞ자시니,<br/>들을 제ᄂᆞᆫ 우레러니 보니ᄂᆞᆫ 눈이로다.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+행장을 다 꾸리고 좁은 산길에 막대를 짚어,<br/>백천동을 곁에 두고 만폭동 계곡에 들어가니,<br/>은 같은 무지개, 옥 같은 용의 꼬리가<br/>섞여 돌며 뿜는 소리가 십 리 밖까지 퍼졌으니,<br/>들을 때에는 우레 같더니, 가까이서 보니 눈이로다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">金금剛강臺ᄃᆡ ᄆᆡᆫ 우層층의 仙션鶴학이 삿기 치니,<br/>春츈風풍 玉옥笛뎍聲셩의 첫ᄌᆞᆷ을 ᄭᆡ돗던디,<br/>縞호衣의玄현裳샹이 半반空공의 소소 ᄯᅳ니,<br/>西셔湖호 녯 主쥬人인을 반겨셔 넘노ᄂᆞᆫ ᄃᆞᆺ.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+금강대 맨 위층에 학이 새끼를 치니,<br/>옥피리 소리 같은 봄바람에 선잠을 깨었던지,<br/>흰 저고리, 검은 치마를 입은 듯한 학이 공중에 솟아 뜨니,<br/>서호의 옛 주인을 반겨서 노는 듯하구나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">小쇼香향爐노 大대香향爐노 눈 아래 구버보고,<br/>正졍陽양寺ᄉᆞ 眞진歇헐臺ᄃᆡ 고텨 올나 안ᄌᆞᆫ마리,<br/>廬녀山산 眞진面면目목이 여긔야 다 뵈ᄂᆞ다.<br/>어와, 造조化화翁옹이 헌ᄉᆞ토 헌ᄉᆞ할샤.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+소향로봉, 대향로봉을 눈 아래 굽어보고,<br/>정양사 진헐대에 다시 올라 앉으니,<br/>여산과 같은 참모습이 여기에서 다 보이는 듯하다.<br/>아아, 조물주의 재주가 대단하구나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">ᄂᆞᆯ거든 ᄯᅱ디 마나, 셧거든 솟디 마나.<br/>芙부蓉용을 고잣ᄂᆞᆫ ᄃᆞᆺ, 白ᄇᆡᆨ玉옥을 믓것ᄂᆞᆫ ᄃᆞᆺ,<br/>東동溟명을 박ᄎᆞᄂᆞᆫ ᄃᆞᆺ, 北북極극을 괴왓ᄂᆞᆫ ᄃᆞᆺ.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+날려거든 뛰지 말거나 서려거든 솟지 말거나 할 것이지,<br/>연꽃을 꽂아놓은 듯, 백옥을 묶어 놓은 듯,<br/>동해를 박차고 나오는 듯, 북극을 괴고 있는 듯하다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">놉흘시고 望망高고臺ᄃᆡ, 외로올샤 穴혈望망峰봉이<br/>하ᄂᆞᆯ의 추미러 무ᄉᆞ 일을 ᄉᆞ로리라<br/>千쳔萬만劫겁 디나ᄃᆞ록 구필 줄 모ᄅᆞᄂᆞᆫ다.<br/>어와 너여이고, 너 ᄀᆞᄐᆞ니 ᄯᅩ 잇ᄂᆞᆫ가.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+높이 솟은 망고대, 외로워 보이는 혈망봉은<br/>하늘에 치밀어 무슨 일을 사뢰려고<br/>수많은 세월이 지나도록 굽힐 줄을 모르는가?<br/>아아, 너로구나. 너 같은 이 또 있겠는가?
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">開ᄀᆡ心심臺ᄃᆡ 고텨 올나 衆듕香향城셩 ᄇᆞ라보며,<br/>萬만二이千쳔峯봉을 歷녁歷녁히 혀여ᄒᆞ니<br/>峰봉마다 ᄆᆡᆺ쳐 잇고 긋마다 서린 긔운,<br/>ᄆᆞᆰ거든 조티 마나, 조커든 ᄆᆞᆰ디 마나.<br/>뎌 긔운 흐터 내야 人인傑걸을 ᄆᆞᆫᄃᆞᆯ고쟈.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+개심대에 다시 올라 중향성 봉우리를 바라보며,<br/>만 이천 봉을 똑똑히 헤아리니,<br/>봉마다 맺혀 있고 끝마다 서린 기운,<br/>맑거든 깨끗하지나, 깨끗하거든 맑지나 말 것이지,<br/>저 기운을 흩어 내어 인재를 만들고 싶구나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">形형容용도 그지업고 體톄勢세도 하도 할샤.<br/>天텬地디 삼기실 제 自ᄌᆞ然연이 되연마ᄂᆞᆫ,<br/>이제 와 보게 되니 有유情졍도 有유情졍ᄒᆞᆯ샤.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+(산봉우리의) 형상도 끝이 없고 자세도 많기도 하구나.<br/>천지가 생겼을 때에 자연히 되었건마는,<br/>이제 와서 보게 되니 조물주의 뜻이 깃들어 있구나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">毗비盧노峰봉 上샹上샹頭두의 올나 보니 긔 뉘신고.<br/>東동山산 泰태山산이 어ᄂᆞ야 놉돗던고.<br/>魯노國국 조븐 줄도 우리ᄂᆞᆫ 모ᄅᆞ거든,<br/>넙거나 넙은 天텬下하 엇ᄯᅵᄒᆞ야 적닷 말고.<br/>어와, 뎌 디위ᄅᆞᆯ 어이ᄒᆞ면 알 거이고.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+비로봉 정상에 올라 본 이가 그 누구인가?<br/>동산과 태산 어느 것이 더 높단 말인가?<br/>노나라가 좁은 줄도 우리는 모르거든,<br/>넓고 넓은 천하를 어찌하여 작다고 했단 말인가?<br/>아아, 저 정신적 경지를 어찌하면 알 것인가?
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">오ᄅᆞ디 못ᄒᆞ거니 ᄂᆞ려가미 고이ᄒᆞᆯ가.<br/>圓원通통골 ᄀᆞᄂᆞᆫ 길로 獅ᄉᆞ子ᄌᆞ峰봉을 ᄎᆞ자가니,<br/>그 알ᄑᆡ 너러바회 化화龍룡쇠 되어셰라.<br/>千쳔年년 老노龍룡이 구ᄇᆡ구ᄇᆡ 서려 이셔,<br/>晝듀夜야의 흘녀 내여 滄창海ᄒᆡ예 니어시니,<br/>風풍雲운을 언제 어더 三삼日일雨우ᄅᆞᆯ 디련ᄂᆞᆫ다.<br/>陰음崖애예 이온 플을 다 살와 내여ᄉᆞ라.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+오르지 못하거니, 내려가는 것이 괴이할까?<br/>원통골의 가느다란 길로 사자봉을 찾아가니,<br/>그 앞의 넓은 바위가 화룡소가 되었어라.<br/>천 년 묵은 늙은 용이 굽이굽이 서려 있어,<br/>밤낮으로 흘러내려 넓은 바다에 이었으니,<br/>비구름을 언제 얻어 흡족한 비를 내리려는가?<br/>그늘진 벼랑에 시든 풀을 다 살려 내려무나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">磨마訶하衍연 妙묘吉길祥샹 雁안門문재 너머 디여,<br/>외나모 ᄡᅥ근 ᄃᆞ리 佛불頂뎡臺ᄃᆡ,, 올라ᄒᆞ니,<br/>千쳔尋심絶졀壁벽을 半반空공애 셰여 두고,<br/>銀은河하水슈 한 구ᄇᆡᄅᆞᆯ 촌촌이 버혀 내여,<br/>실ᄀᆞ티 플텨이셔 뵈ᄀᆞ티 거러시니,<br/>圖도經경 열두 구ᄇᆡ, 내 보매ᄂᆞᆫ 여러히라.<br/>李니謫뎍仙션 이제 이셔 고텨 의논ᄒᆞ게 되면,<br/>廬녀山산이 여긔도곤 낫단 말 못 ᄒᆞ려니.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+마하연, 묘길상, 안문재를 넘어 내려가<br/>썩은 외나무다리를 건너 불정대에 올라가니,<br/>천 길 절벽을 하늘 가운데 세워 두고,<br/>은하수 큰 굽이를 마디마디 베어내어<br/>실처럼 풀어내서 베처럼 걸었으니,<br/>도경에서는 열두 굽이지만, 내가 보기에는 더 여럿이라.<br/>이태백이 이제 있어 다시 의논하게 되면,<br/>여산 폭포가 여기보다 낫다는 말은 못 할 것이다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">山산中듕을 ᄆᆡ양 보랴, 東동海ᄒᆡ로 가쟈ᄉᆞ라.<br/>藍남輿여 緩완步보ᄒᆞ야 山산映영樓누의 올나ᄒᆞ니,<br/>玲녕瓏농 碧벽溪계와 數수聲셩啼뎌鳥됴ᄂᆞᆫ 離니別별을 怨원ᄒᆞᄂᆞᆫ ᄃᆞᆺ,<br/>旌졍旗기를 ᄯᅥᆯ티니 五오色색이 넘노ᄂᆞᆫ ᄃᆞᆺ,<br/>鼓고角각을 섯부니 海ᄒᆡ雲운이 다 것ᄂᆞᆫ ᄃᆞᆺ.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+산중 경치만 보겠는가? 동해로 가자꾸나.<br/>가마를 타고 천천히 걸어 산영루에 올라가니,<br/>영롱한 푸른 시냇물과 여러 소리로 우는 산새는 이별을 원망하는 듯하고,<br/>깃발을 휘날리니 오색 빛깔 넘노는 듯하고,<br/>북과 피리를 섞어 부니 바닷구름이 다 걷히는 듯하다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">鳴명沙사길 니근 ᄆᆞᆯ이 醉취仙션을 빗기 시러,<br/>바다ᄒᆞᆯ 겻ᄐᆡ 두고 海ᄒᆡ棠당花화로 드러가니,<br/>白ᄇᆡᆨ鷗구야 ᄂᆞ디 마라, 네 버딘 줄 엇디 아ᄂᆞᆫ.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+백사장 길에 익숙한 말이 취한 신선을 비스듬히 실어,<br/>바다를 곁에 두고 해당화 꽃밭으로 들어가니,<br/>갈매기야 날지 말라, 내 너의 벗인 줄을 어찌 아느냐?
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">金금蘭난窟굴 도라드러 叢총石셕亭뎡 올나ᄒᆞ니,<br/>白ᄇᆡᆨ玉옥樓루 남은 기동 다만 네히 셔 잇고야.<br/>工공垂슈의 셩녕인가, 鬼귀斧부로 다ᄃᆞᄆᆞᆫ가.<br/>구ᄐᆞ야 六뉵面면은 므어슬 象샹톳던고.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+금난굴을 돌아들어서 통천 총석정에 올라가니,<br/>백옥루의 남은 기둥, 다만 넷이 서 있구나.<br/>공수의 작품인가? 귀신의 도끼로 다듬었는가?<br/>구태여 육면 돌기둥은 무엇을 본떴는가?
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">高고城셩을란 뎌만 두고 三삼日일浦포랄 ᄎᆞ자가니,<br/>丹단書셔ᄂᆞᆫ 宛완然연ᄒᆞ되 四ᄉᆞ仙션은 어ᄃᆡ 가니,<br/>예 사흘 머믄 後후의 어ᄃᆡ 가 ᄯᅩ 머믈고.<br/>仙션遊유潭담 永영郞낭湖호 거긔나 가 잇ᄂᆞᆫ가.<br/>淸쳥澗간亭뎡 萬만景경臺ᄃᆡ 몃 고ᄃᆡ 안돗던고.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+고성을 저만큼 두고 삼일포를 찾아가니,<br/>붉은 글씨는 뚜렷한데, 사선은 어디로 갔는가?<br/>여기서 사흘을 머무른 후에 어디 가서 또 머물렀는가?<br/>선유담, 영랑호는 거기에 가 있는가?<br/>청간정, 만경대 등 몇 군데에 앉았던가?
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">梨니花화ᄂᆞᆫ ᄇᆞᆯ셔 디고 졉동새 슬피 울 제,<br/>洛낙山산 東동畔반으로 義의相샹臺ᄃᆡ예 올라 안자,<br/>日일出출을 보리라 밤듕만 니러ᄒᆞ니,<br/>祥샹雲운이 집픠ᄂᆞᆫ 동, 六뉵龍뇽이 바퇴ᄂᆞᆫ 동,<br/>바다ᄒᆡ ᄯᅥ날 제ᄂᆞᆫ 萬만國국이 일위더니,<br/>天텬中듕의 티ᄯᅳ니 毫호髮발을 혜리로다.<br/>아마도 녈구름 근쳐의 머믈셰라.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+배꽃은 벌써 지고 소쩍새가 슬피 울 때,<br/>낙산사 동쪽 길 따라 의상대에 올라 앉아,<br/>일출을 보려고 한밤중쯤 일어나니,<br/>상서로운 구름이 지피는 듯, 여섯 용이 떠받치는 듯,<br/>(해가) 바다를 떠날 때에는 온 세상이 일 듯하더니,<br/>하늘에 치솟아 뜨니 터럭도 셀 수 있도다.<br/>행여나 지나가는 구름 근처에 머물까 두렵도다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">詩시仙션은 어ᄃᆡ 가고 咳ᄒᆞ唾타만 나맛ᄂᆞ니,<br/>天텬地디間간 壯장ᄒᆞᆫ 긔별 ᄌᆞ셔히도 ᄒᆞᆯ셔이고.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+시의 신선은 어디가고 침 튀긴 것만 남았느냐?<br/>천지간 굉장한 소식이 자세히도 되었구나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">斜샤陽양 峴현山산의 躑텩躅튝을 므니ᄇᆞᆯ와<br/>羽우蓋개芝지輪륜이 鏡경浦포로 ᄂᆞ려가니,<br/>十십里리 氷빙紈완을 다리고 고텨 다려,<br/>長댱松숑 울흔 소개 슬ᄏᆞ장 펴뎌시니,<br/>믈결도 자도 잘샤 모래ᄅᆞᆯ 혜리로다.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+저녁놀 비껴드는 현산의 철쭉꽃을 이어 밟아<br/>신선이 타는 수레를 타고 경포로 내려가니,<br/>10리의 흰 비단을 다리고 다시 다려,<br/>큰 소나무 숲 속에 실컷 펼쳐졌으니,<br/>물결이 잔잔하여 모래알까지도 헤아리로다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">孤고舟쥬 解ᄒᆡ纜람ᄒᆞ야 亭뎡子ᄌᆞ 우ᄒᆡ 올나가니,<br/>江강門문橋교 너믄 겨ᄐᆡ 大대洋양이 거긔로다.<br/>從둉容용ᄒᆞᆫ댜 이 氣긔象샹, 闊활遠원ᄒᆞᆫ댜 뎌 境경界계,<br/>이도곤 ᄀᆞᄌᆞᆫ ᄃᆡ ᄯᅩ 어듸 잇단 말고.<br/>紅홍粧장 古고事ᄉᆞᄅᆞᆯ 헌ᄉᆞ타 ᄒᆞ리로다.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+한 척의 배를 띄워 정자 위에 올라가니,<br/>강문교 넘은 곁에 대양이 거기로다.<br/>조용하구나, 이 기상. 광활하구나, 저 경계.<br/>이 경치 갖춘 데가 또 어디에 있단 말인가?<br/>박신과 홍장의 사랑이 야단스럽다 하리로다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">江강陵능 大대都도護호 風풍俗쇽이 됴흘시고,<br/>節졀孝효旌졍門문이 골골이 버러시니,<br/>比비屋옥可가封봉이 이제도 잇다 ᄒᆞᆯ다.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+강릉 대도호부의 풍속이 좋구나.<br/>절효정문이 고을마다 널렸으니,<br/>집집마다 벼슬 받을 만한 일이 이제도 있다 하리라.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">眞진珠쥬館관 竹듁西셔樓루 五오十십川쳔 ᄂᆞ린 믈이<br/>太태白ᄇᆡᆨ山산 그림재ᄅᆞᆯ 東동海ᄒᆡ로 다마 가니,<br/>ᄎᆞᆯ하리 漢한江강의 木목覓멱의 다히고져.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+진주관 죽서루 아래 오십천에 내리는 물이<br/>태백산 그림자를 동해로 담아 가니,<br/>차라리 한강으로 돌려 남산에 대고 싶도다.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">王왕程뎡이 有유限ᄒᆞᆫᄒᆞ고 風풍景경이 못 슬믜니,<br/>幽유懷회도 하도 할샤, 客ᄀᆡᆨ愁수도 둘 듸 업다.<br/>仙션사ᄉᆞᄅᆞᆯ ᄯᅴ워 내여 斗두牛우로 向향ᄒᆞ살가,<br/>仙션人인을 ᄎᆞᄌᆞ려 丹단穴혈의 머므살가.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+관리의 여정은 유한하고, 풍경은 싫지 않으니,<br/>회포가 많기도 많구나. 나그네의 시름도 달랠 길이 없구나.<br/>신선의 뗏목을 띄워내여 북두성, 견우성으로 갈까,<br/>신선을 찾으러 단혈에 머물러 살까?
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">天텬根근을 못내 보와 望망洋양亭뎡의 올은 말이,<br/>바다 밧근 하ᄂᆞᆯ이니 하ᄂᆞᆯ 밧근 무서신고.<br/>ᄀᆞᆺ득 노ᄒᆞᆫ 고래, 뉘라셔 놀내관ᄃᆡ,<br/>블거니 ᄲᅳᆷ거니 어즈러이 구ᄂᆞᆫ디고.<br/>銀은山산을 것거 내여 六뉵合합의 ᄂᆞ리ᄂᆞᆫ ᄃᆞᆺ,<br/>五오月월 長댱天텬의 白ᄇᆡᆨ雪셜은 므ᄉᆞ 일고.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+하늘의 끝을 내내 못 보아 망양정에 오르니,<br/>바다 밖은 하늘이니, 하늘 밖은 무엇인가?<br/>가뜩 성난 고래를 누가 놀라게 하기에,<br/>(물을) 불거니 뿜거니 어지럽게 구는 것인가?<br/>은산을 꺾어내어 온 세상에 내리는 듯,<br/>오월의 드높은 하늘에 백설은 무슨 일인가?
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">져근덧 밤이 드러 風풍浪낭이 定뎡ᄒᆞ거ᄂᆞᆯ,<br/>扶부桑상 咫지尺쳑의 明명月월을 기ᄃᆞ리니,<br/>瑞셔光광 千쳔丈댱이 뵈ᄂᆞᆫ ᄃᆞᆺ 숨ᄂᆞᆫ고야.<br/>珠쥬簾렴을 고텨 것고, 玉옥階계ᄅᆞᆯ 다시 쓸며,<br/>啓계明명星셩 돗도록 곳초 안자 ᄇᆞ라보니,<br/>白ᄇᆡᆨ蓮련花화 ᄒᆞᆫ 가지ᄅᆞᆯ 뉘라셔 보내신고.<br/>일이 됴흔 世세界계 ᄂᆞᆷ대되 다 뵈고져.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+잠깐 사이에 밤이 되어 풍랑이 가라앉거늘,<br/>해 뜨는 곳 가까이서 밝은 달을 기다리니,<br/>상서로운 달빛이 보이는 듯 숨는구나.<br/>구슬 발을 다시 걷고, 섬돌 층계를 다시 쓸며,<br/>샛별이 돋아 오를 때까지 곧바로 앉아서 바라 보니,<br/>흰 연꽃 한 가지를 누가 보내셨는가?<br/>이리 좋은 세계를 남들에게 다 보이고 싶구나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">流뉴霞하酒쥬 ᄀᆞ득 부어 ᄃᆞᆯᄃᆞ려 무론 말이,<br/>英영雄웅은 어ᄃᆡ 가며, 四ᄉᆞ仙션은 긔 뉘러니,<br/>아ᄆᆡ나 맛나 보아 녯 긔별 뭇쟈 ᄒᆞ니,<br/>仙션山산 東동海ᄒᆡ예 갈 길히 머도 멀샤.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+신선주를 가득 부어 달더러 묻는 말이,<br/>'영웅은 어디 갔으며, 사선은 그 누구인가.'<br/>아무나 만나 보아 옛 소식을 묻고자 하니,<br/>선산이 있는 동해로 가는 길이 멀기도 멀구나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">松숑根근을 볘여 누어 픗ᄌᆞᆷ을 얼픗 드니,<br/>ᄭᅮᆷ애 ᄒᆞᆫ 사ᄅᆞᆷ이 날ᄃᆞ려 닐온 말이,<br/>그ᄃᆡᄅᆞᆯ 내 모ᄅᆞ랴, 上샹界계예 眞진仙션이라.<br/>黃황庭뎡經경 一일字ᄌᆞᄅᆞᆯ 엇디 그ᄅᆞᆺ 닐거 두고,<br/>人인間간의 내려와셔 우리ᄅᆞᆯ ᄯᆞᆯ오ᄂᆞᆫ다.<br/>져근덧 가디 마오 이 술 ᄒᆞᆫ 잔 머거 보오.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+소나무 뿌리를 베어 누워 선잠이 얼핏 드니,<br/>꿈에서 한 사람이 날더러 이르는 말이,<br/>"그대를 내가 모르랴? 그대는 하늘나라의 신선이라.<br/>황정경 한 글자를 어찌 잘못 읽어 두고,<br/>인간 세상에 내려와서 우리를 따르는가?<br/>잠깐만 가지 마오. 이 술 한 잔 마셔 보오."
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">北븍斗두星셩 기우려 滄챵海ᄒᆡ水슈 부어 내여<br/>저 먹고 날 머겨ᄂᆞᆯ 서너 잔 거후로니,<br/>和화風풍이 習습習습ᄒᆞ야 兩냥腋ᄋᆡᆨ을 추혀 드니,<br/>九구萬만里리 長댱空공애 져기면 ᄂᆞᆯ리로다.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+북두칠성 기울여 동해 바닷물을 부어 내여,<br/>저 한 잔 먹고 날 먹이거늘, 서너 잔 기울이니,<br/>봄바람이 산들산들하여 두 겨드랑이를 추켜드니,<br/>구만 리 하늘을 날 수 있을 것만 같구나.
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">이 술 가져다가 四ᄉᆞ海ᄒᆡ예 고로 ᄂᆞᆫ화,<br/>億억萬만 蒼창生ᄉᆡᆼ을 다 醉ᄎᆔ케 ᄆᆡᆼ근 후의,<br/>그제야 고텨 맛나 ᄯᅩ ᄒᆞᆫ 잔 ᄒᆞ쟛고야.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+"이 술 가져다가 온 세상에 고루 나누어,<br/>억만 백성을 다 취케 만든 후에<br/>그제야 다시 만나 또 한 잔 하자꾸나."
+</div>
+</details>
+
+<details class="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+<summary class="list-none cursor-default p-4 [&::-webkit-details-marker]:hidden">
+<p class="text-lg font-medium text-gray-900 dark:text-white leading-relaxed">말 디쟈 鶴학을 ᄐᆞ고 九구空공의 올나가니,<br/>空공中듕 玉옥簫쇼 소ᄅᆡ 어제런가 그제런가.<br/>나도 ᄌᆞᆷ을 ᄭᆡ여 바다ᄒᆞᆯ 구버보니,<br/>기픠ᄅᆞᆯ 모ᄅᆞ거니 ᄀᆞ인들 엇디 알리.<br/>明명月월이 千쳔山산萬만落낙의 아니 비쵠 ᄃᆡ 업다.</p>
+</summary>
+<div class="p-4 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+말이 끝나자 (신선은) 학을 타고 아득한 하늘로 올라가니,<br/>공중에서 들려오는 옥피리 소리가 어제던가 그제던가.<br/>나도 잠을 깨어 바다를 굽어보니,<br/>깊이를 모르거니, 끝인들 어찌 알리?<br/>밝은 달이 온 세상에 아니 비추이는 데 없다.
+</div>
+</details>
+
+</div>
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="gwandong-original" data-title="관동별곡 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="gwandong-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+江강湖호애 病병이 깁퍼 竹듁林림의 누엇더니,
+關관東동八팔百ᄇᆡᆨ 里니에 方방面면을 맛디시니,
+어와 聖셩恩은이야 가디록 罔망極극ᄒᆞ다
+
+延연秋츄門문 드리ᄃᆞ라 慶경會회南남門문 ᄇᆞ라보며,
+下하直직고 믈너나니 玉옥節졀이 알ᄑᆡ 셧다.
+
+平평丘구驛역 ᄆᆞᆯ을 ᄀᆞ라 黑흑水슈로 도라드니,
+蟾셤江강은 어듸메오, 雉티岳악이 여긔로다.
+昭쇼陽양江강 ᄂᆞ린 믈이 어드러로 든단 말고.
+孤고臣신 去거國국에 白ᄇᆡᆨ髮발도 하도 할샤.
+
+東동州ᄌᆔ 밤 계오 새와 北븍寬관亭뎡의 올나ᄒᆞ니,
+三삼角각山산 第뎨一일峯봉이 ᄒᆞ마면 뵈리로다.
+弓궁王왕 大대闕궐 터희 烏오鵲쟉이 지지괴니,
+千쳔古고 興흥亡망을 아ᄂᆞᆫ다, 몰ᄋᆞᄂᆞᆫ다.
+
+淮회陽양 녜 일홈이 마초아 ᄀᆞᄐᆞᆯ시고.
+汲급長댱孺유 風풍彩ᄎᆡ를 고텨 아니 볼 게이고.
+營영中듕이 無무事ᄉᆞᄒᆞ고 時시節졀이 三삼月월인 제,
+花화川쳔 시내길히 風풍岳악으로 버더 잇다.
+
+行ᄒᆡᆼ裝장을 다 ᄯᅥᆯ티고 石셕逕경의 막대 디퍼,
+百ᄇᆡᆨ川쳔洞동 겨ᄐᆡ 두고 萬만瀑폭洞동 드러가니,
+銀은 ᄀᆞᄐᆞᆫ 무지개, 玉옥 ᄀᆞᄐᆞᆫ 龍룡의 초리,
+섯돌며 ᄲᅮᆷᄂᆞᆫ 소ᄅᆡ 十십里리의 ᄌᆞ자시니,
+들을 제ᄂᆞᆫ 우레러니 보니ᄂᆞᆫ 눈이로다.
+
+金금剛강臺ᄃᆡ ᄆᆡᆫ 우層층의 仙션鶴학이 삿기 치니,
+春츈風풍 玉옥笛뎍聲셩의 첫ᄌᆞᆷ을 ᄭᆡ돗던디,
+縞호衣의玄현裳샹이 半반空공의 소소 ᄯᅳ니,
+西셔湖호 녯 主쥬人인을 반겨셔 넘노ᄂᆞᆫ ᄃᆞᆺ.
+
+小쇼香향爐노 大대香향爐노 눈 아래 구버보고,
+正졍陽양寺ᄉᆞ 眞진歇헐臺ᄃᆡ 고텨 올나 안ᄌᆞᆫ마리,
+廬녀山산 眞진面면目목이 여긔야 다 뵈ᄂᆞ다.
+어와, 造조化화翁옹이 헌ᄉᆞ토 헌ᄉᆞ할샤.
+
+ᄂᆞᆯ거든 ᄯᅱ디 마나, 셧거든 솟디 마나.
+芙부蓉용을 고잣ᄂᆞᆫ ᄃᆞᆺ, 白ᄇᆡᆨ玉옥을 믓것ᄂᆞᆫ ᄃᆞᆺ,
+東동溟명을 박ᄎᆞᄂᆞᆫ ᄃᆞᆺ, 北북極극을 괴왓ᄂᆞᆫ ᄃᆞᆺ.
+
+놉흘시고 望망高고臺ᄃᆡ, 외로올샤 穴혈望망峰봉이
+하ᄂᆞᆯ의 추미러 무ᄉᆞ 일을 ᄉᆞ로리라
+千쳔萬만劫겁 디나ᄃᆞ록 구필 줄 모ᄅᆞᄂᆞᆫ다.
+어와 너여이고, 너 ᄀᆞᄐᆞ니 ᄯᅩ 잇ᄂᆞᆫ가.
+
+開ᄀᆡ心심臺ᄃᆡ 고텨 올나 衆듕香향城셩 ᄇᆞ라보며,
+萬만二이千쳔峯봉을 歷녁歷녁히 혀여ᄒᆞ니
+峰봉마다 ᄆᆡᆺ쳐 잇고 긋마다 서린 긔운,
+ᄆᆞᆰ거든 조티 마나, 조커든 ᄆᆞᆰ디 마나.
+뎌 긔운 흐터 내야 人인傑걸을 ᄆᆞᆫᄃᆞᆯ고쟈.
+
+形형容용도 그지업고 體톄勢세도 하도 할샤.
+天텬地디 삼기실 제 自ᄌᆞ然연이 되연마ᄂᆞᆫ,
+이제 와 보게 되니 有유情졍도 有유情졍ᄒᆞᆯ샤.
+
+毗비盧로峰봉 上샹上샹頭두의 올나 보니 긔 뉘신고.
+東동山산 泰태山산이 어ᄂᆞ야 놉돗던고.
+魯노國국 조븐 줄도 우리ᄂᆞᆫ 모ᄅᆞ거든,
+넙거나 넙은 天텬下하 엇ᄯᅵᄒᆞ야 적닷 말고.
+어와, 뎌 디위ᄅᆞᆯ 어이ᄒᆞ면 알 거이고.
+
+오ᄅᆞ디 못ᄒᆞ거니 ᄂᆞ려가미 고이ᄒᆞᆯ가.
+圓원通통골 ᄀᆞᄂᆞᆫ 길로 獅ᄉᆞ子ᄌᆞ峰봉을 ᄎᆞ자가니,
+그 알ᄑᆡ 너러바회 化화龍룡쇠 되어셰라.
+千쳔年년 老노龍룡이 구ᄇᆡ구ᄇᆡ 서려 이셔,
+晝듀夜야의 흘녀 내여 滄창海ᄒᆡ예 니어시니,
+風풍雲운을 언제 어더 三삼日일雨우ᄅᆞᆯ 디련ᄂᆞᆫ다.
+陰음崖애예 이온 플을 다 살와 내여ᄉᆞ라.
+
+磨마訶하衍연 妙묘吉길祥샹 雁안門문재 너머 디여,
+외나모 ᄡᅥ근 ᄃᆞ리 佛불頂뎡臺ᄃᆡ,, 올라ᄒᆞ니,
+千쳔尋심絶졀壁벽을 半반空공애 셰여 두고,
+銀은河하水슈 한 구ᄇᆡᄅᆞᆯ 촌촌이 버혀 내여,
+실ᄀᆞ티 플텨이셔 뵈ᄀᆞ티 거러시니,
+圖도經경 열두 구ᄇᆡ, 내 보매ᄂᆞᆫ 여러히라.
+李니謫뎍仙션 이제 이셔 고텨 의논ᄒᆞ게 되면,
+廬녀山산이 여긔도곤 낫단 말 못 ᄒᆞ려니.
+
+山산中듕을 ᄆᆡ양 보랴, 東동海ᄒᆡ로 가쟈ᄉᆞ라.
+藍남輿여 緩완步보ᄒᆞ야 山산映영樓누의 올나ᄒᆞ니,
+玲녕瓏농 碧벽溪계와 數수聲셩啼뎌鳥됴ᄂᆞᆫ 離니別별을 怨원ᄒᆞᄂᆞᆫ ᄃᆞᆺ,
+旌졍旗기를 ᄯᅥᆯ티니 五오色색이 넘노ᄂᆞᆫ ᄃᆞᆺ,
+鼓고角각을 섯부니 海ᄒᆡ雲운이 다 것ᄂᆞᆫ ᄃᆞᆺ.
+
+鳴명沙사길 니근 ᄆᆞᆯ이 醉취仙션을 빗기 시러,
+바다ᄒᆞᆯ 겻ᄐᆡ 두고 海ᄒᆡ棠당花화로 드러가니,
+白ᄇᆡᆨ鷗구야 ᄂᆞ디 마라, 네 버딘 줄 엇디 아ᄂᆞᆫ.
+
+金금蘭난窟굴 도라드러 叢총石셕亭뎡 올나ᄒᆞ니,
+白ᄇᆡᆨ玉옥樓루 남은 기동 다만 네히 셔 잇고야.
+工공垂슈의 셩녕인가, 鬼귀斧부로 다ᄃᆞᄆᆞᆫ가.
+구ᄐᆞ야 六뉵面면은 므어슬 象샹톳던고.
+
+高고城셩을란 뎌만 두고 三삼日일浦포랄 ᄎᆞ자가니,
+丹단書셔ᄂᆞᆫ 宛완然연ᄒᆞ되 四ᄉᆞ仙션은 어ᄃᆡ 가니,
+예 사흘 머믄 後후의 어ᄃᆡ 가 ᄯᅩ 머믈고.
+仙션遊유潭담 永영郞낭湖호 거긔나 가 잇ᄂᆞᆫ가.
+淸쳥澗간亭뎡 萬만景경臺ᄃᆡ 몃 고ᄃᆡ 안돗던고.
+
+梨니花화ᄂᆞᆫ ᄇᆞᆯ셔 디고 졉동새 슬피 울 제,
+洛낙山산 東동畔반으로 義의相샹臺ᄃᆡ예 올라 안자,
+日일出출을 보리라 밤듕만 니러ᄒᆞ니,
+祥샹雲운이 집픠ᄂᆞᆫ 동, 六뉵龍뇽이 바퇴ᄂᆞᆫ 동,
+바다ᄒᆡ ᄯᅥ날 제ᄂᆞᆫ 萬만國국이 일위더니,
+天텬中듕의 티ᄯᅳ니 毫호髮발을 혜리로다.
+아마도 녈구름 근쳐의 머믈셰라.
+
+詩시仙션은 어ᄃᆡ 가고 咳ᄒᆞ唾타만 나맛ᄂᆞ니,
+天텬地디間간 壯장ᄒᆞᆫ 긔별 ᄌᆞ셔히도 ᄒᆞᆯ셔이고.
+
+斜샤陽양 峴현山산의 躑텩躅튝을 므니ᄇᆞᆯ와
+羽우蓋개芝지輪륜이 鏡경浦포로 ᄂᆞ려가니,
+十십里리 氷빙紈환을 다리고 고텨 다려,
+長댱松숑 울흔 소개 슬ᄏᆞ장 펴뎌시니,
+믈결도 자도 잘샤 모래ᄅᆞᆯ 혜리로다.
+
+孤고舟쥬 解ᄒᆡ纜람ᄒᆞ야 亭뎡子ᄌᆞ 우ᄒᆡ 올나가니,
+江강門문橋교 너믄 겨ᄐᆡ 大대洋양이 거긔로다.
+從둉容용ᄒᆞᆫ댜 이 氣긔像샹, 闊활遠원ᄒᆞᆫ댜 뎌 境경界계,
+이도곤 ᄀᆞᄌᆞᆫ ᄃᆡ ᄯᅩ 어듸 잇단 말고.
+紅홍粧장 古고事ᄉᆞᄅᆞᆯ 헌ᄉᆞ타 ᄒᆞ리로다.
+
+江강陵능 大대都도護호 風풍俗쇽이 됴흘시고,
+節졀孝효旌졍門문이 골골이 버러시니,
+比비屋옥可가封봉이 이제도 잇다 ᄒᆞᆯ다.
+
+眞진珠쥬館관 竹듁西셔樓루 五오十십川쳔 ᄂᆞ린 믈이
+太태白ᄇᆡᆨ山산 그림재ᄅᆞᆯ 東동海ᄒᆡ로 다마 가니,
+ᄎᆞᆯ하리 漢한江강의 木목覓멱의 다히고져.
+
+王왕程뎡이 有유限ᄒᆞᆫᄒᆞ고 風풍景경이 못 슬믜니,
+幽유懷회도 하도 할샤, 客ᄀᆡᆨ愁수도 둘 듸 업다.
+仙션사ᄉᆞᄅᆞᆯ ᄯᅴ워 내여 斗두牛우로 向향ᄒᆞ살가,
+仙션人인을 ᄎᆞᄌᆞ려 丹단穴혈의 머므살가.
+
+天텬根근을 못내 보와 望망洋양亭뎡의 올은 말이,
+바다 밧근 하ᄂᆞᆯ이니 하ᄂᆞᆯ 밧근 무서신고.
+ᄀᆞᆺ득 노ᄒᆞᆫ 고래, 뉘라셔 놀내관ᄃᆡ,
+블거니 ᄲᅳᆷ거니 어즈러이 구ᄂᆞᆫ디고.
+銀은山산을 것거 내여 六뉵合합의 ᄂᆞ리ᄂᆞᆫ ᄃᆞᆺ,
+五오月월 長댱天텬의 白ᄇᆡᆨ雪셜은 므ᄉᆞ 일고.
+
+져근덧 밤이 드러 風풍浪낭이 定뎡ᄒᆞ거ᄂᆞᆯ,
+扶부桑상 咫지尺쳑의 明명月월을 기ᄃᆞ리니,
+瑞셔光광 千쳔丈댱이 뵈ᄂᆞᆫ ᄃᆞᆺ 숨ᄂᆞᆫ고야.
+珠쥬簾렴을 고텨 것고, 玉옥階계ᄅᆞᆯ 다시 쓸며,
+啓계明명星셩 돗도록 곳초 안자 ᄇᆞ라보니,
+白ᄇᆡᆨ蓮련花화 ᄒᆞᆫ 가지ᄅᆞᆯ 뉘라셔 보내신고.
+일이 됴흔 世세界계 ᄂᆞᆷ대되 다 뵈고져.
+
+流뉴霞하酒쥬 ᄀᆞ득 부어 ᄃᆞᆯᄃᆞ려 무론 말이,
+英영雄웅은 어ᄃᆡ 가며, 四ᄉᆞ仙션은 긔 뉘러니,
+아ᄆᆡ나 맛나 보아 녯 긔별 뭇쟈 ᄒᆞ니,
+仙션山산 東동海ᄒᆡ예 갈 길히 머도 멀샤.
+
+松숑根근을 볘여 누어 픗ᄌᆞᆷ을 얼픗 드니,
+ᄭᅮᆷ애 ᄒᆞᆫ 사ᄅᆞᆷ이 날ᄃᆞ려 닐온 말이,
+그ᄃᆡᄅᆞᆯ 내 모ᄅᆞ랴, 上샹界계예 眞진仙션이라.
+黃황庭뎡經경 一일字ᄌᆞᄅᆞᆯ 엇디 그ᄅᆞᆺ 닐거 두고,
+人인間간의 내려와셔 우리ᄅᆞᆯ ᄯᆞᆯ오ᄂᆞᆫ다.
+져근덧 가디 마오 이 술 ᄒᆞᆫ 잔 머거 보오.
+
+北븍斗두星셩 기우려 滄챵海ᄒᆡ水슈 부어 내여
+저 먹고 날 머겨ᄂᆞᆯ 서너 잔 거후로니,
+和화風풍이 習습習습ᄒᆞ야 兩냥腋ᄋᆡᆨ을 추혀 드니,
+九구萬만里리 長댱空공애 져기면 ᄂᆞᆯ리로다.
+
+이 술 가져다가 四ᄉᆞ海ᄒᆡ예 고로 ᄂᆞᆫ화,
+億억萬만 蒼창生ᄉᆡᆼ을 다 醉ᄎᆔ케 ᄆᆡᆼ근 후의,
+그제야 고텨 맛나 ᄯᅩ ᄒᆞᆫ 잔 ᄒᆞ쟛고야.
+
+말 디쟈 鶴학을 ᄐᆞ고 九구空공의 올나가니,
+空공中듕 玉옥簫쇼 소ᄅᆡ 어제런가 그제런가.
+나도 ᄌᆞᆷ을 ᄭᆡ여 바다ᄒᆞᆯ 구버보니,
+기픠ᄅᆞᆯ 모ᄅᆞ거니 ᄀᆞ인들 엇디 알리.
+明명月월이 千쳔山산萬만落낙의 아니 비쵠 ᄃᆡ 업다.
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📖 현대어 해석 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<div data-print-button data-content-id="gwandong-modern" data-title="관동별곡 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="gwandong-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+자연을 사랑하는 병이 깊어 대나무숲에 누웠더니
+팔백 리나 되는 강원도 관찰사를 맡기시니
+아아, 임금의 은혜야말로 갈수록 망극하다.
+
+영추문으로 달려들어 경회루의 남문을 바라보며,
+하직하고 물러나니 옥대나무가 앞에 섰다.
+
+평구역에서 말을 갈아 타고 흑수로 돌아 드니,
+섬강이 어디인가 치악산이 여기로다.
+소양강에 내리는 물이 어디로 든다는 말인가?
+한양을 떠난 외로운 신하는 흰 머리만 늘어가는구나.
+
+철원에서 밤을 겨우 새워 북관정에 올라가니,
+삼각산 제일 높은 봉우리가 보일 것만 같구나.
+궁예왕의 대궐터에서 까막까치가 지저귀니,
+나라의 흥망을 아는가, 모르는가?
+
+옛날 회양 땅과 이곳의 이름이 마침 같으니,
+급장유의 풍채를 이 곳에서 다시 볼 것인가.
+관내가 무사하고 호시절이 삼월인 때,
+화천 시내길은 풍악으로 뻗어 있다.
+
+행장을 다 꾸리고 좁은 산길에 막대를 짚어,
+백천동을 곁에 두고 만폭동 계곡에 들어가니,
+은 같은 무지개, 옥 같은 용의 꼬리가
+섞여 돌며 뿜는 소리가 십 리 밖까지 퍼졌으니,
+들을 때에는 우레 같더니, 가까이서 보니 눈이로다.
+
+금강대 맨 위층에 학이 새끼를 치니,
+옥피리 소리 같은 봄바람에 선잠을 깨었던지,
+흰 저고리, 검은 치마를 입은 듯한 학이 공중에 솟아 뜨니,
+서호의 옛 주인을 반겨서 노는 듯하구나.
+
+소향로봉, 대향로봉을 눈 아래 굽어보고,
+정양사 진헐대에 다시 올라 앉으니,
+여산과 같은 참모습이 여기에서 다 보이는 듯하다.
+아아, 조물주의 재주가 대단하구나.
+
+날려거든 뛰지 말거나 서려거든 솟지 말거나 할 것이지,
+연꽃을 꽂아놓은 듯, 백옥을 묶어 놓은 듯,
+동해를 박차고 나오는 듯, 북극을 괴고 있는 듯하다.
+
+높이 솟은 망고대, 외로워 보이는 혈망봉은
+하늘에 치밀어 무슨 일을 사뢰려고
+수많은 세월이 지나도록 굽힐 줄을 모르는가?
+아아, 너로구나. 너 같은 이 또 있겠는가?
+
+개심대에 다시 올라 중향성 봉우리를 바라보며,
+만 이천 봉을 똑똑히 헤아리니,
+봉마다 맺혀 있고 끝마다 서린 기운,
+맑거든 깨끗하지나, 깨끗하거든 맑지나 말 것이지,
+저 기운을 흩어 내어 인재를 만들고 싶구나.
+
+(산봉우리의) 형상도 끝이 없고 자세도 많기도 하구나.
+천지가 생겼을 때에 자연히 되었건마는,
+이제 와서 보게 되니 조물주의 뜻이 깃들어 있구나.
+
+비로봉 정상에 올라 본 이가 그 누구인가?
+동산과 태산 어느 것이 더 높단 말인가?
+노나라가 좁은 줄도 우리는 모르거든,
+넓고 넓은 천하를 어찌하여 작다고 했단 말인가?
+아아, 저 정신적 경지를 어찌하면 알 것인가?
+
+오르지 못하거니, 내려가는 것이 괴이할까?
+원통골의 가느다란 길로 사자봉을 찾아가니,
+그 앞의 넓은 바위가 화룡소가 되었어라.
+천 년 묵은 늙은 용이 굽이굽이 서려 있어,
+밤낮으로 흘러내려 넓은 바다에 이었으니,
+비구름을 언제 얻어 흡족한 비를 내리려는가?
+그늘진 벼랑에 시든 풀을 다 살려 내려무나.
+
+마하연, 묘길상, 안문재를 넘어 내려가
+썩은 외나무다리를 건너 불정대에 올라가니,
+천 길 절벽을 하늘 가운데 세워 두고,
+은하수 큰 굽이를 마디마디 베어내어
+실처럼 풀어내서 베처럼 걸었으니,
+도경에서는 열두 굽이지만, 내가 보기에는 더 여럿이라.
+이태백이 이제 있어 다시 의논하게 되면,
+여산 폭포가 여기보다 낫다는 말은 못 할 것이다.
+
+산중 경치만 보겠는가? 동해로 가자꾸나.
+가마를 타고 천천히 걸어 산영루에 올라가니,
+영롱한 푸른 시냇물과 여러 소리로 우는 산새는 이별을 원망하는 듯하고,
+깃발을 휘날리니 오색 빛깔 넘노는 듯하고,
+북과 피리를 섞어 부니 바닷구름이 다 걷히는 듯하다.
+
+백사장 길에 익숙한 말이 취한 신선을 비스듬히 실어,
+바다를 곁에 두고 해당화 꽃밭으로 들어가니,
+갈매기야 날지 말라, 내 너의 벗인 줄을 어찌 아느냐?
+
+금난굴을 돌아들어서 통천 총석정에 올라가니,
+백옥루의 남은 기둥, 다만 넷이 서 있구나.
+공수의 작품인가? 귀신의 도끼로 다듬었는가?
+구태여 육면 돌기둥은 무엇을 본떴는가?
+
+고성을 저만큼 두고 삼일포를 찾아가니,
+붉은 글씨는 뚜렷한데, 사선은 어디로 갔는가?
+여기서 사흘을 머무른 후에 어디 가서 또 머물렀는가?
+선유담, 영랑호는 거기에 가 있는가?
+청간정, 만경대 등 몇 군데에 앉았던가?
+
+배꽃은 벌써 지고 소쩍새가 슬피 울 때,
+낙산사 동쪽 길 따라 의상대에 올라 앉아,
+일출을 보려고 한밤중쯤 일어나니,
+상서로운 구름이 지피는 듯, 여섯 용이 떠받치는 듯,
+(해가) 바다를 떠날 때에는 온 세상이 일 듯하더니,
+하늘에 치솟아 뜨니 터럭도 셀 수 있도다.
+행여나 지나가는 구름 근처에 머물까 두렵도다.
+
+시의 신선은 어디가고 침 튀긴 것만 남았느냐?
+천지간 굉장한 소식이 자세히도 되었구나.
+
+저녁놀 비껴드는 현산의 철쭉꽃을 이어 밟아
+신선이 타는 수레를 타고 경포로 내려가니,
+10리의 흰 비단을 다리고 다시 다려,
+큰 소나무 숲 속에 실컷 펼쳐졌으니,
+물결이 잔잔하여 모래알까지도 헤아리로다.
+
+한 척의 배를 띄워 정자 위에 올라가니,
+강문교 넘은 곁에 대양이 거기로다.
+조용하구나, 이 기상. 광활하구나, 저 경계.
+이 경치 갖춘 데가 또 어디에 있단 말인가?
+박신과 홍장의 사랑이 야단스럽다 하리로다.
+
+강릉 대도호부의 풍속이 좋구나.
+절효정문이 고을마다 널렸으니,
+집집마다 벼슬 받을 만한 일이 이제도 있다 하리라.
+
+진주관 죽서루 아래 오십천에 내리는 물이
+태백산 그림자를 동해로 담아 가니,
+차라리 한강으로 돌려 남산에 대고 싶도다.
+
+관리의 여정은 유한하고, 풍경은 싫지 않으니,
+회포가 많기도 많구나. 나그네의 시름도 달랠 길이 없구나.
+신선의 뗏목을 띄워내여 북두성, 견우성으로 갈까,
+신선을 찾으러 단혈에 머물러 살까?
+
+하늘의 끝을 내내 못 보아 망양정에 오르니,
+바다 밖은 하늘이니, 하늘 밖은 무엇인가?
+가뜩 성난 고래를 누가 놀라게 하기에,
+(물을) 불거니 뿜거니 어지럽게 구는 것인가?
+은산을 꺾어내어 온 세상에 내리는 듯,
+오월의 드높은 하늘에 백설은 무슨 일인가?
+
+잠깐 사이에 밤이 되어 풍랑이 가라앉거늘,
+해 뜨는 곳 가까이서 밝은 달을 기다리니,
+상서로운 달빛이 보이는 듯 숨는구나.
+구슬 발을 다시 걷고, 섬돌 층계를 다시 쓸며,
+샛별이 돋아 오를 때까지 곧바로 앉아서 바라 보니,
+흰 연꽃 한 가지를 누가 보내셨는가?
+이리 좋은 세계를 남들에게 다 보이고 싶구나.
+
+신선주를 가득 부어 달더러 묻는 말이,
+'영웅은 어디 갔으며, 사선은 그 누구인가.'
+아무나 만나 보아 옛 소식을 묻고자 하니,
+선산이 있는 동해로 가는 길이 멀기도 멀구나.
+
+소나무 뿌리를 베어 누워 선잠이 얼핏 드니,
+꿈에서 한 사람이 날더러 이르는 말이,
+"그대를 내가 모르랴? 그대는 하늘나라의 신선이라.
+황정경 한 글자를 어찌 잘못 읽어 두고,
+인간 세상에 내려와서 우리를 따르는가?
+잠깐만 가지 마오. 이 술 한 잔 마셔 보오."
+
+북두칠성 기울여 동해 바닷물을 부어 내여,
+저 한 잔 먹고 날 먹이거늘, 서너 잔 기울이니,
+봄바람이 산들산들하여 두 겨드랑이를 추켜드니,
+구만 리 하늘을 날 수 있을 것만 같구나.
+
+"이 술 가져다가 온 세상에 고루 나누어,
+억만 백성을 다 취케 만든 후에
+그제야 다시 만나 또 한 잔 하자꾸나."
+
+말이 끝나자 (신선은) 학을 타고 아득한 하늘로 올라가니,
+공중에서 들려오는 옥피리 소리가 어제던가 그제던가.
+나도 잠을 깨어 바다를 굽어보니,
+깊이를 모르거니, 끝인들 어찌 알리?
+밝은 달이 온 세상에 아니 비추이는 데 없다.
+
+</div>
+</details>
+
+---
 
 **"AI 그림과 친절한 해설로 즐기는 고전문학!
 보기만 해도 국어 감각이 살아납니다.
