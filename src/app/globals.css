@@ -2,6 +2,33 @@
 
 @plugin "tailwindcss-animate";
 
+/* 옛한글 지원 폰트 - 나눔바른고딕 옛한글 */
+@font-face {
+  font-family: 'NanumBarunGothic YetHangul';
+  src: url('https://cdn.jsdelivr.net/gh/niceplugin/NanumBarunGothicYetHangul/NanumBarunGothicYetHangul.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic YetHangul';
+  src: url('https://cdn.jsdelivr.net/gh/niceplugin/NanumBarunGothicYetHangul/NanumBarunGothicYetHangulBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 옛한글 폰트 적용 - details.group 내부의 원문 영역 */
+details.group summary p {
+  font-family: 'NanumBarunGothic YetHangul', 'Malgun Gothic', sans-serif;
+}
+
+/* 옛한글 전용 클래스 */
+.font-yethangul {
+  font-family: 'NanumBarunGothic YetHangul', 'Malgun Gothic', sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @variant dark (&:where(.dark, .dark *));
