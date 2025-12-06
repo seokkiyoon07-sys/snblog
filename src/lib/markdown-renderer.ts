@@ -133,6 +133,41 @@ function transformParagraph(paragraph: string): string {
 }
 
 /**
+ * Details 블록 내부의 마크다운을 HTML로 변환하는 헬퍼 함수
+ */
+function processDetailsContent(innerContent: string): string {
+  return (
+    innerContent
+      // 이미지 변환
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, transformImage)
+      // 링크 변환
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, transformLink)
+      // 제목 변환
+      .replace(/^#### (.*$)/gim, transformH4)
+      .replace(/^### (.*$)/gim, transformH3)
+      .replace(/^## (.*$)/gim, transformH2)
+      .replace(/^# (.*$)/gim, transformH1)
+      // 강조 텍스트 변환
+      .replace(/\*\*(.*?)\*\*/g, transformBold)
+      .replace(/\*(.*?)\*/g, transformItalic)
+      // 리스트 변환
+      .replace(
+        /^- (.*)$/gim,
+        '<li class="text-gray-700 dark:text-gray-300 ml-4">$1</li>'
+      )
+      // 연속된 li를 ul로 감싸기
+      .replace(/(<li[^>]*>.*?<\/li>\n?)+/g, match => {
+        return `<ul class="list-disc list-inside mb-4 space-y-2">${match}</ul>`;
+      })
+      // 수평선 변환
+      .replace(
+        /^---$/gim,
+        '<hr class="my-8 border-t border-gray-200 dark:border-gray-700" />'
+      )
+  );
+}
+
+/**
  * 마크다운 콘텐츠를 HTML로 변환
  *
  * @param content - 마크다운 형식의 콘텐츠
@@ -154,15 +189,20 @@ function transformParagraph(paragraph: string): string {
 export function renderMarkdown(content: string): string {
   return (
     content
-      // 0. Details 블록 변환 (내부 마크다운 처리 포함)
+      // 0. 클래스가 있는 Details 블록 내부 마크다운 처리
+      .replace(
+        /(<details[^>]*>[\s\S]*?<div[^>]*>)([\s\S]*?)(<\/div>\s*<\/details>)/g,
+        (match, openTags, innerContent, closeTags) => {
+          const processedContent = processDetailsContent(innerContent);
+          return `${openTags}${processedContent}${closeTags}`;
+        }
+      )
+
+      // 0-1. 간단한 Details 블록 변환 (클래스 없는 경우)
       .replace(
         /<details>\s*<summary>([^<]+)<\/summary>\s*([\s\S]*?)\s*<\/details>/g,
         (match, summary, innerContent) => {
-          // 내부 이미지 마크다운 변환
-          const processedContent = innerContent.replace(
-            /!\[([^\]]*)\]\(([^)]+)\)/g,
-            transformImage
-          );
+          const processedContent = processDetailsContent(innerContent);
           return `<details class="my-6 border border-gray-200 dark:border-gray-700 rounded-lg"><summary class="cursor-pointer p-4 font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">${summary}</summary><div class="p-4 pt-0">${processedContent}</div></details>`;
         }
       )
