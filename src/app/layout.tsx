@@ -119,6 +119,14 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <head>
         <StructuredData type="organization" data={{}} />
+        {/* 옛한글 폰트 preload - 모바일 로딩 성능 개선 */}
+        <link
+          rel="preload"
+          href="https://cdn.jsdelivr.net/gh/niceplugin/NanumBarunGothicYetHangul/NanumBarunGothicYetHangul.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         {/* Privacy-friendly analytics by Plausible */}
         <script
           async
