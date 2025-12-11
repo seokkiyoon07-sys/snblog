@@ -53,6 +53,34 @@
 ### SN Originals 페이지
 - **구독하기 버튼**: 빨간색 → 회색 계열로 변경
 
+### OriginalsTabs 카드뷰/리스트뷰 스타일 개선
+
+#### 특별 배지 시스템 추가
+| 배지 | 대상 작품 | 색상 |
+|------|-----------|------|
+| 👑 정철 트릴로지 | 관동별곡, 사미인곡, 속미인곡 | Blue → Indigo 그라데이션 |
+| 🎯 2024 수능 출제 | 갑민가 | Violet → Purple 그라데이션 |
+| 🎯 2025 수능 출제 | 북새곡 | Rose → Pink 그라데이션 |
+| 🔥 3만뷰 | SN고전문학 몰아보기 | Emerald → Teal 그라데이션 |
+
+#### 카드뷰 스타일
+- 특별 작품에 **컬러 테두리(border)** 및 **ring 효과** 적용
+  - 정철 트릴로지: `border-blue-400` + `ring-blue-200`
+  - 2025 수능 출제: `border-rose-400` + `ring-rose-200`
+  - 2024 수능 출제: `border-violet-400` + `ring-violet-200`
+  - 3만뷰: `border-emerald-400` + `ring-emerald-200`
+- 썸네일 위에 배지 오버레이 표시
+- 제목 호버 시 해당 색상으로 변경
+
+#### 리스트뷰(게시판뷰) 스타일
+- 특별 작품에 **왼쪽 컬러 보더(`border-l-4`)** 적용
+  - 정철 트릴로지: `border-l-blue-400`
+  - 2025 수능 출제: `border-l-rose-400`
+  - 2024 수능 출제: `border-l-violet-400`
+  - 3만뷰: `border-l-emerald-400`
+- 제목 위에 배지 표시
+- 제목 호버 시 그라데이션 효과 + 언더라인 애니메이션
+
 ### CSS 추가 (globals.css)
 - `details.group` 토글 화살표 숨김
 - `details.group summary` bold 제거
@@ -66,6 +94,7 @@
 - `src/data/posts.ts` - 포스트 콘텐츠
 - `src/app/globals.css` - 스타일
 - `src/components/ArticleContent.tsx` - blur 효과 로직
+- `src/components/OriginalsTabs.tsx` - 카드뷰/리스트뷰 스타일 및 배지
 
 ---
 
