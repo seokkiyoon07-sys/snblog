@@ -26,6 +26,482 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'dosansipigok',
+    title:
+      '친구들 중에 이런 휴가 좋아하는 친구 꼭 하나씩은 있다\n(고등 고전문학 「도산십이곡」)',
+    excerpt:
+      '조선 중기 이황이 지은 연시조 「도산십이곡」. 전6곡은 자연 친화, 후6곡은 학문 수양의 내용을 담은 작품입니다.',
+    content: `보기만 해도 시험 점수가 오르는 국어 고전문학 시리즈 26번째 작품. 오늘은 조선 중기 이황이 지은 연시조 「도산십이곡」을 준비했습니다.
+
+「도산십이곡」은 총 12수로, 앞선 6곡은 자연 속에 묻혀 사는 뜻을(자연 친화), 뒤의 6곡은 학문을 닦는 즐거움과 의지를(학문 수양) 강조하는 내용으로 구성되어 있습니다. 표현적으로는 설의법(어떠하리오? 어려운가? 등)이나 대구법(산천/대하, 청산/유수 등)이 많이 사용된 특징이 있습니다.
+
+**00:00 Intro (작품 소개)**
+
+**00:16 도산십이곡**
+
+**03:35 Outro (부연 설명)**
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 📜 원문 + 현대어 해설
+
+### 🌿 전6곡 - 자연 친화
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제1곡】</strong>
+이런ᄃᆞᆯ 엇다ᄒᆞ며 뎌런ᄃᆞᆯ 엇다ᄒᆞ료
+초야우생(草野愚生)이 이러타 엇다ᄒᆞ료
+ᄒᆞᄆᆞᆯ며 천석고황(泉石膏肓)을 고뎌 므슴ᄒᆞ료
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+이런들 어떠하며 저런들 어떠하리오
+시골에 묻혀 사는 어리석은 사람이 이렇게 사는 게 어떠하리오
+하물며 자연을 몹시 사랑하는 병을 고쳐서 무엇하리오
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제2곡】</strong>
+연하(煙霞)로 지블 삼고 풍월(風月)로 버들 사마
+태평성대(太平聖代)예 병(病)으로 늘거 가뇌
+이 듕에 ᄇᆞ라ᄂᆞᆫ 일은 허므리나 업고쟈
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+안개와 노을로 집을 삼고 바람과 달을 친구로 삼아
+태평성대에 병 든 몸으로 늙어가네
+이 와중에 바라는 일은 잘못이나 없었으면 좋겠구나
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제3곡】</strong>
+순풍(淳風)이 죽다 ᄒᆞ니 진실(眞實)로 거즈마리
+인성(人性)이 어지다 ᄒᆞ니 진실(眞實)로 올ᄒᆞᆫ 마리
+천하(天下)에 허다(許多) 영재(英才)를 소겨 말솜ᄒᆞᆫ가
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+순박한 풍습이 죽었다고 하는 것은 정말로 거짓말이다
+사람의 성품이 어질다고 하는 것은 정말로 옳은 말이다
+그러니 천하의 수많은 인재들에게 순박한 풍습이 죽었다고 속여서 말하지 말아라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제4곡】</strong>
+유란(幽蘭)이 재곡(在谷)ᄒᆞ니 자연(自然)이 듣디 됴해
+백운(白雲)이 재산(在山)ᄒᆞ니 자연(自然)이 보디 됴해
+이 듕에 피미일인(彼美一人)을 더욱 닛디 못ᄒᆞ얘
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+그윽한 난초가 골짜기에 피어 있으니 자연이 그 향기가 좋구나
+흰 구름이 산에 걸려 있으니 자연이 보기가 좋구나
+이런 가운데 저 아름다운 임금님 한 분을 더욱 잊지 못하는구나
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제5곡】</strong>
+산전(山前)에 유대(有臺)ᄒᆞ고 대하(臺下)에 유수(流水)ㅣ로다
+ᄠᅢ 만ᄒᆞᆫ ᄀᆞᆯ며기ᄂᆞᆫ 오명 가명 ᄒᆞ거든
+엇더다 교교백구(皎皎白駒)ᄂᆞᆫ 머리 ᄆᆞᅀᆞᆷ ᄒᆞᄂᆞᆫ고
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+산 앞에는 높은 대가 있고 대 아래에는 물이 흐르는구나
+떼를 지은 갈매기들은 오락가락 하거늘
+어찌하여 희고 깨끗한 망아지와도 같은 나는 멀리 속세에 뜻을 두는가
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제6곡】</strong>
+춘풍(春風)에 화만산(花滿山)ᄒᆞ고 추야(秋夜)애 월만대(月灣臺)라
+사시(四時) 가흥(佳興)이 사롬과 ᄒᆞᆫ가지라
+ᄒᆞᄆᆞᆯ며 어약연비(魚躍鳶飛) 운영천광(雲影天光)이야 어늬 그지 이슬고
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+봄바람이 부니 산에 꽃이 가득하고, 가을 밤에는 달빛이 대에 가득한 것이
+사계절의 아름다운 흥취가 사람과 마찬가지로구나
+하물며 물고기가 뛰고 솔개가 나는 대자연의 이치와, 구름 그림자와 태양 빛은 어찌 끝이 있겠는가
+</div>
+</details>
+
+### 📚 후6곡 - 학문 수양
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제7곡】</strong>
+천운대(天雲臺) 도라드러 완락재(玩樂齋) 소쇄(蕭灑)ᄒᆞᆫ듸
+만권생애(萬券生涯)로 낙사(樂事)ㅣ 무궁(無窮)ᄒᆞ얘라
+이 듕에 왕래풍류(往來風流)를 닐어 므슴ᄒᆞᆯ고
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+천운대를 돌아 들어간 곳에 있는 완락재가 맑고 깨끗한데
+만 권의 책을 읽는 즐거움이 끝이 없구나
+이 중에 때때로 산책하며 시를 읊는 풍류를 말해 무엇하겠는가
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제8곡】</strong>
+뇌정(雷霆)이 파산(破山)ᄒᆞ야도 농자(聾者)는 몯 듣ᄂᆞ니
+백일(白日)이 중천(中天)ᄒᆞ야도 고자(瞽者)는 몯 보ᄂᆞ니
+우리는 이목총명(耳目聰明) 남자로 농고(聾瞽)ᄀᆞᆮ디 마로리
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+우레 소리가 산을 깨뜨릴 듯 커도 귀머거리는 못 듣나니
+밝은 해가 하늘 높이 떠 있어도 눈먼 사람은 보지 못하나니
+우리는 귀와 눈이 밝은 남자가 되어 귀머거리나 눈먼 사람같이 되지 말리라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제9곡】</strong>
+고인(古人)도 날 몯 보고 나도 고인(古人)을 몯 뵈
+고인을 몯 뵈도 녀던 길 알ᄑᆡ 잇ᄂᆡ
+녀던 길 알ᄑᆡ 잇거든 아니 녀고 엇뎔고
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+옛 성현도 나를 보지 못하고, 나도 옛 성현을 뵙지 못하네
+하지만 그분들이 가던 학문의 길은 내 앞에 놓여 있네
+그 가시던 길이 내 앞에 있는데 어찌 나 또한 따르지 않고 어쩌겠는가
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제10곡】</strong>
+당시(當時)예 녀던 길흘 몃 ᄒᆡ를 ᄇᆞ려두고
+어디 가 ᄃᆞᆫ니다가 이제ᅀᅡ 도라온고
+이졔나 도라오나니 년 듸 ᄆᆞᅀᆞᆷ 마로리
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+젊었을 때에 가던 학문의 길을 몇 해 동안이나 버려두고
+벼슬길에 나가 어디를 가 다니다가 이제서야 돌아왔는가?
+이제라도 돌아왔으니 벼슬이나 속세에 마음 두지 않으리라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제11곡】</strong>
+청산(靑山)ᄂᆞᆫ 엇뎨ᄒᆞ야 만고(萬古)애 프르르며
+유수(流水)ᄂᆞᆫ 엇뎨ᄒᆞ야 주야(晝夜)애 긋디 아니ᄂᆞᆫ고
+우리도 그티디 마라 만고상청(萬古常靑)호리라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+푸른 산은 어찌하여 영원히 푸르며
+흐르는 물은 어찌하여 밤낮으로 멈추지 않는가
+우리도 저 산과 물처럼 학문 닦는 것을 멈추지 말고 영원히 푸르리라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제12곡】</strong>
+우부(愚夫)도 알며 ᄒᆞ거니 긔 아니 쉬운가
+성인(聖人)도 몯다 ᄒᆞ시니 긔 아니 어려운가
+쉽거나 어렵거낫 듕에 늙ᄂᆞᆫ 주를 몰래라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+어리석은 사람도 학문을 알며 행하니 그 아니 쉬운가
+하지만 성인도 다하지 못하시니 그 아니 어려운가
+쉽거나 어렵거나 하는 중에 학문의 즐거움에 빠져 늙는 줄도 모르겠구나
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="dosansipigok-original" data-title="도산십이곡 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="dosansipigok-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
+
+🌿 전6곡 - 자연 친화
+
+【제1곡】
+이런ᄃᆞᆯ 엇다ᄒᆞ며 뎌런ᄃᆞᆯ 엇다ᄒᆞ료
+초야우생(草野愚生)이 이러타 엇다ᄒᆞ료
+ᄒᆞᄆᆞᆯ며 천석고황(泉石膏肓)을 고뎌 므슴ᄒᆞ료
+
+【제2곡】
+연하(煙霞)로 지블 삼고 풍월(風月)로 버들 사마
+태평성대(太平聖代)예 병(病)으로 늘거 가뇌
+이 듕에 ᄇᆞ라ᄂᆞᆫ 일은 허므리나 업고쟈
+
+【제3곡】
+순풍(淳風)이 죽다 ᄒᆞ니 진실(眞實)로 거즈마리
+인성(人性)이 어지다 ᄒᆞ니 진실(眞實)로 올ᄒᆞᆫ 마리
+천하(天下)에 허다(許多) 영재(英才)를 소겨 말솜ᄒᆞᆫ가
+
+【제4곡】
+유란(幽蘭)이 재곡(在谷)ᄒᆞ니 자연(自然)이 듣디 됴해
+백운(白雲)이 재산(在山)ᄒᆞ니 자연(自然)이 보디 됴해
+이 듕에 피미일인(彼美一人)을 더욱 닛디 못ᄒᆞ얘
+
+【제5곡】
+산전(山前)에 유대(有臺)ᄒᆞ고 대하(臺下)에 유수(流水)ㅣ로다
+ᄠᅢ 만ᄒᆞᆫ ᄀᆞᆯ며기ᄂᆞᆫ 오명 가명 ᄒᆞ거든
+엇더다 교교백구(皎皎白駒)ᄂᆞᆫ 머리 ᄆᆞᅀᆞᆷ ᄒᆞᄂᆞᆫ고
+
+【제6곡】
+춘풍(春風)에 화만산(花滿山)ᄒᆞ고 추야(秋夜)애 월만대(月灣臺)라
+사시(四時) 가흥(佳興)이 사롬과 ᄒᆞᆫ가지라
+ᄒᆞᄆᆞᆯ며 어약연비(魚躍鳶飛) 운영천광(雲影天光)이야 어늬 그지 이슬고
+
+📚 후6곡 - 학문 수양
+
+【제7곡】
+천운대(天雲臺) 도라드러 완락재(玩樂齋) 소쇄(蕭灑)ᄒᆞᆫ듸
+만권생애(萬券生涯)로 낙사(樂事)ㅣ 무궁(無窮)ᄒᆞ얘라
+이 듕에 왕래풍류(往來風流)를 닐어 므슴ᄒᆞᆯ고
+
+【제8곡】
+뇌정(雷霆)이 파산(破山)ᄒᆞ야도 농자(聾者)는 몯 듣ᄂᆞ니
+백일(白日)이 중천(中天)ᄒᆞ야도 고자(瞽者)는 몯 보ᄂᆞ니
+우리는 이목총명(耳目聰明) 남자로 농고(聾瞽)ᄀᆞᆮ디 마로리
+
+【제9곡】
+고인(古人)도 날 몯 보고 나도 고인(古人)을 몯 뵈
+고인을 몯 뵈도 녀던 길 알ᄑᆡ 잇ᄂᆡ
+녀던 길 알ᄑᆡ 잇거든 아니 녀고 엇뎔고
+
+【제10곡】
+당시(當時)예 녀던 길흘 몃 ᄒᆡ를 ᄇᆞ려두고
+어디 가 ᄃᆞᆫ니다가 이제ᅀᅡ 도라온고
+이졔나 도라오나니 년 듸 ᄆᆞᅀᆞᆷ 마로리
+
+【제11곡】
+청산(靑山)ᄂᆞᆫ 엇뎨ᄒᆞ야 만고(萬古)애 프르르며
+유수(流水)ᄂᆞᆫ 엇뎨ᄒᆞ야 주야(晝夜)애 긋디 아니ᄂᆞᆫ고
+우리도 그티디 마라 만고상청(萬古常靑)호리라
+
+【제12곡】
+우부(愚夫)도 알며 ᄒᆞ거니 긔 아니 쉬운가
+성인(聖人)도 몯다 ᄒᆞ시니 긔 아니 어려운가
+쉽거나 어렵거낫 듕에 늙ᄂᆞᆫ 주를 몰래라
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📖 현대어 해석 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<div data-print-button data-content-id="dosansipigok-modern" data-title="도산십이곡 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="dosansipigok-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+🌿 전6곡 - 자연 친화
+
+【제1곡】
+이런들 어떠하며 저런들 어떠하리오
+시골에 묻혀 사는 어리석은 사람이 이렇게 사는 게 어떠하리오
+하물며 자연을 몹시 사랑하는 병을 고쳐서 무엇하리오
+
+【제2곡】
+안개와 노을로 집을 삼고 바람과 달을 친구로 삼아
+태평성대에 병 든 몸으로 늙어가네
+이 와중에 바라는 일은 잘못이나 없었으면 좋겠구나
+
+【제3곡】
+순박한 풍습이 죽었다고 하는 것은 정말로 거짓말이다
+사람의 성품이 어질다고 하는 것은 정말로 옳은 말이다
+그러니 천하의 수많은 인재들에게 순박한 풍습이 죽었다고 속여서 말하지 말아라
+
+【제4곡】
+그윽한 난초가 골짜기에 피어 있으니 자연이 그 향기가 좋구나
+흰 구름이 산에 걸려 있으니 자연이 보기가 좋구나
+이런 가운데 저 아름다운 임금님 한 분을 더욱 잊지 못하는구나
+
+【제5곡】
+산 앞에는 높은 대가 있고 대 아래에는 물이 흐르는구나
+떼를 지은 갈매기들은 오락가락 하거늘
+어찌하여 희고 깨끗한 망아지와도 같은 나는 멀리 속세에 뜻을 두는가
+
+【제6곡】
+봄바람이 부니 산에 꽃이 가득하고, 가을 밤에는 달빛이 대에 가득한 것이
+사계절의 아름다운 흥취가 사람과 마찬가지로구나
+하물며 물고기가 뛰고 솔개가 나는 대자연의 이치와, 구름 그림자와 태양 빛은 어찌 끝이 있겠는가
+
+📚 후6곡 - 학문 수양
+
+【제7곡】
+천운대를 돌아 들어간 곳에 있는 완락재가 맑고 깨끗한데
+만 권의 책을 읽는 즐거움이 끝이 없구나
+이 중에 때때로 산책하며 시를 읊는 풍류를 말해 무엇하겠는가
+
+【제8곡】
+우레 소리가 산을 깨뜨릴 듯 커도 귀머거리는 못 듣나니
+밝은 해가 하늘 높이 떠 있어도 눈먼 사람은 보지 못하나니
+우리는 귀와 눈이 밝은 남자가 되어 귀머거리나 눈먼 사람같이 되지 말리라
+
+【제9곡】
+옛 성현도 나를 보지 못하고, 나도 옛 성현을 뵙지 못하네
+하지만 그분들이 가던 학문의 길은 내 앞에 놓여 있네
+그 가시던 길이 내 앞에 있는데 어찌 나 또한 따르지 않고 어쩌겠는가
+
+【제10곡】
+젊었을 때에 가던 학문의 길을 몇 해 동안이나 버려두고
+벼슬길에 나가 어디를 가 다니다가 이제서야 돌아왔는가?
+이제라도 돌아왔으니 벼슬이나 속세에 마음 두지 않으리라.
+
+【제11곡】
+푸른 산은 어찌하여 영원히 푸르며
+흐르는 물은 어찌하여 밤낮으로 멈추지 않는가
+우리도 저 산과 물처럼 학문 닦는 것을 멈추지 말고 영원히 푸르리라
+
+【제12곡】
+어리석은 사람도 학문을 알며 행하니 그 아니 쉬운가
+하지만 성인도 다하지 못하시니 그 아니 어려운가
+쉽거나 어렵거나 하는 중에 학문의 즐거움에 빠져 늙는 줄도 모르겠구나
+
+</div>
+</details>
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-amber-50 dark:bg-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/50 font-semibold text-gray-900 dark:text-white transition-colors">
+📖 당신이 수험생이라면 이것도 읽어보세요
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed">
+
+### 🏯 작품의 배경과 의미
+
+「도산십이곡」은 조선 중기 대학자 이황(李滉, 1501~1570)이 지은 연시조입니다. 이황은 도산서원에서 학문을 연구하며 제자들을 가르치던 시기에 이 작품을 지었습니다.
+
+이 작품은 총 12수로, **전6곡(言志)** 과 **후6곡(言學)** 으로 나뉩니다. 전6곡은 자연 속에 묻혀 사는 즐거움을, 후6곡은 학문을 닦는 즐거움과 의지를 노래하고 있습니다.
+
+### 🎭 문학적 특징
+
+- **연시조**: 12수의 시조가 연결된 연시조 형식
+- **이원적 구조**: 전6곡(자연 친화) + 후6곡(학문 수양)
+- **설의법**: "어떠하리오?", "어려운가?" 등 반어적 물음
+- **대구법**: 청산/유수, 산천/대하 등 대비 구조
+- **교훈성**: 학문 수양을 권장하는 교훈적 내용
+
+### 🌍 문학사적 의의
+
+「도산십이곡」은 조선 시대 **사림파 시조**의 대표작입니다. 이황은 이 작품을 통해 자연 속에서 학문을 닦으며 살아가는 유학자의 이상적인 삶을 노래했습니다.
+
+특히 이황은 서문에서 "우리말로 된 노래가 부족하다"고 지적하며 국문 시조의 가치를 강조했습니다. 이는 조선 중기 시조 문학 발전에 큰 영향을 미쳤습니다.
+
+### 📚 작품 감상 포인트
+
+1. **구조적 대비**: 전6곡(자연)과 후6곡(학문)의 유기적 연결
+
+2. **자연과 학문**: 자연 친화와 학문 수양의 조화
+
+3. **유학적 세계관**: 성리학적 이상을 담은 내용
+
+4. **설의적 표현**: 수사적 물음을 통한 강조 효과
+
+5. **대구와 반복**: 리듬감 있는 표현 기법
+
+### 🔍 수능 출제 포인트
+
+- **갈래**: 연시조, 강호시조, 교훈시조
+- **성격**: 교훈적, 관조적, 자연친화적
+- **주제**: 자연 친화와 학문 수양의 즐거움
+- **표현**: 설의법, 대구법, 열거법, 대조법
+- **비교 작품**: 윤선도의 「어부사시사」, 정철의 「훈민가」
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 font-semibold text-gray-900 dark:text-white transition-colors">
+🌐 English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed">
+
+**"Dosansipigok (陶山十二曲, Twelve Songs of Dosan)"** is one of the most celebrated works of classical Korean poetry, written by Yi Hwang (李滉, pen name Toegye, 1501–1570), a renowned Confucian scholar of the mid-Joseon dynasty.
+
+Composed during his later years at Dosan Seowon (陶山書院), a Confucian academy he founded in Andong, this work consists of 12 sijo poems divided into two thematic sections:
+
+**Part I (Songs 1–6): "Eonji" (言志, Expressing One's Will)**
+These verses celebrate the joy of living in harmony with nature, far from worldly concerns. Yi Hwang expresses contentment in his rustic life surrounded by mountains, streams, and seasonal beauty, while acknowledging his gratitude toward the king.
+
+**Part II (Songs 7–12): "Eonhak" (言學, On Learning)**
+The latter half shifts focus to the pursuit of scholarly cultivation. Yi Hwang emphasizes the importance of following the path of ancient sages, persevering in one's studies, and maintaining moral integrity—likening the scholar's dedication to the eternal greenness of mountains and the ceaseless flow of rivers.
+
+**Literary Significance:**
+- Represents the pinnacle of "Gangho Sijo" (江湖詩調), poetry celebrating reclusive life in nature
+- Features rhetorical questions (設疑法) and parallelism (對句法) as key stylistic devices
+- Served as a model for later Confucian scholars seeking to express Neo-Confucian ideals in vernacular Korean
+- Yi Hwang notably advocated for Korean-language poetry in his preface, arguing that refined sentiments could be expressed in the native tongue
+
+**Timestamps:**
+- 00:00 Intro (Work Introduction)
+- 00:16 Dosansipigok
+- 03:35 Outro (Additional Commentary)
+
+</div>
+</details>
+`,
+    category: 'SN Originals',
+    tags: [
+      'SN Originals',
+      '도산십이곡',
+      '고전문학',
+      '이황',
+      '연시조',
+      '자연친화',
+      '학문수양',
+      '내신대비',
+    ],
+    author: 'SN Academy',
+    date: '2025-12-11',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/dosan_thumbnail_a1.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=W7MesqkqjWQ',
+    url: '/originals/dosansipigok',
+    type: 'special',
+  },
+  {
     id: 'ganghosasiga',
     title:
       '임금님 은혜는 대체 어디까지 뻗치는 거야 (고등 고전문학 「강호사시가」)',
