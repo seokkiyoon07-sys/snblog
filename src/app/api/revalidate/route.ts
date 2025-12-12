@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
 
     // 공통 태그들 재검증
     revalidatedTags.push(`build:${BUILD}`);
-    revalidatedTags.forEach(tag => revalidateTag(tag, 'max'));
+    revalidatedTags.forEach(tag => revalidateTag(tag));
 
     return NextResponse.json({
       revalidated: true,
