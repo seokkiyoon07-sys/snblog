@@ -5,7 +5,8 @@
 /* 옛한글 지원 폰트 - 나눔바른고딕 옛한글 */
 @font-face {
   font-family: 'NanumBarunGothic YetHangul';
-  src: url('https://cdn.jsdelivr.net/gh/niceplugin/NanumBarunGothicYetHangul/NanumBarunGothicYetHangul.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -13,7 +14,8 @@
 
 @font-face {
   font-family: 'NanumBarunGothic YetHangul';
-  src: url('https://cdn.jsdelivr.net/gh/niceplugin/NanumBarunGothicYetHangul/NanumBarunGothicYetHangulBold.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
