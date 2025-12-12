@@ -26,6 +26,278 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'cheongsanbyeolgok',
+    title:
+      '이유도 모른 채 돌 맞고 돌 던져야 했던, 그 때 그 누군가의 노래\n(고등학교 고전문학 「청산별곡」)',
+    excerpt:
+      '작자 미상의 고려가요 「청산별곡」. 삶의 터전을 잃은 유랑민, 실연당한 여인, 고독한 처지의 지식인 등 다양한 화자의 상황으로 해석될 수 있는 작품입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈 그 27번째 시간. 오늘은 작자 미상의 고려가요 「청산별곡」을 준비했습니다. 「청산별곡」이 특별한 이유 중 하나는 동일한 가사에 다양한 화자의 상황을 대입해볼 수 있다는 점인데요, 삶의 터전을 잃은 유랑민, 실연당한 여인, 고독한 처지의 지식인 등으로 다양한 화자의 상황으로 해석될 수 있습니다.
+
+'얄리얄리 얄라셩 얄라리 얄라'라는 후렴구로도 유명한 청산별곡. '청산'과 '바다'라는 안식처를 꿈꾸지만 당장 현실에서 느껴야 하는 삶의 고뇌와 비애를 AI로 제작한 영상과 음악을 통해 느껴보시면 좋겠습니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 📜 원문 + 현대어 해설
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제1연】</strong>
+살어리 살어리랏다 쳥산(靑山)애 살어리랏다
+멀위랑 ᄃᆞ래랑 먹고 쳥산(靑山)애 살어리랏다
+얄리얄리 얄랑셩 얄라리 얄라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+살았으면, 살았으면 좋겠구나. 속세가 아닌 청산에 가서 살았으면 좋겠구나.
+소박한 열매인 머루랑 다래 따 먹으며 청산에서 살았으면 좋겠구나.
+얄리얄리 얄랑셩 얄라리 얄라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제2연】</strong>
+우러라 우러라 새여 자고 니러 우러라 새여
+널라와 시름 한 나도 자고 니러 우니로라
+얄리얄리 얄라셩 얄라리 얄라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+우는구나 우는구나 새여, 자고 일어나서 우는구나 새여
+너보다 근심과 걱정이 많은 나도 자고 일어나서 울며 지낸다.
+얄리얄리 얄라셩 얄라리 얄라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제3연】</strong>
+가던 새 가던 새 본다 믈 아래 가던 새 본다
+잉무든 장글란 가지고 믈 아래 가던 새 본다
+얄리얄리 얄라셩 얄라리 얄라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+갈던 밭, 갈던 밭을 본다. 물 아래 속세에 두고 온 내가 갈던 밭을 본다.
+아직 이끼가 묻어있는 쟁기를 가지고 물 아래 갈던 밭을 바라본다.
+얄리얄리 얄라셩 얄라리 얄라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제4연】</strong>
+이링공 뎌링공 ᄒᆞ야 나즈란 디내와손뎌
+오리도 가리도 업슨 바므란 ᄯᅩ 엇디 호리라
+얄리얄리 얄라셩 얄라리 얄라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+이럭저럭 하여 낮에는 어떻게든 견디어 지내왔지만,
+올 사람도 갈 사람도 없는, 철저히 고독한 밤에는 또 어찌 하란 말인가.
+얄리얄리 얄라셩 얄라리 얄라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제5연】</strong>
+어듸라 더디던 돌코 누리라 마치던 돌코
+믜리도 괴리도 업시 마자셔 우니노라
+얄리얄리 얄라셩 얄라리 얄라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+어디다 던지는 돌인가, 누구를 맞히려던 돌이었던가.
+미워할 사람도 사랑할 사람도 내 앞에 없으니, 그저 운명처럼 맞아서 울고 있구나.
+얄리얄리 얄라셩 얄라리 얄라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제6연】</strong>
+살어리 살어리랏다 바ᄅᆞ래 살어리랏다
+ᄂᆞᄆᆞ자기 구조개랑 먹고 바ᄅᆞ래 살어리랏다
+얄리얄리 얄라셩 얄라리 얄라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+살았으면, 살았으면 좋겠구나. 청산이 안 된다면 바다에 가서 살았으면 좋겠구나.
+해초인 나문재랑 굴, 조개를 먹으며 바다에서 살았으면 좋겠구나.
+얄리얄리 얄라셩 얄라리 얄라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제7연】</strong>
+가다가 가다가 드로라 에졍지 가다가 드로라
+사ᄉᆞ미 지ᇝ대예 올아셔 ᄒᆡ금(奚琴)을 혀거를 드로라
+얄리얄리 얄라셩 얄라리 얄라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+가다가 가다가 듣노라. 속세와는 떨어진 외딴 부엌으로 가다가 듣노라.
+사슴탈 쓴 광대가 장대 위에 올라가서 해금 연주하는 것을 듣노라.
+얄리얄리 얄라셩 얄라리 얄라
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제8연】</strong>
+가다니 ᄇᆡ브른 도긔 설진 강수를 비조라
+조롱곳 누로기 ᄆᆡ와 잡ᄉᆞ와니 내 엇디 ᄒᆞ리잇고
+얄리얄리 얄라셩 얄라리 얄라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+가다 보니 배가 불룩한 독에 독한 술을 빚는구나.
+조롱박꽃 모양의 누룩 냄새가 매워 나를 붙잡으니, 내 술을 마시지 않고 어찌 하겠는가.
+얄리얄리 얄라셩 얄라리 얄라
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="cheongsanbyeolgok-original" data-title="청산별곡 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="cheongsanbyeolgok-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
+
+【제1연】
+살어리 살어리랏다 쳥산(靑山)애 살어리랏다
+멀위랑 ᄃᆞ래랑 먹고 쳥산(靑山)애 살어리랏다
+얄리얄리 얄랑셩 얄라리 얄라
+
+【제2연】
+우러라 우러라 새여 자고 니러 우러라 새여
+널라와 시름 한 나도 자고 니러 우니로라
+얄리얄리 얄라셩 얄라리 얄라
+
+【제3연】
+가던 새 가던 새 본다 믈 아래 가던 새 본다
+잉무든 장글란 가지고 믈 아래 가던 새 본다
+얄리얄리 얄라셩 얄라리 얄라
+
+【제4연】
+이링공 뎌링공 ᄒᆞ야 나즈란 디내와손뎌
+오리도 가리도 업슨 바므란 ᄯᅩ 엇디 호리라
+얄리얄리 얄라셩 얄라리 얄라
+
+【제5연】
+어듸라 더디던 돌코 누리라 마치던 돌코
+믜리도 괴리도 업시 마자셔 우니노라
+얄리얄리 얄라셩 얄라리 얄라
+
+【제6연】
+살어리 살어리랏다 바ᄅᆞ래 살어리랏다
+ᄂᆞᄆᆞ자기 구조개랑 먹고 바ᄅᆞ래 살어리랏다
+얄리얄리 얄라셩 얄라리 얄라
+
+【제7연】
+가다가 가다가 드로라 에졍지 가다가 드로라
+사ᄉᆞ미 지ᇝ대예 올아셔 ᄒᆡ금(奚琴)을 혀거를 드로라
+얄리얄리 얄라셩 얄라리 얄라
+
+【제8연】
+가다니 ᄇᆡ브른 도긔 설진 강수를 비조라
+조롱곳 누로기 ᄆᆡ와 잡ᄉᆞ와니 내 엇디 ᄒᆞ리잇고
+얄리얄리 얄라셩 얄라리 얄라
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📝 현대어 해석 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="cheongsanbyeolgok-modern" data-title="청산별곡 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="cheongsanbyeolgok-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+【제1연】
+살았으면, 살았으면 좋겠구나. 속세가 아닌 청산에 가서 살았으면 좋겠구나.
+소박한 열매인 머루랑 다래 따 먹으며 청산에서 살았으면 좋겠구나.
+얄리얄리 얄랑셩 얄라리 얄라
+
+【제2연】
+우는구나 우는구나 새여, 자고 일어나서 우는구나 새여
+너보다 근심과 걱정이 많은 나도 자고 일어나서 울며 지낸다.
+얄리얄리 얄라셩 얄라리 얄라
+
+【제3연】
+갈던 밭, 갈던 밭을 본다. 물 아래 속세에 두고 온 내가 갈던 밭을 본다.
+아직 이끼가 묻어있는 쟁기를 가지고 물 아래 갈던 밭을 바라본다.
+얄리얄리 얄라셩 얄라리 얄라
+
+【제4연】
+이럭저럭 하여 낮에는 어떻게든 견디어 지내왔지만,
+올 사람도 갈 사람도 없는, 철저히 고독한 밤에는 또 어찌 하란 말인가.
+얄리얄리 얄라셩 얄라리 얄라
+
+【제5연】
+어디다 던지는 돌인가, 누구를 맞히려던 돌이었던가.
+미워할 사람도 사랑할 사람도 내 앞에 없으니, 그저 운명처럼 맞아서 울고 있구나.
+얄리얄리 얄라셩 얄라리 얄라
+
+【제6연】
+살았으면, 살았으면 좋겠구나. 청산이 안 된다면 바다에 가서 살았으면 좋겠구나.
+해초인 나문재랑 굴, 조개를 먹으며 바다에서 살았으면 좋겠구나.
+얄리얄리 얄라셩 얄라리 얄라
+
+【제7연】
+가다가 가다가 듣노라. 속세와는 떨어진 외딴 부엌으로 가다가 듣노라.
+사슴탈 쓴 광대가 장대 위에 올라가서 해금 연주하는 것을 듣노라.
+얄리얄리 얄라셩 얄라리 얄라
+
+【제8연】
+가다 보니 배가 불룩한 독에 독한 술을 빚는구나.
+조롱박꽃 모양의 누룩 냄새가 매워 나를 붙잡으니, 내 술을 마시지 않고 어찌 하겠는가.
+얄리얄리 얄라셩 얄라리 얄라
+
+</div>
+</details>
+`,
+    category: 'SN Originals',
+    tags: [
+      '청산별곡',
+      '고려가요',
+      '고전문학',
+      '수능국어',
+      '내신대비',
+    ],
+    author: 'SN Academy',
+    date: '2025-12-12',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_a1_cheongsan.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=UyRmAK4AnYQ',
+    url: '/originals/cheongsanbyeolgok',
+    type: 'special',
+  },
+  {
     id: 'dosansipigok',
     title:
       '친구들 중에 이런 휴가 좋아하는 친구 꼭 하나씩은 있다\n(고등 고전문학 「도산십이곡」)',
