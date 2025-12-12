@@ -152,7 +152,7 @@ export const metadata: Metadata = {
   verification: {
     google: 'Y6sre3jJPoA9rk5rlvcAP-3Zv4c704_j7XVCmhOxgRI',
     other: {
-      'naver-site-verification': 'naver8256749101af010811d290714b1069e2.html',
+      'naver-site-verification': 'naver8256749101af010811d290714b1069e2',
     },
   },
 };
