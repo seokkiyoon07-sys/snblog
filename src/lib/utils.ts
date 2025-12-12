@@ -122,6 +122,12 @@ export function getCategoryConfig(category: string) {
       subject: '입시',
       learningObjectives: ['전형 이해', '전략 수립', '준비 방법'],
     },
+    'school-exam': {
+      backLink: '/school-exam',
+      backText: '← 내신대비 목록으로 돌아가기',
+      subject: '내신대비',
+      learningObjectives: ['고전문학 이해', '작품 분석', '시험 대비'],
+    },
   };
 
   return (

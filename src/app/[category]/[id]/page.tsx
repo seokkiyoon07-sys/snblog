@@ -62,7 +62,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const categories = ['columns', 'startup', 'originals'];
+  const categories = ['columns', 'startup', 'originals', 'school-exam'];
   const params: { category: string; id: string }[] = [];
 
   for (const category of categories) {

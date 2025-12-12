@@ -14,8 +14,9 @@ const STEADY_WORK_IDS = [
   'sangchungok', // 상춘곡
 ];
 
-// 내신대비 작품 (업로드 최신순, 9작품)
+// 내신대비 작품 (업로드 최신순, 10작품)
 const SCHOOL_EXAM_WORK_IDS = [
+  'classic-literature-marathon-2', // SN고전문학 몰아보기 2탄 (내신대비)
   'dosansipigok', // 도산십이곡 (최신)
   'ganghosasiga', // 강호사시가
   'jemangmaega', // 제망매가
