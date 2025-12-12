@@ -28,8 +28,11 @@ const SUNEUNG_2024_WORK_ID = 'gapminga';
 // 2025 수능 출제 작품 ID
 const SUNEUNG_2025_WORK_ID = 'buksaegok';
 
-// SN고전문학 몰아보기 ID
-const MARATHON_WORK_ID = 'classic-literature-marathon-2026';
+// SN고전문학 몰아보기 IDs
+const MARATHON_WORK_IDS = [
+  'classic-literature-marathon-2026',
+  'classic-literature-marathon-2',
+];
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: 'all', label: '전체보기' },
@@ -163,7 +166,7 @@ export default function OriginalsTabs({
               const isTrilogy = JEONGCHEOL_TRILOGY_IDS.includes(work.id);
               const is2024Work = work.id === SUNEUNG_2024_WORK_ID;
               const is2025Work = work.id === SUNEUNG_2025_WORK_ID;
-              const isMarathon = work.id === MARATHON_WORK_ID;
+              const isMarathon = MARATHON_WORK_IDS.includes(work.id);
               return (
                 <Link
                   key={work.id}
@@ -210,11 +213,11 @@ export default function OriginalsTabs({
                           <span>2025 수능 출제</span>
                         </div>
                       )}
-                      {/* 3만뷰 배지 */}
-                      {isMarathon && (
+                      {/* 몰아보기 배지 (posts.ts의 badge 필드 사용) */}
+                      {isMarathon && work.badge && (
                         <div className="absolute top-2 left-2 px-2 py-1 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-bold rounded-full shadow-lg flex items-center gap-1">
                           <span>🔥</span>
-                          <span>3만뷰</span>
+                          <span>{work.badge}</span>
                         </div>
                       )}
                     </div>
@@ -247,7 +250,7 @@ export default function OriginalsTabs({
               const isTrilogy = JEONGCHEOL_TRILOGY_IDS.includes(work.id);
               const is2024Work = work.id === SUNEUNG_2024_WORK_ID;
               const is2025Work = work.id === SUNEUNG_2025_WORK_ID;
-              const isMarathon = work.id === MARATHON_WORK_ID;
+              const isMarathon = MARATHON_WORK_IDS.includes(work.id);
 
               return (
                 <article
@@ -320,10 +323,10 @@ export default function OriginalsTabs({
                                 <span>2025 수능 출제</span>
                               </span>
                             )}
-                            {isMarathon && (
+                            {isMarathon && work.badge && (
                               <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full w-fit">
                                 <span>🔥</span>
-                                <span>3만뷰</span>
+                                <span>{work.badge}</span>
                               </span>
                             )}
                             <span
