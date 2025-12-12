@@ -278,6 +278,45 @@ export const allPosts: Post[] = [
 
 </div>
 </details>
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Cheongsanbyeolgok" (Song of the Green Mountains) - A Cry of Sorrow from the Goryeo Dynasty
+
+**Cheongsanbyeolgok** (청산별곡) is one of the most celebrated works of classical Korean poetry, classified as a **Goryeo gayo** (고려가요, Goryeo folk song). The author remains unknown, but the poem is believed to have been composed during the Goryeo Dynasty (918–1392). It is preserved in the *Akjang Gasajip* (악장가사집), a collection of court music lyrics compiled during the Joseon Dynasty.
+
+### Literary Significance
+
+The poem consists of **eight stanzas (verses)**, each ending with the iconic refrain **"Yalliyalli yallaseong yallari yalla"** (얄리얄리 얄라셩 얄라리 얄라). This haunting, melodic refrain has become one of the most recognizable phrases in Korean classical literature, though its exact meaning remains debated among scholars.
+
+### Multiple Interpretations
+
+What makes **Cheongsanbyeolgok** particularly fascinating is its **interpretive ambiguity**. The same lyrics can be read through multiple lenses:
+
+1. **The Displaced Wanderer**: A person who has lost their homeland and livelihood, seeking refuge in nature away from a chaotic society
+2. **The Heartbroken Lover**: A woman abandoned by her beloved, expressing her sorrow and longing
+3. **The Alienated Intellectual**: A scholar or official who feels estranged from corrupt society, yearning for a simple life
+
+### Themes and Motifs
+
+- **Escape to Nature**: The recurring desire to live in the **"cheongsan"** (green mountains) or **"bada"** (sea) represents a longing for peace away from worldly troubles
+- **Profound Loneliness**: The famous fifth stanza speaks of being struck by stones without knowing why—a powerful metaphor for inexplicable suffering
+- **Simple Sustenance**: References to wild berries (meoru, darae) and seafood (namunjae, clams) symbolize a desire for humble, uncomplicated living
+
+### Cultural Impact
+
+**Cheongsanbyeolgok** holds a special place in Korean literary history as it captures the **universal human experience** of suffering, displacement, and the search for peace. Its emotional depth and lyrical beauty have made it a staple of Korean literature education and a frequent subject on the Korean College Scholastic Ability Test (수능).
+
+The poem's ability to resonate across centuries—from Goryeo peasants to modern students—demonstrates the timeless nature of its themes: the desire to escape hardship, the pain of loneliness, and the dream of finding sanctuary in nature.
+
+</div>
+</details>
 `,
     category: 'SN Originals',
     tags: [
