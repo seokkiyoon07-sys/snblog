@@ -1,12 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import {
-  Section,
-  FeatureList,
-  Callout,
-  BlogImage,
-} from '@/components/BlogComponents';
+import Section from '@/components/ui/Section';
+import FeatureList from '@/components/ui/FeatureList';
+import Callout from '@/components/ui/Callout';
+import BlogImage from '@/components/BlogImage';
 import { unstable_cache } from 'next/cache';
 
 export const metadata: Metadata = {
