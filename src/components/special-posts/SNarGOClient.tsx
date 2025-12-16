@@ -19,7 +19,7 @@ import {
   BookOpenText,
   Repeat2,
 } from 'lucide-react';
-import Callout from '@/components/Callout';
+import Callout from '@/components/ui/Callout';
 
 export default function SNarGOClient() {
   const [activeTab, setActiveTab] = useState('why');
@@ -306,7 +306,7 @@ export default function SNarGOClient() {
 
       {/* Mission Statement */}
       <section className="mt-16">
-        <Callout variant="info">
+        <Callout type="info">
           <strong>
             정확하게 풀고, 끝까지 이해될 때까지 설명하며, 더 나은 문제로
             학생들을 성장시키는 것
