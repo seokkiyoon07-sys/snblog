@@ -184,7 +184,7 @@ export default function OriginalsIntroPage() {
                   성을 쌓는데 있어서 어떤 도움을 드릴 수 있을까? 하는 것이
                   고민의 시작점이었습니다.
                 </p>
-                <Callout variant="info" title="핵심 철학">
+                <Callout type="info" title="핵심 철학">
                   <p className="font-semibold text-lg mb-2">
                     "우리가 좋아해서 흥미롭게 보았던 콘텐츠는 기억하려 하지
                     않아도 기억이 날 수밖에 없다"
@@ -278,7 +278,7 @@ export default function OriginalsIntroPage() {
               </div>
             </Section>
 
-            <Callout variant="success" title="🙏 마무리">
+            <Callout type="success" title="🙏 마무리">
               <p className="text-gray-700 leading-relaxed">
                 모든 수험생 여러분의 건승을 바라며, 또 다른 재미있는 읽을거리를
                 들고 찾아뵙겠습니다. 감사합니다.

@@ -1,8 +1,4 @@
-// ⚠️ 중요: 이 파일은 수동으로 관리됩니다. Notion 동기화로 덮어쓰지 마세요!
 // 📝 포스트 추가/수정 시 이 파일을 직접 편집하세요.
-// 🔒 Notion 포스트는 notion-posts.ts에서 자동으로 가져옵니다.
-
-import { notionPosts } from './notion-posts';
 
 export interface Post {
   id: string;
@@ -299,15 +295,15 @@ The poem consists of **eight stanzas (verses)**, each ending with the iconic ref
 
 What makes **Cheongsanbyeolgok** particularly fascinating is its **interpretive ambiguity**. The same lyrics can be read through multiple lenses:
 
-1. **The Displaced Wanderer**: A person who has lost their homeland and livelihood, seeking refuge in nature away from a chaotic society
-2. **The Heartbroken Lover**: A woman abandoned by her beloved, expressing her sorrow and longing
-3. **The Alienated Intellectual**: A scholar or official who feels estranged from corrupt society, yearning for a simple life
+1.  **The Displaced Wanderer**: A person who has lost their homeland and livelihood, seeking refuge in nature away from a chaotic society
+2.  **The Heartbroken Lover**: A woman abandoned by her beloved, expressing her sorrow and longing
+3.  **The Alienated Intellectual**: A scholar or official who feels estranged from corrupt society, yearning for a simple life
 
 ### Themes and Motifs
 
-- **Escape to Nature**: The recurring desire to live in the **"cheongsan"** (green mountains) or **"bada"** (sea) represents a longing for peace away from worldly troubles
-- **Profound Loneliness**: The famous fifth stanza speaks of being struck by stones without knowing why—a powerful metaphor for inexplicable suffering
-- **Simple Sustenance**: References to wild berries (meoru, darae) and seafood (namunjae, clams) symbolize a desire for humble, uncomplicated living
+-   **Escape to Nature**: The recurring desire to live in the **"cheongsan"** (green mountains) or **"bada"** (sea) represents a longing for peace away from worldly troubles
+-   **Profound Loneliness**: The famous fifth stanza speaks of being struck by stones without knowing why—a powerful metaphor for inexplicable suffering
+-   **Simple Sustenance**: References to wild berries (meoru, darae) and seafood (namunjae, clams) symbolize a desire for humble, uncomplicated living
 
 ### Cultural Impact
 
@@ -8781,29 +8777,3 @@ export function getPaginatedOriginalsPosts(
 
 // 🔗 노션 포스트와 수동 포스트 통합
 // 노션에서 가져온 포스트를 기존 포스트와 합칩니다
-// 개발 환경에서만 노션 포스트를 보여줍니다
-export function getAllPostsWithNotion(): Post[] {
-  // 개발 환경이 아니면 기존 포스트만 반환
-  if (process.env.NODE_ENV !== 'development') {
-    return allPosts;
-  }
-
-  try {
-    // 중복 제거 (ID 기준)
-    const manualPostIds = new Set(allPosts.map(p => p.id));
-    const uniqueNotionPosts = notionPosts.filter(
-      (p: Post) => !manualPostIds.has(p.id)
-    );
-
-    console.log(`[DEV] 노션 포스트 ${uniqueNotionPosts.length}개 로드됨`);
-
-    // 합치고 날짜순 정렬
-    return [...allPosts, ...uniqueNotionPosts].sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-  } catch (error) {
-    // notion-posts.ts가 없거나 에러가 발생하면 기존 포스트만 반환
-    console.warn('[DEV] 노션 포스트를 불러올 수 없습니다:', error);
-    return allPosts;
-  }
-}

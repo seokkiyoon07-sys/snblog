@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import StructuredData from '@/components/StructuredData';
 import AIDataGenerator from '@/components/AIDataGenerator';
 import { getPostById, getPostsByCategory } from '@/data/posts';
-import { BlogLayout } from '@/components/BlogComponents';
+import BlogLayout from '@/components/BlogLayout';
 import { renderMarkdown } from '@/lib/markdown-renderer';
 import { getCategoryConfig, formatReadTime } from '@/lib/utils';
 import SNarGPTInterface from '@/components/SNarGPTInterface';
@@ -43,13 +43,13 @@ export async function generateMetadata({
       url: `https://blog.snacademy.co.kr${post.url}`,
       images: post.thumbnail
         ? [
-            {
-              url: post.thumbnail,
-              width: 800,
-              height: 400,
-              alt: post.title,
-            },
-          ]
+          {
+            url: post.thumbnail,
+            width: 800,
+            height: 400,
+            alt: post.title,
+          },
+        ]
         : [],
     },
     twitter: {
@@ -286,7 +286,7 @@ export default async function PostPage({ params }: PostPageProps) {
                         dangerouslySetInnerHTML={{
                           __html: renderMarkdown(
                             '## 🧠 SNarGPT로 할 수 있는 일들' +
-                              afterMainInterface
+                            afterMainInterface
                           ),
                         }}
                       />
