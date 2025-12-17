@@ -22,6 +22,292 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'seogyeongbyeolgok',
+    title: '님아 그 강을 건너지 마오 (고등학교 고전문학 「서경별곡」)',
+    excerpt:
+      '작자 미상의 고려가요 「서경별곡」. 삶의 터전인 서경(평양)을 버리고서라도 임을 쫓겠다는 적극적인 태도를 보여주는 작품입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈 그 28번째 시간. 오늘은 작자 미상의 고려가요 「서경별곡」을 준비했습니다. 「서경별곡」은 또 다른 유명 고려가요인「가시리」와 같이 나(화자)를 떠나려는 임을 붙잡으려는 노래라는 점은 비슷합니다만, 임을 말 없이 고이 보내드리는 소극적 태도를 보이는 「가시리」와는 달리 적극적, 저항적, 직설적인 태도가 드러나는 것이 특징입니다.
+
+삶의 터전인 서경(평양)과 생업인 길쌈(질삼)을 버리고서라도 임을 따르겠다면 질투와 원망을 거침없이 표출하는 「서경별곡」을 지금 발로 SN 오리지날에서 만나보세요!
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 📜 원문 + 현대어 해설
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제1연】</strong>
+서경이 아즐가 서경이 셔울히 마르는
+위 두어렁셩 두어렁셩 다링디리
+닷곤 ᄃᆡ 아즐가 닷곤 ᄃᆡ 쇼셩경 고ᄋᆈ마른
+위 두어렁셩 두어렁셩 다링디리
+여ᄒᆡ므론 아즐가 여ᄒᆡ므론 질삼 뵈 ᄇᆞ리시고
+위 두어렁셩 두어렁셩 다링디리
+괴시란ᄃᆡ 아즐가 괴시란ᄃᆡ 우러곰 좃니노ᅌᅵ다
+위 두어렁셩 두어렁셩 다링디리
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+서경이, 아, 서경이 서울이지마는
+위 두어렁셩 두어렁셩 다링디리
+닦은 곳, 아, 잘 닦은 곳인 소성경을 사랑하지만
+위 두어렁셩 두어렁셩 다링디리
+헤어질 바에는, 아, 헤어질 바에는 길쌈하던 베를 버리고서라도
+위 두어렁셩 두어렁셩 다링디리
+사랑해주신다면, 아, 사랑해주신다면 울면서 쫓으리이다
+위 두어렁셩 두어렁셩 다링디리
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제2연】</strong>
+구스리 아즐가 구스리 바회예 디신ᄃᆞᆯ
+위 두어렁셩 두어렁셩 다링디리
+긴히ᄯᆞᆫ 아즐가 긴히ᄯᆞᆫ 그치리ᅌᅵᆺ가 나ᄂᆞᆫ
+위 두어렁셩 두어렁셩 다링디리
+즈믄 ᄒᆡ를 아즐가 즈믄 ᄒᆡ를 외오곰 녀신ᄃᆞᆯ
+위 두어렁셩 두어렁셩 다링디리
+신(信)잇ᄃᆞᆫ 아즐가 신잇ᄃᆞᆫ 그츠리ᅌᅵᆺ가 나ᄂᆞᆫ
+위 두어렁셩 두어렁셩 다링디리
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+구슬이, 아, 구슬이 바위에 떨어진들
+위 두어렁셩 두어렁셩 다링디리
+구슬을 꿴 끈이야, 아, 끈이야 끊어지리이까
+위 두어렁셩 두어렁셩 다링디리
+천 년을, 아, 천 년을 외로이 지낸들
+위 두어렁셩 두어렁셩 다링디리
+믿음이야, 아, 믿음이야 끊어지리이까
+위 두어렁셩 두어렁셩 다링디리
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제3연】</strong>
+대동강 아즐가 대동강 너븐디 몰라셔
+위 두어렁셩 두어렁셩 다링디리
+ᄇᆡ 내여 아즐가 ᄇᆡ 내여 노ᄒᆞᆫ다 샤공아
+위 두어렁셩 두어렁셩 다링디리
+네 가시 아즐가 네 가시 럼난디 몰라셔
+위 두어렁셩 두어렁셩 다링디리
+녈 ᄇᆡ예 아즐가 녈 ᄇᆡ예 연즌다 샤공아
+위 두어렁셩 두어렁셩 다링디리
+대동강 아즐가 대동강 거넌편 고즐여
+위 두어렁셩 두어렁셩 다링디리
+ᄇᆡ 타들면 아즐가 ᄇᆡ 타들면 것고리이다 나ᄂᆞᆫ
+위 두어렁셩 두어렁셩 다링디리
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+대동강, 아, 대동강 넓은 줄 몰라서
+위 두어렁셩 두어렁셩 다링디리
+배를 내어, 아, 배를 내어 놓았느냐 사공아
+위 두어렁셩 두어렁셩 다링디리
+네 아내가, 아, 네 아내가 바람난 줄도 몰라서
+위 두어렁셩 두어렁셩 다링디리
+가는 배에, 아, 가는 배에 내 님을 태웠느냐 사공아
+위 두어렁셩 두어렁셩 다링디리
+대동강, 아, 대동강 건너편 꽃과도 같은 다른 여인을
+위 두어렁셩 두어렁셩 다링디리
+배를 타면, 아, 배를 타면 꺾어서 바람나리이다
+위 두어렁셩 두어렁셩 다링디리
+</div>
+</details>
+
+## 💡 단어 해석
+
+<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 space-y-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="space-y-2">
+      <p><strong>서경 / 셔울</strong>: 고려시대 평양의 옛 이름 / 수도를 의미</p>
+      <p><strong>닷곤 ᄃᆡ / 쇼셩경</strong>: 닦은 곳 / 서경(평양)</p>
+      <p><strong>괴다</strong>: 사랑하다</p>
+      <p><strong>여ᄒᆡ다</strong>: 여의다, 이별하다</p>
+      <p><strong>질삼 / 뵈</strong>: 길쌈 / 베, 직물</p>
+    </div>
+    <div class="space-y-2">
+      <p><strong>디다</strong>: 떨어지다, 구르다</p>
+      <p><strong>긴</strong>: 끈</p>
+      <p><strong>그치다</strong>: 끊어지다</p>
+      <p><strong>즈믄</strong>: 1,000</p>
+      <p><strong>럼나다</strong>: 음란하다, 바람나다</p>
+      <p><strong>녀다</strong>: 가다</p>
+      <p><strong>곶</strong>: 꽃</p>
+      <p><strong>것다</strong>: 꺾다</p>
+    </div>
+  </div>
+</div>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="seogyeongbyeolgok-original" data-title="서경별곡 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="seogyeongbyeolgok-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
+
+【제1연】
+서경이 아즐가 서경이 셔울히 마르는
+위 두어렁셩 두어렁셩 다링디리
+닷곤 ᄃᆡ 아즐가 닷곤 ᄃᆡ 쇼셩경 고ᄋᆈ마른
+위 두어렁셩 두어렁셩 다링디리
+여ᄒᆡ므론 아즐가 여ᄒᆡ므론 질삼 뵈 ᄇᆞ리시고
+위 두어렁셩 두어렁셩 다링디리
+괴시란ᄃᆡ 아즐가 괴시란ᄃᆡ 우러곰 좃니노ᅌᅵ다
+위 두어렁셩 두어렁셩 다링디리
+
+【제2연】
+구스리 아즐가 구스리 바회예 디신ᄃᆞᆯ
+위 두어렁셩 두어렁셩 다링디리
+긴히ᄯᆞᆫ 아즐가 긴히ᄯᆞᆫ 그치리ᅌᅵᆺ가 나ᄂᆞᆫ
+위 두어렁셩 두어렁셩 다링디리
+즈믄 ᄒᆡ를 아즐가 즈믄 ᄒᆡ를 외오곰 녀신ᄃᆞᆯ
+위 두어렁셩 두어렁셩 다링디리
+신(信)잇ᄃᆞᆫ 아즐가 신잇ᄃᆞᆫ 그츠리ᅌᅵᆺ가 나ᄂᆞᆫ
+위 두어렁셩 두어렁셩 다링디리
+
+【제3연】
+대동강 아즐가 대동강 너븐디 몰라셔
+위 두어렁셩 두어렁셩 다링디리
+ᄇᆡ 내여 아즐가 ᄇᆡ 내여 노ᄒᆞᆫ다 샤공아
+위 두어렁셩 두어렁셩 다링디리
+네 가시 아즐가 네 가시 럼난디 몰라셔
+위 두어렁셩 두어렁셩 다링디리
+녈 ᄇᆡ예 아즐가 녈 ᄇᆡ예 연즌다 샤공아
+위 두어렁셩 두어렁셩 다링디리
+대동강 아즐가 대동강 거넌편 고즐여
+위 두어렁셩 두어렁셩 다링디리
+ᄇᆡ 타들면 아즐가 ᄇᆡ 타들면 것고리이다 나ᄂᆞᆫ
+위 두어렁셩 두어렁셩 다링디리
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📝 현대어 해석 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="seogyeongbyeolgok-modern" data-title="서경별곡 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="seogyeongbyeolgok-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+【제1연】
+서경이, 아, 서경이 서울이지마는
+위 두어렁셩 두어렁셩 다링디리
+닦은 곳, 아, 잘 닦은 곳인 소성경을 사랑하지만
+위 두어렁셩 두어렁셩 다링디리
+헤어질 바에는, 아, 헤어질 바에는 길쌈하던 베를 버리고서라도
+위 두어렁셩 두어렁셩 다링디리
+사랑해주신다면, 아, 사랑해주신다면 울면서 쫓으리이다
+위 두어렁셩 두어렁셩 다링디리
+
+【제2연】
+구슬이, 아, 구슬이 바위에 떨어진들
+위 두어렁셩 두어렁셩 다링디리
+구슬을 꿴 끈이야, 아, 끈이야 끊어지리이까
+위 두어렁셩 두어렁셩 다링디리
+천 년을, 아, 천 년을 외로이 지낸들
+위 두어렁셩 두어렁셩 다링디리
+믿음이야, 아, 믿음이야 끊어지리이까
+위 두어렁셩 두어렁셩 다링디리
+
+【제3연】
+대동강, 아, 대동강 넓은 줄 몰라서
+위 두어렁셩 두어렁셩 다링디리
+배를 내어, 아, 배를 내어 놓았느냐 사공아
+위 두어렁셩 두어렁셩 다링디리
+네 아내가, 아, 네 아내가 바람난 줄도 몰라서
+위 두어렁셩 두어렁셩 다링디리
+가는 배에, 아, 가는 배에 내 님을 태웠느냐 사공아
+위 두어렁셩 두어렁셩 다링디리
+대동강, 아, 대동강 건너편 꽃과도 같은 다른 여인을
+위 두어렁셩 두어렁셩 다링디리
+배를 타면, 아, 배를 타면 꺾어서 바람나리이다
+위 두어렁셩 두어렁셩 다링디리
+
+</div>
+</details>
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Seogyeongbyeolgok" (Song of the Western Capital) - The Voice of Active Love
+
+**Seogyeongbyeolgok** (서경별곡) is a well-known **Goryeo gayo** (folk song from the Goryeo Dynasty) characterized by its frank expression of emotions and active resistance against parting.
+
+### Literary Significance
+Unlike the speaker in "Gasiri", who passively accepts separation with resignation ("I will send you away, please return soon"), the speaker in **Seogyeongbyeolgok** is bold and assertive. She declares that she would abandon her home (Seogyeong/Pyongyang) and her livelihood (weaving) just to follow her beloved.
+
+### Key Structure
+The poem uses a recurring refrain **"Wi dueoreongsung dueoreongsung daringdiri"** (위 두어렁셩 두어렁셩 다링디리), which mimics the sound of drums or musical instruments, adding a rhythmic and lively tone despite the sorrowful theme.
+
+### Three Main Stanzas:
+1.  **Refusal of Parting**: The speaker expresses her willingness to give up everything to be with her love.
+2.  **Unchanging Faith**: Using the metaphor of **"beads falling on a rock"** (구슬이 바위에 떨어진들), she asserts that while the beads may scatter, the string (her love and faith) will never break, even after a thousand years of loneliness.
+3.  **Jealousy and Anxiety**: Looking at the **Daedong River**, she irrationally blames the boatman for carrying her lover away, fearing that her lover might "pick flowers" (find a new love) on the other side. This highlights her intense anxiety and raw human emotion.
+
+### Cultural Impact
+This song is celebrated for depicting the **active nature of Goryeo women** in love. The "Beads Song" (Second Stanza) also appears in another work, "Jeongseokga" (정석가), suggesting it was a popular floating verse of that era.
+
+</div>
+</details>
+
+---
+
+<div class="my-8">
+  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">🔗 같이 보면 좋을 작품</h3>
+  <div class="space-y-3">
+    <a href="/originals/cheongsanbyeolgok" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">청산별곡: 삶의 터전을 잃은 유랑민의 노래</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">삶의 고뇌와 비애를 해학적으로 풀어낸 또 다른 고려가요 명작</div>
+    </a>
+    <a href="/originals/gasiri" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">가시리: 떠나는 임을 붙잡지 못하는 애절한 이별</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">서경별곡의 적극적인 태도와 대비되는 소극적이고 애절한 이별 노래</div>
+    </a>
+  </div>
+</div>
+`,
+    category: 'SN Originals',
+    tags: [
+      '서경별곡',
+      '고려가요',
+      '고전문학',
+      '이별의정한',
+      '수능국어',
+    ],
+    author: 'SN Academy',
+    date: '2025-12-17',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/seogyeong_thumbnail_a1-1.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=q4H220ZMaa8',
+    url: '/originals/seogyeongbyeolgok',
+    type: 'special',
+  },
+  {
     id: 'cheongsanbyeolgok',
     title:
       '이유도 모른 채 돌 맞고 돌 던져야 했던, 그 때 그 누군가의 노래\n(고등학교 고전문학 「청산별곡」)',
