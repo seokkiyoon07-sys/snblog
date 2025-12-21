@@ -274,6 +274,29 @@ body {
     sans-serif;
 }
 
+/* 모바일 최적화: 단어 단위 줄바꿈 (한국어) */
+/* word-break: keep-all은 한국어/중국어/일본어에서 단어가 중간에 끊기지 않도록 함 */
+.prose,
+.prose-lg,
+article,
+p,
+h1, h2, h3, h4, h5, h6,
+li,
+blockquote,
+summary,
+details div {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* 모바일에서 긴 영문/URL이 레이아웃을 깨지 않도록 */
+.prose a,
+.prose code {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 @layer utilities {
   .line-clamp-2 {
     overflow: hidden;
