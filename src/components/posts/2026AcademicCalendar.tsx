@@ -13,6 +13,7 @@ export default function AcademicCalendar2026() {
 
   const [selectedYear, setSelectedYear] = useState(2026);
   const [viewMode, setViewMode] = useState<'all' | number>('all');
+  const [mobileHalf, setMobileHalf] = useState<1 | 2>(1); // 1: 상반기, 2: 하반기
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showSundayDots, setShowSundayDots] = useState(true);
 
@@ -312,35 +313,63 @@ export default function AcademicCalendar2026() {
 
         {/* 상단 헤더 - Google 스타일 */}
         <header className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#202124] sticky top-0 z-20">
-          <div className="flex items-center justify-between px-4 py-2">
-            {/* 좌측: 로고 + 제목 */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" className="w-8 h-8">
-                    <rect x="3" y="4" width="18" height="18" rx="2" fill="#4285f4" />
-                    <rect x="3" y="4" width="18" height="5" fill="#1a73e8" />
-                    <text x="12" y="17" textAnchor="middle" fill="white" fontSize="8" fontWeight="600">
-                      {todayDay}
-                    </text>
-                  </svg>
+          <div className="flex flex-col md:flex-row md:items-center justify-between px-4 py-2 gap-2 md:gap-0">
+            {/* 1열 (모바일): 로고 + 우측 컨트롤 */}
+            <div className="flex items-center justify-between w-full md:w-auto">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" className="w-8 h-8">
+                      <rect x="3" y="4" width="18" height="18" rx="2" fill="#4285f4" />
+                      <rect x="3" y="4" width="18" height="5" fill="#1a73e8" />
+                      <text x="12" y="17" textAnchor="middle" fill="white" fontSize="8" fontWeight="600">
+                        {todayDay}
+                      </text>
+                    </svg>
+                  </div>
+                  <span className="text-lg md:text-xl text-gray-700 dark:text-gray-200 font-normal">학사일정</span>
                 </div>
-                <span className="text-xl text-gray-700 dark:text-gray-200 font-normal">학사일정</span>
+              </div>
+
+              {/* 우측: 크게보기 + 프린트 (모바일에서는 여기로 이동) */}
+              <div className="flex md:hidden items-center gap-1">
+                <button
+                  onClick={() => setIsFullscreen(true)}
+                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors print:hidden"
+                  title="크게보기"
+                >
+                  <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => {
+                    document.body.classList.add(viewMode !== 'all' ? 'print-monthly' : 'print-yearly');
+                    window.print();
+                    document.body.classList.remove('print-monthly', 'print-yearly');
+                  }}
+                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors print:hidden"
+                  title="인쇄"
+                >
+                  <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                  </svg>
+                </button>
               </div>
             </div>
 
-            {/* 중앙: 네비게이션 */}
-            <div className="flex items-center gap-2">
+            {/* 2열 (모바일): 네비게이션 (중앙) */}
+            <div className="flex items-center justify-center w-full md:w-auto gap-2">
               <button
                 onClick={() => setSelectedYear(currentYear)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="px-3 py-1.5 text-xs md:text-sm font-medium text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               >
                 오늘
               </button>
               <div className="flex items-center">
                 <button
                   onClick={() => setSelectedYear(Math.max(2025, selectedYear - 1))}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+                  className="p-1.5 md:p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
                 >
                   <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -348,20 +377,20 @@ export default function AcademicCalendar2026() {
                 </button>
                 <button
                   onClick={() => setSelectedYear(Math.min(2027, selectedYear + 1))}
-                  className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
+                  className="p-1.5 md:p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
                 >
                   <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
               </div>
-              <span className="text-xl font-normal text-gray-800 dark:text-gray-100 min-w-[100px]">
+              <span className="text-lg md:text-xl font-normal text-gray-800 dark:text-gray-100 min-w-[80px] md:min-w-[100px] text-center">
                 {selectedYear}년
               </span>
             </div>
 
-            {/* 우측: 크게보기 + 프린트 */}
-            <div className="flex items-center gap-1">
+            {/* 우측: 크게보기 + 프린트 (데스크탑) */}
+            <div className="hidden md:flex items-center gap-1">
               <button
                 onClick={() => setIsFullscreen(true)}
                 className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors print:hidden"
@@ -403,6 +432,23 @@ export default function AcademicCalendar2026() {
               >
                 연간
               </button>
+              {/* 모바일 반기 토글 (연간뷰일 때만 표시) */}
+              {viewMode === 'all' && (
+                <div className="flex md:hidden bg-gray-100 dark:bg-gray-800 rounded-md p-1 ml-2">
+                  <button
+                    onClick={() => setMobileHalf(1)}
+                    className={`px-3 py-0.5 text-xs rounded-sm transition-all ${mobileHalf === 1 ? 'bg-white shadow-sm text-blue-600 font-bold' : 'text-gray-500'}`}
+                  >
+                    1~6월
+                  </button>
+                  <button
+                    onClick={() => setMobileHalf(2)}
+                    className={`px-3 py-0.5 text-xs rounded-sm transition-all ${mobileHalf === 2 ? 'bg-white shadow-sm text-blue-600 font-bold' : 'text-gray-500'}`}
+                  >
+                    7~12월
+                  </button>
+                </div>
+              )}
               {months.map((month, index) => (
                 <button
                   key={index}
@@ -439,7 +485,7 @@ export default function AcademicCalendar2026() {
                     ))}
                     {/* 빈 셀 */}
                     {Array.from({ length: new Date(selectedYear, viewMode - 1, 1).getDay() }).map((_, i) => (
-                      <div key={`empty-${i}`} className="min-h-[100px] print:min-h-0 border-b border-r border-gray-100 dark:border-gray-800" />
+                      <div key={`empty-${i}`} className="min-h-[80px] md:min-h-[100px] print:min-h-0 border-b border-r border-gray-100 dark:border-gray-800" />
                     ))}
                     {/* 날짜 셀 */}
                     {Array.from({ length: daysInMonth[viewMode] }, (_, i) => i + 1).map((day) => {
@@ -461,7 +507,7 @@ export default function AcademicCalendar2026() {
                       return (
                         <div
                           key={day}
-                          className={`min-h-[100px] print:min-h-0 p-1 border-b border-r border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors print-monthly-cell ${bgClass}`}
+                          className={`min-h-[80px] md:min-h-[100px] print:min-h-0 p-1 border-b border-r border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors print-monthly-cell ${bgClass}`}
                         >
                           <div className={`text-sm mb-1 ${todayCell
                             ? 'w-6 h-6 flex items-center justify-center bg-[#1a73e8] text-white rounded-full'
@@ -496,10 +542,10 @@ export default function AcademicCalendar2026() {
               className={`bg-white dark:bg-[#292a2d] border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden print-table-area ${viewMode !== 'all' ? 'hidden print:block' : ''}`}
             >
               <h2 className="hidden print:block print-title text-center text-lg font-medium py-3 border-b border-gray-200">
-                {selectedYear}년도 SN독학기숙학원 학사일정
+                2027학년도 SN독학기숙학원 학사일정
               </h2>
 
-              <div className="relative">
+              <div className="relative mt-8 md:mt-0 print:mt-0"> {/* 모바일에서 상단 여백 추가 (일요일 토글 버튼 공간 확보) */}
                 <div className="absolute top-[-30px] right-0 z-10 print:hidden flex items-center gap-2">
                   <label className="flex items-center gap-1 cursor-pointer text-xs text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
                     <input
@@ -512,27 +558,47 @@ export default function AcademicCalendar2026() {
                   </label>
                 </div>
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[700px] table-fixed border-collapse">
+                  <table className="w-full md:min-w-[700px] table-fixed border-collapse">
                     <thead>
                       <tr>
-                        <th className="w-[3%] py-2 text-center text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
+                        <th className="w-[8%] md:w-[3%] py-1 md:py-2 text-center text-[10px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
                           일
                         </th>
-                        {months.map((month, index) => (
-                          <th key={index} className="w-[8.08%] py-2 text-center text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 last:border-r-0 bg-gray-50 dark:bg-[#35363a]">
-                            {month}
-                          </th>
-                        ))}
+                        {months.map((month, index) => {
+                          const isFirstHalf = index < 6;
+                          // 모바일: 선택된 반기가 아니면 숨김, 데스크탑/인쇄: 항상 표시
+                          const hiddenClass = mobileHalf === 1
+                            ? (!isFirstHalf ? 'hidden md:table-cell print:table-cell' : '')
+                            : (isFirstHalf ? 'hidden md:table-cell print:table-cell' : '');
+
+                          // 모바일에서 마지막 보이는 컬럼의 테두리 처리
+                          const isMobileLast = mobileHalf === 1 ? index === 5 : index === 11;
+                          const borderClass = isMobileLast ? 'md:border-r print:border-r' : 'border-r';
+
+                          return (
+                            <th key={index} className={`w-[15.3%] md:w-[8.08%] py-1 md:py-2 text-center text-[10px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 bg-gray-50 dark:bg-[#35363a] ${hiddenClass}`}>
+                              {month}
+                            </th>
+                          );
+                        })}
                       </tr>
                     </thead>
                     <tbody>
                       {days.map((day) => (
                         <tr key={day} className="hover:bg-gray-50 dark:hover:bg-[#35363a] transition-colors">
-                          <td className="py-1 text-center text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
+                          <td className="py-0.5 md:py-1 text-center text-[10px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
                             {day}
                           </td>
                           {months.map((_, monthIndex) => {
                             const monthNum = monthIndex + 1;
+                            const isFirstHalf = monthIndex < 6;
+                            const hiddenClass = mobileHalf === 1
+                              ? (!isFirstHalf ? 'hidden md:table-cell print:table-cell' : '')
+                              : (isFirstHalf ? 'hidden md:table-cell print:table-cell' : '');
+
+                            // 모바일에서 마지막 보이는 컬럼의 테두리 처리
+                            const isMobileLast = mobileHalf === 1 ? monthIndex === 5 : monthIndex === 11;
+                            const borderClass = isMobileLast ? 'md:border-r print:border-r' : 'border-r';
                             const isValidDay = day <= daysInMonth[monthNum];
                             const eventKey = `${monthNum}-${day}`;
                             const event = events[eventKey];
@@ -554,7 +620,7 @@ export default function AcademicCalendar2026() {
                               <td
                                 key={monthIndex}
                                 ref={todayCell ? todayRef : null}
-                                className={`py-0.5 px-0.5 text-center border-b border-r border-gray-200 dark:border-gray-700 last:border-r-0 relative ${bgClass}`}
+                                className={`py-0.5 px-0.5 text-center border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 relative ${bgClass} ${hiddenClass}`}
                               >
                                 {isValidDay && sunday && !todayCell && !event && showSundayDots && (
                                   <span className="absolute top-0.5 left-0.5 w-1 h-1 rounded-full bg-red-400"></span>

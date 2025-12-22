@@ -5188,7 +5188,7 @@ For modern students, "Biga" offers not just literary study but a window into a p
     readTime: '2',
     featured: false,
     published: true,
-    thumbnail: '/images/thumbnail/calendar_thumbnail.png',
+    thumbnail: '/images/thumbnail/image.png',
     url: '/notice/2026-academic-calendar',
     type: 'special',
   },
