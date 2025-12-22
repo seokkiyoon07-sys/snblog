@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
 import SuneungNotice from './SuneungNotice';
 import AdmissionGuide2026 from './posts/2026AdmissionGuide';
+import AcademicCalendar2026 from './posts/2026AcademicCalendar';
 import { BASE_URL, ORGANIZATION_INFO } from '@/lib/config';
 
 interface BlogLayoutProps {
@@ -163,6 +164,9 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
     }
     if (post.id === '2026-admission-guide') {
       return <AdmissionGuide2026 />;
+    }
+    if (post.id === '2026-academic-calendar') {
+      return <AcademicCalendar2026 />;
     }
   }
 

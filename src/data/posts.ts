@@ -5177,6 +5177,22 @@ For modern students, "Biga" offers not just literary study but a window into a p
     type: 'special',
   },
   {
+    id: '2026-academic-calendar',
+    title: '2026년도 학사일정',
+    excerpt: '2026년도 주요 학사일정 및 모의고사 일정을 확인하세요. 교육청 모의고사, 평가원 모의고사, 수능 일정 등을 한눈에 볼 수 있습니다.',
+    content: 'special-component',
+    category: 'notice',
+    tags: ['학사일정', '모의고사', '수능', '2026'],
+    author: 'SN독학기숙학원',
+    date: '2025-12-22',
+    readTime: '2',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/calendar_thumbnail.png',
+    url: '/notice/2026-academic-calendar',
+    type: 'special',
+  },
+  {
     id: '2026-suneung-day-vlog',
     title: '2026학년도 수능일 Vlog',
     excerpt:
