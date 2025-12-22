@@ -184,26 +184,41 @@ export default function AcademicCalendar2026() {
           }
 
           /* 불필요한 UI 숨기기 */
-          header, aside, footer, nav, 
+          header, aside, footer, nav,
           .sidebar, .fixed, .print\\:hidden,
           [class*="modal"], [class*="fullscreen"],
           details, .prose > h1 {
             display: none !important;
+            height: 0 !important;
+            min-height: 0 !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
           }
 
           /* 메인 컨테이너 리셋 */
-          .max-w-6xl, .container, main {
+          .max-w-6xl, .container, main, .min-h-screen {
             max-width: none !important;
             width: 100% !important;
+            height: auto !important;
+            min-height: 0 !important;
             margin: 0 !important;
             padding: 0 !important;
             box-shadow: none !important;
+            overflow: visible !important;
+          }
+
+          /* 블로그 레이아웃 요소 숨기기 */
+          .lg\\:col-span-3, .grid, .order-1 {
+            display: block !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 0 !important;
           }
 
           /* ========================================= */
           /* 연간 일정표 (Print Yearly) */
           /* ========================================= */
-          
+
           body.print-yearly .print-monthly-area {
             display: none !important;
           }
@@ -211,40 +226,44 @@ export default function AcademicCalendar2026() {
           body.print-yearly .print-table-area {
             display: block !important;
             visibility: visible !important;
-            width: 277mm !important; /* 양옆 10mm 여백 제외 */
-            margin: 10mm auto !important;
+            width: 287mm !important;
+            max-height: 200mm !important;
+            margin: 3mm 5mm !important;
             padding: 0 !important;
             border: none !important;
+            overflow: hidden !important;
           }
 
-          /* 테이블 스타일 보정 */
           body.print-yearly .print-table-area table {
             width: 100% !important;
-            font-size: 9pt !important;
+            font-size: 7.5pt !important;
             border-collapse: collapse !important;
             table-layout: fixed !important;
           }
 
           body.print-yearly .print-table-area th,
           body.print-yearly .print-table-area td {
-            padding: 2px 1px !important;
+            padding: 1px 1px !important;
             vertical-align: middle !important;
-            height: auto !important;
+            height: 5.2mm !important;
+            max-height: 5.2mm !important;
             border: 1px solid #ccc !important;
+            overflow: hidden !important;
           }
-          
+
           body.print-yearly .print-title {
             display: block !important;
             text-align: center !important;
-            font-size: 20pt !important;
+            font-size: 14pt !important;
             font-weight: bold !important;
-            margin-bottom: 5mm !important;
-            margin-top: 5mm !important;
+            margin-bottom: 2mm !important;
+            margin-top: 0 !important;
+            padding: 0 !important;
             color: black !important;
           }
 
           body.print-yearly .print-table-area span {
-            font-size: 8pt !important;
+            font-size: 6.5pt !important;
           }
 
           /* ========================================= */
@@ -258,52 +277,67 @@ export default function AcademicCalendar2026() {
           body.print-monthly .print-monthly-area {
             display: block !important;
             visibility: visible !important;
-            width: 277mm !important;
-            margin: 10mm auto !important;
-            padding: 0 !important;
+            width: 287mm !important;
+            max-height: 200mm !important;
+            margin: 3mm 5mm !important;
+            padding: 3mm !important;
+            border: none !important;
+            overflow: hidden !important;
+            background: white !important;
+          }
+
+          body.print-monthly .print-monthly-area > div {
+            padding: 2mm !important;
             border: none !important;
           }
 
           body.print-monthly .print-monthly-title {
-            font-size: 24pt !important;
-            font-weight: bold !important;
+            font-size: 16pt !important;
+            font-weight: 600 !important;
             text-align: center !important;
-            margin-bottom: 5mm !important;
+            margin-bottom: 3mm !important;
+            margin-top: 0 !important;
+            padding: 0 !important;
             display: block !important;
-            color: black !important;
+            color: #1a73e8 !important;
           }
 
           body.print-monthly .print-monthly-grid {
-             display: grid !important;
-             /* 높이를 약 175mm로 고정하여 1페이지 내에 들어오도록 함 (여백/제목 제외) */
-             height: 175mm !important; 
-             grid-template-rows: 10mm auto !important; /* 요일 헤더 10mm */
-             gap: 0 !important;
-             border: 2px solid #333 !important;
-          }
-          
-          body.print-monthly .print-monthly-cell {
-            min-height: 0 !important;
-            height: auto !important;
-            border: 1px solid #ccc !important;
-            margin: 0 !important;
-            padding: 1mm !important;
+            display: grid !important;
+            grid-template-columns: repeat(7, 1fr) !important;
+            gap: 0 !important;
+            border: 1px solid #dadce0 !important;
+            border-radius: 2mm !important;
             overflow: hidden !important;
           }
 
-          /* 셀 내부 텍스트 정리 */
+          body.print-monthly .print-monthly-grid > div {
+            min-height: 0 !important;
+            height: 26mm !important;
+            max-height: 26mm !important;
+            border: 1px solid #e8e8e8 !important;
+            margin: 0 !important;
+            padding: 1.5mm !important;
+            overflow: hidden !important;
+            background: white !important;
+          }
+
+          body.print-monthly .print-monthly-cell {
+            min-height: 0 !important;
+            height: 26mm !important;
+            max-height: 26mm !important;
+          }
+
           body.print-monthly .print-monthly-cell > div:first-child {
-            font-size: 10pt !important; /* 날짜 숫자 */
-            font-weight: bold !important;
+            font-size: 10pt !important;
+            font-weight: 500 !important;
+            margin-bottom: 1mm !important;
           }
 
           body.print-monthly .print-monthly-cell > div:not(:first-child) {
-             font-size: 8pt !important;
-             line-height: 1.2 !important;
-             margin-top: 1px !important;
-             white-space: nowrap;
-             overflow: hidden;
-             text-overflow: ellipsis;
+            font-size: 7pt !important;
+            line-height: 1.2 !important;
+            margin-top: 0.5mm !important;
           }
         }
       `}</style>
