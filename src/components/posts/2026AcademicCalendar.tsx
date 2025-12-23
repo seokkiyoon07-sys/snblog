@@ -97,25 +97,24 @@ export default function AcademicCalendar2026() {
       '3-28': { text: '', type: 'vacation' }, '3-29': { text: '', type: 'vacation' },
       '4-17': { text: '더프', type: 'daeuf' },
       '4-18': { text: '의무휴가', type: 'vacation' }, '4-19': { text: '', type: 'vacation' },
-      '4-20': { text: '', type: 'vacation' }, '4-21': { text: '', type: 'vacation' },
+      '4-20': { text: '', type: 'vacation' }, '4-21': { text: '', type: 'vacation' }, '4-22': { text: '', type: 'vacation' },
       '5-5': { text: '어린이날', type: 'holiday' }, '5-7': { text: '교육청', type: 'exam' },
       '5-8': { text: '시행', type: 'examday' },
       '5-14': { text: '선택휴가', type: 'vacation' }, '5-15': { text: '', type: 'vacation' },
       '5-16': { text: '', type: 'vacation' }, '5-17': { text: '', type: 'vacation' },
       '5-20': { text: '더프', type: 'daeuf' },
       '5-24': { text: '석가탄신', type: 'holiday' }, '6-4': { text: '평가원', type: 'kice' },
-      '6-5': { text: '의무휴가', type: 'vacation' }, '6-6': { text: '현충일', type: 'vacation' },
+      '6-5': { text: '선택휴가', type: 'vacation' }, '6-6': { text: '현충일', type: 'vacation' },
       '6-7': { text: '', type: 'vacation' }, '6-8': { text: '', type: 'vacation' },
-      '6-9': { text: '', type: 'vacation' },
       '7-2': { text: '선택휴가', type: 'vacation' }, '7-3': { text: '', type: 'vacation' },
       '7-4': { text: '', type: 'vacation' }, '7-5': { text: '', type: 'vacation' },
       '7-8': { text: '교육청', type: 'exam' }, '7-9': { text: '시행', type: 'examday' },
       '7-17': { text: '더프', type: 'daeuf' },
-      '8-6': { text: '선택휴가', type: 'vacation' }, '8-7': { text: '', type: 'vacation' },
-      '8-8': { text: '', type: 'vacation' }, '8-9': { text: '', type: 'vacation' },
+      '8-6': { text: '의무휴가', type: 'vacation' }, '8-7': { text: '', type: 'vacation' },
+      '8-8': { text: '', type: 'vacation' }, '8-9': { text: '', type: 'vacation' }, '8-10': { text: '', type: 'vacation' },
       '8-15': { text: '광복절', type: 'holiday' }, '8-18': { text: '더프', type: 'daeuf' },
       '9-2': { text: '평가원', type: 'kice' },
-      '9-3': { text: '의무휴가', type: 'vacation' }, '9-4': { text: '', type: 'vacation' },
+      '9-3': { text: '선택휴가', type: 'vacation' }, '9-4': { text: '', type: 'vacation' },
       '9-5': { text: '', type: 'vacation' }, '9-6': { text: '', type: 'vacation' },
       '9-7': { text: '수시접수', type: 'admission' }, '9-8': { text: '', type: 'admission' },
       '9-9': { text: '', type: 'admission' }, '9-10': { text: '', type: 'admission' },
@@ -779,12 +778,12 @@ export default function AcademicCalendar2026() {
                       <ul className="space-y-1 ml-4 list-disc">
                         <li><strong>2월 15일~18일</strong> - 설날 연휴 선택휴가</li>
                         <li><strong>3월 26일~29일</strong> - 3월 선택휴가</li>
-                        <li><strong>4월 18일~21일</strong> - 4월 의무휴가</li>
+                        <li><strong>4월 18일~22일</strong> - 4월 의무휴가</li>
                         <li><strong>5월 14일~17일</strong> - 5월 선택휴가</li>
-                        <li><strong>6월 5일~9일</strong> - 6월 의무휴가 (현충일 포함)</li>
+                        <li><strong>6월 5일~8일</strong> - 6월 선택휴가 (현충일 포함)</li>
                         <li><strong>7월 2일~5일</strong> - 7월 선택휴가</li>
-                        <li><strong>8월 6일~9일</strong> - 8월 선택휴가</li>
-                        <li><strong>9월 3일~6일</strong> - 9월 의무휴가</li>
+                        <li><strong>8월 6일~10일</strong> - 8월 의무휴가</li>
+                        <li><strong>9월 3일~6일</strong> - 9월 선택휴가</li>
                         <li><strong>10월 8일~11일</strong> - 10월 선택휴가 (한글날 포함)</li>
                       </ul>
                     </section>
