@@ -342,7 +342,7 @@ export default function AcademicCalendar2026() {
       `}</style>
 
       {/* Google Calendar 스타일 */}
-      <main className="min-h-screen bg-white dark:bg-[#202124] font-sans">
+      <main className="bg-white dark:bg-[#202124] font-sans">
 
         {/* 상단 헤더 - Google 스타일 */}
         <header className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#202124] sticky top-0 z-20">
@@ -453,7 +453,7 @@ export default function AcademicCalendar2026() {
         <div className="flex">
 
           {/* 메인 컨텐츠 */}
-          <main className="flex-1 p-4">
+          <main className="flex-1 p-1 md:p-4 max-w-full overflow-hidden">
             {/* 보기 모드 탭 */}
             <div className="flex gap-1 mb-4 print:hidden overflow-x-auto pb-2">
               <button
@@ -498,13 +498,13 @@ export default function AcademicCalendar2026() {
 
             {/* 월별 보기 */}
             {viewMode !== 'all' && (
-              <div className="bg-white dark:bg-[#292a2d] border border-gray-200 dark:border-gray-700 rounded-lg print-monthly-area">
-                <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+              <div className="bg-white dark:bg-[#292a2d] border border-gray-200 dark:border-gray-700 rounded-lg print-monthly-area max-w-full overflow-hidden">
+                <div className="p-2 md:p-4 border-b border-gray-200 dark:border-gray-700">
                   <h3 className="text-lg font-medium text-gray-800 dark:text-gray-100 print-monthly-title">
                     {selectedYear}년 {viewMode}월
                   </h3>
                 </div>
-                <div className="p-4">
+                <div className="p-1 md:p-4 max-w-full overflow-hidden">
                   <div className="grid grid-cols-7 print-monthly-grid">
                     {/* 요일 헤더 */}
                     {['일', '월', '화', '수', '목', '금', '토'].map((dayName, i) => (
@@ -518,7 +518,7 @@ export default function AcademicCalendar2026() {
                     ))}
                     {/* 빈 셀 */}
                     {Array.from({ length: new Date(selectedYear, viewMode - 1, 1).getDay() }).map((_, i) => (
-                      <div key={`empty-${i}`} className="min-h-[80px] md:min-h-[100px] print:min-h-0 border-b border-r border-gray-100 dark:border-gray-800" />
+                      <div key={`empty-${i}`} className="min-h-[60px] md:min-h-[100px] print:min-h-0 border-b border-r border-gray-100 dark:border-gray-800" />
                     ))}
                     {/* 날짜 셀 */}
                     {Array.from({ length: daysInMonth[viewMode] }, (_, i) => i + 1).map((day) => {
@@ -540,10 +540,10 @@ export default function AcademicCalendar2026() {
                       return (
                         <div
                           key={day}
-                          className={`min-h-[80px] md:min-h-[100px] print:min-h-0 p-1 border-b border-r border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors print-monthly-cell ${bgClass}`}
+                          className={`min-h-[60px] md:min-h-[100px] print:min-h-0 p-0.5 md:p-1 border-b border-r border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors print-monthly-cell ${bgClass}`}
                         >
-                          <div className={`text-sm mb-1 ${todayCell
-                            ? 'w-6 h-6 flex items-center justify-center bg-[#1a73e8] text-white rounded-full'
+                          <div className={`text-xs md:text-sm mb-0.5 md:mb-1 ${todayCell
+                            ? 'w-5 h-5 md:w-6 md:h-6 flex items-center justify-center bg-[#1a73e8] text-white rounded-full text-[10px] md:text-sm'
                             : sunday || holiday
                               ? 'text-red-500'
                               : 'text-gray-700 dark:text-gray-300'
@@ -551,15 +551,15 @@ export default function AcademicCalendar2026() {
                             {day}
                           </div>
                           {event && !isVacation && !isHolidayEvent && (
-                            <div className={`text-xs px-1.5 py-0.5 rounded ${getEventStyle(event.type, todayCell)}`}>
+                            <div className={`text-[10px] md:text-xs px-0.5 md:px-1.5 py-0.5 rounded ${getEventStyle(event.type, todayCell)}`}>
                               {event.text}
                             </div>
                           )}
                           {isHolidayEvent && (
-                            <div className="text-xs text-[#5f2120] font-medium">{event.text}</div>
+                            <div className="text-[10px] md:text-xs text-[#5f2120] font-medium">{event.text}</div>
                           )}
                           {isVacation && event.text && (
-                            <div className="text-xs text-[#01579b] font-medium">{event.text}</div>
+                            <div className="text-[10px] md:text-xs text-[#01579b] font-medium">{event.text}</div>
                           )}
                         </div>
                       );
@@ -572,7 +572,7 @@ export default function AcademicCalendar2026() {
             {/* 연간 일정표 - Google Calendar 그리드 스타일 */}
             <div
               ref={tableContainerRef}
-              className={`bg-white dark:bg-[#292a2d] border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden print-table-area ${viewMode !== 'all' ? 'hidden print:block' : ''}`}
+              className={`bg-white dark:bg-[#292a2d] border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden print-table-area max-w-full ${viewMode !== 'all' ? 'hidden print:block' : ''}`}
             >
               <h2 className="hidden print:block print-title text-center text-lg font-medium py-3 border-b border-gray-200">
                 2027학년도 SN독학기숙학원 학사일정
@@ -590,11 +590,11 @@ export default function AcademicCalendar2026() {
                     일요일 표시전환
                   </label>
                 </div>
-                <div className="overflow-x-auto">
-                  <table className="w-full md:min-w-[700px] table-fixed border-collapse">
+                <div className="overflow-hidden max-w-full">
+                  <table className="w-full table-fixed border-collapse text-[6px] md:text-xs">
                     <thead>
                       <tr>
-                        <th className="w-[8%] md:w-[3%] py-1 md:py-2 text-center text-[10px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
+                        <th className="w-[10%] md:w-[3%] py-0.5 md:py-2 text-center text-[8px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
                           일
                         </th>
                         {months.map((month, index) => {
@@ -609,7 +609,7 @@ export default function AcademicCalendar2026() {
                           const borderClass = isMobileLast ? 'md:border-r print:border-r' : 'border-r';
 
                           return (
-                            <th key={index} className={`w-[15.3%] md:w-[8.08%] py-1 md:py-2 text-center text-[10px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 bg-gray-50 dark:bg-[#35363a] ${hiddenClass}`}>
+                            <th key={index} className={`w-[15%] md:w-[8.08%] py-0.5 md:py-2 text-center text-[8px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 bg-gray-50 dark:bg-[#35363a] ${hiddenClass}`}>
                               {month}
                             </th>
                           );
@@ -619,7 +619,7 @@ export default function AcademicCalendar2026() {
                     <tbody>
                       {days.map((day) => (
                         <tr key={day} className="hover:bg-gray-50 dark:hover:bg-[#35363a] transition-colors">
-                          <td className="py-0.5 md:py-1 text-center text-[10px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
+                          <td className="py-0 md:py-1 text-center text-[8px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
                             {day}
                           </td>
                           {months.map((_, monthIndex) => {
@@ -653,26 +653,26 @@ export default function AcademicCalendar2026() {
                               <td
                                 key={monthIndex}
                                 ref={todayCell ? todayRef : null}
-                                className={`py-0.5 px-0.5 text-center border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 relative ${bgClass} ${hiddenClass}`}
+                                className={`py-0 px-0 md:py-0.5 md:px-0.5 text-center border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 relative ${bgClass} ${hiddenClass}`}
                               >
                                 {isValidDay && sunday && !todayCell && !event && showSundayDots && (
                                   <span className="absolute top-0.5 left-0.5 w-1 h-1 rounded-full bg-red-400"></span>
                                 )}
                                 {isValidDay && todayCell && !event && (
-                                  <span className="inline-flex items-center justify-center w-5 h-5 bg-[#1a73e8] text-white text-[9px] font-medium rounded-full">
+                                  <span className="inline-flex items-center justify-center w-3 h-3 md:w-5 md:h-5 bg-[#1a73e8] text-white text-[6px] md:text-[9px] font-medium rounded-full">
                                     ●
                                   </span>
                                 )}
                                 {isValidDay && event && !isVacation && !isHolidayEvent && (
-                                  <span className={`inline-block px-1.5 py-0.5 rounded text-[9px] font-medium ${getEventStyle(event.type, todayCell)}`}>
+                                  <span className={`inline-block px-0 md:px-1.5 py-0 md:py-0.5 rounded text-[5px] md:text-[9px] leading-tight font-medium truncate max-w-full ${getEventStyle(event.type, todayCell)}`}>
                                     {event.text}
                                   </span>
                                 )}
                                 {isValidDay && isHolidayEvent && (
-                                  <span className="text-[8px] text-[#5f2120] font-medium">{event.text}</span>
+                                  <span className="text-[5px] md:text-[8px] leading-tight text-[#5f2120] font-medium">{event.text}</span>
                                 )}
                                 {isValidDay && isVacation && event.text && (
-                                  <span className="text-[8px] text-[#01579b] font-medium">{event.text}</span>
+                                  <span className="text-[5px] md:text-[8px] leading-tight text-[#01579b] font-medium">{event.text}</span>
                                 )}
                               </td>
                             );
@@ -731,7 +731,7 @@ export default function AcademicCalendar2026() {
             </p>
 
             {/* SEO용 상세 일정 토글 */}
-            <details className="mt-8 border border-gray-200 dark:border-gray-700 rounded-lg print:hidden">
+            <details className="mt-4 border border-gray-200 dark:border-gray-700 rounded-lg print:hidden">
               <summary className="px-4 py-3 bg-gray-50 dark:bg-[#35363a] rounded-t-lg cursor-pointer text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-[#404144] transition-colors">
                 📅 {selectedYear}년 상세 일정 보기
               </summary>
