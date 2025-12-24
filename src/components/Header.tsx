@@ -55,7 +55,7 @@ export default function Header() {
   const currentInfo = infoOptions.find(option => option.key === selectedInfo);
 
   return (
-    <header className="border-b border-gray-200 dark:border-gray-700">
+    <header className="border-b border-gray-200 dark:border-gray-700 print:hidden">
       <div className="max-w-6xl mx-auto px-4 py-4 sm:py-6">
         {/* 데스크톱 헤더 */}
         <div className="hidden lg:block">
