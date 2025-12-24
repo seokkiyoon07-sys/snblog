@@ -180,18 +180,52 @@ export default function AcademicCalendar2026() {
             width: 297mm !important; /* A4 landscape width */
             height: 210mm !important; /* A4 landscape height */
             overflow: hidden !important; /* 1페이지만 나오도록 강제 */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
           }
 
-          /* 불필요한 UI 숨기기 */
-          header, aside, footer, nav,
+          /* 배경색 강제 출력 */
+          * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
+          }
+
+          /* 불필요한 UI 숨기기 - 강화 */
+          aside, footer, nav,
           .sidebar, .fixed, .print\\:hidden,
           [class*="modal"], [class*="fullscreen"],
-          details, .prose > h1 {
+          details, .prose > h1,
+          .order-2 {
+            display: none !important;
+            position: absolute !important;
+            left: -9999px !important;
+            width: 0 !important;
+            height: 0 !important;
+            visibility: hidden !important;
+          }
+
+          /* 글로벌 헤더 (검색바, 토글 등) 숨기기 */
+          body > div > div > div > header.border-b,
+          .min-h-screen > header,
+          .max-w-6xl.mx-auto > *:first-child:not(.grid) {
             display: none !important;
             height: 0 !important;
-            min-height: 0 !important;
-            max-height: 0 !important;
-            overflow: hidden !important;
+            visibility: hidden !important;
+          }
+
+          /* 검색바, select 등 폼 요소 */
+          .max-w-6xl input,
+          .max-w-6xl select,
+          .max-w-6xl form {
+            display: none !important;
+          }
+
+          /* py 패딩 제거 */
+          .sm\\:py-6, .lg\\:py-8 {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
           }
 
           /* 메인 컨테이너 리셋 */
@@ -206,10 +240,16 @@ export default function AcademicCalendar2026() {
             overflow: visible !important;
           }
 
-          /* 블로그 레이아웃 요소 숨기기 */
-          .lg\\:col-span-3, .grid, .order-1 {
+          /* 그리드 레이아웃 무력화 */
+          .grid.grid-cols-1 {
+            display: block !important;
+          }
+
+          /* 블로그 레이아웃 요소 */
+          .lg\\:col-span-3, .order-1 {
             display: block !important;
             width: 100% !important;
+            max-width: 100% !important;
             height: auto !important;
             min-height: 0 !important;
           }
@@ -266,6 +306,52 @@ export default function AcademicCalendar2026() {
           }
 
           /* ========================================= */
+          /* 이벤트 스타일 (프린트용) */
+          /* ========================================= */
+
+          /* 휴가 - 연한 하늘색 배경 (삼일절 선택휴가 등) */
+          .bg-\\[\\#b3e5fc\\] {
+            background-color: #b3e5fc !important;
+            color: #01579b !important;
+          }
+
+          /* 더프/교육청 모의고사 - 주황색 띠지 */
+          .bg-\\[\\#ff9800\\] {
+            background-color: #ff9800 !important;
+            color: white !important;
+          }
+
+          /* 평가원 모의고사 - 연한 초록 */
+          .bg-\\[\\#81c995\\] {
+            background-color: #81c995 !important;
+            color: #1e4620 !important;
+          }
+
+          /* 교육청 모의고사 - 파란색 */
+          .bg-\\[\\#4285f4\\] {
+            background-color: #4285f4 !important;
+            color: white !important;
+          }
+
+          /* 공휴일 - 연한 빨강 */
+          .bg-\\[\\#f28b82\\] {
+            background-color: #f28b82 !important;
+            color: #5f2120 !important;
+          }
+
+          /* 수능 - 보라색 그라데이션 */
+          .bg-gradient-to-r.from-\\[\\#7c3aed\\] {
+            background: linear-gradient(to right, #7c3aed, #9333ea) !important;
+            color: white !important;
+          }
+
+          /* 대입 - 핑크색 */
+          .bg-\\[\\#e91e63\\] {
+            background-color: #e91e63 !important;
+            color: white !important;
+          }
+
+          /* ========================================= */
           /* 월별 일정표 (Print Monthly) */
           /* ========================================= */
 
@@ -318,13 +404,22 @@ export default function AcademicCalendar2026() {
             margin: 0 !important;
             padding: 1.5mm !important;
             overflow: hidden !important;
-            background: white !important;
           }
 
           body.print-monthly .print-monthly-cell {
             min-height: 0 !important;
             height: 26mm !important;
             max-height: 26mm !important;
+          }
+
+          /* 월별 캘린더 - 휴가 배경색 (연한 하늘색) */
+          body.print-monthly .print-monthly-cell.bg-\\[\\#e1f5fe\\] {
+            background-color: #e1f5fe !important;
+          }
+
+          /* 월별 캘린더 - 공휴일 배경색 (연한 빨강) */
+          body.print-monthly .print-monthly-cell.bg-\\[\\#fce4e4\\] {
+            background-color: #fce4e4 !important;
           }
 
           body.print-monthly .print-monthly-cell > div:first-child {
@@ -345,7 +440,7 @@ export default function AcademicCalendar2026() {
       <main className="bg-white dark:bg-[#202124] font-sans">
 
         {/* 상단 헤더 - Google 스타일 */}
-        <header className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#202124] sticky top-0 z-20">
+        <header className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#202124] sticky top-0 z-20 print:hidden">
           <div className="flex flex-col md:flex-row md:items-center justify-between px-4 py-2 gap-2 md:gap-0">
             {/* 1열 (모바일): 로고 + 우측 컨트롤 */}
             <div className="flex items-center justify-between w-full md:w-auto">
