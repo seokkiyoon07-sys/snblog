@@ -6070,6 +6070,22 @@ console.log(greeting);
     url: '/columns/dokhak',
   },
   {
+    id: 'snargpt-presentation',
+    title: 'SN이 AI를 만든 이유 (Presentation)',
+    excerpt:
+      '공부가 "감"에서 "훈련"이 되는 순간. AI 시대, 상위권과 하위권의 격차가 왜 더 벌어졌는지, 그리고 SNarGPT가 어떻게 학생의 사고 로직을 개선하는지 소개합니다.',
+    thumbnail: '/presentation/thumbnail.png',
+    content: `이 포스트는 전용 페이지에서 렌더링됩니다. /columns/snargpt-presentation을 방문하세요.`,
+    category: 'columns',
+    tags: ['AI', 'SNarGPT', '학습전략', '데이터기반학습', '프레젠테이션'],
+    author: 'SN Academy',
+    date: '2025-12-27',
+    readTime: '10',
+    featured: true,
+    published: true,
+    url: '/columns/snargpt-presentation',
+  },
+  {
     id: 'SNarlink',
     title: 'SN독학기숙학원 방화벽의 모든 것! (Feat. SNarlink)',
     excerpt:

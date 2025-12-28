@@ -2,6 +2,8 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
+  devIndicators: false,
+  reactStrictMode: false,
   // Docker를 위한 standalone 빌드 (Vercel에서는 사용하지 않음)
   ...(process.env.DOCKER_BUILD === 'true' ? { output: 'standalone' } : {}),
   images: {
@@ -36,7 +38,8 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        // /ppt 경로 제외한 모든 경로에 DENY 적용
+        source: '/((?!ppt).*)',
         headers: [
           {
             key: 'X-Content-Type-Options',
@@ -45,6 +48,28 @@ const nextConfig: NextConfig = {
           {
             key: 'X-Frame-Options',
             value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin',
+          },
+        ],
+      },
+      {
+        // PPT 정적 파일은 iframe 허용 (SAMEORIGIN)
+        source: '/ppt/:path*',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
           },
           {
             key: 'X-XSS-Protection',
