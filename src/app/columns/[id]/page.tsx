@@ -8,6 +8,7 @@ import AIDataGenerator from '@/components/AIDataGenerator';
 import { renderMarkdown } from '@/lib/markdown-renderer';
 import { formatReadTime } from '@/lib/utils';
 import ArticleContent from '@/components/ArticleContent';
+import SNarGPTPresentation from '@/components/posts/SNarGPTPresentation';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -216,6 +217,114 @@ export default async function Page({ params }: PageProps) {
 
   if (!post || post.category !== 'columns') {
     notFound();
+  }
+
+  // snargpt-presentation 전용 템플릿
+  if (id === 'snargpt-presentation') {
+    return (
+      <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-800 text-slate-800 dark:text-gray-100">
+        {/* Hero */}
+        <section className="px-6 md:px-10 lg:px-16 py-12 md:py-16">
+          <div className="mx-auto max-w-5xl">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+                {post.title}
+              </h1>
+              <p className="text-xl text-slate-600 dark:text-gray-300 mb-6 max-w-3xl mx-auto">
+                {post.excerpt}
+              </p>
+              <div className="flex flex-wrap justify-center items-center gap-6 text-slate-500 dark:text-gray-400 mb-6">
+                <span className="flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                  </svg>
+                  {post.author}
+                </span>
+                <span className="flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                  </svg>
+                  {post.date}
+                </span>
+                <span className="flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                  </svg>
+                  {formatReadTime(post.readTime)}
+                </span>
+              </div>
+              {/* 태그 */}
+              {post.tags && post.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {post.tags.map(tag => (
+                    <span key={tag} className="px-3 py-1 bg-sn-primary/10 text-sn-primary rounded-full text-sm font-medium">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* 프레젠테이션 */}
+        <section className="px-4 md:px-10 lg:px-16 pb-16">
+          <div className="mx-auto max-w-6xl">
+            <SNarGPTPresentation />
+            <p className="text-center text-sm text-slate-500 dark:text-gray-400 mt-4">
+              ← → 키보드 방향키 또는 하단 버튼으로 슬라이드를 넘길 수 있습니다
+            </p>
+          </div>
+        </section>
+
+        {/* 구조화된 데이터 */}
+        <StructuredData
+          type="article"
+          data={{
+            title: post.title,
+            description: post.excerpt,
+            author: post.author,
+            datePublished: post.date,
+            dateModified: post.date,
+            image: post.thumbnail,
+            url: `https://blog.snacademy.co.kr${post.url}`,
+            category: post.category,
+            keywords: post.tags?.join(', ') || '',
+            wordCount: 2000,
+            readingTime: post.readTime,
+            educationalLevel: '고등학교',
+            learningResourceType: '프레젠테이션',
+            teaches: ['AI 학습 원리', 'SNarGPT 활용법', '데이터 기반 학습', '사고 로직 개선'],
+            audience: {
+              '@type': 'EducationalAudience',
+              educationalRole: '학생',
+              audienceType: '고등학생',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'SN Academy',
+              url: 'https://snacademy.co.kr',
+              logo: 'https://blog.snacademy.co.kr/images/sn-logo.png',
+            },
+          }}
+        />
+
+        {/* AI 학습 데이터 */}
+        <AIDataGenerator
+          content={{
+            title: post.title,
+            description: post.excerpt,
+            author: post.author,
+            category: post.category,
+            tags: post.tags || [],
+            content: 'SNarGPT 프레젠테이션: AI 시대 상위권과 하위권의 격차, 데이터 기반 학습, 사고 로직 개선',
+            difficulty: 'intermediate',
+            subject: '프레젠테이션',
+            learningObjectives: ['AI 활용 격차 이해', '데이터 기반 학습의 중요성', 'SNarGPT 시스템 이해'],
+          }}
+        />
+      </main>
+    );
   }
 
   // dokhak가 아닌 경우 일반 템플릿 사용
