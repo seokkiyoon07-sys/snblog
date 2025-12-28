@@ -35,54 +35,7 @@ const nextConfig: NextConfig = {
   // Vercel 배포 최적화
   trailingSlash: false,
   skipTrailingSlashRedirect: true,
-  async headers() {
-    return [
-      {
-        // /ppt 경로 제외한 모든 경로에 DENY 적용
-        source: '/((?!ppt).*)',
-        headers: [
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-        ],
-      },
-      {
-        // PPT 정적 파일은 iframe 허용 (SAMEORIGIN)
-        source: '/ppt/:path*',
-        headers: [
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-        ],
-      },
-    ];
-  },
+  // 헤더 설정은 vercel.json에서 관리 (Vercel 배포 시 충돌 방지)
 };
 
 export default nextConfig;
