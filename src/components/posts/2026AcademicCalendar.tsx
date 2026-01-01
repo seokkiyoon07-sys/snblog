@@ -71,7 +71,7 @@ export default function AcademicCalendar2026() {
   const holidays = holidaysByYear[selectedYear] || [];
   const isHoliday = (month: number, day: number): boolean => holidays.includes(`${month}-${day}`);
 
-  const eventsByYear: { [key: number]: { [key: string]: { text: string; type: 'holiday' | 'exam' | 'kice' | 'csat' | 'csatResult' | 'examday' | 'vacation' | 'daeuf' | 'admission' } } } = {
+  const eventsByYear: { [key: number]: { [key: string]: { text: string; type: 'holiday' | 'exam' | 'kice' | 'csat' | 'csatResult' | 'examday' | 'vacation' | 'daeuf' | 'admission' | 'surf' } } } = {
     2025: {
       '1-1': { text: '신정', type: 'holiday' }, '1-29': { text: '설날', type: 'holiday' },
       '3-1': { text: '삼일절', type: 'holiday' }, '3-27': { text: '교육청', type: 'exam' },
@@ -89,15 +89,17 @@ export default function AcademicCalendar2026() {
     },
     2026: {
       '1-1': { text: '신정', type: 'holiday' },
+      '1-26': { text: '서프', type: 'surf' },
       '2-15': { text: '선택휴가', type: 'vacation' }, '2-16': { text: '', type: 'vacation' },
       '2-17': { text: '설날', type: 'vacation' }, '2-18': { text: '', type: 'vacation' },
-      '3-1': { text: '삼일절', type: 'holiday' }, '3-17': { text: '더프', type: 'daeuf' },
+      '3-1': { text: '삼일절', type: 'holiday' }, '3-2': { text: '서프', type: 'surf' }, '3-17': { text: '더프', type: 'daeuf' },
       '3-24': { text: '교육청', type: 'exam' }, '3-25': { text: '시행', type: 'examday' },
       '3-26': { text: '선택휴가', type: 'vacation' }, '3-27': { text: '', type: 'vacation' },
       '3-28': { text: '', type: 'vacation' }, '3-29': { text: '', type: 'vacation' },
       '4-17': { text: '더프', type: 'daeuf' },
       '4-18': { text: '의무휴가', type: 'vacation' }, '4-19': { text: '', type: 'vacation' },
       '4-20': { text: '', type: 'vacation' }, '4-21': { text: '', type: 'vacation' }, '4-22': { text: '', type: 'vacation' },
+      '4-26': { text: '서프', type: 'surf' },
       '5-5': { text: '어린이날', type: 'holiday' }, '5-7': { text: '교육청', type: 'exam' },
       '5-8': { text: '시행', type: 'examday' },
       '5-14': { text: '선택휴가', type: 'vacation' }, '5-15': { text: '', type: 'vacation' },
@@ -106,13 +108,15 @@ export default function AcademicCalendar2026() {
       '5-24': { text: '석가탄신', type: 'holiday' }, '6-4': { text: '평가원', type: 'kice' },
       '6-5': { text: '선택휴가', type: 'vacation' }, '6-6': { text: '현충일', type: 'vacation' },
       '6-7': { text: '', type: 'vacation' }, '6-8': { text: '', type: 'vacation' },
+      '6-28': { text: '서프', type: 'surf' },
       '7-2': { text: '선택휴가', type: 'vacation' }, '7-3': { text: '', type: 'vacation' },
       '7-4': { text: '', type: 'vacation' }, '7-5': { text: '', type: 'vacation' },
       '7-8': { text: '교육청', type: 'exam' }, '7-9': { text: '시행', type: 'examday' },
       '7-17': { text: '더프', type: 'daeuf' },
+      '7-24': { text: '서프', type: 'surf' },
       '8-6': { text: '의무휴가', type: 'vacation' }, '8-7': { text: '', type: 'vacation' },
       '8-8': { text: '', type: 'vacation' }, '8-9': { text: '', type: 'vacation' }, '8-10': { text: '', type: 'vacation' },
-      '8-15': { text: '광복절', type: 'holiday' }, '8-18': { text: '더프', type: 'daeuf' },
+      '8-15': { text: '광복절', type: 'holiday' }, '8-17': { text: '서프', type: 'surf' }, '8-18': { text: '더프', type: 'daeuf' },
       '9-2': { text: '평가원', type: 'kice' },
       '9-3': { text: '선택휴가', type: 'vacation' }, '9-4': { text: '', type: 'vacation' },
       '9-5': { text: '', type: 'vacation' }, '9-6': { text: '', type: 'vacation' },
@@ -120,11 +124,12 @@ export default function AcademicCalendar2026() {
       '9-9': { text: '', type: 'admission' }, '9-10': { text: '', type: 'admission' },
       '9-11': { text: '접수마감', type: 'admission' },
       '9-16': { text: '더프', type: 'daeuf' },
-      '9-25': { text: '추석', type: 'holiday' }, '10-3': { text: '개천절', type: 'holiday' },
+      '9-24': { text: '서프', type: 'surf' }, '9-25': { text: '추석', type: 'holiday' }, '10-3': { text: '개천절', type: 'holiday' },
       '10-8': { text: '선택휴가', type: 'vacation' },
-      '10-9': { text: '한글날', type: 'vacation' }, '10-10': { text: '', type: 'vacation' },
+      '10-9': { text: '서프', type: 'surf' }, '10-10': { text: '', type: 'vacation' },
       '10-11': { text: '', type: 'vacation' }, '10-15': { text: '더프', type: 'daeuf' },
       '10-20': { text: '교육청', type: 'exam' }, '10-21': { text: '시행', type: 'examday' },
+      '11-2': { text: '서프', type: 'surf' },
       '11-19': { text: '수능', type: 'csat' },
       '12-11': { text: '수능성적', type: 'csatResult' },
       '12-18': { text: '수시발표', type: 'admission' },
@@ -143,7 +148,7 @@ export default function AcademicCalendar2026() {
   const events = eventsByYear[selectedYear] || {};
 
   // 이벤트 타입별 색상 (Google Calendar 스타일)
-  const getEventStyle = (type: 'holiday' | 'exam' | 'kice' | 'csat' | 'csatResult' | 'examday' | 'vacation' | 'daeuf' | 'admission', isToday: boolean) => {
+  const getEventStyle = (type: 'holiday' | 'exam' | 'kice' | 'csat' | 'csatResult' | 'examday' | 'vacation' | 'daeuf' | 'admission' | 'surf', isToday: boolean) => {
     if (isToday) return 'bg-[#1a73e8] text-white';
     switch (type) {
       case 'holiday': return 'bg-[#f28b82] text-[#5f2120]'; // 연한 빨강
@@ -155,6 +160,7 @@ export default function AcademicCalendar2026() {
       case 'vacation': return 'bg-[#b3e5fc] text-[#01579b]'; // 연한 하늘색 (휴가)
       case 'daeuf': return 'bg-[#ff9800] text-white font-medium'; // 주황색 (더프)
       case 'admission': return 'bg-[#e91e63] text-white font-medium'; // 핑크색 (대입)
+      case 'surf': return 'bg-[#00bcd4] text-white font-medium'; // 청록색 (서프)
       default: return 'bg-gray-100 text-gray-700';
     }
   };
@@ -318,6 +324,12 @@ export default function AcademicCalendar2026() {
           /* 더프/교육청 모의고사 - 주황색 띠지 */
           .bg-\\[\\#ff9800\\] {
             background-color: #ff9800 !important;
+            color: white !important;
+          }
+
+          /* 서프(시대인재 서바이벌) - 청록색 */
+          .bg-\\[\\#00bcd4\\] {
+            background-color: #00bcd4 !important;
             color: white !important;
           }
 
@@ -803,6 +815,10 @@ export default function AcademicCalendar2026() {
                 <span>더프</span>
               </div>
               <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-sm bg-[#00bcd4]"></span>
+                <span>서프</span>
+              </div>
+              <div className="flex items-center gap-1.5">
                 <span className="w-3 h-3 rounded-sm bg-gradient-to-r from-[#7c3aed] to-[#9333ea] ring-1 ring-[#6d28d9] shadow-sm"></span>
                 <span>수능</span>
               </div>
@@ -855,6 +871,21 @@ export default function AcademicCalendar2026() {
                         <li><strong>8월 18일</strong> - 8월 더프</li>
                         <li><strong>9월 16일</strong> - 9월 더프</li>
                         <li><strong>10월 15일</strong> - 10월 더프</li>
+                      </ul>
+                    </section>
+
+                    <section>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">🏃 서프(시대인재 서바이벌) 일정</h3>
+                      <ul className="space-y-1 ml-4 list-disc">
+                        <li><strong>1월 26일</strong> - 1월 서프</li>
+                        <li><strong>3월 2일</strong> - 3월 서프</li>
+                        <li><strong>4월 26일</strong> - 4월 서프</li>
+                        <li><strong>6월 28일</strong> - 6월 서프</li>
+                        <li><strong>7월 24일</strong> - 7월 서프</li>
+                        <li><strong>8월 17일</strong> - 8월 서프</li>
+                        <li><strong>9월 24일</strong> - 9월 서프</li>
+                        <li><strong>10월 9일</strong> - 10월 서프</li>
+                        <li><strong>11월 2일</strong> - 11월 서프</li>
                       </ul>
                     </section>
 
@@ -1089,6 +1120,10 @@ export default function AcademicCalendar2026() {
               <div className="flex items-center gap-2">
                 <span className="w-4 h-4 rounded-sm bg-[#ff9800]"></span>
                 <span>더프</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-4 h-4 rounded-sm bg-[#00bcd4]"></span>
+                <span>서프</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-4 h-4 rounded-sm bg-gradient-to-r from-[#7c3aed] to-[#9333ea] ring-1 ring-[#6d28d9] shadow-sm"></span>
