@@ -4,7 +4,7 @@ import { BASE_URL } from '@/lib/config';
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: '*', allow: '/', disallow: ['/private/', '/admin/'] },
+      { userAgent: '*', allow: '/', disallow: ['/private/', '/admin/', '/aidocs/'] },
       { userAgent: 'Yeti', allow: '/' },        // 네이버
       { userAgent: 'Naverbot', allow: '/' },    // 네이버
       { userAgent: 'Googlebot', allow: '/' },   // 구글

@@ -3,6 +3,8 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   /* config options here */
   devIndicators: false,
+  // Turbopack 비활성화 (Windows에서 버그 있음)
+  turbopack: undefined,
   reactStrictMode: false,
   // Docker를 위한 standalone 빌드 (Vercel에서는 사용하지 않음)
   ...(process.env.DOCKER_BUILD === 'true' ? { output: 'standalone' } : {}),
