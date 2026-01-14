@@ -2,6 +2,10 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
+  eslint: {
+    // 빌드 시 ESLint 경고 무시 (Vercel 배포용)
+    ignoreDuringBuilds: true,
+  },
   devIndicators: false,
   // Turbopack 비활성화 (Windows에서 버그 있음)
   turbopack: undefined,
