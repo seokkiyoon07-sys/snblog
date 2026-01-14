@@ -80,7 +80,6 @@ export async function POST(request: NextRequest) {
 
     // 공통 태그들 재검증
     revalidatedTags.push(`build:${BUILD}`);
-    // @ts-expect-error - Next.js 16 type definition mismatch
     revalidatedTags.forEach(tag => revalidateTag(tag));
 
     return NextResponse.json({
