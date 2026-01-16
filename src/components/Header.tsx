@@ -38,8 +38,8 @@ export default function Header() {
     {
       key: '대치점',
       title: '대치점',
-      link: null,
-      linkText: '26.1.1 오픈예정',
+      link: 'https://daechi.snacademy.co.kr',
+      linkText: 'daechi.snacademy.co.kr',
       color: 'text-orange-600 dark:text-orange-400',
     },
     {
