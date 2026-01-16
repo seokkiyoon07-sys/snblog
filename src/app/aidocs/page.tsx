@@ -520,6 +520,54 @@ export default function AIDocsPage() {
               <strong>핵심:</strong> Frespon은 <strong>관리되는 자유</strong>이다.
             </p>
           </div>
+
+
+          <h3>7. 통합 허용 사이트 리스트 (Allowlist)</h3>
+          <p>이 사이트들은 공식적으로 허용된다.</p>
+
+          <h4>1. 주요 교육 및 인터넷 강의 (강의, 문제은행, 출판)</h4>
+          <p>학습에 직접적으로 사용되는 핵심 사이트들입니다.</p>
+          <div className="overflow-x-auto mb-6">
+            <table className="w-full border-collapse border border-gray-300 text-sm">
+              <thead>
+                <tr className="bg-gray-100 dark:bg-gray-800">
+                  <th className="border border-gray-300 p-2 w-1/4">서비스 명칭</th>
+                  <th className="border border-gray-300 p-2">메인 도메인 (Main Domain)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td className="border border-gray-300 p-2 font-semibold">대성 / 두각</td><td className="border border-gray-300 p-2 break-all">dsdo.co.kr, dshw.co.kr, dugak.net, mimacstudy.com</td></tr>
+                <tr><td className="border border-gray-300 p-2 font-semibold">메가스터디</td><td className="border border-gray-300 p-2 break-all">megastudy.net, megastudy.com, megastudy.co.kr, mbest.co.kr, megagong.net, megals.co.kr, megamd.co.kr, megaland.co.kr, megastudybooks.com</td></tr>
+                <tr><td className="border border-gray-300 p-2 font-semibold">이투스 / 청솔</td><td className="border border-gray-300 p-2 break-all">etoos.com, etoosbook.com, cheongsol.co.kr</td></tr>
+                <tr><td className="border border-gray-300 p-2 font-semibold">EBS 계열</td><td className="border border-gray-300 p-2 break-all">ebs.co.kr, ebse.co.kr, ebsi.co.kr, ebsmath.co.kr, ebsoc.co.kr</td></tr>
+                <tr><td className="border border-gray-300 p-2 font-semibold">시대인재</td><td className="border border-gray-300 p-2 break-all">sdij.com, sdijbooks.com, sdijon.com, sdijc.com</td></tr>
+                <tr><td className="border border-gray-300 p-2 font-semibold">해커스</td><td className="border border-gray-300 p-2 break-all">hackers.co.kr, hackers.com, hackersbook.com</td></tr>
+                <tr><td className="border border-gray-300 p-2 font-semibold">문제은행/학습도구</td><td className="border border-gray-300 p-2 break-all">qanda.ai, quizlet.com, classcard.net, zocbo.com, exam4you.com, matholic.com, mathpresso.io, imath.tv, clabvoca.net, vocaending.co.kr</td></tr>
+                <tr><td className="border border-gray-300 p-2 font-semibold">출판사/기타</td><td className="border border-gray-300 p-2 break-all">cedubook.com, cedulearn.com, neungyule.com, sinsago.co.kr, yigam.co.kr, yimo.co.kr, imaginecne.com, holsoo.com, hohoonmath.com, sangsangstudy.com, mae3.com</td></tr>
+                <tr><td className="border border-gray-300 p-2 font-semibold">참고/학술</td><td className="border border-gray-300 p-2 break-all">dbpia.co.kr, riss.kr, korean.go.kr, ncic.re.kr, law.go.kr, nature.com</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>2. 대학 및 입시 행정 (대학교, 원서 접수)</h4>
+          <p>대학교 공식 홈페이지 및 입시 지원 관련 사이트입니다.</p>
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-6 text-sm">
+            <ul className="space-y-2">
+              <li className="break-all"><strong>원서/정보 포털:</strong> adiga.kr, jinhak.com, jinhakapply.com, uwayapply.com, suneung.re.kr, neis.go.kr</li>
+              <li className="break-all"><strong>주요 대학교:</strong> snu.ac.kr, korea.ac.kr, yonsei.ac.kr, skku.edu, hanyang.ac.kr, cau.ac.kr, khu.ac.kr, sogang.ac.kr, ewha.ac.kr, konkuk.ac.kr, kookmin.ac.kr, dankook.ac.kr, hufs.ac.kr, inha.ac.kr, uos.ac.kr, ssu.ac.kr 등</li>
+              <li className="break-all"><strong>이공계 특성화대:</strong> kaist.ac.kr, postech.ac.kr, gist.ac.kr, unist.ac.kr, dgist.ac.kr, kentech.ac.kr</li>
+              <li className="break-all"><strong>특수/기타 대학:</strong> police.ac.kr, kma.ac.kr, afa.ac.kr, knue.ac.kr, koreatech.ac.kr, kau.ac.kr, aks.ac.kr, ocu.ac.kr</li>
+            </ul>
+          </div>
+
+          <h4>3. 학습 지원 및 유틸리티</h4>
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-6 text-sm">
+            <ul className="space-y-2">
+              <li className="break-all"><strong>번역/사전:</strong> papago.naver.com, papago-plus.com, wordreference.com, google.com (translate)</li>
+              <li className="break-all"><strong>기능형 도구:</strong> geogebra.org, desmos.com, goodnotes.com, notion.site, turboscribe.ai, skimmify.com, yeolpumta.com</li>
+              <li className="break-all"><strong>학원/관리:</strong> snacademy.co.kr, riroschool.kr, inclass.co.kr, reclass.study, klassmate.co.kr, seoltab.com</li>
+            </ul>
+          </div>
         </section>
 
         <hr />
@@ -665,7 +713,7 @@ export default function AIDocsPage() {
         <p className="text-sm text-gray-500 dark:text-gray-400">
           Last updated: 2026-01-13
         </p>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
