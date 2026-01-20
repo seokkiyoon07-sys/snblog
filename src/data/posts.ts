@@ -534,6 +534,1770 @@ This song is celebrated for depicting the **active nature of Goryeo women** in l
     type: 'special',
   },
   {
+    id: 'gyuwonga',
+    title: '[고전문학「규원가」해설] 허난설헌 같은 육각형 여자를 등한시하다니 남편이 잘못했네',
+    excerpt:
+      '허난설헌이 지은 것으로 전해지는 가사 「규원가」. 봉건 제도의 굴레 속에서 남편에게 버림받은 여인의 절절한 슬픔과 원망을 기승전결 구조로 그려낸 작품입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈 그 29번째 시간. 오늘은 조선 중기 시인이자 화가이며 동시에 문장가인 허난설헌이 지은 것으로 전해지는 가사 「규원가」를 준비했습니다.
+
+'규원가(閨怨歌)'를 한자 그대로 풀이하면 '규방(閨房, 부녀자가 거처하는 방)에서 원망(怨)하는 노래(歌)'라는 뜻입니다. 안방에 홀로 남겨진 여인이, 소식 없는 남편을 기다리다 지쳐 그를 원망하고 자신의 신세를 한탄하는 노래이지요.
+
+허난설헌이 지었다는 건 100% 사실로 밝혀지지 않은 주요 가설 중 하나이지만, 뛰어난 재능을 가졌음에도 가부장적이었던 사회 분위기나 무심한 남편, 자녀의 죽음 등 외부적인 요인으로 인해 불행한 삶을 살다 간 허난설헌의 생애를 생각하면 더욱 안타까움이 크게 느껴지는 작품입니다.
+
+봉건 제도의 굴레 속에서 남편에게 버림받은 여인의 절절한 슬픔과 원망을 기승전결 구조로 그려낸 규원가를 지금 SN오리지날 시리즈로 만나보세요!
+
+<div class="my-6">
+  <img src="/images/thumbnail/gyuwonga_thumbnail_work_modified.png" alt="규원가 썸네일" class="w-full rounded-lg" />
+</div>
+
+**"AI 동영상과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 📜 원문 + 현대어 해설
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+엇그제 저멋더니 ᄒᆞ마 어이 다 늘거니.
+소년행락 생각ᄒᆞ니 일러도 속절업다.
+늘거야 서른 말ᄉᆞᆷ ᄒᆞ자니 목이 멘다.
+부생모육 신고ᄒᆞ야 이내 몸 길러 낼 제
+공후배필은 못 바라도 군자호구 원ᄒᆞ더니
+삼생의 원업이오 월하의 연분ᄋᆞ로,
+장안유협 경박자를 꿈가치 만나 잇서,
+당시의 용심ᄒᆞ기 살어름 디듸는 ᄃᆞᆺ,
+삼오이팔 겨오 지나 천연여질 절로 이니,
+이 얼골 이 태도로 백년기약ᄒᆞ얏더니,
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+엊그제 젊었더니 어찌 벌써 이렇게 다 늙어 버렸는가?
+어릴 적 즐겁게 지내던 일을 생각하니 말해야 헛되구나.
+이렇게 늙은 뒤에 서러운 사연 말하자니 목이 멘다.
+부모님이 낳아 기르며 몹시 고생하여 이 내 몸 길러낼 때
+높은 벼슬아치의 배필은 바라지 못할지라도 군자의 좋은 짝이 되기를 바랐더니
+전생에 지은 원망스러운 업보요 부부의 인연으로
+장안의 호탕하면서도 경박한 사람을 꿈같이 만나,
+시집간 당시 남편 시중들며 조심하기를 마치 살얼음 디디는 듯,
+열다섯, 열여섯 살을 겨우 지나 타고난 아름다운 모습 저절로 나타나니,
+이 모습 이 태도로 평생을 약속하였더니,
+
+<strong>【단어풀이】</strong>
+• 점다 : 젊다 / ᄒᆞ마 : 이미, 벌써
+• 소년행락(少年行樂) : 젊은 시절 즐겁게 노닐며 지내는 것
+• 부생모육(父生母育) : 아버지가 낳으시고 어머니가 기르신다
+• 신고(辛苦) : 어려운 일을 당하여 몹시 애쓰는 것
+• 공후배필(公侯配匹) : 높은 벼슬아치의 아내
+• 군자호구(君子好逑) : 훌륭한 남자의 좋은 배필
+• 삼생의 원업(三生의 怨業) : 세 번의 생에 걸쳐 지은 원망스러운 업보
+• 월하의 연분(月下의 緣分) : 달밤에 월하노인이 맺어준 부부의 인연
+• 장안(長安) : 서울을 상징
+• 유협(遊俠) : 유흥을 즐기는 사람
+• 경박자(輕薄子) : 경솔하고 경거망동하는 사람
+• 용심(用心) : 정성스러운 마음을 쓰는 것
+• 삼오이팔(三五二八) : 15~16세
+• 천연여질(天然麗質) : 타고난 아름다운 모습
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+연광이 훌훌ᄒᆞ고 조물이 다시ᄒᆞ야,
+봄바람 가을 믈이 뵈오리 북 지나듯
+설빈화안 어ᄃᆡ 두고 면목가증 되거고나.
+내 얼골 내 보거니 어느 님이 날 괼소냐.
+스스로 참괴ᄒᆞ니 누구를 원망ᄒᆞ리.
+삼삼오오 야유원의 새 사람이 나단 말가.
+곳 피고 날 저물 제 정처 업시 나가 잇어,
+백마금편으로 어ᄃᆡ 어ᄃᆡ 머므는고.
+원근을 모르거니 소식이야 더욱 알랴.
+인연을 긋쳐신들 ᄉᆡᆼ각이야 업슬소냐.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+세월이 빨리 지나고 조물주마저 다 시기하여
+봄바람 가을 물, 세월이 베틀의 베올 사이에 북이 지나가듯 빨리 지나가
+꽃같이 아름다운 얼굴 어디 두고 모습이 밉게도 되었구나.
+내 얼굴을 내가 보고 알거니와 어느 님이 나를 사랑할 것인가?
+스스로 부끄러워하니 누구를 원망할 것인가?
+여러 사람이 떼를 지어 다니는 술집에 새 기생이 나타났다는 말인가?
+꽃 피고 날 저물 때 정처 없이 나가서
+호사스러운 행장을 하고 어디어디 머물러 노는가.
+집 안에만 있어서 원근 지리를 모르는데 임의 소식이야 더욱 알 수 있으랴.
+겉으로는 인연을 끊었다지만 임에 대한 생각이야 없을 것인가?
+
+<strong>【단어풀이】</strong>
+• 연광(年光) : 세월 또는 시간의 흐름
+• 다시(多猜)하다 : 시기가 많다
+• 뵈올 : 베틀 / 북 : 베틀의 도구
+• 설빈화안(雪鬢花顔) : 눈같이 희고 깨끗한 머리카락과 꽃같이 화사한 얼굴
+• 면목가증(面目可憎) : 생김새가 밉살스럽고 가증스럽다
+• 괴다 : 사랑하다
+• 참괴(慙愧) : 부끄러워하는 것
+• 야유원(冶遊園) : 기생집이나 술집 등 유흥을 즐기는 곳
+• 백마금편(白馬金鞭) : 흰 말과 금으로 만든 채찍, 호사스러운 행장
+• 긋다 : 끊어지다
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+얼골을 못 보거든 그립기나 마르려믄,
+열두 ᄯᅢ 김도 길샤 설흔 날 지리ᄒᆞ다.
+옥창에 심ᄀᆞᆫ 매화 몃 번이나 픠여진고.
+겨을 밤 차고 찬 제 자최눈 섯거 치고,
+여름날 길고 길 제 구ᄌᆞᆫ비ᄂᆞᆫ 므스 일고.
+삼춘화류 호시절의 경물이 시름업다.
+가을 ᄃᆞᆯ 방에 들고 실솔이 상에 울 제,
+긴 한숨 디ᄂᆞᆫ 눈물 속절업시 혬만 만타.
+아마도 모진 목숨 죽기도 어려울사.
+도로혀 풀쳐 혜니 이리ᄒᆞ여 어이ᄒᆞ리.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+임의 얼굴을 못 보니 그립기나 말았으면 좋으련만,
+하루가 길기도 길구나. 한 달 곧 서른 날이 지루하다.
+규방 앞에 심은 매화는 몇 번이나 피었다 졌는가?
+겨울밤 차고 찬 때 자국눈이 섞어 내리고,
+여름날 길고 긴 때 궂은 비는 무슨 일인가.
+봄날 온갖 꽃 피고 버들잎이 돋아나는 좋은 시절에 아름다운 경치를 보아도 아무 생각이 없다.
+가을 달빛이 방 안에 비추어 들어오고 귀뚜라미 침상에서 울 때
+긴 한숨 흘리는 눈물 헛되이 생각만 많다.
+아마도 모진 목숨 죽기도 어렵구나.
+돌이켜 풀어 생각하니 이렇게 살아서 어찌할 것인가?
+
+<strong>【단어풀이】</strong>
+• 열두 ᄯᅢ : 십이시(하루 12개 시)
+• 지리(支離)하다 : 지루하다
+• 옥창(玉窓) : 옥으로 만든 창문, 아름답고 깨끗한 규방이나 창문을 비유
+• 자최눈 : 자신의 발자국이 겨우 날 정도로 조금 내린 눈(자국눈)
+• 삼춘(三春) : 봄날
+• 화류(花柳) : 꽃과 버들
+• 경물(景物) : 계절에 따라 달라지는 경치
+• 실솔(蟋蟀) : 귀뚜라미
+• 혬 : 생각('혜다'의 명사형)
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+청등을 돌라 노코 녹기금 빗기 안아,
+벽련화 한 곡조를 시름 조ᄎᆞ 섯거 타니,
+소상야우의 댓소리 섯도ᄂᆞᆫ ᄃᆞᆺ,
+화표 천년의 별학이 우니ᄂᆞᆫ ᄃᆞᆺ,
+옥수의 타는 수단 녯 소래 잇다마다,
+부용장 적막ᄒᆞ니 뉘 귀에 들리소니,
+간장이 구곡 되야 구븨구븨 ᄭᅳᆫ쳐서라.
+ᄎᆞᆯ하리 잠을 드러 ᄭᅮᆷ의나 보려 ᄒᆞ니,
+바람의 디ᄂᆞᆫ 닢과 풀 속에 우는 즘생,
+므스 일 원수로서 잠조차 ᄭᅢ오ᄂᆞᆫ다.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+등불을 돌려 놓고 푸른 거문고를 비스듬히 안아
+벽련화곡을 시름에 싸여 타니,
+소상강 밤비에 댓잎 소리가 섞여 들리는 듯,
+망주석에 천 년 만에 찾아온 특별한 학이 울고있는 듯,
+아름다운 손으로 타는 솜씨는 옛 가락이 아직 남아 있지마는,
+연꽃 무늬가 있는 휘장을 친 방이 텅 비었으니 누구의 귀에 들릴 것인가?
+구곡 간장이 끊어지는 듯 슬프다.
+차라리 잠이 들어 꿈에나 임을 보려 하니,
+바람에 지는 잎과 풀 속에서 우는 벌레는
+무슨 일이 원수가 되어 잠마저 깨우는가?
+
+<strong>【단어풀이】</strong>
+• 녹기금(綠綺琴) : 푸른색 비단으로 아름답게 꾸민 거문고
+• 벽련화(碧蓮花) : 거문고 곡명의 하나
+• 소상야우(瀟湘夜雨) : 중국 소상강에 내리는 밤비 풍경
+• 화표(華表) : 궁궐이나 능묘 앞에 세워 백성을 위한 상징적 기둥
+• 소래 : 소리
+• 부용장(芙蓉帳) : 연꽃 모양으로 만들거나 수놓은 휘장
+• 구곡간장(九曲肝腸) : 아홉 번 굽은 간과 창자, 마음이 심란하고 답답한 상태
+• 즘생 : 주로 짐승이나 벌레를 뜻함
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+천상의 견우직녀 은하수 막혀서도,
+칠월칠석 일년일도 실기치 아니거든,
+우리 님 가신 후는 무슨 약수 가렷관듸,
+오거니 가거나 소식조차 ᄭᅳ쳤는고.
+난간의 비겨 셔서 님 가신 대 바라보니,
+초로다 맺쳐 잇고 모운이 디나갈 제,
+죽림 푸른 고ᄃᆡ 새 소리 더욱 설다.
+세상의 서룬 사람 수업다 ᄒᆞ려니와,
+박명한 홍안이야 날 가ᄐᆞᆫ니 ᄯᅩ 이실가.
+아마도 이 님의 지위로 살동말동 ᄒᆞ여라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+하늘의 견우성과 직녀성은 은하수가 막혔을지라도,
+칠월 칠석 일 년에 한 번씩 때를 어기지 않고 만나는데,
+우리 임 가신 후는 무슨 장애물이 가리었기에
+오고 가는 소식마저 그쳤는가?
+난간에 기대어 서서 임 가신 데를 바라보니,
+풀 이슬은 맺혀 있고 저녁 구름이 지나갈 때
+대나무 수풀 우거진 푸른 곳에 새소리가 더욱 서럽다.
+세상에 서러운 사람 많다고 하겠지만
+운명이 기구한 젊은 여자야 나 같은 이 또 있을까?
+아마도 임의 탓으로 살 듯 말 듯 하구나.
+
+<strong>【단어풀이】</strong>
+• 실기(失機) : 기회를 놓치는 것
+• 약수(弱水) : 신선이 살았다는 중국 서부의 전설적인 강
+• 초로(草露) : 풀잎에 맺힌 이슬
+• 모운(暮雲) : 날이 저물 무렵의 구름
+• 박명(薄命) : 운명이 기박한 것
+• 홍안(紅顔) : 젊고 아름다운 얼굴
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="gyuwonga-original" data-title="규원가 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="gyuwonga-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
+
+엇그제 저멋더니 ᄒᆞ마 어이 다 늘거니.
+소년행락 생각ᄒᆞ니 일러도 속절업다.
+늘거야 서른 말ᄉᆞᆷ ᄒᆞ자니 목이 멘다.
+부생모육 신고ᄒᆞ야 이내 몸 길러 낼 제
+공후배필은 못 바라도 군자호구 원ᄒᆞ더니
+삼생의 원업이오 월하의 연분ᄋᆞ로,
+장안유협 경박자를 꿈가치 만나 잇서,
+당시의 용심ᄒᆞ기 살어름 디듸는 ᄃᆞᆺ,
+삼오이팔 겨오 지나 천연여질 절로 이니,
+이 얼골 이 태도로 백년기약ᄒᆞ얏더니,
+연광이 훌훌ᄒᆞ고 조물이 다시ᄒᆞ야,
+봄바람 가을 믈이 뵈오리 북 지나듯
+설빈화안 어ᄃᆡ 두고 면목가증 되거고나.
+내 얼골 내 보거니 어느 님이 날 괼소냐.
+스스로 참괴ᄒᆞ니 누구를 원망ᄒᆞ리.
+삼삼오오 야유원의 새 사람이 나단 말가.
+곳 피고 날 저물 제 정처 업시 나가 잇어,
+백마금편으로 어ᄃᆡ 어ᄃᆡ 머므는고.
+원근을 모르거니 소식이야 더욱 알랴.
+인연을 긋쳐신들 ᄉᆡᆼ각이야 업슬소냐.
+얼골을 못 보거든 그립기나 마르려믄,
+열두 ᄯᅢ 김도 길샤 설흔 날 지리ᄒᆞ다.
+옥창에 심ᄀᆞᆫ 매화 몃 번이나 픠여진고.
+겨을 밤 차고 찬 제 자최눈 섯거 치고,
+여름날 길고 길 제 구ᄌᆞᆫ비ᄂᆞᆫ 므스 일고.
+삼춘화류 호시절의 경물이 시름업다.
+가을 ᄃᆞᆯ 방에 들고 실솔이 상에 울 제,
+긴 한숨 디ᄂᆞᆫ 눈물 속절업시 혬만 만타.
+아마도 모진 목숨 죽기도 어려울사.
+도로혀 풀쳐 혜니 이리ᄒᆞ여 어이ᄒᆞ리.
+청등을 돌라 노코 녹기금 빗기 안아,
+벽련화 한 곡조를 시름 조ᄎᆞ 섯거 타니,
+소상야우의 댓소리 섯도ᄂᆞᆫ ᄃᆞᆺ,
+화표 천년의 별학이 우니ᄂᆞᆫ ᄃᆞᆺ,
+옥수의 타는 수단 녯 소래 잇다마다,
+부용장 적막ᄒᆞ니 뉘 귀에 들리소니,
+간장이 구곡 되야 구븨구븨 ᄭᅳᆫ쳐서라.
+ᄎᆞᆯ하리 잠을 드러 ᄭᅮᆷ의나 보려 ᄒᆞ니,
+바람의 디ᄂᆞᆫ 닢과 풀 속에 우는 즘생,
+므스 일 원수로서 잠조차 ᄭᅢ오ᄂᆞᆫ다.
+천상의 견우직녀 은하수 막혀서도,
+칠월칠석 일년일도 실기치 아니거든,
+우리 님 가신 후는 무슨 약수 가렷관듸,
+오거니 가거나 소식조차 ᄭᅳ쳤는고.
+난간의 비겨 셔서 님 가신 대 바라보니,
+초로다 맺쳐 잇고 모운이 디나갈 제,
+죽림 푸른 고ᄃᆡ 새 소리 더욱 설다.
+세상의 서룬 사람 수업다 ᄒᆞ려니와,
+박명한 홍안이야 날 가ᄐᆞᆫ니 ᄯᅩ 이실가.
+아마도 이 님의 지위로 살동말동 ᄒᆞ여라.
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📝 현대어 해석 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="gyuwonga-modern" data-title="규원가 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="gyuwonga-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+엊그제 젊었더니 어찌 벌써 이렇게 다 늙어 버렸는가?
+어릴 적 즐겁게 지내던 일을 생각하니 말해야 헛되구나.
+이렇게 늙은 뒤에 서러운 사연 말하자니 목이 멘다.
+부모님이 낳아 기르며 몹시 고생하여 이 내 몸 길러낼 때
+높은 벼슬아치의 배필은 바라지 못할지라도 군자의 좋은 짝이 되기를 바랐더니
+전생에 지은 원망스러운 업보요 부부의 인연으로
+장안의 호탕하면서도 경박한 사람을 꿈같이 만나,
+시집간 당시 남편 시중들며 조심하기를 마치 살얼음 디디는 듯,
+열다섯, 열여섯 살을 겨우 지나 타고난 아름다운 모습 저절로 나타나니,
+이 모습 이 태도로 평생을 약속하였더니,
+세월이 빨리 지나고 조물주마저 다 시기하여
+봄바람 가을 물, 세월이 베틀의 베올 사이에 북이 지나가듯 빨리 지나가
+꽃같이 아름다운 얼굴 어디 두고 모습이 밉게도 되었구나.
+내 얼굴을 내가 보고 알거니와 어느 님이 나를 사랑할 것인가?
+스스로 부끄러워하니 누구를 원망할 것인가?
+여러 사람이 떼를 지어 다니는 술집에 새 기생이 나타났다는 말인가?
+꽃 피고 날 저물 때 정처 없이 나가서
+호사스러운 행장을 하고 어디어디 머물러 노는가.
+집 안에만 있어서 원근 지리를 모르는데 임의 소식이야 더욱 알 수 있으랴.
+겉으로는 인연을 끊었다지만 임에 대한 생각이야 없을 것인가?
+임의 얼굴을 못 보니 그립기나 말았으면 좋으련만,
+하루가 길기도 길구나. 한 달 곧 서른 날이 지루하다.
+규방 앞에 심은 매화는 몇 번이나 피었다 졌는가?
+겨울밤 차고 찬 때 자국눈이 섞어 내리고,
+여름날 길고 긴 때 궂은 비는 무슨 일인가.
+봄날 온갖 꽃 피고 버들잎이 돋아나는 좋은 시절에 아름다운 경치를 보아도 아무 생각이 없다.
+가을 달빛이 방 안에 비추어 들어오고 귀뚜라미 침상에서 울 때
+긴 한숨 흘리는 눈물 헛되이 생각만 많다.
+아마도 모진 목숨 죽기도 어렵구나.
+돌이켜 풀어 생각하니 이렇게 살아서 어찌할 것인가?
+등불을 돌려 놓고 푸른 거문고를 비스듬히 안아
+벽련화곡을 시름에 싸여 타니,
+소상강 밤비에 댓잎 소리가 섞여 들리는 듯,
+망주석에 천 년 만에 찾아온 특별한 학이 울고있는 듯,
+아름다운 손으로 타는 솜씨는 옛 가락이 아직 남아 있지마는,
+연꽃 무늬가 있는 휘장을 친 방이 텅 비었으니 누구의 귀에 들릴 것인가?
+구곡 간장이 끊어지는 듯 슬프다.
+차라리 잠이 들어 꿈에나 임을 보려 하니,
+바람에 지는 잎과 풀 속에서 우는 벌레는
+무슨 일이 원수가 되어 잠마저 깨우는가?
+하늘의 견우성과 직녀성은 은하수가 막혔을지라도,
+칠월 칠석 일 년에 한 번씩 때를 어기지 않고 만나는데,
+우리 임 가신 후는 무슨 장애물이 가리었기에
+오고 가는 소식마저 그쳤는가?
+난간에 기대어 서서 임 가신 데를 바라보니,
+풀 이슬은 맺혀 있고 저녁 구름이 지나갈 때
+대나무 수풀 우거진 푸른 곳에 새소리가 더욱 서럽다.
+세상에 서러운 사람 많다고 하겠지만
+운명이 기구한 젊은 여자야 나 같은 이 또 있을까?
+아마도 임의 탓으로 살 듯 말 듯 하구나.
+
+</div>
+</details>
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Gyuwonga" (Song of a Woman's Sorrow) - A Lament from the Inner Chamber
+
+**Gyuwonga** (규원가, 閨怨歌) is a **gasa** (a form of classical Korean poetry) traditionally attributed to **Heo Nanseolheon** (허난설헌, 1563-1589), one of the most celebrated female poets of the Joseon Dynasty.
+
+### Literary Significance
+The title literally means "Song of Resentment from the Inner Chamber" - a poignant expression of a woman's loneliness and sorrow while waiting for her absent husband. The speaker laments her fading youth and beauty, the indifference of her husband who frequents pleasure houses, and the cruel passage of time.
+
+### Key Themes
+1. **The Passage of Time**: The speaker mourns how quickly her youth has faded, comparing it to a weaver's shuttle passing through the loom.
+2. **Unfulfilled Love**: Despite hoping to be a good wife to a virtuous man, she finds herself married to a frivolous husband who neglects her.
+3. **Loneliness and Despair**: Through the changing seasons - cold winter nights, long summer rains, beautiful spring flowers, autumn moonlight - she waits alone, finding no comfort in nature's beauty.
+4. **Comparison with Heaven**: She notes that even the legendary Cowherd and Weaver Girl in heaven meet once a year, yet she cannot even receive news from her husband.
+
+### Historical Context
+Heo Nanseolheon was a woman of exceptional talent - a poet, painter, and writer - but lived a tragic life due to the patriarchal society of Joseon Korea, an indifferent husband, and the deaths of her children. While her authorship of Gyuwonga is not definitively proven, the poem's themes resonate deeply with her known biography, making the attribution emotionally compelling.
+
+### Structure
+The poem follows a **gi-seung-jeon-gyeol** (기승전결) structure:
+- **Gi (起)**: Introduction of past happiness and current sorrow
+- **Seung (承)**: Development of the husband's neglect
+- **Jeon (轉)**: Turning point expressing deep loneliness through seasonal imagery
+- **Gyeol (結)**: Conclusion with resignation to fate
+
+</div>
+</details>
+
+---
+
+<div class="my-8">
+  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">🔗 같이 보면 좋을 작품</h3>
+  <div class="space-y-3">
+    <a href="/originals/sangchungok" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">상춘곡: 자연 속에서 찾는 삶의 즐거움</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">규원가의 규방 안 고독과 대비되는 자연 속 유유자적한 삶의 노래</div>
+    </a>
+    <a href="/originals/gasiri" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">가시리: 떠나는 임을 붙잡지 못하는 애절한 이별</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">임을 기다리는 여인의 한을 담은 고려가요</div>
+    </a>
+  </div>
+</div>
+`,
+    category: 'SN Originals',
+    tags: [
+      '규원가',
+      '허난설헌',
+      '고전문학',
+      '가사문학',
+      '수능국어',
+    ],
+    author: 'SN Academy',
+    date: '2026-01-20',
+    readTime: '7',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/gyuwonga_thumbnail_work_modified.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=SEaj9nIUYmQ',
+    url: '/originals/gyuwonga',
+    type: 'special',
+  },
+  {
+    id: 'manheung',
+    title: '[고전문학「만흥」해설] 내가 산이고 산이 나인 경지의 삶',
+    excerpt:
+      '윤선도가 지은 총 6수의 시조 「만흥」. 속세를 벗어난 자연에서의 흥취와 은거자의 자부심을 노래한 연시조입니다.',
+    content: `안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈 어느새 30번째 시간. 오늘은 조선 중기의 문신 윤선도가 1642년(인조20)에 지은 총 6수의 시조 「만흥」을 준비했습니다.
+
+'만흥(漫興)'이란 '흥겨움이 마음에 가득 찼다'는 뜻으로, 속세를 벗어난 자연에서의 흥취를 말합니다. 이 작품은 자연 속에서 자연과 친화하며 사는 삶을 노래하고 있는데, 세속과 떨어져 자연 경치를 즐기며 살아가는 은거자의 삶이 부귀 공명을 추구하며 살아가는 것에 비해 월등히 낫다는 가치관과 자부심을 여실히 드러내는 연시조입니다.
+
+<div class="my-6">
+  <img src="/images/thumbnail/thumbnail_manheung.png" alt="만흥 썸네일" class="w-full rounded-lg" />
+</div>
+
+**"AI 동영상과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+## 📜 원문 + 현대어 해설
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제1수】</strong>
+산수간 바회 아래 뛰집을 짓노라 하니,
+그 모른 남들은 웃는다 한다마는,
+어리고 하암의 뜻이는 내 분인가 하노라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+산과 물 사이 바위 아래에 초가집을 짓고 살겠다고 하니,
+나의 참뜻을 모르는 남들은 비웃는다고 한다마는,
+어리석은 시골 뜨기 마음에는 이것이 내 분수에 맞다 하노라.
+
+<strong>【단어풀이】</strong>
+• 뛰집 : 초가집(띠집)
+• 하암(鄕闇) : 시골 백성
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제2수】</strong>
+보리밥 풋나물을 알마조 먹은 후에,
+바횟긋 믈가의 슬지 노니노라.
+그나믄 녀나믄 일이야 부롤 줄이 이시랴.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+보리밥과 풋나물을 알맞게 먹은 후에,
+바위 끝 물가에서 실컷 노니노라.
+그 밖의 남은 일이야 부러워할 줄이 있겠느냐.
+
+<strong>【단어풀이】</strong>
+• 슬지 : 실컷, 마음껏, 충분히
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제3수】</strong>
+잔들고 혼자 안자 먼 뫼흘 바라보니,
+그리던 님이 오다 반가옴이 이리 하랴.
+말씀도 우욤도 아녀도 몯내 됴하 하노라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+술잔을 들고 혼자 앉아 먼 산을 바라보니,
+그리워하던 님이 온다고 한들 반가움이 이 정도일까.
+산이 말씀도 웃음도 짓지 않지만 나는 산을 끝내 좋아하노라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제4수】</strong>
+누고셔 삼공도곤 낫다 하더니 만승이 이만하랴.
+이제로 헤어든 소부허유 약돗더라.
+아마도 임천한흥을 비길 곳이 없세라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+누군가가 자연이 삼공보다 낫다 하더니, 만승황제도 이만하겠느냐.
+이제 와서 생각하니 중국 역사 속 은둔자들인 소부와 허유가 약았구나.
+아마도 숲속의 한가로운 흥취는 비길 데가 없구나.
+
+<strong>【단어풀이】</strong>
+• 삼공 : 삼정승
+• 만승 : '수레 만 대를 가질 만한 권력을 지닌 군주'라는 의미로, 황제와 동격의 최고 통치자를 가리키는 말
+• 약돗다 : 영리하다
+• 임천한흥(林泉閑興) : 자연에서 노니는 한가로운 풍취
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제5수】</strong>
+내 성이 게으르더니 하날히 아르실샤,
+인간만사를 한일도 아니 맛뎌,
+다만당 두토리 업슨 강산을 딕희라 하시도다.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+내 천성이 게으른 것을 하늘이 아셔서,
+인간 세상의 일을 하나도 아니 맡기시고,
+오직 다툴 이 없는 강산을 지키라고 하시는구나.
+
+<strong>【단어풀이】</strong>
+• 다토다 : 의견이나 이해의 대립으로 서로 따지며 싸우다
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
+<strong>【제6수】</strong>
+강산이 됴타 한들 내 분으로 누얻느냐.
+님군 은혜를 이제 더욱 아노이다.
+아무리 갑고자 하야도 힘을 일이 업세라.
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+<strong>【현대어 해석】</strong>
+강산이 좋다고 한들 내 분수만으로 여기에 누워 있겠느냐.
+임금님의 은혜임을 이제 더욱 아나이다.
+아무리 그 은혜를 갚고자 하여도 내가 할 수 있는 일이 없구나.
+</div>
+</details>
+
+---
+
+## 📜 원문 전체 보기 / 현대어 해석 전체 보기
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📜 원문 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="manheung-original" data-title="만흥 원문" data-button-text="원문 PDF 인쇄"></div>
+</div>
+<div id="manheung-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+【제1수】
+산수간 바회 아래 뛰집을 짓노라 하니,
+그 모른 남들은 웃는다 한다마는,
+어리고 하암의 뜻이는 내 분인가 하노라.
+
+【제2수】
+보리밥 풋나물을 알마조 먹은 후에,
+바횟긋 믈가의 슬지 노니노라.
+그나믄 녀나믄 일이야 부롤 줄이 이시랴.
+
+【제3수】
+잔들고 혼자 안자 먼 뫼흘 바라보니,
+그리던 님이 오다 반가옴이 이리 하랴.
+말씀도 우욤도 아녀도 몯내 됴하 하노라.
+
+【제4수】
+누고셔 삼공도곤 낫다 하더니 만승이 이만하랴.
+이제로 헤어든 소부허유 약돗더라.
+아마도 임천한흥을 비길 곳이 없세라.
+
+【제5수】
+내 성이 게으르더니 하날히 아르실샤,
+인간만사를 한일도 아니 맛뎌,
+다만당 두토리 업슨 강산을 딕희라 하시도다.
+
+【제6수】
+강산이 됴타 한들 내 분으로 누얻느냐.
+님군 은혜를 이제 더욱 아노이다.
+아무리 갑고자 하야도 힘을 일이 업세라.
+
+</div>
+</details>
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
+📝 현대어 해석 전체 보기
+</summary>
+<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
+<div data-print-button data-content-id="manheung-modern" data-title="만흥 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
+</div>
+<div id="manheung-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
+
+【제1수】
+산과 물 사이 바위 아래에 초가집을 짓고 살겠다고 하니,
+나의 참뜻을 모르는 남들은 비웃는다고 한다마는,
+어리석은 시골 뜨기 마음에는 이것이 내 분수에 맞다 하노라.
+
+【제2수】
+보리밥과 풋나물을 알맞게 먹은 후에,
+바위 끝 물가에서 실컷 노니노라.
+그 밖의 남은 일이야 부러워할 줄이 있겠느냐.
+
+【제3수】
+술잔을 들고 혼자 앉아 먼 산을 바라보니,
+그리워하던 님이 온다고 한들 반가움이 이 정도일까.
+산이 말씀도 웃음도 짓지 않지만 나는 산을 끝내 좋아하노라.
+
+【제4수】
+누군가가 자연이 삼공보다 낫다 하더니, 만승황제도 이만하겠느냐.
+이제 와서 생각하니 중국 역사 속 은둔자들인 소부와 허유가 약았구나.
+아마도 숲속의 한가로운 흥취는 비길 데가 없구나.
+
+【제5수】
+내 천성이 게으른 것을 하늘이 아셔서,
+인간 세상의 일을 하나도 아니 맡기시고,
+오직 다툴 이 없는 강산을 지키라고 하시는구나.
+
+【제6수】
+강산이 좋다고 한들 내 분수만으로 여기에 누워 있겠느냐.
+임금님의 은혜임을 이제 더욱 아나이다.
+아무리 그 은혜를 갚고자 하여도 내가 할 수 있는 일이 없구나.
+
+</div>
+</details>
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Manheung" (Leisurely Inspiration) - The Joy of Nature
+
+**Manheung** (만흥, 漫興) is a series of six **sijo** (traditional Korean poems) written by **Yun Seondo** (윤선도, 1587-1671) in 1642 during the reign of King Injo.
+
+### Literary Significance
+The title "Manheung" means "overflowing with inspiration" or "leisurely joy," expressing the delight found in nature away from worldly affairs. These poems celebrate the life of a hermit who has withdrawn from society to live in harmony with nature.
+
+### Key Themes
+1. **Simple Living**: The speaker finds contentment in a humble thatched cottage among mountains and streams
+2. **Natural Fulfillment**: Simple meals of barley and wild greens, followed by leisurely walks by the water, bring complete satisfaction
+3. **Communion with Nature**: The mountains, though silent, bring more joy than even a beloved visitor
+4. **Superiority of Nature**: Life in nature surpasses even the wealth and power of emperors
+5. **Gratitude**: Despite his hermit life, the speaker acknowledges the king's grace that allows him to enjoy such freedom
+
+### Historical Context
+Yun Seondo was one of the greatest Korean poets, particularly renowned for his nature poetry. He spent much of his life in political exile or voluntary seclusion, during which he composed some of Korea's finest classical poetry, including "Eobusasisa" (The Fisherman's Calendar).
+
+</div>
+</details>
+
+---
+
+<div class="my-8">
+  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">🔗 같이 보면 좋을 작품</h3>
+  <div class="space-y-3">
+    <a href="/originals/ganghosasiga" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">강호사시가: 사계절 자연의 아름다움</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">자연 속에서의 삶을 노래한 맹사성의 연시조</div>
+    </a>
+    <a href="/originals/dosansipigok" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">도산십이곡: 학문과 자연의 조화</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">이황이 지은 자연과 학문을 노래한 시조</div>
+    </a>
+  </div>
+</div>
+`,
+    category: 'SN Originals',
+    tags: [
+      '만흥',
+      '윤선도',
+      '시조',
+      '고전문학',
+      '수능국어',
+    ],
+    author: 'SN Academy',
+    date: '2026-01-20',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_manheung.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=JrTYQIJdfAI',
+    url: '/originals/manheung',
+    type: 'special',
+  },
+  {
+    id: 'sipnyeon-gyeongyeong',
+    title: '[수능 고전문학 「십년을 경영하여」 해석] 조선시대 내 집 마련 소요시간 : 10년',
+    excerpt:
+      '송순의 시조 「십년을 경영하여」 - 10년간 준비한 작은 초가집에 달과 청풍을 벗삼아 사는 자연 친화적 삶의 자부심을 노래한 작품입니다.',
+    content: `<div class="my-6">
+  <img src="/images/thumbnail/tenyears_mgmt_thumbnail_a1.png" alt="십년을 경영하여 썸네일" class="w-full rounded-lg" />
+</div>
+
+안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈 32번째 시간. 오늘은 「면앙정가」를 지은 것으로도 유명한 조선 중기 성리학자 송순의 또 다른 작품 「십년을 경영하여」 준비했습니다.
+
+이 작품에서 '경영(經營)'은 흔히 '기업을 경영한다' 말할 때 쓰는 '경영'과 한자는 같습니다만, 속뜻은 '계획하여', '마음 속으로 꿈꾸며'라는 의미입니다. 상식적으로 방 3개짜리 초가집을 짓는 데 10년이 걸릴 리는 없지만, "이 집은 내가 10년 동안이나 별러서(준비해서) 마련한 것"이라 말함으로써 이 공간에 대한 애착과 자부심을 드러내는 동시에 달, 청풍, 강산과도 함께 살고자 하는 자연 친화적인 송순의 시조 「십년을 경영하여」를 SN오리지날에서 지금 바로 만나보세요.😊
+
+**"AI 동영상과 친절한 해설로 즐기는 고전문학! 보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+---
+
+## 📜 원문 + 현대어 해설
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【1행】</strong>
+십년(十年)을 경영(經營)하여 초려삼간(草廬三間) 지여 내니
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+십 년 동안이나 기초를 닦고 준비하여 겨우 세 칸짜리 작은 초가집 하나를 지어 내니
+
+<strong>【단어풀이】</strong>
+• 경영(經營) : 계획하여, 마음 속으로 꿈꾸며
+• 초려삼간(草廬三間) : 세 칸짜리 초가집
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【2행】</strong>
+나 한 간 달 한 간에 청풍(靑風) 한 간 맛져두고
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+나 한 칸 쓰고, 달에게 한 칸, 맑은 바람에게 한 칸을 맡겨 두고
+
+<strong>【단어풀이】</strong>
+• 청풍(靑風) : 맑은 바람
+• 맛져두고 : 맡겨 두고
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【3행】</strong>
+강산(江山)은 들일 듸 업스니 둘러 두고 보리라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+남은 방이 없어 강과 산은 집안으로 들여놓을 곳이 없으니, 집 주변에 병풍처럼 둘러 놓고 보리라.
+
+<strong>【단어풀이】</strong>
+• 강산(江山) : 강과 산, 자연
+• 들일 듸 : 들일 곳
+</div>
+</details>
+
+---
+
+## 💡 작품 정보
+
+<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 space-y-2">
+<p><strong>작품명</strong>: 십년을 경영하여</p>
+<p><strong>작가</strong>: 송순(宋純, 1493~1583)</p>
+<p><strong>갈래</strong>: 평시조</p>
+<p><strong>성격</strong>: 자연 친화적, 풍류적</p>
+<p><strong>주제</strong>: 자연과 함께하는 소박한 삶의 즐거움과 자부심</p>
+<p><strong>특징</strong>: 의인법(달, 청풍을 의인화), 과장법(10년간 경영)</p>
+</div>
+
+---
+
+<div class="my-8">
+  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">🔗 같이 보면 좋을 작품</h3>
+  <div class="space-y-3">
+    <a href="/originals/manheung" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">만흥: 자연과 하나 된 삶의 기쁨</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">윤선도의 대표 시조, 산중 은거의 풍류</div>
+    </a>
+    <a href="/originals/myeonangjeongga" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">면앙정가: 자연의 아름다움을 노래한 가사</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">송순의 대표작, 면앙정 주변 사계절의 아름다움</div>
+    </a>
+  </div>
+</div>
+`,
+    category: 'SN Originals',
+    tags: [
+      '십년을경영하여',
+      '송순',
+      '시조',
+      '고전문학',
+      '수능국어',
+      '자연친화',
+    ],
+    author: 'SN Academy',
+    date: '2026-01-20',
+    readTime: '3',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/tenyears_mgmt_thumbnail_a1.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=aTJXb90wAmc',
+    url: '/originals/sipnyeon-gyeongyeong',
+    type: 'special',
+  },
+  {
+    id: 'eobusasisa',
+    title: '[고전문학「어부사시사」해설] 어촌의 흥취를 제일 잘 이해하고 있는 사대부',
+    excerpt:
+      '윤선도의 「어부사시사」 - 사계절 어촌의 풍경과 강호한정을 노래한 연시조. 물아일체, 흥, 연군지정의 주제를 담은 조선 시조 문학의 정수.',
+    content: `<div class="my-6">
+  <img src="/images/thumbnail/thumbnail_ubu.png" alt="어부사시사 썸네일" class="w-full rounded-lg" />
+</div>
+
+안녕하세요 SN독학기숙학원입니다😊
+
+보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈! 오늘은 고산(孤山) **윤선도**(尹善道, 1587~1671)가 지은 연시조 **「어부사시사」**(漁父四時詞)를 준비했습니다.
+
+**춘사**(春詞) 10수, **하사**(夏詞) 10수, **추사**(秋詞) 10수, **동사**(冬詞) 10수 등 총 **40수**로 구성되어 있으며, 사계절의 아름다운 어촌 풍경과 그 속에서 느끼는 흥취를 노래하고 있습니다.
+
+**물아일체**(物我一體)의 경지, **흥**(興), **연군지정**(戀君之情) 등이 주제로 담겨 있습니다.
+
+**"AI 그림과 친절한 해설로 즐기는 고전문학!
+보기만 해도 국어 감각이 살아납니다.
+수능 대비는 물론, 고전문학을 친숙하게 이해하고 싶다면 지금 바로 시작하세요!"**
+
+---
+
+## 📜 춘사 春詞 (봄노래) - 원문 + 현대어 해설
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제1수】</strong>
+앞 江(강)에 안개 걷고 뒷뫼헤 햇빛 난다
+(지국총 지국총 어사와)
+밤 드렁 간 데 없고 갈매기만 나난다
+(지국총 지국총 어사와)
+至今(지금)에 닻 들어라 가노라 밤 물이야
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+앞에 있는 강에는 안개가 걷히고, 뒷산에는 해가 떠오르네.
+(배 저으며 노 젓는 소리)
+밤은 어디론가 가버리고 갈매기만 날아다니누나.
+(배 저으며 노 젓는 소리)
+이제 닻을 들어라. 밤사이 물이 밀려와 배가 떠나가겠구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제2수】</strong>
+東녘을 가료 해도 좋고 셔녘을 가료 해도 됴타
+(지국총 지국총 어사와)
+城市(성시)에 가마 하니 즈는 일이 절로 난다
+(지국총 지국총 어사와)
+人間(인간)을 떠나 오니 즐길 일만 무궁하다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+동쪽을 가려고 해도 좋고 서쪽을 가려고 해도 좋구나.
+(배 저으며 노 젓는 소리)
+도시에 가만 있자니 싫어지는 일이 절로 생기는데
+(배 저으며 노 젓는 소리)
+인간 세상을 떠나 오니 즐거운 일만 무궁무진하구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제3수】</strong>
+믈 아래 그림자 잇는듸 뮈 우희 그림자 잇고야
+(지국총 지국총 어사와)
+鶴(학)이 날아 구름을 뚜르고 白鷗(백구)야 나라 오난다
+(지국총 지국총 어사와)
+어즈러온 世上(세상)이야 돌아볼 줄이 이시랴
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+물 아래에 그림자가 비치고, 물 위에도 그림자가 비치네.
+(배 저으며 노 젓는 소리)
+학이 날아 구름을 뚫고, 갈매기도 날아오는구나.
+(배 저으며 노 젓는 소리)
+어지러운 세상일이야 돌아볼 겨를이 있겠는가.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제4수】</strong>
+골 사이 나무에 피꽃이 섯거잇다
+(지국총 지국총 어사와)
+뫼 아해 한 집이 안개 속에 잇다 말다
+(지국총 지국총 어사와)
+竹杖芒鞋(죽장망혜)로 千里(천리)를 편히 녀기노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+골짜기 사이에 있는 나무에는 복사꽃이 섞여 피어 있구나.
+(배 저으며 노 젓는 소리)
+산 아래 한 집이 안개 속에 있는 듯 없는 듯 하구나.
+(배 저으며 노 젓는 소리)
+대지팡이와 짚신으로 천 리를 편안히 여기노라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제5수】</strong>
+구름 프른 뫼헤 드니 바회에 꽃이 잇다
+(지국총 지국총 어사와)
+鶯聲(앵성)이 空谷(공곡)에 드니 흥이 절로 난다
+(지국총 지국총 어사와)
+무릉이 갓갑도다 져어라 내 옷드라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+구름 낀 푸른 산에 들어가니 바위에 꽃이 피어 있구나.
+(배 저으며 노 젓는 소리)
+꾀꼬리 소리가 빈 골짜기에 울려 퍼지니 흥이 절로 나는구나.
+(배 저으며 노 젓는 소리)
+무릉도원이 가까운 것 같구나. 저어라, 배를 움직여라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제6수】</strong>
+꼿에셔 술을 비즈니 닙헤셔 밥을 짓다
+(지국총 지국총 어사와)
+粉粉紅紫(분분홍자) 떠 나오니 저 배를 무엇 싣고
+(지국총 지국총 어사와)
+勝地(승지)에 취한 興(흥)을 긋쳐 므스 하리오
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+꽃에서 술을 빚고 잎에서 밥을 짓는 것 같구나.
+(배 저으며 노 젓는 소리)
+붉고 자주색 꽃잎이 분분히 떠 나오니, 저 배에는 무엇을 싣고 있는 것인가.
+(배 저으며 노 젓는 소리)
+경치 좋은 곳에서 취한 흥을 끊어서 무엇 하겠는가.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제7수】</strong>
+울얼불긋 물빗친가 뫼빗친가
+(지국총 지국총 어사와)
+銀鱗玉尺(은린옥척)이 모다 춤을 추난다
+(지국총 지국총 어사와)
+늙은 江山(강산) 잠깐 늘러 졈어 간 듯 하다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+울긋불긋한 것이 물빛인가, 산빛인가.
+(배 저으며 노 젓는 소리)
+은빛 비늘의 물고기들이 모여서 춤을 추는 것 같구나.
+(배 저으며 노 젓는 소리)
+늙은 강산이 잠깐 젊어진 듯하구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제8수】</strong>
+믈 밧긔 울고 가난 건 무삼 새오
+(지국총 지국총 어사와)
+촌촌이 봄빛이 다 온다 말다
+(지국총 지국총 어사와)
+내 버들이 이에 싯거니 깃블 줄 모로노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+물 밖에서 울며 날아가는 것은 무슨 새인가.
+(배 저으며 노 젓는 소리)
+마을마다 봄빛이 다 왔는지 안 왔는지 하네.
+(배 저으며 노 젓는 소리)
+내 벗이 자연에 있으니 기쁜 줄 모르겠구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제9수】</strong>
+막대를 두드리니 슬프고 분하니
+(지국총 지국총 어사와)
+故園(고원)을 돌아보니 白雲(백운)만 머무러라
+(지국총 지국총 어사와)
+世事(세사)를 잊으려 하니 눈물이 난다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+막대를 두드리니 슬프고 분하구나.
+(배 저으며 노 젓는 소리)
+옛 고향을 돌아보니 흰 구름만 머물러 있구나.
+(배 저으며 노 젓는 소리)
+세상일을 잊으려 하니 눈물이 난다.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【춘사 제10수】</strong>
+夕陽(석양)이 비치니 놀이 높은 興(흥)을 더욱 돈다
+(지국총 지국총 어사와)
+낚시 노래를 마치고 막대로 헤여 돌아오니
+(지국총 지국총 어사와)
+桃源(도원)에 이른 興(흥)을 이제야 알게로다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+석양이 비치니 노는 흥이 더욱 높아지는구나.
+(배 저으며 노 젓는 소리)
+낚시 노래를 마치고 막대를 잡고 헤엄쳐 돌아오니
+(배 저으며 노 젓는 소리)
+무릉도원에 이른 흥취를 이제야 알겠구나.
+</div>
+</details>
+
+---
+
+## 📜 하사 夏詞 (여름노래) - 원문 + 현대어 해설
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제1수】</strong>
+蓮葉(연엽)에 밥을 싸고 綠陰(녹음)에 고기 꿰어
+(지국총 지국총 어사와)
+竹竿(죽간)을 횡단하니 실낱 같은 고기 걸어 오르네
+(지국총 지국총 어사와)
+盤飧(반손)이 넉넉하니 오늘도 족히 먹겠다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+연잎에 밥을 싸고 푸른 그늘에서 고기를 꿰어 구웠네.
+(배 저으며 노 젓는 소리)
+대나무 낚싯대를 휘두르니 실낱 같은 고기가 걸려 올라오는구나.
+(배 저으며 노 젓는 소리)
+밥상이 넉넉하니 오늘도 충분히 먹을 수 있겠구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제2수】</strong>
+北風(북풍)은 어대서 일어 무더위를 쓰러 가난고
+(지국총 지국총 어사와)
+넘어 가는 돛대가 나비처럼 가벼이 간다
+(지국총 지국총 어사와)
+더위 업슨 밤 風景(풍경)이야 누구서 마자 올고
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+북풍은 어디에서 일어나 무더위를 쓸어 가는가.
+(배 저으며 노 젓는 소리)
+넘어가는 돛대가 나비처럼 가볍게 가는구나.
+(배 저으며 노 젓는 소리)
+더위 없는 시원한 밤 풍경이야, 누가 맞이하며 오겠는가.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제3수】</strong>
+유신한 내 벗이 이에 잇건마는
+(지국총 지국총 어사와)
+보내주고 맛날 제 어느 어졔 잇시리
+(지국총 지국총 어사와)
+즐기리라 너와 나와 세월을 잊노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+믿음 있는 내 벗이 여기 있건만
+(배 저으며 노 젓는 소리)
+보내주고 만날 때 언제 섭섭함이 있으리.
+(배 저으며 노 젓는 소리)
+즐기리라. 너와 나와 함께 세월 가는 줄 모르리라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제4수】</strong>
+날마다 다른 데 가니 景色(경색)이 새로울 뿐이로다
+(지국총 지국총 어사와)
+長波(장파)에 돛배 띄워 萬頃(만경)을 다 돌아
+(지국총 지국총 어사와)
+이 몸이 한가하니 盡興(진흥)인들 어려울가
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+날마다 다른 곳에 가니 경치가 항상 새로울 뿐이구나.
+(배 저으며 노 젓는 소리)
+긴 물결 위에 돛배를 띄워 넓은 바다를 다 돌아다니니
+(배 저으며 노 젓는 소리)
+이 몸이 한가하니 흥을 다하기가 어렵겠는가.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제5수】</strong>
+믈결 따라 갈 테니 바람에 맛겨 두어라
+(지국총 지국총 어사와)
+청룡(靑龍) 황룡(黃龍)이 헤염쳐 놀아 가난다
+(지국총 지국총 어사와)
+丹楓碧浪(단풍벽랑)에 비친 것이 珠玉(주옥)인가 하노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+물결 따라 갈 테니 바람에 맡겨 두어라.
+(배 저으며 노 젓는 소리)
+푸른 용, 누런 용이 헤엄치며 놀다 가는 것 같구나.
+(배 저으며 노 젓는 소리)
+붉은 단풍과 푸른 물결에 비친 것이 진주와 옥인가 하노라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제6수】</strong>
+烏江(오강)에 나 혼자 이시니 고기를 낚난 樂(낙)이로다
+(지국총 지국총 어사와)
+물 속에 비친 달은 하늘에 매었는가
+(지국총 지국총 어사와)
+一葉片舟(일엽편주)에 혼자 앉아 떠나가노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+오강에 나 홀로 있으니 고기 낚는 즐거움이로다.
+(배 저으며 노 젓는 소리)
+물속에 비친 달은 하늘에 매달린 것인가.
+(배 저으며 노 젓는 소리)
+작은 배에 혼자 앉아 떠나가노라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제7수】</strong>
+구타여 낚시를 낚으랴 그저 믈결 따라 놀리라
+(지국총 지국총 어사와)
+살진 고기 자자 하니 山林(산림)이 더욱 됴타
+(지국총 지국총 어사와)
+이 몸이 閑暇(한가)하니 世事(세사)를 잊으리라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+구태여 물고기를 낚으랴, 그저 물결 따라 놀리라.
+(배 저으며 노 젓는 소리)
+살진 물고기 많다 하니 산림 생활이 더욱 좋구나.
+(배 저으며 노 젓는 소리)
+이 몸이 한가하니 세상일을 잊으리라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제8수】</strong>
+白巖(백암) 靑山(청산)의 집이 風雨(풍우)에 변함 없다
+(지국총 지국총 어사와)
+夕陽(석양)이 비최니 紅錦(홍금)을 널어 두고
+(지국총 지국총 어사와)
+오락가락 나는 것은 白雲(백운)인가 하노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+흰 바위 푸른 산 속의 집이 바람과 비에도 변함이 없네.
+(배 저으며 노 젓는 소리)
+석양이 비추니 붉은 비단을 널어둔 것 같구나.
+(배 저으며 노 젓는 소리)
+오락가락 떠다니는 것은 흰 구름인가 하노라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제9수】</strong>
+하날이 이 몸을 두어 漁父(어부)로 살게 하니
+(지국총 지국총 어사와)
+恩德(은덕)을 져버린들 아니 갚을 손야
+(지국총 지국총 어사와)
+平生(평생)에 願(원)하던 일 이루어 볼까 하노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+하늘이 이 몸을 두어 어부로 살게 하시니
+(배 저으며 노 젓는 소리)
+은덕을 저버린들 어찌 갚지 않겠는가.
+(배 저으며 노 젓는 소리)
+평생에 원하던 일을 이루어 볼까 하노라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【하사 제10수】</strong>
+하로 일을 마치니 날이 저물거고야
+(지국총 지국총 어사와)
+낚시를 걷고 돌아오니 달이 돛대에 비쵠다
+(지국총 지국총 어사와)
+一曲滄浪(일곡창랑)이 밤이 들어 고요다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+하루 일과를 마치니 날이 저물었구나.
+(배 저으며 노 젓는 소리)
+낚시를 걷고 돌아오니 달이 돛대에 비치는구나.
+(배 저으며 노 젓는 소리)
+푸른 물결 한 굽이가 밤이 되어 고요하구나.
+</div>
+</details>
+
+---
+
+## 📜 추사 秋詞 (가을노래) - 원문 + 현대어 해설
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제1수】</strong>
+믈 우희 하날 빗치 아래 우흘 모로겠다
+(지국총 지국총 어사와)
+티끌도 업슨 세상에 다만 나만 잇다
+(지국총 지국총 어사와)
+仙界(선계)가 어대어냐 여긔도 아닌가 하노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+물 위에 비친 하늘빛이 같아 위아래를 모르겠구나.
+(배 저으며 노 젓는 소리)
+티끌도 없는 세상에 다만 나만 있구나.
+(배 저으며 노 젓는 소리)
+신선 세계가 어디인가, 여기도 아닌가 하노라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제2수】</strong>
+어젯밤 비 개이고 峯峯(봉봉)이 구름 개다
+(지국총 지국총 어사와)
+千里萬里(천리만리)를 다 노니련마는
+(지국총 지국총 어사와)
+歲月(세월)도 한 업시 녜로 함께 늘그리라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+어젯밤 비가 개이고 봉우리마다 구름이 걷혔네.
+(배 저으며 노 젓는 소리)
+천 리 만 리를 다 노닐려고 하건만
+(배 저으며 노 젓는 소리)
+세월도 끝이 없으니 옛 벗들과 함께 늙어가리라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제3수】</strong>
+靑蘆(청노)에 漁歌(어가)를 부르니 興(흥)이 더욱 돈다
+(지국총 지국총 어사와)
+湖光(호광)이 조이 들어 어대어대 못 가리라
+(지국총 지국총 어사와)
+이 몸이 한가하여 낚시를 던지노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+푸른 갈대밭에서 어부 노래를 부르니 흥이 더욱 도는구나.
+(배 저으며 노 젓는 소리)
+호수 빛이 좋아 들어가니 어디든 못 가랴.
+(배 저으며 노 젓는 소리)
+이 몸이 한가하여 낚시를 던지노라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제4수】</strong>
+낚싯대 거두고 배를 두드리며 노래하니
+(지국총 지국총 어사와)
+夕陽(석양)이 쏘오니 銀鱗(은린)이 춤춘다
+(지국총 지국총 어사와)
+富貴(부귀)도 탐 하노라 이런 興(흥)을 모르겠다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+낚싯대 거두고 배를 두드리며 노래하니
+(배 저으며 노 젓는 소리)
+석양이 비추니 은빛 물고기 비늘이 춤추는 것 같구나.
+(배 저으며 노 젓는 소리)
+부귀도 탐할 만하다만, 이런 흥을 모르겠구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제5수】</strong>
+丹楓(단풍)닢 붉게 물드니 뫼은 錦繡(금수) 갓다
+(지국총 지국총 어사와)
+秋波(추파)에 배를 띄워 千里(천리)를 헤여 가니
+(지국총 지국총 어사와)
+人生(인생)이 이러하면 다시 무엇을 바라리오
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+단풍잎이 붉게 물드니 산이 비단처럼 아름답구나.
+(배 저으며 노 젓는 소리)
+가을 물결에 배를 띄워 천 리를 헤엄쳐 가니
+(배 저으며 노 젓는 소리)
+인생이 이러하면 다시 무엇을 바라겠는가.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제6수】</strong>
+낚시 싯고 믈가에 노니 이 몸이 仙人(선인)이로다
+(지국총 지국총 어사와)
+명월 청풍에 취하야 잇노라니
+(지국총 지국총 어사와)
+이 태평 성대에 아무것도 부럽지 아니하다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+낚시 싣고 물가에서 노니 이 몸이 신선이로다.
+(배 저으며 노 젓는 소리)
+밝은 달과 맑은 바람에 취해 있노라니
+(배 저으며 노 젓는 소리)
+이 태평성대에 아무것도 부럽지 않구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제7수】</strong>
+기럭이 한 줄로 나니 秋光(추광)이 깊거고야
+(지국총 지국총 어사와)
+엇그제 보든 곳이 어떠허니 보고지고
+(지국총 지국총 어사와)
+두어라 갈 제 가려니와 올 제도 오리라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+기러기가 한 줄로 날아가니 가을빛이 깊어졌구나.
+(배 저으며 노 젓는 소리)
+엊그제 보던 곳이 어떻게 되었는지 보고 싶구나.
+(배 저으며 노 젓는 소리)
+두어라. 갈 때 가겠지만 올 때도 오리라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제8수】</strong>
+秋月(추월)이 솟아나니 온 世上(세상)이 밝아 온다
+(지국총 지국총 어사와)
+鍾聲(종성)이 玉笛(옥적)과 함께 이 밤을 지새리라
+(지국총 지국총 어사와)
+靑山(청산)아 흰 구름 잡아 두고 놀아 보자
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+가을 달이 솟아오르니 온 세상이 밝아지는구나.
+(배 저으며 노 젓는 소리)
+종소리와 옥피리 소리와 함께 이 밤을 지새리라.
+(배 저으며 노 젓는 소리)
+청산아, 흰 구름을 잡아 두고 함께 놀아 보자.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제9수】</strong>
+취하야 업더지니 하늘인가 믈인가
+(지국총 지국총 어사와)
+고기를 안아 가지고 잠들어 있노라니
+(지국총 지국총 어사와)
+醒來(성래)에 바라보니 佳境(가경)이 바로 여기로다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+취하여 엎어지니 하늘인가 물인가.
+(배 저으며 노 젓는 소리)
+물고기를 안고서 잠들어 있노라니
+(배 저으며 노 젓는 소리)
+잠에서 깨어 바라보니 아름다운 경치가 바로 여기로구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【추사 제10수】</strong>
+도라가난 길에 달을 싣고 파도를 밟으며
+(지국총 지국총 어사와)
+萬頃玻璃(만경파리)에 홀로 앉아 흥을 돋우며
+(지국총 지국총 어사와)
+인간을 도라보니 머리 희옴을 모르리라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+돌아가는 길에 달을 싣고 파도를 밟으며
+(배 저으며 노 젓는 소리)
+만경의 유리 같은 수면에 홀로 앉아 흥을 돋우며
+(배 저으며 노 젓는 소리)
+인간 세상을 돌아보니 머리가 희어지는 줄도 모르겠구나.
+</div>
+</details>
+
+---
+
+## 📜 동사 冬詞 (겨울노래) - 원문 + 현대어 해설
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제1수】</strong>
+구름이 거치고 눈은 므거우니
+(지국총 지국총 어사와)
+銀世界(은세계)요 玉乾坤(옥건곤)이로다
+(지국총 지국총 어사와)
+塵世(진세)를 떠난 興(흥)을 이제야 알게로다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+구름이 걷히고 눈이 무겁게 쌓였으니
+(배 저으며 노 젓는 소리)
+은빛 세계요 옥같이 하얀 천지로구나.
+(배 저으며 노 젓는 소리)
+속세를 떠난 흥취를 이제야 알겠구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제2수】</strong>
+차가운 믈결에 어름이 어럿거다
+(지국총 지국총 어사와)
+蘆花(노화)는 눈 속에 쓸쓸이 픠엿다
+(지국총 지국총 어사와)
+지나간 봄을 생각하니 千載(천재)가 바로 여기로다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+차가운 물결에 얼음이 얼었구나.
+(배 저으며 노 젓는 소리)
+갈대꽃이 눈 속에 쓸쓸히 피어 있구나.
+(배 저으며 노 젓는 소리)
+지나간 봄을 생각하니 천 년이 바로 여기 있는 것 같구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제3수】</strong>
+밤새워 난 눈이 山川(산천)을 덮거고야
+(지국총 지국총 어사와)
+天地(천지)도 玉(옥)인 듯 水石(수석)도 玉(옥)인 듯
+(지국총 지국총 어사와)
+이 몸도 함께 玉(옥) 되어 仙界(선계)에 놀아 보자
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+밤새도록 내린 눈이 산천을 덮었구나.
+(배 저으며 노 젓는 소리)
+천지도 옥인 듯, 물과 바위도 옥인 듯하구나.
+(배 저으며 노 젓는 소리)
+이 몸도 함께 옥이 되어 신선 세계에서 놀아 보자.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제4수】</strong>
+가마괴 나지 않고 나무에 안잣거다
+(지국총 지국총 어사와)
+釣竿(조간)을 눈 속에 들고 낚시하는 翁(옹)이로다
+(지국총 지국총 어사와)
+世上(세상)에 忙(망)한 사람아 이 興(흥)을 모르겠다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+까마귀는 날지 않고 나무에 앉아 있구나.
+(배 저으며 노 젓는 소리)
+낚싯대를 눈 속에서 들고 낚시하는 늙은이로구나.
+(배 저으며 노 젓는 소리)
+세상에 바쁜 사람들아, 이 흥취를 모르겠구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제5수】</strong>
+믈가에 불을 피워 언 손을 녹이며
+(지국총 지국총 어사와)
+찬 고기 눈 녹인 물에 씻어 굽고
+(지국총 지국총 어사와)
+이 興(흥)을 모르는 사람아 웃더라도 웃으려무나
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+물가에 불을 피워 언 손을 녹이며
+(배 저으며 노 젓는 소리)
+차가운 물고기를 눈 녹인 물에 씻어 굽고
+(배 저으며 노 젓는 소리)
+이 흥을 모르는 사람아, 웃더라도 웃으려무나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제6수】</strong>
+삿갓을 기우러 쓰고 도롱이를 빗겨 입고
+(지국총 지국총 어사와)
+雪中孤舟(설중고주)에 눈을 맞아 앉았거다
+(지국총 지국총 어사와)
+천고 심원에 달이 비치니 絶景(절경)인가 하노라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+삿갓을 비스듬히 쓰고 도롱이를 빗겨 입고
+(배 저으며 노 젓는 소리)
+눈 속의 외로운 배에서 눈을 맞으며 앉아 있구나.
+(배 저으며 노 젓는 소리)
+깊고 먼 하늘에 달이 비치니 절경인가 하노라.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제7수】</strong>
+낚시 걷고 夕陽(석양)에 도라가니
+(지국총 지국총 어사와)
+白雲(백운)이 문을 가리고 靑山(청산)이 잠겨 잇다
+(지국총 지국총 어사와)
+酒家(주가)를 찾아 가니 술도 다 익어라
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+낚시 걷고 석양에 돌아가니
+(배 저으며 노 젓는 소리)
+흰 구름이 문을 가리고 청산이 잠겨 있구나.
+(배 저으며 노 젓는 소리)
+술집을 찾아가니 술도 다 익었구나.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제8수】</strong>
+寒月(한월) 아래 뱃노래 부르니 興(흥)이 나난다
+(지국총 지국총 어사와)
+밤 길고 잠 못 이루어 홀로 일어 앉아
+(지국총 지국총 어사와)
+달 보며 옛일을 생각하니 눈물이 난다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+찬 달 아래에서 뱃노래를 부르니 흥이 나는구나.
+(배 저으며 노 젓는 소리)
+밤이 길고 잠을 이루지 못해 홀로 일어나 앉아
+(배 저으며 노 젓는 소리)
+달을 보며 옛일을 생각하니 눈물이 난다.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제9수】</strong>
+눈 속에 梅花(매화) 한 가지 피엿으니
+(지국총 지국총 어사와)
+봄 消息(소식)이 왓다 하고 빙긋이 웃는다
+(지국총 지국총 어사와)
+묵은 해를 보내고 새해를 맞는도다
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+눈 속에 매화 한 가지가 피었으니
+(배 저으며 노 젓는 소리)
+봄 소식이 왔다고 빙긋이 웃는다.
+(배 저으며 노 젓는 소리)
+묵은 해를 보내고 새해를 맞이하는도다.
+</div>
+</details>
+
+<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
+<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line font-yethangul">
+<strong>【동사 제10수】</strong>
+箕山潁水(기산영수)에 밤이 어떠한고
+(지국총 지국총 어사와)
+周公(주공)을 뵈오면 無限(무한)한 사연 이시리라
+(지국총 지국총 어사와)
+男兒(남아)의 志氣(지기)를 어찌 저버리랴
+</p>
+</summary>
+<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+기산영수에서의 밤은 어떠한가.
+(배 저으며 노 젓는 소리)
+주공을 뵈오면 끝없는 사연이 있을 것이다.
+(배 저으며 노 젓는 소리)
+남아의 지기를 어찌 저버리겠는가.
+</div>
+</details>
+
+---
+
+## 💡 단어 해석
+
+<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 space-y-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="space-y-2">
+      <p><strong>지국총 / 어사와</strong>: 노 젓는 의성어 / 뱃노래 후렴구</p>
+      <p><strong>뫼</strong>: 산(山)</p>
+      <p><strong>성시(城市)</strong>: 도시, 시끄러운 속세</p>
+      <p><strong>백구(白鷗)</strong>: 갈매기</p>
+      <p><strong>죽장망혜</strong>: 대지팡이와 짚신</p>
+      <p><strong>앵성(鶯聲)</strong>: 꾀꼬리 소리</p>
+      <p><strong>공곡(空谷)</strong>: 빈 골짜기</p>
+      <p><strong>승지(勝地)</strong>: 경치 좋은 곳</p>
+    </div>
+    <div class="space-y-2">
+      <p><strong>은린옥척(銀鱗玉尺)</strong>: 은빛 비늘의 물고기</p>
+      <p><strong>연엽(蓮葉)</strong>: 연꽃 잎</p>
+      <p><strong>녹음(綠陰)</strong>: 푸른 나무 그늘</p>
+      <p><strong>일엽편주(一葉片舟)</strong>: 나뭇잎 같은 작은 배</p>
+      <p><strong>한가(閑暇)</strong>: 한가함, 여유로움</p>
+      <p><strong>은세계(銀世界)</strong>: 눈 덮인 은빛 세상</p>
+      <p><strong>설중고주(雪中孤舟)</strong>: 눈 속의 외로운 배</p>
+      <p><strong>기산영수(箕山潁水)</strong>: 은자가 은거한 곳</p>
+    </div>
+  </div>
+</div>
+
+---
+
+<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
+English Description
+</summary>
+<div class="p-6 bg-white dark:bg-gray-900">
+
+## "Eobusasisa" (The Fisherman's Calendar) - Four Seasons of a Fisherman
+
+**Eobusasisa** (어부사시사, 漁父四時詞) is a collection of 40 **sijo** (traditional Korean poems) written by **Yun Seondo** (윤선도, 1587-1671), one of the greatest Korean poets.
+
+### Structure
+The work is divided into four parts representing the four seasons:
+- **Chunsa (春詞)**: 10 poems about spring
+- **Hasa (夏詞)**: 10 poems about summer
+- **Chusa (秋詞)**: 10 poems about autumn
+- **Dongsa (冬詞)**: 10 poems about winter
+
+### Key Themes
+1. **Murarilche (物我一體)**: Unity of self and nature
+2. **Heung (興)**: Joy and inspiration found in natural beauty
+3. **Yeongun-jijeong (戀君之情)**: Longing for the king despite seclusion
+
+</div>
+</details>
+
+---
+
+<div class="my-8">
+  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">🔗 같이 보면 좋을 작품</h3>
+  <div class="space-y-3">
+    <a href="/originals/manheung" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">만흥: 자연과 하나 된 삶의 기쁨</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">윤선도의 대표 시조, 산중 은거의 풍류</div>
+    </a>
+    <a href="/originals/ganghosasiga" class="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-sn-primary/50 hover:bg-sn-primary/5 transition-all group">
+      <div class="font-semibold text-gray-900 dark:text-white group-hover:text-sn-primary">강호사시가: 사계절 자연의 아름다움</div>
+      <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">자연 속에서의 삶을 노래한 맹사성의 연시조</div>
+    </a>
+  </div>
+</div>
+`,
+    category: 'SN Originals',
+    tags: [
+      '어부사시사',
+      '윤선도',
+      '연시조',
+      '고전문학',
+      '수능국어',
+      '물아일체',
+      '강호한정',
+    ],
+    author: 'SN Academy',
+    date: '2026-01-20',
+    readTime: '15',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_ubu.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=KJrSMkSqzvc',
+    url: '/originals/eobusasisa',
+    type: 'special',
+  },
+  {
     id: 'ai-learning-gap',
     title: 'AI는 학습 격차를 더 가속화시킨다',
     excerpt:
