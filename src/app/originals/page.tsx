@@ -17,7 +17,10 @@ const STEADY_WORK_IDS = [
 
 // 내신대비 작품 (업로드 최신순, 10작품)
 const SCHOOL_EXAM_WORK_IDS = [
-  'seogyeongbyeolgok', // 서경별곡 (최신)
+  'eobusasisa', // 어부사시사 (최신)
+  'manheung', // 만흥
+  'gyuwonga', // 규원가
+  'seogyeongbyeolgok', // 서경별곡
   'cheongsanbyeolgok', // 청산별곡 (최신)
   'classic-literature-marathon-2', // SN고전문학 몰아보기 2탄 (내신대비)
   'dosansipigok', // 도산십이곡
