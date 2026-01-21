@@ -6,6 +6,7 @@ export interface Post {
   excerpt: string;
   content: string;
   category: string;
+  subcategory?: 'update' | 'tech-blog'; // startup 카테고리 전용: 업데이트 노트 / 기술 블로그
   tags?: string[];
   author: string;
   date: string;
@@ -21,6 +22,176 @@ export interface Post {
 }
 
 export const allPosts: Post[] = [
+  {
+    id: 'snarlink-snargpt-integration',
+    title: '[업뎃] 이제 여러분의 "온라인 순공 시간"을 데이터로 증명합니다!',
+    excerpt:
+      '학원 네트워크 제어 시스템 SNarLink와 학습 AI SNarGPT가 전격 연동되었습니다. 실시간 학업 시간 측정, 초개인화 피드백, 객관적 학습 지표까지 - 여러분의 보이지 않는 노력을 데이터로 증명합니다.',
+    content: `안녕하세요, **SN독학기숙학원** 학생 여러분.
+
+여러분의 보이지 않는 노력까지 완벽하게 관리하기 위해, 학원 네트워크 제어 시스템인 **SNarLink**와 학습 AI **SNarGPT**가 전격 연동되었습니다.
+
+<div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-5 my-6">
+  <p class="m-0 text-gray-700 dark:text-gray-300">
+    단순히 책상에 앉아 있는 시간이 아닌, 실제 학습 사이트 접속 및 활동 내역을 정밀하게 측정하여 여러분의 학습 패턴을 분석해 드립니다.
+  </p>
+</div>
+
+---
+
+## ✅ 주요 기능
+
+<br/>
+
+### 실시간 학업 시간 측정
+
+SNarLink를 통해 인강 시청 및 학습 관련 네트워크 활동 시간을 자동 집계합니다.
+
+<br/>
+
+### 초개인화 피드백
+
+SNarGPT에게 **"어제 내 학습 타임라인 보여줘"**라고 물어보세요. 과목별 비중과 집중도를 분석해 드립니다.
+
+<img src="/images/snarlink/snarlink_study_timeline.png" alt="SNarLink 학습 타임라인" class="rounded-xl my-6 w-full" />
+
+<br/>
+
+### 객관적 학습 지표
+
+데이터에 기반한 '순공 시간' 확인을 통해 스스로 학습 계획의 실효성을 점검할 수 있습니다.
+
+<img src="/images/snarlink/SNarlink_time_table.png" alt="SNarLink 타임 테이블" class="rounded-xl my-6 w-full" />
+
+---
+
+## ⚠️ 데이터 동기화 및 조회 안내
+
+<div class="border-l-4 border-amber-500 bg-amber-50 dark:bg-amber-900/20 p-5 rounded-r-xl my-6">
+  <p class="m-0 text-gray-700 dark:text-gray-300">
+    정밀한 학습 데이터 분석과 RAG 서버의 안정적인 동기화를 위해, <strong>당일의 학습 기록은 익일(다음 날)부터 조회가 가능</strong>합니다.<br/><br/>
+    오늘 쏟은 뜨거운 노력의 결과는 내일 아침 리포트를 통해 확인해 주세요!
+  </p>
+</div>
+
+---
+
+## 활용 방법
+
+SNarGPT 채팅창에 \`나 어제 얼마나 공부했어?\` 혹은 **"어제 학습 리포트 보여줘"**라고 입력하세요.
+
+<div class="rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 p-5 my-6">
+  <p class="m-0 font-semibold">여러분의 1분 1초가 헛되지 않도록, SN의 기술력이 든든한 페이스메이커가 되어 드리겠습니다.</p>
+</div>
+`,
+    category: 'startup',
+    subcategory: 'update',
+    tags: ['AI', 'SNarGPT', 'SNarLink', '순공시간', '업데이트', '학원공지', '학습분석'],
+    author: 'SN Academy',
+    date: '2026-01-21',
+    readTime: '2',
+    featured: true,
+    featuredOrder: 1,
+    published: true,
+    thumbnail: '/images/thumbnail/SNarlink_SNargpt.png',
+    url: '/startup/snarlink-snargpt-integration',
+  },
+  {
+    id: 'snargpt-interactive-quiz-update',
+    title: '[업뎃] SNarGPT 인터랙티브 퀴즈 업데이트: "지능형 퀴즈"를 만나보세요!',
+    excerpt:
+      '단순히 문제를 읽는 것을 넘어, 채팅창에서 직접 버튼을 클릭하고 실시간 피드백을 받는 인터랙티브 UI 방식의 퀴즈 기능이 업데이트되었습니다. 전 과목 마스터, 초개인화 맞춤형 퀴즈, RAG 기반 기출 추출까지!',
+    content: `안녕하세요, **SN독학기숙학원** 학생 여러분.
+
+여러분의 학습 효율을 극대화하기 위해 **SNarGPT의 퀴즈 기능**이 한층 더 진화했습니다.
+
+이번 업데이트는 특별히 SN의 개발자 **규원(카이스트 수석졸업)** 님의 설계로 완성되었습니다.
+
+<div class="rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 p-5 my-6">
+  <p class="m-0 text-gray-700 dark:text-gray-300">
+    단순히 문제를 읽는 것을 넘어, 채팅창에서 직접 <strong>버튼을 클릭</strong>하고 <strong>실시간 피드백</strong>을 받는
+    <strong>'인터랙티브 UI'</strong> 방식으로 구현되어 더욱 몰입감 있는 학습이 가능해졌습니다.
+  </p>
+</div>
+
+---
+
+## ✅ 주요 업데이트 내용
+
+<br/>
+
+### 전 과목 마스터
+
+국어, 수학, 영어는 물론 탐구 과목까지 모든 영역의 퀴즈 생성이 가능합니다.
+
+<br/>
+
+### 초개인화 맞춤형 퀴즈
+
+여러분이 평소 저(**SNARVIS**)와 대화하며 물어본 내용, 특히 자주 틀렸던 개념이나 취약한 내역을 분석하여 똑똑하게 문제를 내줍니다.
+
+<br/>
+
+### RAG 기반 기출 추출
+
+SN RAG 시스템과 연동하여 실제 **수능/평가원/교육청 기출** 문제를 즉석에서 뽑아 **인터랙티브 퀴즈**로 변환해 드립니다.
+
+<img src="/images/QUIZ/RAG_Quiz.png" alt="RAG 기반 퀴즈" class="rounded-xl my-6 w-full" />
+
+<img src="/images/QUIZ/RAG_quiz1.png" alt="RAG 기반 퀴즈 예시" class="rounded-xl my-6 w-full" />
+
+<br/>
+
+### 참여 방법
+
+SNarGPT 채팅창에 \`퀴즈 내줘\` 라고 입력하세요.
+
+AI가 그렇듯 자세하게 낼수록 자세하게 퀴즈를 내줍니다.
+
+<br/>
+
+**예시:**
+
+- 미분 개념, 적분 개념을 활용해서 문제 내줘
+- 인강 강사 스타일로 문제 내줘 (ex. 메가 1타)
+- 수학 기출문제 중에 미분과 관련된 문제 3개 찾아와서 내줘
+- 지구과학 고지자기 문제 3개 내줘
+- 사탐 조작적 정의 활용해서 문제 내줘
+
+<div class="rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 p-5 my-6">
+  <p class="m-0 font-semibold">지금 바로 채팅창에 <strong>"퀴즈 내줘"</strong>를 입력해 보세요.</p>
+</div>
+
+---
+
+## ⚠️ 마나(Mana) 안내
+
+<div class="border-l-4 border-red-500 bg-red-50 dark:bg-red-900/20 p-5 rounded-r-xl my-6">
+  <p class="m-0 text-gray-700 dark:text-gray-300">
+    인터랙티브 퀴즈는 고도의 AI 연산과 UI 생성 과정을 거치므로,
+    <strong>1회 생성 시 약 50마나 이상</strong>이 소요됩니다. (문제 제작 및 시스템 리소스 포함)<br/><br/>
+    효율적인 학습을 위해 꼭 필요한 순간에 <strong>전략적으로</strong> 활용해 보세요!
+  </p>
+</div>
+
+---
+
+지금 바로 규원 님의 감각과 SN의 기술력이 담긴 퀴즈를 경험하고, 여러분의 실력을 가장 스마트하게 점검해 보시기 바랍니다.
+
+여러분의 입시 성공을 위해 SN은 오늘도 진화합니다. **파이팅!**
+`,
+    category: 'startup',
+    subcategory: 'update',
+    tags: ['AI', 'SNarGPT', '퀴즈', '업데이트', '학원공지', '인터랙티브'],
+    author: 'SN Academy',
+    date: '2026-01-21',
+    readTime: '3',
+    featured: true,
+    featuredOrder: 1,
+    published: true,
+    thumbnail: '/images/thumbnail/snargpt_quiz_update.png',
+    url: '/startup/snargpt-interactive-quiz-update',
+  },
   {
     id: 'snargpt-update-260114',
     title: 'SNarGPT 운영 & 업데이트 안내 (학생 필독)',
@@ -237,6 +408,7 @@ SNarGPT는 **각 학생마다 초개인화된 '동반자 AI'**입니다.
 그럼, 열심히 공부해 봅시다. 💪
 `,
     category: 'startup',
+    subcategory: 'update',
     tags: ['AI', 'SNarGPT', 'SNarKeeper', '마나', '업데이트', '학원공지'],
     author: 'SN Academy',
     date: '2026-01-14',
@@ -2616,6 +2788,7 @@ SN은 AI를 도입한 학원이 아니라, AI로 학습을 읽고 사고의 구�
 그리고 그 질문에 답하기 위해 SNarGPT는 만들어졌습니다.
 `,
     category: 'startup',
+    subcategory: 'tech-blog',
     tags: ['AI', 'SNarGPT', '학습격차', '이세돌', '교육혁신', '사고력'],
     author: 'SN Academy',
     date: '2025-12-21',
@@ -6866,6 +7039,7 @@ SNarGPT에 대해 더 궁금하신가요?
 - 🌐 웹사이트: [https://snargpt.ai](https://snargpt.ai)
 `,
     category: 'startup',
+    subcategory: 'update',
     tags: ['AI', 'SNarGPT', '수능', '학습', 'LLM', '교육기술'],
     author: 'SN Academy',
     date: '2025-11-09',
@@ -7744,6 +7918,7 @@ SN의 AI는 '보조 프로그램'이 아니라 <strong>교사의 시야를 확�
   <p>SN독학기숙학원 대표 윤석기</p>
 </div>`,
     category: 'startup',
+    subcategory: 'tech-blog',
     tags: ['AI', '교육혁신', '데이터', '입시전략', '에듀테크'],
     author: 'SN독학기숙학원 대표 윤석기',
     date: '2025-10-18',
@@ -7779,6 +7954,7 @@ SNarGO는 **수능 수학 문제 전용** Vertical AI로, 학생들의 수학 �
 
 자세한 내용은 SNarGO 페이지에서 확인하실 수 있습니다.`,
     category: 'startup',
+    subcategory: 'update',
     tags: ['AI', '수능', '수학', '교육기술'],
     author: 'SN Academy',
     date: '2025-10-07',
@@ -8823,6 +8999,7 @@ SN독학기숙학원의 방화벽은 개발이 모두 완료되었으며, 본원
   <p class="text-gray-700 text-lg">초개인화 학습 혁신</p>
 </div>`,
     category: 'startup',
+    subcategory: 'tech-blog',
     tags: ['AI교육', '스타트업', '에듀테크'],
     author: 'SN Academy',
     date: '2025-09-29',
