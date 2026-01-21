@@ -53,7 +53,7 @@ SNarLink를 통해 인강 시청 및 학습 관련 네트워크 활동 시간을
 
 SNarGPT에게 **"어제 내 학습 타임라인 보여줘"**라고 물어보세요. 과목별 비중과 집중도를 분석해 드립니다.
 
-<img src="/images/snarlink/snarlink_study_timeline.png" alt="SNarLink 학습 타임라인" class="rounded-xl my-6 w-full" />
+<img src="/images/SNarlink/snarlink_study_timeline.png" alt="SNarLink 학습 타임라인" class="rounded-xl my-6 w-full" />
 
 <br/>
 
@@ -61,7 +61,7 @@ SNarGPT에게 **"어제 내 학습 타임라인 보여줘"**라고 물어보세�
 
 데이터에 기반한 '순공 시간' 확인을 통해 스스로 학습 계획의 실효성을 점검할 수 있습니다.
 
-<img src="/images/snarlink/SNarlink_time_table.png" alt="SNarLink 타임 테이블" class="rounded-xl my-6 w-full" />
+<img src="/images/SNarlink/SNarlink_time_table.png" alt="SNarLink 타임 테이블" class="rounded-xl my-6 w-full" />
 
 ---
 
@@ -136,9 +136,9 @@ SNarGPT 채팅창에 \`나 어제 얼마나 공부했어?\` 혹은 **"어제 학
 
 SN RAG 시스템과 연동하여 실제 **수능/평가원/교육청 기출** 문제를 즉석에서 뽑아 **인터랙티브 퀴즈**로 변환해 드립니다.
 
-<img src="/images/QUIZ/RAG_Quiz.png" alt="RAG 기반 퀴즈" class="rounded-xl my-6 w-full" />
+<img src="/images/quiz/RAG_Quiz.png" alt="RAG 기반 퀴즈" class="rounded-xl my-6 w-full" />
 
-<img src="/images/QUIZ/RAG_quiz1.png" alt="RAG 기반 퀴즈 예시" class="rounded-xl my-6 w-full" />
+<img src="/images/quiz/RAG_quiz1.png" alt="RAG 기반 퀴즈 예시" class="rounded-xl my-6 w-full" />
 
 <br/>
 
