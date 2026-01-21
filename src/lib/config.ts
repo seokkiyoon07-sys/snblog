@@ -82,6 +82,24 @@ export const CATEGORY_CONFIG = {
   },
 } as const;
 
+// Startup subcategory configuration
+export const STARTUP_SUBCATEGORY_CONFIG = {
+  all: {
+    label: '전체',
+    description: '모든 AI 스타트업 글',
+  },
+  update: {
+    label: '업데이트 노트',
+    description: 'SNarGPT 버전별 변경사항 및 가이드',
+  },
+  'tech-blog': {
+    label: '기술 블로그',
+    description: 'AI 교육 인사이트 및 기술 컬럼',
+  },
+} as const;
+
+export type StartupSubcategory = keyof typeof STARTUP_SUBCATEGORY_CONFIG;
+
 // Helper functions
 export function getCategoryRoute(category: string): string {
   return (

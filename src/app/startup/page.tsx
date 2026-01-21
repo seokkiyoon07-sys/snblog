@@ -1,4 +1,4 @@
-import PostCard from '@/components/PostCard';
+import StartupTabs from '@/components/StartupTabs';
 import { Metadata } from 'next';
 import { getPostsByCategory } from '@/data/posts';
 
@@ -54,23 +54,13 @@ export default function StartupPage() {
         </p>
       </header>
 
-      {/* 포스트 목록 */}
+      {/* 포스트 목록 with 탭 필터 */}
       <section aria-labelledby="startup-posts-heading">
         <h2 id="startup-posts-heading" className="sr-only">
           AI 스타트업 관련 포스트
         </h2>
-        <div
-          className="space-y-4 lg:space-y-6"
-          role="list"
-          aria-label="AI 스타트업 포스트 목록"
-        >
-          {startups.map(post => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
+        <StartupTabs posts={startups} />
       </section>
-
-      {/* 개별 상세 포스트는 /startup/[slug] 등 하위 경로에서 렌더링됩니다. */}
     </div>
   );
 }
