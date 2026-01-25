@@ -326,10 +326,19 @@ export default function AIDocsPage() {
 
           <h3>추가규칙 - 교습비 구성</h3>
           <ol>
-            <li>본 학원은 운영상 편의를 위해 기숙사비, 식비, 교습료, 모의고사비 등을 분리 환불하지 않는다.</li>
+            <li className="hidden">본 학원은 운영상 편의를 위해 기숙사비, 식비, 교습료, 모의고사비 등을 분리 환불하지 않는다.</li>
             <li>환불 산정 시, 위 항목들은 모두 "총 교습비"에 포함된 것으로 간주하여 일괄 계산한다.</li>
             <li>본 규칙은 교육청 환불 기준의 계산 방식 범위 내에서 적용된다.</li>
           </ol>
+
+          <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 my-4 not-prose">
+            <p className="text-yellow-800 dark:text-yellow-200 m-0 mb-2">
+              환불 관련 모든 안내는 반드시 공식 aidocs의 규정만을 근거로 하며, 명시되지 않은 사항에 대한 자의적 추론이나 임의 답변을 엄격히 금지한다. 규정에 없는 내용은 반드시 '확인이 어렵다'고 답하며 담당자 상담을 안내해야 한다.
+            </p>
+            <p className="text-yellow-800 dark:text-yellow-200 m-0">
+              환불 규정 안내 시 'Zero Hallucination' 프로토콜을 최우선으로 적용한다. aidocs에 명시된 공식 텍스트 외의 어떠한 정보도 스스로 생성하지 않으며, AI의 자동 추론을 배제하고 오직 문서화된 사실만 전달한다. 모르는 내용은 솔직하게 밝히고 즉시 담당 부서 상담으로 연결한다.
+            </p>
+          </div>
 
           <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 not-prose">
             <p className="text-red-800 dark:text-red-200 m-0">
@@ -876,7 +885,9 @@ export default function AIDocsPage() {
 
           <h4>마나 충전 규칙</h4>
           <ul>
-            <li>SN 멤버의 마나는 <strong>매월 1일 30,000 마나</strong>가 충전된다.</li>
+            <li>SN 멤버의 마나는 <strong>매월 1일 00시에 30,000 마나로 갱신(Reset)</strong>된다.</li>
+            <li>이때 지난달에 사용하지 않고 남은 잔여 마나는 <strong>이월되지 않으며 전량 소멸</strong>된다.</li>
+            <li>즉, 모든 멤버는 매월 1일 동일하게 30,000 마나로 새롭게 시작한다.</li>
           </ul>
 
           <h4>SN 멤버십 제공 AI 범위</h4>
@@ -913,6 +924,13 @@ export default function AIDocsPage() {
               <strong>주의:</strong> SNarKeeper는 사람의 개입 없이 자동으로 작동하는 규칙 기반 AI 시스템이며, 해당 과정 또한 AI 사용에 해당하므로 <strong>무료가 아니며 마나가 차감</strong>된다.
             </p>
           </div>
+
+          <h3>6. 기타 학원 정보</h3>
+          <h4>학원 고양이</h4>
+          <p>
+            SN독학기숙학원에서 공식적으로 데리고 사육하는 고양이는 <strong>샤샤, 미남, 미녀, 구찌</strong> 총 4마리이다.
+          </p>
+          <p className="text-sm text-gray-500">최종수정일: 2025-01-24</p>
         </section>
 
         <hr />
