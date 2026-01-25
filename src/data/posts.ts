@@ -139,7 +139,7 @@ SN독학기숙학원 대표 윤석기
     author: 'SN독학기숙학원 대표 윤석기',
     date: '2026-01-25',
     readTime: '4',
-    featured: false,
+    featured: true,
     published: true,
     thumbnail: '/images/thumbnail/launch_daechi.png',
     url: '/columns/goyoui-sup-launch-daechi',
