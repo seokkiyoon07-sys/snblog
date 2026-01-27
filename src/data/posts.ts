@@ -269,7 +269,7 @@ SNarGPT는 단순한 AI 챗봇이 아닙니다. <mark style="background: linear-
     readTime: '10',
     featured: false,
     published: true,
-    thumbnail: '/images/thumbnail/ai_technology.png',
+    thumbnail: '/images/thumbnail/SNARGPT_technology.png',
     url: '/startup/snargpt-2026-ai-tech-trend',
   },
   {
