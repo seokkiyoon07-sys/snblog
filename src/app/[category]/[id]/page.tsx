@@ -125,7 +125,16 @@ export default async function PostPage({ params }: PostPageProps) {
               </div>
             )}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
-              {post.title}
+              {post.title.includes('\n') ? (
+                <>
+                  {post.title.split('\n')[0]}
+                  <span className="block text-xl md:text-2xl font-normal text-slate-500 dark:text-gray-400 mt-3">
+                    {post.title.split('\n')[1]}
+                  </span>
+                </>
+              ) : (
+                post.title
+              )}
             </h1>
             <p className="text-xl text-slate-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
               {post.excerpt}

@@ -23,6 +23,256 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'snargpt-2026-ai-tech-trend',
+    title: 'SNarGPT에는 어떤 AI기술이 들어가 있나요?\n- 2026 AI 신기술 트렌드',
+    excerpt:
+      '사람의 적응력보다 빠르게 발전하는 AI기술. SNarGPT의 6가지 핵심 엔진이 어떻게 수능 학습을 혁신하는지 살펴봅니다.',
+    content: `**부제: 나를 아는 AI**
+
+ChatGPT에게 수학 문제를 물어본 적 있으신가요?
+
+그럴듯한 풀이를 내놓다가 갑자기 엉뚱한 공식을 적용하거나, "이 문제는 풀 수 없습니다"라며 손을 드는 경험. 한 번쯤 해보셨을 겁니다.
+
+**SNarGPT는 다릅니다.**
+
+수능과 모의고사에 특화된 <mark style="background: linear-gradient(to top, rgba(255, 230, 0, 0.5) 50%, transparent 50%)">6가지 핵심 엔진</mark>이 하나의 팀처럼 움직이며, 학생의 질문에 정확하고 신뢰할 수 있는 답을 내놓습니다. 오늘은 그 내부를 들여다보겠습니다.
+
+---
+
+## 1. 에이전트 AI: 지시를 기다리지 않고, 스스로 계획합니다
+
+기존 AI는 질문에 답하는 '수동적인 사전'이었습니다. 물어봐야 대답하고, 물어본 것만 대답합니다.
+
+**에이전트 AI는 다릅니다.** 목표를 던져주면 스스로 할 일을 정리하고 실행하는 '자기주도적 해결사'입니다.
+
+예를 들어 "이 문제 풀어줘"라고 하면, 단순히 답만 내놓는 게 아닙니다. 문제 유형을 파악하고, 필요한 개념을 확인하고, 풀이 전략을 세운 뒤 단계별로 설명합니다. 마치 옆에 앉은 과외 선생님처럼요.
+
+<div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4 my-6">
+  <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">SN만의 차별점</p>
+  <p class="text-gray-700 dark:text-gray-300">SNarGPT의 에이전트는 단순한 텍스트 생성을 넘어 '추론'과 '계획' 능력을 갖춘 AI 아키텍처를 기반으로 합니다. 수능이라는 명확한 목표 아래, 가장 효율적인 학습 경로를 스스로 설계합니다.</p>
+</div>
+
+---
+
+## 2. 장기기억: 어제의 대화를 기억하고, 내일의 성장을 설계합니다
+
+요즘 AI들도 사용자를 기억합니다. 이름, 직업, 관심사 정도는 기억하죠.
+
+하지만 수험생에게 필요한 기억은 다릅니다.
+
+"이 학생은 미적분 정적분에서 자주 실수한다", "설명은 천천히 단계별로 해줘야 한다", "목표는 서울대 수의예과다"—이런 학습 맥락을 기억하고 활용하는 AI는 드뭅니다.
+
+**SNarGPT는 학습에 특화된 기억을 합니다.**
+
+며칠 전에 물어본 고민, 자주 틀리는 문제 유형, 목표 대학, 선호하는 설명 방식까지. 마치 1년 내내 나를 지켜봐 온 담임 선생님처럼요.
+
+<div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4 my-6">
+  <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">SN만의 차별점</p>
+  <p class="text-gray-700 dark:text-gray-300">단순히 대화 내용을 저장하는 게 아닙니다. 벡터 데이터베이스 기반의 '시맨틱 검색' 기술로 수개월 전의 맥락도 현재 대화에 즉시 연결합니다.</p>
+  <p class="text-gray-700 dark:text-gray-300 mt-2">"선생님, 저번에 미적분 어렵다고 했잖아요"라고 말하면, SNarGPT는 그때 어떤 유형을 틀렸는지, 이후 얼마나 개선됐는지까지 파악합니다. 시간이 지날수록 더 정교해지는 맞춤형 학습 가이드. 이것이 SNarGPT가 단순한 AI를 넘어 <mark style="background: linear-gradient(to top, rgba(255, 230, 0, 0.5) 50%, transparent 50%)">'나만의 학습 파트너'</mark>가 되는 이유입니다.</p>
+</div>
+
+---
+
+## 3. 멀티모달 오케스트레이션: 전문가들의 완벽한 협주
+
+한 명의 AI가 모든 걸 다 잘할 수는 없습니다.
+
+SNarGPT는 각 분야의 전문가 AI들이 팀을 이뤄 일합니다.
+
+<div class="space-y-3 my-4">
+  <div class="flex">
+    <span class="font-bold shrink-0">SNARVIS:&nbsp;</span>
+    <span>학습의 맥락을 읽고 최적의 AI 전문가를 지휘하는 SNarGPT의 마에스트로이자, 학생과 함께 사유하는 전략적 동반자입니다</span>
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0">SNarGo:&nbsp;</span>
+    <span>수학 문제를 논리적으로 풀어내는 연산 두뇌입니다</span>
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0">SNarGen:&nbsp;</span>
+    <span>유사 문제를 생성하고 변형 및 창작 문제로 실력을 다져줍니다</span>
+  </div>
+</div>
+
+이들을 하나의 오케스트라처럼 지휘하는 것이 '오케스트레이션' 기술입니다. 학생이 사진 한 장을 올리면, 어떤 전문가에게 어떤 순서로 일을 맡길지 순식간에 판단합니다.
+
+<div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4 my-6">
+  <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">SN만의 차별점</p>
+  <p class="text-gray-700 dark:text-gray-300">이미지, 텍스트, 수식을 실시간으로 처리하며 최적의 에이전트에게 업무를 배분하는 독자적인 라우팅 시스템. 이것이 SNarGPT가 복합적인 수능 문제에 강한 이유입니다.</p>
+</div>
+
+---
+
+## 4. RAG: 기억에 의존하지 않고, 교과서를 펼쳐보고 답합니다
+
+AI가 가끔 엉뚱한 소리를 하는 이유는 뭘까요?
+
+자기 기억(학습 데이터)에만 의존하기 때문입니다. 마치 시험 전날 외운 내용이 헷갈리는 것처럼, AI도 '환각(hallucination)'을 일으킵니다.
+
+**RAG(Retrieval-Augmented Generation)**는 다른 접근법을 씁니다. 질문을 받으면 먼저 방대한 데이터베이스에서 정확한 근거 자료를 찾아냅니다. 그다음 그 자료를 바탕으로 답변합니다.
+
+쉽게 말해 **'오픈북 시험'을 보는 AI**입니다.
+
+<div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4 my-6">
+  <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">SN만의 차별점</p>
+  <p class="text-gray-700 dark:text-gray-300">SN RAG는 저작권이 확보된 수능·모의고사 데이터와 10년 이상 축적된 학습 관리 및 학원 운영 노하우를 결합한 시험 특화 RAG 시스템입니다. 평가원 및 시·도 교육청 기출문제 <mark style="background: linear-gradient(to top, rgba(255, 230, 0, 0.5) 50%, transparent 50%)">약 10만 문항</mark>을 기반으로 학습이 이루어졌으며, 수학·국어 과목은 구축을 완료했고 타 과목은 상반기 내 단계적으로 확장 중입니다. 본 시스템은 온라인상의 비정형·비검증 정보가 아닌, 실제 시험에 출제된 문제와 공식적으로 검증된 풀이 데이터만을 참조하도록 설계되었습니다.</p>
+</div>
+
+---
+
+## 5. MCP: AI에게 손과 발을 쥐여주다
+
+아무리 똑똑해도 손발이 없으면 할 수 있는 일이 제한됩니다.
+
+**MCP(Model Context Protocol)**는 AI가 외부 세계와 소통하며 실제 업무를 수행하게 만드는 '연결 통로'입니다. 인터넷 검색, 파일 분석, 데이터베이스 조회 같은 작업을 AI가 직접 수행할 수 있게 해줍니다.
+
+SNarGPT는 MCP를 통해 단순히 "답을 알려주는 AI"를 넘어 **"실제로 자료를 찾고, 분석하고, 정리해주는 AI"**로 진화했습니다.
+
+<div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4 my-6">
+  <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">SN만의 차별점</p>
+  <p class="text-gray-700 dark:text-gray-300">업계 표준 인터페이스를 채택해 확장성을 확보했습니다. 앞으로 새로운 학습 도구나 데이터 소스가 추가되어도, SNarGPT는 자연스럽게 연동됩니다.</p>
+</div>
+
+---
+
+## 6. SNarKeeper: 학습 몰입을 지키는 가디언
+
+솔직히 말해, AI는 양날의 검입니다.
+
+공부하러 접속했다가 잡담에 빠지거나, 학습과 무관한 질문으로 시간을 낭비하기 쉽습니다. 더 심각한 경우, 유해한 콘텐츠에 노출될 수도 있습니다.
+
+**SNarKeeper는 이런 문제를 막는 'AI 가디언'입니다.** 학습과 관련 없는 대화를 지혜롭게 걸러내고, 학생이 공부에 집중할 수 있도록 환경을 보호합니다.
+
+단순히 차단하는 게 아닙니다. "그 질문보다 이 개념을 먼저 정리해볼까?"처럼 자연스럽게 학습으로 유도합니다.
+
+<div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4 my-6">
+  <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">SN만의 차별점</p>
+  <p class="text-gray-700 dark:text-gray-300">기술의 윤리적 활용과 교육적 목적성을 분명히 하는 SN의 철학이 담겼습니다. 부모님은 안심하고, 학생은 몰입할 수 있는 환경. 그것이 SNarKeeper가 지키는 가치입니다.</p>
+</div>
+
+---
+
+## 하나의 질문, 여섯 엔진의 협주
+
+이 6가지 엔진이 어떻게 함께 작동하는지, 실제 시나리오로 보여드리겠습니다.
+
+<div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 my-6">
+  <p class="text-lg font-medium mb-4">학생: (수학 문제 사진을 찍어 업로드) "이거 어떻게 풀어요?"</p>
+</div>
+
+<div class="my-8 relative">
+  <!-- 세로 연결선 -->
+  <div class="absolute left-6 top-12 bottom-12 w-0.5 bg-emerald-600 dark:bg-emerald-500"></div>
+
+  <div class="space-y-0">
+    <!-- 1단계 -->
+    <div class="relative flex items-start gap-4 pb-6">
+      <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center">
+        <span class="text-white font-bold text-lg">1</span>
+      </div>
+      <div class="flex-1 pt-1">
+        <p class="font-bold text-gray-900 dark:text-gray-100 text-lg">SNarKeeper 가동</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">학습 관련 질문 확인 ✓ → 통과</p>
+      </div>
+    </div>
+
+    <!-- 2단계 -->
+    <div class="relative flex items-start gap-4 pb-6">
+      <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center">
+        <span class="text-white font-bold text-lg">2</span>
+      </div>
+      <div class="flex-1 pt-1">
+        <p class="font-bold text-gray-900 dark:text-gray-100 text-lg">장기기억 조회</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">"이 학생은 미적분 정적분 유형에서 자주 실수함"</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">"설명은 단계별로 천천히 해주는 걸 선호함"</p>
+      </div>
+    </div>
+
+    <!-- 3단계 -->
+    <div class="relative flex items-start gap-4 pb-6">
+      <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center">
+        <span class="text-white font-bold text-lg">3</span>
+      </div>
+      <div class="flex-1 pt-1">
+        <p class="font-bold text-gray-900 dark:text-gray-100 text-lg">SNARVIS 작동</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">이미지에서 문제 텍스트와 수식 인식</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">"미적분 - 정적분의 활용" 유형 판별</p>
+      </div>
+    </div>
+
+    <!-- 4단계 -->
+    <div class="relative flex items-start gap-4 pb-6">
+      <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center">
+        <span class="text-white font-bold text-lg">4</span>
+      </div>
+      <div class="flex-1 pt-1">
+        <p class="font-bold text-gray-900 dark:text-gray-100 text-lg">RAG 검색</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">유사 기출문제 3건 발견</p>
+        <p class="text-gray-500 dark:text-gray-500 text-xs mt-1">2023 수능 · 2024 6월 모평 · 2024 9월 모평</p>
+      </div>
+    </div>
+
+    <!-- 5단계 -->
+    <div class="relative flex items-start gap-4 pb-6">
+      <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center">
+        <span class="text-white font-bold text-lg">5</span>
+      </div>
+      <div class="flex-1 pt-1">
+        <p class="font-bold text-gray-900 dark:text-gray-100 text-lg">SNarGo 풀이</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">단계별 풀이 생성</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">학생의 취약점과 선호 스타일 반영</p>
+      </div>
+    </div>
+
+    <!-- 6단계 -->
+    <div class="relative flex items-start gap-4">
+      <div class="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center">
+        <span class="text-white font-bold text-lg">6</span>
+      </div>
+      <div class="flex-1 pt-1">
+        <p class="font-bold text-gray-900 dark:text-gray-100 text-lg">에이전트 AI 종합</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">풀이 + 유사문제 + 개념정리를 하나의 답변으로 구성</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm italic mt-1">"지난번에도 이 유형 틀렸는데, 오늘 확실히 잡아볼까?"</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 my-6">
+  <p class="font-medium text-gray-600 dark:text-gray-400 mb-2">SNarGPT:</p>
+  <p class="text-lg">"이 문제는 정적분의 넓이 활용 유형이에요. 핵심은 두 함수의 교점을 먼저 찾는 거예요..."</p>
+</div>
+
+**사진 한 장에서 맞춤형 과외까지, 불과 1초 만에 일어나는 일입니다.**
+
+---
+
+## 마치며
+
+SNarGPT는 단순한 AI 챗봇이 아닙니다. <mark style="background: linear-gradient(to top, rgba(255, 230, 0, 0.5) 50%, transparent 50%)">대기업 수준의 AI 아키텍처를, 교육에 진심인 작은 팀이 직접 설계하고 구축했습니다.</mark>
+
+10년 넘게 수험생 곁을 지켜온 SN독학기숙학원의 노하우와, 최신 AI 기술이 만나 탄생한 **학습 파트너**입니다.
+
+양평의 작은 기숙학원에서 시작된 이 도전이, 대한민국 수험생의 공부 방식을 바꿔나가고 있습니다.
+
+<div class="mt-8 p-6 bg-gray-800 dark:bg-gray-700 rounded-2xl text-white text-center">
+  <p class="text-xl font-bold mb-2">SNarGPT가 궁금하시다면</p>
+  <p><a href="https://snacademy.co.kr" class="underline hover:no-underline">SN독학기숙학원</a>에서 직접 경험해보세요.</p>
+</div>
+`,
+    category: 'startup',
+    subcategory: 'tech-blog',
+    tags: ['AI', 'SNarGPT', '에이전트AI', 'RAG', 'MCP', '에듀테크', '수능', '인공지능'],
+    author: 'SN Academy',
+    date: '2026-01-27',
+    readTime: '10',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/ai_technology.png',
+    url: '/startup/snargpt-2026-ai-tech-trend',
+  },
+  {
     id: 'goyoui-sup-launch-daechi',
     title: '26년 2월 1일 대치동에 독학관리학원을 런칭합니다',
     excerpt:
