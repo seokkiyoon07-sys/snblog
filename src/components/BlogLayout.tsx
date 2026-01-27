@@ -223,7 +223,18 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
         }}
       />
       <article className="prose lg:prose-xl mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
+        <h1 className="text-3xl font-bold mb-6">
+          {post.title.includes('\n') ? (
+            <>
+              {post.title.split('\n')[0]}
+              <span className="block text-lg font-normal text-gray-500 dark:text-gray-400 mt-2">
+                {post.title.split('\n')[1]}
+              </span>
+            </>
+          ) : (
+            post.title
+          )}
+        </h1>
         <div
           ref={contentRef}
           dangerouslySetInnerHTML={{ __html: post.content }}
