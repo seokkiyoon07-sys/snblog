@@ -316,6 +316,9 @@ export default function BoardingSchoolMap() {
   // 테이블 클릭 시 상세 정보 모달
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
+  // 전체화면 모달 필터 토글 (모바일용)
+  const [isModalFilterOpen, setIsModalFilterOpen] = useState(false);
+
   // 필터 토글 함수들
   const toggleType = useCallback((type: SchoolType) => {
     setSelectedTypes(prev => {
@@ -1369,20 +1372,41 @@ export default function BoardingSchoolMap() {
 
       {/* 전체 화면 모달 */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-          <div className="relative w-full h-full max-w-[95vw] max-h-[95vh] bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
-            {/* 모달 헤더 */}
-            <div className="flex items-center justify-between px-6 py-3 border-b border-gray-200 dark:border-gray-700">
-              <div>
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                  전국 기숙학원 가격 지도
-                </h2>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  마커를 클릭하면 상세 정보를 볼 수 있어요
-                </p>
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-0 md:p-4">
+          <div className="relative w-full h-full md:max-w-[95vw] md:max-h-[95vh] bg-white dark:bg-gray-900 md:rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+            {/* 모달 헤더 - 모바일 최적화 */}
+            <div className="flex items-center justify-between px-3 md:px-6 py-2 md:py-3 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+              <div className="flex items-center gap-2 md:gap-4">
+                {/* 모바일: 필터 토글 버튼 */}
+                <button
+                  onClick={() => setIsModalFilterOpen(!isModalFilterOpen)}
+                  className="md:hidden flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg text-sm font-medium"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                  </svg>
+                  필터
+                  {activeFilterCount > 0 && (
+                    <span className="px-1.5 py-0.5 text-xs bg-emerald-500 text-white rounded-full">
+                      {activeFilterCount}
+                    </span>
+                  )}
+                </button>
+                <div className="hidden md:block">
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                    전국 기숙학원 가격 지도
+                  </h2>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    마커를 클릭하면 상세 정보를 볼 수 있어요
+                  </p>
+                </div>
+                {/* 모바일: 학원 수 */}
+                <span className="md:hidden text-xs text-gray-500 dark:text-gray-400">
+                  {filteredSchools.length}개
+                </span>
               </div>
-              <div className="flex items-center gap-4">
-                {/* 범례 */}
+              <div className="flex items-center gap-2 md:gap-4">
+                {/* 데스크톱: 범례 */}
                 <div className="hidden md:flex items-center gap-3 text-xs">
                   <span className="text-gray-500 dark:text-gray-400">마커 색상:</span>
                   <div className="flex items-center gap-1">
@@ -1402,22 +1426,93 @@ export default function BoardingSchoolMap() {
                     <span className="text-gray-600 dark:text-gray-400">500만원대</span>
                   </div>
                 </div>
-                <span className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="hidden md:inline text-sm text-gray-600 dark:text-gray-400">
                   {filteredSchools.length}개 학원
                 </span>
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  className="p-1.5 md:p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
             </div>
 
-            {/* 모달 필터 */}
-            <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+            {/* 모바일 필터 드롭다운 */}
+            {isModalFilterOpen && (
+              <div className="md:hidden px-3 py-3 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 space-y-3 animate-in slide-in-from-top duration-200">
+                {/* 필터 헤더 + 닫기 버튼 */}
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">필터 설정</span>
+                  <button
+                    onClick={() => setIsModalFilterOpen(false)}
+                    className="flex items-center gap-1 px-2 py-1 text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 bg-gray-200 dark:bg-gray-700 rounded-lg"
+                  >
+                    닫기
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  </button>
+                </div>
+                {/* 종류별 */}
+                <div className="space-y-1.5">
+                  <span className="text-xs font-medium text-gray-500 dark:text-gray-400">종류</span>
+                  <div className="flex gap-1.5 flex-wrap">
+                    {(Object.entries(SCHOOL_TYPES) as [SchoolType, string][]).map(([key, label]) => (
+                      <FilterButton key={key} active={selectedTypes.has(key)} onClick={() => toggleType(key)}>
+                        {label}
+                      </FilterButton>
+                    ))}
+                  </div>
+                </div>
+                {/* 가격대별 */}
+                <div className="space-y-1.5">
+                  <span className="text-xs font-medium text-gray-500 dark:text-gray-400">가격대</span>
+                  <div className="flex gap-1.5 flex-wrap">
+                    {(Object.entries(PRICE_RANGES) as [PriceRange, string][]).map(([key, label]) => (
+                      <FilterButton key={key} active={selectedPriceRanges.has(key)} onClick={() => togglePriceRange(key)}>
+                        {label}
+                      </FilterButton>
+                    ))}
+                  </div>
+                </div>
+                {/* 권역별 */}
+                <div className="space-y-1.5">
+                  <span className="text-xs font-medium text-gray-500 dark:text-gray-400">권역</span>
+                  <div className="flex gap-1.5 flex-wrap">
+                    {(Object.entries(REGIONS) as [Region, string][]).map(([key, label]) => (
+                      <FilterButton key={key} active={selectedRegions.has(key)} onClick={() => toggleRegion(key)}>
+                        {label}
+                      </FilterButton>
+                    ))}
+                  </div>
+                </div>
+                {/* 성별 & TOP5 & 초기화 */}
+                <div className="flex items-center gap-2 flex-wrap">
+                  {(Object.entries(GENDERS) as [Gender, string][]).map(([key, label]) => (
+                    <FilterButton key={key} active={selectedGenders.has(key)} onClick={() => toggleGender(key)}>
+                      {label}
+                    </FilterButton>
+                  ))}
+                  <FilterButton active={showTop5Only} onClick={() => setShowTop5Only(!showTop5Only)}>
+                    ⭐ TOP 5
+                  </FilterButton>
+                  {activeFilterCount > 0 && (
+                    <button
+                      onClick={resetFilters}
+                      className="text-xs text-red-500 hover:text-red-600 underline ml-auto"
+                    >
+                      초기화
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* 데스크톱 필터 */}
+            <div className="hidden md:block px-4 py-3 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                 {/* 종류별 */}
                 <div className="flex items-center gap-2">
@@ -1496,14 +1591,14 @@ export default function BoardingSchoolMap() {
               <button
                 onClick={() => goToCurrentLocation(true)}
                 disabled={isLocating}
-                className="absolute top-4 left-4 flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 z-10"
+                className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 z-10 text-sm"
               >
                 {isLocating ? (
-                  <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
                 ) : (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
@@ -1511,9 +1606,9 @@ export default function BoardingSchoolMap() {
                 현위치
               </button>
 
-              {/* 사이드 패널 - 선택된 학원 정보 */}
+              {/* 데스크톱: 사이드 패널 - 선택된 학원 정보 */}
               {selectedSchool && (
-                <div className="w-80 border-l border-gray-200 dark:border-gray-700 p-6 overflow-y-auto bg-white dark:bg-gray-900">
+                <div className="hidden md:block w-80 border-l border-gray-200 dark:border-gray-700 p-6 overflow-y-auto bg-white dark:bg-gray-900">
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     {selectedSchool.isTop5 && (
                       <span className="px-2 py-0.5 text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded">
@@ -1591,30 +1686,104 @@ export default function BoardingSchoolMap() {
                   </button>
                 </div>
               )}
+
+              {/* 모바일: 하단 시트 - 선택된 학원 정보 */}
+              {selectedSchool && (
+                <div className="md:hidden absolute bottom-0 left-0 right-0 bg-white dark:bg-gray-900 rounded-t-2xl shadow-2xl border-t border-gray-200 dark:border-gray-700 max-h-[60vh] overflow-y-auto animate-in slide-in-from-bottom duration-300">
+                  {/* 드래그 핸들 */}
+                  <div className="flex justify-center py-2">
+                    <div className="w-10 h-1 bg-gray-300 dark:bg-gray-600 rounded-full" />
+                  </div>
+
+                  <div className="px-4 pb-4 space-y-3">
+                    {/* 헤더 */}
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-1.5 mb-1">
+                          {selectedSchool.isTop5 && (
+                            <span className="px-1.5 py-0.5 text-[10px] font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded">
+                              ⭐ TOP 5
+                            </span>
+                          )}
+                          <span className={`px-1.5 py-0.5 text-[10px] font-medium rounded ${
+                            selectedSchool.type === 'self-study'
+                              ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
+                              : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                          }`}>
+                            {SCHOOL_TYPES[selectedSchool.type]}
+                          </span>
+                          <span className="px-1.5 py-0.5 text-[10px] font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
+                            {REGIONS[selectedSchool.region]}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                          {selectedSchool.name}
+                        </h3>
+                      </div>
+                      <button
+                        onClick={() => setSelectedSchool(null)}
+                        className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    {/* 가격 & 정원 */}
+                    <div className="flex items-center gap-4">
+                      <div>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">수강료</span>
+                        {selectedSchool.id === 'sn-academy' ? (
+                          <p className="text-sm font-bold" style={{ color: getPriceColor(245) }}>245~265만원</p>
+                        ) : (
+                          <p className="text-lg font-bold" style={{ color: getPriceColor(selectedSchool.monthlyPrice) }}>
+                            {selectedSchool.priceDisplay}
+                          </p>
+                        )}
+                      </div>
+                      <div className="border-l border-gray-200 dark:border-gray-700 pl-4">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">정원</span>
+                        <p className="text-lg font-bold text-gray-900 dark:text-white">{selectedSchool.capacity}명</p>
+                      </div>
+                      <div className="border-l border-gray-200 dark:border-gray-700 pl-4">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">대상</span>
+                        <p className="text-sm font-medium text-gray-900 dark:text-white">
+                          {selectedSchool.gender === 'male' ? '남' : selectedSchool.gender === 'female' ? '여' : '남/여'}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* 주소 */}
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{selectedSchool.location}</p>
+
+                    {/* SN독학기숙학원 연락처 버튼 */}
+                    {selectedSchool.id === 'sn-academy' && (
+                      <div className="grid grid-cols-2 gap-2">
+                        <a
+                          href="tel:031-771-0300"
+                          className="flex items-center justify-center gap-2 py-2.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium"
+                        >
+                          <img src="/images/Data_LAB/phone.png" alt="전화" className="w-4 h-4" />
+                          전화상담
+                        </a>
+                        <a
+                          href="http://pf.kakao.com/_exjtgj/chat"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 py-2.5 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-lg text-sm font-medium"
+                        >
+                          <img src="/images/Data_LAB/KakaoTalk.png" alt="카카오톡" className="w-4 h-4" />
+                          카카오톡
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* 범례 (모달 하단 - 모바일용) */}
-            <div className="md:hidden px-4 py-2 border-t border-gray-200 dark:border-gray-700 flex flex-wrap items-center gap-3 text-xs bg-gray-50 dark:bg-gray-800">
-              <span className="font-medium text-gray-700 dark:text-gray-300">마커 색상:</span>
-              <div className="flex items-center gap-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
-                <span className="text-gray-600 dark:text-gray-400">200만원대</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-                <span className="text-gray-600 dark:text-gray-400">300만원대</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-orange-500" />
-                <span className="text-gray-600 dark:text-gray-400">400만원대</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                <span className="text-gray-600 dark:text-gray-400">500만원대</span>
-              </div>
-            </div>
-
-            {/* ESC 키 안내 */}
+            {/* ESC 키 안내 (데스크톱만) */}
             <div className="hidden md:block px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-center text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800">
               ESC를 눌러 닫기
             </div>
