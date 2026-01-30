@@ -26,6 +26,7 @@ export const NAVIGATION_MENU = [
   { name: '홈', href: '/' },
   { name: 'AI 스타트업', href: '/startup' },
   { name: '컬럼', href: '/columns' },
+  { name: 'SN DataLAB', href: '/datalab' },
   { name: '문제 다운로드', href: '/problems' },
   { name: 'SN Originals', href: '/originals' },
   { name: '공지사항', href: '/notice' },
@@ -79,6 +80,11 @@ export const CATEGORY_CONFIG = {
     route: '/problems',
     emoji: '📝',
     label: '문제 다운로드',
+  },
+  datalab: {
+    route: '/datalab',
+    emoji: '📊',
+    label: 'SN DataLAB',
   },
 } as const;
 
