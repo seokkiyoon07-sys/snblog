@@ -23,6 +23,56 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'boarding-school-price-map-2026',
+    title: '[SN Data Lab] 전국 기숙학원 가격 지도: 개발자가 답답해서 직접만들었어요.',
+    excerpt:
+      '전국 기숙학원의 가격을 한눈에 비교해보세요. 지도를 클릭하면 각 학원의 상세 정보와 가격을 확인할 수 있습니다.',
+    content: `<div style="text-align: right; font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">📅 26.01.30 업데이트 완료</div>
+
+## 전국 기숙학원 가격, 한눈에 비교하세요
+
+기숙학원 선택, 정보 찾기가 어려우셨죠?
+
+SN DataLAB에서 **전국 기숙학원의 가격 정보**를 한 곳에 모았습니다. 지도에서 원하는 지역을 클릭하면 해당 학원의 상세 정보를 바로 확인할 수 있습니다.
+
+---
+
+## 데이터 출처 및 안내
+
+- 가격 정보는 각 학원 공식 홈페이지 및 공개 자료를 기반으로 합니다
+- 2026년 1월 기준 정보이며, 실제 가격은 변동될 수 있습니다
+- 정확한 정보는 각 학원에 직접 문의해주세요
+
+---
+
+## SN독학기숙학원 안내
+
+<div class="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-6 my-6">
+  <h3 class="text-xl font-bold text-emerald-800 dark:text-emerald-300 mb-3">SN독학기숙학원</h3>
+  <p class="text-gray-700 dark:text-gray-300 mb-4">경기도 양평 | AI 기반 맞춤형 학습 시스템</p>
+  <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+    <li>✓ SNarGPT AI 학습 시스템 무료 제공</li>
+    <li>✓ 1:1 담임 관리 시스템</li>
+    <li>✓ 쾌적한 독서실형 학습 환경</li>
+  </ul>
+  <a href="https://www.snacademy.co.kr" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+    자세히 보기 →
+  </a>
+</div>
+`,
+    category: 'datalab',
+    tags: ['기숙학원', '가격비교', '데이터', '지도'],
+    author: 'SN DataLAB',
+    date: '2026-01-30',
+    readTime: '3분',
+    featured: false,
+    published: true,
+    thumbnail: '/images/Data_LAB/price_map.png',
+    url: '/datalab/boarding-school-price-map-2026',
+    type: 'special',
+    badge: '26.01.30 업데이트',
+  },
+  {
     id: 'snargpt-2026-ai-tech-trend',
     title: 'SNarGPT에는 어떤 AI기술이 들어가 있나요?\n- 2026 AI 신기술 트렌드',
     excerpt:

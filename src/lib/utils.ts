@@ -63,11 +63,13 @@ export function generateMetadata(
 
 /**
  * Formats read time consistently across the application
- * @param readTime - Read time as string (e.g., '5', '11')
+ * @param readTime - Read time as string (e.g., '5', '5분', '11')
  * @returns Formatted string (e.g., '읽기 시간: 5분', '읽기 시간: 11분')
  */
 export function formatReadTime(readTime: string): string {
-  return `읽기 시간: ${readTime}분`;
+  // readTime이 이미 '분'으로 끝나면 그대로 사용
+  const timeValue = readTime.endsWith('분') ? readTime : `${readTime}분`;
+  return `읽기 시간: ${timeValue}`;
 }
 
 export function getCategoryConfig(category: string) {
