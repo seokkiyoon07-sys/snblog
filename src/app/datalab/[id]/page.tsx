@@ -196,10 +196,10 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
           </div>
         </section>
 
-        {/* 지도 컴포넌트 */}
-        <section className="px-6 md:px-10 lg:px-16 pb-12">
+        {/* 지도 컴포넌트 - 모바일에서 전체 너비 */}
+        <section className="px-0 sm:px-6 md:px-10 lg:px-16 pb-12">
           <div className="mx-auto max-w-5xl">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
+            <div className="bg-white dark:bg-gray-800 sm:rounded-2xl shadow-lg p-3 sm:p-6 md:p-12">
               <BoardingSchoolMap />
             </div>
           </div>
