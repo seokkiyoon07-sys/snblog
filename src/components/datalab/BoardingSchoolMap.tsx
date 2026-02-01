@@ -229,6 +229,17 @@ function SchoolInfoCard({
           <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm">
             {school.location}
           </p>
+          {/* SN 특징 태그 */}
+          {school.id === 'sn-academy' && (
+            <div className="flex flex-wrap gap-1.5 mt-2">
+              <span className="text-[10px] text-gray-500 dark:text-gray-400">#순수독학</span>
+              <span className="text-[10px] text-gray-500 dark:text-gray-400">#AI특화관</span>
+              <span className="text-[10px] text-gray-500 dark:text-gray-400">#남학생(2026년 현재)</span>
+              <span className="text-[10px] text-gray-500 dark:text-gray-400">#설립 2014.11</span>
+              <span className="text-[10px] text-gray-500 dark:text-gray-400">#2025 ALL리모델링</span>
+              <span className="text-[10px] text-gray-500 dark:text-gray-400">#독서실책상(1200~1400)</span>
+            </div>
+          )}
         </div>
       </div>
 
@@ -242,8 +253,8 @@ function SchoolInfoCard({
           <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">수강료 (월)</p>
           {school.id === 'sn-academy' ? (
             <div className="space-y-1">
-              <p className="text-sm font-bold" style={{ color: getPriceColor(265) }}>2인실: 265만원</p>
-              <p className="text-sm font-bold" style={{ color: getPriceColor(245) }}>3~4인실: 245만원</p>
+              <p className="text-sm font-bold" style={{ color: getPriceColor(245) }}>245만원</p>
+              <p className="text-sm font-bold" style={{ color: getPriceColor(265) }}>265만원(2인실)</p>
             </div>
           ) : (
             <p className="text-lg font-bold" style={{ color: getPriceColor(school.monthlyPrice) }}>
@@ -309,6 +320,36 @@ function SchoolInfoCard({
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
               <span className="text-xs font-medium">유튜브</span>
+            </a>
+          </div>
+          {/* 장학금 혜택 */}
+          <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-lg p-3">
+            <p className="text-xs font-bold text-amber-700 dark:text-amber-300 mb-2">🎓 장학금 혜택</p>
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              <div>
+                <p className="text-gray-500 dark:text-gray-400 mb-1">모의고사 (국수영 3합)</p>
+                <div className="space-y-0.5 text-gray-700 dark:text-gray-300">
+                  <p>3합 3등급 → <span className="font-bold text-amber-600 dark:text-amber-400">50% + @</span></p>
+                  <p>3합 4등급 → <span className="font-bold text-amber-600 dark:text-amber-400">50%</span></p>
+                  <p>3합 5등급 → <span className="font-bold text-amber-600 dark:text-amber-400">20%</span></p>
+                </div>
+              </div>
+              <div>
+                <p className="text-gray-500 dark:text-gray-400 mb-1">내신 (전과목)</p>
+                <div className="space-y-0.5 text-gray-700 dark:text-gray-300">
+                  <p>1.2 이내 → <span className="font-bold text-amber-600 dark:text-amber-400">50%</span></p>
+                  <p>1.3 이내 → <span className="font-bold text-amber-600 dark:text-amber-400">40%</span></p>
+                  <p>1.4 이내 → <span className="font-bold text-amber-600 dark:text-amber-400">20%</span></p>
+                </div>
+              </div>
+            </div>
+            <a
+              href="https://www.snacademy.co.kr/admission/admission_scholarship.asp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-2 text-xs text-amber-600 dark:text-amber-400 hover:underline"
+            >
+              자세히 보기 →
             </a>
           </div>
         </div>
@@ -617,10 +658,10 @@ export default function BoardingSchoolMap() {
   // 활성 필터 개수
   const activeFilterCount = selectedTypes.size + selectedPriceRanges.size + selectedRegions.size + selectedGenders.size + (showTop5Only ? 1 : 0);
 
-  // 마커 생성 함수 (줌 레벨에 따라 가격 표시)
+  // 마커 생성 함수
   const createMarkers = useCallback((map: naver.maps.Map, schools: BoardingSchool[], setSchool: (s: BoardingSchool) => void, zoomLevel: number) => {
     const markers: naver.maps.Marker[] = [];
-    const showPrice = zoomLevel >= 11; // 줌 레벨 11 이상이면 가격 표시
+    const showPrice = true; // 항상 가격 표시
 
     // SN을 마지막에 렌더링하여 항상 맨 앞에 보이도록 정렬
     const sortedSchools = [...schools].sort((a, b) => {
@@ -659,7 +700,9 @@ export default function BoardingSchoolMap() {
                 margin-bottom: 2px;
                 white-space: nowrap;
                 text-shadow: 0 1px 3px rgba(0,0,0,0.8), 0 0 5px rgba(0,0,0,0.5);
-              ">${school.priceDisplay}</div>
+                line-height: 1.3;
+                text-align: center;
+              ">245만원<br/>265만원(2인실)</div>
             ` : ''}
             <div style="
               width: 50px;
@@ -1400,6 +1443,17 @@ export default function BoardingSchoolMap() {
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                     {selectedSchool.name}
                   </h3>
+                  {/* SN 특징 태그 */}
+                  {selectedSchool.id === 'sn-academy' && (
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#순수독학</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#AI특화관</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#남학생(2026년 현재)</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#설립 2014.11</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#2025 ALL리모델링</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#독서실책상(1200~1400)</span>
+                    </div>
+                  )}
                 </div>
                 <button
                   onClick={() => setIsDetailModalOpen(false)}
@@ -1424,8 +1478,8 @@ export default function BoardingSchoolMap() {
                   <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">월 수강료</p>
                   {selectedSchool.id === 'sn-academy' ? (
                     <div className="space-y-0.5">
-                      <p className="text-sm font-bold" style={{ color: getPriceColor(265) }}>2인실: 265만원</p>
-                      <p className="text-sm font-bold" style={{ color: getPriceColor(245) }}>3~4인실: 245만원</p>
+                      <p className="text-sm font-bold" style={{ color: getPriceColor(245) }}>245만원</p>
+                      <p className="text-sm font-bold" style={{ color: getPriceColor(265) }}>265만원(2인실)</p>
                     </div>
                   ) : (
                     <p className="text-2xl font-bold" style={{ color: getPriceColor(selectedSchool.monthlyPrice) }}>
@@ -1511,6 +1565,36 @@ export default function BoardingSchoolMap() {
                         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                       </svg>
                       <span className="text-sm font-medium">유튜브</span>
+                    </a>
+                  </div>
+                  {/* 장학금 혜택 */}
+                  <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-xl p-4">
+                    <p className="text-sm font-bold text-amber-700 dark:text-amber-300 mb-3">🎓 장학금 혜택</p>
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">모의고사 (국수영 3합)</p>
+                        <div className="space-y-1 text-gray-700 dark:text-gray-300">
+                          <p>3합 3등급 → <span className="font-bold text-amber-600 dark:text-amber-400">50% + @</span></p>
+                          <p>3합 4등급 → <span className="font-bold text-amber-600 dark:text-amber-400">50%</span></p>
+                          <p>3합 5등급 → <span className="font-bold text-amber-600 dark:text-amber-400">20%</span></p>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">내신 (전과목)</p>
+                        <div className="space-y-1 text-gray-700 dark:text-gray-300">
+                          <p>1.2 이내 → <span className="font-bold text-amber-600 dark:text-amber-400">50%</span></p>
+                          <p>1.3 이내 → <span className="font-bold text-amber-600 dark:text-amber-400">40%</span></p>
+                          <p>1.4 이내 → <span className="font-bold text-amber-600 dark:text-amber-400">20%</span></p>
+                        </div>
+                      </div>
+                    </div>
+                    <a
+                      href="https://www.snacademy.co.kr/admission/admission_scholarship.asp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-3 text-sm text-amber-600 dark:text-amber-400 hover:underline"
+                    >
+                      자세히 보기 →
                     </a>
                   </div>
                 </div>
@@ -1799,6 +1883,18 @@ export default function BoardingSchoolMap() {
                     {selectedSchool.name}
                   </h3>
 
+                  {/* SN 특징 태그 */}
+                  {selectedSchool.id === 'sn-academy' && (
+                    <div className="flex flex-wrap gap-1.5 mb-2">
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#순수독학</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#AI특화관</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#남학생(2026년 현재)</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#설립 2014.11</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#2025 ALL리모델링</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400">#독서실책상(1200~1400)</span>
+                    </div>
+                  )}
+
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                     {selectedSchool.location}
                   </p>
@@ -1813,8 +1909,8 @@ export default function BoardingSchoolMap() {
                       <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">수강료 (월)</p>
                       {selectedSchool.id === 'sn-academy' ? (
                         <div className="space-y-1">
-                          <p className="text-sm font-bold" style={{ color: getPriceColor(265) }}>2인실: 265만원</p>
-                          <p className="text-sm font-bold" style={{ color: getPriceColor(245) }}>3~4인실: 245만원</p>
+                          <p className="text-sm font-bold" style={{ color: getPriceColor(245) }}>245만원</p>
+                          <p className="text-sm font-bold" style={{ color: getPriceColor(265) }}>265만원(2인실)</p>
                         </div>
                       ) : (
                         <p className="text-lg font-bold" style={{ color: getPriceColor(selectedSchool.monthlyPrice) }}>
@@ -1824,25 +1920,57 @@ export default function BoardingSchoolMap() {
                     </div>
                   </div>
 
-                  {/* SN독학기숙학원 연락처 버튼 */}
+                  {/* SN독학기숙학원 연락처 및 장학금 */}
                   {selectedSchool.id === 'sn-academy' && (
-                    <div className="grid grid-cols-2 gap-3 mb-4">
-                      <a
-                        href="tel:031-771-0300"
-                        className="flex items-center justify-center gap-2 py-3 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors"
-                      >
-                        <img src="/images/Data_LAB/phone.png" alt="전화" className="w-5 h-5" />
-                        <span className="text-sm font-medium">전화상담</span>
-                      </a>
-                      <a
-                        href="http://pf.kakao.com/_exjtgj/chat"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 py-3 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-lg hover:bg-yellow-100 dark:hover:bg-yellow-900/50 transition-colors"
-                      >
-                        <img src="/images/Data_LAB/KakaoTalk.png" alt="카카오톡" className="w-5 h-5" />
-                        <span className="text-sm font-medium">카카오톡</span>
-                      </a>
+                    <div className="space-y-3 mb-4">
+                      <div className="grid grid-cols-2 gap-3">
+                        <a
+                          href="tel:031-771-0300"
+                          className="flex items-center justify-center gap-2 py-3 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors"
+                        >
+                          <img src="/images/Data_LAB/phone.png" alt="전화" className="w-5 h-5" />
+                          <span className="text-sm font-medium">전화상담</span>
+                        </a>
+                        <a
+                          href="http://pf.kakao.com/_exjtgj/chat"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 py-3 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-lg hover:bg-yellow-100 dark:hover:bg-yellow-900/50 transition-colors"
+                        >
+                          <img src="/images/Data_LAB/KakaoTalk.png" alt="카카오톡" className="w-5 h-5" />
+                          <span className="text-sm font-medium">카카오톡</span>
+                        </a>
+                      </div>
+                      {/* 장학금 혜택 */}
+                      <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-lg p-3">
+                        <p className="text-xs font-bold text-amber-700 dark:text-amber-300 mb-2">🎓 장학금 혜택</p>
+                        <div className="grid grid-cols-2 gap-2 text-xs">
+                          <div>
+                            <p className="text-gray-500 dark:text-gray-400 mb-1">모의고사 (국수영 3합)</p>
+                            <div className="space-y-0.5 text-gray-700 dark:text-gray-300">
+                              <p>3합 3등급 → <span className="font-bold text-amber-600 dark:text-amber-400">50% + @</span></p>
+                              <p>3합 4등급 → <span className="font-bold text-amber-600 dark:text-amber-400">50%</span></p>
+                              <p>3합 5등급 → <span className="font-bold text-amber-600 dark:text-amber-400">20%</span></p>
+                            </div>
+                          </div>
+                          <div>
+                            <p className="text-gray-500 dark:text-gray-400 mb-1">내신 (전과목)</p>
+                            <div className="space-y-0.5 text-gray-700 dark:text-gray-300">
+                              <p>1.2 이내 → <span className="font-bold text-amber-600 dark:text-amber-400">50%</span></p>
+                              <p>1.3 이내 → <span className="font-bold text-amber-600 dark:text-amber-400">40%</span></p>
+                              <p>1.4 이내 → <span className="font-bold text-amber-600 dark:text-amber-400">20%</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <a
+                          href="https://www.snacademy.co.kr/admission/admission_scholarship.asp"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block mt-2 text-xs text-amber-600 dark:text-amber-400 hover:underline"
+                        >
+                          자세히 보기 →
+                        </a>
+                      </div>
                     </div>
                   )}
 
@@ -1888,6 +2016,17 @@ export default function BoardingSchoolMap() {
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                           {selectedSchool.name}
                         </h3>
+                        {/* SN 특징 태그 */}
+                        {selectedSchool.id === 'sn-academy' && (
+                          <div className="flex flex-wrap gap-1 mt-1">
+                            <span className="text-[9px] text-gray-500 dark:text-gray-400">#순수독학</span>
+                            <span className="text-[9px] text-gray-500 dark:text-gray-400">#AI특화관</span>
+                            <span className="text-[9px] text-gray-500 dark:text-gray-400">#남학생</span>
+                            <span className="text-[9px] text-gray-500 dark:text-gray-400">#2014설립</span>
+                            <span className="text-[9px] text-gray-500 dark:text-gray-400">#리모델링</span>
+                            <span className="text-[9px] text-gray-500 dark:text-gray-400">#독서실책상</span>
+                          </div>
+                        )}
                       </div>
                       <button
                         onClick={() => setSelectedSchool(null)}
@@ -1926,25 +2065,49 @@ export default function BoardingSchoolMap() {
                     {/* 주소 */}
                     <p className="text-xs text-gray-500 dark:text-gray-400">{selectedSchool.location}</p>
 
-                    {/* SN독학기숙학원 연락처 버튼 */}
+                    {/* SN독학기숙학원 연락처 및 장학금 */}
                     {selectedSchool.id === 'sn-academy' && (
-                      <div className="grid grid-cols-2 gap-2">
-                        <a
-                          href="tel:031-771-0300"
-                          className="flex items-center justify-center gap-2 py-2.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium"
-                        >
-                          <img src="/images/Data_LAB/phone.png" alt="전화" className="w-4 h-4" />
-                          전화상담
-                        </a>
-                        <a
-                          href="http://pf.kakao.com/_exjtgj/chat"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-2 py-2.5 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-lg text-sm font-medium"
-                        >
-                          <img src="/images/Data_LAB/KakaoTalk.png" alt="카카오톡" className="w-4 h-4" />
-                          카카오톡
-                        </a>
+                      <div className="space-y-2">
+                        <div className="grid grid-cols-2 gap-2">
+                          <a
+                            href="tel:031-771-0300"
+                            className="flex items-center justify-center gap-2 py-2.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm font-medium"
+                          >
+                            <img src="/images/Data_LAB/phone.png" alt="전화" className="w-4 h-4" />
+                            전화상담
+                          </a>
+                          <a
+                            href="http://pf.kakao.com/_exjtgj/chat"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2 py-2.5 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-lg text-sm font-medium"
+                          >
+                            <img src="/images/Data_LAB/KakaoTalk.png" alt="카카오톡" className="w-4 h-4" />
+                            카카오톡
+                          </a>
+                        </div>
+                        {/* 장학금 혜택 */}
+                        <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-lg p-2.5">
+                          <p className="text-[10px] font-bold text-amber-700 dark:text-amber-300 mb-1.5">🎓 장학금 혜택</p>
+                          <div className="grid grid-cols-2 gap-2 text-[10px]">
+                            <div>
+                              <p className="text-gray-500 dark:text-gray-400 mb-0.5">모의 (국수영 3합)</p>
+                              <div className="text-gray-700 dark:text-gray-300">
+                                <span>3→<span className="font-bold text-amber-600">50%+@</span></span>
+                                <span className="mx-1">4→<span className="font-bold text-amber-600">50%</span></span>
+                                <span>5→<span className="font-bold text-amber-600">20%</span></span>
+                              </div>
+                            </div>
+                            <div>
+                              <p className="text-gray-500 dark:text-gray-400 mb-0.5">내신 (전과목)</p>
+                              <div className="text-gray-700 dark:text-gray-300">
+                                <span>1.2→<span className="font-bold text-amber-600">50%</span></span>
+                                <span className="mx-1">1.3→<span className="font-bold text-amber-600">40%</span></span>
+                                <span>1.4→<span className="font-bold text-amber-600">20%</span></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>
