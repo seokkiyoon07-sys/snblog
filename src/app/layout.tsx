@@ -135,18 +135,11 @@ export default function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <head>
         <StructuredData type="organization" data={{}} />
-        {/* Privacy-friendly analytics by Plausible */}
+        {/* Privacy-friendly analytics by Plausible (self-hosted) */}
         <script
-          async
-          src="https://plausible.io/js/pa-0afPP1VTnRwf7otAMX-fJ.js"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-              plausible.init()
-            `,
-          }}
+          defer
+          data-domain="blog.snacademy.co.kr"
+          src="https://analytics.snargpt.ai/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"
         />
       </head>
       <body
