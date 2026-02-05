@@ -387,15 +387,38 @@ export default function ArticleContent({
 
             <div className="overflow-auto max-w-[95vw] max-h-[90vh]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={modalImage}
-                alt="확대 이미지"
-                className="object-contain rounded-lg transition-transform duration-200"
-                style={{
-                  transform: `scale(${zoom})`,
-                  transformOrigin: 'center center',
-                }}
-              />
+              {modalImage.includes('kwandohun') || modalImage.includes('leeyoon') ? (
+                <div
+                  className="overflow-hidden rounded-lg"
+                  style={{
+                    maxHeight: '90vh',
+                  }}
+                >
+                  <img
+                    src={modalImage}
+                    alt="확대 이미지"
+                    className="h-auto rounded-lg transition-transform duration-200"
+                    style={{
+                      transform: `scale(${zoom})`,
+                      transformOrigin: 'center center',
+                      marginLeft: '-15%',
+                      marginRight: '-15%',
+                      width: '130%',
+                      maxWidth: 'none',
+                    }}
+                  />
+                </div>
+              ) : (
+                <img
+                  src={modalImage}
+                  alt="확대 이미지"
+                  className="object-contain rounded-lg transition-transform duration-200"
+                  style={{
+                    transform: `scale(${zoom})`,
+                    transformOrigin: 'center center',
+                  }}
+                />
+              )}
             </div>
           </div>
         </div>
