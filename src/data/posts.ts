@@ -23,6 +23,273 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'goyoui-sup-ai-paradigm-shift',
+    title:
+      "대치동 독학재수학원의 패러다임 시프트: AI 특화관 'SN고요의숲' (feat. SNarGPT)",
+    excerpt:
+      '대치동에 없던, 오직 몰입을 위한 공간. 국내 최초 AI 특화 독학관 SN고요의숲이 학습의 과정을 어떻게 기록하고 관리하는지 소개합니다.',
+    content: `## 1. 대치동에 없던, 오직 '몰입'을 위한 공간
+
+대치동은 학원이 부족한 곳이 아닙니다. 하지만 아이가 혼자 공부하는 그 '고요한 시간'을 끝까지 책임져주는 공간은 많지 않습니다. 그동안의 관리형 독서실, 독학재수 시스템은 대부분 스마트폰을 수거하고 자리에 앉혀두는 **'수동적 관리'**에 머물러 있었습니다.
+
+**하지만 이제는 다릅니다.**
+
+아이가 얼마나 오래 공부했는지가 아니라, 정확한 시간으로 얼마나 공부하고, 어떤 질문을 하고, 어떤 답변을 받았으며, 어떻게 이해했는지까지 관리해야 할 때입니다.
+
+SN의 12년 입시 운영 노하우와 자체 개발 AI 기술이 만나, **국내 최초 AI 특화 독학관, 'SN고요의숲'**이 문을 열었습니다.
+
+<div class="my-8">
+  <div class="swiper-container overflow-hidden rounded-xl">
+    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/3Fstudy_room1.jpg" alt="3층 스터디룸" class="w-full h-auto rounded-xl shadow-lg" />
+        <p class="text-center text-sm text-gray-500 mt-2">3층 스터디룸</p>
+      </div>
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/4FpremiumZone.jpg" alt="4층 프리미엄존" class="w-full h-auto rounded-xl shadow-lg" />
+        <p class="text-center text-sm text-gray-500 mt-2">4층 프리미엄존</p>
+      </div>
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/4Fstudy_room.jpg" alt="4층 스터디룸" class="w-full h-auto rounded-xl shadow-lg" />
+        <p class="text-center text-sm text-gray-500 mt-2">4층 스터디룸</p>
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-xs text-gray-400 mt-2">← 좌우로 스와이프하세요 →</p>
+</div>
+
+<div class="my-8">
+  <div class="swiper-container overflow-hidden rounded-xl">
+    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/counseling_room.jpg" alt="상담실" class="w-full h-auto rounded-xl shadow-lg" />
+        <p class="text-center text-sm text-gray-500 mt-2">상담실</p>
+      </div>
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/information_room.jpg" alt="정보 라운지" class="w-full h-auto rounded-xl shadow-lg" />
+        <p class="text-center text-sm text-gray-500 mt-2">정보 라운지</p>
+      </div>
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/lectureroom.jpg" alt="강의실" class="w-full h-auto rounded-xl shadow-lg" />
+        <p class="text-center text-sm text-gray-500 mt-2">강의실</p>
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-xs text-gray-400 mt-2">← 좌우로 스와이프하세요 →</p>
+</div>
+
+---
+
+## 2. 왜 '독학재수'가 아니라 'AI 특화관'인가?
+
+학부모님들께서 가장 걱정하시는 것,
+
+> "우리 아이가 정말 집중해서 공부하고 있는지 파악하고 계시나요?"
+
+하는 의문입니다. **고요의숲은 이 의문을 데이터로 해결합니다.**
+
+### 데이터로 증명되는 학습 관리
+
+고요의숲의 학습 관리 시스템은 단순한 '앉아 있는 시간'을 보지 않습니다.
+
+- **실제 순공 시간** — 진짜 공부에 쓴 시간만 측정
+- **사이트별 학습 비중** — 편식 없는 공부 밸런스 확인
+- **온라인, 오프라인 학습 시간 명확히 기록** — 흐름이 끊기는 시점 포착
+- **반복 오류 패턴** — 특정 유형에서 되풀이되는 취약점 분석
+
+이 모든 흐름을 기록하고 분석합니다. <mark style="background: linear-gradient(to top, rgba(255, 230, 0, 0.5) 50%, transparent 50%)">"열심히 했다"가 아니라, "얼마나 정확하게 공부했는지"를 수치로 보여줍니다.</mark>
+
+<div class="my-8">
+  <div class="swiper-container overflow-hidden rounded-xl">
+    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/report1.jpg" alt="학습 리포트 1" class="w-full h-auto rounded-xl shadow-lg" />
+      </div>
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/report2.jpg" alt="학습 리포트 2" class="w-full h-auto rounded-xl shadow-lg" />
+      </div>
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/report3.jpg" alt="학습 리포트 3" class="w-full h-auto rounded-xl shadow-lg" />
+      </div>
+      <div class="snap-center shrink-0 w-full md:w-[80%]">
+        <img src="/images/goyosoup/report4.jpg" alt="학습 리포트 4" class="w-full h-auto rounded-xl shadow-lg" />
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-xs text-gray-400 mt-2">← 일과별, 사이트별 학습량 기록 →</p>
+</div>
+
+---
+
+### AI 활용
+
+공부하다 막히는 순간, 질문을 쌓아두고 기다리는 시간은 학생에게 **가장 큰 학습 손실**입니다.
+
+**고요의숲에서는 다릅니다.**
+
+**SNarGPT**는 고요의숲의 핵심 AI 학습 파트너입니다. 그 안에는 두 가지 엔진이 결합되어 있습니다.
+
+<div class="space-y-3 my-4">
+  <div class="flex">
+    <span class="font-bold shrink-0">SNarGo:&nbsp;</span>
+    <span>20개년 수능·평가원·사설 모의고사 20,000 문제 기준 <strong>수학 정답률 99.9%</strong>의 풀이 엔진</span>
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0">SNARVIS:&nbsp;</span>
+    <span>학생 개개인의 학습 흐름과 취약점을 읽어내는 분석 엔진</span>
+  </div>
+</div>
+
+SNarGPT는 단순히 답을 알려주는 AI가 아닙니다. 학생이 **어떤 사고 경로로 질문에 도달했는지**를 기록하고, 그 질문의 궤적을 통해 취약 개념을 역으로 찾아냅니다.
+
+학생의 질문은 모두 기억하여, 전 질문을 토대로 앞으로 물어보는 문제들의 답변을 합니다. 취약한 부분이 있다면 끝까지 기억하여, 학생이 이를 해소할 때까지 관리가 가능합니다.
+
+<mark style="background: linear-gradient(to top, rgba(255, 230, 0, 0.5) 50%, transparent 50%)">공부를 오래 하게 만드는 시스템이 아니라, 학생이 사고 구조를 점검하고 피드백 받는 시스템입니다.</mark>
+
+<div class="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-6 my-6">
+  <h4 class="text-lg font-bold text-emerald-800 dark:text-emerald-300 mb-2">SNarGPT - AI 수능 학습 도우미</h4>
+  <p class="text-gray-700 dark:text-gray-300 mb-3">99.9% 정답 적중률의 AI 수능 학습 도우미. 킬러 문제 완벽 풀이부터 맞춤형 해설까지, 당신의 목표에 가장 가까운 길을 안내합니다.</p>
+  <a href="https://snargpt.ai" target="_blank" rel="noopener noreferrer" class="inline-block px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors">
+    SNarGPT 바로가기 →
+  </a>
+</div>
+
+---
+
+## 3. '학습 과정'이 기록되면, '결과'는 달라집니다
+
+기존 학원들이 성적표라는 '결과'에 집중할 때, **고요의숲은 '과정의 기록'에 집중합니다.**
+
+- 오늘 아이가 어느 개념에서 멈칫했는지
+- 어떤 유형을 반복해서 틀리는지
+- 질문은 했지만 스스로 소화하지 못한 지점은 어디인지
+
+이 모든 것이 SNarGPT 대화 기록과 학습 로그로 남습니다.
+
+그리고 이 데이터는 **매주 AI 학습 피드백 리포트**로 정리됩니다.
+
+학부모님께는 막연한 "잘하고 있습니다"가 아니라,
+
+- **이번 주 핵심 취약 포인트**
+- **다음 주 반드시 보완해야 할 영역**
+- **전체 학습 밸런스 진단**
+
+을 명확하게 확인할 수 있는 근거가 됩니다.
+
+학생에게는 노력의 방향이 보이고, 불안 대신 전략이 남습니다. 그리고 **수능 1주일 전, 학생을 가장 잘 아는 AI가 되어 학생만을 위한 피드백과 문제를 제공합니다.**
+
+---
+
+## 4. 고요의숲은 AI에게 학생을 맡기지 않습니다
+
+고요의숲은 AI에게 학생을 '맡기는' 공간이 아닙니다.
+
+**AI는 도구이고, 관리는 구조입니다.**
+
+SNarGPT와 학습 데이터는 관리와 코칭의 근거로 사용되며, 학생의 리듬과 성향을 고려한 운영과 판단은 **사람이 책임집니다.**
+
+수학 강사 출신의 **박진모 원장님**과 **SKY 멘토**들이 크로스 체크로 관리는 더 촘촘해집니다.
+
+<mark style="background: linear-gradient(to top, rgba(255, 230, 0, 0.5) 50%, transparent 50%)">기술은 전면에 있지만, 방치는 없습니다.</mark>
+
+<div class="my-8">
+  <p class="text-center text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">SN고요의숲 대치점</p>
+  <div class="swiper-container overflow-hidden rounded-xl">
+    <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+      <div class="snap-center shrink-0 w-64 text-center">
+        <img src="/images/goyosoup/jinmopark1.png" alt="박진모 원장" class="w-full h-80 object-cover object-top rounded-xl shadow-lg" />
+        <p class="font-semibold text-gray-800 dark:text-gray-200 mt-3">박진모 원장</p>
+        <p class="text-sm text-gray-500">대치 SN고요의숲</p>
+      </div>
+      <div class="snap-center shrink-0 w-64 text-center">
+        <img src="/images/goyosoup/skyoon.png" alt="윤석기 대표" class="w-full h-80 object-cover object-top rounded-xl shadow-lg" />
+        <p class="font-semibold text-gray-800 dark:text-gray-200 mt-3">윤석기 대표</p>
+        <p class="text-sm text-gray-500">대치 SN고요의숲</p>
+      </div>
+      <div class="snap-center shrink-0 w-64 text-center">
+        <img src="/images/goyosoup/yoonmunhee.jpg" alt="윤문희 부원장" class="w-full h-80 object-cover object-top rounded-xl shadow-lg" />
+        <p class="font-semibold text-gray-800 dark:text-gray-200 mt-3">윤문희 부원장</p>
+        <p class="text-sm text-gray-500">대치 SN고요의숲</p>
+      </div>
+      <div class="snap-center shrink-0 w-64 text-center">
+        <img src="/images/goyosoup/kwandohun.jpg" alt="서울대 멘토" class="w-full h-80 object-cover object-top rounded-xl shadow-lg" data-modal-crop="true" />
+        <p class="font-semibold text-gray-800 dark:text-gray-200 mt-3">서울대 멘토</p>
+        <p class="text-sm text-gray-500">1:1 학습 관리</p>
+      </div>
+      <div class="snap-center shrink-0 w-64 text-center">
+        <img src="/images/goyosoup/leeyoon.jpg" alt="서울대 멘토" class="w-full h-80 object-cover rounded-xl shadow-lg" style="object-position: 40% top;" data-modal-crop="true" />
+        <p class="font-semibold text-gray-800 dark:text-gray-200 mt-3">서울대 멘토</p>
+        <p class="text-sm text-gray-500">1:1 학습 관리</p>
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-xs text-gray-400 mt-2">← 좌우로 스와이프하세요 →</p>
+</div>
+
+---
+
+## 5. 대치동 SN고요의숲이 약속하는 3가지
+
+<div class="space-y-4 my-6">
+  <div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4">
+    <p class="font-semibold text-emerald-700 dark:text-emerald-400">① 초정밀 관리</p>
+    <p class="text-gray-700 dark:text-gray-300">데이터 기반 분석으로 학습 밸런스를 놓치지 않습니다.</p>
+  </div>
+  <div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4">
+    <p class="font-semibold text-emerald-700 dark:text-emerald-400">② 즉각적 해결</p>
+    <p class="text-gray-700 dark:text-gray-300">SNarGPT를 통한 실시간 질의응답과 개념 심화. 막히는 순간, 기다림 없이 바로 해결합니다.</p>
+  </div>
+  <div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4">
+    <p class="font-semibold text-emerald-700 dark:text-emerald-400">③ 최적의 환경</p>
+    <p class="text-gray-700 dark:text-gray-300">이름 그대로 '고요의숲'처럼, 불필요한 자극을 차단하고 몰입만 남긴 프리미엄 학습 공간.</p>
+  </div>
+</div>
+
+---
+
+## 6. 이런 학생에게 고요의숲은 특히 잘 맞습니다
+
+- 혼자 공부는 하지만, **방향이 맞는지 불안한 학생**
+- **수학이 부족한 학생** (박진모 원장 Clinic)
+- 공부 시간에 비해 **성적이 잘 오르지 않는 학생**
+- 자신의 학습량을 기록하고, **이를 리포트로 피드백 받고 싶은 학생**
+- **AI를 이해하고 도구로서 잘 다룰 줄 아는 학생**
+- **시대인재 단과 + 독재로 수능을 준비하는 학생** (시대인재 단과 건물들 도보 5분 컷)
+
+---
+
+## 마무리하며
+
+대치동에는 학원이 많습니다. 하지만 **공부하는 '과정'까지 기록하는 공간**은 많지 않습니다.
+
+고요의숲은 아이의 시간을 성적으로 바꾸는 구조를 설계합니다.
+
+<div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-6 my-6 text-center">
+  <p class="text-xl font-bold text-amber-800 dark:text-amber-300 mb-2">🎉 2026년 2월 50% 할인 이벤트</p>
+  <p class="text-gray-700 dark:text-gray-300">할인과 함께 AI 특화관을 체험해 보세요.</p>
+</div>
+
+---
+
+### 📌 상담 및 공간 방문은 예약제로 운영됩니다.
+
+<div class="space-y-2 my-4">
+  <p><strong>📞 전화 상담:</strong> 010-9748-0339</p>
+  <p><strong>💬 카카오톡 상담:</strong> <a href="https://pf.kakao.com/_xelXhX/chat" target="_blank" rel="noopener noreferrer" class="text-emerald-600 hover:text-emerald-700 dark:text-emerald-400">카카오톡 문의하기</a></p>
+</div>
+`,
+    category: 'columns',
+    tags: ['AI', '대치동', '고요의숲', 'SNarGPT', '독학재수', '에듀테크'],
+    author: '대치 SN고요의숲',
+    date: '2026-02-05',
+    readTime: '6',
+    featured: true,
+    featuredOrder: 1,
+    published: true,
+    thumbnail: '/images/goyosoup/thumbnail_daechi.png',
+    url: '/columns/goyoui-sup-ai-paradigm-shift',
+  },
+  {
     id: 'boarding-school-price-map-2026',
     title: '[SN Data Lab] 전국 기숙학원 가격 지도: 개발자가 답답해서 직접만들었어요.',
     excerpt:
