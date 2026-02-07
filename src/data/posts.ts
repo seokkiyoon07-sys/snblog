@@ -23,6 +23,532 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'ai-korean-reading-ep1',
+    title: 'AI가 수능 국어문제를 만든다면? - 1편',
+    excerpt:
+      'SN독학기숙학원(SN고요의숲)에서 자체 개발한 AI 출제 엔진 SNarGEN으로 평가원형 국어 독서 지문을 생성합니다. 5개년 수능 기출을 역분해하여 출제 원칙을 추출하고, 6개의 AI가 만들고 검증하는 파이프라인을 구축했습니다.',
+    content: `<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+  .sn-notion-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #37352f;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+
+  .sn-notion-wrap *, .sn-notion-wrap *::before, .sn-notion-wrap *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sn-notion-wrap .page-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .sn-notion-wrap .page-subtitle {
+    font-size: 14px;
+    color: #9b9a97;
+    margin-bottom: 32px;
+  }
+
+  .sn-notion-wrap h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 48px 0 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .sn-notion-wrap h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 36px 0 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .sn-notion-wrap p {
+    font-size: 15px;
+    color: #37352f;
+    margin-bottom: 12px;
+    word-break: keep-all;
+  }
+
+  .sn-notion-wrap strong { font-weight: 600; }
+  .sn-notion-wrap .text-muted { color: #9b9a97; }
+  .sn-notion-wrap .text-sm { font-size: 13px; }
+
+  .sn-notion-wrap .divider {
+    border: none;
+    border-top: 1px solid #e9e8e5;
+    margin: 32px 0;
+  }
+
+  .sn-notion-wrap .callout {
+    display: flex;
+    gap: 12px;
+    padding: 16px 18px;
+    border-radius: 4px;
+    background: #f7f6f3;
+    margin: 16px 0;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .sn-notion-wrap .callout-icon { flex-shrink: 0; font-size: 18px; line-height: 1.7; }
+  .sn-notion-wrap .callout-body { flex: 1; }
+  .sn-notion-wrap .callout-body p { font-size: 14.5px; margin-bottom: 6px; }
+  .sn-notion-wrap .callout-body p:last-child { margin-bottom: 0; }
+
+  .sn-notion-wrap .callout-blue { background: #e7f0fe; }
+  .sn-notion-wrap .callout-green { background: #edf8ee; }
+  .sn-notion-wrap .callout-yellow { background: #fdf6e3; }
+
+  .sn-notion-wrap .toggle {
+    margin: 8px 0;
+    border: none;
+    background: none;
+    width: 100%;
+  }
+
+  .sn-notion-wrap .toggle summary {
+    cursor: pointer;
+    padding: 6px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #37352f;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .sn-notion-wrap .toggle summary::-webkit-details-marker { display: none; }
+
+  .sn-notion-wrap .toggle summary::before {
+    content: '▶';
+    font-size: 10px;
+    color: #9b9a97;
+    transition: transform 0.15s;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .sn-notion-wrap .toggle[open] summary::before { transform: rotate(90deg); }
+
+  .sn-notion-wrap .toggle-content {
+    padding: 4px 0 8px 22px;
+    font-size: 14px;
+    color: #6b6b6b;
+    line-height: 1.75;
+  }
+
+  .sn-notion-wrap .principle-section {
+    margin: 28px 0 8px;
+  }
+
+  .sn-notion-wrap .principle-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+
+  .sn-notion-wrap .psh-a { background: #edf8ee; }
+  .sn-notion-wrap .psh-b { background: #e7f0fe; }
+  .sn-notion-wrap .psh-c { background: #f3e8fd; }
+
+  .sn-notion-wrap .principle-section-label {
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 1px 7px;
+    flex-shrink: 0;
+  }
+
+  .sn-notion-wrap .psl-a { background: #c6ecc6; color: #1a5c1a; }
+  .sn-notion-wrap .psl-b { background: #bdd7f0; color: #1a4a7a; }
+  .sn-notion-wrap .psl-c { background: #dbc4f5; color: #4a1a7a; }
+
+  .sn-notion-wrap .principle-section-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .sn-notion-wrap .principle-list { margin: 0 0 8px; }
+
+  .sn-notion-wrap .principle-item {
+    padding: 12px 0 12px 18px;
+    border-left: 2px solid #e9e8e5;
+    margin-left: 6px;
+  }
+
+  .sn-notion-wrap .principle-item:last-child { border-left-color: transparent; }
+
+  .sn-notion-wrap .principle-item-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9b9a97;
+    margin-bottom: 2px;
+  }
+
+  .sn-notion-wrap .principle-item-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .sn-notion-wrap .principle-item-desc {
+    font-size: 14px;
+    color: #6b6b6b;
+    line-height: 1.7;
+    padding-left: 0;
+  }
+
+  .sn-notion-wrap .principle-item-desc strong {
+    color: #37352f;
+  }
+
+  .sn-notion-wrap .student-box {
+    margin: 6px 0 0 0;
+    padding: 10px 14px;
+    background: #f7f6f3;
+    border-radius: 4px;
+    font-size: 13.5px;
+    color: #6b6b6b;
+    line-height: 1.65;
+  }
+
+  .sn-notion-wrap .student-box-label {
+    font-weight: 600;
+    color: #9b9a97;
+  }
+
+  .sn-notion-wrap .pipeline-flow {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .sn-notion-wrap .pipeline-card {
+    flex: 1;
+    min-width: 150px;
+    background: #f7f6f3;
+    border-radius: 6px;
+    padding: 18px 16px;
+    position: relative;
+  }
+
+  .sn-notion-wrap .pipeline-card::after {
+    content: '→';
+    position: absolute;
+    right: -11px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #c8c7c3;
+  }
+
+  .sn-notion-wrap .pipeline-card:last-child::after { display: none; }
+
+  .sn-notion-wrap .pipeline-step-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #9b9a97;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .sn-notion-wrap .pipeline-step-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .sn-notion-wrap .pipeline-step-desc {
+    font-size: 13px;
+    color: #6b6b6b;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+
+  .sn-notion-wrap .tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+
+  .sn-notion-wrap .tag-green { background: #dbeddb; color: #2e7d32; }
+  .sn-notion-wrap .tag-blue { background: #d6e4f0; color: #1565c0; }
+  .sn-notion-wrap .tag-yellow { background: #f0e6c0; color: #8d6e00; }
+  .sn-notion-wrap .tag-red { background: #f5d2d2; color: #c62828; }
+  .sn-notion-wrap .tag-purple { background: #e4d5f5; color: #6a1b9a; }
+  .sn-notion-wrap .tag-gray { background: #ececea; color: #6b6b6b; }
+
+  .sn-notion-wrap .cta-box {
+    border: 1px solid #e9e8e5;
+    border-radius: 6px;
+    padding: 24px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .sn-notion-wrap .cta-box h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .sn-notion-wrap .cta-box p { font-size: 14px; color: #6b6b6b; margin-bottom: 0; text-align: center; }
+
+  @media (max-width: 600px) {
+    .sn-notion-wrap { padding: 24px 18px 60px; }
+    .sn-notion-wrap .page-title { font-size: 30px; }
+    .sn-notion-wrap .pipeline-flow { flex-direction: column; }
+    .sn-notion-wrap .pipeline-card::after { display: none; }
+  }
+</style>
+
+<div class="sn-notion-wrap">
+
+  <div style="margin: 0 -24px 32px; border-radius: 12px; overflow: hidden;">
+    <img src="/images/thumbnail/AI_korean_Generation_sample.png" alt="AI가 수능 국어문제를 만든다면?" style="width: 100%; display: block;" />
+  </div>
+
+  <p class="page-subtitle text-muted" style="font-size: 15px;">평가원 출제원칙을 역분해 후 AI가 지문 및 문제생성</p>
+  <hr class="divider">
+
+  <p>안녕하세요, <strong>SN독학기숙학원</strong>입니다.</p>
+
+  <p>본원에서는 자체 개발 출제 엔진 <strong>SNarGEN</strong>과 AI 학습 파트너 <strong>SNarGPT</strong>를 활용하여 평가원형 국어 독서 지문을 생성하였습니다. 단순히 AI에게 "문제를 만들어 줘"라고 요청한 것이 아닙니다.</p>
+
+  <div class="callout callout-yellow">
+    <div class="callout-icon">⚡</div>
+    <div class="callout-body">
+      <p><strong>최근 5개년 수능 평가원 기술 지문을 역분해(Reverse Engineering)</strong>하여 출제 원칙을 추출하고, 이를 AI 출제 프로세스 전 과정에 적용하였습니다.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>Step 1. 평가원형 독서 기술지문 출제 원칙 파악</h2>
+  <p class="text-muted text-sm">당사 RAG 기반 평가원 5개년 기술 지문 역분석</p>
+
+  <div class="principle-section">
+    <div class="principle-section-header psh-a">
+      <span class="principle-section-label psl-a">A</span>
+      <span class="principle-section-title">지문 설계 원칙 — '단순 정보'가 아니라 '메커니즘'</span>
+    </div>
+
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="principle-item-num">A-1</div>
+        <div class="principle-item-title">설명 대상은 항상 '시스템'이며, 기능 단위로 분해한다</div>
+        <div class="principle-item-desc">
+          구성 요소를 나열하지 않고, 각 요소가 전체 시스템에서 수행하는 <strong>에너지/데이터 변환 역할</strong>을 중심으로 설명합니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>수능 기술 지문은 항상 "이 시스템이 어떻게 돌아가는가"를 부품 단위로 쪼개서 보여줘요. 그냥 이름 나열이 아닙니다.</div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">A-2</div>
+        <div class="principle-item-title">각 단계는 입력–변환–출력의 인과 구조를 가진다</div>
+        <div class="principle-item-desc">
+          "A가 발생하면 B가 유도되고, 그 결과 C가 산출된다"는 <strong>단계별 인과 연쇄</strong>가 지문의 뼈대가 됩니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>"뭐가 들어가고 → 어떻게 바뀌고 → 뭐가 나오는지" 이 흐름을 따라가면 지문 구조가 보여요.</div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">A-3</div>
+        <div class="principle-item-title">정상 조건과 실패/예외(제약) 조건을 반드시 포함한다</div>
+        <div class="principle-item-desc">
+          연산량, 환경 변화, 품질 저하, 오작동 가능성 등 <strong>제약(Constraint)</strong>을 포함하고, 문항 또는 〈보기〉에서 해결 단서로 활용합니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>"만약 실패하면?" 부분이 꼭 나와요. 이게 나중에 〈보기〉 문제의 핵심 단서가 됩니다.</div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">A-4</div>
+        <div class="principle-item-title">교육과정 범주 안에서 '낯선 소재'를 다룬다</div>
+        <div class="principle-item-desc">
+          소재가 최신·전문적이어도, 독해에 필요한 정의/관계는 <strong>지문 내부에서 완결</strong>되도록 설계합니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>확산 모델, 양자 컴퓨팅 같은 어려운 소재도 지문 안에서 다 설명해 줘요. 몰라도 풀 수 있게 만든 겁니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="principle-section">
+    <div class="principle-section-header psh-b">
+      <span class="principle-section-label psl-b">B</span>
+      <span class="principle-section-title">문항 설계 원칙 — '발췌독' 차단과 '논리적 간극' 설계</span>
+    </div>
+
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="principle-item-num">B-1</div>
+        <div class="principle-item-title">모든 문항은 지문 내 정보 결합으로만 해결 가능해야 한다</div>
+        <div class="principle-item-desc">
+          특정 문단만 보고 풀리는 1:1 대응을 지양하고, <strong>여러 문단의 조건을 결합</strong>해야 결론이 나오도록 설계합니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>답은 100% 지문 안에 있어요. 대신 1문단만 봐서는 절대 못 풀고, 여러 문단을 엮어야 합니다.</div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">B-2</div>
+        <div class="principle-item-title">배경지식이 개입될 여지를 제거한다</div>
+        <div class="principle-item-desc">
+          전공자 우위를 막기 위해 전문 용어는 <strong>지문 내 정의로 대체</strong>하고, 외부 지식이 정답 결정에 영향을 주지 않게 합니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>배경지식은 오히려 독이에요. "내가 아는 거랑 다른데?" 하는 순간 함정에 빠집니다.</div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">B-3</div>
+        <div class="principle-item-title">고난도 문항은 파편 정보의 유기적 결합을 요구한다</div>
+        <div class="principle-item-desc">
+          정의·조건·예외·관계 정보를 분산 제시하고, 수험생이 <strong>논리적 간극을 메워 재구성</strong>하도록 유도합니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>1문단 정의 + 3문단 조건 + 5문단 예외를 전부 합쳐야 답이 나오는 식이에요.</div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">B-4</div>
+        <div class="principle-item-title">정답은 지문의 직접 재현이 아니라 재구성 결과여야 한다</div>
+        <div class="principle-item-desc">
+          지문 문장을 그대로 옮긴 선택지를 지양하고, <strong>결합·추론으로 도출되는 결론</strong>이 정답이 되게 합니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>지문을 그대로 복붙한 선지는 정답이 아니에요. "A는 B의 상위 개념" + "B가 C를 유도한다"를 보고 스스로 A→C를 끌어내야 합니다.</div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">B-5</div>
+        <div class="principle-item-title">오답은 부분적으로 타당하되 결정적 조건에서 어긋나야 한다</div>
+        <div class="principle-item-desc">
+          조건 누락, 예외 무시, 범주 혼동 등 그럴듯한 오류로 변별력을 만들되, <strong>지문 근거로 반박 가능</strong>해야 합니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>오답은 대부분 맞는 말이에요. 딱 한 가지 결정적인 조건에서 어긋나 있어서, 대충 읽으면 넘어가고 꼼꼼히 읽어야 보입니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="principle-section">
+    <div class="principle-section-header psh-c">
+      <span class="principle-section-label psl-c">C</span>
+      <span class="principle-section-title">거시 설계 원칙 — 평가 요소 배분(TOS)과 중복 금지</span>
+    </div>
+
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="principle-item-num">C-1</div>
+        <div class="principle-item-title">문항 간 평가 요소 중복을 금지하고, 시험지 전체에서 사고 유형을 분산한다</div>
+        <div class="principle-item-desc">
+          사실적 이해·구조 파악·추론·비판 등 <strong>평가 요소를 엄격히 분배</strong>하여 중복 출제를 방지합니다.
+        </div>
+        <div class="student-box"><span class="student-box-label">💡 쉽게 말하면 — </span>1번이 '사실적 이해'면, 2번은 '구조 파악', 3번은 '비판적 추론' — 같은 걸 두 번 묻지 않아요.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>Step 2. 6개의 AI를 가동하여 문제를 생성</h2>
+
+  <p>SN독학기숙학원은 위 출제 원칙을 단순히 참고하는 데 그치지 않습니다. <strong>출제 → 풀이 → 교차 검증 → 개선</strong>의 순환 구조를 구축하여, 총 6개의 AI가 각 단계에서 역할을 분담합니다.</p>
+
+  <div class="pipeline-flow">
+    <div class="pipeline-card">
+      <div class="pipeline-step-label">Step 1</div>
+      <div class="pipeline-step-title">출제</div>
+      <div class="pipeline-step-desc">SNarGEN이 평가원의 출제 원칙을 기반으로 지문과 문항을 동시 생성</div>
+      <span class="tag tag-green">SNarGEN</span>
+    </div>
+    <div class="pipeline-card">
+      <div class="pipeline-step-label">Step 2</div>
+      <div class="pipeline-step-title">1차 풀이</div>
+      <div class="pipeline-step-desc">SNarGo가 수험생 시점에서 풀이하며 논리적 비약 여부 검증</div>
+      <span class="tag tag-blue">SNarGo</span>
+    </div>
+    <div class="pipeline-card">
+      <div class="pipeline-step-label">Step 3</div>
+      <div class="pipeline-step-title">교차 검증</div>
+      <div class="pipeline-step-desc">다중 AI가 독립적으로 풀이 후 평가원 원칙 적합도 판정</div>
+      <span class="tag tag-purple">SNarVIS</span>
+      <span class="tag tag-yellow">ChatGPT</span>
+      <span class="tag tag-red">Gemini</span>
+    </div>
+    <div class="pipeline-card">
+      <div class="pipeline-step-label">Step 4</div>
+      <div class="pipeline-step-title">개선 &amp; 검수</div>
+      <div class="pipeline-step-desc">AI 피드백 반영 후, 전문 교사가 논리 오류와 품질을 최종 검수</div>
+      <span class="tag tag-gray">AI 루프</span>
+      <span class="tag tag-gray">전문가</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <h2>Step 3. 사람 전문가의 마지막 검수</h2>
+  <p>AI 피드백 반영 후, 전문 교사가 논리 오류와 품질을 최종 검수합니다. AI의 효율성과 사람의 판단력을 결합해, 학생들이 풀기에 부족함 없는 완성도 높은 문항을 제공합니다.</p>
+
+  <div style="text-align: center; margin: 24px 0;">
+    <a href="/pdfs/SNarGEN_suneung_korean_sample.pdf" download style="display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s;">
+      📥 샘플 문제 다운로드 (PDF)
+    </a>
+  </div>
+
+  <div class="callout callout-yellow">
+    <div class="callout-icon">📌</div>
+    <div class="callout-body">
+      <p><strong>Next: 2편 — 직접 풀어보세요</strong><br>다음 편에서는 26학년도 수능 국어 기출을 토대로 SNarGEN이 만든 변형문제를 공개합니다. 평가원 스타일과 얼마나 비슷한지, 여러분이 직접 판단해 주세요.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="callout callout-blue">
+    <div class="callout-icon">🤝</div>
+    <div class="callout-body">
+      <p>혹시 수능 국어 문제 출제 관련하여 당사와 협업하고 싶으신 강사, 학원, 회사 등이 있으면,<br><strong><a href="mailto:Snacademy@naver.com" style="color: #1a4a7a; text-decoration: underline;">Snacademy@naver.com</a></strong> 으로 연락 부탁드립니다.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <p style="text-align:center; color:#9b9a97; font-size:13px;">
+    감사합니다.<br>
+    <strong style="color:#37352f;">SN독학기숙학원</strong><br><br>
+    <span style="font-size:12px;">© 2026 SN독학기숙학원 · Powered by SNarGPT</span>
+  </p>
+
+</div>`,
+    thumbnail: '/images/thumbnail/AI_korean_Generation_sample.png',
+    category: 'korean-problem',
+    tags: ['국어', '독서', 'AI출제', 'SNarGEN', '평가원형', '수능', 'SN독학기숙학원', 'SN고요의숲', 'SN고요의숲 독학재수', '독학재수학원'],
+    author: 'SN독학기숙학원',
+    date: '2026-02-07',
+    readTime: '8',
+    featured: true,
+    featuredOrder: 1,
+    published: true,
+    url: '/problem-download/ai-korean-reading-ep1',
+  },
+  {
     id: 'goyoui-sup-ai-paradigm-shift',
     title:
       "대치동 독학재수학원의 패러다임 시프트: AI 특화관 'SN고요의숲' (feat. SNarGPT)",
