@@ -23,6 +23,131 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'snargpt-korean-rag-16000',
+    title: '[업뎃] SNarGPT 국어 RAG 16,000 문항 업데이트 공지',
+    excerpt:
+      'SNarGPT 국어 영역 대규모 업데이트. 수능·평가원·교육청 모의고사 전 지문 및 전 문항 약 16,000건을 RAG 기반 데이터베이스로 구축 완료하였습니다.',
+    content: `안녕하세요, **SN독학기숙학원**입니다.
+
+SNarGPT의 국어 영역 학습 지원 기능이 대폭 강화되었습니다. 수능·평가원·교육청 모의고사의 **전 지문 및 전 문항 약 16,000건**을 정밀 구조화하여, **RAG(검색 증강 생성) 기반 데이터베이스**로 구축 완료하였습니다.
+
+이번 업데이트를 통해 SNarGPT는 단순 생성형 AI의 한계를 넘어, <mark style="background: linear-gradient(to top, rgba(255, 230, 0, 0.5) 50%, transparent 50%)">검증된 기출 데이터에 근거한 정확한 학습 지원</mark>이 가능해졌습니다.
+
+---
+
+## 1. 업데이트 개요
+
+<div class="space-y-3 my-4">
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">대상 데이터:&nbsp;</span>
+    <span>2006 ~ 2026 년 수능, 평가원 모의고사(6월·9월), 교육청 전국연합학력평가 전 범위</span>
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">구축 규모:&nbsp;</span>
+    <span>약 <strong>16,000건</strong> 이상의 국어 기출 지문 및 문항</span>
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">핵심 변화:&nbsp;</span>
+    <span>기존 언어 모델 추론 방식 → 실제 기출 데이터를 검색·참조하여 답변하는 <strong>RAG 기반 방식</strong>으로 전환</span>
+  </div>
+</div>
+
+---
+
+## 2. 주요 개선 사항
+
+<div class="space-y-3 my-6">
+  <div class="flex items-start gap-3">
+    <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5">1</span>
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">기출 근거 기반 답변 — Hallucination 최소화</p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">AI가 만들어낸 답이 아닌, <strong>실제 기출 지문 원문과 공식 해설</strong>을 근거로 답변합니다. 출처가 함께 제시됩니다.</p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5">2</span>
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">지문 입력 불필요 — Search-Free 학습</p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">긴 지문을 복사·붙여넣기할 필요 없이, "2024학년도 수능 공직선거법 지문 분석해 줘"처럼 자연어로 요청하면 즉시 제공됩니다.</p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5">3</span>
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">논리 구조 기반 유사 문항 추천</p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">단순 키워드 매칭이 아닌, 지문의 전개 방식과 문항의 논리 구조를 분석하여 유사 문항을 추천합니다.</p>
+    </div>
+  </div>
+</div>
+
+---
+
+## 3. 활용 예시
+
+SNarGPT 채팅창에 아래처럼 입력해 보세요.
+
+> **TIP:** SNarVIS 비밀노트에 "국어 기출 검색시에는 꼭 RAG 참고해서 답변해." 라고 저장하시면 항상 RAG를 참고합니다.
+
+<div class="space-y-3 my-6">
+  <div class="flex items-start gap-3">
+    <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5">1</span>
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">오답 분석</p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm italic">"이 문항의 3번 선지가 오답인 이유를 출제 논리 기준으로 설명해 줘"</p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5">2</span>
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">약점 보완</p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm italic">"방금 분석한 법 지문과 논리 전개가 유사한 역대 기출 지문 3건 추천해 주고, 추천이유와 추천유사도를 숫자로 표현해서 알려줘"</p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5">3</span>
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">개념 정리</p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm italic">"화법과 작문 영역에서 '조건에 따른 글쓰기' 유형 기출 모아 줘"</p>
+    </div>
+  </div>
+</div>
+
+<div class="border-l-4 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-r-xl my-6">
+  <p class="m-0 text-gray-700 dark:text-gray-300">
+    내부 데이터베이스를 우선 활용하는 구조이므로 <strong>학습 리소스(Mana) 소모가 절감</strong>되고, 답변 속도 역시 개선되었습니다.
+  </p>
+</div>
+
+---
+
+## 4. 향후 계획
+
+SN독학기숙학원은 기술 도입 자체가 아닌, 해당 기술이 학생 여러분의 **실질적인 성적 향상**으로 이어질 수 있도록 지속적으로 개선해 나가겠습니다.
+
+- 금번 국어 영역을 시작으로, **타 영역 데이터 확장** 순차 진행
+- **개인별 취약점 분석** 고도화
+- 학습 패턴 기반 **맞춤형 문항 추천** 시스템 개발
+
+---
+
+문의 사항이 있으시면 학원 운영팀으로 연락 부탁드립니다.
+
+감사합니다.
+**SN독학기숙학원 드림**
+`,
+    category: 'startup',
+    subcategory: 'update',
+    tags: ['AI', 'SNarGPT', 'RAG', '국어', '기출', '업데이트', 'SN독학기숙학원', 'SN고요의숲'],
+    author: 'SN Academy',
+    date: '2026-02-07',
+    readTime: '3',
+    featured: true,
+    featuredOrder: 1,
+    published: true,
+    url: '/startup/snargpt-korean-rag-16000',
+    thumbnail: '/images/thumbnail/Korean_RAG_16000.png',
+  },
+  {
     id: 'ai-korean-reading-ep1',
     title: 'AI가 수능 국어문제를 만든다면? - 1편',
     excerpt:
