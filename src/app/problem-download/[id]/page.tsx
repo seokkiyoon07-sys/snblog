@@ -54,6 +54,7 @@ export async function generateMetadata({
         ? [`https://blog.snacademy.co.kr${post.thumbnail}`]
         : undefined,
     },
+    keywords: post.tags,
     robots: {
       index: true,
       follow: true,
@@ -61,10 +62,47 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  const problems = getPostsByCategory('problem-download');
+function generateJsonLd(post: NonNullable<ReturnType<typeof getPostById>>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    author: {
+      '@type': 'Organization',
+      name: post.author,
+      alternateName: ['SN독학기숙학원', 'SN고요의숲', 'SN고요의숲 독학재수'],
+      url: 'https://blog.snacademy.co.kr',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'SN독학기숙학원',
+      alternateName: ['SN고요의숲', 'SN Academy', 'SN고요의숲 독학재수'],
+      url: 'https://blog.snacademy.co.kr',
+    },
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://blog.snacademy.co.kr${post.url}`,
+    },
+    keywords: post.tags?.join(', '),
+    ...(post.thumbnail
+      ? {
+          image: {
+            '@type': 'ImageObject',
+            url: `https://blog.snacademy.co.kr${post.thumbnail}`,
+          },
+        }
+      : {}),
+  };
+}
 
-  return problems.map(post => ({
+export async function generateStaticParams() {
+  const mathProblems = getPostsByCategory('problem-download');
+  const koreanProblems = getPostsByCategory('korean-problem');
+
+  return [...mathProblems, ...koreanProblems].map(post => ({
     id: post.id,
   }));
 }
@@ -79,5 +117,15 @@ export default async function ProblemDownloadDetailPage({
     notFound();
   }
 
-  return <BlogLayout post={post} />;
+  const jsonLd = generateJsonLd(post);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <BlogLayout post={post} />
+    </>
+  );
 }
