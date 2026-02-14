@@ -20,8 +20,11 @@ export default function ProblemCard({ problem, label }: ProblemCardProps) {
   }, [problem]);
 
   useEffect(() => {
+    const isKatexReady = () =>
+      (window as any).katex && (window as any).renderMathInElement;
+
     const render = () => {
-      if (cardRef.current && (window as any).renderMathInElement) {
+      if (cardRef.current && isKatexReady()) {
         (window as any).renderMathInElement(cardRef.current, {
           delimiters: [
             { left: '$$', right: '$$', display: true },
@@ -34,11 +37,11 @@ export default function ProblemCard({ problem, label }: ProblemCardProps) {
       }
     };
 
-    if ((window as any).renderMathInElement) {
+    if (isKatexReady()) {
       render();
     } else {
       const check = setInterval(() => {
-        if ((window as any).renderMathInElement) {
+        if (isKatexReady()) {
           clearInterval(check);
           render();
         }
