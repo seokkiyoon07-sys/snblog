@@ -5,8 +5,11 @@
 /* 옛한글 지원 폰트 - 나눔바른고딕 옛한글 */
 @font-face {
   font-family: 'NanumBarunGothic YetHangul';
-  src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff') format('woff');
+  src:
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -14,8 +17,11 @@
 
 @font-face {
   font-family: 'NanumBarunGothic YetHangul';
-  src: url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff') format('woff');
+  src:
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff')
+      format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -24,7 +30,10 @@
 /* 옛한글 폰트 적용 - details.group 내부의 원문 영역 */
 /* 모바일 호환 fallback 체인: iOS(AppleSDGothicNeo), Android/크로스플랫폼(Noto Sans KR), Windows(Malgun Gothic) */
 details.group summary p {
-  font-family: 'NanumBarunGothic YetHangul', 'Noto Sans CJK KR', 'Noto Sans KR', 'AppleSDGothicNeo-Regular', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-family:
+    'NanumBarunGothic YetHangul', 'Noto Sans CJK KR', 'Noto Sans KR',
+    'AppleSDGothicNeo-Regular', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
 }
 
 /* details.group 토글 화살표 숨기기 */
@@ -44,7 +53,10 @@ details.group summary::marker {
 
 /* 옛한글 전용 클래스 */
 .font-yethangul {
-  font-family: 'NanumBarunGothic YetHangul', 'Noto Sans CJK KR', 'Noto Sans KR', 'AppleSDGothicNeo-Regular', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-family:
+    'NanumBarunGothic YetHangul', 'Noto Sans CJK KR', 'Noto Sans KR',
+    'AppleSDGothicNeo-Regular', 'Apple SD Gothic Neo', 'Malgun Gothic',
+    sans-serif;
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -280,7 +292,12 @@ body {
 .prose-lg,
 article,
 p,
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 li,
 blockquote,
 summary,
@@ -336,6 +353,31 @@ details div {
   .hover\:text-sn-primary-light:hover {
     color: #1a3d2a !important;
   }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* KaTeX 수식 모바일 오버플로 방지 */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.katex {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.katex-display > .katex {
+  white-space: nowrap;
 }
 
 @layer base {

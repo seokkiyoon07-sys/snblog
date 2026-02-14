@@ -1,0 +1,1150 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSAT Math Exam - Page 1 Template</title>
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    /* =========================
+      CONFIG (여기만 바꿔서 재사용)
+    ========================== */
+    :root{
+      --exam-title: "2027학년도 대학수학능력시험 모의평가 문제지";
+      --subject-big: "수학 영역";
+      --session-pill: "제 2 교시";
+      --variant-pill: "홀수형";
+      --page-no: "1";
+      --page-total: "20";
+
+      /* 8절지 (수능 전용 규격) */
+      --paper-w: 272mm;
+      --paper-h: 394mm;
+
+      /* 여백(대략) */
+      --pad-x: 15mm;
+      --pad-top: 18mm;
+      --pad-bottom: 15mm;
+
+      /* 2단 구성 */
+      --col-gap: 3mm; /* 칼럼 간격 최소화 - 세로 구분선에 밀착 */
+      --divider-w: 0.4mm; /* 세로 구분선 더 얇게 */
+
+      /* 선 두께 */
+      --rule-thick: 0.5mm; /* 헤더 하단 가로선 */
+      --rule-thin: 0.3mm;
+
+      /* 폰트 */
+      --font-sans: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      --font-serif: "Batang", "BatangChe", "AppleMyungjo", "NanumMyeongjo", "Noto Serif KR", serif; /* 명조: 바탕체 우선 */
+      --font-title: "Batang", "BatangChe", "AppleMyungjo", "NanumMyeongjo", serif; /* 제목용 굵은 명조 */
+    }
+
+    /* =========================
+      PRINT
+    ========================== */
+    @page {
+      size: 272mm 394mm;
+      margin: 0;
+    }
+    @media print {
+      html { min-height: 0; }
+      body {
+        background: #fff;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        display: block;
+        min-height: 0;
+      }
+      .paper {
+        box-shadow: none;
+        margin: 0;
+        page-break-after: always;
+        page-break-inside: avoid;
+        break-after: page;
+        break-inside: avoid;
+      }
+      .paper:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+      /* 배경색/이미지 강제 인쇄 (세로 구분선 등) */
+      .divider,
+      .footer-box:before {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    /* =========================
+      BASE
+    ========================== */
+    html, body {
+      min-height: 100%;
+      background: #f3f3f3;
+    }
+    body{
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16mm;
+      padding: 10mm 0;
+      font-family: var(--font-serif);
+      color: #000;
+    }
+
+    .paper{
+      width: var(--paper-w);
+      height: var(--paper-h);
+      background: #fff;
+      box-sizing: border-box;
+      padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+      overflow: hidden;
+    }
+
+    /* =========================
+      HEADER (상단 타이틀)
+    ========================== */
+    /* 최상단: 시험명 + 우상단 쪽번호 */
+    .topline{
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      margin-bottom: 4mm;
+    }
+    .exam-title{
+      font-family: "SM디나루", "신명디나루", "Noto Sans KR", "Pretendard", var(--font-sans); /* 신명디나루 */
+      font-size: 19pt; /* 18~20pt 범위 */
+      font-weight: 550; /* 500~600 중간 */
+      text-align: center;
+      line-height: 1.1;
+      letter-spacing: -0.03em; /* -0.02~-0.04em 범위 */
+      white-space: nowrap;
+      transform: translateX(16mm) scaleX(0.98); /* 장평 98% */
+    }
+    .page-number-top{
+      font-family: var(--font-serif); /* 명조체 */
+      font-size: 28pt;
+      font-weight: 800; /* 더 굵게 */
+      justify-self: end;
+      letter-spacing: -0.02em;
+      transform: scaleX(0.95); /* 장평 95% */
+    }
+
+    /* 히어로 영역: 제1교시 / 수학영역 / 홀수형 */
+    .hero{
+      margin-top: 5mm; /* 더 줄임 */
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 12mm;
+    }
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: var(--rule-thin) solid #000;
+      border-radius: 999px;
+      padding: 2.8mm 8mm 2.6mm;
+      font-family: "HY경명조", "한양경명조", var(--font-serif); /* 한양경명조 */
+      font-size: 16pt;
+      font-weight: 700; /* 더 굵게 */
+      line-height: 1;
+      width: max-content;
+      letter-spacing: -0.05em; /* 자간 -5% */
+      transform: scaleX(0.95); /* 장평 95% */
+    }
+    .subject-big{
+      font-family: "HY견명조", "한양견명조", "Noto Sans KR", "Pretendard", var(--font-sans); /* 한양견명조 */
+      font-size: 50pt; /* 46~54pt 범위 */
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.0;
+      letter-spacing: 0.02em; /* 글자 간격 최소화 */
+      transform: scaleX(0.98); /* 장평 98% - 살짝 눌린 느낌 */
+      position: relative;
+      left: -2mm; /* 세로 구분선 기준 중앙 미세 조정 */
+    }
+    .variant{
+      border: var(--rule-thin) solid #000;
+      border-radius: 3mm;
+      padding: 3mm 8mm 2.8mm;
+      font-family: var(--font-serif); /* 명조체 */
+      font-size: 18pt;
+      font-weight: 800; /* 더 굵게 */
+      justify-self: end;
+      letter-spacing: -0.05em; /* 자간 -5% */
+      transform: scaleX(0.95); /* 장평 95% */
+    }
+
+    .header-rule{
+      margin-top: 3mm; /* 더 줄임 - 구분선을 제목 쪽으로 더 올림 */
+      border: 0;
+      border-top: var(--rule-thick) solid #000;
+    }
+
+    /* =========================
+      TWO COLUMN BODY
+    ========================== */
+    .body{
+      margin-top: 0mm;
+      height: calc(100% - 64mm); /* 본문 영역 확장 - 세로 구분선을 페이지 번호까지 연장 */
+      display: grid;
+      grid-template-columns: 1fr var(--divider-w) 1fr;
+      column-gap: var(--col-gap);
+      position: relative;
+      padding-top: 0mm;
+    }
+    .divider{
+      background: #000;
+      height: 100%; /* 페이지 끝까지 */
+      margin-top: 0; /* 상단부터 시작 */
+      justify-self: center;
+      width: var(--divider-w);
+    }
+
+    .col{
+      padding-top: 4mm;
+      padding-left: 0; /* 좌측 패딩 제거 */
+      padding-right: 0; /* 우측 패딩 제거 */
+      font-size: 11.5pt; /* 신명중명조 11.5pt 재현 관행 */
+      line-height: 1.55; /* 줄간격 줄임 (155%) */
+      letter-spacing: -0.06em; /* 자간 더 좁힘 (-6%) */
+      transform: scaleX(0.94); /* 장평 더 좁힘 (94%) */
+    }
+    .col.right{
+      /* 첫 장 오른쪽은 비어 있음 */
+    }
+
+    /* =========================
+      LEFT CONTENT (문항 영역 샘플)
+    ========================== */
+    /* 독서 지문 제목: [1~3] 다음 글을 읽고... */
+    .range-instruction{
+      font-family: var(--font-sans);
+      font-size: 12pt; /* 본문보다 0.5pt 크게 */
+      font-weight: 600;
+      margin: 0 0 4mm;
+      padding: 0;
+      border: none;
+      letter-spacing: -0.05em;
+      transform: scaleX(0.95);
+      line-height: 1.4;
+      word-break: keep-all; /* 단어 단위 줄바꿈 */
+    }
+
+    /* 독서 지문 본문 (박스 안에) */
+    .passage{
+      font-family: var(--font-serif);
+      font-size: 11.5pt;
+      line-height: 1.5; /* 줄간격 줄임 (150%) */
+      letter-spacing: -0.06em; /* 자간 더 좁힘 (-6%) */
+      transform: scaleX(0.94); /* 장평 더 좁힘 (94%) */
+      margin-bottom: 8mm;
+      margin-left: 0; /* 좌측 마진 제거 */
+      margin-right: 0; /* 우측 마진 제거 */
+      border: var(--rule-thin) solid #000; /* 지문 박스 */
+      padding: 4mm 3mm 3.5mm; /* 좌우 여백 3mm - 가독성 확보 */
+      box-sizing: border-box;
+      width: 100%; /* 박스 너비 최대화 */
+      word-break: keep-all; /* 단어 단위 줄바꿈 */
+    }
+    .passage p{
+      margin: 0 0 3.5mm 0; /* 문단 간 간격 줄임 */
+      text-indent: 0; /* 들여쓰기 없음 */
+    }
+    .passage p:last-child{
+      margin-bottom: 0;
+    }
+
+    .topic-box{
+      border: var(--rule-thin) solid #000;
+      height: 14mm;
+      display: grid;
+      place-items: center;
+      margin: 0 0 7mm;
+      font-family: var(--font-serif);
+      font-size: 14pt;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      transform: scaleX(0.95);
+    }
+
+    .q{
+      margin: 6mm 0 9mm;
+    }
+    .q-title{
+      font-family: var(--font-serif);
+      font-size: 12pt; /* 본문보다 0.5pt 크게 */
+      font-weight: normal;
+      margin-bottom: 3.5mm;
+      letter-spacing: -0.05em;
+      transform: scaleX(0.95);
+      line-height: 1.4;
+      word-break: keep-all; /* 단어 단위 줄바꿈 */
+    }
+    .q-title .num{
+      font-family: var(--font-serif);
+      font-weight: normal;
+      margin-right: 2mm;
+    }
+    .q-prompt{
+      font-family: var(--font-serif);
+      font-size: 11.5pt;
+      line-height: 1.65;
+      margin-bottom: 3.5mm;
+      letter-spacing: -0.05em;
+      transform: scaleX(0.95);
+    }
+
+    .choices{
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      display: grid;
+      row-gap: 2mm; /* 선지 간 간격 줄임 */
+    }
+    .choices li{
+      font-family: var(--font-serif);
+      font-size: 11.5pt;
+      line-height: 1.3; /* 선지 줄간격 더 빽빽하게 */
+      letter-spacing: -0.06em; /* 자간 더 좁힘 */
+      transform: scaleX(0.94); /* 장평 더 좁힘 */
+      display: flex;
+      align-items: flex-start;
+      word-break: keep-all; /* 단어 단위 줄바꿈 */
+    }
+    .choices li .choice-num{
+      font-family: "HY신명조", "한양신명조", var(--font-serif); /* 한양신명조 */
+      margin-right: 1.5mm;
+      flex-shrink: 0;
+    }
+
+    /* 표/그래프 자료 (독서 기술지문용) */
+    .data-table{
+      border: var(--rule-thin) solid #000;
+      margin: 5mm 0;
+      padding: 4mm;
+      font-family: var(--font-sans);
+      font-size: 11pt; /* 본문보다 0.5pt 작게 */
+      letter-spacing: -0.05em;
+      transform: scaleX(0.95);
+      line-height: 1.5;
+    }
+
+    .viewbox-wrap{
+      margin: 7mm 0 6mm; /* 문제와 보기 사이 간격 늘림 */
+      position: relative;
+    }
+    .viewbox-label{
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%) scaleX(0.95);
+      padding: 0 0.5mm;
+      background: #fff;
+      z-index: 1;
+      font-family: var(--font-serif);
+      font-size: 11.5pt;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      white-space: nowrap;
+    }
+    .viewbox{
+      border: var(--rule-thin) solid #000;
+      padding: 5mm 5mm 4.5mm; /* 보기 박스 여백 줄임 */
+      box-sizing: border-box;
+      font-family: var(--font-serif);
+      font-size: 11.5pt;
+      line-height: 1.5; /* 줄간격 줄임 */
+      letter-spacing: -0.06em; /* 자간 더 좁힘 */
+      transform: scaleX(0.94); /* 장평 더 좁힘 */
+      word-break: keep-all; /* 단어 단위 줄바꿈 */
+    }
+
+    .viewbox.small{
+      height: 32mm;
+      font-size: 11.5pt;
+      padding: 4mm 4mm 3.5mm; /* small 보기도 여백 줄임 */
+    }
+
+    /* 보기 내부 텍스트 */
+    .viewbox p{
+      margin: 0;
+    }
+    .viewbox .klist{
+      margin-top: 2.5mm;
+      display: grid;
+      row-gap: 3.5mm;
+    }
+    .viewbox .klist p{
+      padding-left: 5mm;
+      text-indent: -5mm;
+    }
+
+    /* =========================
+      FOOTER (1/20 대각 박스)
+    ========================== */
+    .footer-box{
+      position: absolute;
+      left: 50%;
+      bottom: 12mm;
+      transform: translateX(-50%);
+      width: 22mm;
+      height: 13mm;
+      border: var(--rule-thin) solid #000;
+      box-sizing: border-box;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-serif);
+      background: #fff;
+    }
+    .footer-box:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to bottom right,
+          transparent calc(50% - 0.35mm),
+          #000 calc(50% - 0.35mm),
+          #000 calc(50% + 0.35mm),
+          transparent calc(50% + 0.35mm));
+      pointer-events:none;
+      opacity: 1;
+    }
+    .footer-box .a{
+      position:absolute;
+      left: 4.5mm;
+      top: 2.2mm;
+      font-size: 15pt;
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      transform: scaleX(0.95);
+    }
+    .footer-box .b{
+      position:absolute;
+      right: 3.8mm;
+      bottom: 1.5mm;
+      font-size: 15pt;
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      transform: scaleX(0.95);
+    }
+    /* =========================
+      해설 페이지 전용
+    ========================== */
+    .sol-header{
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 16pt;
+      font-weight: 700;
+      margin-bottom: 5mm;
+      padding-bottom: 3mm;
+      border-bottom: var(--rule-thick) solid #000;
+    }
+    .sol-section{
+      font-family: var(--font-sans);
+      font-size: 10.5pt;
+      font-weight: 700;
+      margin: 4mm 0 2mm;
+      padding-left: 1mm;
+    }
+    .sol-text{
+      font-family: var(--font-serif);
+      font-size: 10pt;
+      line-height: 1.55;
+      margin: 1.5mm 0;
+      word-break: keep-all;
+    }
+    .sol-box{
+      border: var(--rule-thin) solid #000;
+      padding: 3mm 3.5mm;
+      margin: 2.5mm 0;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+    .sol-answer{
+      border: 1.5px solid #000;
+      padding: 3mm 4mm;
+      margin: 4mm 0 2mm;
+      font-family: var(--font-sans);
+      font-size: 11pt;
+      font-weight: 700;
+      text-align: center;
+    }
+    .sol-list{
+      margin: 1.5mm 0 1.5mm 4mm;
+      padding-left: 3mm;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+    .sol-list li{
+      margin: 1mm 0;
+    }
+    .sol-table{
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2.5mm 0;
+      font-size: 9pt;
+    }
+    .sol-table th, .sol-table td{
+      border: var(--rule-thin) solid #000;
+      padding: 1.5mm 2mm;
+      text-align: center;
+    }
+    .sol-table th{
+      font-weight: 700;
+      background: #f5f5f5;
+    }
+    .sol-math{
+      margin: 2mm 0;
+      text-align: center;
+    }
+    /* 해설 페이지 body 높이 (헤더가 작으므로 별도 계산) */
+    .paper-sol .body{
+      height: calc(100% - 22mm);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="paper" aria-label="Math exam first page template">
+
+    <!-- 최상단: 시험명 중앙 + 우상단 쪽번호 -->
+    <section class="topline">
+      <div class="exam-title" id="examTitle"></div>
+      <div class="page-number-top" id="pageNoTop"></div>
+    </section>
+
+    <!-- 히어로: 제1교시 / 국어영역 / 홀수형 -->
+    <section class="hero" aria-label="header hero">
+      <div>
+        <span class="pill" id="sessionPill"></span>
+      </div>
+
+      <div class="subject-big" id="subjectBig"></div>
+
+      <div style="text-align:right;">
+        <span class="pill variant" id="variantPill"></span>
+      </div>
+    </section>
+
+    <hr class="header-rule" />
+
+    <!-- 본문 2단 -->
+    <section class="body" aria-label="two column body">
+      <div class="col left">
+        <p class="sol-text" style="text-align: left; margin-bottom: 1mm; font-size: 9pt; color: #555;">[26008-0029] 수능특강 Level.3 실력완성 1번 (지수와 로그)</p>
+        <!-- 1번 문항 -->
+        <article class="q">
+          <div class="q-title"><span class="num">1.</span>다음 조건을 만족시키는 두 양수 \(a, b\)에 대하여 \(3^{a} \times 3^{b}\)의 최댓값을 \(p\), 최솟값을 \(q\)라 할 때, \(p-q\)의 값은?</div>
+
+          <div class="viewbox-wrap">
+            <div class="viewbox">
+              <p>(가) \(3^{a}=27^{b}\)이고 그 값은 자연수이다.</p>
+              <p style="margin-top: 3mm;">(나) \(\dfrac{1}{a}+\dfrac{1}{b}\)는 자연수이다.</p>
+            </div>
+          </div>
+
+          <ul class="choices" style="grid-template-columns: repeat(5, 1fr); justify-items: center; margin-top: 5mm;">
+            <li><span class="choice-num">①</span>&nbsp;\(220\sqrt[3]{3}\)</li>
+            <li><span class="choice-num">②</span>&nbsp;\(225\sqrt[3]{3}\)</li>
+            <li><span class="choice-num">③</span>&nbsp;\(230\sqrt[3]{3}\)</li>
+            <li><span class="choice-num">④</span>&nbsp;\(235\sqrt[3]{3}\)</li>
+            <li><span class="choice-num">⑤</span>&nbsp;\(240\sqrt[3]{3}\)</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- 오른쪽 컬럼: 상하 2등분 -->
+      <div class="col right" style="display: grid; grid-template-rows: 1fr 1fr;">
+        <!-- 상단 절반: 변형 문항 -->
+        <div>
+          <article class="q" style="margin-top: 2mm;">
+            <div class="q-title"><span class="num" style="color: #009900; font-weight: bold;">[변형]</span>다음 조건을 만족시키는 두 양수 \(a, b\)에 대하여 \(2^{a} \times 2^{b}\)의 최댓값을 \(p\), 최솟값을 \(q\)라 할 때, \(p-q\)의 값은?</div>
+
+            <div class="viewbox-wrap">
+              <div class="viewbox">
+                <p>(가) \(2^{a}=8^{b}\)이고 그 값은 자연수이다.</p>
+                <p style="margin-top: 3mm;">(나) \(\dfrac{1}{a}+\dfrac{1}{b}\)는 자연수이다.</p>
+              </div>
+            </div>
+
+            <ul class="choices" style="grid-template-columns: repeat(5, 1fr); justify-items: center; margin-top: 5mm;">
+              <li><span class="choice-num">①</span>&nbsp;\(24\sqrt[3]{2}\)</li>
+              <li><span class="choice-num">②</span>&nbsp;\(26\sqrt[3]{2}\)</li>
+              <li><span class="choice-num">③</span>&nbsp;\(30\sqrt[3]{2}\)</li>
+              <li><span class="choice-num">④</span>&nbsp;\(32\sqrt[3]{2}\)</li>
+              <li><span class="choice-num">⑤</span>&nbsp;\(36\sqrt[3]{2}\)</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 하단 절반: 창작 문항 -->
+        <div>
+          <article class="q" style="margin-top: 0;">
+            <div class="q-title"><span class="num" style="color: #009900; font-weight: bold;">[창작]</span>다음 조건을 만족시키는 두 양수 \(a, b\)에 대하여 \(5^{a} \times 5^{b}\)의 최댓값을 \(M\), 최솟값을 \(m\)이라 하자. 이때 \(\log_{5}\!\left(\dfrac{M}{m}\right)\)의 값은?</div>
+
+            <div class="viewbox-wrap">
+              <div class="viewbox">
+                <p>(가) \(5^{a}=25^{b}\)이고 그 값은 자연수이다.</p>
+                <p style="margin-top: 3mm;">(나) \(\dfrac{4}{a}+\dfrac{2}{b}\)는 자연수이다.</p>
+              </div>
+            </div>
+
+            <ul class="choices" style="grid-template-columns: repeat(5, 1fr); justify-items: center; margin-top: 5mm;">
+              <li><span class="choice-num">①</span>&nbsp;\(\dfrac{9}{2}\)</li>
+              <li><span class="choice-num">②</span>&nbsp;\(7\)</li>
+              <li><span class="choice-num">③</span>&nbsp;\(8\)</li>
+              <li><span class="choice-num">④</span>&nbsp;\(\dfrac{21}{2}\)</li>
+              <li><span class="choice-num">⑤</span>&nbsp;\(9\)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 저작권 표시 -->
+    <div style="position: absolute; right: var(--pad-x); bottom: 14mm; font-size: 9pt; color: #1a6dcc; font-family: var(--font-sans);">
+      본 문제의 저작권은 SN고요의숲 독학재수학원에 있습니다
+    </div>
+
+    <!-- 하단 1/20 박스 -->
+    <div class="footer-box" aria-label="page count box">
+      <span class="a" id="pageNoBottom"></span>
+      <span class="b" id="pageTotalBottom"></span>
+    </div>
+  </main>
+
+  <!-- ========== 2페이지: 2번 문제 ========== -->
+  <main class="paper" aria-label="Math exam page 2">
+
+    <!-- 최상단: 시험명 중앙 + 우상단 쪽번호 -->
+    <section class="topline">
+      <div class="exam-title" id="examTitle2"></div>
+      <div class="page-number-top" id="pageNoTop2">2</div>
+    </section>
+
+    <!-- 히어로: 제2교시 / 수학영역 / 홀수형 -->
+    <section class="hero" aria-label="header hero">
+      <div>
+        <span class="pill" id="sessionPill2"></span>
+      </div>
+      <div class="subject-big" id="subjectBig2"></div>
+      <div style="text-align:right;">
+        <span class="pill variant" id="variantPill2"></span>
+      </div>
+    </section>
+
+    <hr class="header-rule" />
+
+    <section class="body" aria-label="two column body">
+      <div class="col left">
+        <p class="sol-text" style="text-align: left; margin-bottom: 1mm; font-size: 9pt; color: #555;">[26008-0030] 수능특강 Level.3 실력완성 2번 (지수와 로그)</p>
+        <!-- 2번 원문 -->
+        <article class="q">
+          <div class="q-title"><span class="num">2.</span>그림과 같이 \(\overline{BC}=\log_{\sqrt{6}} 8\)인 삼각형 \(ABC\)의 두 변 \(AB, AC\) 위에 두 선분 \(BC, DE\)가 평행하도록 각각 두 점 \(D, E\)를 잡는다. \(\overline{DE}=\log_{3} 6\)이고 삼각형 \(ADE\)의 넓이가 \(\dfrac{1}{2} \log_{3} 2\)일 때, 삼각형 \(ABE\)의 넓이는?</div>
+
+          <div class="sn-geom-wrap" style="width:90mm; position:relative; margin:3mm auto;">
+            <svg viewBox="0 0 100 100" width="100%" style="display:block;">
+              <line x1="10" y1="10" x2="50" y2="90" stroke="#111" stroke-width="0.8"/>
+              <line x1="10" y1="10" x2="90" y2="90" stroke="#111" stroke-width="0.8"/>
+              <line x1="50" y1="90" x2="90" y2="90" stroke="#111" stroke-width="0.8"/>
+              <line x1="20" y1="30" x2="30" y2="30" stroke="#111" stroke-width="0.7"/>
+              <line x1="50" y1="90" x2="30" y2="30" stroke="#111" stroke-width="0.7"/>
+            </svg>
+            <div style="position:absolute; left:10%; top:3%; transform:translate(-50%,-50%); font-size:10pt;">\(A\)</div>
+            <div style="position:absolute; left:50%; top:97%; transform:translate(-50%,-50%); font-size:10pt;">\(B\)</div>
+            <div style="position:absolute; left:90%; top:97%; transform:translate(-50%,-50%); font-size:10pt;">\(C\)</div>
+            <div style="position:absolute; left:16%; top:30%; transform:translate(-50%,-50%); font-size:10pt;">\(D\)</div>
+            <div style="position:absolute; left:34%; top:26%; transform:translate(-50%,-50%); font-size:10pt;">\(E\)</div>
+          </div>
+
+          <ul class="choices" style="grid-template-columns: repeat(3, 1fr); justify-items: start; margin-top: 4mm; row-gap: 1.5mm;">
+            <li><span class="choice-num">①</span>&nbsp;\((\log_{6}2)^2\)</li>
+            <li><span class="choice-num">②</span>&nbsp;\(2(\log_{6}2)^2\)</li>
+            <li><span class="choice-num">③</span>&nbsp;\(3(\log_{6}2)^2\)</li>
+            <li><span class="choice-num">④</span>&nbsp;\(4(\log_{6}2)^2\)</li>
+            <li><span class="choice-num">⑤</span>&nbsp;\(5(\log_{6}2)^2\)</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- 오른쪽 컬럼: 상하 2등분 -->
+      <div class="col right" style="display: grid; grid-template-rows: 1fr 1fr;">
+        <!-- 상단 절반: 변형 -->
+        <div>
+          <article class="q" style="margin-top: 2mm;">
+            <div class="q-title"><span class="num" style="color: #009900; font-weight: bold;">[변형]</span>그림과 같이 \(\overline{BC}=\log_{\sqrt{10}} 16\)인 삼각형 \(ABC\)의 두 변 \(AB, AC\) 위에 두 선분 \(BC, DE\)가 평행하도록 각각 두 점 \(D, E\)를 잡는다. \(\overline{DE}=\log_{5} 10\)이고 삼각형 \(ADE\)의 넓이가 \(\dfrac{1}{2} \log_{5} 2\)일 때, 삼각형 \(ABE\)의 넓이는?</div>
+
+            <div class="sn-geom-wrap" style="width:70mm; position:relative; margin:2mm auto;">
+              <svg viewBox="0 0 100 100" width="100%" style="display:block;">
+                <line x1="10" y1="10" x2="50" y2="90" stroke="#111" stroke-width="0.8"/>
+                <line x1="10" y1="10" x2="90" y2="90" stroke="#111" stroke-width="0.8"/>
+                <line x1="50" y1="90" x2="90" y2="90" stroke="#111" stroke-width="0.8"/>
+                <line x1="20" y1="30" x2="30" y2="30" stroke="#111" stroke-width="0.7"/>
+                <line x1="50" y1="90" x2="30" y2="30" stroke="#111" stroke-width="0.7"/>
+              </svg>
+              <div style="position:absolute; left:10%; top:3%; transform:translate(-50%,-50%); font-size:9pt;">\(A\)</div>
+              <div style="position:absolute; left:50%; top:97%; transform:translate(-50%,-50%); font-size:9pt;">\(B\)</div>
+              <div style="position:absolute; left:90%; top:97%; transform:translate(-50%,-50%); font-size:9pt;">\(C\)</div>
+              <div style="position:absolute; left:16%; top:30%; transform:translate(-50%,-50%); font-size:9pt;">\(D\)</div>
+              <div style="position:absolute; left:34%; top:26%; transform:translate(-50%,-50%); font-size:9pt;">\(E\)</div>
+            </div>
+
+            <ul class="choices" style="grid-template-columns: repeat(3, 1fr); justify-items: start; margin-top: 4mm; row-gap: 1.5mm;">
+              <li><span class="choice-num">①</span>&nbsp;\((\log_{10}2)^2\)</li>
+              <li><span class="choice-num">②</span>&nbsp;\(2(\log_{10}2)^2\)</li>
+              <li><span class="choice-num">③</span>&nbsp;\(3(\log_{10}2)^2\)</li>
+              <li><span class="choice-num">④</span>&nbsp;\(4(\log_{10}2)^2\)</li>
+              <li><span class="choice-num">⑤</span>&nbsp;\(5(\log_{10}2)^2\)</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 하단 절반: 창작 -->
+        <div>
+          <article class="q" style="margin-top: 0;">
+            <div class="q-title"><span class="num" style="color: #009900; font-weight: bold;">[창작]</span>그림과 같이 \(\overline{BC}=\log_{\sqrt{14}} 243\)인 삼각형 \(ABC\)의 두 변 \(AB, AC\) 위에 두 선분 \(BC, DE\)가 평행하도록 각각 두 점 \(D, E\)를 잡는다. \(\overline{DE}=\log_{2} 14\)이고 삼각형 \(ADE\)의 넓이가 \(\dfrac{1}{2} \log_{2} 3\)일 때, 삼각형 \(ABE\)의 넓이는?</div>
+
+            <div class="sn-geom-wrap" style="width:70mm; position:relative; margin:2mm auto;">
+              <svg viewBox="0 0 100 100" width="100%" style="display:block;">
+                <line x1="10" y1="10" x2="50" y2="90" stroke="#111" stroke-width="0.8"/>
+                <line x1="10" y1="10" x2="90" y2="90" stroke="#111" stroke-width="0.8"/>
+                <line x1="50" y1="90" x2="90" y2="90" stroke="#111" stroke-width="0.8"/>
+                <line x1="20" y1="30" x2="30" y2="30" stroke="#111" stroke-width="0.7"/>
+                <line x1="50" y1="90" x2="30" y2="30" stroke="#111" stroke-width="0.7"/>
+              </svg>
+              <div style="position:absolute; left:10%; top:3%; transform:translate(-50%,-50%); font-size:9pt;">\(A\)</div>
+              <div style="position:absolute; left:50%; top:97%; transform:translate(-50%,-50%); font-size:9pt;">\(B\)</div>
+              <div style="position:absolute; left:90%; top:97%; transform:translate(-50%,-50%); font-size:9pt;">\(C\)</div>
+              <div style="position:absolute; left:16%; top:30%; transform:translate(-50%,-50%); font-size:9pt;">\(D\)</div>
+              <div style="position:absolute; left:34%; top:26%; transform:translate(-50%,-50%); font-size:9pt;">\(E\)</div>
+            </div>
+
+            <ul class="choices" style="grid-template-columns: repeat(3, 1fr); justify-items: start; margin-top: 4mm; row-gap: 1.5mm;">
+              <li><span class="choice-num">①</span>&nbsp;\((\log_{14}3)^2\)</li>
+              <li><span class="choice-num">②</span>&nbsp;\(2(\log_{14}3)^2\)</li>
+              <li><span class="choice-num">③</span>&nbsp;\(3(\log_{14}3)^2\)</li>
+              <li><span class="choice-num">④</span>&nbsp;\(4(\log_{14}3)^2\)</li>
+              <li><span class="choice-num">⑤</span>&nbsp;\(5(\log_{14}3)^2\)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 저작권 표시 -->
+    <div style="position: absolute; right: var(--pad-x); bottom: 14mm; font-size: 9pt; color: #1a6dcc; font-family: var(--font-sans);">
+      본 문제의 저작권은 SN고요의숲 독학재수학원에 있습니다
+    </div>
+
+    <div class="footer-box" aria-label="page count box">
+      <span class="a">2</span>
+      <span class="b">20</span>
+    </div>
+  </main>
+
+  <!-- ========== 3페이지: 3번 문제 ========== -->
+  <main class="paper" aria-label="Math exam page 3">
+
+    <!-- 최상단: 시험명 중앙 + 우상단 쪽번호 -->
+    <section class="topline">
+      <div class="exam-title" id="examTitle3"></div>
+      <div class="page-number-top" id="pageNoTop3">3</div>
+    </section>
+
+    <!-- 히어로: 제2교시 / 수학영역 / 홀수형 -->
+    <section class="hero" aria-label="header hero">
+      <div>
+        <span class="pill" id="sessionPill3"></span>
+      </div>
+      <div class="subject-big" id="subjectBig3"></div>
+      <div style="text-align:right;">
+        <span class="pill variant" id="variantPill3"></span>
+      </div>
+    </section>
+
+    <hr class="header-rule" />
+
+    <section class="body" aria-label="two column body">
+      <div class="col left">
+        <p class="sol-text" style="text-align: left; margin-bottom: 1mm; font-size: 9pt; color: #555;">[26008-0031] 수능특강 Level.3 실력완성 3번 (지수와 로그)</p>
+        <!-- 3번 원문 -->
+        <article class="q">
+          <div class="q-title"><span class="num">3.</span>2 이상의 자연수 \(m\)에 대하여 집합 \(A_{m}\)을
+\[A_{m}=\{x \mid 0 < x \le 100 \text{ 이고 } \log_{m} x \text{ 는 자연수}\}\]
+라 할 때, 보기에서 옳은 것만을 있는 대로 고른 것은?</div>
+
+          <div class="viewbox-wrap">
+            <div class="viewbox-label">< 보 기 ></div>
+            <div class="viewbox">
+              <div class="klist">
+                <p>ㄱ. \(n(A_{2})=6\)</p>
+                <p>ㄴ. 2 이상 100 이하의 두 자연수 \(p, q\)에 대하여 \(\dfrac{p}{q}\)가 자연수이면 \(\dfrac{n(A_{q})}{n(A_{p})}\)도 자연수이다.</p>
+                <p>ㄷ. \(n(A_{m})=2\)를 만족시키는 모든 자연수 \(m\)의 값의 합은 45이다.</p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="choices" style="grid-template-columns: repeat(5, 1fr); justify-items: center; margin-top: 5mm;">
+            <li><span class="choice-num">①</span>&nbsp;ㄱ</li>
+            <li><span class="choice-num">②</span>&nbsp;ㄱ, ㄴ</li>
+            <li><span class="choice-num">③</span>&nbsp;ㄱ, ㄷ</li>
+            <li><span class="choice-num">④</span>&nbsp;ㄴ, ㄷ</li>
+            <li><span class="choice-num">⑤</span>&nbsp;ㄱ, ㄴ, ㄷ</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- 오른쪽 컬럼: 상하 2등분 -->
+      <div class="col right" style="display: grid; grid-template-rows: 1fr 1fr;">
+        <!-- 상단 절반: 변형 -->
+        <div>
+          <article class="q" style="margin-top: 2mm;">
+            <div class="q-title"><span class="num" style="color: #009900; font-weight: bold;">[변형]</span>\(2\) 이상의 자연수 \(m\)에 대하여 집합 \(A_m\)을
+\[A_m=\left\{x \mid 0 < x \le 256 \text{ 이고 } \log_m x \text{ 가 양의 정수이다}\right\}\]
+라 하자. 보기에서 옳은 것만을 있는 대로 고른 것은?</div>
+
+            <div class="viewbox-wrap">
+              <div class="viewbox-label">< 보 기 ></div>
+              <div class="viewbox">
+                <div class="klist">
+                  <p>ㄱ. \(n(A_2)=8\)</p>
+                  <p>ㄴ. \(2\) 이상 \(256\) 이하의 두 자연수 \(p,q\)에 대하여 \(\dfrac{p}{q}\)가 자연수이면 \(\dfrac{n(A_q)}{n(A_p)}\)도 자연수이다.</p>
+                  <p>ㄷ. \(n(A_m)=3\)을 만족시키는 모든 자연수 \(m\)의 값의 합은 \(11\)이다.</p>
+                </div>
+              </div>
+            </div>
+
+            <ul class="choices" style="grid-template-columns: repeat(5, 1fr); justify-items: center; margin-top: 5mm;">
+              <li><span class="choice-num">①</span>&nbsp;ㄱ</li>
+              <li><span class="choice-num">②</span>&nbsp;ㄱ, ㄴ</li>
+              <li><span class="choice-num">③</span>&nbsp;ㄱ, ㄷ</li>
+              <li><span class="choice-num">④</span>&nbsp;ㄴ, ㄷ</li>
+              <li><span class="choice-num">⑤</span>&nbsp;ㄱ, ㄴ, ㄷ</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- 하단 절반: 창작 -->
+        <div>
+          <article class="q" style="margin-top: 0;">
+            <div class="q-title"><span class="num" style="color: #009900; font-weight: bold;">[창작]</span>\(2\) 이상의 자연수 \(m\)에 대하여 집합 \(A_m\)을
+\[A_m=\left\{x \mid 0 < x \le 500 \text{ 이고 } \log_m x \text{ 가 양의 정수이다}\right\}\]
+라 하자. 보기에서 옳은 것만을 있는 대로 고른 것은?</div>
+
+            <div class="viewbox-wrap">
+              <div class="viewbox-label">< 보 기 ></div>
+              <div class="viewbox">
+                <div class="klist">
+                  <p>ㄱ. \(n(A_2)=8\)</p>
+                  <p>ㄴ. \(2\) 이상 \(500\) 이하의 두 자연수 \(p,q\)에 대하여 \(\dfrac{p}{q}\)가 자연수이면 \(n(A_p) \le n(A_q)\)이다.</p>
+                  <p>ㄷ. \(n(A_m)=3\)을 만족시키는 모든 자연수 \(m\)의 값의 합은 \(18\)이다.</p>
+                </div>
+              </div>
+            </div>
+
+            <ul class="choices" style="grid-template-columns: repeat(5, 1fr); justify-items: center; margin-top: 5mm;">
+              <li><span class="choice-num">①</span>&nbsp;ㄱ</li>
+              <li><span class="choice-num">②</span>&nbsp;ㄱ, ㄴ</li>
+              <li><span class="choice-num">③</span>&nbsp;ㄱ, ㄷ</li>
+              <li><span class="choice-num">④</span>&nbsp;ㄴ, ㄷ</li>
+              <li><span class="choice-num">⑤</span>&nbsp;ㄱ, ㄴ, ㄷ</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 저작권 표시 -->
+    <div style="position: absolute; right: var(--pad-x); bottom: 14mm; font-size: 9pt; color: #1a6dcc; font-family: var(--font-sans);">
+      본 문제의 저작권은 SN고요의숲 독학재수학원에 있습니다
+    </div>
+
+    <div class="footer-box" aria-label="page count box">
+      <span class="a">3</span>
+      <span class="b">20</span>
+    </div>
+  </main>
+
+  <!-- ========== 4페이지: 1번 해설 ========== -->
+  <main class="paper paper-sol" aria-label="Math exam solution page 1">
+    <div class="sol-header">해 설</div>
+
+    <section class="body" aria-label="two column body">
+      <!-- 왼쪽: 원문 해설 -->
+      <div class="col left" style="overflow: hidden;">
+        <div class="sol-section">[원문] 정답 및 해설</div>
+        <div class="sol-answer">정답: ⑤ \(240\sqrt[3]{3}\)</div>
+
+        <div class="sol-section">풀이</div>
+        <ol class="sol-list">
+          <li>(가) \(3^a=27^b=(3^3)^b=3^{3b}\)이므로 \(a=3b\).</li>
+          <li>(나) \(\dfrac{1}{a}+\dfrac{1}{b}=\dfrac{1}{3b}+\dfrac{1}{b}=\dfrac{4}{3b}=\dfrac{4}{a}\).
+            이를 자연수 \(n\)이라 두면 \(\dfrac{4}{a}=n\), \(a=\dfrac{4}{n}\).</li>
+          <li>\(3^a=3^{4/n}\)이 자연수이려면 \(\dfrac{4}{n}\)이 정수 → \(n\mid 4\),
+            따라서 \(n\in\{1,2,4\}\).</li>
+          <li>\(b=\dfrac{a}{3}\)이므로 \(3^a\cdot 3^b=3^{a+b}=3^{4a/3}=3^{16/(3n)}\).</li>
+          <li>최대 \(n=1\): \(3^{16/3}=3^5\cdot 3^{1/3}=243\sqrt[3]{3}\).<br/>
+            최소 \(n=4\): \(3^{4/3}=3\sqrt[3]{3}\).</li>
+          <li>\(p-q=(243-3)\sqrt[3]{3}=240\sqrt[3]{3}\).</li>
+        </ol>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- 오른쪽: 변형 + 창작 해설 (상하 2등분) -->
+      <div class="col right" style="overflow: hidden; display: grid; grid-template-rows: 1fr 1fr;">
+        <!-- 상단 절반: 변형 해설 -->
+        <div>
+          <div class="sol-section">[변형] 정답 및 해설</div>
+          <div class="sol-answer">정답: ③ \(30\sqrt[3]{2}\)</div>
+
+          <div class="sol-section">풀이</div>
+          <ol class="sol-list">
+            <li>(가) \(2^a=8^b=(2^3)^b=2^{3b}\)이므로 \(a=3b\).</li>
+            <li>(나) \(\dfrac{1}{a}+\dfrac{1}{b}=\dfrac{4}{3b}=\dfrac{4}{a}\).
+              자연수 \(n\)이라 두면 \(a=\dfrac{4}{n}\).</li>
+            <li>\(2^{4/n}\)이 자연수 → \(n\mid 4\), \(n\in\{1,2,4\}\).</li>
+            <li>\(2^a\cdot 2^b=2^{4a/3}=2^{16/(3n)}\).</li>
+            <li>최대 \(n=1\): \(2^{16/3}=32\sqrt[3]{2}\). 최소 \(n=4\): \(2^{4/3}=2\sqrt[3]{2}\).</li>
+            <li>\(p-q=(32-2)\sqrt[3]{2}=30\sqrt[3]{2}\).</li>
+          </ol>
+        </div>
+
+        <!-- 하단 절반: 창작 해설 -->
+        <div>
+          <div class="sol-section">[창작] 정답 및 해설</div>
+          <div class="sol-answer">정답: ④ \(\dfrac{21}{2}\)</div>
+
+          <div class="sol-section">풀이</div>
+          <ol class="sol-list">
+            <li>(가) \(5^a=25^b=(5^2)^b=5^{2b}\)이므로 \(a=2b\).</li>
+            <li>(나) \(\dfrac{4}{a}+\dfrac{2}{b}=\dfrac{4}{a}+\dfrac{4}{a}=\dfrac{8}{a}\).
+              자연수 \(n\)이라 두면 \(a=\dfrac{8}{n}\).</li>
+            <li>\(5^{8/n}\)이 자연수 → \(n\mid 8\), \(n\in\{1,2,4,8\}\).</li>
+            <li>\(5^a\cdot 5^b=5^{3a/2}=5^{12/n}\).</li>
+            <li>최대 \(M=5^{12}\) (\(n=1\)), 최소 \(m=5^{3/2}\) (\(n=8\)).</li>
+            <li>\(\log_5\!\left(\dfrac{M}{m}\right)=12-\dfrac{3}{2}=\dfrac{21}{2}\).</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 저작권 표시 -->
+    <div style="position: absolute; right: var(--pad-x); bottom: 14mm; font-size: 9pt; color: #1a6dcc; font-family: var(--font-sans);">
+      본 문제의 저작권은 SN고요의숲 독학재수학원에 있습니다
+    </div>
+
+    <div class="footer-box" aria-label="page count box">
+      <span class="a">4</span>
+      <span class="b">20</span>
+    </div>
+  </main>
+
+  <!-- ========== 5페이지: 2번 해설 ========== -->
+  <main class="paper paper-sol" aria-label="Math exam solution page 2">
+    <div class="sol-header">해 설</div>
+
+    <section class="body" aria-label="two column body">
+      <!-- 왼쪽: 원문 해설 -->
+      <div class="col left" style="overflow: hidden;">
+        <div class="sol-section">[원문] 정답 및 해설</div>
+        <div class="sol-answer">정답: ③ \(3(\log_{6}2)^2\)</div>
+
+        <div class="sol-section">풀이</div>
+        <ol class="sol-list">
+          <li>\(DE \parallel BC\)이므로 \(\triangle ADE \sim \triangle ABC\).
+닮음비 \(r=\dfrac{DE}{BC}=\dfrac{AE}{AC}\)로 두면
+\([ABE]=r[ABC]\), \([ADE]=r^2[ABC]\).
+따라서 \([ABE]=\dfrac{[ADE]}{r}=[ADE]\cdot\dfrac{BC}{DE}\).</li>
+          <li>\(BC=\log_{\sqrt{6}}8=\dfrac{\log 8}{\log\sqrt{6}}=\dfrac{3\log 2}{\frac{1}{2}\log 6}=6\cdot\dfrac{\log 2}{\log 6}\).</li>
+          <li>\(DE=\log_{3}6=\dfrac{\log 6}{\log 3}\),
+\([ADE]=\dfrac{1}{2}\log_{3}2=\dfrac{1}{2}\cdot\dfrac{\log 2}{\log 3}\).</li>
+          <li>\([ABE]=\left(\dfrac{1}{2}\cdot\dfrac{\log 2}{\log 3}\right)\cdot\dfrac{6\cdot\frac{\log 2}{\log 6}}{\frac{\log 6}{\log 3}}=3\left(\dfrac{\log 2}{\log 6}\right)^2=3(\log_{6}2)^2\).</li>
+        </ol>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- 오른쪽: 변형 + 창작 해설 (상하 2등분) -->
+      <div class="col right" style="overflow: hidden; display: grid; grid-template-rows: 1fr 1fr;">
+        <!-- 상단 절반: 변형 해설 -->
+        <div>
+          <div class="sol-section">[변형] 정답 및 해설</div>
+          <div class="sol-answer">정답: ④ \(4(\log_{10}2)^2\)</div>
+
+          <div class="sol-section">풀이</div>
+          <ol class="sol-list">
+            <li>\([ABE]=[ADE]\cdot\dfrac{BC}{DE}\) (닮음으로부터 동일).</li>
+            <li>\(BC=\log_{\sqrt{10}}16=\dfrac{\log 16}{\log\sqrt{10}}=\dfrac{4\log 2}{\frac{1}{2}\log 10}\).
+\(\log 10=1\)이므로 \(BC=8\log 2\).</li>
+            <li>\(DE=\log_{5}10=\dfrac{\log 10}{\log 5}=\dfrac{1}{\log 5}\),
+\([ADE]=\dfrac{1}{2}\log_{5}2=\dfrac{1}{2}\cdot\dfrac{\log 2}{\log 5}\).</li>
+            <li>\([ABE]=\left(\dfrac{1}{2}\cdot\dfrac{\log 2}{\log 5}\right)\cdot\dfrac{8\log 2}{1/\log 5}=4(\log 2)^2=4(\log_{10}2)^2\).</li>
+          </ol>
+        </div>
+
+        <!-- 하단 절반: 창작 해설 -->
+        <div>
+          <div class="sol-section">[창작] 정답 및 해설</div>
+          <div class="sol-answer">정답: ⑤ \(5(\log_{14}3)^2\)</div>
+
+          <div class="sol-section">풀이</div>
+          <ol class="sol-list">
+            <li>\([ABE]=[ADE]\cdot\dfrac{BC}{DE}\) (닮음으로부터 동일).</li>
+            <li>\(BC=\log_{\sqrt{14}}243=\dfrac{\log 243}{\log\sqrt{14}}=\dfrac{5\log 3}{\frac{1}{2}\log 14}=10\cdot\dfrac{\log 3}{\log 14}\).</li>
+            <li>\(DE=\log_{2}14=\dfrac{\log 14}{\log 2}\),
+\([ADE]=\dfrac{1}{2}\log_{2}3=\dfrac{1}{2}\cdot\dfrac{\log 3}{\log 2}\).</li>
+            <li>\([ABE]=\left(\dfrac{1}{2}\cdot\dfrac{\log 3}{\log 2}\right)\cdot\dfrac{10\cdot\frac{\log 3}{\log 14}}{\frac{\log 14}{\log 2}}=5\left(\dfrac{\log 3}{\log 14}\right)^2=5(\log_{14}3)^2\).</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 저작권 표시 -->
+    <div style="position: absolute; right: var(--pad-x); bottom: 14mm; font-size: 9pt; color: #1a6dcc; font-family: var(--font-sans);">
+      본 문제의 저작권은 SN고요의숲 독학재수학원에 있습니다
+    </div>
+
+    <div class="footer-box" aria-label="page count box">
+      <span class="a">5</span>
+      <span class="b">20</span>
+    </div>
+  </main>
+
+  <!-- ========== 6페이지: 3번 해설 ========== -->
+  <main class="paper paper-sol" aria-label="Math exam solution page 3">
+    <div class="sol-header">해 설</div>
+
+    <section class="body" aria-label="two column body">
+      <!-- 왼쪽: 원문 해설 -->
+      <div class="col left" style="overflow: hidden;">
+        <div class="sol-section">[원문] 정답 및 해설</div>
+        <div class="sol-answer">정답: ③ ㄱ, ㄷ</div>
+
+        <div class="sol-section">풀이</div>
+        <ol class="sol-list">
+          <li>\(\log_m x\)가 자연수이면 \(x = m^k\) (\(k\)는 자연수). 즉, \(A_m = \{m, m^2, m^3, \dots\}\) 중 100 이하인 것들의 집합.</li>
+          <li><strong>ㄱ. (참)</strong> \(2^1, 2^2, \dots, 2^6\)은 모두 100 이하이고, \(2^7 = 128 > 100\)이므로 \(n(A_2) = 6\).</li>
+          <li><strong>ㄴ. (거짓)</strong> 반례: \(p=8, q=4\)이면 \(\frac{p}{q}=2\). \(A_4 = \{4, 16, 64\}\)이므로 \(n(A_4)=3\), \(A_8 = \{8, 64\}\)이므로 \(n(A_8)=2\). \(\frac{3}{2}\)는 자연수가 아님.</li>
+          <li><strong>ㄷ. (참)</strong> \(n(A_m)=2\)이려면 \(m^2 \le 100 < m^3\). \(m \le 10\)이고 \(m \ge 5\)이므로 \(m = 5, 6, 7, 8, 9, 10\). 합: \(5+6+\cdots+10 = 45\).</li>
+        </ol>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <!-- 오른쪽: 변형 + 창작 해설 (상하 2등분) -->
+      <div class="col right" style="overflow: hidden; display: grid; grid-template-rows: 1fr 1fr;">
+        <!-- 상단 절반: 변형 해설 -->
+        <div>
+          <div class="sol-section">[변형] 정답 및 해설</div>
+          <div class="sol-answer">정답: ③ (ㄱ, ㄷ)</div>
+
+          <div class="sol-section">풀이</div>
+          <div class="sol-text">\(\log_m x\)가 양의 정수이면 \(x=m^k\ (k\in\mathbb{Z}_{>0})\)이다. 따라서
+\[A_m=\{m, m^2, \dots, m^t\}\quad (m^t\le 256 < m^{t+1})\]
+이고 \(n(A_m)=t\)이다.</div>
+          <ol class="sol-list">
+            <li><strong>ㄱ.</strong> \(2^8=256\le256\), \(2^9=512>256\)이므로 \(A_2=\{2,4,8,16,32,64,128,256\}\), 따라서 \(n(A_2)=8\). (참)</li>
+            <li><strong>ㄴ.</strong> (거짓) 반례로 \(p=10,\ q=5\)를 택하면 \(\dfrac{p}{q}=2\)는 자연수이다. 그런데
+\[A_5=\{5,25,125\}\Rightarrow n(A_5)=3,\quad A_{10}=\{10,100\}\Rightarrow n(A_{10})=2\]
+이므로 \(\dfrac{n(A_q)}{n(A_p)}=\dfrac{3}{2}\)는 자연수가 아니다.</li>
+            <li><strong>ㄷ.</strong> \(n(A_m)=3 \iff m^3\le 256 < m^4\). \(4^4=256\)이므로 \(m=4\)는 불가. \(7^3=343>256\)이므로 \(m\le 6\). \(5^3=125\le256\), \(5^4=625>256\), \(6^3=216\le256\), \(6^4=1296>256\). 따라서 \(m=5,6\)이고 합은 \(11\). (참)</li>
+          </ol>
+          <div class="sol-text">따라서 옳은 것은 ㄱ, ㄷ이고 정답은 ③이다.</div>
+        </div>
+
+        <!-- 하단 절반: 창작 해설 -->
+        <div>
+          <div class="sol-section">[창작] 정답 및 해설</div>
+          <div class="sol-answer">정답: ⑤ (ㄱ, ㄴ, ㄷ)</div>
+
+          <div class="sol-section">풀이</div>
+          <div class="sol-text">\(\log_m x\)가 양의 정수이면 \(x=m^k\ (k\in\mathbb{Z}_{>0})\)이다. 따라서
+\[A_m=\{m, m^2, \dots, m^t\}\quad (m^t\le 500 < m^{t+1})\]
+이고 \(n(A_m)=t\)이다.</div>
+          <ol class="sol-list">
+            <li><strong>ㄱ.</strong> \(2^8=256\le500\), \(2^9=512>500\)이므로 \(n(A_2)=8\). (참)</li>
+            <li><strong>ㄴ.</strong> \(\dfrac{p}{q}\)가 자연수이면 \(p\ge q\)이다. 이때 모든 양의 정수 \(k\)에 대하여 \(p^k\ge q^k\)이므로, \(p^k\le500\)이면 \(q^k\le500\)이다. 따라서 \(A_p\subseteq A_q\)이고 \(n(A_p)\le n(A_q)\). (참)</li>
+            <li><strong>ㄷ.</strong> \(n(A_m)=3 \iff m^3\le 500 < m^4\). \(7^3=343\le500\), \(8^3=512>500\)이므로 \(m\le7\). 또 \(5^4=625>500\)이므로 \(m\ge5\). 따라서 \(m=5,6,7\)이고 합은 \(18\). (참)</li>
+          </ol>
+          <div class="sol-text">따라서 옳은 것은 ㄱ, ㄴ, ㄷ이고 정답은 ⑤이다.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 저작권 표시 -->
+    <div style="position: absolute; right: var(--pad-x); bottom: 14mm; font-size: 9pt; color: #1a6dcc; font-family: var(--font-sans);">
+      본 문제의 저작권은 SN고요의숲 독학재수학원에 있습니다
+    </div>
+
+    <div class="footer-box" aria-label="page count box">
+      <span class="a">6</span>
+      <span class="b">20</span>
+    </div>
+  </main>
+
+  <script>
+    // CONFIG 반영 (JS로 텍스트 세팅)
+    const root = getComputedStyle(document.documentElement);
+
+    const examTitle = root.getPropertyValue('--exam-title').trim().replace(/^"|"$/g,'');
+    const subjectBig = root.getPropertyValue('--subject-big').trim().replace(/^"|"$/g,'');
+    const sessionPill = root.getPropertyValue('--session-pill').trim().replace(/^"|"$/g,'');
+    const variantPill = root.getPropertyValue('--variant-pill').trim().replace(/^"|"$/g,'');
+    const pageNo = root.getPropertyValue('--page-no').trim().replace(/^"|"$/g,'');
+    const pageTotal = root.getPropertyValue('--page-total').trim().replace(/^"|"$/g,'');
+
+    document.getElementById('examTitle').textContent = examTitle;
+    document.getElementById('subjectBig').textContent = subjectBig;
+    document.getElementById('sessionPill').textContent = sessionPill;
+    document.getElementById('variantPill').textContent = variantPill;
+
+    document.getElementById('pageNoTop').textContent = pageNo;
+    document.getElementById('pageNoBottom').textContent = pageNo;
+    document.getElementById('pageTotalBottom').textContent = pageTotal;
+
+    // 2페이지 헤더
+    document.getElementById('examTitle2').textContent = examTitle;
+    document.getElementById('subjectBig2').textContent = subjectBig;
+    document.getElementById('sessionPill2').textContent = sessionPill;
+    document.getElementById('variantPill2').textContent = variantPill;
+
+    // 3페이지 헤더
+    document.getElementById('examTitle3').textContent = examTitle;
+    document.getElementById('subjectBig3').textContent = subjectBig;
+    document.getElementById('sessionPill3').textContent = sessionPill;
+    document.getElementById('variantPill3').textContent = variantPill;
+
+    // KaTeX auto-render
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "\\[", right: "\\]", display: true},
+          {left: "$", right: "$", display: false},
+          {left: "\\(", right: "\\)", display: false},
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

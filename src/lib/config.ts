@@ -106,6 +106,80 @@ export const STARTUP_SUBCATEGORY_CONFIG = {
 
 export type StartupSubcategory = keyof typeof STARTUP_SUBCATEGORY_CONFIG;
 
+// Problem subject configuration
+export const PROBLEM_SUBJECT_CONFIG = {
+  korean: {
+    label: '국어',
+    emoji: '📖',
+    categories: ['korean-problem'] as string[],
+    subcategories: {
+      all: '전체',
+      reading: '독서',
+      literature: '문학',
+      'language-media': '언어와매체',
+      'speech-writing': '화법과작문',
+      'column-korean': '컬럼',
+    },
+  },
+  math: {
+    label: '수학',
+    emoji: '📐',
+    categories: ['problem-download'] as string[],
+    subcategories: {
+      all: '전체',
+      math1: '수학Ⅰ',
+      math2: '수학Ⅱ',
+      'probability-stats': '확률과통계',
+      calculus: '미분과적분',
+      geometry: '기하',
+      'column-math': '컬럼',
+    },
+  },
+  english: {
+    label: '영어',
+    emoji: '🔤',
+    categories: ['english-problem'] as string[],
+    subcategories: {
+      all: '전체',
+    },
+  },
+  social: {
+    label: '사회탐구',
+    emoji: '🌏',
+    categories: ['social-problem'] as string[],
+    subcategories: {
+      all: '전체',
+      'life-ethics': '생활과윤리',
+      'ethics-thought': '윤리와사상',
+      'korea-geo': '한국지리',
+      'world-geo': '세계지리',
+      'east-asia-history': '동아시아사',
+      'world-history': '세계사',
+      economics: '경제',
+      'politics-law': '정치와법',
+      'society-culture': '사회·문화',
+    },
+  },
+  science: {
+    label: '과학탐구',
+    emoji: '🔬',
+    categories: ['science-problem'] as string[],
+    subcategories: {
+      all: '전체',
+      physics1: '물리학Ⅰ',
+      physics2: '물리학Ⅱ',
+      chemistry1: '화학Ⅰ',
+      chemistry2: '화학Ⅱ',
+      'life-science1': '생명과학Ⅰ',
+      'life-science2': '생명과학Ⅱ',
+      'earth-science1': '지구과학Ⅰ',
+      'earth-science2': '지구과학Ⅱ',
+    },
+  },
+} as const;
+
+export type ProblemSubject = keyof typeof PROBLEM_SUBJECT_CONFIG;
+
 // Helper functions
 export function getCategoryRoute(category: string): string {
   return (
