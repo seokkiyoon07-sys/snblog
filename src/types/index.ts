@@ -6,6 +6,7 @@ export interface Post {
   badge?: string; // 배지 텍스트 (예: "3만뷰", "내신 필수")
   content: string;
   category: string;
+  subcategory?: string;
   tags?: string[];
   author: string;
   date: string;
@@ -17,6 +18,8 @@ export interface Post {
   youtubeUrl?: string;
   url: string;
   type?: 'special' | 'standard';
+  problemFileUrl?: string;
+  problemDataId?: string;
 }
 
 export interface PostCardProps {

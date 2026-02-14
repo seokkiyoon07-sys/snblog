@@ -5,6 +5,7 @@ import Script from 'next/script';
 import SuneungNotice from './SuneungNotice';
 import AdmissionGuide2026 from './posts/2026AdmissionGuide';
 import AcademicCalendar2026 from './posts/2026AcademicCalendar';
+import ProblemViewerModal from './ProblemViewerModal';
 import { BASE_URL, ORGANIZATION_INFO } from '@/lib/config';
 
 interface BlogLayoutProps {
@@ -13,21 +14,32 @@ interface BlogLayoutProps {
     title: string;
     content: string;
     type?: 'standard' | 'special';
+    problemFileUrl?: string;
+    problemDataId?: string;
+    thumbnail?: string;
   };
 }
 
 export default function BlogLayout({ post }: BlogLayoutProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [modalImage, setModalImage] = useState<string | null>(null);
+  const [showProblemModal, setShowProblemModal] = useState(false);
 
-  // 이미지 클릭 이벤트 핸들러
+  // 이미지 클릭 + 문제 바로보기 클릭 이벤트 핸들러
   useEffect(() => {
-    const handleImageClick = (e: MouseEvent) => {
+    const handleContentClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
-        (target.tagName === 'IMG' && target.closest('[ref="contentRef"]')) ||
-        (target.tagName === 'IMG' && contentRef.current?.contains(target))
-      ) {
+
+      // 문제 바로보기 버튼 (data-problem-viewer)
+      const problemBtn = target.closest('[data-problem-viewer]');
+      if (problemBtn) {
+        e.preventDefault();
+        setShowProblemModal(true);
+        return;
+      }
+
+      // 이미지 클릭
+      if (target.tagName === 'IMG' && contentRef.current?.contains(target)) {
         const imgSrc = (target as HTMLImageElement).src;
         setModalImage(imgSrc);
       }
@@ -35,12 +47,12 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
 
     const currentRef = contentRef.current;
     if (currentRef) {
-      currentRef.addEventListener('click', handleImageClick);
+      currentRef.addEventListener('click', handleContentClick);
     }
 
     return () => {
       if (currentRef) {
-        currentRef.removeEventListener('click', handleImageClick);
+        currentRef.removeEventListener('click', handleContentClick);
       }
     };
   }, [post.content]);
@@ -235,12 +247,31 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
             post.title
           )}
         </h1>
+        {post.thumbnail && (
+          <div className="not-prose mb-6">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={post.thumbnail}
+              alt={post.title}
+              className="w-full rounded-lg"
+            />
+          </div>
+        )}
         <div
           ref={contentRef}
           dangerouslySetInnerHTML={{ __html: post.content }}
           className="[&_img]:cursor-pointer [&_img]:transition-transform [&_img]:hover:scale-[1.02]"
         />
       </article>
+
+      {/* 문제 바로보기 모달 */}
+      {showProblemModal && post.problemFileUrl && (
+        <ProblemViewerModal
+          url={post.problemFileUrl}
+          problemDataId={post.problemDataId}
+          onClose={() => setShowProblemModal(false)}
+        />
+      )}
 
       {/* 이미지 모달 */}
       {modalImage && (

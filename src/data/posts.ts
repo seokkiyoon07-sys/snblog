@@ -6,7 +6,37 @@ export interface Post {
   excerpt: string;
   content: string;
   category: string;
-  subcategory?: 'update' | 'tech-blog'; // startup 카테고리 전용: 업데이트 노트 / 기술 블로그
+  subcategory?:
+    | 'update'
+    | 'tech-blog' // startup
+    | 'reading'
+    | 'literature'
+    | 'language-media'
+    | 'speech-writing'
+    | 'column-korean' // 국어
+    | 'math1'
+    | 'math2'
+    | 'probability-stats'
+    | 'calculus'
+    | 'geometry'
+    | 'column-math' // 수학
+    | 'life-ethics'
+    | 'ethics-thought'
+    | 'korea-geo'
+    | 'world-geo'
+    | 'east-asia-history'
+    | 'world-history'
+    | 'economics'
+    | 'politics-law'
+    | 'society-culture' // 사회탐구
+    | 'physics1'
+    | 'physics2'
+    | 'chemistry1'
+    | 'chemistry2'
+    | 'life-science1'
+    | 'life-science2'
+    | 'earth-science1'
+    | 'earth-science2'; // 과학탐구
   tags?: string[];
   author: string;
   date: string;
@@ -19,9 +49,122 @@ export interface Post {
   url: string;
   type?: 'standard' | 'special'; // 'standard'는 기본값, 'special'은 전용 컴포넌트 사용
   badge?: string; // 뱃지 텍스트 (예: "2026 수능출제 작품")
+  problemFileUrl?: string; // 문제 바로보기 HTML 파일 경로
+  problemDataId?: string; // 구조화된 문제 데이터 ID (문제별 보기 모드)
 }
 
 export const allPosts: Post[] = [
+  {
+    id: 'sntk-math1-level3-free',
+    title: '2027 수능특강 Level.3 변형문제, 오늘부터 무료 공개합니다',
+    excerpt:
+      '수능특강 지문을 기반으로 출제 가능한 고난도 유형으로 재구성한 Level.3 변형문제를 무료로 공개합니다. 단순 복습이 아닌, 실전 사고력 훈련을 위한 자료입니다.',
+    content: `<div>
+
+<p>안녕하세요. <strong>SN독학기숙학원</strong>입니다.</p>
+
+<p>오늘부터 <strong>2027 수능특강 Level.3 변형문제</strong>를 무료로 공개합니다.</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<p>수능특강은 수험생이라면 누구나 풀지만, 교재 그대로 한 번 풀고 끝내는 경우가 많습니다. 하지만 수능에서 실제로 변별력을 만드는 건, <strong>같은 지문을 다른 각도에서 볼 수 있는 힘</strong>입니다.</p>
+
+<p><strong>Level.3 변형문제</strong>는 수능특강 지문을 기반으로, 출제 가능한 고난도 유형으로 재구성한 문제입니다. 단순 복습이 아니라, 실전에서 요구되는 사고력을 훈련할 수 있도록 설계하려고 합니다.</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<div class="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 p-6 rounded-lg my-6">
+  <h3 class="font-bold text-gray-900 dark:text-white mb-3">이런 학생에게 추천합니다</h3>
+  <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+    <li>수능특강을 1회독 이상 완료한 학생</li>
+    <li>같은 지문에서 다양한 출제 각도를 연습하고 싶은 학생</li>
+    <li>고난도 변형 문제로 실전 감각을 키우고 싶은 학생</li>
+  </ul>
+</div>
+
+<h3 class="font-bold text-gray-900 dark:text-white mt-8 mb-4">수학1 목차</h3>
+<div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden my-4">
+  <table class="w-full text-sm">
+    <thead>
+      <tr class="bg-gray-100 dark:bg-gray-800">
+        <th class="px-4 py-2.5 text-left font-semibold text-gray-700 dark:text-gray-300 w-12">#</th>
+        <th class="px-4 py-2.5 text-left font-semibold text-gray-700 dark:text-gray-300">단원</th>
+        <th class="px-4 py-2.5 text-center font-semibold text-gray-700 dark:text-gray-300">문항 수</th>
+        <th class="px-4 py-2.5 text-center font-semibold text-gray-700 dark:text-gray-300 w-28">상태</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="border-t border-gray-200 dark:border-gray-700">
+        <td class="px-4 py-2.5 text-gray-500 dark:text-gray-400">1</td>
+        <td class="px-4 py-2.5">
+          <div class="font-medium text-gray-900 dark:text-white">지수와 로그</div>
+          <button data-problem-viewer="true" style="margin-top:6px;display:inline-flex;align-items:center;gap:4px;padding:4px 10px;font-size:12px;font-weight:600;color:#2563eb;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;cursor:pointer;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            문제 바로보기
+          </button>
+        </td>
+        <td class="px-4 py-2.5 text-center text-xs text-gray-600 dark:text-gray-300">Level.3 3문제<br/>창작/변형 6문제</td>
+        <td class="px-4 py-2.5 text-center"><span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300">2/14 업로드</span></td>
+      </tr>
+      <tr class="border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+        <td class="px-4 py-2.5 text-gray-500 dark:text-gray-400">2</td>
+        <td class="px-4 py-2.5 font-medium text-gray-900 dark:text-white">지수함수와 로그함수</td>
+        <td class="px-4 py-2.5 text-center text-xs text-gray-400 dark:text-gray-500">-</td>
+        <td class="px-4 py-2.5 text-center"><span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400">준비 중</span></td>
+      </tr>
+      <tr class="border-t border-gray-200 dark:border-gray-700">
+        <td class="px-4 py-2.5 text-gray-500 dark:text-gray-400">3</td>
+        <td class="px-4 py-2.5 font-medium text-gray-900 dark:text-white">삼각함수</td>
+        <td class="px-4 py-2.5 text-center text-xs text-gray-400 dark:text-gray-500">-</td>
+        <td class="px-4 py-2.5 text-center"><span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400">준비 중</span></td>
+      </tr>
+      <tr class="border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+        <td class="px-4 py-2.5 text-gray-500 dark:text-gray-400">4</td>
+        <td class="px-4 py-2.5 font-medium text-gray-900 dark:text-white">사인법칙과 코사인법칙</td>
+        <td class="px-4 py-2.5 text-center text-xs text-gray-400 dark:text-gray-500">-</td>
+        <td class="px-4 py-2.5 text-center"><span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400">준비 중</span></td>
+      </tr>
+      <tr class="border-t border-gray-200 dark:border-gray-700">
+        <td class="px-4 py-2.5 text-gray-500 dark:text-gray-400">5</td>
+        <td class="px-4 py-2.5 font-medium text-gray-900 dark:text-white">등차수열과 등비수열</td>
+        <td class="px-4 py-2.5 text-center text-xs text-gray-400 dark:text-gray-500">-</td>
+        <td class="px-4 py-2.5 text-center"><span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400">준비 중</span></td>
+      </tr>
+      <tr class="border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+        <td class="px-4 py-2.5 text-gray-500 dark:text-gray-400">6</td>
+        <td class="px-4 py-2.5 font-medium text-gray-900 dark:text-white">수열의 합과 수학적귀납법</td>
+        <td class="px-4 py-2.5 text-center text-xs text-gray-400 dark:text-gray-500">-</td>
+        <td class="px-4 py-2.5 text-center"><span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400">준비 중</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>자료는 순차적으로 업로드할 예정입니다.</p>
+
+<p>감사합니다.</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<p style="text-align:center; color:#9b9a97; font-size:13px;">
+  <strong style="color:#37352f;">SN독학기숙학원</strong>
+</p>
+
+</div>`,
+    category: 'problem-download',
+    subcategory: 'math1',
+    tags: ['수능특강', '수학', '수학1', '변형문제', 'Level3', '2027', '무료'],
+    author: 'SN독학기숙학원',
+    date: '2026-02-14',
+    readTime: '3',
+    featured: true,
+    featuredOrder: 1,
+    published: true,
+    thumbnail: '/images/thumbnail/thumbnail_SNTK_log.png',
+    url: '/problem-download/sntk-math1-level3-free',
+    problemFileUrl: '/problems/sntk-math1-level3.html',
+    problemDataId: 'sntk-math1-level3',
+  },
   {
     id: 'snargpt-korean-rag-16000',
     title: '[업뎃] SNarGPT 국어 RAG 16,000 문항 업데이트 공지',
@@ -137,7 +280,16 @@ SN독학기숙학원은 기술 도입 자체가 아닌, 해당 기술이 학생 
 `,
     category: 'startup',
     subcategory: 'update',
-    tags: ['AI', 'SNarGPT', 'RAG', '국어', '기출', '업데이트', 'SN독학기숙학원', 'SN고요의숲'],
+    tags: [
+      'AI',
+      'SNarGPT',
+      'RAG',
+      '국어',
+      '기출',
+      '업데이트',
+      'SN독학기숙학원',
+      'SN고요의숲',
+    ],
     author: 'SN Academy',
     date: '2026-02-07',
     readTime: '3',
@@ -664,7 +816,19 @@ SN독학기숙학원은 기술 도입 자체가 아닌, 해당 기술이 학생 
 </div>`,
     thumbnail: '/images/thumbnail/AI_korean_Generation_sample.png',
     category: 'korean-problem',
-    tags: ['국어', '독서', 'AI출제', 'SNarGEN', '평가원형', '수능', 'SN독학기숙학원', 'SN고요의숲', 'SN고요의숲 독학재수', '독학재수학원'],
+    subcategory: 'column-korean',
+    tags: [
+      '국어',
+      '독서',
+      'AI출제',
+      'SNarGEN',
+      '평가원형',
+      '수능',
+      'SN독학기숙학원',
+      'SN고요의숲',
+      'SN고요의숲 독학재수',
+      '독학재수학원',
+    ],
     author: 'SN독학기숙학원',
     date: '2026-02-07',
     readTime: '8',
@@ -942,7 +1106,8 @@ SNarGPT와 학습 데이터는 관리와 코칭의 근거로 사용되며, 학�
   },
   {
     id: 'boarding-school-price-map-2026',
-    title: '[SN Data Lab] 전국 기숙학원 가격 지도: 개발자가 답답해서 직접만들었어요.',
+    title:
+      '[SN Data Lab] 전국 기숙학원 가격 지도: 개발자가 답답해서 직접만들었어요.',
     excerpt:
       '전국 기숙학원의 가격을 한눈에 비교해보세요. 지도를 클릭하면 각 학원의 상세 정보와 가격을 확인할 수 있습니다.',
     content: `<div style="text-align: right; font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">📅 26.01.30 업데이트 완료</div>
@@ -1232,7 +1397,16 @@ SNarGPT는 단순한 AI 챗봇이 아닙니다. <mark style="background: linear-
 `,
     category: 'startup',
     subcategory: 'tech-blog',
-    tags: ['AI', 'SNarGPT', '에이전트AI', 'RAG', 'MCP', '에듀테크', '수능', '인공지능'],
+    tags: [
+      'AI',
+      'SNarGPT',
+      '에이전트AI',
+      'RAG',
+      'MCP',
+      '에듀테크',
+      '수능',
+      '인공지능',
+    ],
     author: 'SN Academy',
     date: '2026-01-27',
     readTime: '10',
@@ -1366,7 +1540,8 @@ SN독학기숙학원 대표 윤석기
   },
   {
     id: 'why-sn-knows-ai-best',
-    title: '우리는 교육 AI를 가장 잘 알고, 가장 잘 활용하는 에듀테크 기업입니다',
+    title:
+      '우리는 교육 AI를 가장 잘 알고, 가장 잘 활용하는 에듀테크 기업입니다',
     excerpt:
       '수능이라는 이유로 AI를 전혀 쓰지 않는 선택이 오히려 더 위험해지는 시대. AI를 쓰느냐 마느냐가 아니라, 어떻게 쓰느냐의 문제입니다.',
     content: `## AI 때문에 수능 공부가 망하는 게 아닙니다
@@ -1597,7 +1772,15 @@ SNarGPT 채팅창에 \`나 어제 얼마나 공부했어?\` 혹은 **"어제 학
 `,
     category: 'startup',
     subcategory: 'update',
-    tags: ['AI', 'SNarGPT', 'SNarLink', '순공시간', '업데이트', '학원공지', '학습분석'],
+    tags: [
+      'AI',
+      'SNarGPT',
+      'SNarLink',
+      '순공시간',
+      '업데이트',
+      '학원공지',
+      '학습분석',
+    ],
     author: 'SN Academy',
     date: '2026-01-21',
     readTime: '2',
@@ -2198,13 +2381,7 @@ This song is celebrated for depicting the **active nature of Goryeo women** in l
 </div>
 `,
     category: 'SN Originals',
-    tags: [
-      '서경별곡',
-      '고려가요',
-      '고전문학',
-      '이별의정한',
-      '수능국어',
-    ],
+    tags: ['서경별곡', '고려가요', '고전문학', '이별의정한', '수능국어'],
     author: 'SN Academy',
     date: '2025-12-17',
     readTime: '5',
@@ -2217,7 +2394,8 @@ This song is celebrated for depicting the **active nature of Goryeo women** in l
   },
   {
     id: 'gyuwonga',
-    title: '[고전문학「규원가」해설] 허난설헌 같은 육각형 여자를 등한시하다니 남편이 잘못했네',
+    title:
+      '[고전문학「규원가」해설] 허난설헌 같은 육각형 여자를 등한시하다니 남편이 잘못했네',
     excerpt:
       '허난설헌이 지은 것으로 전해지는 가사 「규원가」. 봉건 제도의 굴레 속에서 남편에게 버림받은 여인의 절절한 슬픔과 원망을 기승전결 구조로 그려낸 작품입니다.',
     content: `안녕하세요 SN독학기숙학원입니다😊
@@ -2627,13 +2805,7 @@ The poem follows a **gi-seung-jeon-gyeol** (기승전결) structure:
 </div>
 `,
     category: 'SN Originals',
-    tags: [
-      '규원가',
-      '허난설헌',
-      '고전문학',
-      '가사문학',
-      '수능국어',
-    ],
+    tags: ['규원가', '허난설헌', '고전문학', '가사문학', '수능국어'],
     author: 'SN Academy',
     date: '2026-01-20',
     readTime: '7',
@@ -2915,13 +3087,7 @@ Yun Seondo was one of the greatest Korean poets, particularly renowned for his n
 </div>
 `,
     category: 'SN Originals',
-    tags: [
-      '만흥',
-      '윤선도',
-      '시조',
-      '고전문학',
-      '수능국어',
-    ],
+    tags: ['만흥', '윤선도', '시조', '고전문학', '수능국어'],
     author: 'SN Academy',
     date: '2026-01-20',
     readTime: '5',
@@ -2934,7 +3100,8 @@ Yun Seondo was one of the greatest Korean poets, particularly renowned for his n
   },
   {
     id: 'sipnyeon-gyeongyeong',
-    title: '[수능 고전문학 「십년을 경영하여」 해석] 조선시대 내 집 마련 소요시간 : 10년',
+    title:
+      '[수능 고전문학 「십년을 경영하여」 해석] 조선시대 내 집 마련 소요시간 : 10년',
     excerpt:
       '송순의 시조 「십년을 경영하여」 - 10년간 준비한 작은 초가집에 달과 청풍을 벗삼아 사는 자연 친화적 삶의 자부심을 노래한 작품입니다.',
     content: `<div class="my-6">
@@ -3052,7 +3219,8 @@ Yun Seondo was one of the greatest Korean poets, particularly renowned for his n
   },
   {
     id: 'eobusasisa',
-    title: '[고전문학「어부사시사」해설] 어촌의 흥취를 제일 잘 이해하고 있는 사대부',
+    title:
+      '[고전문학「어부사시사」해설] 어촌의 흥취를 제일 잘 이해하고 있는 사대부',
     excerpt:
       '윤선도의 「어부사시사」 - 사계절 어촌의 풍경과 강호한정을 노래한 연시조. 물아일체, 흥, 연군지정의 주제를 담은 조선 시조 문학의 정수.',
     content: `<div class="my-6">
@@ -4603,13 +4771,7 @@ The poem's ability to resonate across centuries—from Goryeo peasants to modern
 </details>
 `,
     category: 'SN Originals',
-    tags: [
-      '청산별곡',
-      '고려가요',
-      '고전문학',
-      '수능국어',
-      '내신대비',
-    ],
+    tags: ['청산별곡', '고려가요', '고전문학', '수능국어', '내신대비'],
     author: 'SN Academy',
     date: '2025-12-12',
     readTime: '5',
@@ -8239,6 +8401,7 @@ SNarGPT가 각 수능 문제를 실제로 풀면서 사용된 <strong>핵심 개
 </div>
 `,
     category: 'problem-download',
+    subcategory: 'column-math',
     tags: ['수능', '기출', '유사문제', 'AI', '수학', '2026'],
     author: 'SN독학기숙학원',
     date: '2025-11-14',
@@ -8852,7 +9015,8 @@ For modern students, "Biga" offers not just literary study but a window into a p
   {
     id: '2026-academic-calendar',
     title: '2027학년도 SN독학기숙학원 학사일정',
-    excerpt: '2026년도 주요 학사일정 및 모의고사 일정을 확인하세요. 교육청 모의고사, 평가원 모의고사, 수능 일정 등을 한눈에 볼 수 있습니다.',
+    excerpt:
+      '2026년도 주요 학사일정 및 모의고사 일정을 확인하세요. 교육청 모의고사, 평가원 모의고사, 수능 일정 등을 한눈에 볼 수 있습니다.',
     content: 'special-component',
     category: 'notice',
     tags: ['학사일정', '모의고사', '수능', '2026'],
@@ -9292,6 +9456,7 @@ SN독학기숙학원은 여러분의 꿈을 응원합니다.
 </div>
 `,
     category: 'problem-download',
+    subcategory: 'column-math',
     tags: ['수능', 'SNarGPT', 'AI', '해설', '수학'],
     author: 'SN독학기숙학원',
     date: '2025-11-13',
@@ -12935,12 +13100,28 @@ AI가 보여준 학습의 원리처럼, 우리도 설계가 아니라 노출량,
   },
   {
     id: 'classic-literature-marathon-2',
-    title: '기말고사 대비 고전문학 공부하는 고1·고2 친구들을 위해 만든 영상 (SN 고전문학 몰아보기 2탄)',
-    excerpt: '보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈. 고등학교 1~2학년 내신 시험 준비를 위한 8개 작품 몰아보기 영상입니다.',
+    title:
+      '기말고사 대비 고전문학 공부하는 고1·고2 친구들을 위해 만든 영상 (SN 고전문학 몰아보기 2탄)',
+    excerpt:
+      '보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈. 고등학교 1~2학년 내신 시험 준비를 위한 8개 작품 몰아보기 영상입니다.',
     badge: '내신 필수',
     content: 'special-component',
     category: 'SN Originals',
-    tags: ['고전문학', '내신대비', '기말고사', '고1', '고2', '제망매가', '찬기파랑가', '가시리', '매화사', '강호사시가', '도산십이곡', '상춘곡', '면앙정가'],
+    tags: [
+      '고전문학',
+      '내신대비',
+      '기말고사',
+      '고1',
+      '고2',
+      '제망매가',
+      '찬기파랑가',
+      '가시리',
+      '매화사',
+      '강호사시가',
+      '도산십이곡',
+      '상춘곡',
+      '면앙정가',
+    ],
     author: 'SN독학기숙학원',
     date: '2025-12-12',
     readTime: '24',

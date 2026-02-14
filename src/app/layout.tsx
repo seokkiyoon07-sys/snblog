@@ -26,11 +26,12 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.snacademy.co.kr'
   ),
   title: {
-    default: 'SN독학기숙학원 공식 블로그 | 독학기숙학원·독학재수기숙학원·윈터스쿨 정보',
+    default:
+      'SN독학기숙학원 공식 블로그 | 독학기숙학원·독학재수기숙학원·윈터스쿨 정보',
     template: '%s | SN독학기숙학원 블로그',
   },
   description:
-    '독학기숙학원·재수기숙학원·반수기숙학원·윈터스쿨 선택 시 가장 중요한 기준은 \'관리 시스템\'을 갖춘 SN독학기숙학원은 하루 14시간 학습 루틴, AI 전략관리, 학습 데이터 분석을 통해 재수·반수·N수생에게 가장 빠른 성적상승을 제공하는 국내 대표 독학기숙학원 프로그램',
+    "독학기숙학원·재수기숙학원·반수기숙학원·윈터스쿨 선택 시 가장 중요한 기준은 '관리 시스템'을 갖춘 SN독학기숙학원은 하루 14시간 학습 루틴, AI 전략관리, 학습 데이터 분석을 통해 재수·반수·N수생에게 가장 빠른 성적상승을 제공하는 국내 대표 독학기숙학원 프로그램",
   keywords: SITE_KEYWORDS,
   authors: [{ name: 'SN독학기숙학원' }],
   creator: 'SN독학기숙학원',
@@ -40,9 +41,10 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     url: 'https://blog.snacademy.co.kr/',
     siteName: 'SN독학기숙학원 공식 블로그',
-    title: 'SN독학기숙학원 공식 블로그 | 독학기숙학원·독학재수기숙학원·윈터스쿨 정보',
+    title:
+      'SN독학기숙학원 공식 블로그 | 독학기숙학원·독학재수기숙학원·윈터스쿨 정보',
     description:
-      '독학기숙학원·재수기숙학원·반수기숙학원·윈터스쿨 선택 시 가장 중요한 기준은 \'관리 시스템\'을 갖춘 SN독학기숙학원은 하루 14시간 학습 루틴, AI 전략관리, 학습 데이터 분석을 통해 재수·반수·N수생에게 가장 빠른 성적상승을 제공하는 국내 대표 독학기숙학원 프로그램',
+      "독학기숙학원·재수기숙학원·반수기숙학원·윈터스쿨 선택 시 가장 중요한 기준은 '관리 시스템'을 갖춘 SN독학기숙학원은 하루 14시간 학습 루틴, AI 전략관리, 학습 데이터 분석을 통해 재수·반수·N수생에게 가장 빠른 성적상승을 제공하는 국내 대표 독학기숙학원 프로그램",
     images: [
       {
         url: 'https://blog.snacademy.co.kr/assets/img/snacademy-og.jpg',
@@ -54,8 +56,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SN독학기숙학원 공식 블로그 | 독학기숙학원·독학재수기숙학원·윈터스쿨 정보',
-    description: '독학기숙학원·재수기숙학원·반수기숙학원·윈터스쿨 선택 시 가장 중요한 기준은 \'관리 시스템\'을 갖춘 SN독학기숙학원',
+    title:
+      'SN독학기숙학원 공식 블로그 | 독학기숙학원·독학재수기숙학원·윈터스쿨 정보',
+    description:
+      "독학기숙학원·재수기숙학원·반수기숙학원·윈터스쿨 선택 시 가장 중요한 기준은 '관리 시스템'을 갖춘 SN독학기숙학원",
     images: ['https://blog.snacademy.co.kr/assets/img/snacademy-og.jpg'],
   },
   alternates: {
@@ -73,22 +77,55 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    'naverbot': 'index,follow',
-    'yeti': 'index,follow',
-    'bingbot': 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
-    'daumoa': 'index,follow',
-    'classification': 'AI스타트업, 독학기숙학원, 독학재수기숙학원, 컬럼, 문제 다운로드, SN Originals, 재수기숙학원, 대입학원, 대입종합학원, 윈터스쿨, 반수기숙학원, 입시정보 블로그',
+    naverbot: 'index,follow',
+    yeti: 'index,follow',
+    bingbot:
+      'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
+    daumoa: 'index,follow',
+    classification:
+      'AI스타트업, 독학기숙학원, 독학재수기숙학원, 컬럼, 문제 다운로드, SN Originals, 재수기숙학원, 대입학원, 대입종합학원, 윈터스쿨, 반수기숙학원, 입시정보 블로그',
     'article:tag': [
-      '독학기숙학원', 'SN독학기숙학원', '독학기숙학원 추천', '독학기숙학원 후기', '독학기숙',
-      '독학재수기숙학원', '독학재수기숙학원 추천', '독학재수기숙학원 후기',
-      '재수 독학기숙학원', '삼수 독학기숙학원', '반수 기숙학원', '반수독학기숙학원',
-      'SN기숙학원', 'SN독학', 'SN독학기숙', '재수학원', '재수독학학원',
-      '독학반수', '학고반수', '대입학원', '대입종합학원', '대입종합반',
-      '재수종합학원', '재수종합반', '재수준비', '재수생 생활',
-      '겨울방학 독학기숙학원', '대학입시 기숙학원', '윈터스쿨 기숙학원', '기숙학원 윈터스쿨',
-      '독학기숙학원 시간표', '독학기숙학원 비용', '독학기숙학원 가격', '독학기숙학원 순위',
-      '독학기숙학원 1인실', '독학기숙학원 2인실', '의대 독학기숙학원', '약대 독학기숙학원',
-      '수능 AI', '도메인 LLM', 'AI 문제 생성',
+      '독학기숙학원',
+      'SN독학기숙학원',
+      '독학기숙학원 추천',
+      '독학기숙학원 후기',
+      '독학기숙',
+      '독학재수기숙학원',
+      '독학재수기숙학원 추천',
+      '독학재수기숙학원 후기',
+      '재수 독학기숙학원',
+      '삼수 독학기숙학원',
+      '반수 기숙학원',
+      '반수독학기숙학원',
+      'SN기숙학원',
+      'SN독학',
+      'SN독학기숙',
+      '재수학원',
+      '재수독학학원',
+      '독학반수',
+      '학고반수',
+      '대입학원',
+      '대입종합학원',
+      '대입종합반',
+      '재수종합학원',
+      '재수종합반',
+      '재수준비',
+      '재수생 생활',
+      '겨울방학 독학기숙학원',
+      '대학입시 기숙학원',
+      '윈터스쿨 기숙학원',
+      '기숙학원 윈터스쿨',
+      '독학기숙학원 시간표',
+      '독학기숙학원 비용',
+      '독학기숙학원 가격',
+      '독학기숙학원 순위',
+      '독학기숙학원 1인실',
+      '독학기숙학원 2인실',
+      '의대 독학기숙학원',
+      '약대 독학기숙학원',
+      '수능 AI',
+      '도메인 LLM',
+      'AI 문제 생성',
     ].join(','),
     'msapplication-TileColor': '#ffffff',
     'msapplication-TileImage': '/mstile-144x144.png',
@@ -151,6 +188,7 @@ export default function RootLayout({
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
+            title="Google Tag Manager"
           ></iframe>
         </noscript>
         {/* Naver Analytics */}
