@@ -12,6 +12,9 @@ const KATEX_JS = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js';
 const KATEX_AUTO_RENDER =
   'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js';
 
+// KaTeX 로드 상태 (컴포넌트 간 공유)
+let katexReady = false;
+
 interface IndividualProblemViewProps {
   problemDataId: string;
 }
@@ -30,6 +33,7 @@ export default function IndividualProblemView({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeVariant, setActiveVariant] =
     useState<ProblemVariant>('original');
+  const [katexLoaded, setKatexLoaded] = useState(katexReady);
 
   useEffect(() => {
     setLoading(true);
@@ -92,10 +96,19 @@ export default function IndividualProblemView({
 
   return (
     <div className="h-full flex flex-col bg-white dark:bg-gray-800">
-      {/* KaTeX CDN (문제별 보기에서 수식 렌더링) */}
+      {/* KaTeX CDN — katex.min.js 로드 완료 후 auto-render 로드 */}
       <link rel="stylesheet" href={KATEX_CSS} crossOrigin="anonymous" />
-      <Script src={KATEX_JS} strategy="afterInteractive" />
-      <Script src={KATEX_AUTO_RENDER} strategy="afterInteractive" />
+      <Script
+        src={KATEX_JS}
+        strategy="afterInteractive"
+        onReady={() => {
+          katexReady = true;
+          setKatexLoaded(true);
+        }}
+      />
+      {katexLoaded && (
+        <Script src={KATEX_AUTO_RENDER} strategy="afterInteractive" />
+      )}
 
       {/* 네비게이션 바 */}
       <div className="flex items-center justify-between px-4 py-2.5 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
