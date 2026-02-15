@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import 'katex/dist/katex.min.css';
+import renderMathInElement from 'katex/contrib/auto-render';
 import type { Problem } from '@/types/problems';
 
 interface ProblemCardProps {
@@ -20,33 +22,16 @@ export default function ProblemCard({ problem, label }: ProblemCardProps) {
   }, [problem]);
 
   useEffect(() => {
-    const isKatexReady = () =>
-      (window as any).katex && (window as any).renderMathInElement;
-
-    const render = () => {
-      if (cardRef.current && isKatexReady()) {
-        (window as any).renderMathInElement(cardRef.current, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '\\[', right: '\\]', display: true },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '$', right: '$', display: false },
-          ],
-          throwOnError: false,
-        });
-      }
-    };
-
-    if (isKatexReady()) {
-      render();
-    } else {
-      const check = setInterval(() => {
-        if (isKatexReady()) {
-          clearInterval(check);
-          render();
-        }
-      }, 100);
-      return () => clearInterval(check);
+    if (cardRef.current) {
+      renderMathInElement(cardRef.current, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '\\[', right: '\\]', display: true },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '$', right: '$', display: false },
+        ],
+        throwOnError: false,
+      });
     }
   }, [problem, showSolution, selectedChoice]);
 

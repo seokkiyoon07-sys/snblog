@@ -24,6 +24,9 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [modalImage, setModalImage] = useState<string | null>(null);
   const [showProblemModal, setShowProblemModal] = useState(false);
+  const [katexLoaded, setKatexLoaded] = useState(
+    () => typeof window !== 'undefined' && !!(window as any).katex
+  );
 
   // 이미지 클릭 + 문제 바로보기 클릭 이벤트 핸들러
   useEffect(() => {
@@ -223,11 +226,14 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
       <Script
         src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
         strategy="afterInteractive"
+        onReady={() => setKatexLoaded(true)}
       />
-      <Script
-        src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
-        strategy="afterInteractive"
-      />
+      {katexLoaded && (
+        <Script
+          src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          strategy="afterInteractive"
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
