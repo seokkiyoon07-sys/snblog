@@ -185,6 +185,23 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
     }
   }
 
+  const shouldRenderThumbnail = (() => {
+    if (!post.thumbnail) {
+      return false;
+    }
+
+    const thumbnailCandidates = [
+      post.thumbnail,
+      `https://blog.snacademy.co.kr${post.thumbnail}`,
+    ];
+
+    return !thumbnailCandidates.some(
+      src =>
+        post.content.includes(`src="${src}"`) ||
+        post.content.includes(`src='${src}'`)
+    );
+  })();
+
   // Article Schema JSON-LD 생성
   const generateArticleSchema = () => {
     const schema = {
@@ -253,7 +270,7 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
             post.title
           )}
         </h1>
-        {post.thumbnail && (
+        {shouldRenderThumbnail && (
           <div className="not-prose mb-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
