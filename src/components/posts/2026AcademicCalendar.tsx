@@ -26,7 +26,11 @@ export default function AcademicCalendar2026() {
   }, []);
 
   useEffect(() => {
-    if (selectedYear === currentYear && todayRef.current && tableContainerRef.current) {
+    if (
+      selectedYear === currentYear &&
+      todayRef.current &&
+      tableContainerRef.current
+    ) {
       const container = tableContainerRef.current;
       const cell = todayRef.current;
       const row = cell.parentElement;
@@ -41,17 +45,40 @@ export default function AcademicCalendar2026() {
     }
   }, [selectedYear, currentYear]);
 
-  const months = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+  const months = [
+    '1월',
+    '2월',
+    '3월',
+    '4월',
+    '5월',
+    '6월',
+    '7월',
+    '8월',
+    '9월',
+    '10월',
+    '11월',
+    '12월',
+  ];
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
 
   const isLeapYear = (year: number): boolean => {
-    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
   };
 
   const getDaysInMonth = (year: number): { [key: number]: number } => {
     return {
-      1: 31, 2: isLeapYear(year) ? 29 : 28, 3: 31, 4: 30, 5: 31, 6: 30,
-      7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
+      1: 31,
+      2: isLeapYear(year) ? 29 : 28,
+      3: 31,
+      4: 30,
+      5: 31,
+      6: 30,
+      7: 31,
+      8: 31,
+      9: 30,
+      10: 31,
+      11: 30,
+      12: 31,
     };
   };
 
@@ -63,72 +90,179 @@ export default function AcademicCalendar2026() {
   };
 
   const holidaysByYear: { [key: number]: string[] } = {
-    2025: ['1-1', '1-28', '1-29', '1-30', '3-1', '5-5', '6-6', '8-15', '10-3', '10-5', '10-6', '10-7', '10-9', '12-25'],
-    2026: ['1-1', '2-16', '2-17', '2-18', '3-1', '5-5', '5-24', '6-6', '8-15', '9-24', '9-25', '9-26', '10-3', '10-9', '12-25'],
-    2027: ['1-1', '2-6', '2-7', '2-8', '3-1', '5-5', '5-13', '6-6', '8-15', '9-14', '9-15', '9-16', '10-3', '10-9', '12-25'],
+    2025: [
+      '1-1',
+      '1-28',
+      '1-29',
+      '1-30',
+      '3-1',
+      '5-5',
+      '6-6',
+      '8-15',
+      '10-3',
+      '10-5',
+      '10-6',
+      '10-7',
+      '10-9',
+      '12-25',
+    ],
+    2026: [
+      '1-1',
+      '2-16',
+      '2-17',
+      '2-18',
+      '3-1',
+      '5-5',
+      '5-24',
+      '6-6',
+      '8-15',
+      '9-24',
+      '9-25',
+      '9-26',
+      '10-3',
+      '10-9',
+      '12-25',
+    ],
+    2027: [
+      '1-1',
+      '2-6',
+      '2-7',
+      '2-8',
+      '3-1',
+      '5-5',
+      '5-13',
+      '6-6',
+      '8-15',
+      '9-14',
+      '9-15',
+      '9-16',
+      '10-3',
+      '10-9',
+      '12-25',
+    ],
   };
 
   const holidays = holidaysByYear[selectedYear] || [];
-  const isHoliday = (month: number, day: number): boolean => holidays.includes(`${month}-${day}`);
+  const isHoliday = (month: number, day: number): boolean =>
+    holidays.includes(`${month}-${day}`);
 
-  const eventsByYear: { [key: number]: { [key: string]: { text: string; type: 'holiday' | 'exam' | 'kice' | 'csat' | 'csatResult' | 'examday' | 'vacation' | 'daeuf' | 'admission' | 'surf' } } } = {
+  const eventsByYear: {
+    [key: number]: {
+      [key: string]: {
+        text: string;
+        type:
+          | 'holiday'
+          | 'exam'
+          | 'kice'
+          | 'csat'
+          | 'csatResult'
+          | 'examday'
+          | 'vacation'
+          | 'daeuf'
+          | 'admission'
+          | 'surf';
+      };
+    };
+  } = {
     2025: {
-      '1-1': { text: '신정', type: 'holiday' }, '1-29': { text: '설날', type: 'holiday' },
-      '3-1': { text: '삼일절', type: 'holiday' }, '3-27': { text: '교육청', type: 'exam' },
+      '1-1': { text: '신정', type: 'holiday' },
+      '1-29': { text: '설날', type: 'holiday' },
+      '3-1': { text: '삼일절', type: 'holiday' },
+      '3-27': { text: '교육청', type: 'exam' },
       '3-28': { text: '시행', type: 'examday' },
-      '5-5': { text: '어린이날', type: 'holiday' }, '5-8': { text: '교육청', type: 'exam' },
+      '5-5': { text: '어린이날', type: 'holiday' },
+      '5-8': { text: '교육청', type: 'exam' },
       '5-9': { text: '시행', type: 'examday' },
-      '6-4': { text: '평가원', type: 'kice' }, '6-6': { text: '현충일', type: 'holiday' },
-      '7-10': { text: '교육청', type: 'exam' }, '7-11': { text: '시행', type: 'examday' },
+      '6-4': { text: '평가원', type: 'kice' },
+      '6-6': { text: '현충일', type: 'holiday' },
+      '7-10': { text: '교육청', type: 'exam' },
+      '7-11': { text: '시행', type: 'examday' },
       '8-15': { text: '광복절', type: 'holiday' },
-      '9-3': { text: '평가원', type: 'kice' }, '10-3': { text: '개천절', type: 'holiday' },
-      '10-6': { text: '추석', type: 'holiday' }, '10-9': { text: '한글날', type: 'holiday' },
-      '10-16': { text: '교육청', type: 'exam' }, '10-17': { text: '시행', type: 'examday' },
+      '9-3': { text: '평가원', type: 'kice' },
+      '10-3': { text: '개천절', type: 'holiday' },
+      '10-6': { text: '추석', type: 'holiday' },
+      '10-9': { text: '한글날', type: 'holiday' },
+      '10-16': { text: '교육청', type: 'exam' },
+      '10-17': { text: '시행', type: 'examday' },
       '11-13': { text: '수능', type: 'csat' },
       '12-25': { text: '크리스마스', type: 'holiday' },
     },
     2026: {
       '1-1': { text: '신정', type: 'holiday' },
       '1-26': { text: '서프', type: 'surf' },
-      '2-15': { text: '선택휴가', type: 'vacation' }, '2-16': { text: '', type: 'vacation' },
-      '2-17': { text: '설날', type: 'vacation' }, '2-18': { text: '', type: 'vacation' },
-      '3-1': { text: '삼일절', type: 'holiday' }, '3-2': { text: '서프', type: 'surf' }, '3-17': { text: '더프', type: 'daeuf' },
-      '3-24': { text: '교육청', type: 'exam' }, '3-25': { text: '시행', type: 'examday' },
-      '3-26': { text: '선택휴가', type: 'vacation' }, '3-27': { text: '', type: 'vacation' },
-      '3-28': { text: '', type: 'vacation' }, '3-29': { text: '', type: 'vacation' },
+      '2-15': { text: '선택휴가', type: 'vacation' },
+      '2-16': { text: '', type: 'vacation' },
+      '2-17': { text: '설날', type: 'vacation' },
+      '2-18': { text: '', type: 'vacation' },
+      '3-1': { text: '삼일절', type: 'holiday' },
+      '3-16': { text: '서프', type: 'surf' },
+      '3-17': { text: '더프', type: 'daeuf' },
+      '3-24': { text: '교육청', type: 'exam' },
+      '3-25': { text: '시행', type: 'examday' },
+      '3-26': { text: '선택휴가', type: 'vacation' },
+      '3-27': { text: '', type: 'vacation' },
+      '3-28': { text: '', type: 'vacation' },
+      '3-29': { text: '', type: 'vacation' },
       '4-17': { text: '더프', type: 'daeuf' },
-      '4-18': { text: '의무휴가', type: 'vacation' }, '4-19': { text: '', type: 'vacation' },
-      '4-20': { text: '', type: 'vacation' }, '4-21': { text: '', type: 'vacation' }, '4-22': { text: '', type: 'vacation' },
+      '4-18': { text: '의무휴가', type: 'vacation' },
+      '4-19': { text: '', type: 'vacation' },
+      '4-20': { text: '', type: 'vacation' },
+      '4-21': { text: '', type: 'vacation' },
+      '4-22': { text: '', type: 'vacation' },
       '4-26': { text: '서프', type: 'surf' },
-      '5-5': { text: '어린이날', type: 'holiday' }, '5-7': { text: '교육청', type: 'exam' },
+      '5-5': { text: '어린이날', type: 'holiday' },
+      '5-7': { text: '교육청', type: 'exam' },
       '5-8': { text: '시행', type: 'examday' },
-      '5-14': { text: '선택휴가', type: 'vacation' }, '5-15': { text: '', type: 'vacation' },
-      '5-16': { text: '', type: 'vacation' }, '5-17': { text: '', type: 'vacation' },
+      '5-14': { text: '선택휴가', type: 'vacation' },
+      '5-15': { text: '', type: 'vacation' },
+      '5-16': { text: '', type: 'vacation' },
+      '5-17': { text: '', type: 'vacation' },
       '5-20': { text: '더프', type: 'daeuf' },
-      '5-24': { text: '석가탄신', type: 'holiday' }, '6-4': { text: '평가원', type: 'kice' },
-      '6-5': { text: '선택휴가', type: 'vacation' }, '6-6': { text: '현충일', type: 'vacation' },
-      '6-7': { text: '', type: 'vacation' }, '6-8': { text: '', type: 'vacation' },
+      '5-24': { text: '석가탄신', type: 'holiday' },
+      '5-25': { text: '서프', type: 'surf' },
+      '6-4': { text: '평가원', type: 'kice' },
+      '6-5': { text: '선택휴가', type: 'vacation' },
+      '6-6': { text: '현충일', type: 'vacation' },
+      '6-7': { text: '', type: 'vacation' },
+      '6-8': { text: '', type: 'vacation' },
       '6-28': { text: '서프', type: 'surf' },
-      '7-2': { text: '선택휴가', type: 'vacation' }, '7-3': { text: '', type: 'vacation' },
-      '7-4': { text: '', type: 'vacation' }, '7-5': { text: '', type: 'vacation' },
-      '7-8': { text: '교육청', type: 'exam' }, '7-9': { text: '시행', type: 'examday' },
-      '7-17': { text: '더프', type: 'daeuf' },
-      '7-24': { text: '서프', type: 'surf' },
-      '8-6': { text: '의무휴가', type: 'vacation' }, '8-7': { text: '', type: 'vacation' },
-      '8-8': { text: '', type: 'vacation' }, '8-9': { text: '', type: 'vacation' }, '8-10': { text: '', type: 'vacation' },
-      '8-15': { text: '광복절', type: 'holiday' }, '8-17': { text: '서프', type: 'surf' }, '8-18': { text: '더프', type: 'daeuf' },
+      '7-2': { text: '선택휴가', type: 'vacation' },
+      '7-3': { text: '', type: 'vacation' },
+      '7-4': { text: '', type: 'vacation' },
+      '7-5': { text: '', type: 'vacation' },
+      '7-8': { text: '교육청', type: 'exam' },
+      '7-9': { text: '시행', type: 'examday' },
+      '7-18': { text: '더프', type: 'daeuf' },
+      '7-25': { text: '서프', type: 'surf' },
+      '8-6': { text: '의무휴가', type: 'vacation' },
+      '8-7': { text: '', type: 'vacation' },
+      '8-8': { text: '', type: 'vacation' },
+      '8-9': { text: '', type: 'vacation' },
+      '8-10': { text: '', type: 'vacation' },
+      '8-15': { text: '광복절', type: 'holiday' },
+      '8-17': { text: '서프', type: 'surf' },
+      '8-18': { text: '더프', type: 'daeuf' },
       '9-2': { text: '평가원', type: 'kice' },
-      '9-3': { text: '선택휴가', type: 'vacation' }, '9-4': { text: '', type: 'vacation' },
-      '9-5': { text: '', type: 'vacation' }, '9-6': { text: '', type: 'vacation' },
-      '9-7': { text: '수시접수', type: 'admission' }, '9-8': { text: '', type: 'admission' },
-      '9-9': { text: '', type: 'admission' }, '9-10': { text: '', type: 'admission' },
+      '9-3': { text: '선택휴가', type: 'vacation' },
+      '9-4': { text: '', type: 'vacation' },
+      '9-5': { text: '', type: 'vacation' },
+      '9-6': { text: '', type: 'vacation' },
+      '9-7': { text: '수시접수', type: 'admission' },
+      '9-8': { text: '', type: 'admission' },
+      '9-9': { text: '', type: 'admission' },
+      '9-10': { text: '', type: 'admission' },
       '9-11': { text: '접수마감', type: 'admission' },
       '9-16': { text: '더프', type: 'daeuf' },
-      '9-24': { text: '서프', type: 'surf' }, '9-25': { text: '추석', type: 'holiday' }, '10-3': { text: '개천절', type: 'holiday' },
+      '9-24': { text: '서프', type: 'surf' },
+      '9-25': { text: '추석', type: 'holiday' },
+      '10-3': { text: '개천절', type: 'holiday' },
       '10-8': { text: '선택휴가', type: 'vacation' },
-      '10-9': { text: '서프', type: 'surf' }, '10-10': { text: '', type: 'vacation' },
-      '10-11': { text: '', type: 'vacation' }, '10-15': { text: '더프', type: 'daeuf' },
-      '10-20': { text: '교육청', type: 'exam' }, '10-21': { text: '시행', type: 'examday' },
+      '10-9': { text: '서프', type: 'surf' },
+      '10-10': { text: '', type: 'vacation' },
+      '10-11': { text: '', type: 'vacation' },
+      '10-15': { text: '더프', type: 'daeuf' },
+      '10-20': { text: '교육청', type: 'exam' },
+      '10-21': { text: '시행', type: 'examday' },
       '11-2': { text: '서프', type: 'surf' },
       '11-19': { text: '수능', type: 'csat' },
       '12-11': { text: '수능성적', type: 'csatResult' },
@@ -136,32 +270,62 @@ export default function AcademicCalendar2026() {
       '12-25': { text: '크리스마스', type: 'holiday' },
     },
     2027: {
-      '1-1': { text: '신정', type: 'holiday' }, '2-7': { text: '설날', type: 'holiday' },
-      '3-1': { text: '삼일절', type: 'holiday' }, '5-5': { text: '어린이날', type: 'holiday' },
-      '5-13': { text: '석가탄신', type: 'holiday' }, '6-6': { text: '현충일', type: 'holiday' },
-      '8-15': { text: '광복절', type: 'holiday' }, '9-15': { text: '추석', type: 'holiday' },
-      '10-3': { text: '개천절', type: 'holiday' }, '10-9': { text: '한글날', type: 'holiday' },
-      '11-18': { text: '수능', type: 'csat' }, '12-25': { text: '크리스마스', type: 'holiday' },
+      '1-1': { text: '신정', type: 'holiday' },
+      '2-7': { text: '설날', type: 'holiday' },
+      '3-1': { text: '삼일절', type: 'holiday' },
+      '5-5': { text: '어린이날', type: 'holiday' },
+      '5-13': { text: '석가탄신', type: 'holiday' },
+      '6-6': { text: '현충일', type: 'holiday' },
+      '8-15': { text: '광복절', type: 'holiday' },
+      '9-15': { text: '추석', type: 'holiday' },
+      '10-3': { text: '개천절', type: 'holiday' },
+      '10-9': { text: '한글날', type: 'holiday' },
+      '11-18': { text: '수능', type: 'csat' },
+      '12-25': { text: '크리스마스', type: 'holiday' },
     },
   };
 
   const events = eventsByYear[selectedYear] || {};
 
   // 이벤트 타입별 색상 (Google Calendar 스타일)
-  const getEventStyle = (type: 'holiday' | 'exam' | 'kice' | 'csat' | 'csatResult' | 'examday' | 'vacation' | 'daeuf' | 'admission' | 'surf', isToday: boolean) => {
+  const getEventStyle = (
+    type:
+      | 'holiday'
+      | 'exam'
+      | 'kice'
+      | 'csat'
+      | 'csatResult'
+      | 'examday'
+      | 'vacation'
+      | 'daeuf'
+      | 'admission'
+      | 'surf',
+    isToday: boolean
+  ) => {
     if (isToday) return 'bg-[#1a73e8] text-white';
     switch (type) {
-      case 'holiday': return 'bg-[#f28b82] text-[#5f2120]'; // 연한 빨강
-      case 'exam': return 'bg-[#4285f4] text-white font-medium'; // 파란색 (교육청)
-      case 'kice': return 'bg-[#81c995] text-[#1e4620]'; // 연한 초록 (평가원)
-      case 'csat': return 'bg-gradient-to-r from-[#7c3aed] to-[#9333ea] text-white font-bold ring-2 ring-[#6d28d9] shadow-md shadow-purple-300'; // 보라색 그라데이션 + 테두리
-      case 'csatResult': return 'bg-gradient-to-r from-[#7c3aed] to-[#9333ea] text-white font-bold ring-2 ring-[#6d28d9] shadow-md shadow-purple-300'; // 보라색 (수능성적)
-      case 'examday': return 'bg-[#4285f4] text-white font-medium'; // 교육청과 동일
-      case 'vacation': return 'bg-[#b3e5fc] text-[#01579b]'; // 연한 하늘색 (휴가)
-      case 'daeuf': return 'bg-[#ff9800] text-white font-medium'; // 주황색 (더프)
-      case 'admission': return 'bg-[#e91e63] text-white font-medium'; // 핑크색 (대입)
-      case 'surf': return 'bg-[#00bcd4] text-white font-medium'; // 청록색 (서프)
-      default: return 'bg-gray-100 text-gray-700';
+      case 'holiday':
+        return 'bg-[#f28b82] text-[#5f2120]'; // 연한 빨강
+      case 'exam':
+        return 'bg-[#4285f4] text-white font-medium'; // 파란색 (교육청)
+      case 'kice':
+        return 'bg-[#81c995] text-[#1e4620]'; // 연한 초록 (평가원)
+      case 'csat':
+        return 'bg-gradient-to-r from-[#7c3aed] to-[#9333ea] text-white font-bold ring-2 ring-[#6d28d9] shadow-md shadow-purple-300'; // 보라색 그라데이션 + 테두리
+      case 'csatResult':
+        return 'bg-gradient-to-r from-[#7c3aed] to-[#9333ea] text-white font-bold ring-2 ring-[#6d28d9] shadow-md shadow-purple-300'; // 보라색 (수능성적)
+      case 'examday':
+        return 'bg-[#4285f4] text-white font-medium'; // 교육청과 동일
+      case 'vacation':
+        return 'bg-[#b3e5fc] text-[#01579b]'; // 연한 하늘색 (휴가)
+      case 'daeuf':
+        return 'bg-[#ff9800] text-white font-medium'; // 주황색 (더프)
+      case 'admission':
+        return 'bg-[#e91e63] text-white font-medium'; // 핑크색 (대입)
+      case 'surf':
+        return 'bg-[#00bcd4] text-white font-medium'; // 청록색 (서프)
+      default:
+        return 'bg-gray-100 text-gray-700';
     }
   };
 
@@ -179,7 +343,8 @@ export default function AcademicCalendar2026() {
           }
 
           /* 기본 레이아웃 초기화 */
-          html, body {
+          html,
+          body {
             margin: 0 !important;
             padding: 0 !important;
             background: white !important;
@@ -199,10 +364,16 @@ export default function AcademicCalendar2026() {
           }
 
           /* 불필요한 UI 숨기기 - 강화 */
-          aside, footer, nav,
-          .sidebar, .fixed, .print\\:hidden,
-          [class*="modal"], [class*="fullscreen"],
-          details, .prose > h1,
+          aside,
+          footer,
+          nav,
+          .sidebar,
+          .fixed,
+          .print\\:hidden,
+          [class*='modal'],
+          [class*='fullscreen'],
+          details,
+          .prose > h1,
           .order-2 {
             display: none !important;
             position: absolute !important;
@@ -229,13 +400,17 @@ export default function AcademicCalendar2026() {
           }
 
           /* py 패딩 제거 */
-          .sm\\:py-6, .lg\\:py-8 {
+          .sm\\:py-6,
+          .lg\\:py-8 {
             padding-top: 0 !important;
             padding-bottom: 0 !important;
           }
 
           /* 메인 컨테이너 리셋 */
-          .max-w-6xl, .container, main, .min-h-screen {
+          .max-w-6xl,
+          .container,
+          main,
+          .min-h-screen {
             max-width: none !important;
             width: 100% !important;
             height: auto !important;
@@ -252,7 +427,8 @@ export default function AcademicCalendar2026() {
           }
 
           /* 블로그 레이아웃 요소 */
-          .lg\\:col-span-3, .order-1 {
+          .lg\\:col-span-3,
+          .order-1 {
             display: block !important;
             width: 100% !important;
             max-width: 100% !important;
@@ -450,7 +626,6 @@ export default function AcademicCalendar2026() {
 
       {/* Google Calendar 스타일 */}
       <main className="bg-white dark:bg-[#202124] font-sans">
-
         {/* 상단 헤더 - Google 스타일 */}
         <header className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-[#202124] sticky top-0 z-20 print:hidden">
           <div className="flex flex-col md:flex-row md:items-center justify-between px-4 py-2 gap-2 md:gap-0">
@@ -460,14 +635,30 @@ export default function AcademicCalendar2026() {
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 flex items-center justify-center">
                     <svg viewBox="0 0 24 24" className="w-8 h-8">
-                      <rect x="3" y="4" width="18" height="18" rx="2" fill="#4285f4" />
+                      <rect
+                        x="3"
+                        y="4"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        fill="#4285f4"
+                      />
                       <rect x="3" y="4" width="18" height="5" fill="#1a73e8" />
-                      <text x="12" y="17" textAnchor="middle" fill="white" fontSize="8" fontWeight="600">
+                      <text
+                        x="12"
+                        y="17"
+                        textAnchor="middle"
+                        fill="white"
+                        fontSize="8"
+                        fontWeight="600"
+                      >
                         {todayDay}
                       </text>
                     </svg>
                   </div>
-                  <span className="text-lg md:text-xl text-gray-700 dark:text-gray-200 font-normal">학사일정</span>
+                  <span className="text-lg md:text-xl text-gray-700 dark:text-gray-200 font-normal">
+                    학사일정
+                  </span>
                 </div>
               </div>
 
@@ -478,21 +669,46 @@ export default function AcademicCalendar2026() {
                   className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors print:hidden"
                   title="크게보기"
                 >
-                  <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  <svg
+                    className="w-5 h-5 text-gray-600 dark:text-gray-300"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                    />
                   </svg>
                 </button>
                 <button
                   onClick={() => {
-                    document.body.classList.add(viewMode !== 'all' ? 'print-monthly' : 'print-yearly');
+                    document.body.classList.add(
+                      viewMode !== 'all' ? 'print-monthly' : 'print-yearly'
+                    );
                     window.print();
-                    document.body.classList.remove('print-monthly', 'print-yearly');
+                    document.body.classList.remove(
+                      'print-monthly',
+                      'print-yearly'
+                    );
                   }}
                   className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors print:hidden"
                   title="인쇄"
                 >
-                  <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                  <svg
+                    className="w-5 h-5 text-gray-600 dark:text-gray-300"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
+                    />
                   </svg>
                 </button>
               </div>
@@ -508,19 +724,43 @@ export default function AcademicCalendar2026() {
               </button>
               <div className="flex items-center">
                 <button
-                  onClick={() => setSelectedYear(Math.max(2025, selectedYear - 1))}
+                  onClick={() =>
+                    setSelectedYear(Math.max(2025, selectedYear - 1))
+                  }
                   className="p-1.5 md:p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
                 >
-                  <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg
+                    className="w-5 h-5 text-gray-600 dark:text-gray-300"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                 </button>
                 <button
-                  onClick={() => setSelectedYear(Math.min(2027, selectedYear + 1))}
+                  onClick={() =>
+                    setSelectedYear(Math.min(2027, selectedYear + 1))
+                  }
                   className="p-1.5 md:p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
                 >
-                  <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-5 h-5 text-gray-600 dark:text-gray-300"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </button>
               </div>
@@ -536,21 +776,46 @@ export default function AcademicCalendar2026() {
                 className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors print:hidden"
                 title="크게보기"
               >
-                <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                <svg
+                  className="w-5 h-5 text-gray-600 dark:text-gray-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  />
                 </svg>
               </button>
               <button
                 onClick={() => {
-                  document.body.classList.add(viewMode !== 'all' ? 'print-monthly' : 'print-yearly');
+                  document.body.classList.add(
+                    viewMode !== 'all' ? 'print-monthly' : 'print-yearly'
+                  );
                   window.print();
-                  document.body.classList.remove('print-monthly', 'print-yearly');
+                  document.body.classList.remove(
+                    'print-monthly',
+                    'print-yearly'
+                  );
                 }}
                 className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors print:hidden"
                 title="인쇄"
               >
-                <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                <svg
+                  className="w-5 h-5 text-gray-600 dark:text-gray-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
+                  />
                 </svg>
               </button>
             </div>
@@ -558,17 +823,17 @@ export default function AcademicCalendar2026() {
         </header>
 
         <div className="flex">
-
           {/* 메인 컨텐츠 */}
           <main className="flex-1 p-1 md:p-4 max-w-full overflow-hidden">
             {/* 보기 모드 탭 */}
             <div className="flex gap-1 mb-4 print:hidden overflow-x-auto pb-2">
               <button
                 onClick={() => setViewMode('all')}
-                className={`px-3 py-1.5 text-sm rounded-md transition-colors whitespace-nowrap ${viewMode === 'all'
-                  ? 'bg-[#e8f0fe] text-[#1a73e8] font-medium'
-                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
-                  }`}
+                className={`px-3 py-1.5 text-sm rounded-md transition-colors whitespace-nowrap ${
+                  viewMode === 'all'
+                    ? 'bg-[#e8f0fe] text-[#1a73e8] font-medium'
+                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
               >
                 연간
               </button>
@@ -593,10 +858,11 @@ export default function AcademicCalendar2026() {
                 <button
                   key={index}
                   onClick={() => setViewMode(index + 1)}
-                  className={`px-3 py-1.5 text-sm rounded-md transition-colors whitespace-nowrap ${viewMode === index + 1
-                    ? 'bg-[#e8f0fe] text-[#1a73e8] font-medium'
-                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
-                    }`}
+                  className={`px-3 py-1.5 text-sm rounded-md transition-colors whitespace-nowrap ${
+                    viewMode === index + 1
+                      ? 'bg-[#e8f0fe] text-[#1a73e8] font-medium'
+                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  }`}
                 >
                   {month}
                 </button>
@@ -614,21 +880,34 @@ export default function AcademicCalendar2026() {
                 <div className="p-1 md:p-4 max-w-full overflow-hidden">
                   <div className="grid grid-cols-7 print-monthly-grid">
                     {/* 요일 헤더 */}
-                    {['일', '월', '화', '수', '목', '금', '토'].map((dayName, i) => (
-                      <div
-                        key={dayName}
-                        className={`py-2 text-center text-xs font-medium border-b border-gray-200 dark:border-gray-700 ${i === 0 ? 'text-red-500' : 'text-gray-500 dark:text-gray-400'
+                    {['일', '월', '화', '수', '목', '금', '토'].map(
+                      (dayName, i) => (
+                        <div
+                          key={dayName}
+                          className={`py-2 text-center text-xs font-medium border-b border-gray-200 dark:border-gray-700 ${
+                            i === 0
+                              ? 'text-red-500'
+                              : 'text-gray-500 dark:text-gray-400'
                           }`}
-                      >
-                        {dayName}
-                      </div>
-                    ))}
+                        >
+                          {dayName}
+                        </div>
+                      )
+                    )}
                     {/* 빈 셀 */}
-                    {Array.from({ length: new Date(selectedYear, viewMode - 1, 1).getDay() }).map((_, i) => (
-                      <div key={`empty-${i}`} className="min-h-[60px] md:min-h-[100px] print:min-h-0 border-b border-r border-gray-100 dark:border-gray-800" />
+                    {Array.from({
+                      length: new Date(selectedYear, viewMode - 1, 1).getDay(),
+                    }).map((_, i) => (
+                      <div
+                        key={`empty-${i}`}
+                        className="min-h-[60px] md:min-h-[100px] print:min-h-0 border-b border-r border-gray-100 dark:border-gray-800"
+                      />
                     ))}
                     {/* 날짜 셀 */}
-                    {Array.from({ length: daysInMonth[viewMode] }, (_, i) => i + 1).map((day) => {
+                    {Array.from(
+                      { length: daysInMonth[viewMode] },
+                      (_, i) => i + 1
+                    ).map(day => {
                       const eventKey = `${viewMode}-${day}`;
                       const event = events[eventKey];
                       const date = new Date(selectedYear, viewMode - 1, day);
@@ -649,24 +928,33 @@ export default function AcademicCalendar2026() {
                           key={day}
                           className={`min-h-[60px] md:min-h-[100px] print:min-h-0 p-0.5 md:p-1 border-b border-r border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors print-monthly-cell ${bgClass}`}
                         >
-                          <div className={`text-xs md:text-sm mb-0.5 md:mb-1 ${todayCell
-                            ? 'w-5 h-5 md:w-6 md:h-6 flex items-center justify-center bg-[#1a73e8] text-white rounded-full text-[10px] md:text-sm'
-                            : sunday || holiday
-                              ? 'text-red-500'
-                              : 'text-gray-700 dark:text-gray-300'
-                            }`}>
+                          <div
+                            className={`text-xs md:text-sm mb-0.5 md:mb-1 ${
+                              todayCell
+                                ? 'w-5 h-5 md:w-6 md:h-6 flex items-center justify-center bg-[#1a73e8] text-white rounded-full text-[10px] md:text-sm'
+                                : sunday || holiday
+                                  ? 'text-red-500'
+                                  : 'text-gray-700 dark:text-gray-300'
+                            }`}
+                          >
                             {day}
                           </div>
                           {event && !isVacation && !isHolidayEvent && (
-                            <div className={`text-[10px] md:text-xs px-0.5 md:px-1.5 py-0.5 rounded ${getEventStyle(event.type, todayCell)}`}>
+                            <div
+                              className={`text-[10px] md:text-xs px-0.5 md:px-1.5 py-0.5 rounded ${getEventStyle(event.type, todayCell)}`}
+                            >
                               {event.text}
                             </div>
                           )}
                           {isHolidayEvent && (
-                            <div className="text-[10px] md:text-xs text-[#5f2120] font-medium">{event.text}</div>
+                            <div className="text-[10px] md:text-xs text-[#5f2120] font-medium">
+                              {event.text}
+                            </div>
                           )}
                           {isVacation && event.text && (
-                            <div className="text-[10px] md:text-xs text-[#01579b] font-medium">{event.text}</div>
+                            <div className="text-[10px] md:text-xs text-[#01579b] font-medium">
+                              {event.text}
+                            </div>
                           )}
                         </div>
                       );
@@ -685,13 +973,15 @@ export default function AcademicCalendar2026() {
                 2027학년도 SN독학기숙학원 학사일정
               </h2>
 
-              <div className="relative mt-8 md:mt-0 print:mt-0"> {/* 모바일에서 상단 여백 추가 (일요일 토글 버튼 공간 확보) */}
+              <div className="relative mt-8 md:mt-0 print:mt-0">
+                {' '}
+                {/* 모바일에서 상단 여백 추가 (일요일 토글 버튼 공간 확보) */}
                 <div className="absolute top-[-30px] right-0 z-10 print:hidden flex items-center gap-2">
                   <label className="flex items-center gap-1 cursor-pointer text-xs text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200">
                     <input
                       type="checkbox"
                       checked={showSundayDots}
-                      onChange={(e) => setShowSundayDots(e.target.checked)}
+                      onChange={e => setShowSundayDots(e.target.checked)}
                       className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 w-3 h-3"
                     />
                     일요일 표시전환
@@ -707,16 +997,27 @@ export default function AcademicCalendar2026() {
                         {months.map((month, index) => {
                           const isFirstHalf = index < 6;
                           // 모바일: 선택된 반기가 아니면 숨김, 데스크탑/인쇄: 항상 표시
-                          const hiddenClass = mobileHalf === 1
-                            ? (!isFirstHalf ? 'hidden md:table-cell print:table-cell' : '')
-                            : (isFirstHalf ? 'hidden md:table-cell print:table-cell' : '');
+                          const hiddenClass =
+                            mobileHalf === 1
+                              ? !isFirstHalf
+                                ? 'hidden md:table-cell print:table-cell'
+                                : ''
+                              : isFirstHalf
+                                ? 'hidden md:table-cell print:table-cell'
+                                : '';
 
                           // 모바일에서 마지막 보이는 컬럼의 테두리 처리
-                          const isMobileLast = mobileHalf === 1 ? index === 5 : index === 11;
-                          const borderClass = isMobileLast ? 'md:border-r print:border-r' : 'border-r';
+                          const isMobileLast =
+                            mobileHalf === 1 ? index === 5 : index === 11;
+                          const borderClass = isMobileLast
+                            ? 'md:border-r print:border-r'
+                            : 'border-r';
 
                           return (
-                            <th key={index} className={`w-[15%] md:w-[8.08%] py-0.5 md:py-2 text-center text-[8px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 bg-gray-50 dark:bg-[#35363a] ${hiddenClass}`}>
+                            <th
+                              key={index}
+                              className={`w-[15%] md:w-[8.08%] py-0.5 md:py-2 text-center text-[8px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 bg-gray-50 dark:bg-[#35363a] ${hiddenClass}`}
+                            >
                               {month}
                             </th>
                           );
@@ -724,26 +1025,43 @@ export default function AcademicCalendar2026() {
                       </tr>
                     </thead>
                     <tbody>
-                      {days.map((day) => (
-                        <tr key={day} className="hover:bg-gray-50 dark:hover:bg-[#35363a] transition-colors">
+                      {days.map(day => (
+                        <tr
+                          key={day}
+                          className="hover:bg-gray-50 dark:hover:bg-[#35363a] transition-colors"
+                        >
                           <td className="py-0 md:py-1 text-center text-[8px] md:text-[11px] font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
                             {day}
                           </td>
                           {months.map((_, monthIndex) => {
                             const monthNum = monthIndex + 1;
                             const isFirstHalf = monthIndex < 6;
-                            const hiddenClass = mobileHalf === 1
-                              ? (!isFirstHalf ? 'hidden md:table-cell print:table-cell' : '')
-                              : (isFirstHalf ? 'hidden md:table-cell print:table-cell' : '');
+                            const hiddenClass =
+                              mobileHalf === 1
+                                ? !isFirstHalf
+                                  ? 'hidden md:table-cell print:table-cell'
+                                  : ''
+                                : isFirstHalf
+                                  ? 'hidden md:table-cell print:table-cell'
+                                  : '';
 
                             // 모바일에서 마지막 보이는 컬럼의 테두리 처리
-                            const isMobileLast = mobileHalf === 1 ? monthIndex === 5 : monthIndex === 11;
-                            const borderClass = isMobileLast ? 'md:border-r print:border-r' : 'border-r';
+                            const isMobileLast =
+                              mobileHalf === 1
+                                ? monthIndex === 5
+                                : monthIndex === 11;
+                            const borderClass = isMobileLast
+                              ? 'md:border-r print:border-r'
+                              : 'border-r';
                             const isValidDay = day <= daysInMonth[monthNum];
                             const eventKey = `${monthNum}-${day}`;
                             const event = events[eventKey];
-                            const sunday = isValidDay && isSunday(selectedYear, monthNum, day);
-                            const todayCell = isValidDay && isToday(selectedYear, monthNum, day);
+                            const sunday =
+                              isValidDay &&
+                              isSunday(selectedYear, monthNum, day);
+                            const todayCell =
+                              isValidDay &&
+                              isToday(selectedYear, monthNum, day);
 
                             const isVacation = event?.type === 'vacation';
                             const isHolidayEvent = event?.type === 'holiday';
@@ -751,7 +1069,8 @@ export default function AcademicCalendar2026() {
 
                             // 배경색 결정
                             let bgClass = '';
-                            if (!isValidDay) bgClass = 'bg-gray-50 dark:bg-[#1f1f1f]';
+                            if (!isValidDay)
+                              bgClass = 'bg-gray-50 dark:bg-[#1f1f1f]';
                             else if (isCsat) bgClass = 'bg-[#f3e8ff]';
                             else if (isVacation) bgClass = 'bg-[#e1f5fe]';
                             else if (isHolidayEvent) bgClass = 'bg-[#fce4e4]';
@@ -762,24 +1081,37 @@ export default function AcademicCalendar2026() {
                                 ref={todayCell ? todayRef : null}
                                 className={`py-0 px-0 md:py-0.5 md:px-0.5 text-center border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 relative ${bgClass} ${hiddenClass}`}
                               >
-                                {isValidDay && sunday && !todayCell && !event && showSundayDots && (
-                                  <span className="absolute top-0.5 left-0.5 w-1 h-1 rounded-full bg-red-400"></span>
-                                )}
+                                {isValidDay &&
+                                  sunday &&
+                                  !todayCell &&
+                                  !event &&
+                                  showSundayDots && (
+                                    <span className="absolute top-0.5 left-0.5 w-1 h-1 rounded-full bg-red-400"></span>
+                                  )}
                                 {isValidDay && todayCell && !event && (
                                   <span className="inline-flex items-center justify-center w-3 h-3 md:w-5 md:h-5 bg-[#1a73e8] text-white text-[6px] md:text-[9px] font-medium rounded-full">
                                     ●
                                   </span>
                                 )}
-                                {isValidDay && event && !isVacation && !isHolidayEvent && (
-                                  <span className={`inline-block px-0 md:px-1.5 py-0 md:py-0.5 rounded text-[5px] md:text-[9px] leading-tight font-medium truncate max-w-full ${getEventStyle(event.type, todayCell)}`}>
+                                {isValidDay &&
+                                  event &&
+                                  !isVacation &&
+                                  !isHolidayEvent && (
+                                    <span
+                                      className={`inline-block px-0 md:px-1.5 py-0 md:py-0.5 rounded text-[5px] md:text-[9px] leading-tight font-medium truncate max-w-full ${getEventStyle(event.type, todayCell)}`}
+                                    >
+                                      {event.text}
+                                    </span>
+                                  )}
+                                {isValidDay && isHolidayEvent && (
+                                  <span className="text-[5px] md:text-[8px] leading-tight text-[#5f2120] font-medium">
                                     {event.text}
                                   </span>
                                 )}
-                                {isValidDay && isHolidayEvent && (
-                                  <span className="text-[5px] md:text-[8px] leading-tight text-[#5f2120] font-medium">{event.text}</span>
-                                )}
                                 {isValidDay && isVacation && event.text && (
-                                  <span className="text-[5px] md:text-[8px] leading-tight text-[#01579b] font-medium">{event.text}</span>
+                                  <span className="text-[5px] md:text-[8px] leading-tight text-[#01579b] font-medium">
+                                    {event.text}
+                                  </span>
                                 )}
                               </td>
                             );
@@ -850,84 +1182,194 @@ export default function AcademicCalendar2026() {
                 {selectedYear === 2026 && (
                   <>
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">📚 모의고사 일정</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        📚 모의고사 일정
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>3월 24일~25일</strong> - 3월 교육청 모의고사</li>
-                        <li><strong>5월 7일~8일</strong> - 5월 교육청 모의고사</li>
-                        <li><strong>6월 4일</strong> - 6월 평가원 모의고사</li>
-                        <li><strong>7월 8일~9일</strong> - 7월 교육청 모의고사</li>
-                        <li><strong>9월 2일</strong> - 9월 평가원 모의고사</li>
-                        <li><strong>10월 20일~21일</strong> - 10월 교육청 모의고사</li>
+                        <li>
+                          <strong>3월 24일~25일</strong> - 3월 교육청 모의고사
+                        </li>
+                        <li>
+                          <strong>5월 7일~8일</strong> - 5월 교육청 모의고사
+                        </li>
+                        <li>
+                          <strong>6월 4일</strong> - 6월 평가원 모의고사
+                        </li>
+                        <li>
+                          <strong>7월 8일~9일</strong> - 7월 교육청 모의고사
+                        </li>
+                        <li>
+                          <strong>9월 2일</strong> - 9월 평가원 모의고사
+                        </li>
+                        <li>
+                          <strong>10월 20일~21일</strong> - 10월 교육청 모의고사
+                        </li>
                       </ul>
                     </section>
 
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">📝 더프(대성) 일정</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        📝 더프(대성) 일정
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>3월 17일</strong> - 3월 더프</li>
-                        <li><strong>4월 17일</strong> - 4월 더프</li>
-                        <li><strong>5월 20일</strong> - 5월 더프</li>
-                        <li><strong>7월 17일</strong> - 7월 더프</li>
-                        <li><strong>8월 18일</strong> - 8월 더프</li>
-                        <li><strong>9월 16일</strong> - 9월 더프</li>
-                        <li><strong>10월 15일</strong> - 10월 더프</li>
+                        <li>
+                          <strong>3월 17일</strong> - 3월 더프
+                        </li>
+                        <li>
+                          <strong>4월 17일</strong> - 4월 더프
+                        </li>
+                        <li>
+                          <strong>5월 20일</strong> - 5월 더프
+                        </li>
+                        <li>
+                          <strong>7월 18일</strong> - 7월 더프
+                        </li>
+                        <li>
+                          <strong>8월 18일</strong> - 8월 더프
+                        </li>
+                        <li>
+                          <strong>9월 16일</strong> - 9월 더프
+                        </li>
+                        <li>
+                          <strong>10월 15일</strong> - 10월 더프
+                        </li>
                       </ul>
                     </section>
 
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">🏃 서프(시대인재 서바이벌) 일정</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        🏃 서프(시대인재 서바이벌) 일정
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>1월 26일</strong> - 1월 서프</li>
-                        <li><strong>3월 2일</strong> - 3월 서프</li>
-                        <li><strong>4월 26일</strong> - 4월 서프</li>
-                        <li><strong>6월 28일</strong> - 6월 서프</li>
-                        <li><strong>7월 24일</strong> - 7월 서프</li>
-                        <li><strong>8월 17일</strong> - 8월 서프</li>
-                        <li><strong>9월 24일</strong> - 9월 서프</li>
-                        <li><strong>10월 9일</strong> - 10월 서프</li>
-                        <li><strong>11월 2일</strong> - 11월 서프</li>
+                        <li>
+                          <strong>1월 26일</strong> - 1월 서프
+                        </li>
+                        <li>
+                          <strong>3월 16일</strong> - 3월 서프
+                        </li>
+                        <li>
+                          <strong>4월 26일</strong> - 4월 서프
+                        </li>
+                        <li>
+                          <strong>5월 25일</strong> - 5월 서프
+                        </li>
+                        <li>
+                          <strong>6월 28일</strong> - 6월 서프
+                        </li>
+                        <li>
+                          <strong>7월 25일</strong> - 7월 서프
+                        </li>
+                        <li>
+                          <strong>8월 17일</strong> - 8월 서프
+                        </li>
+                        <li>
+                          <strong>9월 24일</strong> - 9월 서프
+                        </li>
+                        <li>
+                          <strong>10월 9일</strong> - 10월 서프
+                        </li>
+                        <li>
+                          <strong>11월 2일</strong> - 11월 서프
+                        </li>
                       </ul>
                     </section>
 
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">🎓 대학입시 일정</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        🎓 대학입시 일정
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>9월 7일~11일</strong> - 수시 원서접수 기간</li>
-                        <li><strong>11월 19일</strong> - 2027학년도 대학수학능력시험</li>
-                        <li><strong>12월 11일</strong> - 수능 성적 발표일</li>
-                        <li><strong>12월 18일</strong> - 수시모집 합격자 발표 마감</li>
+                        <li>
+                          <strong>9월 7일~11일</strong> - 수시 원서접수 기간
+                        </li>
+                        <li>
+                          <strong>11월 19일</strong> - 2027학년도
+                          대학수학능력시험
+                        </li>
+                        <li>
+                          <strong>12월 11일</strong> - 수능 성적 발표일
+                        </li>
+                        <li>
+                          <strong>12월 18일</strong> - 수시모집 합격자 발표 마감
+                        </li>
                       </ul>
                     </section>
 
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">🏖️ 휴가 일정</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        🏖️ 휴가 일정
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>2월 15일~18일</strong> - 설날 연휴 선택휴가</li>
-                        <li><strong>3월 26일~29일</strong> - 3월 선택휴가</li>
-                        <li><strong>4월 18일~22일</strong> - 4월 의무휴가</li>
-                        <li><strong>5월 14일~17일</strong> - 5월 선택휴가</li>
-                        <li><strong>6월 5일~8일</strong> - 6월 선택휴가 (현충일 포함)</li>
-                        <li><strong>7월 2일~5일</strong> - 7월 선택휴가</li>
-                        <li><strong>8월 6일~10일</strong> - 8월 의무휴가</li>
-                        <li><strong>9월 3일~6일</strong> - 9월 선택휴가</li>
-                        <li><strong>10월 8일~11일</strong> - 10월 선택휴가 (한글날 포함)</li>
+                        <li>
+                          <strong>2월 15일~18일</strong> - 설날 연휴 선택휴가
+                        </li>
+                        <li>
+                          <strong>3월 26일~29일</strong> - 3월 선택휴가
+                        </li>
+                        <li>
+                          <strong>4월 18일~22일</strong> - 4월 의무휴가
+                        </li>
+                        <li>
+                          <strong>5월 14일~17일</strong> - 5월 선택휴가
+                        </li>
+                        <li>
+                          <strong>6월 5일~8일</strong> - 6월 선택휴가 (현충일
+                          포함)
+                        </li>
+                        <li>
+                          <strong>7월 2일~5일</strong> - 7월 선택휴가
+                        </li>
+                        <li>
+                          <strong>8월 6일~10일</strong> - 8월 의무휴가
+                        </li>
+                        <li>
+                          <strong>9월 3일~6일</strong> - 9월 선택휴가
+                        </li>
+                        <li>
+                          <strong>10월 8일~11일</strong> - 10월 선택휴가 (한글날
+                          포함)
+                        </li>
                       </ul>
                     </section>
 
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">🎌 공휴일</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        🎌 공휴일
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>1월 1일</strong> - 신정</li>
-                        <li><strong>2월 16일~18일</strong> - 설날 연휴</li>
-                        <li><strong>3월 1일</strong> - 삼일절</li>
-                        <li><strong>5월 5일</strong> - 어린이날</li>
-                        <li><strong>5월 24일</strong> - 석가탄신일</li>
-                        <li><strong>6월 6일</strong> - 현충일</li>
-                        <li><strong>8월 15일</strong> - 광복절</li>
-                        <li><strong>9월 24일~26일</strong> - 추석 연휴</li>
-                        <li><strong>10월 3일</strong> - 개천절</li>
-                        <li><strong>10월 9일</strong> - 한글날</li>
-                        <li><strong>12월 25일</strong> - 크리스마스</li>
+                        <li>
+                          <strong>1월 1일</strong> - 신정
+                        </li>
+                        <li>
+                          <strong>2월 16일~18일</strong> - 설날 연휴
+                        </li>
+                        <li>
+                          <strong>3월 1일</strong> - 삼일절
+                        </li>
+                        <li>
+                          <strong>5월 5일</strong> - 어린이날
+                        </li>
+                        <li>
+                          <strong>5월 24일</strong> - 석가탄신일
+                        </li>
+                        <li>
+                          <strong>6월 6일</strong> - 현충일
+                        </li>
+                        <li>
+                          <strong>8월 15일</strong> - 광복절
+                        </li>
+                        <li>
+                          <strong>9월 24일~26일</strong> - 추석 연휴
+                        </li>
+                        <li>
+                          <strong>10월 3일</strong> - 개천절
+                        </li>
+                        <li>
+                          <strong>10월 9일</strong> - 한글날
+                        </li>
+                        <li>
+                          <strong>12월 25일</strong> - 크리스마스
+                        </li>
                       </ul>
                     </section>
                   </>
@@ -936,21 +1378,40 @@ export default function AcademicCalendar2026() {
                 {selectedYear === 2025 && (
                   <>
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">📚 모의고사 일정</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        📚 모의고사 일정
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>3월 27일~28일</strong> - 3월 교육청 모의고사</li>
-                        <li><strong>5월 8일~9일</strong> - 5월 교육청 모의고사</li>
-                        <li><strong>6월 4일</strong> - 6월 평가원 모의고사</li>
-                        <li><strong>7월 10일~11일</strong> - 7월 교육청 모의고사</li>
-                        <li><strong>9월 3일</strong> - 9월 평가원 모의고사</li>
-                        <li><strong>10월 16일~17일</strong> - 10월 교육청 모의고사</li>
+                        <li>
+                          <strong>3월 27일~28일</strong> - 3월 교육청 모의고사
+                        </li>
+                        <li>
+                          <strong>5월 8일~9일</strong> - 5월 교육청 모의고사
+                        </li>
+                        <li>
+                          <strong>6월 4일</strong> - 6월 평가원 모의고사
+                        </li>
+                        <li>
+                          <strong>7월 10일~11일</strong> - 7월 교육청 모의고사
+                        </li>
+                        <li>
+                          <strong>9월 3일</strong> - 9월 평가원 모의고사
+                        </li>
+                        <li>
+                          <strong>10월 16일~17일</strong> - 10월 교육청 모의고사
+                        </li>
                       </ul>
                     </section>
 
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">🎓 대학입시 일정</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        🎓 대학입시 일정
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>11월 13일</strong> - 2026학년도 대학수학능력시험</li>
+                        <li>
+                          <strong>11월 13일</strong> - 2026학년도
+                          대학수학능력시험
+                        </li>
                       </ul>
                     </section>
                   </>
@@ -959,26 +1420,55 @@ export default function AcademicCalendar2026() {
                 {selectedYear === 2027 && (
                   <>
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">🎓 대학입시 일정</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        🎓 대학입시 일정
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>11월 18일</strong> - 2028학년도 대학수학능력시험</li>
+                        <li>
+                          <strong>11월 18일</strong> - 2028학년도
+                          대학수학능력시험
+                        </li>
                       </ul>
                     </section>
 
                     <section>
-                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">🎌 공휴일</h3>
+                      <h3 className="font-semibold text-base mb-2 text-gray-800 dark:text-gray-200">
+                        🎌 공휴일
+                      </h3>
                       <ul className="space-y-1 ml-4 list-disc">
-                        <li><strong>1월 1일</strong> - 신정</li>
-                        <li><strong>2월 6일~8일</strong> - 설날 연휴</li>
-                        <li><strong>3월 1일</strong> - 삼일절</li>
-                        <li><strong>5월 5일</strong> - 어린이날</li>
-                        <li><strong>5월 13일</strong> - 석가탄신일</li>
-                        <li><strong>6월 6일</strong> - 현충일</li>
-                        <li><strong>8월 15일</strong> - 광복절</li>
-                        <li><strong>9월 14일~16일</strong> - 추석 연휴</li>
-                        <li><strong>10월 3일</strong> - 개천절</li>
-                        <li><strong>10월 9일</strong> - 한글날</li>
-                        <li><strong>12월 25일</strong> - 크리스마스</li>
+                        <li>
+                          <strong>1월 1일</strong> - 신정
+                        </li>
+                        <li>
+                          <strong>2월 6일~8일</strong> - 설날 연휴
+                        </li>
+                        <li>
+                          <strong>3월 1일</strong> - 삼일절
+                        </li>
+                        <li>
+                          <strong>5월 5일</strong> - 어린이날
+                        </li>
+                        <li>
+                          <strong>5월 13일</strong> - 석가탄신일
+                        </li>
+                        <li>
+                          <strong>6월 6일</strong> - 현충일
+                        </li>
+                        <li>
+                          <strong>8월 15일</strong> - 광복절
+                        </li>
+                        <li>
+                          <strong>9월 14일~16일</strong> - 추석 연휴
+                        </li>
+                        <li>
+                          <strong>10월 3일</strong> - 개천절
+                        </li>
+                        <li>
+                          <strong>10월 9일</strong> - 한글날
+                        </li>
+                        <li>
+                          <strong>12월 25일</strong> - 크리스마스
+                        </li>
                       </ul>
                     </section>
                   </>
@@ -1000,19 +1490,43 @@ export default function AcademicCalendar2026() {
               </h2>
               <div className="flex items-center gap-2">
                 <button
-                  onClick={() => setSelectedYear(Math.max(2025, selectedYear - 1))}
+                  onClick={() =>
+                    setSelectedYear(Math.max(2025, selectedYear - 1))
+                  }
                   className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
                 >
-                  <svg className="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg
+                    className="w-4 h-4 text-gray-600 dark:text-gray-300"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                 </button>
                 <button
-                  onClick={() => setSelectedYear(Math.min(2027, selectedYear + 1))}
+                  onClick={() =>
+                    setSelectedYear(Math.min(2027, selectedYear + 1))
+                  }
                   className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
                 >
-                  <svg className="w-4 h-4 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-4 h-4 text-gray-600 dark:text-gray-300"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </button>
               </div>
@@ -1022,8 +1536,18 @@ export default function AcademicCalendar2026() {
               className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
               title="닫기"
             >
-              <svg className="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-6 h-6 text-gray-600 dark:text-gray-300"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
@@ -1037,15 +1561,21 @@ export default function AcademicCalendar2026() {
                     일
                   </th>
                   {months.map((month, index) => (
-                    <th key={index} className="w-[8.08%] py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 last:border-r-0 bg-gray-50 dark:bg-[#35363a]">
+                    <th
+                      key={index}
+                      className="w-[8.08%] py-3 text-center text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 last:border-r-0 bg-gray-50 dark:bg-[#35363a]"
+                    >
                       {month}
                     </th>
                   ))}
                 </tr>
               </thead>
               <tbody>
-                {days.map((day) => (
-                  <tr key={day} className="hover:bg-gray-50 dark:hover:bg-[#35363a] transition-colors">
+                {days.map(day => (
+                  <tr
+                    key={day}
+                    className="hover:bg-gray-50 dark:hover:bg-[#35363a] transition-colors"
+                  >
                     <td className="py-2 text-center text-xs font-medium text-gray-500 dark:text-gray-400 border-b border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#35363a]">
                       {day}
                     </td>
@@ -1054,8 +1584,10 @@ export default function AcademicCalendar2026() {
                       const isValidDay = day <= daysInMonth[monthNum];
                       const eventKey = `${monthNum}-${day}`;
                       const event = events[eventKey];
-                      const sunday = isValidDay && isSunday(selectedYear, monthNum, day);
-                      const todayCell = isValidDay && isToday(selectedYear, monthNum, day);
+                      const sunday =
+                        isValidDay && isSunday(selectedYear, monthNum, day);
+                      const todayCell =
+                        isValidDay && isToday(selectedYear, monthNum, day);
 
                       const isVacation = event?.type === 'vacation';
                       const isHolidayEvent = event?.type === 'holiday';
@@ -1080,16 +1612,25 @@ export default function AcademicCalendar2026() {
                               ●
                             </span>
                           )}
-                          {isValidDay && event && !isVacation && !isHolidayEvent && (
-                            <span className={`inline-block px-2 py-1 rounded text-xs font-medium ${getEventStyle(event.type, todayCell)}`}>
+                          {isValidDay &&
+                            event &&
+                            !isVacation &&
+                            !isHolidayEvent && (
+                              <span
+                                className={`inline-block px-2 py-1 rounded text-xs font-medium ${getEventStyle(event.type, todayCell)}`}
+                              >
+                                {event.text}
+                              </span>
+                            )}
+                          {isValidDay && isHolidayEvent && (
+                            <span className="text-xs text-[#5f2120] font-medium">
                               {event.text}
                             </span>
                           )}
-                          {isValidDay && isHolidayEvent && (
-                            <span className="text-xs text-[#5f2120] font-medium">{event.text}</span>
-                          )}
                           {isValidDay && isVacation && event.text && (
-                            <span className="text-xs text-[#01579b] font-medium">{event.text}</span>
+                            <span className="text-xs text-[#01579b] font-medium">
+                              {event.text}
+                            </span>
                           )}
                         </td>
                       );
