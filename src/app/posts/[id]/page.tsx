@@ -173,7 +173,7 @@ export default async function PostPage({ params }: PostPageProps) {
           author: post.author,
           category: post.category,
           tags: post.tags || [],
-          content: post.content,
+          content: post.content || '',
           difficulty: 'intermediate',
           subject: post.category,
           learningObjectives: [

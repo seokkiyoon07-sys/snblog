@@ -171,6 +171,13 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
+        <link
+          rel="preload"
+          href="/fonts/NotoSansKR-Regular.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
         <StructuredData type="organization" data={{}} />
         {/* Privacy-friendly analytics by Plausible (self-hosted) */}
         <script

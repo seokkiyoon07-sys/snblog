@@ -2,38 +2,20 @@
 
 @plugin "tailwindcss-animate";
 
-/* 옛한글 지원 폰트 - 나눔바른고딕 옛한글 */
+/* 옛한글 지원 폰트 — Noto Sans KR Full (구글 Noto CJK, 옛한글 자모 조합 지원) */
 @font-face {
-  font-family: 'NanumBarunGothic YetHangul';
-  src:
-    url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff2')
-      format('woff2'),
-    url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff')
-      format('woff');
+  font-family: 'Noto Sans KR Full';
+  src: url('/fonts/NotoSansKR-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'NanumBarunGothic YetHangul';
-  src:
-    url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff2')
-      format('woff2'),
-    url('https://cdn.jsdelivr.net/gh/fonts-archive/NanumBarunGothic-YetHangul/NanumBarunGothic-YetHangul.woff')
-      format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* 옛한글 폰트 적용 - details.group 내부의 원문 영역 */
-/* 모바일 호환 fallback 체인: iOS(AppleSDGothicNeo), Android/크로스플랫폼(Noto Sans KR), Windows(Malgun Gothic) */
 details.group summary p {
   font-family:
-    'NanumBarunGothic YetHangul', 'Noto Sans CJK KR', 'Noto Sans KR',
-    'AppleSDGothicNeo-Regular', 'Apple SD Gothic Neo', 'Malgun Gothic',
-    sans-serif;
+    'Noto Sans KR Full', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif !important;
+  text-rendering: optimizeLegibility;
 }
 
 /* details.group 토글 화살표 숨기기 */
@@ -54,9 +36,8 @@ details.group summary::marker {
 /* 옛한글 전용 클래스 */
 .font-yethangul {
   font-family:
-    'NanumBarunGothic YetHangul', 'Noto Sans CJK KR', 'Noto Sans KR',
-    'AppleSDGothicNeo-Regular', 'Apple SD Gothic Neo', 'Malgun Gothic',
-    sans-serif;
+    'Noto Sans KR Full', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif !important;
+  text-rendering: optimizeLegibility;
 }
 
 @custom-variant dark (&:is(.dark *));

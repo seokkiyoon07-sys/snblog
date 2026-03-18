@@ -4,7 +4,7 @@ export interface Post {
   title: string;
   excerpt: string;
   badge?: string; // 배지 텍스트 (예: "3만뷰", "내신 필수")
-  content: string;
+  content?: string;
   category: string;
   subcategory?: string;
   tags?: string[];

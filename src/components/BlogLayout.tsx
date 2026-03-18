@@ -12,7 +12,7 @@ interface BlogLayoutProps {
   post: {
     id: string;
     title: string;
-    content: string;
+    content?: string;
     type?: 'standard' | 'special';
     problemFileUrl?: string;
     problemDataId?: string;
@@ -58,7 +58,7 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
         currentRef.removeEventListener('click', handleContentClick);
       }
     };
-  }, [post.content]);
+  }, [post.content || '']);
 
   useEffect(() => {
     // 탭 전환 함수들을 전역으로 등록 (즉시 실행)
@@ -170,10 +170,10 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
 
       return () => clearInterval(checkKaTeX);
     }
-  }, [post.content]);
+  }, [post.content || '']);
 
   // 특별한 컴포넌트가 필요한 경우
-  if (post.type === 'special' && post.content === 'special-component') {
+  if (post.type === 'special' && (post.content || '') === 'special-component') {
     if (post.id === '251113suneungnotice') {
       return <SuneungNotice />;
     }
@@ -197,8 +197,8 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
 
     return !thumbnailCandidates.some(
       src =>
-        post.content.includes(`src="${src}"`) ||
-        post.content.includes(`src='${src}'`)
+        (post.content || '').includes(`src="${src}"`) ||
+        (post.content || '').includes(`src='${src}'`)
     );
   })();
 
@@ -282,7 +282,7 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
         )}
         <div
           ref={contentRef}
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: post.content || '' }}
           className="[&_img]:cursor-pointer [&_img]:transition-transform [&_img]:hover:scale-[1.02]"
         />
       </article>

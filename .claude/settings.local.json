@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "allow": ["Bash(npx next dev:*)"],
+    "allow": ["Bash(npx next dev:*)", "Bash(npx next:*)"],
     "deny": [],
     "ask": []
   }
