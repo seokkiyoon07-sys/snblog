@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getPostById, getPostsByCategory } from '@/data/posts';
+import { loadPostContent } from '@/lib/post-content';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -121,6 +122,8 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
     notFound();
   }
 
+  const postContent = loadPostContent(post.id);
+
   // special 타입 포스트는 전용 컴포넌트 동적 로드
   if (post.type === 'special' && id === 'boarding-school-price-map-2026') {
     const BoardingSchoolMap = (
@@ -160,20 +163,44 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
               </p>
               <div className="flex flex-wrap justify-center items-center gap-6 text-slate-500 dark:text-gray-400">
                 <span className="flex items-center">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   {post.author}
                 </span>
                 <span className="flex items-center">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   {post.date}
                 </span>
                 <span className="flex items-center">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   {formatReadTime(post.readTime)}
                 </span>
@@ -210,7 +237,7 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
           <div className="mx-auto max-w-4xl">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
               <ArticleContent
-                content={renderMarkdown(post.content)}
+                content={renderMarkdown(postContent)}
                 className="prose prose-lg prose-slate dark:prose-invert max-w-none
                   prose-headings:font-bold prose-headings:tracking-tight
                   prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -231,14 +258,16 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
           type="article"
           data={{
             title: '2026 전국 기숙학원 가격 비교 지도',
-            description: '전국 30개+ 기숙학원의 월 비용, 정원, 위치를 한눈에 비교하세요. 독학기숙학원 vs 수업식 기숙학원 가격 차이, 양평·용인·이천·안성 지역별 학원 정보 제공.',
+            description:
+              '전국 30개+ 기숙학원의 월 비용, 정원, 위치를 한눈에 비교하세요. 독학기숙학원 vs 수업식 기숙학원 가격 차이, 양평·용인·이천·안성 지역별 학원 정보 제공.',
             author: post.author,
             datePublished: post.date,
             dateModified: '2026-01-30',
             image: post.thumbnail,
             url: `https://blog.snacademy.co.kr/datalab/${post.id}`,
             category: 'datalab',
-            keywords: '기숙학원,기숙학원 가격,기숙학원 비용,재수 기숙학원,독학기숙학원,양평 기숙학원,용인 기숙학원,이천 기숙학원,기숙학원 추천,2026 기숙학원',
+            keywords:
+              '기숙학원,기숙학원 가격,기숙학원 비용,재수 기숙학원,독학기숙학원,양평 기숙학원,용인 기숙학원,이천 기숙학원,기숙학원 추천,2026 기숙학원',
           }}
         />
 
@@ -246,10 +275,24 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
         <AIDataGenerator
           content={{
             title: '2026 전국 기숙학원 가격 비교',
-            description: '전국 기숙학원 30개+ 가격 비교. 독학기숙학원(230~302만원), 수업식 기숙학원(315~425만원). 최저가: 홍기하독학기숙학원 230만원. 최고가: 러셀 최상위권 425만원. TOP5: SN독학기숙학원, 종로학원, 강남대성 의대관, 강남대성 퀘타, 러셀 최상위권.',
+            description:
+              '전국 기숙학원 30개+ 가격 비교. 독학기숙학원(230~302만원), 수업식 기숙학원(315~425만원). 최저가: 홍기하독학기숙학원 230만원. 최고가: 러셀 최상위권 425만원. TOP5: SN독학기숙학원, 종로학원, 강남대성 의대관, 강남대성 퀘타, 러셀 최상위권.',
             author: post.author,
             category: 'datalab',
-            tags: ['기숙학원', '기숙학원 가격', '재수 기숙학원', '독학기숙학원', '수업식 기숙학원', '양평 기숙학원', '용인 기숙학원', '이천 기숙학원', '안성 기숙학원', '기숙학원 추천', '2026 기숙학원', ...(post.tags || [])],
+            tags: [
+              '기숙학원',
+              '기숙학원 가격',
+              '재수 기숙학원',
+              '독학기숙학원',
+              '수업식 기숙학원',
+              '양평 기숙학원',
+              '용인 기숙학원',
+              '이천 기숙학원',
+              '안성 기숙학원',
+              '기숙학원 추천',
+              '2026 기숙학원',
+              ...(post.tags || []),
+            ],
             content: `
 # 2026년 전국 기숙학원 가격 비교 가이드
 
@@ -276,11 +319,16 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
 - 정원 대비 관리 인원 비율 확인
 - 식사, 숙소 환경 직접 방문 확인 권장
 
-${post.content}
+${postContent}
             `,
             difficulty: 'intermediate',
             subject: '입시 정보',
-            learningObjectives: ['기숙학원 유형 이해', '가격대별 비교 분석', '지역별 학원 특성 파악', '나에게 맞는 기숙학원 선택'],
+            learningObjectives: [
+              '기숙학원 유형 이해',
+              '가격대별 비교 분석',
+              '지역별 학원 특성 파악',
+              '나에게 맞는 기숙학원 선택',
+            ],
           }}
         />
       </main>
@@ -321,20 +369,44 @@ ${post.content}
             </p>
             <div className="flex flex-wrap justify-center items-center gap-6 text-slate-500 dark:text-gray-400">
               <span className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  />
                 </svg>
                 {post.author}
               </span>
               <span className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                    clipRule="evenodd"
+                  />
                 </svg>
                 {post.date}
               </span>
               <span className="flex items-center">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                    clipRule="evenodd"
+                  />
                 </svg>
                 {formatReadTime(post.readTime)}
               </span>
@@ -376,7 +448,7 @@ ${post.content}
         <div className="mx-auto max-w-4xl">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
             <ArticleContent
-              content={renderMarkdown(post.content)}
+              content={renderMarkdown(postContent)}
               className="prose prose-lg prose-slate dark:prose-invert max-w-none
                 prose-headings:font-bold prose-headings:tracking-tight
                 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -416,7 +488,7 @@ ${post.content}
           author: post.author,
           category: 'datalab',
           tags: post.tags || [],
-          content: post.content,
+          content: postContent,
           difficulty: 'intermediate',
           subject: '데이터 분석',
           learningObjectives: ['데이터 이해', '정보 비교 분석'],

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getPostById, getPostsByCategory } from '@/data/posts';
+import { loadPostContent } from '@/lib/post-content';
 import { notFound } from 'next/navigation';
 import BlogLayout from '@/components/BlogLayout';
 
@@ -66,5 +67,5 @@ export default async function NoticeDetailPage({
     notFound();
   }
 
-  return <BlogLayout post={post} />;
+  return <BlogLayout post={{ ...post, content: loadPostContent(post.id) }} />;
 }

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { getPostById, getPostsByCategory } from '@/data/posts';
+import { loadPostContent } from '@/lib/post-content';
 import StructuredData from '@/components/StructuredData';
 import AIDataGenerator from '@/components/AIDataGenerator';
 import { renderMarkdown } from '@/lib/markdown-renderer';
@@ -219,6 +220,8 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
+  const postContent = loadPostContent(post.id);
+
   // snargpt-presentation 전용 템플릿
   if (id === 'snargpt-presentation') {
     return (
@@ -235,20 +238,44 @@ export default async function Page({ params }: PageProps) {
               </p>
               <div className="flex flex-wrap justify-center items-center gap-6 text-slate-500 dark:text-gray-400 mb-6">
                 <span className="flex items-center">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   {post.author}
                 </span>
                 <span className="flex items-center">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   {post.date}
                 </span>
                 <span className="flex items-center">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   {formatReadTime(post.readTime)}
                 </span>
@@ -257,7 +284,10 @@ export default async function Page({ params }: PageProps) {
               {post.tags && post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 justify-center">
                   {post.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 bg-sn-primary/10 text-sn-primary rounded-full text-sm font-medium">
+                    <span
+                      key={tag}
+                      className="px-3 py-1 bg-sn-primary/10 text-sn-primary rounded-full text-sm font-medium"
+                    >
                       #{tag}
                     </span>
                   ))}
@@ -294,7 +324,12 @@ export default async function Page({ params }: PageProps) {
             readingTime: post.readTime,
             educationalLevel: '고등학교',
             learningResourceType: '프레젠테이션',
-            teaches: ['AI 학습 원리', 'SNarGPT 활용법', '데이터 기반 학습', '사고 로직 개선'],
+            teaches: [
+              'AI 학습 원리',
+              'SNarGPT 활용법',
+              '데이터 기반 학습',
+              '사고 로직 개선',
+            ],
             audience: {
               '@type': 'EducationalAudience',
               educationalRole: '학생',
@@ -317,10 +352,15 @@ export default async function Page({ params }: PageProps) {
             author: post.author,
             category: post.category,
             tags: post.tags || [],
-            content: 'SNarGPT 프레젠테이션: AI 시대 상위권과 하위권의 격차, 데이터 기반 학습, 사고 로직 개선',
+            content:
+              'SNarGPT 프레젠테이션: AI 시대 상위권과 하위권의 격차, 데이터 기반 학습, 사고 로직 개선',
             difficulty: 'intermediate',
             subject: '프레젠테이션',
-            learningObjectives: ['AI 활용 격차 이해', '데이터 기반 학습의 중요성', 'SNarGPT 시스템 이해'],
+            learningObjectives: [
+              'AI 활용 격차 이해',
+              '데이터 기반 학습의 중요성',
+              'SNarGPT 시스템 이해',
+            ],
           }}
         />
       </main>
@@ -425,7 +465,7 @@ export default async function Page({ params }: PageProps) {
           <div className="mx-auto max-w-4xl">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
               <ArticleContent
-                content={renderMarkdown(post.content)}
+                content={renderMarkdown(postContent)}
                 className="prose prose-lg prose-slate dark:prose-invert max-w-none
                   prose-headings:font-bold prose-headings:tracking-tight
                   prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -454,7 +494,7 @@ export default async function Page({ params }: PageProps) {
             url: `https://blog.snacademy.co.kr${post.url}`,
             category: post.category,
             keywords: post.tags?.join(', ') || '',
-            wordCount: post.content.length,
+            wordCount: postContent.length,
             readingTime: post.readTime,
             educationalLevel: '고등학교',
             learningResourceType: '기사',
@@ -486,7 +526,7 @@ export default async function Page({ params }: PageProps) {
             author: post.author,
             category: post.category,
             tags: post.tags || [],
-            content: post.content,
+            content: postContent,
             difficulty: 'intermediate',
             subject: '칼럼',
             learningObjectives: ['기본 이해', '지식 습득'],

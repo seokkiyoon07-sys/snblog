@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import StructuredData from '@/components/StructuredData';
 import AIDataGenerator from '@/components/AIDataGenerator';
 import { getPostById, getPostsByCategory } from '@/data/posts';
+import { loadPostContent } from '@/lib/post-content';
 import BlogLayout from '@/components/BlogLayout';
 import { renderMarkdown } from '@/lib/markdown-renderer';
 import { getCategoryConfig, formatReadTime } from '@/lib/utils';
@@ -43,13 +44,13 @@ export async function generateMetadata({
       url: `https://blog.snacademy.co.kr${post.url}`,
       images: post.thumbnail
         ? [
-          {
-            url: post.thumbnail,
-            width: 800,
-            height: 400,
-            alt: post.title,
-          },
-        ]
+            {
+              url: post.thumbnail,
+              width: 800,
+              height: 400,
+              alt: post.title,
+            },
+          ]
         : [],
     },
     twitter: {
@@ -97,6 +98,8 @@ export default async function PostPage({ params }: PostPageProps) {
     // 다른 특별한 포스트들도 여기에 추가 가능
   }
 
+  // 콘텐츠를 파일에서 로딩
+  const content = loadPostContent(post.id);
   const config = getCategoryConfig(category);
 
   return (
@@ -242,9 +245,7 @@ export default async function PostPage({ params }: PostPageProps) {
               <>
                 {/* SNarGPT 게시글: 인터페이스를 여러 곳에 삽입 */}
                 {(() => {
-                  const parts = post.content.split(
-                    '<!-- SNARGPT_INTERFACE_2 -->'
-                  );
+                  const parts = content.split('<!-- SNARGPT_INTERFACE_2 -->');
                   const beforeInterface2 = parts[0];
                   const afterInterface2 = parts[1] || '';
 
@@ -295,7 +296,7 @@ export default async function PostPage({ params }: PostPageProps) {
                         dangerouslySetInnerHTML={{
                           __html: renderMarkdown(
                             '## 🧠 SNarGPT로 할 수 있는 일들' +
-                            afterMainInterface
+                              afterMainInterface
                           ),
                         }}
                       />
@@ -328,7 +329,7 @@ export default async function PostPage({ params }: PostPageProps) {
             ) : (
               /* 일반 게시글 */
               <ArticleContent
-                content={renderMarkdown(post.content)}
+                content={renderMarkdown(content)}
                 className="prose prose-lg prose-slate dark:prose-invert max-w-none
                   prose-headings:font-bold prose-headings:tracking-tight
                   prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -369,7 +370,7 @@ export default async function PostPage({ params }: PostPageProps) {
           author: post.author,
           category: post.category,
           tags: post.tags || [],
-          content: post.content,
+          content: content,
           difficulty: 'intermediate',
           subject: config.subject || '일반',
           learningObjectives: config.learningObjectives || [

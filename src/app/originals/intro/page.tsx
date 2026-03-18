@@ -277,7 +277,7 @@ export default function SNOriginalsIntroPage() {
           author: post.author,
           category: post.category,
           tags: post.tags || [],
-          content: post.content,
+          content: post.content || '',
           difficulty: 'beginner',
           subject: '고전문학',
           learningObjectives: [
