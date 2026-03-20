@@ -45,7 +45,11 @@ export default function DataLabPage() {
           SN DataLAB 포스트
         </h2>
         {posts.length > 0 ? (
-          <div className="space-y-6" role="list" aria-label="SN DataLAB 포스트 목록">
+          <div
+            className="space-y-6"
+            role="list"
+            aria-label="SN DataLAB 포스트 목록"
+          >
             {posts.map(post => (
               <PostCard key={post.id} post={post} />
             ))}

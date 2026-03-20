@@ -13,40 +13,48 @@
 ### 형식
 
 ```html
-<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
-<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
-<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
-[원문 - 옛한글]
-</p>
-</summary>
-<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-[현대어 해석]
-</div>
+<details
+  class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden"
+>
+  <summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+    <p
+      class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line"
+    >
+      [원문 - 옛한글]
+    </p>
+  </summary>
+  <div
+    class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line"
+  >
+    [현대어 해석]
+  </div>
 </details>
 ```
 
 ### 예시 (사미인곡 1연)
 
 ```html
-<details class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden">
-<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
-<p class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line">
-이 몸 삼기실 제 님을 조차 삼기시니,
-ᄒᆞᆫᄉᆡᆼ 緣分(연분)이며 하ᄂᆞᆯ 모ᄅᆞᆯ 일이런가.
-나 ᄒᆞ나 졈어 닛고 님 ᄒᆞ나 날 괴시니,
-이 ᄆᆞ음 이 ᄉᆞ랑 견졸 ᄃᆡ 노여 업다.
-平生(평ᄉᆡᆼ)애 願(원)ᄒᆞ요ᄃᆡ ᄒᆞᆫᄃᆡ 녜자 ᄒᆞ얏더니,
-늙거야 므ᄉᆞ 일로 외오 두고 글이ᄂᆞᆫ고.
-</p>
-</summary>
-<div class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-이 몸 생겼을 때 임을 좇아 생겼으니,
-한평생의 연분임을 하늘이 모를 일이던가.
-나 하나 젊어 있고 임 하나 날 사랑하시니,
-이 마음 이 사랑 견줄 데가 전혀 없다.
-평생에 원하오되 함께 지내자 하였더니
-늙어서야 무슨 일로 외로이 두고 그리는고.
-</div>
+<details
+  class="group border border-gray-200 dark:border-gray-700 rounded-lg my-4 overflow-hidden"
+>
+  <summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800">
+    <p
+      class="text-gray-900 dark:text-white leading-relaxed whitespace-pre-line"
+    >
+      이 몸 삼기실 제 님을 조차 삼기시니, ᄒᆞᆫᄉᆡᆼ 緣分(연분)이며 하ᄂᆞᆯ 모ᄅᆞᆯ
+      일이런가. 나 ᄒᆞ나 졈어 닛고 님 ᄒᆞ나 날 괴시니, 이 ᄆᆞ음 이 ᄉᆞ랑 견졸
+      ᄃᆡ 노여 업다. 平生(평ᄉᆡᆼ)애 願(원)ᄒᆞ요ᄃᆡ ᄒᆞᆫᄃᆡ 녜자 ᄒᆞ얏더니,
+      늙거야 므ᄉᆞ 일로 외오 두고 글이ᄂᆞᆫ고.
+    </p>
+  </summary>
+  <div
+    class="p-4 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line"
+  >
+    이 몸 생겼을 때 임을 좇아 생겼으니, 한평생의 연분임을 하늘이 모를 일이던가.
+    나 하나 젊어 있고 임 하나 날 사랑하시니, 이 마음 이 사랑 견줄 데가 전혀
+    없다. 평생에 원하오되 함께 지내자 하였더니 늙어서야 무슨 일로 외로이 두고
+    그리는고.
+  </div>
 </details>
 ```
 
@@ -66,44 +74,64 @@
 ### 형식
 
 ```html
-<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
-📜 원문 전체 보기
-</summary>
-<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
-<div data-print-button data-content-id="[작품ID]-original" data-title="[작품명] 원문" data-button-text="원문 PDF 인쇄"></div>
-</div>
-<div id="[작품ID]-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
-
-[원문 전체 - 단락별 빈 줄로 구분]
-
-</div>
+<details
+  class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
+>
+  <summary
+    class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors"
+  >
+    📜 원문 전체 보기
+  </summary>
+  <div
+    class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900"
+  >
+    <div
+      data-print-button
+      data-content-id="[작품ID]-original"
+      data-title="[작품명] 원문"
+      data-button-text="원문 PDF 인쇄"
+    ></div>
+  </div>
+  <div
+    id="[작품ID]-original"
+    class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul"
+  >
+    [원문 전체 - 단락별 빈 줄로 구분]
+  </div>
 </details>
 ```
 
 ### 예시 (사미인곡)
 
 ```html
-<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-<summary class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors">
-📜 원문 전체 보기
-</summary>
-<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900">
-<div data-print-button data-content-id="samieungok-original" data-title="사미인곡 원문" data-button-text="원문 PDF 인쇄"></div>
-</div>
-<div id="samieungok-original" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul">
-
-이 몸 삼기실 제 님을 조차 삼기시니,
-ᄒᆞᆫᄉᆡᆼ 緣分(연분)이며 하ᄂᆞᆯ 모ᄅᆞᆯ 일이런가.
-나 ᄒᆞ나 졈어 닛고 님 ᄒᆞ나 날 괴시니,
-이 ᄆᆞ음 이 ᄉᆞ랑 견졸 ᄃᆡ 노여 업다.
-平生(평ᄉᆡᆼ)애 願(원)ᄒᆞ요ᄃᆡ ᄒᆞᆫᄃᆡ 녜자 ᄒᆞ얏더니,
-늙거야 므ᄉᆞ 일로 외오 두고 글이ᄂᆞᆫ고.
-
-엇그제 님을 뫼셔 廣寒殿(광한뎐)의 올낫더니,
-... (이하 생략)
-
-</div>
+<details
+  class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
+>
+  <summary
+    class="cursor-pointer p-4 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 font-semibold text-gray-900 dark:text-white transition-colors"
+  >
+    📜 원문 전체 보기
+  </summary>
+  <div
+    class="p-4 border-b border-gray-200 dark:border-gray-700 bg-stone-50 dark:bg-stone-900"
+  >
+    <div
+      data-print-button
+      data-content-id="samieungok-original"
+      data-title="사미인곡 원문"
+      data-button-text="원문 PDF 인쇄"
+    ></div>
+  </div>
+  <div
+    id="samieungok-original"
+    class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line font-yethangul"
+  >
+    이 몸 삼기실 제 님을 조차 삼기시니, ᄒᆞᆫᄉᆡᆼ 緣分(연분)이며 하ᄂᆞᆯ 모ᄅᆞᆯ
+    일이런가. 나 ᄒᆞ나 졈어 닛고 님 ᄒᆞ나 날 괴시니, 이 ᄆᆞ음 이 ᄉᆞ랑 견졸 ᄃᆡ
+    노여 업다. 平生(평ᄉᆡᆼ)애 願(원)ᄒᆞ요ᄃᆡ ᄒᆞᆫᄃᆡ 녜자 ᄒᆞ얏더니, 늙거야
+    므ᄉᆞ 일로 외오 두고 글이ᄂᆞᆫ고. 엇그제 님을 뫼셔 廣寒殿(광한뎐)의 올낫더니,
+    ... (이하 생략)
+  </div>
 </details>
 ```
 
@@ -122,18 +150,30 @@
 ### 형식
 
 ```html
-<details class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-<summary class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors">
-📖 현대어 해석 전체 보기
-</summary>
-<div class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
-<div data-print-button data-content-id="[작품ID]-modern" data-title="[작품명] 현대어 해석" data-button-text="현대어 해석 PDF 인쇄"></div>
-</div>
-<div id="[작품ID]-modern" class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line">
-
-[현대어 해석 전체 - 단락별 빈 줄로 구분]
-
-</div>
+<details
+  class="my-8 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
+>
+  <summary
+    class="cursor-pointer p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 font-semibold text-gray-900 dark:text-white transition-colors"
+  >
+    📖 현대어 해석 전체 보기
+  </summary>
+  <div
+    class="p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
+  >
+    <div
+      data-print-button
+      data-content-id="[작품ID]-modern"
+      data-title="[작품명] 현대어 해석"
+      data-button-text="현대어 해석 PDF 인쇄"
+    ></div>
+  </div>
+  <div
+    id="[작품ID]-modern"
+    class="p-6 bg-white dark:bg-gray-900 text-sm leading-relaxed whitespace-pre-line"
+  >
+    [현대어 해석 전체 - 단락별 빈 줄로 구분]
+  </div>
 </details>
 ```
 
@@ -173,27 +213,30 @@
 원문과 현대어 해석에서 빈 줄로 구분하는 단락 기준:
 
 ### 가사 작품 (사미인곡, 관동별곡 등)
+
 - 서사 (도입부)
 - 본사 각 계절/주제별
 - 결사 (마무리)
 
 ### 시조
+
 - 초장
 - 중장
 - 종장
 
 ### 향가
+
 - 각 연(聯)별
 
 ---
 
 ## 6. ID 명명 규칙
 
-| 작품 | 원문 ID | 현대어 ID |
-|------|---------|-----------|
-| 사미인곡 | `samieungok-original` | `samieungok-modern` |
-| 관동별곡 | `gwandong-original` | `gwandong-modern` |
-| 속미인곡 | `sokmieungok-original` | `sokmieungok-modern` |
+| 작품     | 원문 ID                   | 현대어 ID               |
+| -------- | ------------------------- | ----------------------- |
+| 사미인곡 | `samieungok-original`     | `samieungok-modern`     |
+| 관동별곡 | `gwandong-original`       | `gwandong-modern`       |
+| 속미인곡 | `sokmieungok-original`    | `sokmieungok-modern`    |
 | 면앙정가 | `myeonangjungga-original` | `myeonangjungga-modern` |
 
 규칙: `[포스트ID]-original` / `[포스트ID]-modern`

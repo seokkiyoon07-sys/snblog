@@ -2,7 +2,10 @@
 
 import { useState } from 'react';
 import PostCard from '@/components/PostCard';
-import { STARTUP_SUBCATEGORY_CONFIG, type StartupSubcategory } from '@/lib/config';
+import {
+  STARTUP_SUBCATEGORY_CONFIG,
+  type StartupSubcategory,
+} from '@/lib/config';
 import { Post } from '@/data/posts';
 
 interface StartupTabsProps {
@@ -18,9 +21,10 @@ const TABS: { key: StartupSubcategory; label: string }[] = [
 export default function StartupTabs({ posts }: StartupTabsProps) {
   const [activeTab, setActiveTab] = useState<StartupSubcategory>('all');
 
-  const filteredPosts = activeTab === 'all'
-    ? posts
-    : posts.filter(post => post.subcategory === activeTab);
+  const filteredPosts =
+    activeTab === 'all'
+      ? posts
+      : posts.filter(post => post.subcategory === activeTab);
 
   return (
     <div className="space-y-6">
@@ -38,9 +42,11 @@ export default function StartupTabs({ posts }: StartupTabsProps) {
           >
             {tab.label}
             <span className="ml-1.5 text-xs opacity-75">
-              ({tab.key === 'all'
+              (
+              {tab.key === 'all'
                 ? posts.length
-                : posts.filter(p => p.subcategory === tab.key).length})
+                : posts.filter(p => p.subcategory === tab.key).length}
+              )
             </span>
           </button>
         ))}

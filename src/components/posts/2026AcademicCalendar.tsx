@@ -2,6 +2,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+const todayCellClass =
+  'ring-2 ring-[#1a73e8] bg-blue-50 dark:bg-blue-950 animate-[todayPulse_2s_ease-in-out_infinite]';
+const todayStyle = `@keyframes todayPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(26,115,232,0.4); } 50% { box-shadow: 0 0 8px 3px rgba(26,115,232,0.3); } }`;
+
 export default function AcademicCalendar2026() {
   const todayRef = useRef<HTMLTableCellElement>(null);
   const tableContainerRef = useRef<HTMLDivElement>(null);
@@ -331,6 +335,10 @@ export default function AcademicCalendar2026() {
 
   return (
     <>
+      {/* 오늘 표시 애니메이션 */}
+      <style jsx global>{`
+        ${todayStyle}
+      `}</style>
       {/* 프린트 스타일 */}
       <style jsx global>{`
         @media print {
@@ -926,7 +934,7 @@ export default function AcademicCalendar2026() {
                       return (
                         <div
                           key={day}
-                          className={`min-h-[60px] md:min-h-[100px] print:min-h-0 p-0.5 md:p-1 border-b border-r border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors print-monthly-cell ${bgClass}`}
+                          className={`min-h-[60px] md:min-h-[100px] print:min-h-0 p-0.5 md:p-1 border-b border-r border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors print-monthly-cell ${bgClass} ${todayCell ? todayCellClass : ''}`}
                         >
                           <div
                             className={`text-xs md:text-sm mb-0.5 md:mb-1 ${
@@ -1079,7 +1087,7 @@ export default function AcademicCalendar2026() {
                               <td
                                 key={monthIndex}
                                 ref={todayCell ? todayRef : null}
-                                className={`py-0 px-0 md:py-0.5 md:px-0.5 text-center border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 relative ${bgClass} ${hiddenClass}`}
+                                className={`py-0 px-0 md:py-0.5 md:px-0.5 text-center border-b ${borderClass} border-gray-200 dark:border-gray-700 last:border-r-0 relative ${bgClass} ${hiddenClass} ${todayCell ? todayCellClass : ''}`}
                               >
                                 {isValidDay &&
                                   sunday &&
@@ -1602,7 +1610,7 @@ export default function AcademicCalendar2026() {
                       return (
                         <td
                           key={monthIndex}
-                          className={`py-1.5 px-1 text-center border-b border-r border-gray-200 dark:border-gray-700 last:border-r-0 relative ${bgClass}`}
+                          className={`py-1.5 px-1 text-center border-b border-r border-gray-200 dark:border-gray-700 last:border-r-0 relative ${bgClass} ${todayCell ? todayCellClass : ''}`}
                         >
                           {isValidDay && sunday && !todayCell && !event && (
                             <span className="absolute top-1 left-1 w-1.5 h-1.5 rounded-full bg-red-400"></span>

@@ -173,7 +173,10 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
   }, [post.content || '']);
 
   // 특별한 컴포넌트가 필요한 경우
-  if (post.type === 'special' && (post.content || '') === 'special-component') {
+  if (
+    post.type === 'special' &&
+    (post.content || '').trim() === 'special-component'
+  ) {
     if (post.id === '251113suneungnotice') {
       return <SuneungNotice />;
     }

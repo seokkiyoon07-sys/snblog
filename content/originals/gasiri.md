@@ -126,6 +126,7 @@
 As a Goryeo gayo (Goryeo song), "Gasiri" represents the folk musical tradition of medieval Korea. Unlike the refined poetry of the aristocratic class, these songs captured the raw emotions and experiences of common people, passed down through oral tradition before being recorded in later anthologies.
 
 **Literary Significance:**
+
 - **Goryeo Gayo Form**: Features the characteristic refrain (yeom) structure of Goryeo folk songs
 - **Repetition and Intensification**: Uses repeated phrases to deepen emotional impact
 - **Female Voice**: Speaks from the perspective of a woman sending off her beloved

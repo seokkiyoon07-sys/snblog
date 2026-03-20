@@ -242,6 +242,7 @@
 After serving through the reigns of Kings Sejong, Munjong, Danjong, and Sejo, Jeong Geuk-in resigned from his official position and retired to his hometown in Taein (present-day Jeongeup), Jeolla Province. There, he spent his final years enjoying the natural beauty around him, and this poem captures that experience of peaceful retirement.
 
 **Literary Significance:**
+
 - **Gasa Form**: Written in the 4-beat continuous verse form characteristic of gasa poetry
 - **Pioneer of Gangho Gasa**: Considered the first example of "rivers and lakes" poetry about hermit life in nature
 - **Anbin Nakdo Philosophy**: Expresses the Confucian ideal of finding joy in simple virtue rather than wealth

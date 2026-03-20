@@ -121,6 +121,7 @@
 **"Ganghosasiga"** (Songs of the Rivers and Lakes in Four Seasons) is a series of four sijo poems written by Maeng Sa-seong during the early Joseon dynasty. Each poem celebrates the beauty of a different season, yet all end with gratitude toward the king's grace.
 
 **Timestamps:**
+
 - 00:00 Intro (작품 소개)
 - 00:17 강호사시가
 - 01:19 Outro (부연 설명)

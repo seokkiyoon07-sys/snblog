@@ -1,211 +1,296 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SN Math Analysis - KaTeX Rendered</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+      integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
+      integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+      integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+      crossorigin="anonymous"
+    ></script>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            background-color: #f8f9fa;
-        }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        h3 {
-            color: #2980b9;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-        .problem-section {
-            background-color: #ecf0f1;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .analysis-section {
-            background-color: #e8f5e8;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .solution-steps {
-            background-color: #fef9e7;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .math-formula {
-            text-align: center;
-            margin: 15px 0;
-            padding: 10px;
-            background-color: #f8f9ff;
-            border-radius: 5px;
-        }
-        .highlight {
-            background-color: #fff3cd;
-            padding: 10px;
-            border-left: 4px solid #ffc107;
-            margin: 10px 0;
-        }
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+      }
+      .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+      h2 {
+        color: #34495e;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+      h3 {
+        color: #2980b9;
+        margin-top: 25px;
+        margin-bottom: 10px;
+      }
+      .problem-section {
+        background-color: #ecf0f1;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+      .analysis-section {
+        background-color: #e8f5e8;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+      .solution-steps {
+        background-color: #fef9e7;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .math-formula {
+        text-align: center;
+        margin: 15px 0;
+        padding: 10px;
+        background-color: #f8f9ff;
+        border-radius: 5px;
+      }
+      .highlight {
+        background-color: #fff3cd;
+        padding: 10px;
+        border-left: 4px solid #ffc107;
+        margin: 10px 0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>SN Math Analysis - 수학 문항 분석</h1>
-        
-        <div class="problem-section">
-            <h2>📚 유사 문항 분석 (첫 번째 문제)</h2>
-            
-            <h3>유사 문항 3개</h3>
-            <ul>
-                <li><strong>평가원 2022.08.31 모의평가 17번</strong></li>
-                <li><strong>평가원 2023.09.06 모의평가 8번</strong></li>
-                <li><strong>교육청 2025.03.26 학력평가 7번</strong></li>
-            </ul>
+      <h1>SN Math Analysis - 수학 문항 분석</h1>
 
-            <h3>RAG에서 확인된 해당 문항들의 메타(요지)</h3>
-            <ul>
-                <li><strong>평가원 2022.08.31 모평 17번:</strong> 미적분, 다항함수의 부정적분+초기값으로 C 결정 후 f(2) 계산. 난이도 하, 정답률 약 0.93, 배점 3점</li>
-                <li><strong>평가원 2023.09.06 모평 8번:</strong> f′(x) 다항식, f(0)=4, f(1) 매개 포함. 부정적분 후 일관성으로 f(1) 결정→ f(2). 난이도 하, 정답률 약 0.96, 배점 3점</li>
-                <li><strong>교육청 2025.03.26 학평 7번:</strong> f′(x)=x³+x, f(0)=-1, f(2) 계산. 부정적분+초기값. 난이도 하, 정답률 약 0.95, 배점 3점</li>
-            </ul>
+      <div class="problem-section">
+        <h2>📚 유사 문항 분석 (첫 번째 문제)</h2>
+
+        <h3>유사 문항 3개</h3>
+        <ul>
+          <li><strong>평가원 2022.08.31 모의평가 17번</strong></li>
+          <li><strong>평가원 2023.09.06 모의평가 8번</strong></li>
+          <li><strong>교육청 2025.03.26 학력평가 7번</strong></li>
+        </ul>
+
+        <h3>RAG에서 확인된 해당 문항들의 메타(요지)</h3>
+        <ul>
+          <li>
+            <strong>평가원 2022.08.31 모평 17번:</strong> 미적분, 다항함수의
+            부정적분+초기값으로 C 결정 후 f(2) 계산. 난이도 하, 정답률 약 0.93,
+            배점 3점
+          </li>
+          <li>
+            <strong>평가원 2023.09.06 모평 8번:</strong> f′(x) 다항식, f(0)=4,
+            f(1) 매개 포함. 부정적분 후 일관성으로 f(1) 결정→ f(2). 난이도 하,
+            정답률 약 0.96, 배점 3점
+          </li>
+          <li>
+            <strong>교육청 2025.03.26 학평 7번:</strong> f′(x)=x³+x, f(0)=-1,
+            f(2) 계산. 부정적분+초기값. 난이도 하, 정답률 약 0.95, 배점 3점
+          </li>
+        </ul>
+      </div>
+
+      <div class="analysis-section">
+        <h2>📊 현재 문항 난이도/정답률 추정</h2>
+        <p>
+          유형이 위 세 문제와 본질적으로 동일한
+          <strong
+            >"다항식 항별 적분 + 초기조건으로 적분상수 결정 + 특정값
+            대입"</strong
+          >의 기본형입니다.
+        </p>
+
+        <div class="highlight">
+          <p>
+            <strong>추정 결과:</strong> 난이도 하, 예상 정답률 약
+            0.94~0.96(대표값 0.95 내외), 배점 3점급
+          </p>
         </div>
+      </div>
 
-        <div class="analysis-section">
-            <h2>📊 현재 문항 난이도/정답률 추정</h2>
-            <p>유형이 위 세 문제와 본질적으로 동일한 <strong>"다항식 항별 적분 + 초기조건으로 적분상수 결정 + 특정값 대입"</strong>의 기본형입니다.</p>
-            
-            <div class="highlight">
-                <p><strong>추정 결과:</strong> 난이도 하, 예상 정답률 약 0.94~0.96(대표값 0.95 내외), 배점 3점급</p>
+      <div class="solution-steps">
+        <h2>🔧 간단 분석 (현재 문제)</h2>
+
+        <h3>핵심 개념</h3>
+        <ul>
+          <li>
+            <strong>거듭제곱 적분:</strong>
+            <div class="math-formula">
+              $$\int x^n dx = \frac{x^{n+1}}{n+1}$$
             </div>
-        </div>
+          </li>
+          <li><strong>적분의 선형성</strong></li>
+          <li><strong>초기조건으로 C 결정</strong></li>
+        </ul>
 
-        <div class="solution-steps">
-            <h2>🔧 간단 분석 (현재 문제)</h2>
-            
-            <h3>핵심 개념</h3>
-            <ul>
-                <li><strong>거듭제곱 적분:</strong> 
-                    <div class="math-formula">$$\int x^n dx = \frac{x^{n+1}}{n+1}$$</div>
-                </li>
-                <li><strong>적분의 선형성</strong></li>
-                <li><strong>초기조건으로 C 결정</strong></li>
-            </ul>
-
-            <h3>풀이 개략</h3>
-            <ol>
-                <li>부정적분 계산:
-                    <div class="math-formula">$$F(x) = \int (4x^3 - 2x) dx = x^4 - x^2 + C$$</div>
-                </li>
-                <li>초기조건 적용:
-                    <div class="math-formula">$$F(0) = 4 \Rightarrow C = 4$$</div>
-                </li>
-                <li>특정값 계산:
-                    <div class="math-formula">$$F(2) = 2^4 - 2^2 + 4 = 16$$</div>
-                </li>
-            </ol>
-        </div>
-
-        <hr style="margin: 40px 0;">
-
-        <div class="problem-section">
-            <h2>📚 유사 문항 분석 (두 번째 문제)</h2>
-            
-            <h3>유사 문항 3개</h3>
-            <ul>
-                <li><strong>교육청 2021.04.14 학력평가 미적분 12번</strong></li>
-                <li><strong>교육청 2021.10.12 학력평가 미적분 15번</strong></li>
-                <li><strong>평가원 2022.08.31 모의평가 미적분 6번</strong></li>
-            </ul>
-
-            <h3>RAG LABEL_JSON 메타 요약</h3>
-            <ul>
-                <li><strong>2021.04.14 학평 12번:</strong> 닫힌구간 [0,3]에서 삼차함수의 최댓값 조건으로 a 결정(임계점+끝점 비교). 난이도 하, 정답률 0.95, 배점 4점</li>
-                <li><strong>2021.10.12 학평 15번:</strong> 적분값과 절댓값으로 나뉜 조각함수의 연속·극값 조건(절댓값 포함). 난이도 중상, 정답률 0.50, 배점 4점</li>
-                <li><strong>2022.08.31 모평 6번:</strong> 삼차함수의 극댓값이 주어질 때 극솟값 구하기(임계점 판정). 난이도 하, 정답률 0.95, 배점 3점</li>
-            </ul>
-        </div>
-
-        <div class="analysis-section">
-            <h2>📊 현재 문항의 난이도/정답률 추정</h2>
-            <p><strong>유형 적합성:</strong> 주어진 문제는 <strong>"닫힌구간 [-2,2]에서 연속인 다항함수의 |f(x)| 최댓값 = k의 최솟값"</strong>을 찾는 기본형입니다.</p>
-            
-            <p>핵심은 $f'(x) = 6(x+2)(x-1)$에서 임계점 $x = -2, 1$과 구간 끝점 $x = -2, 2$에서의 함수값을 계산하고 절댓값으로 비교하는 표준 절차입니다.</p>
-            
-            <div class="highlight">
-                <p><strong>추정 결과:</strong> 난이도 중하~중, 예상 정답률 약 0.88~0.93(대표값 0.90 내외), 배점 3점급</p>
+        <h3>풀이 개략</h3>
+        <ol>
+          <li>
+            부정적분 계산:
+            <div class="math-formula">
+              $$F(x) = \int (4x^3 - 2x) dx = x^4 - x^2 + C$$
             </div>
-        </div>
+          </li>
+          <li>
+            초기조건 적용:
+            <div class="math-formula">$$F(0) = 4 \Rightarrow C = 4$$</div>
+          </li>
+          <li>
+            특정값 계산:
+            <div class="math-formula">$$F(2) = 2^4 - 2^2 + 4 = 16$$</div>
+          </li>
+        </ol>
+      </div>
 
-        <div class="solution-steps">
-            <h2>🔧 간단 분석 (현재 문제)</h2>
-            
-            <h3>핵심 개념</h3>
+      <hr style="margin: 40px 0" />
+
+      <div class="problem-section">
+        <h2>📚 유사 문항 분석 (두 번째 문제)</h2>
+
+        <h3>유사 문항 3개</h3>
+        <ul>
+          <li><strong>교육청 2021.04.14 학력평가 미적분 12번</strong></li>
+          <li><strong>교육청 2021.10.12 학력평가 미적분 15번</strong></li>
+          <li><strong>평가원 2022.08.31 모의평가 미적분 6번</strong></li>
+        </ul>
+
+        <h3>RAG LABEL_JSON 메타 요약</h3>
+        <ul>
+          <li>
+            <strong>2021.04.14 학평 12번:</strong> 닫힌구간 [0,3]에서 삼차함수의
+            최댓값 조건으로 a 결정(임계점+끝점 비교). 난이도 하, 정답률 0.95,
+            배점 4점
+          </li>
+          <li>
+            <strong>2021.10.12 학평 15번:</strong> 적분값과 절댓값으로 나뉜
+            조각함수의 연속·극값 조건(절댓값 포함). 난이도 중상, 정답률 0.50,
+            배점 4점
+          </li>
+          <li>
+            <strong>2022.08.31 모평 6번:</strong> 삼차함수의 극댓값이 주어질 때
+            극솟값 구하기(임계점 판정). 난이도 하, 정답률 0.95, 배점 3점
+          </li>
+        </ul>
+      </div>
+
+      <div class="analysis-section">
+        <h2>📊 현재 문항의 난이도/정답률 추정</h2>
+        <p>
+          <strong>유형 적합성:</strong> 주어진 문제는
+          <strong
+            >"닫힌구간 [-2,2]에서 연속인 다항함수의 |f(x)| 최댓값 = k의
+            최솟값"</strong
+          >을 찾는 기본형입니다.
+        </p>
+
+        <p>
+          핵심은 $f'(x) = 6(x+2)(x-1)$에서 임계점 $x = -2, 1$과 구간 끝점 $x =
+          -2, 2$에서의 함수값을 계산하고 절댓값으로 비교하는 표준 절차입니다.
+        </p>
+
+        <div class="highlight">
+          <p>
+            <strong>추정 결과:</strong> 난이도 중하~중, 예상 정답률 약
+            0.88~0.93(대표값 0.90 내외), 배점 3점급
+          </p>
+        </div>
+      </div>
+
+      <div class="solution-steps">
+        <h2>🔧 간단 분석 (현재 문제)</h2>
+
+        <h3>핵심 개념</h3>
+        <ul>
+          <li>
+            <strong>최댓값 정리:</strong> 폐구간에서 연속인 함수는 최대·최솟값을
+            가짐
+          </li>
+          <li>
+            <strong>임계점과 끝점 비교:</strong> $f'(x) = 0$의 해와 구간
+            끝점에서 $f(x)$ 평가
+          </li>
+          <li>
+            <strong>절댓값 처리:</strong> 최종적으로 $|f(x)|$ 값들 중 최대가
+            $k$의 최솟값
+          </li>
+        </ul>
+
+        <h3>계산 포인트</h3>
+        <ol>
+          <li>
+            임계점 찾기:
+            <div class="math-formula">
+              $$f'(x) = 6(x+2)(x-1) \Rightarrow x = -2, 1$$
+            </div>
+          </li>
+          <li>
+            후보점에서 함수값 계산: $x = -2, 1, 2$에서 $f(x)$ 계산
             <ul>
-                <li><strong>최댓값 정리:</strong> 폐구간에서 연속인 함수는 최대·최솟값을 가짐</li>
-                <li><strong>임계점과 끝점 비교:</strong> $f'(x) = 0$의 해와 구간 끝점에서 $f(x)$ 평가</li>
-                <li><strong>절댓값 처리:</strong> 최종적으로 $|f(x)|$ 값들 중 최대가 $k$의 최솟값</li>
+              <li>$f(-2) = 12$</li>
+              <li>$f(1) = -15$</li>
+              <li>$f(2) = -4$</li>
             </ul>
-
-            <h3>계산 포인트</h3>
-            <ol>
-                <li>임계점 찾기:
-                    <div class="math-formula">$$f'(x) = 6(x+2)(x-1) \Rightarrow x = -2, 1$$</div>
-                </li>
-                <li>후보점에서 함수값 계산: $x = -2, 1, 2$에서 $f(x)$ 계산
-                    <ul>
-                        <li>$f(-2) = 12$</li>
-                        <li>$f(1) = -15$</li>
-                        <li>$f(2) = -4$</li>
-                    </ul>
-                </li>
-                <li>절댓값 비교:
-                    <div class="math-formula">$$|12| = 12, \quad |-15| = 15, \quad |-4| = 4$$</div>
-                    최대값은 15
-                </li>
-                <li><strong>결론:</strong> $k$의 최솟값은 <span style="color: red; font-size: 1.2em;">15</span></li>
-            </ol>
-        </div>
+          </li>
+          <li>
+            절댓값 비교:
+            <div class="math-formula">
+              $$|12| = 12, \quad |-15| = 15, \quad |-4| = 4$$
+            </div>
+            최대값은 15
+          </li>
+          <li>
+            <strong>결론:</strong> $k$의 최솟값은
+            <span style="color: red; font-size: 1.2em">15</span>
+          </li>
+        </ol>
+      </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    {left: "$$", right: "$$", display: true},
-                    {left: "$", right: "$", display: false},
-                    {left: "\\[", right: "\\]", display: true},
-                    {left: "\\(", right: "\\)", display: false}
-                ]
-            });
+      document.addEventListener('DOMContentLoaded', function () {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\[', right: '\\]', display: true },
+            { left: '\\(', right: '\\)', display: false },
+          ],
         });
+      });
     </script>
-</body>
+  </body>
 </html>

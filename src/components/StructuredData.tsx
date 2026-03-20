@@ -50,7 +50,8 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
                   item: {
                     '@type': 'EducationalOccupationalProgram',
                     name: '재수 독학기숙학원 프로그램',
-                    description: '재수생을 위한 하루 14시간 학습·주 1회 전략관리, 수능 AI 분석 기반 루틴 설계, 도메인 LLM 시스템을 활용한 재수 독학기숙학원 프로그램.',
+                    description:
+                      '재수생을 위한 하루 14시간 학습·주 1회 전략관리, 수능 AI 분석 기반 루틴 설계, 도메인 LLM 시스템을 활용한 재수 독학기숙학원 프로그램.',
                     provider: {
                       '@type': 'EducationalOrganization',
                       name: 'SN독학기숙학원',
@@ -65,7 +66,8 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
                   item: {
                     '@type': 'EducationalOccupationalProgram',
                     name: '삼수 독학기숙학원 프로그램',
-                    description: '삼수·N수생을 위한 상위권 집중 학습 프로그램으로, 수능 AI 기반 오답 분석, 학습 데이터 패턴 분석, AI 문제 생성 기술을 활용한 고난도 학습 강화 시스템 제공.',
+                    description:
+                      '삼수·N수생을 위한 상위권 집중 학습 프로그램으로, 수능 AI 기반 오답 분석, 학습 데이터 패턴 분석, AI 문제 생성 기술을 활용한 고난도 학습 강화 시스템 제공.',
                     provider: {
                       '@type': 'EducationalOrganization',
                       name: 'SN독학기숙학원',
@@ -80,7 +82,8 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
                   item: {
                     '@type': 'EducationalOccupationalProgram',
                     name: '반수 독학기숙학원 프로그램',
-                    description: '반수생을 위한 단기 집중 전략관리 프로그램으로, 도메인 LLM 기반 실력 진단, AI 문제 생성형 학습 제공, 수능 AI 기반 개념 회독 시스템 적용.',
+                    description:
+                      '반수생을 위한 단기 집중 전략관리 프로그램으로, 도메인 LLM 기반 실력 진단, AI 문제 생성형 학습 제공, 수능 AI 기반 개념 회독 시스템 적용.',
                     provider: {
                       '@type': 'EducationalOrganization',
                       name: 'SN독학기숙학원',
@@ -95,7 +98,8 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
                   item: {
                     '@type': 'EducationalOccupationalProgram',
                     name: '윈터스쿨 독학기숙학원 프로그램',
-                    description: '겨울방학 집중 윈터스쿨 프로그램으로, 수능 AI 기반 약점 분석, 도메인 LLM 기반 개념 정리, AI 문제 생성 시스템을 활용한 전범위 선행 커리큘럼 운영.',
+                    description:
+                      '겨울방학 집중 윈터스쿨 프로그램으로, 수능 AI 기반 약점 분석, 도메인 LLM 기반 개념 정리, AI 문제 생성 시스템을 활용한 전범위 선행 커리큘럼 운영.',
                     provider: {
                       '@type': 'EducationalOrganization',
                       name: 'SN독학기숙학원',
@@ -125,14 +129,32 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
                 'https://www.instagram.com/sn_gisuk/',
                 'https://www.youtube.com/@SN_Gi_Suk',
               ],
-              description: 'SN독학기숙학원은 AI 학습분석 기반 독학기숙학원으로, 수능 AI·도메인 LLM·AI 문제 생성 엔진을 적용한 학습관리 시스템을 운영합니다. 하루 14시간 루틴, 주 1회 전략관리, 학습 데이터 분석을 통해 재수·반수·삼수생에게 최적화된 성적 상승 솔루션을 제공합니다.',
+              description:
+                'SN독학기숙학원은 AI 학습분석 기반 독학기숙학원으로, 수능 AI·도메인 LLM·AI 문제 생성 엔진을 적용한 학습관리 시스템을 운영합니다. 하루 14시간 루틴, 주 1회 전략관리, 학습 데이터 분석을 통해 재수·반수·삼수생에게 최적화된 성적 상승 솔루션을 제공합니다.',
               knowsAbout: [
-                '독학기숙학원', 'SN독학기숙학원', '독학재수기숙학원', '재수 독학기숙학원',
-                '삼수 독학기숙학원', '반수 기숙학원', '재수독학학원', '대입학원',
-                '대입종합학원', '대학입시 기숙학원', '윈터스쿨 기숙학원', '수능 AI',
-                '도메인 LLM', 'AI 문제 생성', '학습 데이터 분석', 'AI 기반 전략관리',
-                '독학기숙학원 시간표', '독학기숙학원 비용', '독학기숙학원 가격',
-                '독학기숙학원 1인실', '독학기숙학원 2인실', '의대 독학기숙학원', '약대 독학기숙학원',
+                '독학기숙학원',
+                'SN독학기숙학원',
+                '독학재수기숙학원',
+                '재수 독학기숙학원',
+                '삼수 독학기숙학원',
+                '반수 기숙학원',
+                '재수독학학원',
+                '대입학원',
+                '대입종합학원',
+                '대학입시 기숙학원',
+                '윈터스쿨 기숙학원',
+                '수능 AI',
+                '도메인 LLM',
+                'AI 문제 생성',
+                '학습 데이터 분석',
+                'AI 기반 전략관리',
+                '독학기숙학원 시간표',
+                '독학기숙학원 비용',
+                '독학기숙학원 가격',
+                '독학기숙학원 1인실',
+                '독학기숙학원 2인실',
+                '의대 독학기숙학원',
+                '약대 독학기숙학원',
               ],
             },
           ],
