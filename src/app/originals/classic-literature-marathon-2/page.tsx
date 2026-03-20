@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     canonical: '/originals/classic-literature-marathon-2',
   },
   openGraph: {
-    title: '기말고사 대비 고전문학 공부하는 고1·고2 친구들을 위해 만든 영상 (SN 고전문학 몰아보기 2탄)',
+    title:
+      '기말고사 대비 고전문학 공부하는 고1·고2 친구들을 위해 만든 영상 (SN 고전문학 몰아보기 2탄)',
     description:
       '보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈. 고등학교 1~2학년 내신 시험 준비를 위한 8개 작품 몰아보기 영상입니다.',
     type: 'article',
@@ -32,7 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '기말고사 대비 고전문학 공부하는 고1·고2 친구들을 위해 만든 영상 (SN 고전문학 몰아보기 2탄)',
+    title:
+      '기말고사 대비 고전문학 공부하는 고1·고2 친구들을 위해 만든 영상 (SN 고전문학 몰아보기 2탄)',
     description:
       '보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈. 고등학교 1~2학년 내신 시험 준비를 위한 8개 작품 몰아보기 영상입니다.',
     images: ['https://blog.snacademy.co.kr/images/thumbnail/thumbnail_a1.png'],
@@ -115,7 +117,8 @@ export default function ClassicLiteratureMarathon2Page() {
         <p>보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈.</p>
         <p>
           오늘은 <strong>고등학교 1~2학년 내신 시험 준비 차원</strong>에서,
-          수능시험날(11/13) 이후 게시했던 8개 작품들을 몰아보기할 수 있는 영상을 만들었습니다.
+          수능시험날(11/13) 이후 게시했던 8개 작품들을 몰아보기할 수 있는 영상을
+          만들었습니다.
         </p>
       </section>
 
@@ -205,58 +208,86 @@ export default function ClassicLiteratureMarathon2Page() {
 
         <div className="space-y-6 mt-6">
           <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">1. 제망매가 (祭亡妹歌)</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+              1. 제망매가 (祭亡妹歌)
+            </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              <strong>월명사</strong>가 죽은 누이를 위해 재(齋)를 올리며 지은 향가. 삶과 죽음의 경계, 이별의 슬픔과 극락왕생에 대한 소망을 담고 있습니다.
+              <strong>월명사</strong>가 죽은 누이를 위해 재(齋)를 올리며 지은
+              향가. 삶과 죽음의 경계, 이별의 슬픔과 극락왕생에 대한 소망을 담고
+              있습니다.
             </p>
           </div>
 
           <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">2. 찬기파랑가 (讚耆婆郞歌)</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+              2. 찬기파랑가 (讚耆婆郞歌)
+            </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              <strong>충담사</strong>가 화랑 기파랑을 추모하며 지은 10구체 향가. 화랑의 고결한 인품과 풍류를 자연물에 비유하여 찬양한 작품입니다.
+              <strong>충담사</strong>가 화랑 기파랑을 추모하며 지은 10구체 향가.
+              화랑의 고결한 인품과 풍류를 자연물에 비유하여 찬양한 작품입니다.
             </p>
           </div>
 
           <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">3. 가시리</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+              3. 가시리
+            </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              고려 시대의 대표적인 이별 노래로, 작자 미상의 고려가요. 떠나가는 임에 대한 애절한 마음과 다시 돌아오기를 바라는 소망을 담고 있습니다.
+              고려 시대의 대표적인 이별 노래로, 작자 미상의 고려가요. 떠나가는
+              임에 대한 애절한 마음과 다시 돌아오기를 바라는 소망을 담고
+              있습니다.
             </p>
           </div>
 
           <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">4. 매화사 (梅花詞)</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+              4. 매화사 (梅花詞)
+            </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              조선 후기 <strong>안민영</strong>이 지은 연시조. 매화에 대한 깊은 애정과 함께 군자의 고결한 지조를 노래하고 있습니다.
+              조선 후기 <strong>안민영</strong>이 지은 연시조. 매화에 대한 깊은
+              애정과 함께 군자의 고결한 지조를 노래하고 있습니다.
             </p>
           </div>
 
           <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">5. 강호사시가 (江湖四時歌)</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+              5. 강호사시가 (江湖四時歌)
+            </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              <strong>맹사성</strong>이 지은 연시조로, 봄·여름·가을·겨울 네 계절의 풍경을 노래합니다. 자연 속에서의 한가로운 삶과 임금에 대한 충성심을 함께 담고 있습니다.
+              <strong>맹사성</strong>이 지은 연시조로, 봄·여름·가을·겨울 네
+              계절의 풍경을 노래합니다. 자연 속에서의 한가로운 삶과 임금에 대한
+              충성심을 함께 담고 있습니다.
             </p>
           </div>
 
           <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">6. 도산십이곡 (陶山十二曲)</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+              6. 도산십이곡 (陶山十二曲)
+            </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              <strong>이황(퇴계)</strong>이 지은 12수의 연시조. 자연 속에서의 학문 정진과 수양, 후학들에 대한 가르침을 담고 있습니다.
+              <strong>이황(퇴계)</strong>이 지은 12수의 연시조. 자연 속에서의
+              학문 정진과 수양, 후학들에 대한 가르침을 담고 있습니다.
             </p>
           </div>
 
           <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">7. 상춘곡 (賞春曲)</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+              7. 상춘곡 (賞春曲)
+            </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              <strong>정극인</strong>이 지은 조선 전기의 대표적인 가사 작품. 봄날의 아름다운 자연과 한가로운 전원생활의 즐거움을 노래합니다.
+              <strong>정극인</strong>이 지은 조선 전기의 대표적인 가사 작품.
+              봄날의 아름다운 자연과 한가로운 전원생활의 즐거움을 노래합니다.
             </p>
           </div>
 
           <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">8. 면앙정가 (俛仰亭歌)</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+              8. 면앙정가 (俛仰亭歌)
+            </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              <strong>송순</strong>이 면앙정에서 바라본 사계절의 풍경을 노래한 가사. 자연의 아름다움과 유유자적한 삶의 즐거움을 화려한 수사로 표현했습니다.
+              <strong>송순</strong>이 면앙정에서 바라본 사계절의 풍경을 노래한
+              가사. 자연의 아름다움과 유유자적한 삶의 즐거움을 화려한 수사로
+              표현했습니다.
             </p>
           </div>
         </div>
@@ -269,8 +300,10 @@ export default function ClassicLiteratureMarathon2Page() {
         <H2 id="closing">마치며</H2>
         <p>보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈.</p>
         <p>
-          SN독학기숙학원이 고심하여 고른 고전문학 작품들을 이해하기 쉽도록 AI의 도움을 받아 제작한 영상들이니,
-          가벼운 마음으로 영상 시청하시면서 그간 공부하셨던 내용들을 머릿속에 쏙쏙 정리할 수 있는 시간 가지시기를 기원합니다.
+          SN독학기숙학원이 고심하여 고른 고전문학 작품들을 이해하기 쉽도록 AI의
+          도움을 받아 제작한 영상들이니, 가벼운 마음으로 영상 시청하시면서 그간
+          공부하셨던 내용들을 머릿속에 쏙쏙 정리할 수 있는 시간 가지시기를
+          기원합니다.
         </p>
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
           <p className="text-gray-600 dark:text-gray-400">
@@ -291,10 +324,12 @@ export default function ClassicLiteratureMarathon2Page() {
             </span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            기말고사 대비 고전문학 공부하는 고1·고2 친구들을 위해 만든 영상 (SN 고전문학 몰아보기 2탄)
+            기말고사 대비 고전문학 공부하는 고1·고2 친구들을 위해 만든 영상 (SN
+            고전문학 몰아보기 2탄)
           </h1>
           <p className="mt-3 text-gray-600 dark:text-gray-300">
-            보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈. 고등학교 1~2학년 내신 시험 준비를 위한 8개 작품 몰아보기 영상입니다.
+            보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈. 고등학교 1~2학년
+            내신 시험 준비를 위한 8개 작품 몰아보기 영상입니다.
           </p>
           <div className="flex gap-2 mt-4 flex-wrap">
             {[

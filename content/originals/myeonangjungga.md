@@ -377,6 +377,7 @@
 **"Myeonangjungga"** is a classical Korean poem (gasa) written by Song Sun during the early Joseon dynasty. The poem describes the beautiful four seasons around Myeonangjeong pavilion in Damyang, and the poet's leisurely life in harmony with nature.
 
 **Timestamps:**
+
 - 00:00 Intro
 - 00:33 Myeonangjungga
 - 05:49 Outro

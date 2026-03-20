@@ -207,7 +207,8 @@ export default function ArticleContent({
     if (!contentRef.current) return;
 
     // 원문+현대어 동시보기용 details 요소들 찾기 (group 클래스를 가진 모든 details)
-    const detailsElements = contentRef.current.querySelectorAll('details.group');
+    const detailsElements =
+      contentRef.current.querySelectorAll('details.group');
 
     const cleanupFunctions: (() => void)[] = [];
 
@@ -387,7 +388,8 @@ export default function ArticleContent({
 
             <div className="overflow-auto max-w-[95vw] max-h-[90vh]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              {modalImage.includes('kwandohun') || modalImage.includes('leeyoon') ? (
+              {modalImage.includes('kwandohun') ||
+              modalImage.includes('leeyoon') ? (
                 <div
                   className="overflow-hidden rounded-lg"
                   style={{

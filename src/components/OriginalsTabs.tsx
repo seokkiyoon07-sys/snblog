@@ -20,7 +20,11 @@ type ViewMode = 'card' | 'list';
 const ITEMS_PER_PAGE = 6;
 
 // 정철 트릴로지 작품 ID
-const JEONGCHEOL_TRILOGY_IDS = ['gwandong-byeolgok', 'samieungok', 'sokmieungok'];
+const JEONGCHEOL_TRILOGY_IDS = [
+  'gwandong-byeolgok',
+  'samieungok',
+  'sokmieungok',
+];
 
 // 2024 수능 출제 작품 ID
 const SUNEUNG_2024_WORK_ID = 'gapminga';
@@ -70,9 +74,13 @@ export default function OriginalsTabs({
 
   // 리스트 보기에서 페이지네이션 적용
   const totalPages = Math.ceil(currentWorks.length / ITEMS_PER_PAGE);
-  const paginatedWorks = viewMode === 'list'
-    ? currentWorks.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
-    : currentWorks;
+  const paginatedWorks =
+    viewMode === 'list'
+      ? currentWorks.slice(
+          (currentPage - 1) * ITEMS_PER_PAGE,
+          currentPage * ITEMS_PER_PAGE
+        )
+      : currentWorks;
 
   // 탭 변경 시 페이지 초기화
   const handleTabChange = (tab: TabKey) => {
@@ -223,17 +231,19 @@ export default function OriginalsTabs({
                     </div>
                   )}
                   <div className="p-3">
-                    <h4 className={`text-sm font-medium line-clamp-2 transition-colors ${
-                      isMarathon
-                        ? 'text-emerald-700 dark:text-emerald-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-300'
-                        : isTrilogy
-                          ? 'text-blue-700 dark:text-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-300'
-                          : is2025Work
-                            ? 'text-rose-700 dark:text-rose-400 group-hover:text-rose-600 dark:group-hover:text-rose-300'
-                            : is2024Work
-                              ? 'text-violet-700 dark:text-violet-400 group-hover:text-violet-600 dark:group-hover:text-violet-300'
-                              : 'text-gray-900 dark:text-white group-hover:text-sn-primary dark:group-hover:text-emerald-400'
-                    }`}>
+                    <h4
+                      className={`text-sm font-medium line-clamp-2 transition-colors ${
+                        isMarathon
+                          ? 'text-emerald-700 dark:text-emerald-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-300'
+                          : isTrilogy
+                            ? 'text-blue-700 dark:text-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-300'
+                            : is2025Work
+                              ? 'text-rose-700 dark:text-rose-400 group-hover:text-rose-600 dark:group-hover:text-rose-300'
+                              : is2024Work
+                                ? 'text-violet-700 dark:text-violet-400 group-hover:text-violet-600 dark:group-hover:text-violet-300'
+                                : 'text-gray-900 dark:text-white group-hover:text-sn-primary dark:group-hover:text-emerald-400'
+                      }`}
+                    >
                       {work.title}
                     </h4>
                   </div>
@@ -285,7 +295,10 @@ export default function OriginalsTabs({
                     <div className="space-y-3 order-2 sm:order-2">
                       {/* 태그 (데스크톱에서만 상단 표시) */}
                       {work.tags && work.tags.length > 0 && (
-                        <ul className="hidden sm:flex flex-wrap gap-2" aria-label="포스트 태그">
+                        <ul
+                          className="hidden sm:flex flex-wrap gap-2"
+                          aria-label="포스트 태그"
+                        >
                           {work.tags.map(tag => (
                             <li key={tag}>
                               <Link
@@ -301,7 +314,10 @@ export default function OriginalsTabs({
 
                       {/* 제목 */}
                       <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white">
-                        <Link href={work.url} className="inline-flex items-start">
+                        <Link
+                          href={work.url}
+                          className="inline-flex items-start"
+                        >
                           <span className="mr-2">{emoji}</span>
                           <span className="flex flex-col gap-2">
                             {/* 특별 배지 */}
@@ -329,9 +345,7 @@ export default function OriginalsTabs({
                                 <span>{work.badge}</span>
                               </span>
                             )}
-                            <span
-                              className="whitespace-pre-line relative inline-block hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 dark:hover:from-blue-400 dark:hover:to-purple-400 transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 dark:after:from-blue-400 dark:after:to-purple-400 after:transition-all after:duration-300 hover:after:w-full"
-                            >
+                            <span className="whitespace-pre-line relative inline-block hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 dark:hover:from-blue-400 dark:hover:to-purple-400 transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 dark:after:from-blue-400 dark:after:to-purple-400 after:transition-all after:duration-300 hover:after:w-full">
                               {work.title}
                             </span>
                           </span>
@@ -361,7 +375,10 @@ export default function OriginalsTabs({
 
                       {/* 태그 (모바일에서만 하단 표시) */}
                       {work.tags && work.tags.length > 0 && (
-                        <ul className="flex sm:hidden flex-wrap gap-1.5" aria-label="포스트 태그">
+                        <ul
+                          className="flex sm:hidden flex-wrap gap-1.5"
+                          aria-label="포스트 태그"
+                        >
                           {work.tags.map(tag => (
                             <li key={tag}>
                               <Link
@@ -382,11 +399,16 @@ export default function OriginalsTabs({
 
             {/* 페이지네이션 */}
             {totalPages > 1 && (
-              <nav aria-label="페이지네이션" className="flex justify-center mt-8">
+              <nav
+                aria-label="페이지네이션"
+                className="flex justify-center mt-8"
+              >
                 <div className="flex items-center space-x-2">
                   {/* 이전 버튼 */}
                   <button
-                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                    onClick={() =>
+                      setCurrentPage(prev => Math.max(prev - 1, 1))
+                    }
                     disabled={currentPage === 1}
                     className={`px-3 py-2 text-sm font-medium rounded-md ${
                       currentPage === 1
@@ -399,25 +421,29 @@ export default function OriginalsTabs({
                   </button>
 
                   {/* 페이지 번호들 */}
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`px-3 py-2 text-sm font-medium rounded-md ${
-                        currentPage === page
-                          ? 'bg-sn-primary text-white'
-                          : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white'
-                      }`}
-                      aria-label={`${page}페이지`}
-                      aria-current={currentPage === page ? 'page' : undefined}
-                    >
-                      {page}
-                    </button>
-                  ))}
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    page => (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`px-3 py-2 text-sm font-medium rounded-md ${
+                          currentPage === page
+                            ? 'bg-sn-primary text-white'
+                            : 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white'
+                        }`}
+                        aria-label={`${page}페이지`}
+                        aria-current={currentPage === page ? 'page' : undefined}
+                      >
+                        {page}
+                      </button>
+                    )
+                  )}
 
                   {/* 다음 버튼 */}
                   <button
-                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                    onClick={() =>
+                      setCurrentPage(prev => Math.min(prev + 1, totalPages))
+                    }
                     disabled={currentPage === totalPages}
                     className={`px-3 py-2 text-sm font-medium rounded-md ${
                       currentPage === totalPages

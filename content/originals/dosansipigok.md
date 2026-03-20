@@ -423,6 +423,7 @@
 **"Dosansipigok (陶山十二曲)"** is a series of 12 classical Korean poems (sijo) written by Yi Hwang (Toegye) during the mid-Joseon dynasty. The first six verses celebrate life in harmony with nature, while the latter six emphasize the joy and importance of scholarly cultivation.
 
 **Timestamps:**
+
 - 00:00 Intro
 - 00:16 Dosansipigok
 - 03:35 Outro

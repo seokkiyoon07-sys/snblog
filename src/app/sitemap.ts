@@ -92,7 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map(post => {
       // originals 카테고리는 priority 0.85
       const isOriginals = post.category === 'originals';
-      const priority = isOriginals ? 0.85 : (post.featured ? 0.9 : 0.8);
+      const priority = isOriginals ? 0.85 : post.featured ? 0.9 : 0.8;
 
       return {
         url: `${baseUrl}${post.url}`,

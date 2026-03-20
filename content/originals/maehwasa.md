@@ -220,6 +220,7 @@
 The poem was composed in the winter of 1870 (7th year of King Gojong's reign) when the poet was visiting his teacher Bak Hyo-gwan's house. Upon seeing plum blossoms blooming on a desk, he was moved to compose this work in admiration of the flower's grace and resilience.
 
 **Literary Significance:**
+
 - **Yeon-sijo Form**: A sequence of sijos connected by a single theme
 - **Yeongmulsi (Object Poetry)**: Uses the plum blossom to express human virtues
 - **Sagunja Symbolism**: The plum is one of the Four Gentlemen in East Asian art
