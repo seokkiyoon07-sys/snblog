@@ -99,7 +99,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   // 콘텐츠를 파일에서 로딩
-  const content = loadPostContent(post.id);
+  const content = loadPostContent(post.id, post.category);
   const config = getCategoryConfig(category);
 
   return (

@@ -1,4 +1,4 @@
-// 📝 포스트 메타데이터. 콘텐츠는 content/posts/{id}.html 에 별도 저장.
+// 📝 포스트 메타데이터. 콘텐츠는 content/{category}/{id}.html 에 별도 저장.
 // 콘텐츠 로딩: import { loadPostContent } from '@/lib/post-content';
 
 export interface Post {

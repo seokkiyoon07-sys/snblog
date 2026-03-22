@@ -220,7 +220,7 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  const postContent = loadPostContent(post.id);
+  const postContent = loadPostContent(post.id, post.category);
 
   // snargpt-presentation 전용 템플릿
   if (id === 'snargpt-presentation') {
