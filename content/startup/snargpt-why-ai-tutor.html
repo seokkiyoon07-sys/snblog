@@ -1,0 +1,262 @@
+&emsp;독학기숙학원에서 공부하다 보면 누구나 한 번쯤 비슷한 순간을 겪습니다.
+모르는 문제가 생겼는데도 바로 질문하지 못하고, 혼자 오래 붙잡고 있는 순간입니다.
+&emsp;선생님이 무서워서가 아닙니다. "이런 것도 모르냐고 생각하시면 어쩌지?",
+"기초가 부족해 보이지 않을까?" 하는 마음의 문턱이 생각보다 높기 때문입니다.
+그렇게 질문 타이밍을 놓치면 공부 흐름은 끊기고, 소중한 시간도 함께 흘러갑니다.
+&emsp;<mark
+  style="
+    background: linear-gradient(
+      to top,
+      rgba(255, 230, 0, 0.5) 50%,
+      transparent 50%
+    );
+  "
+  >SNarGPT는 바로 이 지점에서 출발했습니다.</mark
+>
+하지만 단순히 질문을 편하게 하는 도구에서 멈추지 않았습니다. 질문을 받아 주는
+것은 시작일 뿐, **공부 전체의 흐름을 함께 설계하는 수능 AI 튜터**가 되는 것이
+SNarGPT의 목표입니다. --- ## 질문 하나에도 학습 맥락이 있습니다 &emsp;시중에는
+사진만 찍으면 풀이를 바로 보여주는 앱이 많습니다. ChatGPT나 Gemini에게 수능
+문제를 물어보면 그럴듯한 풀이를 내놓기도 합니다. 빠르고 편리하지만, **정답을
+바로 확인하는 것만으로는 시험장에서 내 실력이 되기 어렵다**는 것을 우리 모두
+알고 있습니다. 더 큰 문제는, 범용 AI는 그럴듯하게 틀리는 경우가 적지 않다는
+점입니다. &emsp;SNarGPT가 중요하게 보는 것은 답 자체보다 **학생이 막힌 지점의
+맥락**입니다. 개념을 놓친 건지, 조건 해석이 꼬인 건지, 계산에서 흔들린 건지에
+따라 필요한 도움이 다르기 때문입니다.
+
+<div class="bg-[#0a0e1a] rounded-lg p-6 my-6 border border-gray-700">
+  <p class="text-gray-400 text-xs mb-4">💬 실제 대화 예시:</p>
+
+  <div class="flex justify-end mb-4">
+    <div
+      class="bg-blue-600/20 border border-blue-500/50 text-blue-100 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]"
+    >
+      <p class="text-sm">
+        22번 킬러 문항인데, g(x)=|f(x)-k|가 미분 가능하지 않은 점이 딱
+        하나뿐이라는 조건에서 막혔어요. k값을 어떻게 찾아야 하죠?
+      </p>
+    </div>
+  </div>
+
+  <div class="flex justify-start mb-4">
+    <div
+      class="bg-purple-600/20 border border-purple-500/50 text-purple-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]"
+    >
+      <p class="font-semibold text-purple-200 text-xs mb-2">(From SNarGPT)</p>
+      <p class="text-purple-100 text-xs">
+        절댓값 함수가 미분 불가능해지는 결정적 순간은 그래프가 x축, 즉 y=k를
+        뚫고 지나갈 때라는 걸 기억하니? 그런데 f(x)는 3차 함수잖아. 3차 함수가
+        어떤 선 y=k와 만나는데, 미분 불가능한 점이 오직 하나만 생기려면 나머지
+        교점에서는 어떤 일이 벌어져야 할까?
+      </p>
+    </div>
+  </div>
+
+  <div class="flex justify-end mb-4">
+    <div
+      class="bg-blue-600/20 border border-blue-500/50 text-blue-100 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]"
+    >
+      <p class="text-sm">
+        아... 뚫고 지나가는 게 하나면, 나머지는 접하면서 지나가야 하나요?
+      </p>
+    </div>
+  </div>
+
+  <div class="flex justify-start">
+    <div
+      class="bg-purple-600/20 border border-purple-500/50 text-purple-100 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]"
+    >
+      <p class="font-semibold text-purple-200 text-xs mb-2">(From SNarGPT)</p>
+      <p class="text-purple-100 text-xs">
+        정확해. 바로 그 접점이 f(x)의 극대인지 극소인지, 그리고 다른 조건인
+        f(1)=k와 어떻게 연결될지 한 번 그려볼래? 그 접점을 찾는 순간, 꼬여 있던
+        실타래가 풀릴 거야.
+      </p>
+    </div>
+  </div>
+</div>
+
+&emsp;바로 답을 주는 대신, 막힌 곳의 원인을 짚어 주고 스스로 다음 단계로 넘어갈
+수 있게 돕습니다. 마치 옆에 앉은 과외 선생님이 한 단계씩 질문을 던지는 것과
+비슷합니다.
+
+<div class="border-l-4 border-emerald-600 dark:border-emerald-500 pl-4 my-6">
+  <p class="font-semibold text-emerald-700 dark:text-emerald-400 mb-2">
+    왜 이 방식이 중요한가
+  </p>
+  <p class="text-gray-700 dark:text-gray-300">
+    수능 공부에서 중요한 것은 정답을 빨리 보는 것이 아니라, 같은 유형을 다시
+    만났을 때 스스로 풀 수 있는 사고력을 만드는 일입니다.
+  </p>
+</div>
+
+--- ## 질문 이후가 더 중요합니다: 약점 분석과 복습 설계 &emsp;한 문제를
+해결했다고 공부가 끝나지는 않습니다. 같은 유형에서 왜 반복적으로 막히는지, 어떤
+개념이 흔들리고 있는지 알아야 진짜 실력이 올라갑니다. &emsp;SNarGPT는 학생과의
+대화를 일회성으로 처리하지 않습니다. 어제 어디에서 틀렸는지, 어떤 유형에서 자주
+실수하는지, 어떤 개념을 반복해서 헷갈리는지를
+<mark
+  style="
+    background: linear-gradient(
+      to top,
+      rgba(255, 230, 0, 0.5) 50%,
+      transparent 50%
+    );
+  "
+  >학습 기록으로 이어 갑니다.</mark
+>
+
+<div class="space-y-3 my-6">
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >1</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        어제의 실수를 기억합니다
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
+        "어제 그래프 추론 문제에서 이 조건을 놓쳤었지? 오늘은 그 부분에
+        유의하면서 풀어보자."
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >2</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        반복 패턴을 짚어 줍니다
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
+        "3차 함수 개형을 그릴 때 이 실수가 세 번째야. 이번엔 다른 방향으로
+        접근해 볼까?"
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >3</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        맞춤형 복습으로 연결합니다
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
+        어제의 실수가 오늘의 복습 우선순위가 되고, 그것이 다시 내일의 실력이
+        되는 구조를 만듭니다.
+      </p>
+    </div>
+  </div>
+</div>
+
+--- ## 오늘 무엇을 공부할지 막막할 때도 방향을 잡아 줍니다
+&emsp;독학기숙학원에서 가장 흔한 고민 중 하나는 **"오늘 뭘 해야 하지?"**입니다.
+&emsp;시간표는 있지만, 그 시간 안에서 어떤 과목의 어떤 단원을 어떤 순서로
+공부할지는 결국 학생 스스로 정해야 합니다. 계획을 세워도 '이게 맞는 방향인지'
+확신이 안 서고, 막상 앉으면 뭘 먼저 해야 할지 몰라 시간만 흘러가는 날도
+있습니다. &emsp;SNarGPT는 이런 순간에도 도움이 됩니다. 축적된 학습 기록을
+바탕으로 지금 가장 보완이 필요한 영역이 어디인지 짚어 주고, 남은 시간과 컨디션에
+맞는 학습 방향을 제안할 수 있습니다.
+
+<div
+  class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-5 my-6 rounded-lg"
+>
+  <h4 class="font-bold text-gray-900 dark:text-white mb-2">
+    📍 일반 AI와의 차이
+  </h4>
+  <p class="text-gray-700 dark:text-gray-300">
+    "문제 하나 풀어 주는 AI"가 아니라
+    <strong>"오늘 하루 공부를 어떻게 쓸지 함께 고민하는 AI"</strong>, 그 차이가
+    SNarGPT가 지향하는 방향입니다.
+  </p>
+</div>
+
+--- ## 수능이라는 시험의 문법을 이해하는 AI &emsp;범용 AI에게 수능 문제를
+물어보면 자신 있게 답을 내놓지만, 그 답이 틀린 경우가 적지 않습니다. 그것도 아주
+그럴듯하게 틀리는 경우가 있습니다. &emsp;수능은 단순한 지식 확인 시험이
+아닙니다. 평가원이 선지를 배치하는 방식, 함정을 거는 패턴, 고난도 문항이
+요구하는 사고의 깊이 같은 요소는 수능을 직접 가르쳐 본 사람만 체감하는
+영역입니다. &emsp;SNarGPT는 수만 문항의 수능·모의고사 기출 데이터를 기반으로,
+한국 수능의 출제 문법을 이해하도록 설계되었습니다.
+
+<div class="space-y-3 my-6">
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >✓</span
+    >
+    <div>
+      <p class="text-gray-700 dark:text-gray-300 text-sm">
+        이 유형에서 학생이 빠지기 쉬운 <strong>함정이 무엇인지</strong> 파악
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >✓</span
+    >
+    <div>
+      <p class="text-gray-700 dark:text-gray-300 text-sm">
+        어떤 개념을 <strong>먼저 떠올려야 풀리는지</strong> 안내
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >✓</span
+    >
+    <div>
+      <p class="text-gray-700 dark:text-gray-300 text-sm">
+        평가원 <strong>출제 패턴에 맞춘 수능 특화 튜터링</strong> 제공
+      </p>
+    </div>
+  </div>
+</div>
+
+&emsp;이것은 범용 AI를 수능에 억지로 끼워 맞춘 것이 아니라, **처음부터 수능을
+위해 만든 AI이기에 가능한 일**입니다. --- ## 독학기숙학원이라는 환경에서 더
+빛나는 이유 &emsp;독학기숙학원의 장점은 자기주도학습에 온전히 집중할 수 있다는
+것입니다. 물론 학생이 모든 걸 혼자 감당하는 것은 아닙니다. 학습담임이 배정되어
+있고, 주 1회 상담을 통해 학습 방향과 컨디션을 함께 점검합니다. &emsp;하지만
+상담과 상담 사이, 자습실에 앉아 혼자 공부하는 그 수많은 시간 동안에도 막히는
+순간은 찾아옵니다. 학습담임을 만나기엔 애매하고, 그렇다고 넘어가기엔 찜찜한 그
+빈틈. SNarGPT는 바로 그 사이를 메워 주는 역할입니다. - 막힌 문제가 있을 때는
+**사고의 실마리**를 던져 주고, - 같은 유형에서 반복 실수가 보이면 **약점을
+짚어** 주고, - 오늘 뭘 공부할지 막막할 때는 **방향을 제안**해 주고, - 수능
+특유의 출제 패턴이 필요할 때는 **문제의 구조를 읽는 법**을 알려 줍니다.
+&emsp;하나의 역할에 머무는 도구가 아니라, **학생의 공부 전체 사이클을 함께
+돌리는 파트너**. 그것이 SNarGPT가 지향하는 모습입니다. --- ## 왜 지금
+SNarGPT인가 &emsp;우리 학원에 오는 학생 대부분은 재수생입니다. 한 번의 아쉬움을
+안고 다시 도전하기로 결심한 학생들입니다. 그 결심이 얼마나 무거운지 우리는 잘
+압니다. &emsp;그래서 SNarGPT를 만들었습니다. 거창한 기술을 자랑하려는 게
+아닙니다.
+<mark
+  style="
+    background: linear-gradient(
+      to top,
+      rgba(255, 230, 0, 0.5) 50%,
+      transparent 50%
+    );
+  "
+  >**이번이 마지막 재수가 되게 하려는 것**</mark
+>, 그 목표가 먼저였습니다. &emsp;질문이 막혀서 멈추는 시간을 줄이고, 어제의
+실수를 오늘의 복습으로 잇고, 막막한 하루에 방향을 잡아 주는 것. 다시 도전하기로
+한 그 용기가 결과로 이어지도록 공부의 모든 순간에 옆에 있는 것. 그것이 SNarGPT가
+존재하는 이유입니다. ---
+
+<div
+  class="border-l-4 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-r-xl my-6"
+>
+  <p class="m-0 text-gray-700 dark:text-gray-300">
+    <strong>다음 편 예고</strong>: SNarGPT는 어떻게 탄생했을까? 모든 수험생에게
+    최고의 학습 파트너를 만들어 주고 싶었던 개발 이야기를 다음 글에서 이어서
+    풀어보겠습니다.
+  </p>
+</div>
