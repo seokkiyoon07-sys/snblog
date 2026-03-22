@@ -122,7 +122,7 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
     notFound();
   }
 
-  const postContent = loadPostContent(post.id);
+  const postContent = loadPostContent(post.id, post.category);
 
   // special 타입 포스트는 전용 컴포넌트 동적 로드
   if (post.type === 'special' && id === 'boarding-school-price-map-2026') {

@@ -67,5 +67,9 @@ export default async function NoticeDetailPage({
     notFound();
   }
 
-  return <BlogLayout post={{ ...post, content: loadPostContent(post.id) }} />;
+  return (
+    <BlogLayout
+      post={{ ...post, content: loadPostContent(post.id, post.category) }}
+    />
+  );
 }
