@@ -7,6 +7,7 @@ export interface Post {
   excerpt: string;
   content?: string; // 런타임에 loadPostContent(id)로 로딩
   category: string;
+  layoutVariant?: 'default' | 'original-only';
   subcategory?:
     | 'update'
     | 'tech-blog'
@@ -55,6 +56,32 @@ export interface Post {
 }
 
 export const allPosts: Post[] = [
+  {
+    id: 'oweolsosik',
+    title:
+      '「오월 소식」 해설] 연락 한 번에 마음이 출항했다\nEBS 2027 수능특강 국어 현대시',
+    excerpt:
+      '정지용의 현대시 「오월 소식」. 강화도로 떠난 이에게서 온 편지 한 통이 화자의 마음을 바다로 이끌어가는, 모더니즘적 서정이 빛나는 작품입니다.',
+    category: 'SN Originals',
+    tags: [
+      '오월소식',
+      '정지용',
+      '현대시',
+      '모더니즘',
+      'EBS수능특강',
+      '수능국어',
+    ],
+    author: 'SI KIM',
+    date: '2026-03-27',
+    readTime: '4',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/originals/maynews.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=WMICWg1manE',
+    url: '/originals/oweolsosik',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
   {
     id: 'snargpt-why-ai-tutor',
     title: 'ChatGPT로 수능 공부? 왜 제대로 안 되는지 알려드립니다',
