@@ -6,12 +6,12 @@ import StructuredData from '@/components/StructuredData';
 import AIDataGenerator from '@/components/AIDataGenerator';
 import { getPostById, getPostsByCategory } from '@/data/posts';
 import { loadPostContent } from '@/lib/post-content';
-import BlogLayout from '@/components/BlogLayout';
 import { renderMarkdown } from '@/lib/markdown-renderer';
+import { formatReadableOriginalsContent } from '@/lib/originals-content';
 import { getCategoryConfig, formatReadTime } from '@/lib/utils';
-import SNarGPTInterface from '@/components/SNarGPTInterface';
-import SNarGPTGraphOnly from '@/components/SNarGPTGraphOnly';
 import ArticleContent from '@/components/ArticleContent';
+import SNarGPTGuidePost from '@/components/special-posts/SNarGPTGuidePost';
+import { PROSE_CLASSES } from '@/lib/constants';
 
 interface PostPageProps {
   params: Promise<{
@@ -79,6 +79,14 @@ export async function generateStaticParams() {
   return params;
 }
 
+/** 특수 포스트 ID → 컴포넌트 매핑 */
+const SPECIAL_POST_COMPONENTS: Record<
+  string,
+  () => Promise<{ default: React.ComponentType }>
+> = {
+  SNargopost_1: () => import('@/components/special-posts/SNarGOClient'),
+};
+
 export default async function PostPage({ params }: PostPageProps) {
   const { category, id } = await params;
   const post = getPostById(id);
@@ -87,20 +95,39 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
-  // 특별한 타입의 포스트는 전용 컴포넌트 사용
-  if (post.type === 'special') {
-    if (id === 'SNargopost_1') {
-      const SNarGOClient = (
-        await import('@/components/special-posts/SNarGOClient')
-      ).default;
-      return <SNarGOClient />;
-    }
-    // 다른 특별한 포스트들도 여기에 추가 가능
+  // 특수 포스트: 전용 컴포넌트가 등록된 경우
+  const specialLoader = SPECIAL_POST_COMPONENTS[id];
+  if (post.type === 'special' && specialLoader) {
+    const Component = (await specialLoader()).default;
+    return <Component />;
   }
 
   // 콘텐츠를 파일에서 로딩
-  const content = loadPostContent(post.id, post.category);
+  const rawContent = loadPostContent(post.id, post.category);
+  const content =
+    category === 'originals'
+      ? formatReadableOriginalsContent(rawContent)
+      : rawContent;
   const config = getCategoryConfig(category);
+
+  // snargpt-guide-1: 콘텐츠를 마커 기준으로 분할하여 인터페이스 삽입
+  const isSnargptGuide = id === 'snargpt-guide-1';
+  const snargptParts = isSnargptGuide
+    ? (() => {
+        const [before2, after2 = ''] = content.split(
+          '<!-- SNARGPT_INTERFACE_2 -->'
+        );
+        const marker = '## 🧠 SNarGPT로 할 수 있는 일들';
+        const [beforeMain, afterMain = ''] = before2.split(marker);
+        return {
+          beforeInterface: renderMarkdown(beforeMain),
+          afterInterface: renderMarkdown(marker + afterMain),
+          afterGraph: renderMarkdown(after2),
+        };
+      })()
+    : null;
+
+  const renderedContent = isSnargptGuide ? '' : renderMarkdown(content);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-800 text-slate-800 dark:text-gray-100">
@@ -241,105 +268,12 @@ export default async function PostPage({ params }: PostPageProps) {
       <section className="px-6 md:px-10 lg:px-16 pb-24">
         <div className="mx-auto max-w-4xl">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
-            {id === 'snargpt-guide-1' ? (
-              <>
-                {/* SNarGPT 게시글: 인터페이스를 여러 곳에 삽입 */}
-                {(() => {
-                  const parts = content.split('<!-- SNARGPT_INTERFACE_2 -->');
-                  const beforeInterface2 = parts[0];
-                  const afterInterface2 = parts[1] || '';
-
-                  const beforeMainInterface = beforeInterface2.split(
-                    '## 🧠 SNarGPT로 할 수 있는 일들'
-                  )[0];
-                  const afterMainInterface =
-                    beforeInterface2.split(
-                      '## 🧠 SNarGPT로 할 수 있는 일들'
-                    )[1] || '';
-
-                  return (
-                    <>
-                      {/* 첫 번째 부분: 소개 */}
-                      <article
-                        className="prose prose-lg prose-slate dark:prose-invert max-w-none
-                          prose-headings:font-bold prose-headings:tracking-tight
-                          prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                          prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                          prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300
-                          prose-a:text-sn-primary prose-a:no-underline hover:prose-a:underline
-                          prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
-                          prose-ul:my-6 prose-li:my-2
-                          prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
-                          prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
-                        dangerouslySetInnerHTML={{
-                          __html: renderMarkdown(beforeMainInterface),
-                        }}
-                      />
-
-                      {/* 첫 번째 SNarGPT 인터페이스 (99.9% 정확도 섹션) */}
-                      <div className="my-12">
-                        <SNarGPTInterface />
-                      </div>
-
-                      {/* 중간 부분 */}
-                      <article
-                        className="prose prose-lg prose-slate dark:prose-invert max-w-none
-                          prose-headings:font-bold prose-headings:tracking-tight
-                          prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                          prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                          prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300
-                          prose-a:text-sn-primary prose-a:no-underline hover:prose-a:underline
-                          prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
-                          prose-ul:my-6 prose-li:my-2
-                          prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
-                          prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
-                        dangerouslySetInnerHTML={{
-                          __html: renderMarkdown(
-                            '## 🧠 SNarGPT로 할 수 있는 일들' +
-                              afterMainInterface
-                          ),
-                        }}
-                      />
-
-                      {/* 두 번째 SNarGPT 인터페이스 - 그래프만 */}
-                      <div className="my-12">
-                        <SNarGPTGraphOnly />
-                      </div>
-
-                      {/* 나머지 부분 */}
-                      <article
-                        className="prose prose-lg prose-slate dark:prose-invert max-w-none
-                          prose-headings:font-bold prose-headings:tracking-tight
-                          prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                          prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                          prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300
-                          prose-a:text-sn-primary prose-a:no-underline hover:prose-a:underline
-                          prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
-                          prose-ul:my-6 prose-li:my-2
-                          prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
-                          prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
-                        dangerouslySetInnerHTML={{
-                          __html: renderMarkdown(afterInterface2),
-                        }}
-                      />
-                    </>
-                  );
-                })()}
-              </>
+            {snargptParts ? (
+              <SNarGPTGuidePost renderedParts={snargptParts} />
             ) : (
-              /* 일반 게시글 */
               <ArticleContent
-                content={renderMarkdown(content)}
-                className="prose prose-lg prose-slate dark:prose-invert max-w-none
-                  prose-headings:font-bold prose-headings:tracking-tight
-                  prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                  prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                  prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300
-                  prose-a:text-sn-primary prose-a:no-underline hover:prose-a:underline
-                  prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
-                  prose-ul:my-6 prose-li:my-2
-                  prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
-                  prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
+                content={renderedContent}
+                className={PROSE_CLASSES}
               />
             )}
           </div>

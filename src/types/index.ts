@@ -6,6 +6,7 @@ export interface Post {
   badge?: string; // 배지 텍스트 (예: "3만뷰", "내신 필수")
   content?: string;
   category: string;
+  layoutVariant?: 'default' | 'original-only';
   subcategory?: string;
   tags?: string[];
   author: string;

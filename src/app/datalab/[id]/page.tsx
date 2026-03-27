@@ -9,6 +9,7 @@ import AIDataGenerator from '@/components/AIDataGenerator';
 import { renderMarkdown } from '@/lib/markdown-renderer';
 import { formatReadTime } from '@/lib/utils';
 import ArticleContent from '@/components/ArticleContent';
+import { PROSE_CLASSES } from '@/lib/constants';
 
 interface PostPageProps {
   params: Promise<{
@@ -238,16 +239,7 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
               <ArticleContent
                 content={renderMarkdown(postContent)}
-                className="prose prose-lg prose-slate dark:prose-invert max-w-none
-                  prose-headings:font-bold prose-headings:tracking-tight
-                  prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                  prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                  prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300
-                  prose-a:text-sn-primary prose-a:no-underline hover:prose-a:underline
-                  prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
-                  prose-ul:my-6 prose-li:my-2
-                  prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
-                  prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
+                className={PROSE_CLASSES}
               />
             </div>
           </div>
@@ -449,16 +441,7 @@ ${postContent}
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
             <ArticleContent
               content={renderMarkdown(postContent)}
-              className="prose prose-lg prose-slate dark:prose-invert max-w-none
-                prose-headings:font-bold prose-headings:tracking-tight
-                prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:leading-relaxed prose-p:text-gray-700 dark:prose-p:text-gray-300
-                prose-a:text-sn-primary prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
-                prose-ul:my-6 prose-li:my-2
-                prose-blockquote:border-l-4 prose-blockquote:border-sn-primary prose-blockquote:pl-4 prose-blockquote:italic
-                prose-img:rounded-xl prose-img:shadow-md prose-img:my-8"
+              className={PROSE_CLASSES}
             />
           </div>
         </div>

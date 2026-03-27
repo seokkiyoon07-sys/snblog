@@ -8,6 +8,7 @@ import { createRoot } from 'react-dom/client';
 interface ArticleContentProps {
   content: string;
   className?: string;
+  enableAnnotatedDetails?: boolean;
 }
 
 interface RevealItem {
@@ -113,6 +114,7 @@ function extractPrintButtons(htmlContent: string): {
 export default function ArticleContent({
   content,
   className = '',
+  enableAnnotatedDetails = true,
 }: ArticleContentProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [modalImage, setModalImage] = useState<string | null>(null);
@@ -204,7 +206,7 @@ export default function ArticleContent({
 
   // 기존 details.group 요소들을 Click-to-Reveal 형태로 변환
   useEffect(() => {
-    if (!contentRef.current) return;
+    if (!contentRef.current || !enableAnnotatedDetails) return;
 
     // 원문+현대어 동시보기용 details 요소들 찾기 (group 클래스를 가진 모든 details)
     const detailsElements =
@@ -272,7 +274,7 @@ export default function ArticleContent({
     return () => {
       cleanupFunctions.forEach(fn => fn());
     };
-  }, [processedContent]);
+  }, [enableAnnotatedDetails, processedContent]);
 
   // 이미지 클릭 이벤트 핸들러
   useEffect(() => {

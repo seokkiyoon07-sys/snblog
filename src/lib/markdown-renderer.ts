@@ -38,7 +38,7 @@ function transformLink(match: string, text: string, url: string): string {
 }
 
 /**
- * 제목 마크다운을 HTML로 변환 (다크모드 지원)
+ * 제목 마크다운을 HTML로 변환
  */
 function transformH1(match: string, text: string): string {
   return `<h1 class="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">${text}</h1>`;
@@ -57,7 +57,7 @@ function transformH4(match: string, text: string): string {
 }
 
 /**
- * 강조 텍스트 변환 (다크모드 지원)
+ * 강조 텍스트 변환
  */
 function transformBold(match: string, text: string): string {
   return `<strong class="font-semibold text-gray-900 dark:text-gray-100">${text}</strong>`;
@@ -68,13 +68,40 @@ function transformItalic(match: string, text: string): string {
 }
 
 /**
- * 리스트 항목을 HTML로 변환 (다크모드 지원)
+ * 리스트 항목을 HTML로 변환
  */
 function transformListItem(item: string): string {
   if (item.trim().startsWith('- ')) {
     return `<li class="text-gray-700 dark:text-gray-300">${item.replace(/^- /, '')}</li>`;
   }
+
   return '';
+}
+
+function transformOrderedListItem(item: string): string {
+  const match = item.trim().match(/^\d+\.\s+(.*)$/);
+  if (!match) {
+    return '';
+  }
+
+  return `<li class="text-gray-700 dark:text-gray-300">${match[1]}</li>`;
+}
+
+function normalizeDetailsMarkdown(innerContent: string): string {
+  return innerContent
+    .replace(/(###\s[^\n]+?[一-龥A-Za-z0-9」』])\s+(?=[가-힣])/g, '$1\n\n')
+    .replace(
+      /(###\s(?:[^\n]*?(?:작품의 배경과 의미|문학적 특징|문학사적 의의|작품 감상 포인트|현대적 의미|수능 출제 포인트|영상 하이라이트|문학 감상의 진정한 즐거움)))\s+/g,
+      '$1\n\n'
+    )
+    .replace(/(###\s[^\n#<]+?)\s+(?=###\s)/g, '$1\n\n')
+    .replace(/(###\s[^\n#<]+?)\s+(?=\d+\.\s)/g, '$1\n\n')
+    .replace(/(###\s[^\n#<]+?)\s+(?=-\s)/g, '$1\n\n')
+    .replace(/([.!?]["'”’」』]*)\s+(?=###\s)/g, '$1\n\n')
+    .replace(/([.!?]["'”’」』]*)\s+(?=\d+\.\s)/g, '$1\n\n')
+    .replace(/([.!?]["'”’」』]*)\s+(?=-\s)/g, '$1\n\n')
+    .replace(/(\d+\.\s[^0-9\n]+?)\s+(?=\d+\.\s)/g, '$1\n')
+    .trim();
 }
 
 /**
@@ -83,37 +110,23 @@ function transformListItem(item: string): string {
 function transformParagraph(paragraph: string): string {
   const trimmed = paragraph.trim();
 
-  // 빈 문단
   if (trimmed === '') {
     return '';
   }
 
-  // 제목 (이미 변환됨)
-  if (trimmed.startsWith('<h')) {
+  if (
+    trimmed.startsWith('<h') ||
+    trimmed.startsWith('<figure') ||
+    trimmed.startsWith('<blockquote') ||
+    trimmed.startsWith('<div') ||
+    trimmed.startsWith('<details') ||
+    trimmed.startsWith('<ul') ||
+    trimmed.startsWith('<ol') ||
+    trimmed.startsWith('<hr')
+  ) {
     return paragraph;
   }
 
-  // 이미지 (이미 변환됨)
-  if (trimmed.startsWith('<figure')) {
-    return paragraph;
-  }
-
-  // Quote (이미 변환됨)
-  if (trimmed.startsWith('<blockquote')) {
-    return paragraph;
-  }
-
-  // Callout/Div (이미 변환됨 - Notion에서 변환된 HTML)
-  if (trimmed.startsWith('<div')) {
-    return paragraph;
-  }
-
-  // Details/Summary (토글)
-  if (trimmed.startsWith('<details')) {
-    return paragraph;
-  }
-
-  // Quote 블록 (여러 줄) - 라이트/다크 모드 지원
   if (trimmed.startsWith('> ')) {
     const lines = paragraph
       .split('\n')
@@ -122,13 +135,16 @@ function transformParagraph(paragraph: string): string {
     return `<blockquote class="border-l-4 border-gray-300 dark:border-gray-600 bg-gray-100/50 dark:bg-gray-800/50 p-4 my-4 italic text-gray-800 dark:text-gray-200">${lines}</blockquote>`;
   }
 
-  // 리스트
   if (trimmed.startsWith('- ')) {
     const items = paragraph.split('\n').map(transformListItem).join('');
     return `<ul class="list-disc list-inside mb-4 space-y-2">${items}</ul>`;
   }
 
-  // 일반 문단 (다크모드 지원)
+  if (/^\d+\.\s/.test(trimmed)) {
+    const items = paragraph.split('\n').map(transformOrderedListItem).join('');
+    return `<ol class="list-decimal list-inside mb-4 space-y-2">${items}</ol>`;
+  }
+
   return `<p class="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">${paragraph}</p>`;
 }
 
@@ -136,107 +152,56 @@ function transformParagraph(paragraph: string): string {
  * Details 블록 내부의 마크다운을 HTML로 변환하는 헬퍼 함수
  */
 function processDetailsContent(innerContent: string): string {
-  return (
-    innerContent
-      // 이미지 변환
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, transformImage)
-      // 링크 변환
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, transformLink)
-      // 제목 변환
-      .replace(/^#### (.*$)/gim, transformH4)
-      .replace(/^### (.*$)/gim, transformH3)
-      .replace(/^## (.*$)/gim, transformH2)
-      .replace(/^# (.*$)/gim, transformH1)
-      // 강조 텍스트 변환
-      .replace(/\*\*(.*?)\*\*/g, transformBold)
-      .replace(/\*(.*?)\*/g, transformItalic)
-      // 리스트 변환
-      .replace(
-        /^- (.*)$/gim,
-        '<li class="text-gray-700 dark:text-gray-300 ml-4">$1</li>'
-      )
-      // 연속된 li를 ul로 감싸기
-      .replace(/(<li[^>]*>.*?<\/li>\n?)+/g, match => {
-        return `<ul class="list-disc list-inside mb-4 space-y-2">${match}</ul>`;
-      })
-      // 수평선 변환
-      .replace(
-        /^---$/gim,
-        '<hr class="my-8 border-t border-gray-200 dark:border-gray-700" />'
-      )
-  );
+  return normalizeDetailsMarkdown(innerContent)
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, transformImage)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, transformLink)
+    .replace(/^#### (.*$)/gim, transformH4)
+    .replace(/^### (.*$)/gim, transformH3)
+    .replace(/^## (.*$)/gim, transformH2)
+    .replace(/^# (.*$)/gim, transformH1)
+    .replace(/\*\*(.*?)\*\*/g, transformBold)
+    .replace(/\*(.*?)\*/g, transformItalic)
+    .split('\n\n')
+    .map(transformParagraph)
+    .join('');
 }
 
 /**
  * 마크다운 콘텐츠를 HTML로 변환
- *
- * @param content - 마크다운 형식의 콘텐츠
- * @returns HTML 문자열
- *
- * @example
- * ```typescript
- * const markdown = `
- * # 제목
- *
- * **강조** 텍스트입니다.
- *
- * ![이미지](/images/test.png)
- * `;
- *
- * const html = renderMarkdown(markdown);
- * ```
  */
 export function renderMarkdown(content: string): string {
-  return (
-    content
-      // 0. 클래스가 있는 Details 블록 내부 마크다운 처리
-      .replace(
-        /(<details[^>]*>[\s\S]*?<div[^>]*>)([\s\S]*?)(<\/div>\s*<\/details>)/g,
-        (match, openTags, innerContent, closeTags) => {
-          const processedContent = processDetailsContent(innerContent);
-          return `${openTags}${processedContent}${closeTags}`;
-        }
-      )
+  const preprocessed = content.replace(/^(---)\s+(#{2,4}\s)/gm, '$1\n\n$2');
 
-      // 0-1. 간단한 Details 블록 변환 (클래스 없는 경우)
-      .replace(
-        /<details>\s*<summary>([^<]+)<\/summary>\s*([\s\S]*?)\s*<\/details>/g,
-        (match, summary, innerContent) => {
-          const processedContent = processDetailsContent(innerContent);
-          return `<details class="my-6 border border-gray-200 dark:border-gray-700 rounded-lg"><summary class="cursor-pointer p-4 font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">${summary}</summary><div class="p-4 pt-0">${processedContent}</div></details>`;
-        }
-      )
-
-      // 1. Horizontal Rule 변환 (다른 변환보다 먼저)
-      .replace(
-        /^---$/gim,
-        '<hr class="my-12 border-t border-gray-200 dark:border-gray-700" />'
-      )
-
-      // 2. 이미지 변환 (링크보다 먼저 처리해야 함)
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, transformImage)
-
-      // 3. 링크 변환
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, transformLink)
-
-      // 4. 제목 변환
-      .replace(/^# (.*$)/gim, transformH1)
-      .replace(/^## (.*$)/gim, transformH2)
-      .replace(/^### (.*$)/gim, transformH3)
-      .replace(/^#### (.*$)/gim, transformH4)
-
-      // 5. 강조 텍스트 변환
-      .replace(/\*\*(.*?)\*\*/g, transformBold)
-      .replace(/\*(.*?)\*/g, transformItalic)
-
-      // 6. 문단 처리
-      .split('\n\n')
-      .map(transformParagraph)
-      .join('')
-  );
+  return preprocessed
+    .replace(
+      /(<details[^>]*>[\s\S]*?<div[^>]*>)([\s\S]*?)(<\/div>\s*<\/details>)/g,
+      (match, openTags, innerContent, closeTags) => {
+        const processedContent = processDetailsContent(innerContent);
+        return `${openTags}${processedContent}${closeTags}`;
+      }
+    )
+    .replace(
+      /<details>\s*<summary>([^<]+)<\/summary>\s*([\s\S]*?)\s*<\/details>/g,
+      (match, summary, innerContent) => {
+        const processedContent = processDetailsContent(innerContent);
+        return `<details class="my-6 border border-gray-200 dark:border-gray-700 rounded-lg"><summary class="cursor-pointer p-4 font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">${summary}</summary><div class="p-4 pt-0">${processedContent}</div></details>`;
+      }
+    )
+    .replace(
+      /^---$/gim,
+      '<hr class="my-12 border-t border-gray-200 dark:border-gray-700" />'
+    )
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, transformImage)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, transformLink)
+    .replace(/^# (.*$)/gim, transformH1)
+    .replace(/^## (.*$)/gim, transformH2)
+    .replace(/^### (.*$)/gim, transformH3)
+    .replace(/^#### (.*$)/gim, transformH4)
+    .replace(/\*\*(.*?)\*\*/g, transformBold)
+    .replace(/\*(.*?)\*/g, transformItalic)
+    .split('\n\n')
+    .map(transformParagraph)
+    .join('');
 }
 
-/**
- * 기본 내보내기
- */
 export default renderMarkdown;
