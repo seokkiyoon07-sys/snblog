@@ -1,0 +1,1030 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+  .sn-notion-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    font-family:
+      'Noto Sans KR',
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    color: #37352f;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+
+  .sn-notion-wrap *,
+  .sn-notion-wrap *::before,
+  .sn-notion-wrap *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sn-notion-wrap .page-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .sn-notion-wrap .page-subtitle {
+    font-size: 14px;
+    color: #9b9a97;
+    margin-bottom: 32px;
+  }
+
+  .sn-notion-wrap h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 48px 0 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .sn-notion-wrap h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 36px 0 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .sn-notion-wrap p {
+    font-size: 15px;
+    color: #37352f;
+    margin-bottom: 12px;
+    word-break: keep-all;
+  }
+
+  .sn-notion-wrap strong {
+    font-weight: 600;
+  }
+  .sn-notion-wrap .text-muted {
+    color: #9b9a97;
+  }
+  .sn-notion-wrap .text-sm {
+    font-size: 13px;
+  }
+
+  .sn-notion-wrap .divider {
+    border: none;
+    border-top: 1px solid #e9e8e5;
+    margin: 32px 0;
+  }
+
+  .sn-notion-wrap .callout {
+    display: flex;
+    gap: 12px;
+    padding: 16px 18px;
+    border-radius: 4px;
+    background: #f7f6f3;
+    margin: 16px 0;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .sn-notion-wrap .callout-icon {
+    flex-shrink: 0;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  .sn-notion-wrap .callout-body {
+    flex: 1;
+  }
+  .sn-notion-wrap .callout-body p {
+    font-size: 14.5px;
+    margin-bottom: 6px;
+  }
+  .sn-notion-wrap .callout-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .sn-notion-wrap .callout-blue {
+    background: #e7f0fe;
+  }
+  .sn-notion-wrap .callout-green {
+    background: #edf8ee;
+  }
+  .sn-notion-wrap .callout-yellow {
+    background: #fdf6e3;
+  }
+
+  .sn-notion-wrap .toggle {
+    margin: 8px 0;
+    border: none;
+    background: none;
+    width: 100%;
+  }
+
+  .sn-notion-wrap .toggle summary {
+    cursor: pointer;
+    padding: 6px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #37352f;
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .sn-notion-wrap .toggle summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sn-notion-wrap .toggle summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    color: #9b9a97;
+    transition: transform 0.15s;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .sn-notion-wrap .toggle[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .sn-notion-wrap .toggle-content {
+    padding: 4px 0 8px 22px;
+    font-size: 14px;
+    color: #6b6b6b;
+    line-height: 1.75;
+  }
+
+  .sn-notion-wrap .principle-section {
+    margin: 28px 0 8px;
+  }
+
+  .sn-notion-wrap .principle-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+
+  .sn-notion-wrap .psh-a {
+    background: #edf8ee;
+  }
+  .sn-notion-wrap .psh-b {
+    background: #e7f0fe;
+  }
+  .sn-notion-wrap .psh-c {
+    background: #f3e8fd;
+  }
+
+  .sn-notion-wrap .principle-section-label {
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 1px 7px;
+    flex-shrink: 0;
+  }
+
+  .sn-notion-wrap .psl-a {
+    background: #c6ecc6;
+    color: #1a5c1a;
+  }
+  .sn-notion-wrap .psl-b {
+    background: #bdd7f0;
+    color: #1a4a7a;
+  }
+  .sn-notion-wrap .psl-c {
+    background: #dbc4f5;
+    color: #4a1a7a;
+  }
+
+  .sn-notion-wrap .principle-section-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .sn-notion-wrap .principle-list {
+    margin: 0 0 8px;
+  }
+
+  .sn-notion-wrap .principle-item {
+    padding: 12px 0 12px 18px;
+    border-left: 2px solid #e9e8e5;
+    margin-left: 6px;
+  }
+
+  .sn-notion-wrap .principle-item:last-child {
+    border-left-color: transparent;
+  }
+
+  .sn-notion-wrap .principle-item-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9b9a97;
+    margin-bottom: 2px;
+  }
+
+  .sn-notion-wrap .principle-item-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .sn-notion-wrap .principle-item-desc {
+    font-size: 14px;
+    color: #6b6b6b;
+    line-height: 1.7;
+    padding-left: 0;
+  }
+
+  .sn-notion-wrap .principle-item-desc strong {
+    color: #37352f;
+  }
+
+  .sn-notion-wrap .student-box {
+    margin: 6px 0 0 0;
+    padding: 10px 14px;
+    background: #f7f6f3;
+    border-radius: 4px;
+    font-size: 13.5px;
+    color: #6b6b6b;
+    line-height: 1.65;
+  }
+
+  .sn-notion-wrap .student-box-label {
+    font-weight: 600;
+    color: #9b9a97;
+  }
+
+  .sn-notion-wrap .pipeline-flow {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .sn-notion-wrap .pipeline-card {
+    flex: 1;
+    min-width: 150px;
+    background: #f7f6f3;
+    border-radius: 6px;
+    padding: 18px 16px;
+    position: relative;
+  }
+
+  .sn-notion-wrap .pipeline-card::after {
+    content: '\2192';
+    position: absolute;
+    right: -11px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #c8c7c3;
+  }
+
+  .sn-notion-wrap .pipeline-card:last-child::after {
+    display: none;
+  }
+
+  .sn-notion-wrap .pipeline-step-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #9b9a97;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .sn-notion-wrap .pipeline-step-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .sn-notion-wrap .pipeline-step-desc {
+    font-size: 13px;
+    color: #6b6b6b;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+
+  .sn-notion-wrap .tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+
+  .sn-notion-wrap .tag-green {
+    background: #dbeddb;
+    color: #2e7d32;
+  }
+  .sn-notion-wrap .tag-blue {
+    background: #d6e4f0;
+    color: #1565c0;
+  }
+  .sn-notion-wrap .tag-yellow {
+    background: #f0e6c0;
+    color: #8d6e00;
+  }
+  .sn-notion-wrap .tag-red {
+    background: #f5d2d2;
+    color: #c62828;
+  }
+  .sn-notion-wrap .tag-purple {
+    background: #e4d5f5;
+    color: #6a1b9a;
+  }
+  .sn-notion-wrap .tag-gray {
+    background: #ececea;
+    color: #6b6b6b;
+  }
+
+  .sn-notion-wrap .cta-box {
+    border: 1px solid #e9e8e5;
+    border-radius: 6px;
+    padding: 24px;
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  .sn-notion-wrap .cta-box h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .sn-notion-wrap .cta-box p {
+    font-size: 14px;
+    color: #6b6b6b;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .sn-notion-wrap .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+
+  .sn-notion-wrap .compare-table th {
+    background: #f7f6f3;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid #e9e8e5;
+    font-size: 13px;
+    color: #6b6b6b;
+  }
+
+  .sn-notion-wrap .compare-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e9e8e5;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  .sn-notion-wrap .compare-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .sn-notion-wrap .checklist {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+  }
+
+  .sn-notion-wrap .checklist li {
+    font-size: 14.5px;
+    padding: 6px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.6;
+  }
+
+  .sn-notion-wrap .checklist li::before {
+    content: '\2610';
+    flex-shrink: 0;
+    font-size: 16px;
+    color: #9b9a97;
+  }
+
+  .sn-notion-wrap .step-function-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+
+  .sn-notion-wrap .step-function-table th {
+    background: #f7f6f3;
+    font-weight: 600;
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 2px solid #e9e8e5;
+    font-size: 13px;
+    color: #6b6b6b;
+  }
+
+  .sn-notion-wrap .step-function-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e9e8e5;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  .sn-notion-wrap .step-function-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .sn-notion-wrap .blockquote {
+    border-left: 3px solid #e9e8e5;
+    padding: 8px 0 8px 16px;
+    margin: 16px 0;
+    color: #6b6b6b;
+    font-size: 14.5px;
+    line-height: 1.75;
+  }
+
+  .sn-notion-wrap .blockquote p {
+    font-size: 14.5px;
+    color: #6b6b6b;
+    margin-bottom: 0;
+  }
+
+  .sn-notion-wrap .source-box {
+    margin: 20px 0;
+    padding: 14px 18px;
+    background: #f7f6f3;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #9b9a97;
+    line-height: 1.7;
+  }
+
+  .sn-notion-wrap .source-box strong {
+    color: #6b6b6b;
+  }
+
+  @media (max-width: 600px) {
+    .sn-notion-wrap {
+      padding: 24px 18px 60px;
+    }
+    .sn-notion-wrap .page-title {
+      font-size: 30px;
+    }
+    .sn-notion-wrap .pipeline-flow {
+      flex-direction: column;
+    }
+    .sn-notion-wrap .pipeline-card::after {
+      display: none;
+    }
+  }
+</style>
+
+<div class="sn-notion-wrap">
+  <p class="page-subtitle text-muted" style="font-size: 15px">
+    AI는 평가원형 법 지문을 어떻게 설계하는가
+  </p>
+  <hr class="divider" />
+
+  <p>안녕하세요, <strong>SN독학기숙학원</strong>입니다.</p>
+
+  <p>
+    지난 글에서는 평가원형 기술 지문의 출제 원칙을 역분해하고, 이를 AI 출제
+    프로세스에 어떻게 반영하는지 소개했습니다. 이번 글의 주제는
+    <strong>법 지문</strong>입니다.
+  </p>
+
+  <p>
+    수능 국어 독서에서 법 지문은 많은 학생이 체감 난도가 높다고 느끼는 영역 중
+    하나입니다. 그런데 실제 출제 구조를 뜯어보면, 법 지문은 기술 지문과는
+    <strong>다른 문법</strong>으로 설계됩니다.
+  </p>
+
+  <div class="callout callout-yellow">
+    <div class="callout-icon">⚡</div>
+    <div class="callout-body">
+      <p>
+        기술 지문이
+        <strong>"시스템이 어떻게 작동하는가"</strong>를 묻는다면,<br />
+        법 지문은
+        <strong
+          >"이 기준을 특정 상황에 적용할 때 결론이 어떻게 달라지는가"</strong
+        >를 묻습니다.
+      </p>
+      <p>같은 독서 영역이지만, <strong>설계 방식은 분명히 다릅니다.</strong></p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <h2>왜 법 지문은 별도의 원칙이 필요한가</h2>
+
+  <p>
+    기술 지문의 핵심 구조가
+    <strong>입력 &rarr; 변환 &rarr; 출력</strong>이라면,<br />
+    법 지문의 핵심 구조는
+    <strong>정의 &rarr; 구조 &rarr; 기준 &rarr; 적용</strong>입니다.
+  </p>
+
+  <p>
+    두 유형 모두 정보를 처리하는 독해를 요구하지만, 난도를 만드는 방식은 다릅니다.
+    기술 지문은 <strong>메커니즘의 인과 연쇄</strong>를 따라가면 풀리는 경우가
+    많고, 법 지문은
+    <strong>조건 하나의 변화가 결론 전체를 어떻게 바꾸는지</strong>를 읽어야
+    풀리는 경우가 많습니다.
+  </p>
+
+  <p>
+    따라서 기술 지문용 출제 원칙을 그대로 법 지문에 적용해서는, 수능형 법 지문
+    특유의 문항 구조를 충분히 재현하기 어렵습니다.
+    <strong>별도의 역분해가 필요한 이유</strong>가 여기에 있습니다.
+  </p>
+
+  <hr class="divider" />
+
+  <h2>실제 평가원 법 지문은 무엇을 묻고 있는가</h2>
+
+  <p>
+    이 점은 실제 평가원 출제 본문을 보면 더 분명해집니다. 법 지문은 단순한 법률
+    지식 확인형이 아니라,
+    <strong
+      >개념을 설명한 뒤 그 개념이 어떤 맥락에서 어떤 판단 기준으로
+      작동하는지</strong
+    >를 읽게 하는 방식으로 설계됩니다.
+  </p>
+
+  <p>
+    예를 들어 <strong>2025년 11월 시행 수능 국어 독서 [4~9]</strong> 지문은 법
+    해석의 원리와 법률 용어의 맥락적 의미 변화를 다룹니다. 지문은 다음과 같이
+    시작합니다.
+  </p>
+
+  <div class="blockquote">
+    <p>
+      "법조문으로 구성된 법 규범인 성문법의 의미를 파악하는 것을 법 해석이라고
+      한다. 법은 사회 구성원들에게 보편적으로 적용되는 규범이므로, 성문법을
+      구성하는 단어나 문장은 그 일상적 의미에 충실하게 해석되어야 한다. 이러한
+      '문리 해석'이 법 해석의 출발점이다."
+    </p>
+  </div>
+
+  <p>
+    이어 같은 지문은 동일한 용어가 맥락에 따라 다르게 해석된다는 점을 보여
+    줍니다.
+  </p>
+
+  <div class="blockquote">
+    <p>
+      "담보는 유상 계약의 맥락에서 거래 대상의 값어치를 보장한다는 의미로
+      해석된다."
+    </p>
+  </div>
+
+  <div class="blockquote">
+    <p>
+      "한편, 담보는 채권과 관련된 맥락에서는 채권의 실현 가능성을 보장하기 위한
+      조치라는 의미로 해석된다."
+    </p>
+  </div>
+
+  <p>
+    또한 이 지문은 보증 계약까지 연결해, 법 개념을 단순 정의로 끝내지 않고
+    <strong>실제 법률관계 속에서 읽게</strong> 만듭니다.
+  </p>
+
+  <div class="blockquote">
+    <p>
+      "보증이란 채무자가 채무를 이행하지 않으면 그 채무를 다른 사람이 대신
+      이행하기로 하는 것이다."
+    </p>
+  </div>
+
+  <p>
+    즉, 평가원은 법 용어를 사전식으로 외웠는지를 묻지 않습니다.
+    <strong
+      >같은 용어라도 어떤 법률관계와 어떤 맥락 속에 놓이는가에 따라 의미와 판단
+      기준이 달라진다</strong
+    >는 점을 읽어 내는지를 묻습니다.
+  </p>
+
+  <hr class="divider" style="margin: 24px 0" />
+
+  <p>
+    또 <strong>2022년 11월 시행 수능 국어 독서 [10~13]</strong> 지문은 법 지문의
+    전형적인 <strong>조건 분기 구조</strong>를 잘 보여 줍니다.
+  </p>
+
+  <div class="blockquote">
+    <p>
+      "법령의 조문은 대개 'A에 해당하면 B를 해야 한다.'처럼 요건과 효과로 구성된
+      조건문으로 규정된다. 하지만 그 요건이나 효과가 항상 일의적인 것은 아니다."
+    </p>
+  </div>
+
+  <div class="blockquote">
+    <p>
+      "법조문에는 구체적 상황을 고려해야 그 상황에 맞는 진정한 의미가 파악되는
+      불확정 개념이 사용될 수 있기 때문이다."
+    </p>
+  </div>
+
+  <p>
+    이후 지문은 손해배상 예정액, 위약벌, 재량 행위, 기속 행위, 재량 준칙 등을
+    설명하면서,
+    <strong>조건 하나가 바뀌면 결론이 어떻게 달라지는지</strong>를 따라가게
+    만듭니다.
+  </p>
+
+  <div class="blockquote">
+    <p>
+      "법령상 요건이 충족되면 그 효과로서 행정청이 반드시 해야 하는 특정 내용의
+      행정 작용은 기속 행위이다. 반면 법령상 요건이 충족되더라도 그 효과인 행정
+      작용의 구체적 내용을 고를 수 있는 재량이 행정청에 주어져 있을 때, 이러한
+      재량을 행사하는 행정 작용은 재량 행위이다."
+    </p>
+  </div>
+
+  <div class="blockquote">
+    <p>
+      "행정청은 재량으로 재량 행사의 기준을 명확히 정할 수 있는데 이 기준을 재량
+      준칙이라 한다."
+    </p>
+  </div>
+
+  <p>
+    이 두 사례만 보더라도 평가원형 법 지문은
+    <strong>정의 &rarr; 구조 &rarr; 기준 &rarr; 적용</strong>의 흐름 속에서,
+    개념 이해와 조건 적용 능력을 함께 요구하도록 설계된다는 점을 확인할 수
+    있습니다.
+  </p>
+
+  <div class="source-box">
+    <strong>출처</strong><br />
+    평가원, 2025.11.13 시행 수능 국어 독서 [4~9]<br />
+    평가원, 2022.11.17 시행 수능 국어 독서 [10~13]
+  </div>
+
+  <hr class="divider" />
+
+  <h2>Step 1. 평가원형 법 지문 출제 원칙 10가지</h2>
+  <p class="text-muted text-sm">
+    당사에서는 최근 5개년 평가원 법 지문을 중심으로 지문 구조, 문항 기능, 오답
+    설계 방식을 분석해 AI 출제에 적용 가능한 10가지 핵심 원칙을 정리했습니다.
+  </p>
+
+  <!-- A: 지문 설계 원칙 (1~4) -->
+  <div class="principle-section">
+    <div class="principle-section-header psh-a">
+      <span class="principle-section-label psl-a">A</span>
+      <span class="principle-section-title"
+        >지문 설계 원칙 — '개념 정의'에서 '판단 기준'으로</span
+      >
+    </div>
+
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 1</div>
+        <div class="principle-item-title">
+          개념은 먼저 정의하고, 문항에서는 판단 기준으로 전환하라
+        </div>
+        <div class="principle-item-desc">
+          법 개념은 설명 자체로 끝나지 않습니다. 뒤 문항에서는 그 개념이 실제
+          사례에서 어떤 결론을 만들어 내는지 묻게 해야 합니다. 즉,
+          <strong>정의 암기가 아니라 기준 적용</strong>이 핵심입니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 2</div>
+        <div class="principle-item-title">
+          같은 용어도 규범적 맥락이 달라지면 의미가 달라지게 설계하라
+        </div>
+        <div class="principle-item-desc">
+          법 지문에서 용어의 의미는 사전적으로 고정되지 않습니다. 어떤 제도, 어떤
+          조문, 어떤 관계 속에 놓이는가에 따라 법적 의미가 달라집니다. 좋은 오답은
+          <strong>단어는 맞지만 맥락이 틀린 선지</strong>입니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 3</div>
+        <div class="principle-item-title">
+          법률관계의 핵심은 당사자 추적에 두어라
+        </div>
+        <div class="principle-item-desc">
+          법 지문은 개념 자체보다
+          <strong>누가 누구와 어떤 법률행위를 했는지</strong>가 더 중요할 때가
+          많습니다. 채권자와 채무자, 원고와 피고, 행위자와 피해자 중 하나만 바뀌어도
+          결론은 달라집니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 4</div>
+        <div class="principle-item-title">
+          대립 구조는 '누가 맞는가'보다 '무엇을 기준으로 갈라지는가'를 묻게 하라
+        </div>
+        <div class="principle-item-desc">
+          두 입장 중 승패를 묻기보다,
+          <strong>두 입장이 어떤 전제나 판단 기준에서 갈라지는지</strong>를 묻게
+          해야 합니다. 비교의 초점은 결론이 아니라 분기점입니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B: 문항 설계 원칙 (5~6) -->
+  <div class="principle-section">
+    <div class="principle-section-header psh-b">
+      <span class="principle-section-label psl-b">B</span>
+      <span class="principle-section-title"
+        >문항 설계 원칙 — '조건 분기'와 '함정 설계'</span
+      >
+    </div>
+
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 5</div>
+        <div class="principle-item-title">
+          판례와 조문은 암기 대상이 아니라 판단 구조로 제시하라
+        </div>
+        <div class="principle-item-desc">
+          중요한 것은 판례명이나 조문 번호가 아니라, 그 판단이
+          <strong>어떤 논리와 어떤 요건 위에서 성립하는지</strong>입니다. 문항은
+          "무엇을 외웠는가"보다 "어떤 기준으로 판단했는가"를 묻게 해야 합니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 6</div>
+        <div class="principle-item-title">
+          함정은 어려운 법학 지식이 아니라 '조건 하나 바꾸기'에서 만들어라
+        </div>
+        <div class="principle-item-desc">
+          평가원형 함정은 거창하지 않습니다. 특약 유무, 당사자 포함 여부, 특정
+          가능성, 예외 요건 충족 여부처럼
+          <strong>작은 조건의 변화가 결론을 바꾸게</strong> 합니다. 법 지문은
+          배경지식형보다 조건 분기형 독해에 가깝습니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: 거시 설계 원칙 (7~10) -->
+  <div class="principle-section">
+    <div class="principle-section-header psh-c">
+      <span class="principle-section-label psl-c">C</span>
+      <span class="principle-section-title"
+        >거시 설계 원칙 — 세트 구성과 전체 흐름</span
+      >
+    </div>
+
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 7</div>
+        <div class="principle-item-title">
+          세트 안의 문항 기능을 분산하라
+        </div>
+        <div class="principle-item-desc">
+          법 지문 세트는 보통 다음과 같은 기능이
+          <strong>단계적으로 배치</strong>됩니다. 모든 문항이 같은 축으로 반복되면
+          수능형 세트의 완성도가 떨어집니다.
+        </div>
+        <table class="step-function-table">
+          <thead>
+            <tr>
+              <th>위치</th>
+              <th>기능</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>앞 문항</td>
+              <td>전체 내용 이해, 개념&middot;용어 이해</td>
+            </tr>
+            <tr>
+              <td>중간 문항</td>
+              <td>관계 구조 파악, 입장 비교</td>
+            </tr>
+            <tr>
+              <td>후반 문항</td>
+              <td>판단 기준 적용, 사례 적용</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 8</div>
+        <div class="principle-item-title">
+          마지막 고난도 문항은 사례 적용형으로 닫아라
+        </div>
+        <div class="principle-item-desc">
+          법 지문은 이론 이해에서 멈추지 않고,
+          <strong>구체적 사실관계에 기준을 대입하는 능력</strong>을 묻는 방향으로
+          끝나는 경우가 많습니다. 변별력은 대체로 이 지점에서 만들어집니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 9</div>
+        <div class="principle-item-title">
+          오답 선지는 완전히 틀린 말보다 부분적으로 맞는 말로 만들어라
+        </div>
+        <div class="principle-item-desc">
+          좋은 오답은 본문의 일부를 정확히 반영하되,
+          <strong>적용 범위, 예외, 당사자, 맥락</strong> 중 하나를 어긋나게
+          만듭니다. 대충 읽은 학생은 걸리고, 정확히 읽은 학생만 통과하게 해야
+          합니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">원칙 10</div>
+        <div class="principle-item-title">
+          지문 전체의 흐름은 '정의 &rarr; 구조 &rarr; 기준 &rarr; 적용'으로
+          설계하라
+        </div>
+        <div class="principle-item-desc">
+          <strong>가장 안정적인 법 지문 설계 흐름</strong>입니다. 핵심 개념을
+          제시하고, 개념 간 관계를 설명한 뒤, 판단 기준이나 입장 차이를 드러내고,
+          마지막에는 사례에 적용하게 해야 합니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <h2>기술 지문과 법 지문, 설계 문법은 이렇게 다르다</h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>비교 항목</th>
+        <th>기술 지문</th>
+        <th>법 지문</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>핵심 구조</strong></td>
+        <td>입력 &rarr; 변환 &rarr; 출력</td>
+        <td>정의 &rarr; 구조 &rarr; 기준 &rarr; 적용</td>
+      </tr>
+      <tr>
+        <td><strong>난도 형성 방식</strong></td>
+        <td>메커니즘의 인과 연쇄</td>
+        <td>조건 분기에 따른 결론 전환</td>
+      </tr>
+      <tr>
+        <td><strong>고난도 문항의 성격</strong></td>
+        <td>파편 정보의 유기적 결합</td>
+        <td>사례에 판단 기준 대입</td>
+      </tr>
+      <tr>
+        <td><strong>대표 오답 유형</strong></td>
+        <td>조건 누락, 범주 혼동</td>
+        <td>당사자 교체, 조건 변경</td>
+      </tr>
+      <tr>
+        <td><strong>핵심 함정</strong></td>
+        <td>과정 추적 실패</td>
+        <td>조건 분기 누락</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="divider" />
+
+  <h2>Step 2. AI 출제 프로세스는 동일하게 적용된다</h2>
+
+  <p>
+    법 지문에도 기술 지문과 동일한
+    <strong>출제 프로세스의 골격</strong>을 적용합니다.
+  </p>
+
+  <div class="pipeline-flow">
+    <div class="pipeline-card">
+      <div class="pipeline-step-label">Step 1</div>
+      <div class="pipeline-step-title">출제</div>
+      <div class="pipeline-step-desc">
+        SNarGEN이 법 지문 출제 원칙을 기반으로 지문과 문항을 동시 생성
+      </div>
+      <span class="tag tag-green">SNarGEN</span>
+    </div>
+    <div class="pipeline-card">
+      <div class="pipeline-step-label">Step 2</div>
+      <div class="pipeline-step-title">1차 풀이</div>
+      <div class="pipeline-step-desc">
+        SNarGo가 수험생 시점에서 풀이하며 논리적 비약 여부 검증
+      </div>
+      <span class="tag tag-blue">SNarGo</span>
+    </div>
+    <div class="pipeline-card">
+      <div class="pipeline-step-label">Step 3</div>
+      <div class="pipeline-step-title">교차 검증</div>
+      <div class="pipeline-step-desc">
+        다중 AI가 독립적으로 풀이 후 법 지문 원칙 적합도 판정
+      </div>
+      <span class="tag tag-purple">SNarVIS</span>
+      <span class="tag tag-yellow">ChatGPT</span>
+      <span class="tag tag-red">Gemini</span>
+    </div>
+    <div class="pipeline-card">
+      <div class="pipeline-step-label">Step 4</div>
+      <div class="pipeline-step-title">개선 &amp; 검수</div>
+      <div class="pipeline-step-desc">
+        AI 피드백 반영 후, 전문 교사가 당사자 관계&middot;조건 분기&middot;법적
+        타당성을 최종 검수
+      </div>
+      <span class="tag tag-gray">AI 루프</span>
+      <span class="tag tag-gray">전문가</span>
+    </div>
+  </div>
+
+  <p>
+    출제 프로세스의 구조는 동일하지만, AI가 반영하는 판단 기준과 문항 설계 문법은
+    법 지문의 특성에 맞게 달라집니다. 즉,
+    <strong>달라지는 것은 프로세스 자체가 아니라 그 안에서 AI가 참고하는 설계
+    기준</strong>입니다.
+  </p>
+
+  <hr class="divider" />
+
+  <h2>Step 3. 사람 전문가의 마지막 검수</h2>
+
+  <p>
+    AI가 아무리 정교해도, 법 지문에는 최종적으로 사람의 판단이 필요한 지점이
+    분명히 존재합니다.
+  </p>
+
+  <p>
+    특히 <strong>당사자 관계의 명확성</strong>,
+    <strong>조건 분기의 타당성</strong>,
+    <strong>사례의 법적 현실성</strong>은 현직 교사의 검수 없이는 완성되기
+    어렵습니다. 최종 검수 단계에서는 바로 이 지점들을 집중적으로 점검합니다.
+  </p>
+
+  <p>
+    SN독학기숙학원은 AI의 효율성과 사람의 판단력을 결합해, 학생들이 실제
+    시험장에서 체감할 수 있는 완성도의 문항을 만들고자 합니다.
+  </p>
+
+  <hr class="divider" />
+
+  <h2>실전용 체크리스트</h2>
+  <p>문항을 만들기 전, 아래 10가지를 점검합니다.</p>
+
+  <ul class="checklist">
+    <li>개념 정의가 뒤 문항의 판단 기준으로 전환되는가?</li>
+    <li>같은 용어가 맥락에 따라 다르게 작동하는가?</li>
+    <li>당사자 관계를 추적해야만 풀리는가?</li>
+    <li>입장 차이의 기준이 선명한가?</li>
+    <li>판례&middot;조문을 판단 구조로 읽게 하는가?</li>
+    <li>함정이 조건 하나 바꾸기에서 나오도록 설계되었는가?</li>
+    <li>세트 내 문항 기능이 분산되어 있는가?</li>
+    <li>후반부에 사례 적용 문항이 배치되어 있는가?</li>
+    <li>오답이 부분적으로 그럴듯한가?</li>
+    <li>전체 흐름이 정의 &rarr; 구조 &rarr; 기준 &rarr; 적용으로 이어지는가?</li>
+  </ul>
+
+  <hr class="divider" />
+
+  <div class="callout callout-blue">
+    <div class="callout-icon">🤝</div>
+    <div class="callout-body">
+      <p>
+        혹시 수능 국어 문제 출제 관련하여 당사와 협업하고 싶으신 강사, 학원, 회사
+        등이 있으면,<br /><strong
+          ><a
+            href="mailto:Snacademy@naver.com"
+            style="color: #1a4a7a; text-decoration: underline"
+            >Snacademy@naver.com</a
+          ></strong
+        >
+        으로 연락 부탁드립니다.
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <p style="text-align: center; color: #9b9a97; font-size: 13px">
+    감사합니다.<br />
+    <strong style="color: #37352f">SN독학기숙학원</strong><br /><br />
+    <span style="font-size: 12px"
+      >&copy; 2026 SN독학기숙학원 &middot; Powered by SNarGPT</span
+    >
+  </p>
+</div>

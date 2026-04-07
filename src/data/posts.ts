@@ -181,6 +181,35 @@ export const allPosts: Post[] = [
     url: '/problem-download/ai-korean-reading-ep1',
   },
   {
+    id: 'ai-korean-reading-ep2',
+    title: 'AI가 수능 국어문제를 만든다면? - 2편 법 지문',
+    excerpt:
+      'AI는 평가원형 법 지문을 어떻게 설계하는가. 실제 수능 기출을 역분해해 법 지문 출제 원칙 10가지를 추출하고, 기술 지문과의 설계 문법 차이를 분석합니다.',
+    category: 'korean-problem',
+    subcategory: 'column-korean',
+    tags: [
+      '국어',
+      '독서',
+      '법지문',
+      'AI출제',
+      'SNarGEN',
+      '평가원형',
+      '수능',
+      'SN독학기숙학원',
+      'SN고요의숲',
+      'SN고요의숲 독학재수',
+      '독학재수학원',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-04-07',
+    readTime: '10',
+    featured: false,
+    published: true,
+    thumbnail:
+      '/images/thumbnail/problem-download/AI_korean_generation_law.png',
+    url: '/problem-download/ai-korean-reading-ep2',
+  },
+  {
     id: 'goyoui-sup-ai-paradigm-shift',
     title:
       "대치동 독학재수학원의 패러다임 시프트: AI 특화관 'SN고요의숲' (feat. SNarGPT)",
