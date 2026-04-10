@@ -234,6 +234,21 @@ export const allPosts: Post[] = [
     url: '/problem-download/ai-korean-reading-ep2',
   },
   {
+    id: 'dokhak-vs-jaejeong',
+    title: '독학기숙학원 vs 재종기숙학원, 뭐가 다를까?',
+    excerpt:
+      '둘 다 기숙 형태로 수능을 준비하지만, 공부의 중심이 누구에게 있느냐부터 다릅니다. 내 성향에 맞는 선택을 위한 비교 가이드입니다.',
+    category: 'columns',
+    tags: ['기숙학원', '독학기숙학원', '재종기숙학원', '재수', '수능'],
+    author: 'SN독학기숙학원',
+    date: '2026-04-10',
+    readTime: '7',
+    featured: false,
+    published: true,
+    thumbnail: '/images/columns/selfstudyvsregulardorm/selfstudyvsregulardorm.png',
+    url: '/columns/dokhak-vs-jaejeong',
+  },
+  {
     id: 'goyoui-sup-ai-paradigm-shift',
     title:
       "대치동 독학재수학원의 패러다임 시프트: AI 특화관 'SN고요의숲' (feat. SNarGPT)",
