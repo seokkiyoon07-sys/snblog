@@ -108,6 +108,30 @@ export const allPosts: Post[] = [
     url: '/startup/snargpt-why-ai-tutor',
   },
   {
+    id: 'farfrom-suneung-ai',
+    title: '수능 AI는 아직 멀었다고요? 그 말은 틀리지 않습니다',
+    excerpt:
+      '범용 챗봇의 한계를 수능 AI 전체의 한계로 보면 오해가 생깁니다. 이미 강한 영역, 조건이 갖춰질수록 강해지는 영역, 사람의 검증이 필요한 영역을 나눠 봅니다.',
+    category: 'startup',
+    subcategory: 'tech-blog',
+    tags: [
+      'SNarGPT',
+      '수능AI',
+      'AI튜터',
+      '에듀테크',
+      '오답분석',
+      '학습전략',
+      'SN독학기숙학원',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-04-10',
+    readTime: '8',
+    featured: false,
+    published: true,
+    thumbnail: '/images/startup/farfromSuneungAI.png',
+    url: '/startup/farfrom-suneung-ai',
+  },
+  {
     id: 'sntk-math1-level3-free',
     title: '2027 수능특강 Level.3 변형문제, 오늘부터 무료 공개합니다',
     excerpt:
