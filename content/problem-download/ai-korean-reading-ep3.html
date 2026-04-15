@@ -1,0 +1,1054 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+  .sn-notion-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    font-family:
+      'Noto Sans KR',
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    color: #37352f;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+
+  .sn-notion-wrap *,
+  .sn-notion-wrap *::before,
+  .sn-notion-wrap *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sn-notion-wrap .page-title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .sn-notion-wrap .page-subtitle {
+    font-size: 14px;
+    color: #9b9a97;
+    margin-bottom: 32px;
+  }
+
+  .sn-notion-wrap h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 48px 0 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .sn-notion-wrap h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 36px 0 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .sn-notion-wrap p {
+    font-size: 15px;
+    color: #37352f;
+    margin-bottom: 12px;
+    word-break: keep-all;
+  }
+
+  .sn-notion-wrap strong {
+    font-weight: 600;
+  }
+  .sn-notion-wrap .text-muted {
+    color: #9b9a97;
+  }
+  .sn-notion-wrap .text-sm {
+    font-size: 13px;
+  }
+
+  .sn-notion-wrap .divider {
+    border: none;
+    border-top: 1px solid #e9e8e5;
+    margin: 32px 0;
+  }
+
+  .sn-notion-wrap .callout {
+    display: flex;
+    gap: 12px;
+    padding: 16px 18px;
+    border-radius: 4px;
+    background: #f7f6f3;
+    margin: 16px 0;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .sn-notion-wrap .callout-icon {
+    flex-shrink: 0;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  .sn-notion-wrap .callout-body {
+    flex: 1;
+  }
+  .sn-notion-wrap .callout-body p {
+    font-size: 14.5px;
+    margin-bottom: 6px;
+  }
+  .sn-notion-wrap .callout-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .sn-notion-wrap .callout-blue {
+    background: #e7f0fe;
+  }
+  .sn-notion-wrap .callout-green {
+    background: #edf8ee;
+  }
+  .sn-notion-wrap .callout-yellow {
+    background: #fdf6e3;
+  }
+
+  .sn-notion-wrap .principle-section {
+    margin: 28px 0 8px;
+  }
+
+  .sn-notion-wrap .principle-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+
+  .sn-notion-wrap .psh-a {
+    background: #edf8ee;
+  }
+  .sn-notion-wrap .psh-b {
+    background: #e7f0fe;
+  }
+  .sn-notion-wrap .psh-c {
+    background: #f3e8fd;
+  }
+
+  .sn-notion-wrap .principle-section-label {
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 1px 7px;
+    flex-shrink: 0;
+  }
+
+  .sn-notion-wrap .psl-a {
+    background: #c6ecc6;
+    color: #1a5c1a;
+  }
+  .sn-notion-wrap .psl-b {
+    background: #bdd7f0;
+    color: #1a4a7a;
+  }
+  .sn-notion-wrap .psl-c {
+    background: #dbc4f5;
+    color: #4a1a7a;
+  }
+
+  .sn-notion-wrap .principle-section-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .sn-notion-wrap .principle-list {
+    margin: 0 0 8px;
+  }
+
+  .sn-notion-wrap .principle-item {
+    padding: 12px 0 12px 18px;
+    border-left: 2px solid #e9e8e5;
+    margin-left: 6px;
+  }
+
+  .sn-notion-wrap .principle-item:last-child {
+    border-left-color: transparent;
+  }
+
+  .sn-notion-wrap .principle-item-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9b9a97;
+    margin-bottom: 2px;
+  }
+
+  .sn-notion-wrap .principle-item-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .sn-notion-wrap .principle-item-desc {
+    font-size: 14px;
+    color: #6b6b6b;
+    line-height: 1.7;
+    padding-left: 0;
+  }
+
+  .sn-notion-wrap .principle-item-desc strong {
+    color: #37352f;
+  }
+
+  .sn-notion-wrap .pipeline-flow {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .sn-notion-wrap .pipeline-card {
+    flex: 1;
+    min-width: 150px;
+    background: #f7f6f3;
+    border-radius: 6px;
+    padding: 18px 16px;
+    position: relative;
+  }
+
+  .sn-notion-wrap .pipeline-card::after {
+    content: '\2192';
+    position: absolute;
+    right: -11px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #c8c7c3;
+  }
+
+  .sn-notion-wrap .pipeline-card:last-child::after {
+    display: none;
+  }
+
+  .sn-notion-wrap .pipeline-step-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #9b9a97;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .sn-notion-wrap .pipeline-step-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .sn-notion-wrap .pipeline-step-desc {
+    font-size: 13px;
+    color: #6b6b6b;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+
+  .sn-notion-wrap .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+
+  .sn-notion-wrap .compare-table th {
+    background: #f7f6f3;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid #e9e8e5;
+    font-size: 13px;
+    color: #6b6b6b;
+  }
+
+  .sn-notion-wrap .compare-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e9e8e5;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  .sn-notion-wrap .compare-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .sn-notion-wrap .checklist {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+  }
+
+  .sn-notion-wrap .checklist li {
+    font-size: 14.5px;
+    padding: 6px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.6;
+  }
+
+  .sn-notion-wrap .checklist li::before {
+    content: '\2610';
+    flex-shrink: 0;
+    font-size: 16px;
+    color: #9b9a97;
+  }
+
+  .sn-notion-wrap .step-function-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+
+  .sn-notion-wrap .step-function-table th {
+    background: #f7f6f3;
+    font-weight: 600;
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 2px solid #e9e8e5;
+    font-size: 13px;
+    color: #6b6b6b;
+  }
+
+  .sn-notion-wrap .step-function-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e9e8e5;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  .sn-notion-wrap .step-function-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .sn-notion-wrap .blockquote {
+    border-left: 3px solid #e9e8e5;
+    padding: 8px 0 8px 16px;
+    margin: 16px 0;
+    color: #6b6b6b;
+    font-size: 14.5px;
+    line-height: 1.75;
+  }
+
+  .sn-notion-wrap .blockquote p {
+    font-size: 14.5px;
+    color: #6b6b6b;
+    margin-bottom: 0;
+  }
+
+  .sn-notion-wrap .source-box {
+    margin: 20px 0;
+    padding: 14px 18px;
+    background: #f7f6f3;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #9b9a97;
+    line-height: 1.7;
+  }
+
+  .sn-notion-wrap .source-box strong {
+    color: #6b6b6b;
+  }
+
+  .sn-notion-wrap .case-card {
+    margin: 24px 0;
+    padding: 18px 20px;
+    border: 1px solid #e9e8e5;
+    border-radius: 6px;
+    background: #fcfcfb;
+  }
+
+  .sn-notion-wrap .case-card .case-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1a4a7a;
+    background: #e7f0fe;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .sn-notion-wrap .case-card .case-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .sn-notion-wrap .case-card .case-source {
+    font-size: 12px;
+    color: #9b9a97;
+    margin-bottom: 12px;
+  }
+
+  .sn-notion-wrap .case-card .case-tone {
+    font-size: 13.5px;
+    color: #6b6b6b;
+    margin-bottom: 10px;
+    line-height: 1.65;
+  }
+
+  .sn-notion-wrap .case-card .case-point-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9b9a97;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+
+  .sn-notion-wrap .case-card ul {
+    margin: 4px 0 8px 18px;
+    padding: 0;
+  }
+
+  .sn-notion-wrap .case-card ul li {
+    font-size: 13.5px;
+    color: #6b6b6b;
+    line-height: 1.7;
+    margin-bottom: 2px;
+  }
+
+  .sn-notion-wrap .case-card .case-takeaway {
+    font-size: 13.5px;
+    color: #37352f;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #e9e8e5;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 600px) {
+    .sn-notion-wrap {
+      padding: 24px 18px 60px;
+    }
+    .sn-notion-wrap .page-title {
+      font-size: 30px;
+    }
+    .sn-notion-wrap .pipeline-flow {
+      flex-direction: column;
+    }
+    .sn-notion-wrap .pipeline-card::after {
+      display: none;
+    }
+  }
+</style>
+
+<div class="sn-notion-wrap">
+  <p class="page-subtitle text-muted" style="font-size: 15px">
+    AI는 평가원형 경제 지문을 어떻게 설계하는가
+  </p>
+  <hr class="divider" />
+
+  <p>안녕하세요, <strong>SN독학기숙학원</strong>입니다.</p>
+
+  <p>
+    수능 국어 독서에서 경제 지문은 유독 <strong>"감으로 읽다 미끄러지는"</strong>
+    영역입니다. 그 이유는 단순합니다.
+  </p>
+
+  <p>
+    기술 지문이 <strong>"작동 메커니즘"</strong>을 읽게 만든다면,<br />
+    법 지문이 <strong>"기준을 적용해 결론을 갈라내게"</strong> 만든다면,<br />
+    경제 지문은 <strong>"변수 운용"</strong>을 시킵니다.
+  </p>
+
+  <div class="callout callout-yellow">
+    <div class="callout-icon">⚡</div>
+    <div class="callout-body">
+      <p>
+        <strong>경제 지문 = 문장으로 된 모형(모델)을 읽고,</strong><br />
+        변수(↑↓)를 굴려 결론이 이동하는 방향을 맞히는 시험.
+      </p>
+    </div>
+  </div>
+
+  <p>
+    그런데 우리는 여기서 한 단계 더 들어갑니다. "경제 지문을 어떻게 만들면 좋은
+    문제가 되는가?"를 말하려면, 먼저 이 질문에 답해야 합니다.
+  </p>
+
+  <div class="callout callout-blue">
+    <div class="callout-icon">❓</div>
+    <div class="callout-body">
+      <p>
+        <strong>평가원은 경제 지문을 '어떻게' 만들고 있는가?</strong>
+      </p>
+    </div>
+  </div>
+
+  <p>
+    그래서 이번 글은, 단순 팁이 아니라
+    <strong>평가원 출제코드 역분해</strong>로 시작합니다.
+  </p>
+
+  <hr class="divider" />
+
+  <h2>실제 평가원 경제 지문은 무엇을 묻고 있는가</h2>
+  <p class="text-muted text-sm">최근 5개년 범위 내 대표 기출 4세트로 확인</p>
+
+  <p>
+    아래 사례들은 <strong>"경제 / 경제성"</strong> 축으로 읽히는 대표 기출
+    세트입니다. 본격적인 출제코드 역분해에 들어가기 전에, 평가원이 실제로 경제
+    지문을 어떤 톤으로 설계해 왔는지를 먼저 확인합니다.
+  </p>
+
+  <!-- 사례 1 -->
+  <div class="case-card">
+    <span class="case-label">사례 1 · 국제통화 / 환율 시스템형</span>
+    <div class="case-title">브레턴우즈 · 기축통화 · 트리핀 딜레마</div>
+    <div class="case-source">
+      평가원 2021학년도 수능(2021.11) 국어 독서 [10~13]
+    </div>
+
+    <div class="case-tone">
+      <strong>지문 톤.</strong> 제도 규칙(고정환율 / 태환) → 변수(경상수지 /
+      유동성 / 신뢰) → 구조적 모순 → 붕괴 → 잔존 이유(거래비용 / 규모의 경제)
+    </div>
+
+    <div class="blockquote">
+      <p>
+        "트리핀 딜레마는 국제 유동성 확보와 달러화 신뢰도 간의 문제이다."
+      </p>
+    </div>
+    <div class="blockquote">
+      <p>
+        "브레턴우즈 체제 … '금 태환 조항' … 의무 …"
+      </p>
+    </div>
+
+    <div class="case-point-label">문항이 노리는 것</div>
+    <ul>
+      <li>제도 규칙을 '조건'으로 붙잡고, 그 규칙 하에서만 성립하는 판단을 요구</li>
+      <li>'환율 가짓수 / 교차환율'처럼 구조를 조합(경우의 수)해 계산시키는 문항이 고난도 역할</li>
+    </ul>
+
+    <div class="case-takeaway">
+      이 사례는 경제 지문이 "설명문"이 아니라
+      <strong>규칙이 있는 시스템을 읽히는 방식</strong>이라는 걸 가장 선명하게
+      보여 줍니다.
+    </div>
+  </div>
+
+  <!-- 사례 2 -->
+  <div class="case-card">
+    <span class="case-label">사례 2 · 세제 설계형</span>
+    <div class="case-title">디지털세 · 법인세 · 이윤이전(로열티 등)</div>
+    <div class="case-source">평가원 2020.6 모평 국어 독서(세트 문항)</div>
+
+    <div class="case-tone">
+      <strong>지문 톤.</strong> "과세 기준의 공백" → "회피 메커니즘(돈의 이동
+      경로)" → "국가 간 이해관계" → "정책 도입의 효과 / 부작용"
+    </div>
+
+    <div class="case-point-label">문항이 노리는 것</div>
+    <ul>
+      <li>
+        '이윤 vs 수입', '비용 처리 vs 과세표준'처럼
+        <strong>지표 층위가 섞일 때 생기는 오류</strong>를 오답으로 사용
+      </li>
+      <li>
+        '경로 추적'(A국에서 벌고 B국으로 옮겨 과세를 피함)을 끝까지 따라가야
+        결론이 남
+      </li>
+    </ul>
+
+    <div class="case-takeaway">
+      이 유형에서 발췌독이 통하는 순간, 경제 지문이 아니라 "상식 퀴즈"가 됩니다.
+      그래서 평가원은 <strong>경로를 분산 배치</strong>하고, 문항에서 결합하게
+      만듭니다.
+    </div>
+  </div>
+
+  <!-- 사례 3 -->
+  <div class="case-card">
+    <span class="case-label">사례 3 · 디지털경제 제도형</span>
+    <div class="case-title">데이터 이동권 · 거래비용 · 집중 / 독점</div>
+    <div class="case-source">평가원 2023.9 모평 국어 독서 [4~7]</div>
+
+    <div class="case-tone">
+      <strong>지문 톤.</strong> 권리(이동권) 도입 → 비용(생성비용 / 거래비용)
+      변화 → 데이터 흐름 변화 → 시장구조 변화(집중 / 독점 우려)
+    </div>
+
+    <div class="case-point-label">문항이 노리는 것</div>
+    <ul>
+      <li>'권리의 범위 / 예외'를 정확히 잡고</li>
+      <li>비용 개념을 사례에 꽂아 넣어</li>
+      <li>마지막에 시장구조 결론(진입장벽 / 집중도)까지 밀어붙임</li>
+    </ul>
+
+    <div class="case-takeaway">
+      이 유형은 경제 지문이 "정책 / 제도"를 다룰 때, 늘
+      <strong>효과–부작용 쌍(트레이드오프)</strong>으로 마감되는 경향을 보여
+      줍니다.
+    </div>
+  </div>
+
+  <!-- 사례 4 -->
+  <div class="case-card">
+    <span class="case-label">사례 4 · 경쟁정책 / 규범형</span>
+    <div class="case-title">
+      재판매가격유지 · 표시광고 · 추천 / 보증 · 후기
+    </div>
+    <div class="case-source">평가원 2024.9 모평 국어 독서 [4~7]</div>
+
+    <div class="case-tone">
+      <strong>지문 톤.</strong> 금지 원칙 → 예외 조건 → 입증책임 → 제재수단 +
+      온라인 거래 맥락 사례화
+    </div>
+
+    <div class="case-point-label">문항이 노리는 것</div>
+    <ul>
+      <li>
+        학생이 "그럴듯한 상식(권장가니까 괜찮겠지)"으로 판단하면 바로 미끄러지게
+        설계
+      </li>
+      <li>
+        결국 <strong>결정적 조건 1개</strong>(강제성 / 예외 / 입증)를 잡는
+        독해가 승부
+      </li>
+    </ul>
+
+    <div class="case-takeaway">
+      이 유형은 "경제성" 지문인데도 법 지문처럼 보이는 이유가 있습니다. 평가원은
+      <strong>시장질서(경제)와 규범(법)을 접합</strong>시키는 걸 즐깁니다.
+    </div>
+  </div>
+
+  <div class="source-box">
+    <strong>출처</strong><br />
+    평가원, 2021학년도 수능(2021.11) 국어 독서 [10~13]<br />
+    평가원, 2020.6 모평 국어 독서<br />
+    평가원, 2023.9 모평 국어 독서 [4~7]<br />
+    평가원, 2024.9 모평 국어 독서 [4~7]
+  </div>
+
+  <hr class="divider" />
+
+  <h2>Step 1. 평가원 출제코드 역분해 — 경제 지문은 어디서 '난도'가 만들어지나</h2>
+
+  <p>
+    평가원 경제 지문은 배경지식이 아니라, <strong>지문 내부에 구축된 3개의 장치</strong>로
+    변별력을 만듭니다.
+  </p>
+
+  <!-- A: 출제코드 3가지 -->
+  <div class="principle-section">
+    <div class="principle-section-header psh-a">
+      <span class="principle-section-label psl-a">A</span>
+      <span class="principle-section-title"
+        >평가원 경제 지문의 3가지 출제코드</span
+      >
+    </div>
+
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="principle-item-num">코드 1</div>
+        <div class="principle-item-title">
+          '정의'를 암기용이 아니라 변수(조작 가능)로 만든다
+        </div>
+        <div class="principle-item-desc">
+          평가원은 용어를 소개하고 끝내지 않습니다. 용어를 읽는 즉시 수험생이
+          이렇게 바꾸게 합니다.<br /><br />
+          · "A는 …이다(정의)" → <strong>"A가 커지면(↑) B가 어떻게 되지?"</strong><br />
+          · "B는 …이다(정의)" → <strong>"B는 어떤 조건에서만 성립하지?"</strong><br /><br />
+          즉, 정의는 '설명'이 아니라 <strong>조작 가능한 버튼</strong>입니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">코드 2</div>
+        <div class="principle-item-title">
+          관계를 단일 인과(A→B)가 아니라 '조건부·상호작용'으로 만든다
+        </div>
+        <div class="principle-item-desc">
+          평가원은 학생이 "아 그러면 이렇게 되겠네" 하고 끝내는 걸 싫어합니다.
+          그래서 관계를 보통 이렇게 꼬아 둡니다.<br /><br />
+          · <strong>조건부 인과</strong>: "C일 때만 A→B가 성립"<br />
+          · <strong>상호작용(피드백)</strong>: "A가 B를 바꾸고, 바뀐 B가 다시
+          A의 결과를 바꿈"<br /><br />
+          여기서부터 경제 지문은 <strong>"읽기"가 아니라 "운용"</strong>이
+          됩니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">코드 3</div>
+        <div class="principle-item-title">
+          변별력은 정답이 아니라 오답의 그럴듯함에서 폭발한다
+        </div>
+        <div class="principle-item-desc">
+          평가원형 경제 문항은 "틀린 선지"가 티가 안 납니다. 왜냐면 오답은
+          보통 80~95%가 맞고, <strong>딱 하나만 어긋납니다.</strong> 그
+          결정 조건은 대체로 다음 6종 중 하나입니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="step-function-table">
+    <thead>
+      <tr>
+        <th>유형</th>
+        <th>설계 방식</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>① 조건 누락</strong></td>
+        <td>예외 / 제약 1줄을 삭제한 선지</td>
+      </tr>
+      <tr>
+        <td><strong>② 상황 전환</strong></td>
+        <td>제도 전/후, 단기/장기를 바꿔치기</td>
+      </tr>
+      <tr>
+        <td><strong>③ 지표 층위 혼동</strong></td>
+        <td>총량↔비율, 수입↔이윤 같은 레벨 혼동</td>
+      </tr>
+      <tr>
+        <td><strong>④ 방향 뒤집기</strong></td>
+        <td>↑↓ 하나만 반대로 표기</td>
+      </tr>
+      <tr>
+        <td><strong>⑤ 대상 범위 슬라이딩</strong></td>
+        <td>포함/제외 경계를 한 칸 밀기</td>
+      </tr>
+      <tr>
+        <td><strong>⑥ 인과 비약</strong></td>
+        <td>상관을 원인으로 단정</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-green">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body">
+      <p>
+        <strong>결론.</strong> 평가원 경제 지문은 <strong>"변수 운용"</strong>으로
+        읽게 만들고, 문항은 <strong>"결정 조건 1개"</strong>로 변별한다.
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <h2>Step 2. 그래서 평가원은 이렇게 경제 지문을 만든다</h2>
+  <p class="text-muted text-sm">제작 문법 재구성</p>
+
+  <p>
+    평가원형 경제 지문은 겉으로는 설명문이지만, 실제 설계는 거의
+    <strong>고정된 뼈대</strong>를 가집니다.
+  </p>
+
+  <!-- B: 지문 뼈대 -->
+  <div class="principle-section">
+    <div class="principle-section-header psh-b">
+      <span class="principle-section-label psl-b">B</span>
+      <span class="principle-section-title"
+        >지문 뼈대 — 텍스트 모형 설계 5단계</span
+      >
+    </div>
+
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="principle-item-num">단계 1</div>
+        <div class="principle-item-title">주체/대상 정의</div>
+        <div class="principle-item-desc">
+          누가 무엇을 하는가를 먼저 고정합니다. 행위 주체가 흐릿하면 뒤
+          문항에서 변수 추적이 무너집니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">단계 2</div>
+        <div class="principle-item-title">핵심 개념 정의 — 단, '변수화'되도록</div>
+        <div class="principle-item-desc">
+          개념은 사전적 정의로 끝내지 않고, 곧바로 <strong>증가/감소 방향</strong>과
+          <strong>다른 변수와의 연결</strong>을 함께 노출합니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">단계 3</div>
+        <div class="principle-item-title">변수 관계 제시 — 조건부·피드백 포함</div>
+        <div class="principle-item-desc">
+          단일 인과로 끝내지 않고, 조건부 관계나 피드백을 최소 1개 끼워 넣습니다.
+          여기서부터 학생은 <strong>"운용"</strong>을 시작합니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">단계 4</div>
+        <div class="principle-item-title">제약 / 예외 / 트레이드오프 삽입</div>
+        <div class="principle-item-desc">
+          분기점은 여기서 만들어집니다. <strong>"이 조건이 충족되지 않으면
+          결론이 달라진다"</strong>는 한 줄이 변별력의 핵심이 됩니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">단계 5</div>
+        <div class="principle-item-title">정책 / 제도 / 결과 비교로 마감</div>
+        <div class="principle-item-desc">
+          마지막은 결론이 <strong>"이동"</strong>하도록 닫습니다. 친절하지만
+          한 문단만 보면 풀리지 않게, 정보를 분산시키고 문항이 결합하게
+          만듭니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C: 문항 뼈대 -->
+  <div class="principle-section">
+    <div class="principle-section-header psh-c">
+      <span class="principle-section-label psl-c">C</span>
+      <span class="principle-section-title"
+        >문항 뼈대 — 세트 3문항의 기능 분담</span
+      >
+    </div>
+
+    <table class="step-function-table">
+      <thead>
+        <tr>
+          <th>위치</th>
+          <th>기능</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>앞 문항</td>
+          <td>정의 / 규칙 고정 — 개념을 변수로 정확히 잡았는가</td>
+        </tr>
+        <tr>
+          <td>중간 문항</td>
+          <td>관계 추론 — 2문단 이상 결합 필수</td>
+        </tr>
+        <tr>
+          <td>뒷 문항</td>
+          <td>&lt;보기&gt; 입력값 적용 — 조건 이동 후 결론 비교</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top: 12px">
+      즉, 평가원은 경제 지문을 "내용 이해"로 끝내지 않고
+      <strong>운용(적용)으로 닫습니다.</strong>
+    </p>
+  </div>
+
+  <hr class="divider" />
+
+  <h2>Step 3. SNarGEN은 이 출제코드를 '엔진화'해서 좋은 문제를 만든다</h2>
+
+  <p>
+    여기서부터가 우리가 하고 싶은 이야기입니다. 우리는 "평가원 스타일을 흉내"내는
+    게 목적이 아닙니다. <strong>평가원이 변별력을 만드는 구조를 코드화해서,
+    소재가 바뀌어도 같은 품질이 나오게 만드는 것</strong>이 목적입니다.
+  </p>
+
+  <div class="principle-section">
+    <div class="principle-section-header psh-a">
+      <span class="principle-section-label psl-a">SNarGEN</span>
+      <span class="principle-section-title">경제 지문 적용 원칙 3가지</span>
+    </div>
+
+    <div class="principle-list">
+      <div class="principle-item">
+        <div class="principle-item-num">적용 원칙 1</div>
+        <div class="principle-item-title">
+          정의 문장을 '변수 슬롯'으로 강제한다
+        </div>
+        <div class="principle-item-desc">
+          생성 단계에서 용어가 나오면 자동으로 다음 3가지를 함께 생성하도록
+          설계합니다.<br /><br />
+          (i) <strong>증가/감소 방향</strong><br />
+          (ii) <strong>성립 조건(예외)</strong><br />
+          (iii) <strong>연결되는 다른 변수</strong>
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">적용 원칙 2</div>
+        <div class="principle-item-title">
+          문항은 "결정 조건 1개 오답" 생성 규칙을 내장한다
+        </div>
+        <div class="principle-item-desc">
+          SNarGEN은 오답을 "아무 말"로 만들지 않습니다. 오답을 만들 때
+          반드시 다음 6가지 규칙 중 하나를 선택합니다.<br /><br />
+          <strong>예외 삭제 / 범위 확장 / 상황 바꿔치기 / 레벨 혼동 / 방향
+          반전 / 인과 비약</strong><br /><br />
+          이렇게 하면 오답이 평가원처럼
+          <strong>"맞는 말 같은데 틀린 말"</strong>이 됩니다.
+        </div>
+      </div>
+
+      <div class="principle-item">
+        <div class="principle-item-num">적용 원칙 3</div>
+        <div class="principle-item-title">
+          &lt;보기&gt;는 '새 설명'이 아니라 입력값이 되도록 강제한다
+        </div>
+        <div class="principle-item-desc">
+          보기는 지문을 대체하면 안 됩니다. 보기는
+          <strong>지문 모형에 넣는 입력값</strong>이어야 하고, 정답은
+          <strong>지문 모델의 실행 결과</strong>여야 합니다.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <h2>기술·법·경제 지문 — 설계 문법은 이렇게 다르다</h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>비교 항목</th>
+        <th>기술 지문</th>
+        <th>법 지문</th>
+        <th>경제 지문</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>핵심 구조</strong></td>
+        <td>입력 → 변환 → 출력</td>
+        <td>정의 → 구조 → 기준 → 적용</td>
+        <td>정의(변수) → 관계 → 제약 → 운용</td>
+      </tr>
+      <tr>
+        <td><strong>난도 형성 방식</strong></td>
+        <td>메커니즘의 인과 연쇄</td>
+        <td>조건 분기에 따른 결론 전환</td>
+        <td>변수 운용으로 결론 이동</td>
+      </tr>
+      <tr>
+        <td><strong>고난도 문항의 성격</strong></td>
+        <td>파편 정보의 유기적 결합</td>
+        <td>사례에 판단 기준 대입</td>
+        <td>&lt;보기&gt; 입력값으로 모델 실행</td>
+      </tr>
+      <tr>
+        <td><strong>대표 오답 유형</strong></td>
+        <td>조건 누락, 범주 혼동</td>
+        <td>당사자 교체, 조건 변경</td>
+        <td>방향 반전, 층위 혼동</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="divider" />
+
+  <h2>실전 체크리스트</h2>
+  <p class="text-muted text-sm">출제자가 30초 안에 품질을 판정하는 5가지 항목</p>
+
+  <ul class="checklist">
+    <li>정의가 '변수화' 되었는가? (↑↓ / 조건 / 연결변수)</li>
+    <li>관계에 조건부 / 피드백이 최소 1개 있는가?</li>
+    <li>제약·예외가 결론을 가르는 분기점인가?</li>
+    <li>세 문항이 정의 → 관계 → 적용으로 기능 분담되어 있는가?</li>
+    <li>오답이 "결정 조건 1개"만 틀리게 설계되었는가?</li>
+  </ul>
+
+  <hr class="divider" />
+
+  <h2>샘플 지문 — SNarGEN으로 생성·편집까지 완료된 경제 지문</h2>
+
+  <p>
+    아래 PDF는 위에서 설명한 평가원 출제코드와 SNarGEN 적용 원칙을 따라
+    <strong>실제로 SNarGEN 파이프라인에서 생성하고, 내부 검수와 편집까지 모두
+    마친</strong> 경제 지문 샘플입니다. 정의의 변수화, 조건부·피드백 관계 설계,
+    "결정 조건 1개" 오답 규칙이 어떻게 적용되었는지 직접 확인해 보세요.
+  </p>
+
+  <div class="callout callout-green">
+    <div class="callout-icon">✅</div>
+    <div class="callout-body">
+      <p>
+        <strong>이 지문은 SNarGEN을 통해 생성·편집까지 완료된 결과물입니다.</strong><br />
+        AI 출제 → 다중 AI 교차 검증 → 전문가 검수 → 편집의 전 과정을 거친
+        최종본이며, 별도의 사후 가공 없이 그대로 공개합니다.
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin: 24px 0">
+    <a
+      href="/pdfs/SNarGEN_korean_economy_sample.pdf"
+      download
+      style="
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #2563eb;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s;
+      "
+    >
+      📥 경제 지문 샘플 다운로드 (PDF)
+    </a>
+  </div>
+
+  <hr class="divider" />
+
+  <h2>마무리</h2>
+
+  <p>
+    평가원 경제 지문을 잘 만든다는 건, "경제 지식을 많이 넣는다"가 아닙니다.
+    지문 내부에서 <strong>변수가 움직이고, 그 변수가 결론을 이동시키며,
+    문항은 결정 조건 1개로 변별하는 구조</strong>를 설계하는 것입니다.
+  </p>
+
+  <p>
+    SN독학기숙학원의 <strong>SNarGEN</strong>은 이 출제코드를 역분해해, 소재가
+    바뀌어도 평가원형 사고를 요구하는 문제를 안정적으로 생성합니다.
+  </p>
+
+  <hr class="divider" />
+
+  <div class="callout callout-blue">
+    <div class="callout-icon">🤝</div>
+    <div class="callout-body">
+      <p>
+        혹시 수능 국어 문제 출제 관련하여 당사와 협업하고 싶으신 강사, 학원, 회사
+        등이 있으면,<br /><strong
+          ><a
+            href="mailto:Snacademy@naver.com"
+            style="color: #1a4a7a; text-decoration: underline"
+            >Snacademy@naver.com</a
+          ></strong
+        >
+        으로 연락 부탁드립니다.
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <p style="text-align: center; color: #9b9a97; font-size: 13px">
+    감사합니다.<br />
+    <strong style="color: #37352f">SN독학기숙학원</strong><br /><br />
+    <span style="font-size: 12px"
+      >&copy; 2026 SN독학기숙학원 &middot; Powered by SNarGPT</span
+    >
+  </p>
+</div>

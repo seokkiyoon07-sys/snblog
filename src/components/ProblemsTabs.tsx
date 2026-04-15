@@ -11,20 +11,27 @@ interface ProblemsTabsProps {
   posts: Post[];
 }
 
-const SUBJECTS = Object.entries(PROBLEM_SUBJECT_CONFIG) as [
-  ProblemSubject,
-  (typeof PROBLEM_SUBJECT_CONFIG)[ProblemSubject],
-][];
+const VISIBLE_SUBJECTS: ProblemSubject[] = ['korean', 'math', 'english'];
+
+const SUBJECTS = VISIBLE_SUBJECTS.map(
+  key => [key, PROBLEM_SUBJECT_CONFIG[key]] as const
+);
+
+type ActiveSubject = 'all' | ProblemSubject;
+
+const ALL_CATEGORIES = VISIBLE_SUBJECTS.flatMap(
+  key => PROBLEM_SUBJECT_CONFIG[key].categories
+);
 
 export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
-  const [activeSubject, setActiveSubject] = useState<ProblemSubject>('korean');
+  const [activeSubject, setActiveSubject] = useState<ActiveSubject>('all');
   const [activeSubFilter, setActiveSubFilter] = useState<string>('all');
   const [modalUrl, setModalUrl] = useState<string | null>(null);
   const [modalProblemDataId, setModalProblemDataId] = useState<string | null>(
     null
   );
 
-  const handleSubjectChange = (subject: ProblemSubject) => {
+  const handleSubjectChange = (subject: ActiveSubject) => {
     setActiveSubject(subject);
     setActiveSubFilter('all');
   };
@@ -34,12 +41,14 @@ export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
     setModalProblemDataId(null);
   }, []);
 
-  const config = PROBLEM_SUBJECT_CONFIG[activeSubject];
+  const config =
+    activeSubject === 'all' ? null : PROBLEM_SUBJECT_CONFIG[activeSubject];
 
   // 현재 과목에 해당하는 포스트 필터
-  const subjectPosts = posts.filter(post =>
-    config.categories.includes(post.category)
-  );
+  const subjectPosts =
+    activeSubject === 'all'
+      ? posts.filter(post => ALL_CATEGORIES.includes(post.category))
+      : posts.filter(post => config!.categories.includes(post.category));
 
   // 서브필터 적용
   const filteredPosts =
@@ -53,10 +62,9 @@ export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
     return subjectPosts.filter(post => post.subcategory === subKey).length;
   };
 
-  const subcategories = Object.entries(config.subcategories) as [
-    string,
-    string,
-  ][];
+  const subcategories = config
+    ? (Object.entries(config.subcategories) as [string, string][])
+    : [];
   const hasSubFilters = subcategories.length > 1;
 
   // 과목별 accent 색상
@@ -96,13 +104,34 @@ export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
     },
   };
 
-  const accent = accentColors[activeSubject];
+  const defaultAccent = {
+    border: 'hover:border-sn-primary',
+    hover: 'group-hover:text-sn-primary',
+    text: 'text-sn-primary',
+    bg: 'bg-sn-primary hover:bg-sn-primary/90',
+  };
+  const accent =
+    activeSubject === 'all' ? defaultAccent : accentColors[activeSubject];
 
   return (
     <div className="space-y-6">
       {/* Level 1: 과목 탭 */}
       <div className="overflow-x-auto md:overflow-visible scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
         <div className="flex gap-2 md:flex-wrap w-max md:w-auto">
+          <button
+            onClick={() => handleSubjectChange('all')}
+            className={`flex-shrink-0 px-5 py-2.5 text-sm font-semibold rounded-full transition-colors ${
+              activeSubject === 'all'
+                ? 'bg-sn-primary text-white'
+                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+            }`}
+          >
+            <span className="hidden md:inline mr-1.5">📚</span>
+            전체
+            <span className="ml-1.5 text-xs opacity-75">
+              ({posts.filter(p => ALL_CATEGORIES.includes(p.category)).length})
+            </span>
+          </button>
           {SUBJECTS.map(([key, subject]) => {
             const count = posts.filter(p =>
               subject.categories.includes(p.category)
@@ -208,16 +237,18 @@ export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
         </div>
       ) : (
         <div className="text-center py-16">
-          <div className="text-4xl mb-4">{config.emoji}</div>
+          <div className="text-4xl mb-4">{config?.emoji ?? '📚'}</div>
           <p className="text-gray-500 dark:text-gray-400 font-medium">
-            {activeSubFilter === 'all'
-              ? `${config.label} 컨텐츠가 아직 없습니다.`
-              : `${(config.subcategories as Record<string, string>)[activeSubFilter]} 관련 문제가 아직 없습니다.`}
+            {activeSubject === 'all'
+              ? '컨텐츠가 아직 없습니다.'
+              : activeSubFilter === 'all'
+                ? `${config!.label} 컨텐츠가 아직 없습니다.`
+                : `${(config!.subcategories as Record<string, string>)[activeSubFilter]} 관련 문제가 아직 없습니다.`}
           </p>
           <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
             곧 업로드될 예정입니다.
           </p>
-          {activeSubFilter !== 'all' && subjectPosts.length > 0 && (
+          {config && activeSubFilter !== 'all' && subjectPosts.length > 0 && (
             <button
               onClick={() => setActiveSubFilter('all')}
               className={`mt-4 text-sm font-medium ${accent.text} hover:underline`}
