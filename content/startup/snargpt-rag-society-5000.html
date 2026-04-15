@@ -1,0 +1,198 @@
+안녕하세요, **SNarGPT 팀**입니다. SNarGPT의 핵심 엔진인 **RAG(Retrieval-Augmented Generation)** 시스템에 **사회문화 약 5,000문항**이 추가되었습니다. 이번 업데이트로
+<mark
+  style="
+    background: linear-gradient(
+      to top,
+      rgba(255, 230, 0, 0.5) 50%,
+      transparent 50%
+    );
+  "
+  >도표·통계 문항을 '기준값' 단위로 풀어주는 학습</mark
+>이 가능해졌습니다.
+
+사회문화는 도표·통계 한 줄을 어떻게 읽느냐에 따라 결과가 완전히 갈립니다. SNarGPT는 정답을 던지지 않습니다. **"왜 이 비교가 틀렸는지"**를 물으면, 5,000문항의 사회문화 기출 DB 속에서 가장 정확한 판단 기준과 근거를 찾아줍니다.
+
+---
+
+## 1. 업데이트 개요
+
+<div class="space-y-3 my-4">
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">대상 데이터:&nbsp;</span>
+    <span
+      >평가원·교육청 모의고사 및 주요 기출의 도표·통계 문항과 핵심 개념
+      문항</span
+    >
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">구축 규모:&nbsp;</span>
+    <span>약 <strong>5,000건</strong> 이상의 사회문화 기출 문항</span>
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">핵심 변화:&nbsp;</span>
+    <span
+      >단순 풀이 제공이 아닌, <strong>RAG 기반 기준값·층위 판단 답변
+      체계</strong>로 전환</span
+    >
+  </div>
+</div>
+
+---
+
+## 2. 무엇이 달라지나
+
+<div class="space-y-3 my-6">
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >1</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        도표·통계를 '기준값' 단위로 풀어줍니다
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
+        5,000문항의 사회문화 DB에는 도표·통계 문항이 핵심 개념과 함께
+        구조화되어 있습니다. <strong>비율·증감·기준값을 잡는 원칙</strong>을
+        기출 근거로 정리해줍니다.
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >2</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        '층위 혼동' 함정을 잡아줍니다
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
+        총량 vs 비율, 절대값 vs 상대값, 부양비 vs 인구수처럼
+        <strong>지표 층위가 섞이는 함정</strong>을 기출 근거로 분리해 설명해
+        줍니다. 이 한 줄이 사회문화 변별력의 핵심입니다.
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >3</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        개념 ↔ 도표 — 유형별 기출 묶음
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
+        같은 개념이 어떤 도표 형태로 출제되어 왔는지, 같은 도표 유형이 어떤
+        선지로 변형되어 왔는지 <strong>유사 문항을 묶어서</strong> 보여줍니다.
+      </p>
+    </div>
+  </div>
+</div>
+
+---
+
+## 3. 이렇게 활용해 보세요
+
+SNarGPT 채팅창에 아래처럼 입력해 보세요.
+
+> **TIP:** SNarVIS 비밀노트에 "사문 기출 검색시에는 꼭 RAG 참고해서 답변해."
+라고 저장하시면 항상 RAG를 우선 참고합니다.
+
+<div class="space-y-3 my-6">
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >1</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        도표 유형 묶기 + 원칙 추출
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm italic">
+        "최근 3개년 평가원 기출 중 부양비 도표 문제만 모아서, 수치 비교할 때
+        기준값 잡는 원칙 정리해줘."
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >2</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        오답 분석 — 층위 혼동 짚기
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm italic">
+        "이 선지가 총량 비교인지 비율 비교인지부터 분리해서, 왜 오답인지
+        설명해줘."
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >3</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        개념 ↔ 도표 연결
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm italic">
+        "계층 이동 개념이 도표 문항으로 출제된 기출 5건만 묶어서, 공통 함정
+        패턴 알려줘."
+      </p>
+    </div>
+  </div>
+</div>
+
+<div
+  class="border-l-4 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-r-xl my-6"
+>
+  <p class="m-0 text-gray-700 dark:text-gray-300">
+    답을 받는 게 아니라, <strong>질문을 잘 던지는 연습</strong>이 곧 여러분의
+    실력입니다.
+  </p>
+</div>
+
+---
+
+## 4. 탐구 RAG 확장 로드맵
+
+<div class="space-y-3 my-4">
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">완료:&nbsp;</span>
+    <span>국어 · 영어 · <strong>사회문화</strong></span>
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">다음 대상:&nbsp;</span>
+    <span>생활과 윤리 → 지구과학Ⅰ → 한국지리 → 세계지리 → 생명과학Ⅰ</span>
+  </div>
+</div>
+
+> ※ 업데이트 순서는 **SN독학기숙학원 학생들의 선택 과목 수요**에 따라 조정될
+수 있습니다. 특정 과목의 업데이트가 급하다면 멘토 또는 SNarGPT 팀에 언제든
+말씀해 주세요.
+
+---
+
+## 📢 지금 바로 SNARVIS에게 말 걸어보세요
+
+<div
+  class="border-l-4 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-5 rounded-r-xl my-6"
+>
+  <p class="m-0 text-gray-800 dark:text-gray-200 italic">
+    "SNARVIS, 부양비 도표 기출 5개 묶어서 기준값 잡는 원칙 정리해줘!"
+  </p>
+</div>
+
+방대한 데이터는 여러분의 **무기**가 되고, SNarGPT는 그 무기를 다루는 법을
+가르칩니다. 여러분의 **'생각하는 독학'**을 끝까지 응원하겠습니다.
+
+---
+
+문의 사항이 있으시면 학원 운영팀 또는 SNarGPT 팀으로 연락 부탁드립니다. 감사합니다.
+
+**SNarGPT 팀 드림**

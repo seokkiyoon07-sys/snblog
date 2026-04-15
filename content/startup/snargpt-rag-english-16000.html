@@ -1,0 +1,195 @@
+안녕하세요, **SNarGPT 팀**입니다. SNarGPT의 핵심 엔진인 **RAG(Retrieval-Augmented Generation)** 시스템에 **영어 약 16,000문항**이 추가되었습니다. 이번 업데이트로
+<mark
+  style="
+    background: linear-gradient(
+      to top,
+      rgba(255, 230, 0, 0.5) 50%,
+      transparent 50%
+    );
+  "
+  >영어 영역도 기출 근거 기반으로 "왜 답인지"를 답해주는 학습</mark
+>이 가능해졌습니다.
+
+SNarGPT는 정답을 바로 알려주지 않습니다. 대신 "해석은 되는데 왜 이게 답이지?"를 물으면, **16,000문항의 영어 기출 DB** 속에서 가장 정확한 근거 문장과 논리 구조를 찾아줍니다. **틀린 이유를 정확히 아는 학생만이 다음 시험에서 정답을 맞힙니다.**
+
+---
+
+## 1. 업데이트 개요
+
+<div class="space-y-3 my-4">
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">대상 데이터:&nbsp;</span>
+    <span
+      >평가원·교육청 모의고사 및 주요 기출 전수 수록 (수능·6월·9월·전국연합)</span
+    >
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">구축 규모:&nbsp;</span>
+    <span>약 <strong>16,000건</strong> 이상의 영어 기출 지문 및 문항</span>
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">핵심 변화:&nbsp;</span>
+    <span
+      >단순 해석/번역이 아닌, <strong>RAG 기반 근거 문장 + 논리 구조 답변
+      체계</strong>로 전환</span
+    >
+  </div>
+</div>
+
+---
+
+## 2. 무엇이 달라지나
+
+<div class="space-y-3 my-6">
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >1</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        해석이 아니라 '근거 문장'을 짚어줍니다
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
+        16,000문항의 영어 기출 DB에서 정답 선지의 <strong>근거 문장</strong>과
+        <strong>논리 구조</strong>를 직접 찾아 보여줍니다. "해석은 되는데 왜
+        답이 안 보이는지"가 사라집니다.
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >2</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        지문 입력 불필요 — Search-Free 학습
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
+        긴 지문을 복사·붙여넣기할 필요 없이, "2024학년도 수능 영어 33번 분석해
+        줘"처럼 자연어로 요청하면 즉시 제공됩니다.
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >3</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        논리 구조 기반 유사 문항 추천
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm">
+        단순 키워드 매칭이 아닌, 지문의 전개 방식과 정답 논리를 분석해 같은
+        함정 구조를 가진 유사 문항을 추천합니다.
+      </p>
+    </div>
+  </div>
+</div>
+
+---
+
+## 3. 이렇게 활용해 보세요
+
+SNarGPT 채팅창에 아래처럼 입력해 보세요.
+
+> **TIP:** SNarVIS 비밀노트에 "영어 기출 검색시에는 꼭 RAG 참고해서 답변해."
+라고 저장하시면 항상 RAG를 우선 참고합니다.
+
+<div class="space-y-3 my-6">
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >1</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        근거 문장 + 논리 구조 요청
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm italic">
+        "2024 수능 영어 33번, 해석은 되는데 왜 2번이 답이야? 근거 문장이랑
+        논리 구조 설명해줘."
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >2</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        오답 분석
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm italic">
+        "이 문항의 3번 선지가 오답인 이유를 출제 논리 기준으로 설명해 줘."
+      </p>
+    </div>
+  </div>
+  <div class="flex items-start gap-3">
+    <span
+      class="shrink-0 w-7 h-7 rounded-full bg-emerald-600 dark:bg-emerald-500 flex items-center justify-center text-white text-xs font-bold mt-0.5"
+      >3</span
+    >
+    <div>
+      <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+        유형별 기출 묶기
+      </p>
+      <p class="text-gray-600 dark:text-gray-400 text-sm italic">
+        "최근 3개년 평가원 빈칸추론 기출 중 '대조 구조' 지문만 모아서, 정답
+        선지의 공통 논리 정리해줘."
+      </p>
+    </div>
+  </div>
+</div>
+
+<div
+  class="border-l-4 border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800/50 p-5 rounded-r-xl my-6"
+>
+  <p class="m-0 text-gray-700 dark:text-gray-300">
+    답을 받는 게 아니라, <strong>질문을 잘 던지는 연습</strong>이 곧 여러분의
+    실력입니다.
+  </p>
+</div>
+
+---
+
+## 4. 탐구 RAG 확장 로드맵
+
+<div class="space-y-3 my-4">
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">완료:&nbsp;</span>
+    <span>국어 · <strong>영어</strong> · 사회문화</span>
+  </div>
+  <div class="flex">
+    <span class="font-bold shrink-0 w-28">다음 대상:&nbsp;</span>
+    <span>생활과 윤리 → 지구과학Ⅰ → 한국지리 → 세계지리 → 생명과학Ⅰ</span>
+  </div>
+</div>
+
+> ※ 업데이트 순서는 **SN독학기숙학원 학생들의 선택 과목 수요**에 따라 조정될
+수 있습니다. 특정 과목의 업데이트가 급하다면 멘토 또는 SNarGPT 팀에 언제든
+말씀해 주세요.
+
+---
+
+## 📢 지금 바로 SNARVIS에게 말 걸어보세요
+
+<div
+  class="border-l-4 border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 p-5 rounded-r-xl my-6"
+>
+  <p class="m-0 text-gray-800 dark:text-gray-200 italic">
+    "SNARVIS, 2024 수능 영어 33번 찾아주고 정답의 근거 문장 알려줘!"
+  </p>
+</div>
+
+방대한 데이터는 여러분의 **무기**가 되고, SNarGPT는 그 무기를 다루는 법을
+가르칩니다. 여러분의 **'생각하는 독학'**을 끝까지 응원하겠습니다.
+
+---
+
+문의 사항이 있으시면 학원 운영팀 또는 SNarGPT 팀으로 연락 부탁드립니다. 감사합니다.
+
+**SNarGPT 팀 드림**
