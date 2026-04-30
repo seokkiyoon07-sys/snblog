@@ -515,6 +515,30 @@ export const allPosts: Post[] = [
     url: '/problem-download/ai-korean-reading-ep3',
   },
   {
+    id: 'growing-vs-stagnant',
+    title: '성적이 오르는 학생\nvs. 제자리인 학생\n결정적 차이 4가지',
+    excerpt:
+      '같은 기숙 환경에서도 누군가는 상승 곡선을 만들고 누군가는 제자리에 머뭅니다. 그 차이는 의지가 아니라 공부를 어떤 "관리 단위"로 운영했는지에서 갈립니다. 하루·블록·오답·주간, 4가지 단위로 정리했습니다.',
+    category: 'columns',
+    tags: [
+      '재수',
+      '기숙학원',
+      '독학기숙학원',
+      '학습관리',
+      '루틴',
+      '오답노트',
+      '집중력',
+      '수능',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-04-30',
+    readTime: '9',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/columns/growing-vs-stagnant.png',
+    url: '/columns/growing-vs-stagnant',
+  },
+  {
     id: 'dokhak-vs-jaejeong',
     title: '독학기숙학원 vs 재종기숙학원, 뭐가 다를까?',
     excerpt:
