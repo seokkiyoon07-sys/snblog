@@ -60,19 +60,6 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  // 모든 태그 목록 생성
-  const allPosts = getAllPosts();
-  const allTags = allPosts
-    .filter(post => post.published && post.tags)
-    .flatMap(post => post.tags!);
-  const uniqueTags = [...new Set(allTags)];
-
-  return uniqueTags.map(tag => ({
-    tag: tag, // Next.js가 자동으로 인코딩하므로 여기서는 인코딩하지 않음
-  }));
-}
-
 export default async function TagPage({ params }: TagPageProps) {
   const { tag } = await params;
   const decodedTag = decodeURIComponent(tag);
