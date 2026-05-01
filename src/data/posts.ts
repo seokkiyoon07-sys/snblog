@@ -1244,6 +1244,22 @@ export const allPosts: Post[] = [
     type: 'special',
   },
   {
+    id: '2027-repeater-class',
+    title: '2027학년도 반수반 모집',
+    excerpt:
+      '2027학년도 대입 수험생을 위한 SN독학기숙학원 반수반 모집요강입니다. 모집 대상, 성적 조건, 수강료와 등록 절차를 확인하세요.',
+    category: 'notice',
+    tags: ['반수반', '모집요강', '입학안내', '2027'],
+    author: 'SN독학기숙학원',
+    date: '2026-05-01',
+    readTime: '3',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/notice/2027-repeater-class.png',
+    url: '/notice/2027-repeater-class',
+    type: 'special',
+  },
+  {
     id: '2026-academic-calendar',
     title: '2027학년도 SN독학기숙학원 학사일정',
     excerpt:

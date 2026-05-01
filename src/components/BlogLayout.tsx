@@ -5,6 +5,7 @@ import Script from 'next/script';
 import SuneungNotice from './SuneungNotice';
 import AdmissionGuide2026 from './posts/2026AdmissionGuide';
 import AcademicCalendar2026 from './posts/2026AcademicCalendar';
+import RepeaterClass2027 from './posts/RepeaterClass2027';
 import ProblemViewerModal from './ProblemViewerModal';
 import { BASE_URL, ORGANIZATION_INFO } from '@/lib/config';
 
@@ -182,6 +183,9 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
     }
     if (post.id === '2026-admission-guide') {
       return <AdmissionGuide2026 />;
+    }
+    if (post.id === '2027-repeater-class') {
+      return <RepeaterClass2027 />;
     }
     if (post.id === '2026-academic-calendar') {
       return <AcademicCalendar2026 />;

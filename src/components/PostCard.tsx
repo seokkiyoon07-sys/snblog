@@ -30,6 +30,7 @@ export default function PostCard({
   className = '',
 }: PostCardProps) {
   const isFeatured = variant === 'featured';
+  const shouldContainThumbnail = post.id === '2027-repeater-class';
 
   // 추천글도 원글의 카테고리 이모지 사용
   const emoji = getCategoryEmoji(post.category);
@@ -86,13 +87,19 @@ export default function PostCard({
       <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-4 lg:gap-6">
         {/* 썸네일 */}
         {showThumbnail && post.thumbnail && (
-          <div className="relative w-full sm:w-40 lg:w-48 h-48 sm:h-28 lg:h-32 overflow-hidden rounded-lg order-1 sm:order-1">
+          <div
+            className={`relative w-full sm:w-40 lg:w-48 h-48 sm:h-28 lg:h-32 overflow-hidden rounded-lg order-1 sm:order-1 ${
+              shouldContainThumbnail ? 'bg-[#061719]' : ''
+            }`}
+          >
             <Image
               src={post.thumbnail}
               alt={post.title}
               fill
               sizes="(max-width:640px) 100vw, (max-width:1024px) 10rem, 12rem"
-              className="object-cover transition-transform duration-300 hover:scale-105"
+              className={`transition-transform duration-300 hover:scale-105 ${
+                shouldContainThumbnail ? 'object-contain' : 'object-cover'
+              }`}
             />
           </div>
         )}
