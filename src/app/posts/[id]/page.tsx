@@ -1,10 +1,6 @@
-import { notFound } from 'next/navigation';
-import { getPostById, allPosts } from '@/data/posts';
 import { Metadata } from 'next';
-import Image from 'next/image';
-import StructuredData from '@/components/StructuredData';
-import AIDataGenerator from '@/components/AIDataGenerator';
-import { formatReadTime } from '@/lib/utils';
+import { notFound, permanentRedirect } from 'next/navigation';
+import { getPostById } from '@/data/posts';
 
 interface PostPageProps {
   params: Promise<{
@@ -12,7 +8,6 @@ interface PostPageProps {
   }>;
 }
 
-// 동적 메타데이터 생성
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
@@ -26,45 +21,23 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | SN Academy Blog`,
+    title: post.title,
     description: post.excerpt,
-    keywords: post.tags?.join(', ') || '',
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: 'article',
-      locale: 'ko_KR',
-      url: `https://blog.snacademy.co.kr/posts/${post.id}`,
-      images: post.thumbnail
-        ? [
-            {
-              url: post.thumbnail,
-              width: 1280,
-              height: 720,
-              alt: post.title,
-            },
-          ]
-        : [],
+    alternates: {
+      canonical: post.url,
     },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-      images: post.thumbnail ? [post.thumbnail] : [],
+    robots: {
+      index: false,
+      follow: true,
     },
   };
 }
 
-// 정적 경로 생성 (SSG)
-export async function generateStaticParams() {
-  return allPosts
-    .filter(post => post.published)
-    .map(post => ({
-      id: post.id,
-    }));
+export function generateStaticParams() {
+  return [];
 }
 
-export default async function PostPage({ params }: PostPageProps) {
+export default async function LegacyPostPage({ params }: PostPageProps) {
   const { id } = await params;
   const post = getPostById(id);
 
@@ -72,117 +45,5 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Header */}
-      <div className="bg-white dark:bg-gray-800 shadow-sm border-b dark:border-gray-700">
-        <div className="max-w-4xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-            {post.title}
-          </h1>
-          <div className="flex items-center text-gray-600 dark:text-gray-400 space-x-2">
-            <span className="text-sm font-medium">{post.category}</span>
-            <span className="text-sm">•</span>
-            <span className="text-sm">{post.date}</span>
-            <span className="text-sm">•</span>
-            <span className="text-sm">{formatReadTime(post.readTime)}</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        {/* YouTube 비디오가 있는 경우 */}
-        {post.youtubeUrl && (
-          <div className="aspect-w-16 aspect-h-9 mb-8">
-            <iframe
-              src={post.youtubeUrl.replace('watch?v=', 'embed/')}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full rounded-lg shadow-lg"
-            ></iframe>
-          </div>
-        )}
-
-        {/* 썸네일이 있는 경우 */}
-        {post.thumbnail && !post.youtubeUrl && (
-          <div className="relative w-full h-64 mb-8 overflow-hidden rounded-lg">
-            <Image
-              src={post.thumbnail}
-              alt={post.title}
-              fill
-              sizes="(max-width:768px) 100vw, 768px"
-              className="object-cover"
-            />
-          </div>
-        )}
-
-        {/* 요약 */}
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
-          <p className="text-lg text-blue-900 font-medium mb-2">
-            📚 {post.category}
-          </p>
-          <p className="text-blue-800">{post.excerpt}</p>
-        </div>
-
-        {/* 태그 */}
-        {post.tags && post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-8">
-            {post.tags.map(tag => (
-              <span
-                key={tag}
-                className="inline-block px-3 py-1 text-sm font-medium bg-gray-100 text-gray-600 rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* 콘텐츠 */}
-        <div className="prose prose-lg max-w-none">
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            이 글은 동적 시스템을 통해 자동으로 생성된 페이지입니다. 새로운 글을
-            추가하면 자동으로 이 페이지가 생성되고 사이트맵에도 포함됩니다.
-          </p>
-        </div>
-      </div>
-
-      {/* SEO: StructuredData */}
-      <StructuredData
-        type="article"
-        data={{
-          title: post.title,
-          description: post.excerpt,
-          author: post.author,
-          datePublished: post.date,
-          dateModified: post.date,
-          image: post.thumbnail,
-          url: `https://blog.snacademy.co.kr/posts/${post.id}`,
-          category: post.category,
-          keywords: post.tags?.join(', ') || '',
-        }}
-      />
-
-      {/* AI Learning Data */}
-      <AIDataGenerator
-        content={{
-          title: post.title,
-          description: post.excerpt,
-          author: post.author,
-          category: post.category,
-          tags: post.tags || [],
-          content: post.content || '',
-          difficulty: 'intermediate',
-          subject: post.category,
-          learningObjectives: [
-            `${post.category} 이해`,
-            '주요 개념 학습',
-            '실전 적용 능력',
-          ],
-        }}
-      />
-    </div>
-  );
+  permanentRedirect(post.url);
 }
