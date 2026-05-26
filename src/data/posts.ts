@@ -57,6 +57,30 @@ export interface Post {
 
 export const allPosts: Post[] = [
   {
+    id: 'snargpt-rag-suneung-ai',
+    title: "수능AI는 무엇이 달라야 할까? '수능을 아는 AI' SNarGPT",
+    excerpt:
+      '수능AI SNarGPT가 일반 AI와 다른 이유는 모델의 똑똑함보다 판단 기준에 있습니다. SN RAG 시스템이 검증된 수능 데이터, 출제 의도 진단, 맞춤형 문제 생성을 어떻게 연결하는지 소개합니다.',
+    category: 'startup',
+    subcategory: 'tech-blog',
+    tags: [
+      '수능AI',
+      '수능 AI',
+      'AI 수능 공부',
+      'SNarGPT',
+      'RAG',
+      '교육AI',
+      'SNarGen',
+    ],
+    author: 'SN Academy',
+    date: '2026-05-26',
+    readTime: '6',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/startup/snargpt-rag-suneung-ai.png',
+    url: '/startup/snargpt-rag-suneung-ai',
+  },
+  {
     id: 'snargpt-ai-startup-tech-blog',
     title: '챗GPT가 있는데, 왜 우리는 교육 AI를 직접 만들었나',
     excerpt:
