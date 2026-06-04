@@ -149,6 +149,8 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
       ) {
         (window as any).renderMathInElement(contentRef.current, {
           delimiters: [
+            { left: '\\[', right: '\\]', display: true },
+            { left: '\\(', right: '\\)', display: false },
             { left: '$$', right: '$$', display: true },
             { left: '$', right: '$', display: false },
           ],
