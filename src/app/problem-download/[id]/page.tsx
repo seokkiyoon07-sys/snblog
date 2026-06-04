@@ -64,38 +64,66 @@ export async function generateMetadata({
 }
 
 function generateJsonLd(post: NonNullable<ReturnType<typeof getPostById>>) {
+  const pageUrl = `https://blog.snacademy.co.kr${post.url}`;
+
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
-    description: post.excerpt,
-    author: {
-      '@type': 'Organization',
-      name: post.author,
-      alternateName: ['SN독학기숙학원', 'SN고요의숲', 'SN고요의숲 독학재수'],
-      url: 'https://blog.snacademy.co.kr',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'SN독학기숙학원',
-      alternateName: ['SN고요의숲', 'SN Academy', 'SN고요의숲 독학재수'],
-      url: 'https://blog.snacademy.co.kr',
-    },
-    datePublished: post.date,
-    dateModified: post.date,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://blog.snacademy.co.kr${post.url}`,
-    },
-    keywords: post.tags?.join(', '),
-    ...(post.thumbnail
-      ? {
-          image: {
-            '@type': 'ImageObject',
-            url: `https://blog.snacademy.co.kr${post.thumbnail}`,
+    '@graph': [
+      {
+        '@type': 'Article',
+        headline: post.title,
+        description: post.excerpt,
+        author: {
+          '@type': 'Organization',
+          name: post.author,
+          alternateName: [
+            'SN독학기숙학원',
+            'SN고요의숲',
+            'SN고요의숲 독학재수',
+          ],
+          url: 'https://blog.snacademy.co.kr',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'SN독학기숙학원',
+          alternateName: ['SN고요의숲', 'SN Academy', 'SN고요의숲 독학재수'],
+          url: 'https://blog.snacademy.co.kr',
+        },
+        datePublished: post.date,
+        dateModified: post.date,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': pageUrl,
+        },
+        keywords: post.tags?.join(', '),
+        isAccessibleForFree: true,
+        ...(post.thumbnail
+          ? {
+              image: {
+                '@type': 'ImageObject',
+                url: `https://blog.snacademy.co.kr${post.thumbnail}`,
+              },
+            }
+          : {}),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: '문제 다운로드',
+            item: 'https://blog.snacademy.co.kr/problem-download',
           },
-        }
-      : {}),
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: post.title,
+            item: pageUrl,
+          },
+        ],
+      },
+    ],
   };
 }
 

@@ -13,7 +13,11 @@ interface BlogLayoutProps {
   post: {
     id: string;
     title: string;
+    excerpt?: string;
     content?: string;
+    author?: string;
+    date?: string;
+    url?: string;
     type?: 'standard' | 'special';
     problemFileUrl?: string;
     problemDataId?: string;
@@ -219,7 +223,7 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
       headline: post.title,
       author: {
         '@type': 'Organization',
-        name: ORGANIZATION_INFO.name,
+        name: post.author || ORGANIZATION_INFO.name,
         url: BASE_URL,
       },
       publisher: {
@@ -230,13 +234,21 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
           url: ORGANIZATION_INFO.logo,
         },
       },
-      datePublished: new Date().toISOString().split('T')[0],
-      dateModified: new Date().toISOString().split('T')[0],
-      description: post.title,
+      datePublished: post.date || new Date().toISOString().split('T')[0],
+      dateModified: post.date || new Date().toISOString().split('T')[0],
+      description: post.excerpt || post.title,
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `${BASE_URL}/problem-download/${post.id}`,
+        '@id': post.url ? `${BASE_URL}${post.url}` : `${BASE_URL}/problem-download/${post.id}`,
       },
+      ...(post.thumbnail
+        ? {
+            image: {
+              '@type': 'ImageObject',
+              url: `${BASE_URL}${post.thumbnail}`,
+            },
+          }
+        : {}),
     };
     return schema;
   };

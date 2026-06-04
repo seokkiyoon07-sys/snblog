@@ -61,7 +61,7 @@ export const allPosts: Post[] = [
     title:
       '2027학년도 6월 모의평가 수학 문제 및 해설 | 정답·시험지·46문항 풀이',
     excerpt:
-      '2027학년도 6월 모의평가 수학 영역 문제지, 정답, 공통·확통·미적·기하 46문항 전체 해설을 정리합니다. 문항별 풀이와 출제 의도, 출제 포인트를 함께 확인하세요.',
+      '2027학년도 6월 모의평가 수학 문제지 PDF, 정답지, 답지와 공통·확통·미적·기하 46문항 전체 해설을 정리합니다. 문항별 풀이, 출제 의도, 출제 포인트를 함께 확인하세요.',
     category: 'problem-download',
     subcategory: 'column-math',
     tags: [
@@ -71,12 +71,15 @@ export const allPosts: Post[] = [
       '수학 문제',
       '수학 해설',
       '수학 정답',
+      '수학 답지',
+      '수학 문제지 PDF',
       '공통 확통 미적 기하',
     ],
     author: 'SN독학기숙학원',
     date: '2026-06-04',
     readTime: '8',
-    featured: false,
+    featured: true,
+    featuredOrder: 1,
     published: true,
     thumbnail: '/images/thumbnail/problem-download/2706_kice_math.png',
     url: '/problem-download/2027-june-mock-math-solution',
