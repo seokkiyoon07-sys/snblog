@@ -358,7 +358,8 @@ export const allPosts: Post[] = [
   },
   {
     id: 'dalbam',
-    title: '달밤에 지독하게 센치한 실존적 고뇌 | EBS 2027 수능특강 현대시 「달밤」',
+    title:
+      '달밤에 지독하게 센치한 실존적 고뇌 | EBS 2027 수능특강 현대시 「달밤」',
     excerpt:
       '달빛 아래 깊어지는 실존적 고뇌. 「달밤」 속 화자가 마주한 밤과 자아의 풍경을 함께 따라가 봅니다.',
     category: 'SN Originals',
@@ -689,6 +690,36 @@ export const allPosts: Post[] = [
     thumbnail:
       '/images/thumbnail/problem-download/AI_korean_generation_economic.png',
     url: '/problem-download/ai-korean-reading-ep3',
+  },
+  {
+    id: 'ai-korean-reading-ep4',
+    title: '평가원 과학 지문 출제코드 역분해와 SNarGEN의 비밀',
+    excerpt:
+      '평가원 과학 지문은 물리량의 상호 의존성, 동적 평형, 직관의 파괴로 난도를 만듭니다. 실제 기출 사례를 역분해하고 SNarGEN이 과학 지문 킬러 문항을 생성하는 방식을 분석합니다.',
+    category: 'korean-problem',
+    subcategory: 'column-korean',
+    tags: [
+      '국어',
+      '독서',
+      '과학지문',
+      '물리지문',
+      'AI출제',
+      'SNarGEN',
+      '평가원형',
+      '수능',
+      'SN독학기숙학원',
+      'SN고요의숲',
+      'SN고요의숲 독학재수',
+      '독학재수학원',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-06-09',
+    readTime: '10',
+    featured: false,
+    published: true,
+    thumbnail:
+      '/images/thumbnail/problem-download/AI_korean_generation_science.png',
+    url: '/problem-download/ai-korean-reading-ep4',
   },
   {
     id: 'growing-vs-stagnant',

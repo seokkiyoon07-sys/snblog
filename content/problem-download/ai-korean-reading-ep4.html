@@ -1,0 +1,310 @@
+<style>
+  .sn-science-post {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    font-family:
+      'Noto Sans KR',
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    color: #37352f;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    word-break: keep-all;
+  }
+
+  .sn-science-post *,
+  .sn-science-post *::before,
+  .sn-science-post *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sn-science-post .eyebrow {
+    margin-bottom: 8px;
+    color: #9b9a97;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .sn-science-post h1 {
+    margin-bottom: 32px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+  }
+
+  .sn-science-post h2 {
+    margin: 48px 0 12px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+  }
+
+  .sn-science-post h3 {
+    margin: 36px 0 10px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: -0.2px;
+  }
+
+  .sn-science-post p {
+    margin: 0 0 14px;
+    color: #37352f;
+    font-size: 15px;
+  }
+
+  .sn-science-post strong {
+    font-weight: 600;
+  }
+
+  .sn-science-post .lead {
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+
+  .sn-science-post .rule-box,
+  .sn-science-post .sample-box,
+  .sn-science-post .question-box {
+    margin: 16px 0;
+    padding: 16px 18px;
+    border-radius: 4px;
+    background: #f7f6f3;
+  }
+
+  .sn-science-post .rule-box {
+    background: #fdf6e3;
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+
+  .sn-science-post .quote-box {
+    margin: 16px 0 22px;
+    padding: 16px 18px;
+    border: 1px solid #111111;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #37352f;
+  }
+
+  .sn-science-post .quote-box p {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .sn-science-post .quote-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .sn-science-post .case-label {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: #37352f;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .sn-science-post .subtitle {
+    margin-bottom: 8px;
+    color: #9b9a97;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .sn-science-post ul,
+  .sn-science-post ol {
+    margin: 10px 0 16px 22px;
+    padding: 0;
+  }
+
+  .sn-science-post li {
+    margin-bottom: 9px;
+    font-size: 15px;
+  }
+
+  .sn-science-post .code-card {
+    margin: 18px 0 8px;
+    padding: 12px 0 12px 18px;
+    border-left: 2px solid #e9e8e5;
+    background: transparent;
+  }
+
+  .sn-science-post .code-card h3 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .sn-science-post .note {
+    margin-top: 4px;
+    color: #6b6b6b;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .sn-science-post .answer {
+    color: #37352f;
+    font-weight: 600;
+  }
+
+  .sn-science-post .divider {
+    margin: 32px 0;
+    border: 0;
+    border-top: 1px solid #e9e8e5;
+  }
+
+  @media (max-width: 640px) {
+    .sn-science-post {
+      padding: 30px 18px 50px;
+    }
+
+    .sn-science-post h1 {
+      font-size: 30px;
+    }
+
+    .sn-science-post h2 {
+      font-size: 22px;
+    }
+  }
+</style>
+
+<article class="sn-science-post">
+  <div class="eyebrow">SNarGEN 국어 독서 생성 원리 · 과학 지문 편</div>
+  <h1>평가원 과학 지문 출제코드 역분해와 SNarGEN의 비밀</h1>
+
+  <p class="lead">안녕하세요, SN독학기숙학원입니다.</p>
+  <p>수능 국어 독서에서 과학 지문, 특히 물리는 유독 "읽다 보면 머리가 하얘지는" 영역입니다. 그 이유는 단순합니다. 각 지문마다 요구하는 독해의 근육이 다르기 때문입니다.</p>
+  <p>기술 지문은 톱니바퀴처럼 맞물려 돌아가는 기계의 <strong>작동 메커니즘</strong>을 순서대로 따라가게 만듭니다. 법 지문은 복잡한 <strong>법적 기준</strong>을 먼저 세우고, 이를 구체적 사례에 대입해 결론을 갈라내게 만듭니다. 경제 지문은 지문 속 <strong>변수의 이동</strong>을 굴려 이익과 손실, 혹은 정책의 이동 방향을 맞히는 시험입니다.</p>
+  <p>그렇다면 과학 지문은 어떨까요? 과학 지문은 <strong>물리량 간의 힘겨루기</strong>를 시킵니다.</p>
+
+  <div class="rule-box">과학 지문 = 텍스트로 된 상태 방정식을 읽고, 비례/반비례 관계를 엮어 내 직관을 뒤집는 시험.</div>
+
+  <p>평가원은 과학 지문을 어떻게 만들고, 우리는 어떻게 읽어야 할까요? 단순한 팁이 아닌 <strong>평가원 출제코드 역분해</strong>로 그 비밀을 파헤쳐 보겠습니다.</p>
+
+  <h2>실제 평가원 과학 지문은 무엇을 묻고 있는가</h2>
+  <p>최근 기출 중 레전드로 꼽히는 과학 지문 세트로 확인해 보겠습니다. 평가원이 실제로 과학 지문을 어떤 톤으로 설계하고, 우리를 어떻게 함정에 빠뜨리는지 확인해 보세요.</p>
+
+  <h3>사례 1 · 역학 메커니즘과 동적 평형</h3>
+  <p><span class="case-label">부력 · 항력 · 종단 속도</span><br>(평가원 2015학년도 수능 국어 독서 '유체 역학')</p>
+  <p class="subtitle">지문 톤</p>
+  <div class="quote-box">
+    <p>"안개비의 빗방울이나 미세 먼지와 같이 작은 물체가 낙하하는 경우에는 (...) 마찰 항력이 전체 항력의 대부분을 차지한다. 반면 스카이다이버와 같이 큰 물체가 빠른 속도로 떨어질 때에는 (...) 압력 항력이 매우 크므로 마찰 항력이 기여하는 비중은 무시할 만하다."</p>
+    <p>"마침내 항력과 부력의 합이 중력의 크기와 같아지게 된다. 이때 물체의 가속도가 0이 되므로 빗방울의 속도는 일정해지는데, 이렇게 일정해진 속도를 종단 속도라 한다."</p>
+  </div>
+  <p><strong>출제자의 의도와 우리의 독해법</strong></p>
+  <p>지문 내내 물체가 낙하하는 상황만 설명합니다. 우리 머릿속에는 자연스럽게 "항력은 위로 작용한다"는 직관이 심어집니다.</p>
+  <p>그러나 킬러 문항의 &lt;보기&gt;에서는 "상승하다가"라는 단어를 던져 기체 속을 올라가는 물체를 줍니다. 우리는 여기서 당황하지 않고, 스스로 항력의 방향을 아래로 뒤집어 <strong>부력 = 중력 + 항력</strong>이라는 수식 없는 방정식을 세워야만 살아남을 수 있습니다.</p>
+
+  <h3>사례 2 · 물리량의 트레이드오프</h3>
+  <p><span class="case-label">미시 세계 · 위치와 운동량 · 불확정성 원리</span><br>(평가원 2011학년도 수능 국어 독서 '양자 역학')</p>
+  <p class="subtitle">지문 톤</p>
+  <div class="quote-box">
+    <p>"운동량이 작은 광양자를 충돌시키면 전자의 운동량을 적게 교란시켜 운동량을 상당히 정확하게 측정할 수 있다. 그러나 (...) 빛은 파장이 길기 때문에 관측 순간의 전자의 위치 측정은 부정확해진다."</p>
+    <p>"이처럼 관측자가 알아낼 수 있는 전자의 운동량의 불확실성과 위치의 불확실성은 반비례 관계에 있으므로, 이 둘을 동시에 줄일 수 없음이 드러난다."</p>
+  </div>
+  <p><strong>출제자의 의도와 우리의 독해법</strong></p>
+  <p>"파장이 길어지면 운동량은 정확해지나 위치는 부정확해진다"는 추상적 비례 관계를 줍니다. 문항에서는 이를 구체적 수치, 예컨대 오차 범위 <strong>c</strong>로 치환하여 "더 긴 파장의 빛을 사용하면 위치 오차 범위를 c보다 줄일 수 있겠군"이라고 교묘하게 묻습니다.</p>
+  <p>우리는 지문을 읽을 때 <strong>두 변수를 동시에 통제할 수 없는 딜레마</strong>를 반드시 화살표로 메모하며 읽어야 함정에 빠지지 않습니다.</p>
+
+  <hr class="divider">
+
+  <h2>Step 1. 평가원 출제코드 역분해</h2>
+  <p>평가원 과학 지문은 어려운 전공 지식을 자랑하는 곳이 아닙니다. 지문 내부에 구축된 3개의 장치로 변별력을 만듭니다. 출제자의 코드를 알면, 우리가 읽어야 할 타깃이 보입니다.</p>
+
+  <div class="code-card">
+    <h3>코드 1. 단순 나열이 아닌 상호 의존성과 트레이드오프</h3>
+    <p>출제자는 A, B, C를 따로 설명하지 않습니다. "A가 커지면 B는 작아지지만, C는 커진다"처럼 얽혀 있는 관계를 냅니다.</p>
+    <p class="note"><strong>우리의 독해:</strong> 물리량이 등장하면 옆에 비례, 반비례 기호를 그려가며 관계망을 만들어야 합니다.</p>
+  </div>
+
+  <div class="code-card">
+    <h3>코드 2. 정지 상태가 아닌 동적 평형</h3>
+    <p>출제자는 시간에 따라 변화하다가 특정 지점에서 균형을 이루는 과정을 사랑합니다.</p>
+    <p class="note"><strong>우리의 독해:</strong> "가속 → 속도 비례 저항 증가 → 합력 0 → 종단 속도"처럼 인과적 연쇄 과정을 머릿속에서 시뮬레이션해야 합니다. 결과만 외우면 과정에서 나오는 문제를 다 틀립니다.</p>
+  </div>
+
+  <div class="code-card">
+    <h3>코드 3. 변별력은 직관의 파괴와 변수 통제에서 폭발한다</h3>
+    <p>출제자는 발췌독을 원천 차단하기 위해 문항에서 함정을 팝니다.</p>
+    <ul>
+      <li><strong>방향 역전:</strong> 지문의 하강 상황을 &lt;보기&gt;에서 상승으로 뒤집어 힘의 부호를 반전시킴</li>
+      <li><strong>변수 누락:</strong> 크기와 모양은 같으나 밀도가 다른 조건처럼 질량, 부피, 밀도 중 하나를 통제하여 비교시킴</li>
+    </ul>
+    <p class="note"><strong>우리의 독해:</strong> &lt;보기&gt;를 읽을 때 지문과 무엇이 반대로 뒤집혔는지, 어떤 조건이 고정되었는지를 가장 먼저 찾아야 합니다.</p>
+  </div>
+
+  <h2>Step 2. SNarGEN은 이 출제코드를 어떻게 구현하는가</h2>
+  <p>SN독학기숙학원의 AI 문제 생성 엔진 <strong>SNarGEN</strong>은 평가원 스타일을 겉으로만 흉내 내는 것이 목적이 아닙니다. 평가원이 변별력을 만드는 구조를 코드화해서, 어떤 과학 소재가 주어져도 평가원형 사고를 요구하는 킬러 문제를 만들어냅니다.</p>
+  <p>SNarGEN이 위 원칙들을 적용해 만든 <strong>열역학적 평형과 엔트로피</strong> 샘플 지문과 문항의 일부를 확인해 보세요.</p>
+
+  <h3>SNarGEN 생성 지문 단락 예시</h3>
+  <div class="sample-box">
+    <p>"밀폐된 실린더 내의 기체가 팽창할 때, 기체 분자의 평균 운동 에너지는 감소하여 온도가 하강하지만 기체가 차지하는 부피는 증가한다. 이때 기체가 외부에 한 일의 양은 부피 변화량과 압력의 곱으로 나타나며, 외부와 열 교환이 완벽히 차단된 단열 팽창의 경우 기체의 내부 에너지는 외부에 한 일의 양만큼 정확히 감소한다. 반면, 실린더에 열을 가해 등온 팽창을 유도하면, 흡수한 열량은 모두 외부에 일하는 데 쓰이므로 내부 에너지는 일정하게 유지된다."</p>
+  </div>
+
+  <h3>SNarGEN 생성 &lt;보기&gt; 문항 예시</h3>
+  <div class="question-box">
+    <p><strong>Q.</strong> 윗글을 바탕으로 &lt;보기&gt;의 상황을 추론한 내용으로 가장 적절한 것은?</p>
+    <p><strong>&lt;보기&gt;</strong><br>동일한 종류의 기체가 들어 있는 단열 실린더 A와 열전도성 실린더 B가 있다. 두 실린더의 초기 부피와 온도는 동일하다. 이제 외부에서 두 실린더의 피스톤을 동일한 힘으로 눌러 기체의 부피를 절반으로 압축시켰다. 단, B는 외부 환경과 열적 평형을 유지한다.</p>
+    <ol>
+      <li>A 내부 기체의 평균 운동 에너지는 압축 전과 동일하게 유지되겠군.</li>
+      <li>B 내부 기체는 압축되는 동안 외부로 열을 방출하여 내부 에너지가 감소하겠군.</li>
+      <li><span class="answer">압축 후 A 내부 기체의 압력은 B 내부 기체의 압력보다 더 높겠군.</span></li>
+      <li>A와 B 모두 부피가 감소하였으므로, 외부에서 기체에 한 일의 양은 기체의 내부 에너지 증가량과 정확히 일치하겠군.</li>
+    </ol>
+  </div>
+
+  <p>
+    아래 PDF는 위에서 설명한 평가원 과학 지문 출제코드와 SNarGEN 적용 원칙을 따라
+    <strong>실제로 SNarGEN 파이프라인에서 생성하고, 내부 검수와 편집까지 마친</strong>
+    과학 지문 샘플입니다. 물리량 간 트레이드오프, 동적 평형, 상황 역전이 문항 안에서
+    어떻게 구현되는지 직접 확인해 보세요.
+  </p>
+
+  <div class="sample-box">
+    <p>
+      <strong>이 PDF는 SNarGEN을 통해 생성·편집까지 완료된 결과물입니다.</strong><br>
+      AI 출제 → 다중 AI 교차 검증 → 전문가 검수 → 편집의 과정을 거친 과학 지문 샘플입니다.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin: 24px 0">
+    <a
+      href="/pdfs/SNarGEN_korean_science_sample.pdf"
+      download
+      style="
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #2563eb;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s;
+      "
+    >
+      📥 과학 지문 샘플 다운로드 (PDF)
+    </a>
+  </div>
+
+  <h3>왜 이 문항이 평가원 코드인가?</h3>
+  <ul>
+    <li><strong>상황 역전:</strong> 지문은 기체가 스스로 밀어내는 팽창 상황을 설명했지만, 문항은 외부에서 누르는 압축 상황을 던졌습니다. 학생은 스스로 일의 부호와 온도 변화를 뒤집어야 합니다.</li>
+    <li><strong>변수 통제와 방정식 도출:</strong> 단열 A와 등온 B라는 조건을 통해, A는 온도가 상승하고 B는 온도가 유지됨을 부등식으로 추론해야 정답을 고를 수 있습니다.</li>
+  </ul>
+
+  <h2>마무리</h2>
+  <p>평가원 과학 지문을 잘 읽어낸다는 건 어려운 전공 지식을 많이 아는 것이 아닙니다. 지문 내부에서 물리량들이 서로 밀고 당기며 동적 평형을 이루는 과정을 설계하고, 문항에서는 그 상황을 매몰차게 뒤집어버리는 출제자의 의도를 간파하는 것입니다.</p>
+  <p>SN독학기숙학원의 SNarGEN은 이 출제코드를 역분해해, 학생들이 가장 고통스러워하는 <strong>직관 파괴</strong>와 <strong>방정식 도출</strong> 훈련을 지원합니다. 평가원의 눈으로 지문을 읽고, 평가원의 논리로 문제를 푸는 훈련, SN에서 경험해 보시길 바랍니다.</p>
+</article>
