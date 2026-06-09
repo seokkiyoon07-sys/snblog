@@ -255,6 +255,33 @@ export const allPosts: Post[] = [
     type: 'special',
   },
   {
+    id: 'hapgangjeongga',
+    title:
+      '정조는 몰랐던 전라도의 지옥 같은 풍경 | EBS 2027학년도 수능특강 문학 작자 미상 「합강정가」',
+    excerpt:
+      '1792년 작자 미상의 가사 「합강정가」. 지배층의 화려한 풍류 뒤에 가려진 전라남도 곡성 민초들의 참혹한 현실과 조선 후기 사회의 부패를 읽어봅니다.',
+    category: 'SN Originals',
+    tags: [
+      '합강정가',
+      '작자미상',
+      '고전가사',
+      '고전시가',
+      '고전문학',
+      'EBS수능특강',
+      '수능국어',
+    ],
+    author: 'SI KIM',
+    date: '2026-06-09',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/originals/haphangjeongga.png',
+    youtubeUrl: 'https://www.youtube.com/watch?v=cIE2ccPUGX4&t=1s',
+    url: '/originals/hapgangjeongga',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
+  {
     id: 'soksamiingok',
     title:
       '그래 실제 조선 후기 유배생활은 이랬겠지  |  EBS 2027 수능특강 고전 가사 「속사미인곡」',
