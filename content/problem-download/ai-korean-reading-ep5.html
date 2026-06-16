@@ -1,0 +1,360 @@
+<style>
+  .sn-philosophy-post {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    font-family:
+      'Noto Sans KR',
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    color: #37352f;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    word-break: keep-all;
+  }
+
+  .sn-philosophy-post *,
+  .sn-philosophy-post *::before,
+  .sn-philosophy-post *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sn-philosophy-post .eyebrow {
+    margin-bottom: 8px;
+    color: #9b9a97;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .sn-philosophy-post h1 {
+    margin-bottom: 32px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+  }
+
+  .sn-philosophy-post h2 {
+    margin: 48px 0 12px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+  }
+
+  .sn-philosophy-post h3 {
+    margin: 36px 0 10px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: -0.2px;
+  }
+
+  .sn-philosophy-post p {
+    margin: 0 0 14px;
+    color: #37352f;
+    font-size: 15px;
+  }
+
+  .sn-philosophy-post strong {
+    font-weight: 600;
+  }
+
+  .sn-philosophy-post .lead {
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+
+  .sn-philosophy-post .rule-box,
+  .sn-philosophy-post .sample-box,
+  .sn-philosophy-post .question-box {
+    margin: 16px 0;
+    padding: 16px 18px;
+    border-radius: 4px;
+    background: #f7f6f3;
+  }
+
+  .sn-philosophy-post .rule-box {
+    background: #fdf6e3;
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+
+  .sn-philosophy-post .quote-box {
+    margin: 16px 0 22px;
+    padding: 16px 18px;
+    border: 1px solid #111111;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #37352f;
+  }
+
+  .sn-philosophy-post .quote-box p {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+
+  .sn-philosophy-post .quote-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .sn-philosophy-post .case-label {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: #37352f;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .sn-philosophy-post .subtitle {
+    margin-bottom: 8px;
+    color: #9b9a97;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .sn-philosophy-post ul,
+  .sn-philosophy-post ol {
+    margin: 10px 0 16px 22px;
+    padding: 0;
+  }
+
+  .sn-philosophy-post li {
+    margin-bottom: 9px;
+    font-size: 15px;
+  }
+
+  .sn-philosophy-post .code-card {
+    margin: 18px 0 8px;
+    padding: 12px 0 12px 18px;
+    border-left: 2px solid #e9e8e5;
+    background: transparent;
+  }
+
+  .sn-philosophy-post .code-card h3 {
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .sn-philosophy-post .note {
+    margin-top: 4px;
+    color: #6b6b6b;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .sn-philosophy-post .answer {
+    color: #37352f;
+    font-weight: 600;
+  }
+
+  .sn-philosophy-post .exam-question-title {
+    margin-bottom: 14px;
+    padding-left: 28px;
+    text-indent: -28px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .sn-philosophy-post .exam-viewbox {
+    position: relative;
+    margin: 14px 0 18px;
+    padding: 24px 18px 16px;
+    border: 1px solid #111111;
+    border-radius: 2px;
+    background: #ffffff;
+  }
+
+  .sn-philosophy-post .exam-viewbox-label {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10px;
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .sn-philosophy-post .exam-viewbox p {
+    margin-bottom: 0;
+    font-size: 14.5px;
+    line-height: 1.75;
+  }
+
+  .sn-philosophy-post .exam-choices {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sn-philosophy-post .exam-choices li {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  .sn-philosophy-post .choice-num {
+    flex: 0 0 auto;
+    font-weight: 600;
+  }
+
+  .sn-philosophy-post .divider {
+    margin: 32px 0;
+    border: 0;
+    border-top: 1px solid #e9e8e5;
+  }
+
+  @media (max-width: 640px) {
+    .sn-philosophy-post {
+      padding: 30px 18px 50px;
+    }
+
+    .sn-philosophy-post h1 {
+      font-size: 30px;
+    }
+
+    .sn-philosophy-post h2 {
+      font-size: 22px;
+    }
+  }
+</style>
+
+<article class="sn-philosophy-post">
+  <div class="eyebrow">SNarGEN 국어 독서 생성 원리 · 인문·철학 지문 편</div>
+  <h1>평가원 철학 지문은 '개념의 경계'를 묻는다</h1>
+
+  <p class="lead">안녕하세요, SN독학기숙학원입니다.</p>
+  <p>수능 국어 독서에서 인문·철학 지문, 특히 낯선 서양 철학이나 동양 사상이 등장하면 유독 "글씨는 읽히는데 무슨 말인지 모르는" 현상을 겪게 됩니다. 그 이유는 단순합니다. 철학 지문이 요구하는 독해의 근육은 다른 영역과 결이 다르기 때문입니다.</p>
+  <p>과학 지문이 물리량 간의 힘겨루기를 시키고, 경제 지문이 변수의 이동 방향을 추적하게 만든다면, 인문·철학 지문은 어떨까요? 철학 지문은 <strong>추상적 개념의 범주화</strong>와 <strong>관점의 충돌</strong>을 시킵니다.</p>
+
+  <div class="rule-box">인문·철학 지문 = 추상적인 개념에 엄격한 기준선을 긋고, 서로 다른 철학자의 관점을 교차시켜 논리적 모순을 찾아내는 시험.</div>
+
+  <p>평가원 기출에 반복적으로 나타나는 출제 구조를 분석해 보면, 우리는 철학 지문을 어떻게 읽어야 할지 그 해답을 찾을 수 있습니다. 단순한 배경지식 싸움이 아닌, <strong>평가원 출제코드 역분해</strong>로 그 원리를 파헤쳐 보겠습니다.</p>
+
+  <h2>실제 평가원 철학 지문은 무엇을 묻고 있는가</h2>
+  <p>최근 기출 중 많은 학생을 혼란에 빠뜨렸던 철학 지문 세트로 확인해 보겠습니다. 평가원이 추상적 개념을 어떻게 세팅하고, 우리를 어떻게 함정에 빠뜨리는지 확인해 보세요.</p>
+
+  <h3>사례 1 · 개념의 위계와 범주적 속성 적용</h3>
+  <p><span class="case-label">헤겔의 변증법과 절대정신</span><br>(평가원 2022학년도 수능 국어 독서)</p>
+  <p class="subtitle">지문 톤</p>
+  <div class="quote-box">
+    <p>"절대정신의 세 형태에 각각 대응하는 형식은 직관·표상·사유이다. ‘직관’은 주어진 물질적 대상을 감각적으로 지각하는 지성이고, ‘표상’은 물질적 대상의 유무와 무관하게 내면에서 심상을 떠올리는 지성이며, ‘사유’는 대상을 개념을 통해 파악하는 순수한 논리적 지성이다."</p>
+    <p>"이에 따라 예술-종교-철학 순의 진행에서 명실상부한 절대정신은 최고의 지성에 의거하는 것, 즉 철학뿐이며..."</p>
+  </div>
+  <p><strong>출제자의 의도와 우리의 독해법</strong></p>
+  <p>지문 내내 '직관-표상-사유'라는 낯선 철학적 개념의 정의와 위계를 설명합니다. 우리 머릿속에는 자연스럽게 "예술은 직관, 종교는 표상, 철학은 사유"라는 단순 매칭이 심어집니다.</p>
+  <p>그러나 고난도로 출제되는 개념 적용 문항에서는 "예술의 새로운 개념을 설정하는 것"이나 "작품의 창작을 기획하는 것"이라는 낯선 상황을 던집니다. 예를 들어, '예술은 직관에 속한다'는 단순 매칭만 외운 학생은, '새로운 예술 개념을 설정하는 행위'가 사실상 내면의 생각을 구성하는 사유의 작용에 가깝다는 점을 놓치게 됩니다.</p>
+  <p>핵심은 단어가 아니라 <strong>속성</strong>입니다. 눈앞의 대상을 감각적으로 지각하는 것이 아니라 내면의 생각을 구성하고 개념화하는 행위라면, 예술이라는 단어가 붙어있더라도 사유나 표상의 속성을 띠게 됩니다. 따라서 철학 지문에서는 단순 매칭이 아니라 개념의 엄밀한 속성으로 선지를 끊어내야 합니다.</p>
+
+  <hr class="divider">
+
+  <h2>Step 1. 평가원 출제코드 역분해</h2>
+  <p>평가원 철학 지문은 대학 전공 수준의 철학 지식을 묻는 곳이 아닙니다. 지문 내부에 구축된 3개의 장치로 변별력을 만듭니다. 출제자의 코드를 알면, 우리가 읽어야 할 타깃이 보입니다.</p>
+
+  <div class="code-card">
+    <h3>코드 1. 단순 내용 일치가 아닌 '개념 간 범주 오류 유도'</h3>
+    <p>출제자는 오답을 만들 때 단순히 서술어를 부정하지 않습니다. A학자의 개념에 B학자의 속성을 교묘하게 섞어버립니다. 지문에 있는 단어들로만 문장을 구성하기 때문에, 의미의 소속을 따지지 않고 눈으로만 읽으면 쉽게 속습니다.</p>
+    <p class="note"><strong>우리의 독해:</strong> 지문을 읽을 때 학자별 개념과 그에 딸린 속성(내면성/외면성, 감각/개념 등)을 표를 그리듯 엄격하게 분류하며 읽어야 합니다.</p>
+    <p class="note"><strong>실전 기출 적용: 2024학년도 수능 국어 14번</strong><br>지문에서 학자 '오징'은 도교를 비판하며 노자 사상과 유학이 다르지 않음을 밝히려 했고, '설혜'는 노자 사상의 진의를 밝혀 유학자들의 오해를 풀고자 했습니다. 오답 선지는 '유학 덕목', '평가' 등의 단어를 사용해 그럴듯해 보이지만, 실제 『노자』는 유학 덕목의 등장을 '도의 쇠퇴'로 보아 부정적으로 평가했습니다. 출제자는 '노자'의 원래 속성과 '오징'의 속성을 교묘하게 섞어 범주 오류를 유도한 것입니다.</p>
+  </div>
+
+  <div class="code-card">
+    <h3>코드 2. 단일 주장이 아닌 '(가)와 (나) 관점의 교차'</h3>
+    <p>최근 평가원 독서 지문에서는 (가)와 (나)의 관점을 교차시키는 융합형 구성이 자주 활용됩니다. 두 관점이 공유하는 공통 전제 하나와, 갈라지는 차이점을 명확히 세팅합니다.</p>
+    <p class="note"><strong>우리의 독해:</strong> (나) 지문을 읽기 시작할 때, 무조건 "(가)의 관점과 무엇이 같고, 어디서부터 다른가?"를 찾아내어 화살표로 연결해야 합니다.</p>
+    <p class="note"><strong>실전 기출 적용: 2024학년도 수능 독서 12~17번 세트</strong><br>(가) 지문은 『노자』의 '도(道)'를 상황에 따라 유연하게 변화하는 가변성으로 파악한 '한비자'의 관점을, (나) 지문은 동일한 '도(道)'를 만물의 근원이자 불변하는 것으로 파악한 '오징' 등 유학자들의 관점을 제시합니다. 똑같은 『노자』를 읽고도 두 관점이 어떻게 다른 결론(가변성 vs 불변성)으로 뻗어나가는지 연결하지 않으면 세트 전체가 무너집니다.</p>
+  </div>
+
+  <div class="code-card">
+    <h3>코드 3. 변별력은 '추상적 잣대의 구체적 적용'에서 나온다</h3>
+    <p>출제자는 발췌독을 원천 차단하기 위해 &lt;보기&gt; 문항에서 함정을 팝니다. 지문의 철학적 잣대를 지문 밖의 새로운 상황이나 낯선 학자의 주장에 적용하게 만듭니다.</p>
+    <p class="note"><strong>우리의 독해:</strong> &lt;보기&gt;를 읽을 때, 배경지식을 철저히 버리고 오직 '지문 안에서 해당 학자가 정의한 조건'에 부합하는지만 기계적으로 따져야 합니다.</p>
+    <p class="note"><strong>실전 기출 적용: 2019학년도 수능 독서 '가능세계' 42번</strong><br>지문은 가능세계의 4가지 성질(일관성, 포괄성, 완결성, 독립성)이라는 고도의 추상적 논리학 개념을 제시합니다. &lt;보기&gt;는 "모든 학생은 연필을 쓴다"와 "어떤 학생도 연필을 쓰지 않는다"라는 명제의 반대 관계를 던집니다. 학생은 상식이나 배경지식을 개입시키지 말고, 오직 지문에서 정의한 '포괄성'이라는 추상적 잣대만을 낯선 명제에 기계적으로 대입해야 합니다.</p>
+  </div>
+
+  <h2>Step 2. SNarGEN은 이 출제코드를 어떻게 구현하는가</h2>
+  <p>중요한 것은 이 분석이 단순한 해설에 그치지 않는다는 점입니다. 같은 구조의 문제를 반복해서 풀어야 학생은 비로소 '평가원식 개념 분류'를 몸에 익힐 수 있습니다. SNarGEN은 바로 이 반복 훈련을 위해 설계되었습니다.</p>
+  <p>SNarGEN은 평가원 스타일을 겉으로만 흉내 내는 것이 아니라, 평가원이 변별력을 만드는 사고 구조를 겨냥해 문제를 설계합니다. 아래는 실제로 SNarGEN이 생성한 <strong>2027 SNarGEN 모의고사 훈련 1회</strong>의 인문·철학 지문과 문항 일부입니다.</p>
+
+  <h3>SNarGEN 실제 생성 지문 예시</h3>
+  <div class="sample-box">
+    <p>"(가) 데카르트는 정신과 신체를 서로 다른 본질적 속성을 지닌 독립적인 실체로 구분하였다. 그에 따르면, 신체의 본질적 속성은 공간의 일정 부분을 차지하는 ‘연장(extension)’인 반면, 정신의 본질적 속성은 공간적 크기나 위치를 갖지 않는 ‘사유(thought)’이다. 데카르트의 관점에서 사유와 연장은 서로 배타적인 속성이다."</p>
+    <p>"(나) 정신과 신체를 분리하는 이원론적 사고에 맞서, 현대 심리철학의 동일론은 정신적 상태가 곧 뇌의 물리적 상태와 동일하다고 주장한다. 동일론자들은 고통, 공포, 기쁨과 같은 심리적 경험이 신경세포의 활성화나 특정 뇌 부위의 활동 패턴과 같은 물리적 상태로 온전히 설명될 수 있다고 본다."</p>
+    <p>"그러나 존재론적 절약이 곧 동일성의 증명은 아니다. 두 현상이 항상 함께 나타난다는 사실은 하나가 다른 하나의 원인일 가능성, 혹은 둘 모두가 제3의 조건에 의해 발생할 가능성을 배제하지 않는다. 따라서 동일론은 단순한 동시 발생의 관찰을 넘어, 심리적 설명을 물리적 수준의 설명으로 ㉠환원할 수 있음을 보여야 한다."</p>
+  </div>
+
+  <h3>SNarGEN 실제 생성 &lt;보기&gt; 적용 문항</h3>
+  <div class="question-box">
+    <p class="exam-question-title"><strong>4.</strong> 윗글을 바탕으로 &lt;보기&gt;를 이해한 내용으로 가장 적절한 것은? [3점]</p>
+    <div class="exam-viewbox">
+      <div class="exam-viewbox-label">&lt;보기&gt;</div>
+      <p>뇌과학자 A는 공포를 느낄 때 인간의 뇌에서 편도체가 활성화된다는 사실을 발견했다. 그는 수많은 실험을 통해 두 상태가 단순히 동시에 발생할 뿐만 아니라, 편도체의 활성화 패턴만으로 피험자의 공포 경험을 정확히 예측할 수 있으며, 편도체를 물리적으로 조절하면 공포 경험도 그에 따라 변화함을 입증했다. 이를 바탕으로 A는 “공포라는 심리적 경험에 대한 기존의 설명은 편도체 활성화라는 물리적 설명으로 완벽히 대체될 수 있으므로, 공포라는 정신 상태와 편도체 활성화라는 신체 상태는 수적으로 동일하다.”라고 주장했다.</p>
+    </div>
+    <ul class="exam-choices">
+      <li><span class="choice-num">①</span><span>(가)의 관점에서, 편도체를 물리적으로 조절하여 공포 경험을 변화시킬 수 있다는 실험 결과는 비공간적인 공포가 공간의 일정 부분을 차지하는 연장의 속성을 지니고 있음을 경험적으로 입증한다.</span></li>
+      <li><span class="choice-num">②</span><span>(나)의 관점에서, A의 조절 실험은 편도체의 변화가 공포 경험의 원인임을 입증한 것이므로, 이러한 인과 관계의 확인은 두 상태의 수적 동일성을 정당화하기 위한 충분한 근거가 된다.</span></li>
+      <li><span class="choice-num">③</span><span class="answer">(가)의 관점에서, A의 실험은 두 상태의 긴밀한 결합을 보여 줄 수는 있지만, 그것만으로 비공간적 사유에 속하는 정신 상태와 공간적 연장을 지닌 신체 상태의 수적 동일성이 성립한다고 볼 수는 없다. (정답)</span></li>
+      <li><span class="choice-num">④</span><span>(나)의 관점에서, A가 심리적 설명을 물리적 설명으로 완벽히 대체하려는 시도는 두 현상이 서로 다른 실체의 작용임을 전제하는 것이므로 존재론적 절약의 원칙에 어긋난다.</span></li>
+      <li><span class="choice-num">⑤</span><span>(가)의 관점에서, 공포 경험과 편도체 활성화 간의 정밀한 예측 및 통제 관계가 실험적으로 확인된 것은 두 상태가 수적으로 하나인 동일한 실체임을 증명하는 새로운 논리적 근거를 제공한다.</span></li>
+    </ul>
+  </div>
+
+  <p>
+    아래 PDF는 본문에서 소개한 <strong>2027 SNarGEN 모의고사 훈련 1회</strong> 원본 자료입니다.
+    SNarGEN이 생성한 인문·철학 지문과 1~5번 세트 문항, 정답 및 해설을 함께 확인할 수 있습니다.
+  </p>
+
+  <div class="sample-box">
+    <p>
+      <strong>이 PDF는 본문 속 실제 SNarGEN 생성 사례입니다.</strong><br>
+      지문 전개, 관점 비판, &lt;보기&gt; 적용, 어휘 의미 문항까지 한 세트로 구성된
+      평가원형 철학 독서 훈련 자료입니다.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin: 24px 0">
+    <a
+      href="/pdfs/2027%20SNarGEN%20모의고사%20훈련%201회.pdf"
+      download
+      style="
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #2563eb;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s;
+      "
+    >
+      📥 2027 SNarGEN 모의고사 훈련 1회 다운로드 (PDF)
+    </a>
+  </div>
+
+  <h3>왜 이 문항이 평가원 코드인가?</h3>
+  <ul>
+    <li><strong>범주 오류의 엄밀한 타격:</strong> 정답인 ③번은 (가) 지문에서 세팅한 '정신 = 사유(비공간성) / 신체 = 연장(공간성)'이라는 범주적 속성을 정확히 끌고 옵니다. 실험이 두 상태의 긴밀한 결합을 보여 주더라도, 그것이 곧 수적 동일성을 입증하는 것은 아니라는 점을 묻습니다.</li>
+    <li><strong>관점 교차:</strong> ②번은 (나)의 동일론처럼 보이지만, 지문은 단순한 인과 관계 확인만으로는 동일성이 충분히 정당화되지 않는다고 했습니다. 즉 (나)의 관점을 빌리면서도 지문이 세운 조건을 한 단계 빠뜨린 오답입니다.</li>
+    <li><strong>&lt;보기&gt;의 기능:</strong> &lt;보기&gt;는 단순한 예시가 아니라 입력값입니다. 공포 경험, 편도체 활성화, 예측, 통제라는 조건을 지문 속 '사유/연장', '결합/동일성', '환원'의 기준에 다시 넣어 판단해야 정답이 나옵니다.</li>
+    <li><strong>세트 구성의 평가원성:</strong> 이 지문은 1번 내용 전개, 2번 내용 이해, 3번 관점 비판, 4번 &lt;보기&gt; 적용, 5번 어휘 의미로 구성되어 있습니다. 단순 암기가 아니라 개념 분류에서 적용까지 사고의 단계를 순서대로 요구하도록 설계되어 있습니다.</li>
+  </ul>
+
+  <h2>마무리</h2>
+  <p>평가원 철학 지문을 잘 읽어낸다는 건 유명한 철학자의 사상을 달달 외우는 것이 아닙니다. 지문 내부에서 출제자가 그어 놓은 <strong>개념의 경계선</strong>을 정확히 파악하고, &lt;보기&gt;의 구체적 상황에 그 철학적 잣대를 오차 없이 들이대는 훈련입니다.</p>
+  <p>SN독학기숙학원의 <strong>SNarGEN</strong>은 이 출제코드를 역분해해, 학생들이 가장 고통스러워하는 <strong>범주 오류의 함정</strong>과 <strong>관점 교차 훈련</strong>을 지원합니다. 평가원식으로 지문을 읽고, 평가원식 논리로 선지를 판단하는 훈련, SN에서 경험해 보시길 바랍니다.</p>
+</article>
