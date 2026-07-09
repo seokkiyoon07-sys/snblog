@@ -87,6 +87,30 @@ function transformOrderedListItem(item: string): string {
   return `<li class="text-gray-700 dark:text-gray-300">${match[1]}</li>`;
 }
 
+const RAW_HTML_BLOCK_PATTERN =
+  /<(details|pre|table)(?:\s[^>]*)?>[\s\S]*?<\/\1>/gi;
+
+function protectRawHtmlBlocks(content: string): {
+  content: string;
+  restore: (processedContent: string) => string;
+} {
+  const blocks: string[] = [];
+
+  const protectedContent = content.replace(RAW_HTML_BLOCK_PATTERN, match => {
+    const token = `@@RAW_HTML_BLOCK_${blocks.length}@@`;
+    blocks.push(match);
+    return `\n\n${token}\n\n`;
+  });
+
+  return {
+    content: protectedContent,
+    restore: processedContent =>
+      processedContent.replace(/@@RAW_HTML_BLOCK_(\d+)@@/g, (_, index) => {
+        return blocks[Number(index)] || '';
+      }),
+  };
+}
+
 function normalizeDetailsMarkdown(innerContent: string): string {
   return innerContent
     .replace(/(###\s[^\n]+?[一-龥A-Za-z0-9」』])\s+(?=[가-힣])/g, '$1\n\n')
@@ -114,12 +138,18 @@ function transformParagraph(paragraph: string): string {
     return '';
   }
 
+  if (/^@@RAW_HTML_BLOCK_\d+@@$/.test(trimmed)) {
+    return paragraph;
+  }
+
   if (
     trimmed.startsWith('<h') ||
     trimmed.startsWith('<figure') ||
     trimmed.startsWith('<blockquote') ||
     trimmed.startsWith('<div') ||
     trimmed.startsWith('<details') ||
+    trimmed.startsWith('<pre') ||
+    trimmed.startsWith('<table') ||
     trimmed.startsWith('<ul') ||
     trimmed.startsWith('<ol') ||
     trimmed.startsWith('<hr')
@@ -172,10 +202,14 @@ function processDetailsContent(innerContent: string): string {
 export function renderMarkdown(content: string): string {
   const preprocessed = content.replace(/^(---)\s+(#{2,4}\s)/gm, '$1\n\n$2');
 
-  return preprocessed
+  const withProcessedPlainDetails = preprocessed
     .replace(
       /(<details[^>]*>[\s\S]*?<div[^>]*>)([\s\S]*?)(<\/div>\s*<\/details>)/g,
       (match, openTags, innerContent, closeTags) => {
+        if (/<details[^>]*\sclass=/.test(openTags)) {
+          return match;
+        }
+
         const processedContent = processDetailsContent(innerContent);
         return `${openTags}${processedContent}${closeTags}`;
       }
@@ -186,7 +220,11 @@ export function renderMarkdown(content: string): string {
         const processedContent = processDetailsContent(innerContent);
         return `<details class="my-6 border border-gray-200 dark:border-gray-700 rounded-lg"><summary class="cursor-pointer p-4 font-semibold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">${summary}</summary><div class="p-4 pt-0">${processedContent}</div></details>`;
       }
-    )
+    );
+
+  const protectedHtml = protectRawHtmlBlocks(withProcessedPlainDetails);
+
+  const rendered = protectedHtml.content
     .replace(
       /^---$/gim,
       '<hr class="my-12 border-t border-gray-200 dark:border-gray-700" />'
@@ -202,6 +240,8 @@ export function renderMarkdown(content: string): string {
     .split('\n\n')
     .map(transformParagraph)
     .join('');
+
+  return protectedHtml.restore(rendered);
 }
 
 export default renderMarkdown;

@@ -17,6 +17,8 @@
     "type-check": "tsc --noEmit",
     "prepare": "husky install",
     "test:jandi": "node scripts/test-jandi.js",
+    "audit:assets": "node scripts/audit-public-assets.cjs",
+    "audit:seo": "node scripts/audit-seo-titles.cjs",
     "backup:posts": "node scripts/backup-posts.js",
     "restore:posts": "node scripts/restore-posts.js",
     "sync:notion": "tsx scripts/sync-notion.ts",

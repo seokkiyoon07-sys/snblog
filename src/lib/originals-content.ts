@@ -3,12 +3,40 @@ function isBlockElement(block: string): boolean {
 
   return (
     trimmed === '' ||
+    /^@@ORIGINALS_RAW_HTML_BLOCK_\d+@@$/.test(trimmed) ||
     trimmed.startsWith('<') ||
     trimmed.startsWith('#') ||
     trimmed.startsWith('---') ||
     trimmed.startsWith('- ') ||
     trimmed.startsWith('> ')
   );
+}
+
+const RAW_HTML_BLOCK_PATTERN =
+  /<(details|pre|table)(?:\s[^>]*)?>[\s\S]*?<\/\1>/gi;
+
+function protectRawHtmlBlocks(content: string): {
+  content: string;
+  restore: (processedContent: string) => string;
+} {
+  const blocks: string[] = [];
+
+  const protectedContent = content.replace(RAW_HTML_BLOCK_PATTERN, match => {
+    const token = `@@ORIGINALS_RAW_HTML_BLOCK_${blocks.length}@@`;
+    blocks.push(match);
+    return `\n\n${token}\n\n`;
+  });
+
+  return {
+    content: protectedContent,
+    restore: processedContent =>
+      processedContent.replace(
+        /@@ORIGINALS_RAW_HTML_BLOCK_(\d+)@@/g,
+        (_, index) => {
+          return blocks[Number(index)] || '';
+        }
+      ),
+  };
 }
 
 function isStandaloneSectionHeading(line: string): boolean {
@@ -106,8 +134,10 @@ function mergeWrappedListLines(content: string): string {
 }
 
 export function formatReadableOriginalsContent(content: string): string {
+  const protectedHtml = protectRawHtmlBlocks(content);
+
   const normalizedHeadings = mergeWrappedListLines(
-    normalizeOriginalsSections(content)
+    normalizeOriginalsSections(protectedHtml.content)
   )
     .replace(/^(#{1,4}\s[^\n]+)\n(?!\n|<|#|- |>)([^\n]+)$/gm, '$1 $2')
     .replace(/(\*\*)\s+(#{2,4}\s)/g, '$1\n\n$2')
@@ -143,7 +173,7 @@ export function formatReadableOriginalsContent(content: string): string {
       return lines;
     }, []);
 
-  return mergedLines
+  const formatted = mergedLines
     .join('\n')
     .split('\n\n')
     .map(block => {
@@ -154,4 +184,6 @@ export function formatReadableOriginalsContent(content: string): string {
       return splitReadableParagraph(block);
     })
     .join('\n\n');
+
+  return protectedHtml.restore(formatted);
 }
