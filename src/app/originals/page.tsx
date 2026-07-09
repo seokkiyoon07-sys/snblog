@@ -33,24 +33,6 @@ const SCHOOL_EXAM_WORK_IDS = [
   'myeonangjungga', // 면앙정가
 ];
 
-// 2026 수능대비 작품 (업로드 순서)
-const SUNEUNG_2026_WORK_IDS = [
-  'classic-literature-marathon-2026', // SN고전문학 몰아보기 (맨 앞 배치)
-  'imgyetan', // 임계탄
-  'sochunhyangga', // 소춘향가
-  'biga', // 비가
-  'bukcheonga', // 북천가
-  'hwangokga', // 화왕가
-  'sunsangtan', // 선상탄
-  'yongbuga', // 용부가
-  'chulsaegok', // 출새곡
-  'mongcheonyo', // 몽천요
-  'dokrakdang', // 독락당
-  'oryun-ga', // 오륜가
-  'chohanga', // 초한가
-  'buksaegok', // 북새곡 (2025 수능 출제)
-];
-
 // 고전문학 시리즈 작품 목록 (SEO 및 AI 학습용)
 const CLASSICS_LIST = [
   '면앙정가',
@@ -162,7 +144,13 @@ export default async function OriginalsPage() {
 
   const steadyWorks = getWorksByIds(STEADY_WORK_IDS);
   const schoolExamWorks = getWorksByIds(SCHOOL_EXAM_WORK_IDS);
-  const suneung2026Works = getWorksByIds(SUNEUNG_2026_WORK_IDS);
+  const ebsSuneung2027Works = allOriginalsWorks.filter(
+    post =>
+      post.tags?.includes('EBS수능특강') ||
+      post.title.includes('2027 수능특강') ||
+      post.title.includes('2027학년도 수능특강') ||
+      post.excerpt.includes('2027학년도 수능특강')
+  );
 
   return (
     <>
@@ -249,7 +237,7 @@ export default async function OriginalsPage() {
               allWorks={allOriginalsWorks}
               steadyWorks={steadyWorks}
               schoolExamWorks={schoolExamWorks}
-              suneung2026Works={suneung2026Works}
+              ebsSuneung2027Works={ebsSuneung2027Works}
             />
           </div>
         </section>

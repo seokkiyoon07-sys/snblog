@@ -11,10 +11,10 @@ interface OriginalsTabsProps {
   allWorks: Post[];
   steadyWorks: Post[];
   schoolExamWorks: Post[];
-  suneung2026Works: Post[];
+  ebsSuneung2027Works: Post[];
 }
 
-type TabKey = 'all' | 'steady' | 'school' | 'suneung2026';
+type TabKey = 'all' | 'ebs2027' | 'steady' | 'school';
 type ViewMode = 'card' | 'list';
 
 const ITEMS_PER_PAGE = 6;
@@ -40,16 +40,16 @@ const MARATHON_WORK_IDS = [
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: 'all', label: '전체보기' },
+  { key: 'ebs2027', label: '2027 EBS 수능특강' },
   { key: 'steady', label: '스테디 작품' },
   { key: 'school', label: '내신대비' },
-  { key: 'suneung2026', label: '2026 수능대비' },
 ];
 
 export default function OriginalsTabs({
   allWorks,
   steadyWorks,
   schoolExamWorks,
-  suneung2026Works,
+  ebsSuneung2027Works,
 }: OriginalsTabsProps) {
   const [activeTab, setActiveTab] = useState<TabKey>('all');
   const [viewMode, setViewMode] = useState<ViewMode>('card');
@@ -59,12 +59,12 @@ export default function OriginalsTabs({
     switch (tab) {
       case 'all':
         return allWorks;
+      case 'ebs2027':
+        return ebsSuneung2027Works;
       case 'steady':
         return steadyWorks;
       case 'school':
         return schoolExamWorks;
-      case 'suneung2026':
-        return suneung2026Works;
       default:
         return allWorks;
     }
