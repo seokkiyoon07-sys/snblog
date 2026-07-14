@@ -236,7 +236,7 @@ export default function AcademicCalendar2026() {
       '7-5': { text: '', type: 'vacation' },
       '7-8': { text: '교육청', type: 'exam' },
       '7-9': { text: '시행', type: 'examday' },
-      '7-18': { text: '더프', type: 'daeuf' },
+      '7-16': { text: '더프', type: 'daeuf' },
       '7-25': { text: '서프', type: 'surf' },
       '8-6': { text: '의무휴가', type: 'vacation' },
       '8-7': { text: '', type: 'vacation' },
@@ -1230,7 +1230,7 @@ export default function AcademicCalendar2026() {
                           <strong>5월 20일</strong> - 5월 더프
                         </li>
                         <li>
-                          <strong>7월 18일</strong> - 7월 더프
+                          <strong>7월 16일</strong> - 7월 더프
                         </li>
                         <li>
                           <strong>8월 18일</strong> - 8월 더프
