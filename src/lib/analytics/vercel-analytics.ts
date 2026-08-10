@@ -268,7 +268,7 @@ async function loadDashboard(
         until,
         by: 'requestPath',
         filter: productionFilter,
-        limit: 250,
+        limit: 100,
       }),
       queryAggregate<VisitRow>({
         dataset: 'visits',
@@ -308,7 +308,7 @@ async function loadDashboard(
         until,
         by: 'eventData/postId',
         filter: "eventName eq 'Post Click' and environment eq 'production'",
-        limit: 250,
+        limit: 100,
       }),
       queryAggregate<EventRow>({
         dataset: 'events',
