@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { PROBLEM_SUBJECT_CONFIG, type ProblemSubject } from '@/lib/config';
 import { Post } from '@/data/posts';
 import ProblemViewerModal from './ProblemViewerModal';
+import TrackedPostLink from '@/components/analytics/TrackedPostLink';
 
 interface ProblemsTabsProps {
   posts: Post[];
@@ -191,7 +191,11 @@ export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
               key={post.id}
               className={`group bg-white dark:bg-gray-700 rounded-lg overflow-hidden border-2 border-gray-200 dark:border-gray-600 ${accent.border} hover:shadow-2xl hover:scale-105 transition-all duration-300`}
             >
-              <Link href={post.url}>
+              <TrackedPostLink
+                href={post.url}
+                postId={post.id}
+                placement="problems_card"
+              >
                 {post.thumbnail && (
                   <div className="relative w-full h-48 overflow-hidden">
                     <Image
@@ -217,7 +221,7 @@ export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
                     <span>{post.readTime}분 읽기</span>
                   </div>
                 </div>
-              </Link>
+              </TrackedPostLink>
               {/* 문제 바로보기 버튼 */}
               {post.problemFileUrl && (
                 <div className="px-4 pb-4">

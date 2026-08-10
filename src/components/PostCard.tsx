@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { formatReadTime } from '@/lib/utils';
 import { BASE_URL, getCategoryEmoji, getCategoryRoute } from '@/lib/config';
+import TrackedPostLink from '@/components/analytics/TrackedPostLink';
 
 interface Post {
   id: string;
@@ -21,6 +22,7 @@ interface PostCardProps {
   variant?: 'default' | 'featured';
   showThumbnail?: boolean;
   className?: string;
+  analyticsPlacement?: string;
 }
 
 export default function PostCard({
@@ -28,6 +30,7 @@ export default function PostCard({
   variant = 'default',
   showThumbnail = true,
   className = '',
+  analyticsPlacement = 'post_list',
 }: PostCardProps) {
   const isFeatured = variant === 'featured';
   const shouldContainThumbnail = post.id === '2027-repeater-class';
@@ -129,8 +132,10 @@ export default function PostCard({
           <h2
             className={`${isFeatured ? 'text-lg sm:text-xl lg:text-2xl' : 'text-lg sm:text-xl lg:text-2xl'} font-semibold text-gray-900 dark:text-white`}
           >
-            <Link
+            <TrackedPostLink
               href={post.url}
+              postId={post.id}
+              placement={analyticsPlacement}
               itemProp="url"
               className="inline-flex items-start"
             >
@@ -150,7 +155,7 @@ export default function PostCard({
                     : post.title}
                 </span>
               </span>
-            </Link>
+            </TrackedPostLink>
           </h2>
 
           {/* 요약 */}

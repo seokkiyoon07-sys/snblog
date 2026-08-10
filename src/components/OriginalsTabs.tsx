@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import TrackedPostLink from '@/components/analytics/TrackedPostLink';
 import Image from 'next/image';
 import { formatReadTime } from '@/lib/utils';
 import { getCategoryEmoji, getCategoryRoute } from '@/lib/config';
@@ -176,9 +177,11 @@ export default function OriginalsTabs({
               const is2025Work = work.id === SUNEUNG_2025_WORK_ID;
               const isMarathon = MARATHON_WORK_IDS.includes(work.id);
               return (
-                <Link
+                <TrackedPostLink
                   key={work.id}
                   href={`/originals/${work.id}`}
+                  postId={work.id}
+                  placement="originals_card"
                   className={`group block bg-white dark:bg-gray-800 rounded-lg overflow-hidden border hover:shadow-md transition-all ${
                     isMarathon
                       ? 'border-emerald-400 dark:border-emerald-500 ring-1 ring-emerald-200 dark:ring-emerald-500/30'
@@ -247,7 +250,7 @@ export default function OriginalsTabs({
                       {work.title}
                     </h4>
                   </div>
-                </Link>
+                </TrackedPostLink>
               );
             })}
           </div>
@@ -314,8 +317,10 @@ export default function OriginalsTabs({
 
                       {/* 제목 */}
                       <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white">
-                        <Link
+                        <TrackedPostLink
                           href={work.url}
+                          postId={work.id}
+                          placement="originals_list"
                           className="inline-flex items-start"
                         >
                           <span className="mr-2">{emoji}</span>
@@ -349,7 +354,7 @@ export default function OriginalsTabs({
                               {work.title}
                             </span>
                           </span>
-                        </Link>
+                        </TrackedPostLink>
                       </h2>
 
                       {/* 요약 */}
