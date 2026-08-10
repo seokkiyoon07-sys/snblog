@@ -70,6 +70,127 @@ export const allPosts: Post[] = [
     url: '/startup/snargpt-ai-startup-tech-blog',
   },
   {
+    id: 'changseon-gamui-rok',
+    title:
+      '형이 동생 고소하려다 문장력이 딸려서 대필 맡긴 썰 | EBS 2027 수능완성 문학 고전소설 「창선감의록」',
+    excerpt:
+      '조선 후기 가문 소설 「창선감의록」. 가권과 후계를 둘러싼 욕망 속에서 화춘이 외부인의 문장력을 빌려 동생 화진을 고소하고, 화진이 거짓 자백을 선택하는 장면의 의미를 읽어봅니다.',
+    category: 'SN Originals',
+    tags: [
+      '창선감의록',
+      '고전소설',
+      '가문소설',
+      '가정소설',
+      '화진',
+      '화춘',
+      '충효',
+      'EBS수능완성',
+      '수능국어',
+      'SNOriginals',
+    ],
+    author: 'SI KIM',
+    date: '2026-08-10',
+    readTime: '6',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/originals/64_changseon_gamui_rok.png',
+    youtubeUrl: 'https://www.youtube.com/embed/pOKh1gMpewY',
+    url: '/originals/changseon-gamui-rok',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
+  {
+    id: 'my-idiot-uncle',
+    title:
+      '어느 한 쪽 편을 들기가 쉽지 않다 | EBS 2027 수능특강 국어 현대소설 - 채만식 「치숙」',
+    excerpt:
+      '채만식의 현대 소설 「치숙」. 일본식 성공을 추종하는 현실 순응적 화자와 시대의 흐름을 바라보지만 생활인으로서 한계를 지닌 아저씨의 충돌을 통해 식민지 조선의 가치관 혼란을 읽어봅니다.',
+    category: 'SN Originals',
+    tags: [
+      '치숙',
+      '채만식',
+      '현대소설',
+      '풍자소설',
+      '반어',
+      '일제강점기',
+      '신뢰할수없는서술자',
+      'EBS수능특강',
+      '수능국어',
+      'SNOriginals',
+    ],
+    author: 'SI KIM',
+    date: '2026-08-10',
+    readTime: '6',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/originals/63_My_Idiot_Uncle.png',
+    youtubeUrl: 'https://www.youtube.com/embed/sOyPiuw2UtQ?start=1',
+    url: '/originals/my-idiot-uncle',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
+  {
+    id: 'does-spring-come-to-stolen-fields',
+    title:
+      '빼앗긴 들에서 깨달은 식민지의 현실 | EBS 2027 수능특강 현대시 이상화 「빼앗긴 들에도 봄은 오는가」',
+    excerpt:
+      '이상화의 현대시 「빼앗긴 들에도 봄은 오는가」. 찬란한 봄의 생명력과 국권을 빼앗긴 식민지 현실의 대비를 통해 국토에 대한 애착과 민족 회복의 염원을 읽어봅니다.',
+    category: 'SN Originals',
+    tags: [
+      '빼앗긴들에도봄은오는가',
+      '이상화',
+      '현대시',
+      '저항시',
+      '일제강점기',
+      '국권상실',
+      '국토애',
+      'EBS수능특강',
+      '수능국어',
+      'SNOriginals',
+    ],
+    author: 'SI KIM',
+    date: '2026-08-10',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail:
+      '/images/thumbnail/originals/62_Does_Spring_Come_to_Stolen_Fields.png',
+    youtubeUrl: 'https://www.youtube.com/embed/6VMpRSoqVyI?start=1',
+    url: '/originals/does-spring-come-to-stolen-fields',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
+  {
+    id: 'hometown',
+    title:
+      '일제가 우리 농촌을 치밀하게 수탈한 방법 | EBS 2027 수능특강 현대 소설 현진건 「고향」',
+    excerpt:
+      '현진건의 현대 소설 「고향」. 일제의 제도적 수탈로 삶의 터전을 잃은 농민과 폐허가 된 농촌의 현실을 기차 안에서 만난 한 사나이의 사연을 통해 읽어봅니다.',
+    category: 'SN Originals',
+    tags: [
+      '고향',
+      '현진건',
+      '현대소설',
+      '일제강점기',
+      '농촌수탈',
+      '동양척식주식회사',
+      '사실주의',
+      'EBS수능특강',
+      '수능국어',
+      'SNOriginals',
+    ],
+    author: 'SI KIM',
+    date: '2026-08-10',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/originals/61_hometown.png',
+    youtubeUrl: 'https://www.youtube.com/embed/OrnJZJfNXYI',
+    url: '/originals/hometown',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
+  {
     id: 'gogeum-gunja-eunhyeonron',
     title:
       '김시습 「고금군자은현론」 해설 | EBS 2027 수능특강 국어 문학 고전산문',
@@ -102,8 +223,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'butterfly-and-square',
-    title:
-      '김규동 「나비와 광장」 해설 | EBS 2027 수능특강 국어 문학 현대시',
+    title: '김규동 「나비와 광장」 해설 | EBS 2027 수능특강 국어 문학 현대시',
     excerpt:
       '김규동의 1955년 현대시 「나비와 광장」. 전후 현실과 기계 문명의 압박 속에서도 순수한 생명성을 지켜내려는 흰나비의 대결 의지를 읽어봅니다.',
     category: 'SN Originals',
@@ -132,8 +252,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'ububyeulgok',
-    title:
-      '이중경 「어부별곡」 해설 | EBS 2027 수능특강 국어 문학 고전시가',
+    title: '이중경 「어부별곡」 해설 | EBS 2027 수능특강 국어 문학 고전시가',
     excerpt:
       '17세기 전반 조선 사대부 이중경의 「어부별곡」. 모친을 여읜 상실과 세상의 시비를 넘어 자연 속 어부의 삶에서 안빈낙도를 회복하는 과정을 읽어봅니다.',
     category: 'SN Originals',
@@ -192,8 +311,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'sanmin',
-    title:
-      '김창협 「산민」 해설 | EBS 2027 수능특강 국어 문학 고전 한시',
+    title: '김창협 「산민」 해설 | EBS 2027 수능특강 국어 문학 고전 한시',
     excerpt:
       '조선 후기 김창협의 한시 「산민」. 호랑이보다 무서운 굶주림과 수탈, 그리고 평지로 내려갈 수 없는 산골 백성의 현실을 읽어봅니다.',
     category: 'SN Originals',
@@ -222,8 +340,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'baekseokjeong-byeolgok',
-    title:
-      '신교 「백석정별곡」 해설 | EBS 2027 수능특강 국어 문학 고전 가사',
+    title: '신교 「백석정별곡」 해설 | EBS 2027 수능특강 국어 문학 고전 가사',
     excerpt:
       '조선 후기 문인 신교의 은일 가사 「백석정별곡」. 세속의 부귀공명을 잊고 백석정 자연 속에서 누리는 안빈낙도와 탈속적 즐거움을 읽어봅니다.',
     category: 'SN Originals',
@@ -281,8 +398,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'flower',
-    title:
-      '이육사 「꽃」 해설 | EBS 2027 수능특강 국어 문학 현대시',
+    title: '이육사 「꽃」 해설 | EBS 2027 수능특강 국어 문학 현대시',
     excerpt:
       '하늘이 끝난 동방의 절망 속에서도 광복의 신념을 굽히지 않았던 이육사의 저항시 「꽃」. 선명한 색채 대비와 비장한 생명력을 함께 읽어봅니다.',
     category: 'SN Originals',
@@ -311,8 +427,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'yousanga',
-    title:
-      '작자 미상 「유산가」 해석 | EBS 2027 수능특강 국어 문학 고전시가',
+    title: '작자 미상 「유산가」 해석 | EBS 2027 수능특강 국어 문학 고전시가',
     excerpt:
       '조선 후기 잡가의 백미 「유산가」. 봄날 산천을 노니는 한 폭의 풍경화 같은 노래, 머리 복잡할 때 틀어두는 고전 감성으로 만나봅니다.',
     category: 'SN Originals',
@@ -330,8 +445,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'chamhuirok',
-    title:
-      '윤동주 「참회록」 해설 | EBS 2027 수능특강 국어 문학 현대시',
+    title: '윤동주 「참회록」 해설 | EBS 2027 수능특강 국어 문학 현대시',
     excerpt:
       '윤동주의 현대시 「참회록」. 녹슨 구리거울을 닦으며 역사적 자아의 부끄러움을 마주하고, 오늘의 참회마저 내일 다시 성찰하는 치열한 시입니다.',
     category: 'SN Originals',
@@ -357,8 +471,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'snow-day',
-    title:
-      '조지훈 「눈 오는 날에」 해설 | EBS 2027 수능특강 국어 문학 현대시',
+    title: '조지훈 「눈 오는 날에」 해설 | EBS 2027 수능특강 국어 문학 현대시',
     excerpt:
       '청록파 조지훈의 현대시 「눈 오는 날에」. 차가운 눈발 속에서 비애를 넘어 포근한 절망과 고요한 평화에 이르는 정신의 풍경을 읽어봅니다.',
     category: 'SN Originals',
@@ -384,8 +497,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'mokdongga',
-    title:
-      '임유후 「목동가」 해설 | EBS 2027 수능특강 국어 문학 고전 가사',
+    title: '임유후 「목동가」 해설 | EBS 2027 수능특강 국어 문학 고전 가사',
     excerpt:
       '조선 후기 임유후의 가사 「목동가」. 세 마리 소의 비유를 통해 공명과 부귀의 허망함, 그리고 안분지족의 삶을 감각적으로 읽어봅니다.',
     category: 'SN Originals',
@@ -411,8 +523,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'daegwanjae-mongyurok',
-    title:
-      '심의 「대관재몽유록」 해설 | EBS 2027 수능특강 국어 문학 고전소설',
+    title: '심의 「대관재몽유록」 해설 | EBS 2027 수능특강 국어 문학 고전소설',
     excerpt:
       '조선 중기 심의의 한문 소설 「대관재몽유록」. 꿈속 문인 왕국에서 자아를 실현하는 환상적 여정을 통해 문학적 자부심과 현실의 덧없음을 읽어봅니다.',
     category: 'SN Originals',
@@ -493,8 +604,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'soksamiingok',
-    title:
-      '이진유 「속사미인곡」 해설 | EBS 2027 수능특강 국어 문학 고전 가사',
+    title: '이진유 「속사미인곡」 해설 | EBS 2027 수능특강 국어 문학 고전 가사',
     excerpt:
       '조선 후기 유배 가사의 정수로 불리는 이진유의 「속사미인곡」. 외딴섬 유배지의 처절한 현실과 임금을 향한 단심을 생생하게 읽어봅니다.',
     category: 'SN Originals',
@@ -520,8 +630,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'wolgokdapga',
-    title:
-      '정훈 「월곡답가」 해석 | EBS 2027 수능특강 국어 문학 고전시가',
+    title: '정훈 「월곡답가」 해석 | EBS 2027 수능특강 국어 문학 고전시가',
     excerpt:
       '세상이 나를 몰라도 그 한 사람은 나를 알아주었다. 「월곡답가」가 전하는 깊고 단단한 사람살이의 위로를 함께 읽어봅니다.',
     category: 'SN Originals',
@@ -539,8 +648,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'jeongneung',
-    title:
-      '박재삼 「정릉 살면서」 해설 | EBS 2027 수능특강 국어 문학 현대시',
+    title: '박재삼 「정릉 살면서」 해설 | EBS 2027 수능특강 국어 문학 현대시',
     excerpt:
       '평범한 일상 속에서야 비로소 알게 되는 건강의 소중함. 「정릉 살면서」를 통해 일상의 무게와 감사를 함께 읽어봅니다.',
     category: 'SN Originals',
@@ -577,8 +685,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'leehwajeon',
-    title:
-      '작자 미상 「이화전」 해설 | EBS 2027 수능특강 국어 문학 고전소설',
+    title: '작자 미상 「이화전」 해설 | EBS 2027 수능특강 국어 문학 고전소설',
     excerpt:
       '미모로 모두를 홀린 귀비의 정체는? 이화의 통쾌한 참교육 한 판이 펼쳐지는 고전소설 「이화전」, 수능 고전문학으로 살펴봅니다.',
     category: 'SN Originals',
@@ -596,8 +703,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'dalbam',
-    title:
-      '황동규 「달밤」 해설 | EBS 2027 수능특강 국어 문학 현대시',
+    title: '황동규 「달밤」 해설 | EBS 2027 수능특강 국어 문학 현대시',
     excerpt:
       '달빛 아래 깊어지는 실존적 고뇌. 「달밤」 속 화자가 마주한 밤과 자아의 풍경을 함께 따라가 봅니다.',
     category: 'SN Originals',
@@ -615,8 +721,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'myeonuribappulkkot',
-    title:
-      '송수권 「며느리밥풀꽃」 해설 | EBS 2027 수능특강 국어 문학 현대시',
+    title: '송수권 「며느리밥풀꽃」 해설 | EBS 2027 수능특강 국어 문학 현대시',
     excerpt:
       '억눌린 설움을 딛고 피어나는 민중의 생명력. 「며느리밥풀꽃」이 들려주는 이야기를 함께 풀어봅니다.',
     category: 'SN Originals',
@@ -634,8 +739,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'imjinrok',
-    title:
-      '작자 미상 「임진록」 해설 | EBS 2027 수능특강 국어 문학 고전소설',
+    title: '작자 미상 「임진록」 해설 | EBS 2027 수능특강 국어 문학 고전소설',
     excerpt:
       '조선판 어벤져스의 총출동? 역사와 판타지가 뒤섞인 고전소설 「임진록」. 수능 고전문학으로 만나봅니다.',
     category: 'SN Originals',
@@ -653,8 +757,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'sachinga',
-    title:
-      '작자 미상 「사친가」 해설 | EBS 2027 수능특강 국어 문학 고전 가사',
+    title: '작자 미상 「사친가」 해설 | EBS 2027 수능특강 국어 문학 고전 가사',
     excerpt:
       '부모를 그리워하는 절절한 마음을 담은 「사친가」. 한 번 읽고 나면 부모님 생각이 사무치는 고전 가사를 함께 만나봅니다.',
     category: 'SN Originals',
@@ -672,8 +775,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'oweolsosik',
-    title:
-      '정지용 「오월 소식」 해설 | EBS 2027 수능특강 국어 문학 현대시',
+    title: '정지용 「오월 소식」 해설 | EBS 2027 수능특강 국어 문학 현대시',
     excerpt:
       '정지용의 현대시 「오월 소식」. 강화도로 떠난 이에게서 온 편지 한 통이 화자의 마음을 바다로 이끌어가는, 모더니즘적 서정이 빛나는 작품입니다.',
     category: 'SN Originals',
@@ -1212,8 +1314,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'seongsanbyeolgok',
-    title:
-      '정철 「성산별곡」 해석 | 수능 고전문학 가사',
+    title: '정철 「성산별곡」 해석 | 수능 고전문학 가사',
     excerpt:
       '조선 중기 송강 정철의 가사 「성산별곡」. 담양 성산에 은거하는 벗 김성원의 자연친화적 삶을 사계절의 풍광과 함께 찬양한 작품입니다.',
     category: 'SN Originals',
@@ -1230,8 +1331,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'jungseokga',
-    title:
-      '작자 미상 「정석가」 해석 | 수능 고전문학 고려가요',
+    title: '작자 미상 「정석가」 해석 | 수능 고전문학 고려가요',
     excerpt:
       '작자 미상의 고려가요 「정석가」. 구운 밤에 싹이 나고, 쇠로 만든 소가 풀을 뜯는 등 실현 불가능한 조건을 내걸어 영원한 사랑을 노래한 작품입니다.',
     category: 'SN Originals',
@@ -1248,8 +1348,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'songin',
-    title:
-      '정지상 「송인」 해석 | 수능 고전문학 한시',
+    title: '정지상 「송인」 해석 | 수능 고전문학 한시',
     excerpt:
       '고려 중기 정지상의 한시 「송인(送人)」. 비 온 뒤 대동강의 푸른 풍경 속에서 임을 떠나보내는 이별의 슬픔을 노래한 작품입니다.',
     category: 'SN Originals',
@@ -1266,8 +1365,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'seogyeongbyeolgok',
-    title:
-      '작자 미상 「서경별곡」 해설 | 수능 고전문학 고려가요',
+    title: '작자 미상 「서경별곡」 해설 | 수능 고전문학 고려가요',
     excerpt:
       '작자 미상의 고려가요 「서경별곡」. 삶의 터전인 서경(평양)을 버리고서라도 임을 쫓겠다는 적극적인 태도를 보여주는 작품입니다.',
     category: 'SN Originals',
@@ -1284,8 +1382,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'gyuwonga',
-    title:
-      '허난설헌 「규원가」 해설 | 수능 고전문학 가사',
+    title: '허난설헌 「규원가」 해설 | 수능 고전문학 가사',
     excerpt:
       '허난설헌이 지은 것으로 전해지는 가사 「규원가」. 봉건 제도의 굴레 속에서 남편에게 버림받은 여인의 절절한 슬픔과 원망을 기승전결 구조로 그려낸 작품입니다.',
     category: 'SN Originals',
@@ -1303,8 +1400,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'manheung',
-    title:
-      '윤선도 「만흥」 해설 | 수능 고전문학 시조',
+    title: '윤선도 「만흥」 해설 | 수능 고전문학 시조',
     excerpt:
       '윤선도가 지은 총 6수의 시조 「만흥」. 속세를 벗어난 자연에서의 흥취와 은거자의 자부심을 노래한 연시조입니다.',
     category: 'SN Originals',
@@ -1321,8 +1417,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'sipnyeon-gyeongyeong',
-    title:
-      '송순 「십년을 경영하여」 해설 | 수능 고전문학 시조',
+    title: '송순 「십년을 경영하여」 해설 | 수능 고전문학 시조',
     excerpt:
       '송순의 시조 「십년을 경영하여」 - 10년간 준비한 작은 초가집에 달과 청풍을 벗삼아 사는 자연 친화적 삶의 자부심을 노래한 작품입니다.',
     category: 'SN Originals',
@@ -1346,8 +1441,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'eobusasisa',
-    title:
-      '윤선도 「어부사시사」 해설 | 수능 고전문학 연시조',
+    title: '윤선도 「어부사시사」 해설 | 수능 고전문학 연시조',
     excerpt:
       '윤선도의 「어부사시사」 - 사계절 어촌의 풍경과 강호한정을 노래한 연시조. 물아일체, 흥, 연군지정의 주제를 담은 조선 시조 문학의 정수.',
     category: 'SN Originals',
@@ -1388,8 +1482,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'cheongsanbyeolgok',
-    title:
-      '작자 미상 「청산별곡」 해설 | 수능 고전문학 고려가요',
+    title: '작자 미상 「청산별곡」 해설 | 수능 고전문학 고려가요',
     excerpt:
       '작자 미상의 고려가요 「청산별곡」. 삶의 터전을 잃은 유랑민, 실연당한 여인, 고독한 처지의 지식인 등 다양한 화자의 상황으로 해석될 수 있는 작품입니다.',
     category: 'SN Originals',
@@ -1406,8 +1499,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'dosansipigok',
-    title:
-      '이황 「도산십이곡」 해설 | 수능 고전문학 연시조',
+    title: '이황 「도산십이곡」 해설 | 수능 고전문학 연시조',
     excerpt:
       '조선 중기 이황이 지은 연시조 「도산십이곡」. 전6곡은 자연 친화, 후6곡은 학문 수양의 내용을 담은 작품입니다.',
     category: 'SN Originals',
@@ -1433,8 +1525,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'ganghosasiga',
-    title:
-      '맹사성 「강호사시가」 해설 | 수능 고전문학 연시조',
+    title: '맹사성 「강호사시가」 해설 | 수능 고전문학 연시조',
     excerpt:
       '조선 초기 맹사성이 지은 연시조 「강호사시가」. 봄·여름·가을·겨울 네 수의 시조로 자연의 아름다움을 노래하면서, 마지막은 반드시 임금님 은혜로 마무리되는 특징을 가진 작품입니다.',
     category: 'SN Originals',
@@ -1458,8 +1549,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'myeonangjungga',
-    title:
-      '송순 「면앙정가」 해설 | 수능 고전문학 가사',
+    title: '송순 「면앙정가」 해설 | 수능 고전문학 가사',
     excerpt:
       '조선 전기 송순이 지은 가사 「면앙정가」. 전남 담양 면앙정 주변 사계절의 아름다운 모습과 신선적인 풍류 생활을 묘사한 작품입니다.',
     category: 'SN Originals',
@@ -1476,8 +1566,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'gasiri',
-    title:
-      '작자 미상 「가시리」 해석 | 수능 고전문학 고려가요',
+    title: '작자 미상 「가시리」 해석 | 수능 고전문학 고려가요',
     excerpt:
       '작자·연대 미상의 고려가요 「가시리」. 떠나는 임을 붙잡고 싶지만 보내면서 반드시 돌아오길 바라는 여성 화자의 애절한 이별 노래입니다.',
     category: 'SN Originals',
@@ -1494,8 +1583,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'sangchungok',
-    title:
-      '정극인 「상춘곡」 해설 | 수능 고전문학 가사',
+    title: '정극인 「상춘곡」 해설 | 수능 고전문학 가사',
     excerpt:
       '조선 전기 정극인이 지은 가사 「상춘곡」. 벼슬을 사임하고 향리에서 자연의 아름다움을 즐기며 안빈낙도의 정신을 노래한 작품입니다.',
     category: 'SN Originals',
@@ -1520,8 +1608,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'maehwasa',
-    title:
-      '안민영 「매화사」 해설 | 수능 고전문학 연시조',
+    title: '안민영 「매화사」 해설 | 수능 고전문학 연시조',
     excerpt:
       '조선 후기 안민영이 지은 연시조 「매화사」. 추운 겨울 눈 속에서 피는 매화를 통해 고결하고 굳센 절개를 지닌 선비적 삶을 찬양한 작품입니다.',
     category: 'SN Originals',
@@ -1576,8 +1663,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'imgyetan',
-    title:
-      '「임계탄」 해설 | 수능 고전문학 현실비판 가사',
+    title: '「임계탄」 해설 | 수능 고전문학 현실비판 가사',
     excerpt:
       '조선 후기 장흥 지역의 대기근과 탐관오리의 학정을 고발한 가사 「임계탄」. 1732~1733년 3년간의 재난 속에서 백성들의 고통과 절망을 사실적으로 담아낸 현실비판 가사입니다.',
     category: 'SN Originals',
@@ -1602,8 +1688,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'changiparangga',
-    title:
-      '충담사 「찬기파랑가」 해석 | 수능 고전문학 향가',
+    title: '충담사 「찬기파랑가」 해석 | 수능 고전문학 향가',
     excerpt:
       '신라 경덕왕 때 충담사가 화랑 기파랑을 추모하며 지은 향가. 승려 충담사가 이상적 인간상이었던 기파랑을 찬양하고, 그와 같은 사람이 되고 싶다는 소망을 담은 10구체 향가입니다.',
     category: 'SN Originals',
@@ -1628,8 +1713,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'jemangmaega',
-    title:
-      '월명사 「제망매가」 해석 | 수능 고전문학 향가',
+    title: '월명사 「제망매가」 해석 | 수능 고전문학 향가',
     excerpt:
       '신라 경덕왕 때 월명사가 죽은 누이를 추모하며 지은 향가. 불교 승려였던 월명사가 육친에 대한 그리움과 죽음의 슬픔을 담아낸 10구체 향가로, 인간적 애정과 불교적 세계관이 조화를 이룬 작품입니다.',
     category: 'SN Originals',
@@ -1678,8 +1762,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'sochunhyangga',
-    title:
-      '작자 미상 「소춘향가」 해설 | 수능 고전문학 잡가',
+    title: '작자 미상 「소춘향가」 해설 | 수능 고전문학 잡가',
     excerpt:
       '조선 시대 후기 십이 잡가의 하나로, 판소리 「춘향가」 중 관객들이 좋아했던 장면을 변형하여 만든 노래입니다. 이몽룡과 춘향의 첫 만남, 연정, 헤어짐 후의 그리움과 슬픔을 압축적으로 담아낸 작품입니다.',
     category: 'SN Originals',
@@ -1704,8 +1787,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'classic-literature-marathon-2026',
-    title:
-      'SN 고전문학 몰아보기 | 2026 수능 국어 고전문학 총정리',
+    title: 'SN 고전문학 몰아보기 | 2026 수능 국어 고전문학 총정리',
     excerpt:
       '2026 수능을 앞둔 수험생을 위한 특별 영상! SN독학기숙학원이 엄선한 고전문학 작품 13편을 1시간 동안 몰아보며 마지막 정리를 해보세요. 보기만 해도 수능 점수가 오르는 SN 고전문학 시리즈의 결정판입니다.',
     category: 'SN Originals',
@@ -1733,8 +1815,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'biga',
-    title:
-      '이정환 「비가」 해설 | 수능 고전문학 연시조',
+    title: '이정환 「비가」 해설 | 수능 고전문학 연시조',
     excerpt:
       '병자호란의 치욕과 분노를 담은 이정환의 10수 연시조 「비가」. 청나라에 끌려간 소현 세자와 봉림 대군을 구하지 못하는 조정 신하들을 비판하며, 작가가 느낀 수치심과 비통함을 사실적으로 표현한 현실비판 시조입니다.',
     category: 'SN Originals',
@@ -1971,8 +2052,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'sn-originals-intro',
-    title:
-      'SN Originals 고전문학 시리즈 소개 | 수능 국어 문학 해설',
+    title: 'SN Originals 고전문학 시리즈 소개 | 수능 국어 문학 해설',
     excerpt:
       '최재천 선생님의 "알면 사랑한다"는 지혜로 시작하는 SN Originals 고전문학 시리즈. 만화영화처럼 익숙하게, AI 기술과 함께하는 새로운 고전문학 학습법을 소개합니다.',
     category: 'SN Originals',
@@ -1987,8 +2067,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'sokmieungok',
-    title:
-      '정철 「속미인곡」 해설 | 수능 고전문학 가사',
+    title: '정철 「속미인곡」 해설 | 수능 고전문학 가사',
     excerpt:
       '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 6탄으로 「속미인곡」을 준비했습니다.',
     category: 'SN Originals',
@@ -2004,8 +2083,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'samieungok',
-    title:
-      '정철 「사미인곡」 해설 | 수능 고전문학 가사',
+    title: '정철 「사미인곡」 해설 | 수능 고전문학 가사',
     excerpt:
       '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 5탄으로 「사미인곡」을 준비했습니다.',
     category: 'SN Originals',
@@ -2021,8 +2099,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'gapminga',
-    title:
-      '작자 미상 「갑민가」 해설 | 수능 고전문학 현실비판 가사',
+    title: '작자 미상 「갑민가」 해설 | 수능 고전문학 현실비판 가사',
     excerpt:
       '조선 후기 백성의 아픔과 저항을 담은 「갑민가」로 진정한 민중 문학을 만나보세요.',
     category: 'SN Originals',
@@ -2039,8 +2116,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'hwangokga',
-    title:
-      '이익 「화왕가」 해설 | 수능 고전문학 풍자 가사',
+    title: '이익 「화왕가」 해설 | 수능 고전문학 풍자 가사',
     excerpt:
       '조선 후기 풍자 문학의 백미 「화왕가」로 문학의 유머와 비판정신을 만나보세요.',
     category: 'SN Originals',
@@ -2056,8 +2132,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'bukcheonga',
-    title:
-      '김진형 「북천가」 해설 | 수능 고전문학 유배 가사',
+    title: '김진형 「북천가」 해설 | 수능 고전문학 유배 가사',
     excerpt:
       '조선 후기 민중의 아픔과 저항을 담은 「북천가」로 진정한 문학의 힘을 만나보세요.',
     category: 'SN Originals',
@@ -2073,8 +2148,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'gwandong-byeolgok',
-    title:
-      '정철 「관동별곡」 해설 | 수능 고전문학 가사',
+    title: '정철 「관동별곡」 해설 | 수능 고전문학 가사',
     excerpt:
       '정철의 대표작 「관동별곡」으로 조선 가사 문학의 아름다움을 만나보세요.',
     category: 'SN Originals',
@@ -2090,8 +2164,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'sunsangtan',
-    title:
-      '박인로 「선상탄」 해설 | 수능 고전문학 가사',
+    title: '박인로 「선상탄」 해설 | 수능 고전문학 가사',
     excerpt:
       '박인로의 「선상탄」으로 배 위에서의 탄식과 나라 걱정, 무관의 절개를 만나보세요.',
     category: 'SN Originals',
@@ -2107,8 +2180,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'yongbuga',
-    title:
-      '작자 미상 「용부가」 해설 | 수능 고전문학 교훈 가사',
+    title: '작자 미상 「용부가」 해설 | 수능 고전문학 교훈 가사',
     excerpt:
       '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈. 여덟 번째 작품으로 조선시대 후기 작자 미상의 가사인 「용부가」를 준비했습니다.',
     category: 'SN Originals',
@@ -2124,8 +2196,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'chulsaegok',
-    title:
-      '조우인 「출새곡」 해설 | 수능 고전문학 기행 가사',
+    title: '조우인 「출새곡」 해설 | 수능 고전문학 기행 가사',
     excerpt:
       '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 그 아홉 번째 시간. 오늘은 조선시대 후기 조우인이 지은 가사인 「출새곡」 준비했습니다.',
     category: 'SN Originals',
@@ -2141,8 +2212,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'mongcheonyo',
-    title:
-      '윤선도 「몽천요」 해설 | 수능 고전문학 연시조',
+    title: '윤선도 「몽천요」 해설 | 수능 고전문학 연시조',
     excerpt:
       '안녕하세요 SN독학기숙학원입니다😊 보기만 해도 수능 점수가 오르는 국어 고전문학 시리즈 어느새 그 열 번째 시간. 오늘은 조선시대 후기(1652년, 효종 3년)에 제작된 윤선도의 연시조 「몽천요」를 준비했습니다.',
     category: 'SN Originals',
@@ -2158,8 +2228,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'dokrakdang',
-    title:
-      '박인로 「독락당」 해설 | 수능 고전문학 가사',
+    title: '박인로 「독락당」 해설 | 수능 고전문학 가사',
     excerpt:
       '박인로의 「독락당」으로 조선 성리학의 정통을 세운 회재 이언적의 학문 공간을 만나보세요. 1619년 박인로가 59세의 나이에 지은 가사로, 홀로 누리는 즐거움과 학문의 진수를 담은 작품입니다.',
     category: 'SN Originals',
@@ -2183,8 +2252,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'oryun-ga',
-    title:
-      '박선장 「오륜가」 해설 | 수능 고전문학 교훈 가사',
+    title: '박선장 「오륜가」 해설 | 수능 고전문학 교훈 가사',
     excerpt:
       '박선장의 「오륜가」로 조선 중기 유교 윤리의 핵심인 다섯 가지 인간관계를 만나보세요. 1612년 광해군 시대에 지어진 교훈 가사로, 사회 혼란 속에서도 지켜야 할 삶의 기준을 담은 작품입니다.',
     category: 'SN Originals',
@@ -2201,8 +2269,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'chohanga',
-    title:
-      '작자 미상 「초한가」 해설 | 수능 고전문학 판소리',
+    title: '작자 미상 「초한가」 해설 | 수능 고전문학 판소리',
     excerpt:
       '작자 미상의 판소리 「초한가」. 사면초가로 포위된 초한전쟁의 마지막 밤, 장량의 계략으로 울려 퍼진 초가(楚歌)가 천하의 패왕 항우를 속수무책으로 만드는 심리전을 다룬 작품입니다.',
     category: 'SN Originals',
@@ -2219,8 +2286,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'buksaegok',
-    title:
-      '구강 「북새곡」 해설 | 수능 고전문학 기행 가사',
+    title: '구강 「북새곡」 해설 | 수능 고전문학 기행 가사',
     excerpt:
       '조선 후기 구강(具康)이 지은 가사 「북새곡」. 57세의 노인이 험준한 관북지방 산길을 추운 겨울에 다니면서 민정을 시찰하며 경험한 여러가지 견문을 사실적으로 익살스레 표출한 재미있는 작품입니다.',
     category: 'SN Originals',
@@ -2253,8 +2319,7 @@ export const allPosts: Post[] = [
   },
   {
     id: 'classic-literature-marathon-2',
-    title:
-      'SN 고전문학 몰아보기 2탄 | 고1·고2 내신 고전문학 총정리',
+    title: 'SN 고전문학 몰아보기 2탄 | 고1·고2 내신 고전문학 총정리',
     excerpt:
       '보기만 해도 시험 점수가 오르는 SN 고전문학 시리즈. 고등학교 1~2학년 내신 시험 준비를 위한 8개 작품 몰아보기 영상입니다.',
     category: 'SN Originals',
