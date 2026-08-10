@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Student data (IMPORTANT: Keep actual student data private!)
+data/students.csv
