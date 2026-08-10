@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { formatReadTime } from '@/lib/utils';
 import { BASE_URL, getCategoryEmoji, getCategoryRoute } from '@/lib/config';
+import TrackedPostLink from '@/components/analytics/TrackedPostLink';
 
 interface Post {
   id: string;
@@ -18,11 +19,13 @@ interface Post {
 interface FeaturedPostProps {
   post: Post;
   className?: string;
+  analyticsPlacement?: string;
 }
 
 export default function FeaturedPost({
   post,
   className = '',
+  analyticsPlacement = 'featured_post',
 }: FeaturedPostProps) {
   // ISO 날짜 형식으로 변환 (YYYY-MM-DD)
   const isoDate = post.date.replace(/\//g, '-');
@@ -112,11 +115,16 @@ export default function FeaturedPost({
 
           {/* 제목 */}
           <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
-            <Link href={post.url} itemProp="url">
+            <TrackedPostLink
+              href={post.url}
+              postId={post.id}
+              placement={analyticsPlacement}
+              itemProp="url"
+            >
               <span itemProp="headline">
                 {emoji} {post.title}
               </span>
-            </Link>
+            </TrackedPostLink>
           </h2>
 
           {/* 요약 */}

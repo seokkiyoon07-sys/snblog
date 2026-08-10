@@ -1,6 +1,7 @@
 'use client';
 
 import { getLatestPosts, allPosts } from '@/data/posts';
+import TrackedPostLink from '@/components/analytics/TrackedPostLink';
 
 export default function Sidebar() {
   // 동적으로 태그 데이터 생성
@@ -60,12 +61,14 @@ export default function Sidebar() {
         <div className="space-y-2 lg:space-y-3">
           {popularPosts.map((post, index) => (
             <div key={index} className="space-y-1">
-              <a
+              <TrackedPostLink
                 href={post.url}
+                postId={post.id}
+                placement="sidebar_popular"
                 className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
               >
                 {post.title}
-              </a>
+              </TrackedPostLink>
               <div className="text-xs text-gray-500 dark:text-gray-400">
                 {post.date}
               </div>
@@ -82,12 +85,14 @@ export default function Sidebar() {
         <div className="space-y-2 lg:space-y-3">
           {recentPosts.slice(0, 3).map((post, index) => (
             <div key={index} className="space-y-1">
-              <a
+              <TrackedPostLink
                 href={post.url}
+                postId={post.id}
+                placement="sidebar_recent"
                 className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
               >
                 {post.title}
-              </a>
+              </TrackedPostLink>
               <div className="text-xs text-gray-500 dark:text-gray-400">
                 {post.date}
               </div>

@@ -4,6 +4,7 @@ import Pagination from '@/components/Pagination';
 import { formatReadTime } from '@/lib/utils';
 import { Metadata } from 'next';
 import { BASE_URL } from '@/lib/config';
+import TrackedPostLink from '@/components/analytics/TrackedPostLink';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -153,7 +154,13 @@ export default async function Home({ searchParams }: HomeProps) {
               }`}
             >
               {featuredPosts.map((post, index) => (
-                <a key={post.id} href={post.url} className="group block">
+                <TrackedPostLink
+                  key={post.id}
+                  href={post.url}
+                  postId={post.id}
+                  placement="home_featured"
+                  className="group block"
+                >
                   <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                     {/* 그라데이션 오버레이 */}
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -226,7 +233,7 @@ export default async function Home({ searchParams }: HomeProps) {
                       </div>
                     </div>
                   </div>
-                </a>
+                </TrackedPostLink>
               ))}
             </div>
           </section>
@@ -249,7 +256,11 @@ export default async function Home({ searchParams }: HomeProps) {
             </div>
             <div className="space-y-4 lg:space-y-6">
               {latestPosts.map(post => (
-                <PostCard key={post.id} post={post} />
+                <PostCard
+                  key={post.id}
+                  post={post}
+                  analyticsPlacement="home_latest"
+                />
               ))}
             </div>
 

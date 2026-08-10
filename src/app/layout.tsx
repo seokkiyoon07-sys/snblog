@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import StructuredData from '@/components/StructuredData';
 import QueryProvider from '@/components/providers/query-provider';
+import { Analytics } from '@vercel/analytics/next';
 // import ThemeDebugger from "@/components/ThemeDebugger";
 
 const geistSans = Geist({
@@ -179,12 +180,6 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <StructuredData type="organization" data={{}} />
-        {/* Privacy-friendly analytics by Plausible (self-hosted) */}
-        <script
-          defer
-          data-domain="blog.snacademy.co.kr"
-          src="https://analytics.snargpt.ai/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"
-        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
@@ -241,6 +236,7 @@ export default function RootLayout({
             </div>
           </QueryProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
