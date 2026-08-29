@@ -147,9 +147,13 @@ export default async function OriginalsPage() {
   const ebsSuneung2027Works = allOriginalsWorks.filter(
     post =>
       post.tags?.includes('EBS수능특강') ||
+      post.tags?.includes('EBS수능완성') ||
       post.title.includes('2027 수능특강') ||
+      post.title.includes('2027 수능완성') ||
       post.title.includes('2027학년도 수능특강') ||
-      post.excerpt.includes('2027학년도 수능특강')
+      post.title.includes('2027학년도 수능완성') ||
+      post.excerpt.includes('2027학년도 수능특강') ||
+      post.excerpt.includes('2027학년도 수능완성')
   );
 
   return (

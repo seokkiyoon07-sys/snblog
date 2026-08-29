@@ -41,7 +41,7 @@ const MARATHON_WORK_IDS = [
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: 'all', label: '전체보기' },
-  { key: 'ebs2027', label: '2027 EBS 수능특강' },
+  { key: 'ebs2027', label: '2027 EBS 연계' },
   { key: 'steady', label: '스테디 작품' },
   { key: 'school', label: '내신대비' },
 ];
