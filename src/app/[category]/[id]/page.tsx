@@ -128,6 +128,19 @@ export default async function PostPage({ params }: PostPageProps) {
     : null;
 
   const renderedContent = isSnargptGuide ? '' : renderMarkdown(content);
+  const usesReadableTechBlogLayout = [
+    'snargpt-rag-suneung-ai',
+    'snargpt-ai-startup-tech-blog',
+  ].includes(id);
+  const articleClassName = usesReadableTechBlogLayout
+    ? `${PROSE_CLASSES} mx-auto max-w-3xl
+        prose-p:my-5 prose-p:text-[1.05rem] md:prose-p:text-lg prose-p:leading-[1.95]
+        prose-h2:mt-16 prose-h2:scroll-mt-24 prose-h2:border-b prose-h2:border-slate-200
+        prose-h2:pb-4 prose-h2:text-[1.7rem] md:prose-h2:text-3xl prose-h2:leading-snug
+        prose-blockquote:my-8 prose-blockquote:rounded-r-xl prose-blockquote:bg-emerald-50
+        prose-blockquote:py-4 prose-blockquote:pr-5 prose-blockquote:not-italic
+        dark:prose-blockquote:bg-emerald-950/30`
+    : PROSE_CLASSES;
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-800 text-slate-800 dark:text-gray-100">
@@ -273,7 +286,7 @@ export default async function PostPage({ params }: PostPageProps) {
             ) : (
               <ArticleContent
                 content={renderedContent}
-                className={PROSE_CLASSES}
+                className={articleClassName}
               />
             )}
           </div>
