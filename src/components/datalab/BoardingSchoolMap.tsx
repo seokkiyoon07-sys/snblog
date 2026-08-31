@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import Script from 'next/script';
+import SchoolDetailModal from './SchoolDetailModal';
 
 // 학원 종류
 type SchoolType = 'self-study' | 'lecture';
@@ -927,6 +928,14 @@ export default function BoardingSchoolMap() {
   );
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
+  // 다른 가격 지도에서 이미 네이버 지도 SDK를 불러온 뒤 클라이언트
+  // 내비게이션으로 진입하면 Script의 onLoad가 다시 실행되지 않는다.
+  useEffect(() => {
+    if (window.naver?.maps) {
+      setIsMapLoaded(true);
+    }
+  }, []);
+
   // 전체화면 모달 필터 토글 (모바일용)
   const [isModalFilterOpen, setIsModalFilterOpen] = useState(false);
 
@@ -1053,6 +1062,12 @@ export default function BoardingSchoolMap() {
     },
     [isModalOpen]
   );
+
+  // 지도 마커는 자체적으로 위치를 이동하므로 상세 모달 상태만 책임진다.
+  const openSchoolDetail = useCallback((school: BoardingSchool) => {
+    setSelectedSchool(school);
+    setIsDetailModalOpen(true);
+  }, []);
 
   // 테이블에서 학원 클릭 시 지도로 이동 후 상세 모달 열기
   const handleSchoolClick = useCallback(
@@ -1404,10 +1419,16 @@ export default function BoardingSchoolMap() {
     markersRef.current = createMarkers(
       mapInstanceRef.current,
       filteredSchools,
-      setSelectedSchool,
+      openSchoolDetail,
       mainMapZoom
     );
-  }, [filteredSchools, isMapLoaded, createMarkers, mainMapZoom]);
+  }, [
+    filteredSchools,
+    isMapLoaded,
+    createMarkers,
+    mainMapZoom,
+    openSchoolDetail,
+  ]);
 
   // 모달 지도 초기화
   useEffect(() => {
@@ -1493,6 +1514,7 @@ export default function BoardingSchoolMap() {
       <Script
         src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=39m5xtkj2f"
         onLoad={() => setIsMapLoaded(true)}
+        onReady={() => setIsMapLoaded(true)}
         strategy="afterInteractive"
       />
 
@@ -1597,15 +1619,6 @@ export default function BoardingSchoolMap() {
           </button>
         </div>
       </div>
-
-      {/* 선택된 학원 정보 패널 (지도 마커 클릭 시) */}
-      {selectedSchool && !isModalOpen && !isDetailModalOpen && (
-        <SchoolInfoCard
-          school={selectedSchool}
-          onClose={() => setSelectedSchool(null)}
-          onNavigate={() => navigateToSchool(selectedSchool)}
-        />
-      )}
 
       {/* 필터 섹션 (지도와 목록 사이) */}
       <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-4 space-y-4">
@@ -2247,366 +2260,334 @@ export default function BoardingSchoolMap() {
 
       {/* 학원 상세 정보 모달 */}
       {isDetailModalOpen && selectedSchool && (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-        <div
-          className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
-          onClick={() => setIsDetailModalOpen(false)}
+        <SchoolDetailModal
+          open
+          onClose={() => setIsDetailModalOpen(false)}
+          title={selectedSchool.name}
+          size="md"
+          highlighted={selectedSchool.id === 'sn-academy'}
+          heroImage={
+            selectedSchool.id === 'sn-academy'
+              ? {
+                  src: '/images/Data_LAB/SN_landscape1.png',
+                  alt: '산을 배경으로 자리한 SN독학기숙학원 건물 전경',
+                }
+              : undefined
+          }
+          badges={
+            <>
+              {selectedSchool.isTop5 && (
+                <span className="rounded bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300">
+                  ⭐ TOP 5
+                </span>
+              )}
+              <span
+                className={`rounded px-2 py-0.5 text-xs font-medium ${
+                  selectedSchool.type === 'self-study'
+                    ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300'
+                    : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
+                }`}
+              >
+                {SCHOOL_TYPES[selectedSchool.type]}
+              </span>
+              <span className="rounded bg-white/80 px-2 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-700 dark:text-gray-300">
+                {REGIONS[selectedSchool.region]}
+              </span>
+              {selectedSchool.id === 'sn-academy' && (
+                <span className="rounded-full bg-emerald-700 px-2.5 py-0.5 text-xs font-bold text-white">
+                  ★ AI 특화관
+                </span>
+              )}
+            </>
+          }
+          subtitle={
+            selectedSchool.id === 'sn-academy' ? (
+              <div className="flex flex-wrap gap-x-2 gap-y-1 text-[11px]">
+                <span>#순수독학</span>
+                <span>#AI특화관</span>
+                <span>#남학생(2026년 현재)</span>
+                <span>#2025 ALL리모델링</span>
+              </div>
+            ) : undefined
+          }
         >
-          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-          <div
-            className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden"
-            onClick={e => e.stopPropagation()}
-          >
-            {/* 헤더 */}
-            <div className="px-5 py-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20">
-              <div className="flex items-start justify-between">
-                <div>
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    {selectedSchool.isTop5 && (
-                      <span className="px-2 py-0.5 text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded">
-                        ⭐ TOP 5
-                      </span>
-                    )}
-                    <span
-                      className={`px-2 py-0.5 text-xs font-medium rounded ${
-                        selectedSchool.type === 'self-study'
-                          ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
-                          : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
-                      }`}
-                    >
-                      {SCHOOL_TYPES[selectedSchool.type]}
-                    </span>
-                    <span className="px-2 py-0.5 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
-                      {REGIONS[selectedSchool.region]}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                    {selectedSchool.name}
-                  </h3>
-                  {/* SN 특징 태그 */}
-                  {selectedSchool.id === 'sn-academy' && (
-                    <div className="flex flex-wrap gap-1.5 mt-2">
-                      <span className="text-[10px] text-gray-500 dark:text-gray-400">
-                        #순수독학
-                      </span>
-                      <span className="text-[10px] text-gray-500 dark:text-gray-400">
-                        #AI특화관
-                      </span>
-                      <span className="text-[10px] text-gray-500 dark:text-gray-400">
-                        #남학생(2026년 현재)
-                      </span>
-                      <span className="text-[10px] text-gray-500 dark:text-gray-400">
-                        #설립 2014.11
-                      </span>
-                      <span className="text-[10px] text-gray-500 dark:text-gray-400">
-                        #2025 ALL리모델링
-                      </span>
-                      <span className="text-[10px] text-gray-500 dark:text-gray-400">
-                        #독서실책상(1200~1400)
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <button
-                  onClick={() => setIsDetailModalOpen(false)}
-                  className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            {/* 본문 */}
-            <div className="p-5 space-y-4">
-              {/* 주요 정보 */}
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                    정원
-                  </p>
-                  <p className="text-2xl font-bold text-gray-900 dark:text-white">
-                    {selectedSchool.capacity}
-                    <span className="text-sm font-normal">명</span>
-                  </p>
-                </div>
-                <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                    월 수강료
-                  </p>
-                  {selectedSchool.id === 'sn-academy' ? (
-                    <div className="space-y-0.5">
-                      <p
-                        className="text-sm font-bold"
-                        style={{ color: getPriceColor(245) }}
-                      >
-                        245만원
-                      </p>
-                      <p
-                        className="text-sm font-bold"
-                        style={{ color: getPriceColor(265) }}
-                      >
-                        265만원(2인실)
-                      </p>
-                    </div>
-                  ) : (
-                    <p
-                      className="text-2xl font-bold"
-                      style={{
-                        color: getPriceColor(selectedSchool.monthlyPrice),
-                      }}
-                    >
-                      {selectedSchool.priceDisplay}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* 성별 */}
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-500 dark:text-gray-400">
-                  대상:
-                </span>
-                <span
-                  className={`px-2 py-1 text-sm font-medium rounded ${
-                    selectedSchool.gender === 'male'
-                      ? 'bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300'
-                      : selectedSchool.gender === 'female'
-                        ? 'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
-                  }`}
-                >
-                  {selectedSchool.gender === 'male'
-                    ? '남학생'
-                    : selectedSchool.gender === 'female'
-                      ? '여학생'
-                      : '남/여 공학'}
-                </span>
-              </div>
-
-              {/* 주소 */}
+          <div className="space-y-4">
+            {/* 주요 정보 */}
+            <div className="grid grid-cols-2 gap-3">
               <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                  주소
+                  정원
                 </p>
-                <p className="text-sm text-gray-900 dark:text-white">
-                  {selectedSchool.location}
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                  {selectedSchool.capacity}
+                  <span className="text-sm font-normal">명</span>
                 </p>
               </div>
-
-              {/* SN독학기숙학원 연락처 및 링크 */}
-              {selectedSchool.id === 'sn-academy' && (
-                <div className="space-y-3">
-                  {/* 상담 버튼 */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <a
-                      href="tel:031-771-0300"
-                      className="flex items-center justify-center gap-2 py-3 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-xl hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors"
+              <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                  월 수강료
+                </p>
+                {selectedSchool.id === 'sn-academy' ? (
+                  <div className="space-y-0.5">
+                    <p
+                      className="text-sm font-bold"
+                      style={{ color: getPriceColor(245) }}
                     >
-                      <img
-                        src="/images/Data_LAB/phone.png"
-                        alt="전화"
-                        className="w-5 h-5"
-                      />
-                      <span className="font-medium">전화상담</span>
-                    </a>
-                    <a
-                      href="http://pf.kakao.com/_exjtgj/chat"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 py-3 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-xl hover:bg-yellow-100 dark:hover:bg-yellow-900/50 transition-colors"
-                    >
-                      <img
-                        src="/images/Data_LAB/KakaoTalk.png"
-                        alt="카카오톡"
-                        className="w-5 h-5"
-                      />
-                      <span className="font-medium">카카오톡</span>
-                    </a>
-                  </div>
-                  {/* 공식 링크 */}
-                  <div className="grid grid-cols-3 gap-2">
-                    <a
-                      href="https://www.snacademy.co.kr"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-1.5 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-                    >
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                        />
-                      </svg>
-                      <span className="text-sm font-medium">홈페이지</span>
-                    </a>
-                    <a
-                      href="https://blog.snacademy.co.kr"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-1.5 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-                    >
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-                        />
-                      </svg>
-                      <span className="text-sm font-medium">블로그</span>
-                    </a>
-                    <a
-                      href="https://www.youtube.com/@SN_Gi_Suk"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-1.5 py-2.5 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors"
-                    >
-                      <svg
-                        className="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                      </svg>
-                      <span className="text-sm font-medium">유튜브</span>
-                    </a>
-                  </div>
-                  {/* 장학금 혜택 */}
-                  <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-xl p-4">
-                    <p className="text-sm font-bold text-amber-700 dark:text-amber-300 mb-3">
-                      🎓 장학금 혜택
+                      245만원
                     </p>
-                    <div className="grid grid-cols-2 gap-3 text-sm">
-                      <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">
-                          모의고사 (국수영 3합)
+                    <p
+                      className="text-sm font-bold"
+                      style={{ color: getPriceColor(265) }}
+                    >
+                      265만원(2인실)
+                    </p>
+                  </div>
+                ) : (
+                  <p
+                    className="text-2xl font-bold"
+                    style={{
+                      color: getPriceColor(selectedSchool.monthlyPrice),
+                    }}
+                  >
+                    {selectedSchool.priceDisplay}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* 성별 */}
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-500 dark:text-gray-400">
+                대상:
+              </span>
+              <span
+                className={`px-2 py-1 text-sm font-medium rounded ${
+                  selectedSchool.gender === 'male'
+                    ? 'bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300'
+                    : selectedSchool.gender === 'female'
+                      ? 'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
+                }`}
+              >
+                {selectedSchool.gender === 'male'
+                  ? '남학생'
+                  : selectedSchool.gender === 'female'
+                    ? '여학생'
+                    : '남/여 공학'}
+              </span>
+            </div>
+
+            {/* 주소 */}
+            <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                주소
+              </p>
+              <p className="text-sm text-gray-900 dark:text-white">
+                {selectedSchool.location}
+              </p>
+            </div>
+
+            {/* SN독학기숙학원 연락처 및 링크 */}
+            {selectedSchool.id === 'sn-academy' && (
+              <div className="space-y-3">
+                {/* 상담 버튼 */}
+                <div className="grid grid-cols-2 gap-3">
+                  <a
+                    href="tel:031-771-0300"
+                    className="flex items-center justify-center gap-2 py-3 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-xl hover:bg-emerald-100 dark:hover:bg-emerald-900/50 transition-colors"
+                  >
+                    <img
+                      src="/images/Data_LAB/phone.png"
+                      alt="전화"
+                      className="w-5 h-5"
+                    />
+                    <span className="font-medium">전화상담</span>
+                  </a>
+                  <a
+                    href="http://pf.kakao.com/_exjtgj/chat"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 py-3 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-xl hover:bg-yellow-100 dark:hover:bg-yellow-900/50 transition-colors"
+                  >
+                    <img
+                      src="/images/Data_LAB/KakaoTalk.png"
+                      alt="카카오톡"
+                      className="w-5 h-5"
+                    />
+                    <span className="font-medium">카카오톡</span>
+                  </a>
+                </div>
+                {/* 공식 링크 */}
+                <div className="grid grid-cols-3 gap-2">
+                  <a
+                    href="https://www.snacademy.co.kr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                      />
+                    </svg>
+                    <span className="text-sm font-medium">홈페이지</span>
+                  </a>
+                  <a
+                    href="https://blog.snacademy.co.kr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                      />
+                    </svg>
+                    <span className="text-sm font-medium">블로그</span>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@SN_Gi_Suk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-2.5 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors"
+                  >
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                    <span className="text-sm font-medium">유튜브</span>
+                  </a>
+                </div>
+                {/* 장학금 혜택 */}
+                <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-xl p-4">
+                  <p className="text-sm font-bold text-amber-700 dark:text-amber-300 mb-3">
+                    🎓 장학금 혜택
+                  </p>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">
+                        모의고사 (국수영 3합)
+                      </p>
+                      <div className="space-y-1 text-gray-700 dark:text-gray-300">
+                        <p>
+                          3합 3등급 →{' '}
+                          <span className="font-bold text-amber-600 dark:text-amber-400">
+                            50% + @
+                          </span>
                         </p>
-                        <div className="space-y-1 text-gray-700 dark:text-gray-300">
-                          <p>
-                            3합 3등급 →{' '}
-                            <span className="font-bold text-amber-600 dark:text-amber-400">
-                              50% + @
-                            </span>
-                          </p>
-                          <p>
-                            3합 4등급 →{' '}
-                            <span className="font-bold text-amber-600 dark:text-amber-400">
-                              50%
-                            </span>
-                          </p>
-                          <p>
-                            3합 5등급 →{' '}
-                            <span className="font-bold text-amber-600 dark:text-amber-400">
-                              20%
-                            </span>
-                          </p>
-                        </div>
-                      </div>
-                      <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">
-                          내신 (전과목)
+                        <p>
+                          3합 4등급 →{' '}
+                          <span className="font-bold text-amber-600 dark:text-amber-400">
+                            50%
+                          </span>
                         </p>
-                        <div className="space-y-1 text-gray-700 dark:text-gray-300">
-                          <p>
-                            1.2 이내 →{' '}
-                            <span className="font-bold text-amber-600 dark:text-amber-400">
-                              50%
-                            </span>
-                          </p>
-                          <p>
-                            1.3 이내 →{' '}
-                            <span className="font-bold text-amber-600 dark:text-amber-400">
-                              40%
-                            </span>
-                          </p>
-                          <p>
-                            1.4 이내 →{' '}
-                            <span className="font-bold text-amber-600 dark:text-amber-400">
-                              20%
-                            </span>
-                          </p>
-                        </div>
+                        <p>
+                          3합 5등급 →{' '}
+                          <span className="font-bold text-amber-600 dark:text-amber-400">
+                            20%
+                          </span>
+                        </p>
                       </div>
                     </div>
-                    <a
-                      href="https://www.snacademy.co.kr/admission/admission_scholarship.asp"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-3 text-sm text-amber-600 dark:text-amber-400 hover:underline"
-                    >
-                      자세히 보기 →
-                    </a>
+                    <div>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1.5">
+                        내신 (전과목)
+                      </p>
+                      <div className="space-y-1 text-gray-700 dark:text-gray-300">
+                        <p>
+                          1.2 이내 →{' '}
+                          <span className="font-bold text-amber-600 dark:text-amber-400">
+                            50%
+                          </span>
+                        </p>
+                        <p>
+                          1.3 이내 →{' '}
+                          <span className="font-bold text-amber-600 dark:text-amber-400">
+                            40%
+                          </span>
+                        </p>
+                        <p>
+                          1.4 이내 →{' '}
+                          <span className="font-bold text-amber-600 dark:text-amber-400">
+                            20%
+                          </span>
+                        </p>
+                      </div>
+                    </div>
                   </div>
+                  <a
+                    href="https://www.snacademy.co.kr/admission/admission_scholarship.asp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-3 text-sm text-amber-600 dark:text-amber-400 hover:underline"
+                  >
+                    자세히 보기 →
+                  </a>
                 </div>
-              )}
+              </div>
+            )}
 
-              {/* 지도에서 보기 버튼 */}
-              <button
-                onClick={() => {
-                  setIsDetailModalOpen(false);
-                  if (mapInstanceRef.current && window.naver) {
-                    const latlng = new window.naver.maps.LatLng(
-                      selectedSchool.lat,
-                      selectedSchool.lng
-                    );
-                    mapInstanceRef.current.panTo(latlng);
-                    (
-                      mapInstanceRef.current as unknown as {
-                        setZoom: (level: number) => void;
-                      }
-                    ).setZoom(12);
-                  }
-                }}
-                className="w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-xl hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+            {/* 지도에서 보기 버튼 */}
+            <button
+              onClick={() => {
+                setIsDetailModalOpen(false);
+                if (mapInstanceRef.current && window.naver) {
+                  const latlng = new window.naver.maps.LatLng(
+                    selectedSchool.lat,
+                    selectedSchool.lng
+                  );
+                  mapInstanceRef.current.panTo(latlng);
+                  (
+                    mapInstanceRef.current as unknown as {
+                      setZoom: (level: number) => void;
+                    }
+                  ).setZoom(12);
+                }
+              }}
+              className="w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-xl hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                지도에서 위치 보기
-              </button>
-            </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              지도에서 위치 보기
+            </button>
           </div>
-        </div>
+        </SchoolDetailModal>
       )}
 
       {/* 전체 화면 모달 */}
