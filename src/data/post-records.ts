@@ -2,6 +2,33 @@ import type { Post } from './posts';
 
 export const allPosts: Post[] = [
   {
+    id: '2027-september-mock-korean-analysis',
+    title:
+      '2027학년도 9월 모의평가 국어 분석｜정답·난이도·고난도 문항과 수능 대비법',
+    excerpt:
+      '2027학년도 9월 모의평가 국어 정답과 예상 등급컷, 독서 8·13번 등 주요 변별 문항, 영역별 출제 구조와 수능까지의 학습 방향을 분석합니다.',
+    category: 'korean-problem',
+    subcategory: 'column-korean',
+    tags: [
+      '2027학년도 9월 모의평가',
+      '2027 9월 모의고사 국어',
+      '9월 모평 국어',
+      '국어 정답',
+      '국어 난이도',
+      '국어 등급컷',
+      '국어 해설',
+      '화법과 작문',
+      '언어와 매체',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-09-02',
+    readTime: '10',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/problem-download/260902_Korean_thumbnail.png',
+    url: '/problem-download/2027-september-mock-korean-analysis',
+  },
+  {
     id: 'manbunga',
     title:
       '사미인곡이 물려받은 그 노래(feat. 여성 화자) | EBS 2027 수능완성 문학 고전가사 조위 「만분가」',

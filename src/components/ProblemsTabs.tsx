@@ -202,7 +202,11 @@ export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
                       src={post.thumbnail}
                       alt={post.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      className={
+                        post.id === '2027-september-mock-korean-analysis'
+                          ? 'object-contain p-3 bg-gray-50 dark:bg-gray-800 group-hover:scale-[1.03] transition-transform duration-300'
+                          : 'object-cover group-hover:scale-110 transition-transform duration-300'
+                      }
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
