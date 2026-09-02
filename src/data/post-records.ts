@@ -2,6 +2,34 @@ import type { Post } from './posts';
 
 export const allPosts: Post[] = [
   {
+    id: '2027-september-mock-math-solution',
+    title:
+      '2027학년도 9월 모의평가 수학 문제 및 해설 | 정답·시험지·46문항 풀이',
+    excerpt:
+      '2027학년도 9월 모의평가 수학 문제지와 정답 PDF, 공통·확통·미적분·기하 46문항 전체 풀이를 정리합니다. 문항별 정답과 출제 단원, 시험 분석을 함께 확인하세요.',
+    category: 'problem-download',
+    subcategory: 'column-math',
+    tags: [
+      '2027학년도 9월 모의평가',
+      '2027 9월 모의고사 수학',
+      '9월 모평 수학',
+      '수학 문제',
+      '수학 해설',
+      '수학 정답',
+      '수학 답지',
+      '수학 문제지 PDF',
+      '공통 확통 미적 기하',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-09-02',
+    readTime: '12',
+    featured: false,
+    published: true,
+    thumbnail:
+      '/images/thumbnail/problem-download/20260902_math_thumbnail.png',
+    url: '/problem-download/2027-september-mock-math-solution',
+  },
+  {
     id: '2027-september-mock-korean-analysis',
     title:
       '2027학년도 9월 모의평가 국어 분석｜정답·난이도·고난도 문항과 수능 대비법',
