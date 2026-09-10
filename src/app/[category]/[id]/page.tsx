@@ -128,6 +128,7 @@ export default async function PostPage({ params }: PostPageProps) {
     : null;
 
   const renderedContent = isSnargptGuide ? '' : renderMarkdown(content);
+  const isUpdateTimeline = post.id === 'snargpt-development-2026';
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-800 text-slate-800 dark:text-gray-100">
@@ -144,7 +145,13 @@ export default async function PostPage({ params }: PostPageProps) {
       </div>
 
       {/* Hero */}
-      <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24">
+      <section
+        className={
+          isUpdateTimeline
+            ? 'px-6 md:px-10 lg:px-16 pt-10 pb-6'
+            : 'px-6 md:px-10 lg:px-16 py-16 md:py-24'
+        }
+      >
         <div className="mx-auto max-w-5xl">
           <div className="text-center mb-12">
             {post.badge && (
@@ -154,7 +161,13 @@ export default async function PostPage({ params }: PostPageProps) {
                 </span>
               </div>
             )}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+            <h1
+              className={
+                isUpdateTimeline
+                  ? 'text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight'
+                  : 'text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight'
+              }
+            >
               {post.title.includes('\n') ? (
                 <>
                   {post.title.split('\n')[0]}
@@ -216,7 +229,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
 
           {/* 썸네일 (YouTube 영상이 없을 때만) */}
-          {post.thumbnail && !post.youtubeUrl && (
+          {post.thumbnail && !post.youtubeUrl && !isUpdateTimeline && (
             <div className="mb-12">
               <Image
                 src={post.thumbnail}
@@ -249,7 +262,7 @@ export default async function PostPage({ params }: PostPageProps) {
           )}
 
           {/* 태그 */}
-          {post.tags && post.tags.length > 0 && (
+          {post.tags && post.tags.length > 0 && !isUpdateTimeline && (
             <div className="flex flex-wrap gap-2 mb-12 justify-center">
               {post.tags.map(tag => (
                 <span
@@ -267,13 +280,19 @@ export default async function PostPage({ params }: PostPageProps) {
       {/* 콘텐츠 */}
       <section className="px-6 md:px-10 lg:px-16 pb-24">
         <div className="mx-auto max-w-4xl">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
+          <div
+            className={
+              isUpdateTimeline
+                ? ''
+                : 'bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12'
+            }
+          >
             {snargptParts ? (
               <SNarGPTGuidePost renderedParts={snargptParts} />
             ) : (
               <ArticleContent
                 content={renderedContent}
-                className={PROSE_CLASSES}
+                className={isUpdateTimeline ? '' : PROSE_CLASSES}
               />
             )}
           </div>

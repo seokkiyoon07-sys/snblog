@@ -130,3 +130,7 @@ backups/
 
 # Student data (IMPORTANT: Keep actual student data private!)
 data/students.csv
+
+# Local SNarGPT development notes
+/md/SNarGPT_development_notes.md
+/md/SNarGPT_development_notes.html

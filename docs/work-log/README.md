@@ -7,3 +7,4 @@
 | 2026-09-10 | [배포 작업 정리 및 블로그 경량화](2026-09-10-blog-optimization.md)            |
 | 2026-09-10 | [문제 다운로드 통합사회·통합과학 추가](2026-09-10-integrated-subjects.md)     |
 | 2026-09-10 | [SN Originals 소개 글 가독성 수정](2026-09-10-originals-intro-readability.md) |
+| 2026-09-10 | [SNarGPT 개발 기록 공개용 글 작성](2026-09-10-snargpt-development-article.md) |

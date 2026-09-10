@@ -2,6 +2,22 @@ import type { Post } from './posts';
 
 export const allPosts: Post[] = [
   {
+    id: 'snargpt-development-2026',
+    title: 'SNarGPT 업데이트 노트',
+    excerpt:
+      '기출 검색부터 개인 자료 관리, 음성 학습과 예약 실행까지. SNarGPT의 변화를 날짜별로 확인하세요.',
+    category: 'startup',
+    subcategory: 'tech-blog',
+    tags: ['SNarGPT', '개발노트', '교육AI', 'RAG', 'SNarGen', '에듀테크'],
+    author: 'SN Academy',
+    date: '2026-09-10',
+    readTime: '9',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/startup/260910_SNargpt_update_note.png',
+    url: '/startup/snargpt-development-2026',
+  },
+  {
     id: 'gihangji-1',
     title:
       '겨울 항구에 서 본 적 있나요? 이 시가 딱 그 마음입니다 | EBS 2027 수능완성 문학 현대시 황동규 「기항지 1」',
