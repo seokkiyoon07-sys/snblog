@@ -106,8 +106,12 @@ export default async function OriginalsPostPage({
                 </span>
               </div>
             )}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
-              {post.title}
+            <h1
+              className={`${post.id === 'sn-originals-intro' ? 'text-3xl md:text-4xl leading-snug break-keep' : 'text-4xl md:text-5xl lg:text-6xl leading-tight'} font-bold text-slate-900 dark:text-white mb-6`}
+            >
+              {post.id === 'sn-originals-intro'
+                ? 'SN Originals 고전문학 시리즈를 소개합니다'
+                : post.title}
             </h1>
             <p className="text-xl text-slate-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
               {post.excerpt}
