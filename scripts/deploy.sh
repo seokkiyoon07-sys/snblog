@@ -48,20 +48,6 @@ check_environment() {
     log_success "환경 확인 완료"
 }
 
-# 의존성 설치
-install_dependencies() {
-    log_info "의존성을 설치하는 중..."
-    npm ci
-    log_success "의존성 설치 완료"
-}
-
-# 빌드
-build_project() {
-    log_info "프로젝트를 빌드하는 중..."
-    npm run build
-    log_success "빌드 완료"
-}
-
 # GitHub에 푸시
 deploy_github() {
     log_info "GitHub에 푸시하는 중..."
@@ -121,7 +107,7 @@ deploy_docker() {
     docker-compose down
     
     # 이미지 빌드
-    docker-compose build --no-cache
+    docker-compose build
     
     # 컨테이너 시작
     docker-compose up -d
@@ -138,8 +124,6 @@ main() {
     log_info "배포 타입: $deploy_type"
     
     check_environment
-    install_dependencies
-    build_project
     
     case $deploy_type in
         "github")
@@ -153,7 +137,6 @@ main() {
             ;;
         "all")
             deploy_github
-            deploy_vercel
             deploy_docker
             ;;
         *)

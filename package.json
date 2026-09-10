@@ -30,7 +30,9 @@
     "docker:run": "docker run -p 3000:3000 snblog",
     "docker:compose": "docker-compose up -d",
     "docker:down": "docker-compose down",
-    "docker:logs": "docker-compose logs -f"
+    "docker:logs": "docker-compose logs -f",
+    "optimize:thumbnails": "node scripts/optimize-thumbnails.cjs --write",
+    "test:post-tools": "node --test scripts/post-tools.test.cjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
@@ -38,8 +40,6 @@
     "@radix-ui/react-tabs": "^1.1.13",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/line-clamp": "^0.4.4",
-    "@tanstack/react-query": "^5.8.4",
-    "@tanstack/react-query-devtools": "^5.8.4",
     "@vercel/analytics": "^2.0.1",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
@@ -82,6 +82,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.20.6",
-    "typescript": "^5"
+    "typescript": "^5",
+    "sharp": "^0.34.3"
   }
 }

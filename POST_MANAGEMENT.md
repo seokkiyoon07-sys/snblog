@@ -1,189 +1,51 @@
-# 📝 포스트 관리 가이드
+# 글 작성과 배포
 
-## 🚨 중요 안전 수칙
+## 글 추가·수정
 
-### ❌ 절대 하지 말 것
+1. `src/data/post-records.ts`의 `allPosts`에 메타데이터를 추가합니다.
+2. 본문은 `content/{폴더}/{id}.html`에 작성합니다.
+3. 썸네일은 `public/images/thumbnail/` 아래에 저장합니다.
 
-- **Notion 동기화 자동 실행** (현재 비활성화됨)
-- **posts.ts 파일을 외부 도구로 덮어쓰기**
-- **백업 없이 대량 수정**
+`src/data/posts.ts`는 조회·검색 함수와 타입을 제공하는 파일입니다. 여기에 글 본문을 넣지 않습니다.
 
-### ✅ 안전한 포스트 관리 방법
+카테고리와 본문 폴더가 다른 경우:
 
-## 1. 포스트 추가/수정
+| category       | 본문 폴더        |
+| -------------- | ---------------- |
+| SN Originals   | originals        |
+| SN History     | history          |
+| korean-problem | problem-download |
 
-### 📝 새 포스트 추가
+나머지는 카테고리 이름과 같습니다. 지도·문제 뷰어 등 전용 React 화면은 기존 전용 컴포넌트를 사용합니다.
 
-```typescript
-// src/data/posts.ts 파일에서 직접 추가
-{
-  id: 'unique-post-id',
-  title: '포스트 제목',
-  excerpt: '포스트 요약',
-  content: `# 포스트 내용
+## 썸네일
 
-  상세한 마크다운 내용을 여기에 작성하세요.
-  `,
-  category: 'originals', // originals, startup, columns, problems, reviews, admissions
-  tags: ['태그1', '태그2'],
-  author: 'SN Academy',
-  date: '2025-10-XX',
-  readTime: '5',
-  featured: false,
-  published: true,
-  thumbnail: 'https://example.com/image.jpg',
-  youtubeUrl: 'https://www.youtube.com/watch?v=VIDEO_ID', // 선택사항
-  url: '/category/post-id'
-}
-```
+게시용 이미지는 가급적 가로 1,280px, 수백 KB로 준비합니다. 원본은 별도로 보관합니다.
 
-### ✏️ 기존 포스트 수정
+`npm run optimize:thumbnails`는 Git에 등록된 PNG/JPEG/WebP 썸네일을 경량화합니다. 300KB 이상인 파일을 최대 1,280×1,280 경계 안에 비율 유지하여 축소하고 압축하며, 파일명·확장자·URL은 유지합니다. 새 이미지는 먼저 해당 파일만 `git add`로 등록한 뒤 실행하세요. 원본 복구에는 Git을 사용합니다.
 
-1. `src/data/posts.ts` 파일에서 해당 포스트 찾기
-2. 필요한 필드 수정
-3. 변경사항 저장 및 커밋
+`node scripts/optimize-thumbnails.cjs`는 파일을 쓰지 않고 예상 절감량만 출력합니다. 압축은 배포 빌드에서 실행하지 않습니다.
 
-## 2. 백업 및 복구
+## 백업·복구
 
-### 💾 백업 생성
+- `npm run backup:posts`: `post-records.ts`, `posts.ts`, `content/` 전체를 `backups/posts-backup-.../`에 복사합니다.
+- `npm run restore:posts`: 번호로 백업을 선택합니다. 현재 상태를 먼저 백업하고 메타데이터·본문을 복구합니다.
+- 백업 이후 새로 추가된 본문 파일은 삭제하지 않습니다. 메타데이터가 복구되므로 새 글은 목록에서 제외될 수 있습니다.
+- 이미지·전용 React 컴포넌트는 이 백업에 포함되지 않습니다. Git으로 관리합니다.
+- 예전 단일 `.ts` 백업은 새 복구 목록에 표시하지 않습니다. 이전 전체 글 데이터로 현재 조회 함수를 덮어쓰지 마세요.
 
-```bash
-npm run backup:posts
-```
+## 배포
 
-### 🔄 백업에서 복구
+운영 배포는 기존 **Vercel Git 연동 → main 푸시**를 사용합니다. GitHub Actions `Validate Blog`는 Node 22에서 설치·lint·도구 테스트·프로덕션 빌드·홈 응답을 검증합니다. Actions에서 Vercel·Docker로 재배포하지 않습니다. Vercel 배포는 이 검증과 별도로 실행됩니다.
 
-```bash
-npm run restore:posts
-```
+변경할 파일만 커밋한 뒤 `git push origin main`을 실행합니다. Vercel 프로젝트의 Production Branch는 `main`, Build Command는 `npm run build`를 유지합니다. `vercel.json`은 변경할 필요가 없습니다.
 
-## 3. 안전한 작업 순서
+`npm run deploy:vercel`은 Vercel CLI로 직접 배포하는 대체 경로이며 로컬 설치·빌드를 반복하지 않습니다. 평소 Git 연동 배포와 중복 실행하지 마세요. Windows에서는 `scripts/deploy.sh`에 Git Bash가 필요하며, 일반 Git 명령으로 푸시할 수도 있습니다.
 
-### 📋 포스트 작업 전
+## 글 알림
 
-1. **백업 생성**: `npm run backup:posts`
-2. **현재 상태 확인**: Git 상태 확인
-3. **작업 시작**: 포스트 수정/추가
+`main`에 `src/data/post-records.ts` 또는 `content/**` 변경이 올라오면 기존 Jandi 채널로 알립니다. 푸시 이전/이후 전체 변경을 비교해 새 글·메타데이터 수정·본문 수정·공개 전환을 감지합니다. 비공개 글과 삭제된 글은 알리지 않습니다. 여러 글이 바뀌면 각각 알립니다.
 
-### 📋 포스트 작업 후
+알림은 푸시 기준이며 배포 성공 알림이 아닙니다. Vercel 성공 여부는 별도로 확인하세요. `scripts/notify-posts.cjs`는 기본적으로 전송하지 않으며 `--send`가 있어야 전송합니다.
 
-1. **로컬 테스트**: `npm run dev`로 확인
-2. **변경사항 커밋**: `git add . && git commit -m "Add/Update post"`
-3. **푸시**: `git push origin main`
-4. **배포 확인**: 웹사이트에서 확인
-
-## 4. 카테고리별 포스트 관리
-
-### 🎭 SN Originals (originals)
-
-- 고전문학 시리즈 포스트
-- YouTube 영상 연계 필수
-- 글로벌 관점의 설명 포함
-
-### 🚀 AI Startup (startup)
-
-- AI 스타트업 관련 포스트
-- 기술적 내용과 비전 포함
-
-### 📰 Columns (columns)
-
-- 일반적인 칼럼 포스트
-- 학원 관련 소식
-
-### ❓ Problems (problems)
-
-- 문제 해결 관련 포스트
-
-### ⭐ Reviews (reviews)
-
-- 사용 후기 포스트
-
-### 📚 Admissions (admissions)
-
-- 입시 정보 포스트
-
-## 5. 긴급 상황 대응
-
-### 🚨 포스트가 날아갔을 때
-
-1. **백업 확인**: `backups/` 폴더에서 최신 백업 찾기
-2. **복구 실행**: `npm run restore:posts`
-3. **Git 히스토리 확인**: `git log --oneline -10`
-4. **이전 커밋에서 복구**: `git checkout COMMIT_HASH -- src/data/posts.ts`
-
-### 🚨 Notion 동기화가 다시 활성화되었을 때
-
-1. **즉시 비활성화**: `.github/workflows/notion-sync.yml` 수정
-2. **백업에서 복구**: `npm run restore:posts`
-3. **변경사항 커밋**: `git add . && git commit -m "Emergency restore"`
-
-## 6. 포스트 품질 체크리스트
-
-### ✅ 필수 요소
-
-- [ ] 고유한 ID
-- [ ] 명확한 제목
-- [ ] 적절한 요약 (excerpt)
-- [ ] 상세한 내용 (content)
-- [ ] 올바른 카테고리
-- [ ] 관련 태그
-- [ ] 작성자 정보
-- [ ] 작성 날짜
-- [ ] 예상 읽기 시간
-- [ ] 발행 상태 (published: true)
-- [ ] 올바른 URL
-
-### ✅ 선택 요소
-
-- [ ] 썸네일 이미지
-- [ ] YouTube 영상 링크
-- [ ] Featured 포스트 여부
-
-## 7. 자주 사용하는 명령어
-
-```bash
-# 개발 서버 실행
-npm run dev
-
-# 빌드 테스트
-npm run build
-
-# 포스트 백업
-npm run backup:posts
-
-# 포스트 복구
-npm run restore:posts
-
-# Git 상태 확인
-git status
-
-# 변경사항 커밋
-git add .
-git commit -m "포스트 수정/추가"
-git push origin main
-```
-
-## 8. 문제 해결
-
-### 🔧 빌드 오류 시
-
-1. TypeScript 오류 확인: `npm run build`
-2. 문법 오류 수정
-3. 다시 빌드 테스트
-
-### 🔧 포스트가 안 보일 때
-
-1. `published: true` 확인
-2. 올바른 카테고리 확인
-3. URL 경로 확인
-4. 브라우저 캐시 새로고침
-
-### 🔧 이미지가 안 보일 때
-
-1. 이미지 URL 확인
-2. `public/` 폴더에 이미지 있는지 확인
-3. 외부 이미지 URL 접근 가능한지 확인
-
----
-
-**⚠️ 중요**: 이 가이드를 따라하면 포스트 손실을 방지할 수 있습니다!
+검증: `npm run test:post-tools`, `npm run lint`, `npm run build`.

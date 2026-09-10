@@ -1,5 +1,3 @@
-'use client';
-
 import { getLatestPosts, allPosts } from '@/data/posts';
 import TrackedPostLink from '@/components/analytics/TrackedPostLink';
 
