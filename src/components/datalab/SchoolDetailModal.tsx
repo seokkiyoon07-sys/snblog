@@ -16,7 +16,8 @@ interface SchoolDetailModalProps {
   badges?: ReactNode;
   subtitle?: ReactNode;
   children: ReactNode;
-  size?: 'md' | 'lg';
+  size?: 'md' | 'lg' | 'fullscreen';
+  active?: boolean;
   highlighted?: boolean;
   heroImage?: ModalHeroImage;
 }
@@ -29,6 +30,7 @@ export default function SchoolDetailModal({
   subtitle,
   children,
   size = 'lg',
+  active = true,
   highlighted = false,
   heroImage,
 }: SchoolDetailModalProps) {
@@ -37,7 +39,7 @@ export default function SchoolDetailModal({
   const panelRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open || !active) return;
 
     const previousOverflow = document.body.style.overflow;
     const previouslyFocusedElement =
@@ -51,7 +53,7 @@ export default function SchoolDetailModal({
 
       const focusableElements = Array.from(
         panelRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
         )
       );
       const firstElement = focusableElements[0];
@@ -73,13 +75,16 @@ export default function SchoolDetailModal({
       window.removeEventListener('keydown', handleKeyDown);
       previouslyFocusedElement?.focus();
     };
-  }, [onClose, open]);
+  }, [onClose, open, active]);
 
   if (!open || typeof document === 'undefined') return null;
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[70] flex items-end justify-center bg-slate-950/65 p-0 backdrop-blur-[2px] sm:items-center sm:p-4"
+      role="presentation"
+      inert={!active}
+      aria-hidden={!active || undefined}
+      className={`fixed inset-0 z-[70] flex items-end justify-center bg-slate-950/65 backdrop-blur-[2px] ${size === 'fullscreen' ? 'p-0' : 'p-0 sm:items-center sm:p-4'}`}
       onMouseDown={event => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -87,10 +92,12 @@ export default function SchoolDetailModal({
       <section
         ref={panelRef}
         role="dialog"
-        aria-modal="true"
+        aria-modal={active ? true : undefined}
         aria-labelledby={titleId}
-        className={`relative flex max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-3xl bg-white shadow-2xl sm:max-h-[88dvh] sm:rounded-2xl dark:bg-slate-900 ${
-          size === 'md' ? 'sm:max-w-md' : 'sm:max-w-2xl'
+        className={`relative flex w-full flex-col overflow-hidden bg-white shadow-2xl dark:bg-slate-900 ${
+          size === 'fullscreen'
+            ? 'h-dvh max-h-dvh'
+            : `max-h-[92dvh] rounded-t-3xl sm:max-h-[88dvh] sm:rounded-2xl ${size === 'md' ? 'sm:max-w-md' : 'sm:max-w-2xl'}`
         }`}
       >
         <header
@@ -118,7 +125,7 @@ export default function SchoolDetailModal({
           ref={closeButtonRef}
           type="button"
           onClick={onClose}
-          aria-label={`${title} 상세정보 닫기`}
+          aria-label={`${title} ${size === 'fullscreen' ? '전체화면' : '상세정보'} 닫기`}
           className="absolute right-4 top-4 z-10 rounded-full bg-white/80 p-2 text-slate-500 shadow-sm transition hover:bg-white hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-slate-800/90 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white"
         >
           <svg
@@ -156,7 +163,13 @@ export default function SchoolDetailModal({
           </figure>
         )}
 
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-5 sm:p-6">
+        <div
+          className={
+            size === 'fullscreen'
+              ? 'relative min-h-0 flex-1 overflow-hidden'
+              : 'min-h-0 flex-1 overflow-y-auto overscroll-contain p-5 sm:p-6'
+          }
+        >
           {children}
         </div>
       </section>

@@ -3,7 +3,15 @@
 import Link from 'next/link';
 import Script from 'next/script';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Clock3, ExternalLink, Filter, MapPin, Search, X } from 'lucide-react';
+import {
+  Clock3,
+  ExternalLink,
+  Filter,
+  MapPin,
+  Maximize2,
+  Search,
+  X,
+} from 'lucide-react';
 import {
   getFiveWeekEquivalentWinterPrice,
   getRepresentativeWinterProgram,
@@ -21,13 +29,25 @@ import {
 } from '@/data/datalab/winter-schools-2027';
 import SchoolDetailModal from './SchoolDetailModal';
 
-type PriceFilter = 'all' | 'under-300' | '300' | '400' | '500' | 'pending';
+type PriceFilter =
+  | 'all'
+  | 'under-300'
+  | '300'
+  | '400'
+  | '500'
+  | 'pending'
+  | 'monthly';
 type DurationFilter = 'all' | 'short' | 'five-weeks' | 'long' | 'pending';
 
 const SN_ACADEMY_ID = 'sn-academy';
 
 interface NaverMapInstance {
   panTo(position: unknown): void;
+  getCenter(): unknown;
+  getZoom(): number;
+  setZoom(zoom: number, effect?: boolean): void;
+  autoResize(): void;
+  destroy(): void;
 }
 
 interface NaverMarkerInstance {
@@ -37,7 +57,12 @@ interface NaverMarkerInstance {
 interface NaverMapsApi {
   Map: new (
     element: HTMLElement,
-    options: { center: unknown; zoom: number; minZoom?: number }
+    options: {
+      center: unknown;
+      zoom: number;
+      minZoom?: number;
+      zoomControl?: boolean;
+    }
   ) => NaverMapInstance;
   Marker: new (options: {
     position: unknown;
@@ -63,6 +88,7 @@ const PRICE_FILTER_LABELS: Record<PriceFilter, string> = {
   '400': '400만원대',
   '500': '500만원 이상',
   pending: '가격 미공개',
+  monthly: '월 비용만 확인',
 };
 
 const DURATION_FILTER_LABELS: Record<DurationFilter, string> = {
@@ -130,18 +156,17 @@ function escapeHtml(value: string): string {
 }
 
 function formatPrice(program: WinterProgram): string {
+  if (typeof program.monthlyPrice === 'number')
+    return `월 ${program.monthlyPrice.toLocaleString('ko-KR')}만원`;
   if (!program.totalPrice) return '가격 공개 대기';
   return `${program.totalPrice.toLocaleString('ko-KR')}만원${program.priceSuffix ? ` ${program.priceSuffix}` : ''}`;
 }
 
 function getMarkerPrice(school: WinterSchool): string {
   const program = getRepresentativeWinterProgram(school);
-  const fiveWeekPrice = getFiveWeekEquivalentWinterPrice(school);
-
-  if (!program || fiveWeekPrice === null) return '가격 미공개';
-
-  const isExactFiveWeeks = program.durationDays === 35;
-  return `${isExactFiveWeeks ? '5주' : '5주 환산 약'} ${Math.round(fiveWeekPrice).toLocaleString('ko-KR')}만원${program.priceSuffix ? ' 이상' : ''}`;
+  if (!program) return '가격 미공개';
+  if (typeof program.monthlyPrice === 'number') return formatPrice(program);
+  return `${program.durationLabel} 총 ${formatPrice(program)}`;
 }
 
 function getMarkerColor(school: WinterSchool): string {
@@ -162,7 +187,9 @@ function matchesPriceFilter(
 
   const fiveWeekPrice = getFiveWeekEquivalentWinterPrice(school);
 
-  if (filter === 'pending') return fiveWeekPrice === null;
+  const program = getRepresentativeWinterProgram(school);
+  if (filter === 'pending') return program === null;
+  if (filter === 'monthly') return typeof program?.monthlyPrice === 'number';
   if (fiveWeekPrice === null) return false;
   if (filter === 'under-300') return fiveWeekPrice < 300;
   if (filter === '300') return fiveWeekPrice >= 300 && fiveWeekPrice < 400;
@@ -274,6 +301,10 @@ export default function WinterSchoolMap() {
   const mapElementRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<NaverMapInstance | null>(null);
   const markerInstancesRef = useRef<NaverMarkerInstance[]>([]);
+  const fullscreenMapElementRef = useRef<HTMLDivElement>(null);
+  const fullscreenMapRef = useRef<NaverMapInstance | null>(null);
+  const [isMapFullscreen, setIsMapFullscreen] = useState(false);
+  const [previewSchool, setPreviewSchool] = useState<WinterSchool | null>(null);
   const [isMapReady, setIsMapReady] = useState(false);
   const [mapError, setMapError] = useState(false);
   const [selectedSchool, setSelectedSchool] = useState<WinterSchool | null>(
@@ -290,6 +321,8 @@ export default function WinterSchoolMap() {
   const [priceFilter, setPriceFilter] = useState<PriceFilter>('all');
   const [durationFilter, setDurationFilter] = useState<DurationFilter>('all');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  const closeFullscreenMap = useCallback(() => setIsMapFullscreen(false), []);
+  const closeSchoolDetail = useCallback(() => setSelectedSchool(null), []);
 
   const filteredSchools = useMemo(() => {
     const normalizedQuery = query.trim().toLocaleLowerCase('ko-KR');
@@ -373,6 +406,30 @@ export default function WinterSchoolMap() {
   }, [isMapReady]);
 
   useEffect(() => {
+    if (!isMapFullscreen || !isMapReady || !fullscreenMapElementRef.current)
+      return;
+    const maps = getNaverMaps();
+    if (!maps) return;
+    const map = new maps.Map(fullscreenMapElementRef.current, {
+      center:
+        mapInstanceRef.current?.getCenter() ?? new maps.LatLng(37.32, 127.37),
+      zoom: mapInstanceRef.current?.getZoom() ?? 9,
+      minZoom: 7,
+      zoomControl: true,
+    });
+    fullscreenMapRef.current = map;
+    const observer = new ResizeObserver(() => map.autoResize());
+    observer.observe(fullscreenMapElementRef.current);
+    return () => {
+      observer.disconnect();
+      mapInstanceRef.current?.setZoom(map.getZoom(), false);
+      mapInstanceRef.current?.panTo(map.getCenter());
+      fullscreenMapRef.current = null;
+      map.destroy();
+    };
+  }, [isMapFullscreen, isMapReady]);
+
+  useEffect(() => {
     const maps = getNaverMaps();
     const map = mapInstanceRef.current;
     if (!maps || !map) return;
@@ -387,38 +444,44 @@ export default function WinterSchoolMap() {
       return 0;
     });
 
-    markerSchools.forEach(school => {
-      if (typeof school.lat !== 'number' || typeof school.lng !== 'number') {
-        return;
-      }
+    [map, fullscreenMapRef.current].forEach(targetMap => {
+      if (!targetMap) return;
+      markerSchools.forEach(school => {
+        if (typeof school.lat !== 'number' || typeof school.lng !== 'number') {
+          return;
+        }
 
-      const isSnAcademy = school.id === SN_ACADEMY_ID;
-      const color = getMarkerColor(school);
-      const markerContent = isSnAcademy
-        ? `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;font-family:system-ui,sans-serif"><div style="background:rgba(0,0,0,.6);color:white;padding:2px 6px;border-radius:8px;font-size:8px;font-weight:bold;margin-bottom:3px;white-space:nowrap">AI 특화관</div><div style="color:white;font-size:10px;font-weight:bold;margin-bottom:2px;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.8),0 0 5px rgba(0,0,0,.5);line-height:1.3;text-align:center">${escapeHtml(getMarkerPrice(school))}</div><div style="width:50px;height:50px;border-radius:50%;border:3px solid #10b981;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)"><img src="/images/Data_LAB/SN_landscape1.png" alt="" style="width:100%;height:100%;object-fit:cover" /></div><div style="background:linear-gradient(135deg,#10b981,#059669);color:white;padding:4px 8px;border-radius:12px;font-size:10px;font-weight:bold;margin-top:4px;box-shadow:0 2px 6px rgba(0,0,0,.2);white-space:nowrap">⭐ ${escapeHtml(school.name)}</div></div>`
-        : `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;font-family:system-ui,sans-serif"><div style="color:white;font-size:10px;font-weight:bold;margin-bottom:2px;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.8),0 0 5px rgba(0,0,0,.5)">${escapeHtml(getMarkerPrice(school))}</div><div style="background-color:${color};color:white;padding:6px 10px;border-radius:16px;font-size:11px;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,.3);white-space:nowrap;max-width:120px;overflow:hidden;text-overflow:ellipsis">${escapeHtml(school.name)}</div></div>`;
-      const marker = new maps.Marker({
-        position: new maps.LatLng(school.lat, school.lng),
-        map,
-        title: school.name,
-        icon: {
-          content: markerContent,
-          anchor: isSnAcademy ? new maps.Point(30, 40) : new maps.Point(50, 15),
-        },
-      });
+        const isSnAcademy = school.id === SN_ACADEMY_ID;
+        const color = getMarkerColor(school);
+        const markerContent = isSnAcademy
+          ? `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;font-family:system-ui,sans-serif"><div style="background:rgba(0,0,0,.6);color:white;padding:2px 6px;border-radius:8px;font-size:8px;font-weight:bold;margin-bottom:3px;white-space:nowrap">AI 특화관</div><div style="color:white;font-size:10px;font-weight:bold;margin-bottom:2px;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.8),0 0 5px rgba(0,0,0,.5);line-height:1.3;text-align:center">${escapeHtml(getMarkerPrice(school))}</div><div style="width:50px;height:50px;border-radius:50%;border:3px solid #10b981;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)"><img src="/images/Data_LAB/SN_landscape1.png" alt="" style="width:100%;height:100%;object-fit:cover" /></div><div style="background:linear-gradient(135deg,#10b981,#059669);color:white;padding:4px 8px;border-radius:12px;font-size:10px;font-weight:bold;margin-top:4px;box-shadow:0 2px 6px rgba(0,0,0,.2);white-space:nowrap">⭐ ${escapeHtml(school.name)}</div></div>`
+          : `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;font-family:system-ui,sans-serif"><div style="color:white;font-size:10px;font-weight:bold;margin-bottom:2px;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.8),0 0 5px rgba(0,0,0,.5)">${escapeHtml(getMarkerPrice(school))}</div><div style="background-color:${color};color:white;padding:6px 10px;border-radius:16px;font-size:11px;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,.3);white-space:nowrap;max-width:120px;overflow:hidden;text-overflow:ellipsis">${escapeHtml(school.name)}</div></div>`;
+        const marker = new maps.Marker({
+          position: new maps.LatLng(school.lat, school.lng),
+          map: targetMap,
+          title: school.name,
+          icon: {
+            content: markerContent,
+            anchor: isSnAcademy
+              ? new maps.Point(30, 40)
+              : new maps.Point(50, 15),
+          },
+        });
 
-      maps.Event.addListener(marker, 'click', () => {
-        setSelectedSchool(school);
-        map.panTo(new maps.LatLng(school.lat!, school.lng!));
+        maps.Event.addListener(marker, 'click', () => {
+          if (targetMap === fullscreenMapRef.current) setPreviewSchool(school);
+          else setSelectedSchool(school);
+          targetMap.panTo(new maps.LatLng(school.lat!, school.lng!));
+        });
+        markerInstancesRef.current.push(marker);
       });
-      markerInstancesRef.current.push(marker);
     });
 
     return () => {
       markerInstancesRef.current.forEach(marker => marker.setMap(null));
       markerInstancesRef.current = [];
     };
-  }, [filteredSchools, isMapReady]);
+  }, [filteredSchools, isMapReady, isMapFullscreen]);
 
   useEffect(() => {
     if (
@@ -454,7 +517,7 @@ export default function WinterSchoolMap() {
 
       <section className="order-1 space-y-3 text-center">
         <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">
-          2026.08.31 1차 조사
+          2026.09.10 추가 조사 반영
         </span>
         <div>
           <h2 className="text-2xl font-bold text-slate-950 dark:text-white sm:text-3xl">
@@ -471,7 +534,7 @@ export default function WinterSchoolMap() {
         {[
           ['조사 학원', `${winterSchools2027.length}곳`],
           ['가격 확인 학원', `${CONFIRMED_SCHOOL_COUNT}곳`],
-          ['금액 공개 과정', `${PUBLISHED_PROGRAM_COUNT}개`],
+          ['총액 등록 과정', `${PUBLISHED_PROGRAM_COUNT}개`],
           ['업데이트 대기', `${UPDATE_PENDING_SCHOOL_COUNT}곳`],
         ].map(([label, value]) => (
           <div
@@ -678,7 +741,7 @@ export default function WinterSchoolMap() {
         </span>
         <span className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
           <span className="h-3 w-3 rounded-full bg-slate-500" />
-          가격 미공개
+          미공개·환산 불가
         </span>
         <span className="flex items-center gap-2 font-semibold text-emerald-700 dark:text-emerald-300">
           ★ SN AI 특화관
@@ -692,7 +755,8 @@ export default function WinterSchoolMap() {
               전국 윈터스쿨 지도
             </h3>
             <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-              모든 학원의 가격을 5주 기준으로 환산해 표시합니다.
+              실제 과정 기간과 총액을 표시합니다. 마커 색상은 5주 환산
+              가격대입니다.
             </p>
           </div>
           <span className="text-sm font-semibold text-slate-600 dark:text-slate-300">
@@ -700,7 +764,21 @@ export default function WinterSchoolMap() {
           </span>
         </div>
         <div className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-900">
-          <div ref={mapElementRef} className="h-[600px] w-full" />
+          <div
+            ref={mapElementRef}
+            className="isolate h-[360px] w-full sm:h-[600px]"
+          />
+          <button
+            type="button"
+            onClick={() => {
+              setPreviewSchool(null);
+              setIsMapFullscreen(true);
+            }}
+            className="absolute right-3 top-3 z-10 inline-flex min-h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 shadow-md hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
+          >
+            <Maximize2 className="h-4 w-4" aria-hidden="true" />
+            지도 전체화면
+          </button>
           {!isMapReady && !mapError && (
             <div className="absolute inset-0 flex items-center justify-center bg-slate-100 text-sm text-slate-500 dark:bg-slate-900 dark:text-slate-400">
               지도를 불러오는 중입니다.
@@ -715,10 +793,76 @@ export default function WinterSchoolMap() {
         </div>
       </section>
 
+      {isMapFullscreen && (
+        <SchoolDetailModal
+          open
+          active={!selectedSchool}
+          size="fullscreen"
+          onClose={closeFullscreenMap}
+          title="전국 윈터스쿨 지도"
+          subtitle={
+            <p className="text-xs">
+              현재 필터 기준 {filteredSchools.length}개 학원 · 마커를 눌러 가격
+              확인 · 두 손가락으로 확대
+            </p>
+          }
+        >
+          <div
+            ref={fullscreenMapElementRef}
+            className="isolate h-full w-full"
+          />
+          {(!isMapReady || mapError) && (
+            <p className="absolute inset-0 flex items-center justify-center bg-slate-100 p-6 text-center text-slate-600">
+              {mapError
+                ? '지도를 불러오지 못했습니다. 닫기 후 학원 목록을 이용해 주세요.'
+                : '지도를 불러오는 중입니다.'}
+            </p>
+          )}
+          <div className="pointer-events-none absolute inset-x-0 bottom-6 p-3 pb-[max(12px,env(safe-area-inset-bottom))] sm:left-4 sm:right-auto sm:w-96">
+            {previewSchool ? (
+              <div
+                className="pointer-events-auto rounded-2xl border border-slate-200 bg-white p-4 shadow-xl dark:border-slate-700 dark:bg-slate-900"
+                aria-live="polite"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h4 className="font-bold text-slate-950 dark:text-white">
+                      {previewSchool.name}
+                    </h4>
+                    <p className="mt-1 text-sm font-bold text-emerald-700 dark:text-emerald-300">
+                      {getMarkerPrice(previewSchool)}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    aria-label="학원 요약 닫기"
+                    onClick={() => setPreviewSchool(null)}
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100"
+                  >
+                    <X className="h-5 w-5" aria-hidden="true" />
+                  </button>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedSchool(previewSchool)}
+                  className="mt-3 min-h-11 w-full rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800"
+                >
+                  학원 상세 보기
+                </button>
+              </div>
+            ) : (
+              <p className="rounded-xl bg-white/95 px-4 py-3 text-center text-sm text-slate-700 shadow-lg dark:bg-slate-900/95 dark:text-slate-200">
+                학원 마커를 누르면 기간과 총액을 확인할 수 있습니다.
+              </p>
+            )}
+          </div>
+        </SchoolDetailModal>
+      )}
+
       {selectedSchool && (
         <SchoolDetailModal
           open
-          onClose={() => setSelectedSchool(null)}
+          onClose={closeSchoolDetail}
           title={selectedSchool.name}
           highlighted={selectedSchool.id === SN_ACADEMY_ID}
           heroImage={
@@ -769,6 +913,19 @@ export default function WinterSchoolMap() {
               </p>
             )}
 
+            {selectedSchool.otherPrograms && (
+              <section className="space-y-3">
+                <h4 className="font-semibold text-slate-900 dark:text-white">
+                  별도 과정 · 윈터 가격 비교 제외
+                </h4>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {selectedSchool.otherPrograms.map(program => (
+                    <ProgramCard key={program.name} program={program} />
+                  ))}
+                </div>
+              </section>
+            )}
+
             <ul className="grid gap-2 text-sm text-slate-600 dark:text-slate-300 sm:grid-cols-2">
               {selectedSchool.features.map(feature => (
                 <li key={feature} className="flex gap-2">
@@ -785,6 +942,9 @@ export default function WinterSchoolMap() {
                 {selectedSchool.note}
               </p>
             )}
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              확인일: {selectedSchool.verifiedAt}
+            </p>
 
             {selectedSchool.sourceUrl && (
               <a
@@ -808,12 +968,13 @@ export default function WinterSchoolMap() {
               2027 윈터스쿨 목록
             </h3>
             <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-              5주에 가장 가까운 기본 과정의 가격을 35일 기준으로 환산했습니다.
-              실제 납부액과 추가 과정은 학원을 선택해 확인할 수 있습니다.
+              대표 과정의 실제 총액을 먼저 표시하고, 5주 환산가는 비교용으로
+              함께 안내합니다. 월 비용은 별도 표시하며, 추가 과정과 공개 일정은
+              학원을 선택해 확인할 수 있습니다.
             </p>
           </div>
           <span className="text-sm text-slate-500 dark:text-slate-400">
-            최종 확인일 2026.08.31
+            최근 업데이트 2026.09.10
           </span>
         </div>
 
@@ -822,7 +983,7 @@ export default function WinterSchoolMap() {
             <div className="hidden grid-cols-[minmax(0,1.5fr)_minmax(90px,.7fr)_minmax(100px,.7fr)] gap-3 bg-slate-100 px-4 py-3 text-xs font-semibold text-slate-700 sm:grid dark:bg-slate-800 dark:text-slate-200">
               <span>학원·유형·지역</span>
               <span>대표 과정</span>
-              <span className="text-right">5주 기준가</span>
+              <span className="text-right">과정 총액 / 월 비용</span>
             </div>
             <div className="divide-y divide-slate-100 dark:divide-slate-800">
               {filteredSchools.map(school => {
@@ -858,11 +1019,9 @@ export default function WinterSchoolMap() {
                         {WINTER_SCHOOL_TYPE_LABELS[school.type]} ·{' '}
                         {WINTER_SCHOOL_REGION_LABELS[school.region]} ·{' '}
                         {WINTER_SCHOOL_GENDER_LABELS[school.gender]}
-                        <span className="sm:hidden">
-                          {' · '}
-                          {representativeProgram?.durationLabel ??
-                            '기간 확인 중'}
-                        </span>
+                      </span>
+                      <span className="mt-1 block text-xs text-slate-600 sm:hidden dark:text-slate-300">
+                        {representativeProgram?.durationLabel ?? '기간 확인 중'}
                       </span>
                     </span>
                     <span className="hidden text-sm font-medium text-slate-600 sm:block dark:text-slate-300">
@@ -875,9 +1034,23 @@ export default function WinterSchoolMap() {
                           : 'text-emerald-700 dark:text-emerald-300'
                       }`}
                     >
-                      {fiveWeekPrice === null
-                        ? '미공개'
-                        : `${representativeProgram?.durationDays === 35 ? '' : '약 '}${Math.round(fiveWeekPrice).toLocaleString('ko-KR')}만원${representativeProgram?.priceSuffix ? ' 이상' : ''}`}
+                      {representativeProgram
+                        ? formatPrice(representativeProgram)
+                        : '미공개'}
+                      {fiveWeekPrice !== null &&
+                        representativeProgram?.durationDays !== 35 && (
+                          <span className="mt-1 block text-xs font-normal text-slate-500 dark:text-slate-400">
+                            5주 환산 약{' '}
+                            {Math.round(fiveWeekPrice).toLocaleString('ko-KR')}
+                            만원
+                            {representativeProgram?.priceSuffix ? ' 이상' : ''}
+                          </span>
+                        )}
+                      {representativeProgram?.monthlyPrice !== undefined && (
+                        <span className="mt-1 block text-xs font-normal text-slate-500 dark:text-slate-400">
+                          전체 기간·총액 미확인
+                        </span>
+                      )}
                     </span>
                   </button>
                 );
@@ -906,8 +1079,8 @@ export default function WinterSchoolMap() {
         </h3>
         <ul className="mt-3 space-y-2 text-sm leading-6 text-blue-900/80 dark:text-blue-200/90">
           <li>
-            • 목록과 지도 가격은 비교를 위해 모든 과정을 35일 기준으로
-            환산했습니다.
+            • 목록과 지도는 실제 과정 총액을 표시합니다. 가격 필터와 마커 색상은
+            35일 환산가 기준이며, 월 비용만 확인된 과정은 환산하지 않습니다.
           </li>
           <li>• `이상` 표시는 교재·단체복·콘텐츠비 등이 별도라는 뜻입니다.</li>
           <li>

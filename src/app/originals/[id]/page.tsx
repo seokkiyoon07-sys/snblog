@@ -8,6 +8,7 @@ import { renderMarkdown } from '@/lib/markdown-renderer';
 import { formatReadableOriginalsContent } from '@/lib/originals-content';
 import { formatReadTime } from '@/lib/utils';
 import { PROSE_CLASSES } from '@/lib/constants';
+import RelatedHistorySeries from '@/components/RelatedHistorySeries';
 
 interface OriginalsPostPageProps {
   params: Promise<{
@@ -73,7 +74,13 @@ export default async function OriginalsPostPage({
   }
 
   const rawContent = loadPostContent(post.id, post.category);
-  const renderedContent = renderMarkdown(formatReadableOriginalsContent(rawContent));
+  const [mainContent, relatedContent] =
+    post.id === 'manbunga'
+      ? rawContent.split('<!-- related-history:muo-sahwa -->')
+      : [rawContent];
+  const renderedContent = renderMarkdown(
+    formatReadableOriginalsContent(mainContent)
+  );
   const youtubeEmbedUrl = post.youtubeUrl?.replace('watch?v=', 'embed/');
 
   return (
@@ -141,6 +148,17 @@ export default async function OriginalsPostPage({
             className={PROSE_CLASSES}
             dangerouslySetInnerHTML={{ __html: renderedContent }}
           />
+          {post.id === 'manbunga' && <RelatedHistorySeries />}
+          {relatedContent && (
+            <div
+              className={PROSE_CLASSES}
+              dangerouslySetInnerHTML={{
+                __html: renderMarkdown(
+                  formatReadableOriginalsContent(relatedContent)
+                ),
+              }}
+            />
+          )}
         </article>
       </section>
     </main>

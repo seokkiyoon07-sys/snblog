@@ -49,6 +49,7 @@ export interface Post {
   readTime: string;
   featured: boolean;
   featuredOrder?: number;
+  seriesOrder?: number;
   published: boolean;
   thumbnail?: string;
   youtubeUrl?: string;

@@ -6,6 +6,7 @@ const CONTENT_BASE = path.join(process.cwd(), 'content');
 // 카테고리명 → 폴더명 매핑 (일치하지 않는 경우만)
 const CATEGORY_FOLDER_MAP: Record<string, string> = {
   'SN Originals': 'originals',
+  'SN History': 'history',
   'korean-problem': 'problem-download',
 };
 

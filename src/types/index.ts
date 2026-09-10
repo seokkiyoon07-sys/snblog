@@ -14,6 +14,7 @@ export interface Post {
   readTime: string;
   featured: boolean;
   featuredOrder?: number; // 추천 포스트 순서 (낮을수록 먼저)
+  seriesOrder?: number;
   published: boolean;
   thumbnail?: string;
   youtubeUrl?: string;

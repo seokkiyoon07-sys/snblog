@@ -4,6 +4,7 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { addSnargptSolutions, snargptSourcePath } from './add-snargpt-math-solutions.mjs';
 
 const [combinedPath, analysisPath, outputPath] = process.argv.slice(2);
 
@@ -436,5 +437,5 @@ if (trappedLatexCode) {
 }
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-fs.writeFileSync(outputPath, html);
+fs.writeFileSync(outputPath, addSnargptSolutions(html, fs.readFileSync(snargptSourcePath, 'utf8')));
 console.log(`Generated ${outputPath} (${problems.size} problems, ${solutions.size} solutions)`);

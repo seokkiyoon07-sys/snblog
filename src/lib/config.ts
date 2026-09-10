@@ -7,6 +7,7 @@ export const EXTERNAL_URLS = {
   ACADEMY: 'https://www.snacademy.co.kr',
   ACADEMY_DAECHI: 'https://daechi.snacademy.kr',
   SNAR_GPT: 'https://snarGPT.ai',
+  HISTORY_YOUTUBE: 'https://www.youtube.com/@SNHistory-lab',
   YOUTUBE_EMBED: (id: string) => `https://www.youtube.com/embed/${id}`,
   YOUTUBE_THUMBNAIL: (id: string) =>
     `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
@@ -29,6 +30,7 @@ export const NAVIGATION_MENU = [
   { name: 'SN DataLAB', href: '/datalab' },
   { name: '문제 다운로드', href: '/problems' },
   { name: 'SN Originals', href: '/originals' },
+  { name: 'SN History', href: '/history' },
   { name: '공지사항', href: '/notice' },
 ] as const;
 
@@ -65,6 +67,11 @@ export const CATEGORY_CONFIG = {
     route: '/originals',
     emoji: '🎥',
     label: 'SN Originals',
+  },
+  'SN History': {
+    route: '/history',
+    emoji: '🏛️',
+    label: 'SN History',
   },
   startup: {
     route: '/startup',

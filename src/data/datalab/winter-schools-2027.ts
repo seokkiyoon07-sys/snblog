@@ -18,6 +18,7 @@ export interface WinterProgram {
   durationLabel: string;
   durationDays?: number;
   totalPrice?: number;
+  monthlyPrice?: number;
   priceSuffix?: string;
   included?: string[];
   excluded?: string[];
@@ -36,6 +37,7 @@ export interface WinterSchool {
   targetGrades: string[];
   status: WinterSchoolStatus;
   programs: WinterProgram[];
+  otherPrograms?: WinterProgram[];
   features: string[];
   sourceUrl?: string;
   verifiedAt: string;
@@ -141,19 +143,20 @@ export const winterSchools2027: WinterSchool[] = [
     region: 'yangpyeong',
     gender: 'male',
     targetGrades: ['재학생'],
-    status: 'recheck',
+    status: 'confirmed',
     programs: [
       {
         name: '2027 윈터스쿨',
         durationLabel: '5주',
         durationDays: 35,
         totalPrice: 339,
-        note: '조사표에는 금액이 있으나 공식 모집 페이지의 금액 표시를 재확인해야 합니다.',
+        note: '추가 조사에서 5주 339만원 확인 완료.',
       },
     ],
     features: ['의무수업 없는 독학 중심', '선택수업·질의응답', '전자기기 관리'],
     sourceUrl: 'https://edusherpa.kr/2027-winterschool-1/',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사에서 확인 완료. 여학생관은 별도 확인 상태를 유지합니다.',
   },
   {
     id: 'eduselpa-female',
@@ -189,7 +192,7 @@ export const winterSchools2027: WinterSchool[] = [
     region: 'anseong',
     gender: 'coed',
     targetGrades: ['재학생'],
-    status: 'recheck',
+    status: 'confirmed',
     programs: [
       {
         name: '4주 과정',
@@ -218,8 +221,8 @@ export const winterSchools2027: WinterSchool[] = [
     ],
     features: ['독학관리', '학습코칭', '선택수업·입시상담'],
     sourceUrl: 'https://www.visangedu365.com/m/shop/goods_list.php',
-    verifiedAt: '2026-08-31',
-    note: '조기등록 할인 적용 여부와 8·9주 상품의 실제 결제액을 확인해야 합니다.',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사에서 4주 280만원·5주 350만원 확인. 8주 530만원·9주 600만원은 기존 조사 금액으로 이번 조사에서 재확인되지 않았습니다.',
   },
   {
     id: 'yeoju-itall',
@@ -331,7 +334,8 @@ export const winterSchools2027: WinterSchool[] = [
     programs: [{ name: '2027 윈터스쿨', durationLabel: '일정 공개 대기' }],
     features: ['스마트 Pick', '5담임제', '프리미엄 2~3인실'],
     sourceUrl: 'https://icheon247.etoos.com/branch/recruit/winter2027.do',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 수강료 추후 공개.',
   },
   {
     id: 'anseong-etoos247',
@@ -349,7 +353,8 @@ export const winterSchools2027: WinterSchool[] = [
     ],
     features: ['수준별 현장수업', '1:1 클리닉', 'MY247 학습관리'],
     sourceUrl: 'https://anseong247.etoos.com/branch/recruit/winter2027.do',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 수강료 추후 공개.',
   },
   {
     id: 'pk-daechi-sparta',
@@ -361,7 +366,7 @@ export const winterSchools2027: WinterSchool[] = [
     region: 'seoul',
     gender: 'coed',
     targetGrades: ['재학생'],
-    status: 'recheck',
+    status: 'confirmed',
     programs: [
       {
         name: '2027 윈터스쿨',
@@ -371,8 +376,8 @@ export const winterSchools2027: WinterSchool[] = [
       },
     ],
     features: ['신규 독학형 과정'],
-    verifiedAt: '2026-08-31',
-    note: '공식 출처와 포함 비용, 대상 학년을 추가 확인해야 합니다.',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사 확인: 3주 총 248만원. 최초 조사 금액과 같습니다. 포함 비용과 대상 학년은 별도 확인이 필요합니다.',
   },
   {
     id: 'sumanhwi',
@@ -384,14 +389,20 @@ export const winterSchools2027: WinterSchool[] = [
     region: 'anseong',
     gender: 'coed',
     targetGrades: ['재학생'],
-    status: 'pending',
+    status: 'confirmed',
     programs: [
-      { name: '필수 학습능력 과정', durationLabel: '5주', durationDays: 35 },
+      {
+        name: '필수 학습능력 과정',
+        durationLabel: '5주',
+        durationDays: 35,
+        totalPrice: 365,
+      },
       { name: '선택 자습강화 과정', durationLabel: '3주', durationDays: 21 },
     ],
     features: ['선택수업', '학습코칭', '자습강화 연장 과정'],
     sourceUrl: 'https://www.sumanhui.kr/m/class/class04.php',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사 확인: 5주 총 365만원. 선택 자습강화 3주 과정의 가격은 미확인입니다.',
   },
   {
     id: 'yongin-leekang',
@@ -403,7 +414,7 @@ export const winterSchools2027: WinterSchool[] = [
     region: 'yongin',
     gender: 'coed',
     targetGrades: ['재학생'],
-    status: 'recheck',
+    status: 'confirmed',
     programs: [
       {
         name: '2027 윈터스쿨',
@@ -414,8 +425,8 @@ export const winterSchools2027: WinterSchool[] = [
     ],
     features: ['100명 한정 소수정예', '대치 이강 강의', '밀착 학습·생활관리'],
     sourceUrl: 'https://ikangedu.com/',
-    verifiedAt: '2026-08-31',
-    note: '조사표의 금액과 공식 모집요강 공개 상태가 달라 재확인이 필요합니다.',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사 확인: 총 373만원으로 최초 조사와 같습니다. 4주 기간은 기존 조사 기준입니다.',
   },
   {
     id: 'gwangneung-hansaem',
@@ -427,31 +438,26 @@ export const winterSchools2027: WinterSchool[] = [
     region: 'etc',
     gender: 'coed',
     targetGrades: ['재학생'],
-    status: 'recheck',
-    programs: [
-      {
-        name: '사관 대비',
-        durationLabel: '4.5주',
-        durationDays: 32,
-        totalPrice: 397,
-      },
+    status: 'pending',
+    programs: [{ name: '2027 윈터스쿨', durationLabel: '수강료 공개 대기' }],
+    otherPrograms: [
       {
         name: '스프링캠프 종합',
-        durationLabel: '4주',
+        durationLabel: '28일',
         durationDays: 28,
         totalPrice: 336,
       },
       {
         name: '스프링캠프 독학',
-        durationLabel: '4주',
+        durationLabel: '28일',
         durationDays: 28,
         totalPrice: 240,
       },
     ],
     features: ['사관학교·경찰대 대비', '국수영·한국사', '면접·체력 준비'],
     sourceUrl: 'https://www.hsacademy.co.kr/',
-    verifiedAt: '2026-08-31',
-    note: '조사표의 금액과 공식 모집요강 공개 상태가 달라 재확인이 필요합니다.',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사에서 윈터스쿨 수강료가 삭제된 것으로 확인했습니다. 스프링캠프 종합 336만원·독학 240만원은 각각 28일 과정으로 윈터 가격 비교에서 제외합니다.',
   },
   {
     id: 'yangji-bisangedu',
@@ -467,7 +473,8 @@ export const winterSchools2027: WinterSchool[] = [
     programs: [{ name: '2027 윈터스쿨', durationLabel: '일정 공개 대기' }],
     features: ['국수영 정규수업', '학습·생활관리'],
     sourceUrl: 'https://www.man-visang.com/',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 수강료 추후 공개.',
   },
   {
     id: 'etoos-lecture',
@@ -483,7 +490,8 @@ export const winterSchools2027: WinterSchool[] = [
     programs: [{ name: '2027 윈터스쿨', durationLabel: '일정 공개 대기' }],
     features: ['현장수업과 인강 연동', '수업 전후 관리'],
     sourceUrl: 'https://m-gisuk.etoos.com/normal/recruit/information',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 수강료 추후 공개.',
   },
   {
     id: 'anseong-bisangedu',
@@ -495,7 +503,7 @@ export const winterSchools2027: WinterSchool[] = [
     region: 'anseong',
     gender: 'coed',
     targetGrades: ['재학생'],
-    status: 'recheck',
+    status: 'confirmed',
     programs: [
       {
         name: '2027 윈터스쿨',
@@ -506,8 +514,8 @@ export const winterSchools2027: WinterSchool[] = [
     ],
     features: ['90명 내외 소수정예', '복습테스트', '수업+자기주도학습'],
     sourceUrl: 'https://www.e-topclass.com/',
-    verifiedAt: '2026-08-31',
-    note: '정규반 월 수강료와 윈터스쿨 총액이 혼용되지 않았는지 확인해야 합니다.',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사 확인: 총 365만원으로 최초 조사와 같습니다. 4주 기간은 기존 조사 기준입니다.',
   },
   {
     id: 'icheon-cheongsol',
@@ -605,7 +613,8 @@ export const winterSchools2027: WinterSchool[] = [
     features: ['수준별 수업', '자습전용관', 'QUBE 질의응답'],
     sourceUrl:
       'https://seochob.megastudy.net/campus_common/mozip/index.asp?code=113',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 수강료 추후 공개.',
   },
   {
     id: 'gangnam-hyper-uidae',
@@ -622,7 +631,8 @@ export const winterSchools2027: WinterSchool[] = [
     features: ['의대 목표 최상위권 특화', '1:1 메디컬 PT', '모의고사 관리'],
     sourceUrl:
       'https://hyper-medicalgisuk.etoos.com/normal/recruit/information',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 수강료 미공개.',
   },
   {
     id: 'russel-female',
@@ -645,7 +655,8 @@ export const winterSchools2027: WinterSchool[] = [
     features: ['여학생 전용', '선택형 현장수업', '자습전용관'],
     sourceUrl:
       'https://russelw.megastudy.net/campus_common/mozip/index.asp?idx=174',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 2026년 10월 안내 예정. 홈페이지 공개가 아닌 예약자 개별 안내일 가능성이 있으나, 안내 방식은 미확인입니다.',
   },
   {
     id: 'russel-male',
@@ -662,7 +673,8 @@ export const winterSchools2027: WinterSchool[] = [
     features: ['남학생 전용', '전 객실 2인실', '수업+자습 병행'],
     sourceUrl:
       'https://russelsm.megastudy.net/campus_common/mozip/index.asp?idx=173',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 수강료 미공개.',
   },
   {
     id: 'gangnam-daesung-queta',
@@ -675,10 +687,13 @@ export const winterSchools2027: WinterSchool[] = [
     gender: 'coed',
     targetGrades: ['재학생'],
     status: 'pending',
-    programs: [{ name: '2027 윈터스쿨', durationLabel: '9월 1일 공개 예정' }],
+    programs: [
+      { name: '2027 윈터스쿨', durationLabel: '2026년 10월 공개 예정' },
+    ],
     features: ['전 과목 수업', 'AXIOM Lab', '퀀텀라이브러리'],
     sourceUrl: 'https://campusk.dshw.co.kr/',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 2026년 10월 공개 예정.',
   },
   {
     id: 'gangnam-daesung-uidae',
@@ -694,8 +709,8 @@ export const winterSchools2027: WinterSchool[] = [
     programs: [{ name: '2027 윈터스쿨', durationLabel: '2027년 1월 1일 개강' }],
     features: ['의대 목표 특화', '강남대성 교과·콘텐츠', '학습관리 시스템'],
     sourceUrl: 'https://campusm.dshw.co.kr/',
-    verifiedAt: '2026-08-31',
-    note: '상세 모집요강은 2026년 10월 중순 공개 예정입니다.',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 2026년 10월 공개 예정.',
   },
   {
     id: 'russel-top',
@@ -730,8 +745,8 @@ export const winterSchools2027: WinterSchool[] = [
     features: ['성적 기준 선발', '수준별 현장수업', '2인실 생활관'],
     sourceUrl:
       'https://russelhs.megastudy.net/campus_common/mozip/index.asp?idx=172',
-    verifiedAt: '2026-08-31',
-    note: '대표 비교가는 36일 윈터스쿨 총액입니다.',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사 확인: 36일 윈터스쿨 545만원, 단체복·교재·콘텐츠비 별도. 대표 비교가는 36일 과정입니다.',
   },
   {
     id: 'sidaeinjae',
@@ -747,7 +762,8 @@ export const winterSchools2027: WinterSchool[] = [
     programs: [{ name: '2027 윈터스쿨', durationLabel: '일정 공개 대기' }],
     features: ['상위권 강사진', '자체 콘텐츠·모의고사', '기숙형 학습관리'],
     sourceUrl: 'https://www.sdij.com/sdn/dict/dormitory/campus.asp?campus=108',
-    verifiedAt: '2026-08-31',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사: 2027 윈터스쿨 모집요강 없음.',
   },
   {
     id: 'dokhak-nsup',
@@ -787,11 +803,17 @@ export const winterSchools2027: WinterSchool[] = [
     region: 'icheon-gwangju',
     gender: 'coed',
     targetGrades: ['재학생'],
-    status: 'pending',
-    programs: [{ name: '2027 윈터스쿨', durationLabel: '일정 공개 대기' }],
+    status: 'confirmed',
+    programs: [
+      {
+        name: '2027 윈터스쿨',
+        durationLabel: '월 기준 · 전체 기간 미확인',
+        monthlyPrice: 310,
+      },
+    ],
     features: ['신규 독학형 과정'],
-    verifiedAt: '2026-08-31',
-    note: '공식 모집요강, 주소와 가격을 확인한 뒤 지도에 표시합니다.',
+    verifiedAt: '2026-09-10',
+    note: '추가 조사 확인: 월 310만원. 전체 과정 기간과 총액은 미확인으로 5주 환산에서 제외합니다. 상세 주소 확인 후 지도에 표시합니다.',
   },
 ];
 
@@ -799,8 +821,9 @@ export function getRepresentativeWinterProgram(
   school: WinterSchool
 ): WinterProgram | null {
   const pricedPrograms = school.programs.filter(
-    (program): program is WinterProgram & { totalPrice: number } =>
-      typeof program.totalPrice === 'number'
+    program =>
+      typeof program.totalPrice === 'number' ||
+      typeof program.monthlyPrice === 'number'
   );
 
   if (pricedPrograms.length === 0) return null;
@@ -817,7 +840,10 @@ export function getRepresentativeWinterProgram(
     // 4주와 6주가 똑같이 가까우면 연장·단축 과정이 아닌 긴 본과정을 우선한다.
     const durationDifference = (b.durationDays ?? 0) - (a.durationDays ?? 0);
     if (durationDifference !== 0) return durationDifference;
-    return b.totalPrice - a.totalPrice;
+    return (
+      (b.totalPrice ?? b.monthlyPrice ?? 0) -
+      (a.totalPrice ?? a.monthlyPrice ?? 0)
+    );
   })[0];
 }
 
