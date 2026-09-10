@@ -11,7 +11,13 @@ interface ProblemsTabsProps {
   posts: Post[];
 }
 
-const VISIBLE_SUBJECTS: ProblemSubject[] = ['korean', 'math', 'english'];
+const VISIBLE_SUBJECTS: ProblemSubject[] = [
+  'korean',
+  'math',
+  'english',
+  'integrated-social',
+  'integrated-science',
+];
 
 const SUBJECTS = VISIBLE_SUBJECTS.map(
   key => [key, PROBLEM_SUBJECT_CONFIG[key]] as const
@@ -90,6 +96,18 @@ export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
       text: 'text-violet-600 dark:text-violet-400',
       bg: 'bg-violet-500 hover:bg-violet-600',
     },
+    'integrated-social': {
+      border: 'hover:border-amber-500 dark:hover:border-amber-400',
+      hover: 'group-hover:text-amber-600 dark:group-hover:text-amber-400',
+      text: 'text-amber-600 dark:text-amber-400',
+      bg: 'bg-amber-500 hover:bg-amber-600',
+    },
+    'integrated-science': {
+      border: 'hover:border-rose-500 dark:hover:border-rose-400',
+      hover: 'group-hover:text-rose-600 dark:group-hover:text-rose-400',
+      text: 'text-rose-600 dark:text-rose-400',
+      bg: 'bg-rose-500 hover:bg-rose-600',
+    },
     social: {
       border: 'hover:border-amber-500 dark:hover:border-amber-400',
       hover: 'group-hover:text-amber-600 dark:group-hover:text-amber-400',
@@ -117,7 +135,7 @@ export default function ProblemsTabs({ posts }: ProblemsTabsProps) {
     <div className="space-y-6">
       {/* Level 1: 과목 탭 */}
       <div className="overflow-x-auto md:overflow-visible scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
-        <div className="flex gap-2 md:flex-wrap w-max md:w-auto">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={() => handleSubjectChange('all')}
             className={`flex-shrink-0 px-5 py-2.5 text-sm font-semibold rounded-full transition-colors ${

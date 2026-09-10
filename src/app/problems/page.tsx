@@ -5,9 +5,9 @@ import ProblemsTabs from '@/components/ProblemsTabs';
 export const metadata = {
   title: '문제 다운로드 | SN Academy',
   description:
-    'SN Academy에서 제공하는 과목별 문제집과 기출문제를 다운로드하세요. 국어, 수학, 영어, 사회탐구, 과학탐구 등 다양한 문제를 무료로 제공합니다.',
+    'SN Academy에서 제공하는 과목별 문제집과 기출문제를 다운로드하세요. 국어, 수학, 영어, 통합사회, 통합과학 자료를 과목별로 확인하세요.',
   keywords:
-    '문제 다운로드, 수능 기출, 모의고사, 국어, 수학, 영어, 사회탐구, 과학탐구, SN Academy',
+    '문제 다운로드, 수능 기출, 모의고사, 국어, 수학, 영어, 통합사회, 통합과학, SN Academy',
   openGraph: {
     title: '문제 다운로드 | SN Academy',
     description:

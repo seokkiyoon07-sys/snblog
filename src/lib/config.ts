@@ -150,6 +150,22 @@ export const PROBLEM_SUBJECT_CONFIG = {
       all: '전체',
     },
   },
+  'integrated-social': {
+    label: '통합사회',
+    emoji: '🌏',
+    categories: ['integrated-social-problem'] as string[],
+    subcategories: {
+      all: '전체',
+    },
+  },
+  'integrated-science': {
+    label: '통합과학',
+    emoji: '🔬',
+    categories: ['integrated-science-problem'] as string[],
+    subcategories: {
+      all: '전체',
+    },
+  },
   social: {
     label: '사회탐구',
     emoji: '🌏',
