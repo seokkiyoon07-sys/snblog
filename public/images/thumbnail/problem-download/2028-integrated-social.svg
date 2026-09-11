@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#eff5ef"/>
+  <circle cx="1130" cy="50" r="240" fill="#dce9dc"/>
+  <circle cx="1130" cy="50" r="165" fill="none" stroke="#b7cdb9" stroke-width="2"/>
+  <g font-family="Arial, sans-serif">
+    <text x="76" y="105" fill="#286047" font-size="24" font-weight="700" letter-spacing="4">SN ACADEMY · 2028</text>
+    <text x="72" y="245" fill="#143e2c" font-size="76" font-weight="700">수능 통합사회</text>
+    <text x="72" y="345" fill="#143e2c" font-size="76" font-weight="700">예시문항 25제 분석</text>
+    <text x="76" y="425" fill="#547262" font-size="30">한 문제씩, 정답이 만들어지는 과정까지.</text>
+    <rect x="76" y="485" width="235" height="58" rx="29" fill="#18583e"/>
+    <text x="193" y="523" text-anchor="middle" fill="#ffffff" font-size="23" font-weight="700">01 — 25 문항 탐색</text>
+  </g>
+</svg>

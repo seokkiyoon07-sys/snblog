@@ -88,6 +88,11 @@ export const CATEGORY_CONFIG = {
     emoji: '📝',
     label: '문제 다운로드',
   },
+  'integrated-social-problem': {
+    route: '/problems',
+    emoji: '🌏',
+    label: '통합사회',
+  },
   datalab: {
     route: '/datalab',
     emoji: '📊',

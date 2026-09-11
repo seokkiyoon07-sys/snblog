@@ -2,6 +2,22 @@ import type { Post } from './posts';
 
 export const allPosts: Post[] = [
   {
+    id: '2028-integrated-social-examples',
+    title: '2028 수능 통합사회 예시문항 25제 분석',
+    excerpt:
+      '공식 예시문항 1~25번을 선택해 살펴보세요. 핵심 개념과 선지 구조를 역분해하고, 기존 기출과 연결해 새로운 수능의 학습 방향을 정리합니다. 1~19번 분석과 SNargen 생성 변형문제 1~5번 공개.',
+    category: 'integrated-social-problem',
+    tags: ['2028 수능', '통합사회', '평가원', '예시문항', '문항 분석'],
+    author: 'SN Academy',
+    date: '2026-09-11',
+    readTime: '10',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/problem-download/2028-integrated-social.svg',
+    url: '/problem-download/2028-integrated-social-examples',
+    badge: '1~19번 분석 공개',
+  },
+  {
     id: 'snargpt-development-2026',
     title: 'SNarGPT 업데이트 노트',
     excerpt:

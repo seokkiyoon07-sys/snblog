@@ -632,3 +632,37 @@ details div {
     font-size: 13px;
   }
 }
+
+/* Licensed fallback: public/fonts/exam/OFL.txt (SIL Open Font License 1.1). */
+@font-face {
+  font-family: 'SN Exam Myeongjo';
+  src:
+    local('신명 중명조'),
+    local('신명중명조'),
+    local('SM중명조'),
+    url('/fonts/exam/NanumMyeongjo-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SN Exam Myeongjo';
+  src: url('/fonts/exam/NanumMyeongjo-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+.sn-exam-paper {
+  font-family: 'SN Exam Myeongjo', 'Batang', '바탕', serif;
+  font-weight: 400;
+  font-synthesis: none;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* Exam stems use the same regular body face; reserve bold for labels. */
+.sn-exam-paper > h3 {
+  font-weight: 400;
+}
