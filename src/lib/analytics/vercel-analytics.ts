@@ -3,7 +3,14 @@ import 'server-only';
 import { unstable_cache } from 'next/cache';
 import { getPosts } from '@/data/posts';
 
-export type AnalyticsRange = '1d' | '7d' | '30d' | '90d';
+import {
+  apiBounds,
+  resolvePeriod,
+  shiftDate,
+  type AnalyticsPeriod,
+  type AnalyticsRange,
+} from './date-range';
+export type { AnalyticsRange } from './date-range';
 export type AnalyticsStatus = 'ready' | 'unconfigured' | 'error';
 
 interface VisitRow {
@@ -19,6 +26,7 @@ interface VisitRow {
 
 interface EventRow {
   eventData?: string;
+  eventName?: string;
   count?: number;
   visitors?: number;
 }
@@ -35,6 +43,9 @@ export interface AnalyticsDashboardData {
   since: string;
   until: string;
   generatedAt: string;
+  actions: Array<{ name: string; count: number }>;
+  recommendations: Array<{ name: string; impressions: number; clicks: number }>;
+  hourly: Array<{ hour: string; pageviews: number }>;
   summary: {
     visitors: number;
     pageviews: number;
@@ -45,6 +56,7 @@ export interface AnalyticsDashboardData {
     date: string;
     pageviews: number;
     visitors: number;
+    clicks: number;
   }>;
   topPosts: Array<{
     id: string;
@@ -68,13 +80,6 @@ export interface AnalyticsDashboardData {
   placements: Array<{ name: string; clicks: number; visitors: number }>;
 }
 
-const RANGE_DAYS: Record<AnalyticsRange, number> = {
-  '1d': 1,
-  '7d': 7,
-  '30d': 30,
-  '90d': 90,
-};
-
 const PROJECT_ID =
   process.env.VERCEL_ANALYTICS_PROJECT_ID ??
   process.env.VERCEL_PROJECT_ID ??
@@ -86,23 +91,6 @@ const TEAM_ID =
 
 function getAnalyticsToken(): string | undefined {
   return process.env.VERCEL_ANALYTICS_TOKEN ?? process.env.VERCEL_TOKEN;
-}
-
-function formatKoreanDate(date: Date): string {
-  return new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Seoul',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(date);
-}
-
-function getDateRange(range: AnalyticsRange) {
-  const until = formatKoreanDate(new Date());
-  const sinceDate = new Date(`${until}T00:00:00+09:00`);
-  sinceDate.setDate(sinceDate.getDate() - (RANGE_DAYS[range] - 1));
-
-  return { since: formatKoreanDate(sinceDate), until };
 }
 
 function toNumber(value: unknown): number {
@@ -141,8 +129,11 @@ async function queryAggregate<T>({
   );
   url.searchParams.set('teamId', TEAM_ID);
   url.searchParams.set('projectId', PROJECT_ID);
-  url.searchParams.set('since', since);
-  url.searchParams.set('until', until);
+  const bounds = since.includes('T')
+    ? { since, until }
+    : apiBounds(since, until);
+  url.searchParams.set('since', bounds.since);
+  url.searchParams.set('until', bounds.until);
   url.searchParams.set('by', by);
   url.searchParams.set('limit', String(limit));
   if (filter) url.searchParams.set('filter', filter);
@@ -153,6 +144,7 @@ async function queryAggregate<T>({
       Accept: 'application/json',
     },
     cache: 'no-store',
+    signal: AbortSignal.timeout(15000),
   });
 
   if (!response.ok) {
@@ -166,45 +158,55 @@ async function queryAggregate<T>({
   }
 
   const payload = (await response.json()) as AggregateResponse<T>;
-  return Array.isArray(payload.data) ? payload.data : [];
+  if (!Array.isArray(payload.data))
+    throw new Error('ANALYTICS_INVALID_RESPONSE');
+  return payload.data;
 }
 
-function fillTrend(
-  rows: VisitRow[],
-  since: string,
-  days: number
-): AnalyticsDashboardData['trend'] {
-  const byDate = new Map(
-    rows.map(row => [
-      row.timestamp?.slice(0, 10) ?? '',
-      {
-        pageviews: toNumber(row.pageviews),
-        visitors: toNumber(row.visitors),
-      },
-    ])
-  );
-  const start = new Date(`${since}T00:00:00+09:00`);
-
-  return Array.from({ length: days }, (_, index) => {
-    const date = new Date(start);
-    date.setDate(start.getDate() + index);
-    const key = formatKoreanDate(date);
-    const metrics = byDate.get(key);
-
+// Query each Korean calendar day without UTC day buckets. Cache days separately.
+const getDay = unstable_cache(
+  async (date: string) => {
+    const [visits, clicks] = await Promise.all([
+      queryAggregate<VisitRow>({
+        dataset: 'visits',
+        since: date,
+        until: date,
+        by: 'environment',
+        filter: "environment eq 'production'",
+      }),
+      queryAggregate<EventRow>({
+        dataset: 'events',
+        since: date,
+        until: date,
+        by: 'eventName',
+        filter: "eventName eq 'Post Click' and environment eq 'production'",
+      }),
+    ]);
     return {
-      date: key,
-      pageviews: metrics?.pageviews ?? 0,
-      visitors: metrics?.visitors ?? 0,
+      date,
+      pageviews: visits.reduce((n, r) => n + toNumber(r.pageviews), 0),
+      visitors: visits.reduce((n, r) => n + toNumber(r.visitors), 0),
+      clicks: clicks.reduce((n, r) => n + toNumber(r.count), 0),
     };
-  });
+  },
+  ['analytics-kst-day-v2'],
+  { revalidate: 60, tags: ['admin-analytics'] }
+);
+
+async function loadDays(dates: string[]) {
+  const rows: AnalyticsDashboardData['trend'] = [];
+  for (let i = 0; i < dates.length; i += 4) {
+    rows.push(...(await Promise.all(dates.slice(i, i + 4).map(getDay))));
+  }
+  return rows;
 }
 
 function emptyDashboard(
-  range: AnalyticsRange,
+  period: AnalyticsPeriod,
   status: AnalyticsStatus,
   message?: string
 ): AnalyticsDashboardData {
-  const { since, until } = getDateRange(range);
+  const { since, until, range } = period;
   return {
     status,
     message,
@@ -218,7 +220,15 @@ function emptyDashboard(
       postClicks: 0,
       viewsPerVisitor: 0,
     },
-    trend: fillTrend([], since, RANGE_DAYS[range]),
+    trend: period.dates.map(date => ({
+      date,
+      pageviews: 0,
+      visitors: 0,
+      clicks: 0,
+    })),
+    actions: [],
+    recommendations: [],
+    hourly: [],
     topPosts: [],
     categories: [],
     referrers: [],
@@ -230,17 +240,17 @@ function emptyDashboard(
 }
 
 async function loadDashboard(
-  range: AnalyticsRange
+  period: AnalyticsPeriod
 ): Promise<AnalyticsDashboardData> {
   if (!getAnalyticsToken()) {
     return emptyDashboard(
-      range,
+      period,
       'unconfigured',
       'VERCEL_ANALYTICS_TOKEN 환경변수가 아직 설정되지 않았습니다.'
     );
   }
 
-  const { since, until } = getDateRange(range);
+  const { since, until, range } = period;
   const productionFilter = "environment eq 'production'";
 
   try {
@@ -253,15 +263,12 @@ async function loadDashboard(
       countryRows,
       clickRows,
       placementRows,
+      actionRows,
+      impressionRows,
+      recommendationClicks,
+      hourlyRows,
     ] = await Promise.all([
-      queryAggregate<VisitRow>({
-        dataset: 'visits',
-        since,
-        until,
-        by: 'day',
-        filter: productionFilter,
-        limit: RANGE_DAYS[range],
-      }),
+      loadDays(period.dates),
       queryAggregate<VisitRow>({
         dataset: 'visits',
         since,
@@ -318,9 +325,42 @@ async function loadDashboard(
         filter: "eventName eq 'Post Click' and environment eq 'production'",
         limit: 20,
       }),
+      queryAggregate<EventRow>({
+        dataset: 'events',
+        since,
+        until,
+        by: 'eventData/action',
+        filter: "eventName eq 'Content Action' and environment eq 'production'",
+      }),
+      queryAggregate<EventRow>({
+        dataset: 'events',
+        since,
+        until,
+        by: 'eventData/placement',
+        filter:
+          "eventName eq 'Recommendation Impression' and environment eq 'production'",
+      }),
+      queryAggregate<EventRow>({
+        dataset: 'events',
+        since,
+        until,
+        by: 'eventData/placement',
+        filter:
+          "eventName eq 'Recommendation Click' and environment eq 'production'",
+      }),
+      period.days === 1
+        ? queryAggregate<VisitRow>({
+            dataset: 'visits',
+            since,
+            until,
+            by: 'hour',
+            filter: productionFilter,
+            limit: 24,
+          })
+        : Promise.resolve([]),
     ]);
 
-    const trend = fillTrend(trendRows, since, RANGE_DAYS[range]);
+    const trend = trendRows;
     const summaryPageviews = trend.reduce(
       (total, row) => total + row.pageviews,
       0
@@ -397,6 +437,28 @@ async function loadDashboard(
 
     return {
       status: 'ready',
+      actions: actionRows.map(r => ({
+        name: r.eventData || 'unknown',
+        count: toNumber(r.count),
+      })),
+      recommendations: impressionRows.map(r => ({
+        name: r.eventData || 'unknown',
+        impressions: toNumber(r.count),
+        clicks: toNumber(
+          recommendationClicks.find(c => c.eventData === r.eventData)?.count
+        ),
+      })),
+      hourly: hourlyRows
+        .filter(r => r.timestamp)
+        .map(r => ({
+          hour: new Intl.DateTimeFormat('ko-KR', {
+            timeZone: 'Asia/Seoul',
+            hour: '2-digit',
+            hourCycle: 'h23',
+          }).format(new Date(r.timestamp!)),
+          pageviews: toNumber(r.pageviews),
+        }))
+        .sort((a, b) => a.hour.localeCompare(b.hour)),
       range,
       since,
       until,
@@ -404,10 +466,7 @@ async function loadDashboard(
       summary: {
         visitors: summaryVisitors,
         pageviews: summaryPageviews,
-        postClicks: clickRows.reduce(
-          (total, row) => total + toNumber(row.count),
-          0
-        ),
+        postClicks: trend.reduce((total, row) => total + row.clicks, 0),
         viewsPerVisitor:
           summaryVisitors > 0 ? summaryPageviews / summaryVisitors : 0,
       },
@@ -436,22 +495,39 @@ async function loadDashboard(
           : 'Vercel Analytics 데이터를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
 
     console.error('Vercel Analytics dashboard query failed:', code);
-    return emptyDashboard(range, 'error', message);
+    return emptyDashboard(period, 'error', message);
   }
 }
 
 const getCachedDashboard = unstable_cache(
-  async (range: AnalyticsRange) => loadDashboard(range),
-  ['admin-vercel-analytics-dashboard-v1'],
-  { revalidate: 300 }
+  async (period: AnalyticsPeriod) => loadDashboard(period),
+  ['admin-vercel-analytics-dashboard-v2'],
+  { revalidate: 60, tags: ['admin-analytics'] }
 );
 
-export function normalizeAnalyticsRange(value: string | undefined) {
-  return value === '1d' || value === '7d' || value === '30d' || value === '90d'
-    ? value
-    : '30d';
+export async function getAnalyticsDashboard(period: AnalyticsPeriod) {
+  return getCachedDashboard(period);
 }
 
-export async function getAnalyticsDashboard(range: AnalyticsRange) {
-  return getCachedDashboard(range);
+export async function getPreviousSummary(period: AnalyticsPeriod) {
+  const until = shiftDate(period.since, -1);
+  const since = shiftDate(until, 1 - period.days);
+  try {
+    if (!getAnalyticsToken()) return null;
+    const previous = resolvePeriod({
+      range: 'custom',
+      start: since,
+      end: until,
+    });
+    const rows = await loadDays(previous.dates);
+    return {
+      since,
+      until,
+      visitors: rows.reduce((n, r) => n + r.visitors, 0),
+      pageviews: rows.reduce((n, r) => n + r.pageviews, 0),
+      postClicks: rows.reduce((n, r) => n + r.clicks, 0),
+    };
+  } catch {
+    return null;
+  }
 }

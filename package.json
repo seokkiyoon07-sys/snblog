@@ -32,7 +32,8 @@
     "docker:down": "docker-compose down",
     "docker:logs": "docker-compose logs -f",
     "optimize:thumbnails": "node scripts/optimize-thumbnails.cjs --write",
-    "test:post-tools": "node --test scripts/post-tools.test.cjs"
+    "test:post-tools": "node --test scripts/post-tools.test.cjs",
+    "test:analytics": "node --test scripts/analytics.test.cjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",

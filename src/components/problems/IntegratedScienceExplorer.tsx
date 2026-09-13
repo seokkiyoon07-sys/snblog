@@ -1,4 +1,5 @@
 'use client';
+import { useLearningActivity } from '@/components/analytics/useLearningActivity';
 import {
   ScienceQuestionTwentyFiveSolution,
   ScienceQuestionTwentyFiveAnalysis,
@@ -279,6 +280,7 @@ export default function IntegratedScienceExplorer() {
 
 function QuestionContent({ item }: { item: IntegratedScienceExample }) {
   const [section, setSection] = useState(0);
+  useLearningActivity('science', item.number, section);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
 
   return (

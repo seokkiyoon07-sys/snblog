@@ -1,4 +1,5 @@
 'use client';
+import { useLearningActivity } from '@/components/analytics/useLearningActivity';
 
 import { QuestionFourPractice } from './IntegratedSocialQuestionFourPractice';
 import { QuestionFivePractice } from './IntegratedSocialQuestionFivePractice';
@@ -413,6 +414,7 @@ export default function IntegratedSocialExplorer() {
 
 function QuestionContent({ question }: { question: number }) {
   const [section, setSection] = useState(0);
+  useLearningActivity('social', question, section);
   const [copied, setCopied] = useState(false);
   const [copyFailed, setCopyFailed] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);

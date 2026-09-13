@@ -2,20 +2,24 @@ import Link from 'next/link';
 import { requireAdmin } from '@/lib/auth/admin-auth';
 import {
   getAnalyticsDashboard,
-  normalizeAnalyticsRange,
+  getPreviousSummary,
   type AnalyticsDashboardData,
   type AnalyticsRange,
 } from '@/lib/analytics/vercel-analytics';
 import SignOutButton from './SignOutButton';
+import { resolvePeriod, shiftDate } from '@/lib/analytics/date-range';
+import AnalyticsDetails from './AnalyticsDetails';
+import { refreshAnalytics } from './actions';
 
 export const dynamic = 'force-dynamic';
 
 interface AnalyticsPageProps {
-  searchParams: Promise<{ range?: string }>;
+  searchParams: Promise<{ range?: string; start?: string; end?: string }>;
 }
 
 const RANGE_LABELS: Array<{ value: AnalyticsRange; label: string }> = [
   { value: '1d', label: '오늘' },
+  { value: 'yesterday', label: '어제' },
   { value: '7d', label: '7일' },
   { value: '30d', label: '30일' },
   { value: '90d', label: '90일' },
@@ -123,7 +127,7 @@ function TrafficChart({ trend }: { trend: AnalyticsDashboardData['trend'] }) {
           <span>숫자: 방문자</span>
         </div>
       </div>
-      <div className="mt-6 flex h-52 items-end gap-1 overflow-hidden border-b border-gray-200 dark:border-gray-700">
+      <div className="mt-6 flex h-52 items-end gap-1 border-b border-gray-200 dark:border-gray-700">
         {trend.map((row, index) => {
           const height = Math.max(2, (row.pageviews / maxPageviews) * 100);
           const showLabel =
@@ -157,8 +161,30 @@ export default async function AdminAnalyticsPage({
 }: AnalyticsPageProps) {
   const session = await requireAdmin();
   const params = await searchParams;
-  const range = normalizeAnalyticsRange(params.range);
-  const data = await getAnalyticsDashboard(range);
+  let period;
+  try {
+    period = resolvePeriod(params);
+  } catch (error) {
+    return (
+      <div role="alert" className="rounded-xl border p-6">
+        <p>
+          {error instanceof Error ? error.message : '날짜를 확인해 주세요.'}
+        </p>
+        <Link
+          prefetch={false}
+          className="mt-4 inline-block text-blue-600 underline"
+          href="/admin/analytics?range=1d"
+        >
+          오늘 자료 보기
+        </Link>
+      </div>
+    );
+  }
+  const { range } = period;
+  const [data, previous] = await Promise.all([
+    getAnalyticsDashboard(period),
+    getPreviousSummary(period),
+  ]);
 
   return (
     <div className="space-y-6 pb-12">
@@ -186,6 +212,7 @@ export default async function AdminAnalyticsPage({
       <nav className="flex flex-wrap gap-2" aria-label="조회 기간">
         {RANGE_LABELS.map(item => (
           <Link
+            prefetch={false}
             key={item.value}
             href={`/admin/analytics?range=${item.value}`}
             className={`rounded-lg px-4 py-2 text-sm font-semibold transition ${
@@ -198,6 +225,78 @@ export default async function AdminAnalyticsPage({
           </Link>
         ))}
       </nav>
+
+      <form
+        key={`${period.since}:${period.until}`}
+        action="/admin/analytics"
+        method="get"
+        className="flex flex-wrap items-end gap-3 rounded-xl border border-gray-200 p-4 dark:border-gray-700"
+      >
+        <input type="hidden" name="range" value="custom" />
+        <label className="text-sm">
+          시작일
+          <input
+            type="date"
+            name="start"
+            required
+            max={period.today}
+            defaultValue={period.since}
+            className="mt-1 block rounded border p-2 dark:bg-gray-800"
+          />
+        </label>
+        <label className="text-sm">
+          종료일
+          <input
+            type="date"
+            name="end"
+            required
+            max={period.today}
+            defaultValue={period.until}
+            className="mt-1 block rounded border p-2 dark:bg-gray-800"
+          />
+        </label>
+        <button
+          className="rounded bg-blue-600 px-4 py-2 text-white"
+          type="submit"
+        >
+          날짜 조회
+        </button>
+        <p className="text-xs text-gray-500">
+          하루 조회는 두 날짜를 같게 선택 · 최대 90일
+        </p>
+      </form>
+      <div className="flex flex-wrap items-center gap-4 text-sm">
+        {period.days === 1 && (
+          <>
+            <Link
+              prefetch={false}
+              className="text-blue-600 underline"
+              href={`/admin/analytics?range=custom&start=${shiftDate(period.since, -1)}&end=${shiftDate(period.since, -1)}`}
+            >
+              ← 이전 날
+            </Link>
+            {period.until < period.today && (
+              <Link
+                prefetch={false}
+                className="text-blue-600 underline"
+                href={`/admin/analytics?range=custom&start=${shiftDate(period.since, 1)}&end=${shiftDate(period.since, 1)}`}
+              >
+                다음 날 →
+              </Link>
+            )}
+          </>
+        )}
+        <form action={refreshAnalytics}>
+          <button type="submit" className="rounded border px-3 py-2">
+            새로고침
+          </button>
+        </form>
+        <span className="text-gray-500">
+          한국 시간 기준 · 최대 1분 캐시
+          {period.until === period.today ? ' · 오늘은 현재까지 집계 중' : ''} ·
+          원본 데이터 반영은 지연될 수 있습니다.
+        </span>
+      </div>
 
       {data.status !== 'ready' && (
         <div
@@ -218,9 +317,9 @@ export default async function AdminAnalyticsPage({
 
       <section className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <MetricCard
-          label="순 방문자"
+          label="일별 방문자 합계"
           value={`${formatNumber(data.summary.visitors)}명`}
-          description="일별 익명 방문자 합계"
+          description="날짜 사이 중복 방문 포함"
         />
         <MetricCard
           label="페이지 조회"
@@ -235,11 +334,16 @@ export default async function AdminAnalyticsPage({
         <MetricCard
           label="방문자당 조회"
           value={data.summary.viewsPerVisitor.toFixed(2)}
-          description="페이지뷰 ÷ 방문자"
+          description="페이지뷰 ÷ 일별 방문자 합계"
         />
       </section>
 
       <TrafficChart trend={data.trend} />
+      <AnalyticsDetails
+        data={data}
+        previous={previous}
+        ongoing={period.until === period.today}
+      />
 
       <section className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
         <div className="flex items-center justify-between border-b border-gray-200 px-5 py-4 dark:border-gray-700">
@@ -275,6 +379,7 @@ export default async function AdminAnalyticsPage({
                         </span>
                         <div className="min-w-0">
                           <Link
+                            prefetch={false}
                             href={post.url}
                             className="line-clamp-2 font-medium text-gray-950 hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
                           >

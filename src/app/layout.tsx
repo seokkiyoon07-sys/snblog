@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import StructuredData from '@/components/StructuredData';
 import { Analytics } from '@vercel/analytics/next';
+import ContentActivityTracker from '@/components/analytics/ContentActivityTracker';
 // import ThemeDebugger from "@/components/ThemeDebugger";
 
 const geistSans = Geist({
@@ -234,6 +235,7 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
         <Analytics />
+        <ContentActivityTracker />
       </body>
     </html>
   );
