@@ -97,12 +97,24 @@ function seededScore(value: string): number {
   return hash / 0xffffffff;
 }
 
-export function getFeaturedPosts(limit = 4): Post[] {
+export function getFeaturedPosts(limit = 6): Post[] {
   const posts = getPosts();
   const today = new Date();
   const seed = getRecommendationSeed(today);
-  const pinnedRecommendationIds = ['2027-repeater-class'];
-  const excludedRecommendationIds = ['sntk-math1-level3-free'];
+  const pinnedRecommendationIds = [
+    '2027-repeater-class',
+    'snargpt-development-2026',
+    '2027-september-mock-korean-analysis',
+    '2027-september-mock-math-solution',
+    '2028-integrated-social-study-guide',
+    '2028-integrated-science-study-guide',
+  ];
+  const excludedRecommendationIds = [
+    'sntk-math1-level3-free',
+    '2027-june-mock-math-solution',
+    'why-sn-knows-ai-best',
+    'snargpt-rag-english-16000',
+  ];
   const latestPool = posts
     .filter(post => post.thumbnail)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

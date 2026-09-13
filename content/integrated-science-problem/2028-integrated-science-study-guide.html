@@ -1,0 +1,288 @@
+<style>
+article:has(.sn-science-guide) { max-width: 820px; padding: 48px 30px 80px; }
+article:has(.sn-science-guide) > h1 { font-size: 34px; line-height: 1.45; letter-spacing: -.035em; color: #122918; margin: 0 0 32px; }
+article:has(.sn-science-guide) > .not-prose { display: none; }
+.sn-science-guide { color: #334155; font-size: 17px; line-height: 1.9; word-break: keep-all; overflow-wrap: anywhere; }
+.sn-science-guide *, .sn-science-guide *::before { box-sizing: border-box; }
+.sn-science-guide p { margin: 0 0 22px; }
+.sn-science-guide strong { color: #172b21; font-weight: 700; }
+.sn-science-guide h2 { margin: 64px 0 26px; padding-top: 30px; border-top: 1px solid #dde5df; font-size: 27px; font-weight: 700; line-height: 1.5; letter-spacing: -.025em; color: #122918; scroll-margin-top: 100px; }
+.sn-science-guide .sn-guide-eyebrow { display: block; font-size: 12px; font-weight: 700; letter-spacing: .07em; line-height: 1.5; color: #526d59; margin: 0 0 12px; }
+.sn-science-guide a { color: #235d3b; text-decoration: underline; text-underline-offset: 4px; }
+.sn-science-guide a:focus-visible { outline: 2px solid #235d3b; outline-offset: 4px; border-radius: 2px; }
+.sn-science-guide .sn-guide-overview { background: #f3f6f3; border: 1px solid #e0e8e1; border-radius: 16px; padding: 30px; margin-bottom: 28px; }
+.sn-science-guide .sn-guide-lead { font-size: 25px; color: #122918; line-height: 1.6; font-weight: 700; letter-spacing: -.025em; margin-bottom: 16px; }
+.sn-science-guide .sn-guide-overview > p:last-of-type { font-size: 15px; color: #536359; margin-bottom: 24px; }
+.sn-guide-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin: 0; padding-top: 20px; border-top: 1px solid #d8e2da; }
+.sn-guide-stats dt { font-size: 13px; color: #5b6a60; }
+.sn-guide-stats dd { margin: 3px 0 0; font-size: 29px; line-height: 1.4; font-weight: 700; color: #122918; }
+.sn-guide-stats dd span { margin-left: 5px; font-size: 14px; font-weight: 400; }
+.sn-guide-toc { border-bottom: 1px solid #e2e8e3; padding: 0 0 26px; margin: 0 0 36px; }
+.sn-science-guide .sn-guide-toc p { font-weight: 700; font-size: 14px; margin-bottom: 12px; color: #122918; }
+.sn-guide-toc ol { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; list-style: decimal; padding-left: 22px; font-size: 15px; margin: 0; }
+.sn-science-guide ul { padding-left: 24px; margin: 24px 0 30px; list-style: disc; }
+.sn-science-guide li { margin: 6px 0; padding-left: 3px; }
+.sn-guide-table { margin: 30px 0; border: 1px solid #dce5de; border-radius: 12px; overflow: hidden; }
+.sn-guide-table table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.7; table-layout: fixed; margin: 0; }
+.sn-guide-table th { background: #edf3ee; color: #183a25; font-weight: 700; text-align: left; }
+.sn-guide-table th,.sn-guide-table td { padding: 16px 14px; vertical-align: top; border-bottom: 1px solid #e3e9e5; }
+.sn-guide-table tr:last-child td { border-bottom: 0; }
+.sn-guide-table tbody tr:nth-child(even) { background: #f9faf9; }
+.sn-guide-table table:has(th:nth-child(4)) th:nth-child(1) { width: 23%; }
+.sn-guide-table table:has(th:nth-child(4)) th:nth-child(2) { width: 25%; }
+.sn-guide-table table:has(th:nth-child(4)) th:nth-child(3) { width: 40%; }
+.sn-guide-table table:has(th:nth-child(4)) th:nth-child(4) { width: 12%; }
+.sn-guide-steps { margin: 28px 0; padding: 0; list-style: none; counter-reset: step; }
+.sn-science-guide .sn-guide-steps > li > p { margin: 0; }
+.sn-science-guide .sn-guide-steps > li { position: relative; padding: 22px 24px 22px 68px; border: 1px solid #e0e7e2; border-radius: 12px; margin-bottom: 14px; font-size: 16px; }
+.sn-guide-steps > li::before { counter-increment: step; content: counter(step, decimal-leading-zero); position: absolute; left: 20px; top: 24px; color: #51745b; font-size: 15px; font-weight: 700; }
+.sn-guide-steps strong { display: block; margin-bottom: 10px; font-size: 18px; line-height: 1.6; }
+.sn-science-guide .sn-guide-action { margin: 30px 0 40px; }
+.sn-guide-action a { display: block; padding: 20px 24px; border-radius: 12px; background: #122918; color: #fff; text-decoration: none; font-size: 16px; font-weight: 600; }
+.sn-science-guide .sn-guide-source { border-top: 1px solid #e2e8e3; padding-top: 24px; color: #647067; font-size: 13px; line-height: 1.85; }
+.sn-guide-source small { font-size: inherit; }
+@media(max-width:600px) {
+ article:has(.sn-science-guide) { padding: 28px 20px 56px; }
+ article:has(.sn-science-guide) > h1 { font-size: 27px; line-height: 1.5; margin-bottom: 24px; }
+ .sn-science-guide { font-size: 16px; line-height: 1.85; }
+ .sn-science-guide h2 { font-size: 23px; margin-top: 46px; padding-top: 24px; }
+ .sn-science-guide .sn-guide-overview { padding: 22px 20px; }
+ .sn-science-guide .sn-guide-lead { font-size: 21px; }
+ .sn-guide-wide-break { display: none; }
+ .sn-guide-stats dd { font-size: 26px; }
+ .sn-guide-toc ol { grid-template-columns: 1fr; gap: 6px; }
+ .sn-guide-table { border: 0; border-radius: 0; }
+ .sn-guide-table table,.sn-guide-table tbody { display: block; }
+ .sn-guide-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+ .sn-guide-table tr { display: block; border: 1px solid #dce5de; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+ .sn-guide-table td { display: grid; grid-template-columns: 85px minmax(0,1fr); gap: 12px; padding: 11px 15px; font-size: 14px; }
+ .sn-guide-table td::before { content: attr(data-label); color: #617166; font-size: 12px; font-weight: 600; }
+ .sn-guide-table td:first-child { background: #edf3ee; color: #183a25; font-weight: 700; }
+ .sn-science-guide .sn-guide-steps > li { padding: 20px 18px 20px 54px; }
+ .sn-guide-steps > li::before { left: 16px; top: 22px; }
+ .sn-guide-steps strong { font-size: 17px; }
+}
+.dark article:has(.sn-science-guide) > h1,.dark .sn-science-guide h2,.dark .sn-science-guide strong { color: #e5efe7; }
+.dark .sn-science-guide { color: #cbd5cf; }
+.dark .sn-science-guide .sn-guide-overview,.dark .sn-guide-table th { background: #1b3023; color: #e5efe7; }
+.dark .sn-science-guide .sn-guide-lead,.dark .sn-guide-stats dd,.dark .sn-science-guide .sn-guide-toc p { color: #e5efe7; }
+.dark .sn-science-guide .sn-guide-eyebrow,.dark .sn-guide-stats dt,.dark .sn-science-guide .sn-guide-overview > p:last-of-type,.dark .sn-guide-table td::before { color: #aac3b0; }
+.dark .sn-guide-table tbody tr:nth-child(even) { background: #18241d; }
+.dark .sn-science-guide a { color: #acd3b7; }
+.dark .sn-guide-action a { color: white; background: #285a38; }
+
+.sn-subject-radar { margin: 32px 0 36px; padding: 26px 22px 20px; border: 1px solid #dce5de; border-radius: 16px; background: #f8faf8; }
+.sn-subject-radar figcaption { text-align: center; line-height: 1.6; }
+.sn-subject-radar figcaption strong { display: block; font-size: 20px; }
+.sn-subject-radar figcaption span { display: block; margin-top: 8px; font-size: 13px; color: #627067; }
+.sn-subject-radar svg { display: block; width: 100%; max-width: 540px; height: auto; margin: 20px auto 0; overflow: visible; }
+.sn-radar-grid { color: #cbd7cd; }
+.sn-radar-area { fill: #36774a; fill-opacity: .16; stroke: #28613b; }
+.sn-radar-dots { color: #28613b; }
+.sn-radar-scale { fill: #68766c; }
+.sn-radar-label { fill: #263c2e; font-weight: 600; }
+.sn-radar-number { fill: #28613b; font-weight: 700; }
+.sn-science-guide .sn-radar-note { margin: 0; padding-top: 16px; border-top: 1px solid #e0e7e1; font-size: 13px; line-height: 1.8; color: #647067; }
+@media(max-width:600px) { .sn-subject-radar { padding: 22px 10px 18px; } .sn-subject-radar figcaption strong { font-size: 18px; } .sn-subject-radar figcaption span,.sn-science-guide .sn-radar-note { font-size: 12px; } }
+.dark .sn-subject-radar { background: #18271d; border-color: #3b5142; }
+.dark .sn-radar-label { fill: #d4e3d8; }
+.dark .sn-radar-number,.dark .sn-radar-scale { fill: #accdb4; }
+.dark .sn-radar-grid { color: #425a49; }
+.dark .sn-radar-area { fill: #84bd93; stroke: #84bd93; }
+.dark .sn-radar-dots { color: #84bd93; }
+.dark .sn-subject-radar figcaption span,.dark .sn-science-guide .sn-radar-note { color: #a9bdb0; }
+
+.sn-science-guide a[data-science-question] { white-space: nowrap; color: #235d3b; font-weight: 700; text-decoration-style: dotted; text-underline-offset: 4px; }
+.sn-science-guide a[data-science-question]:hover { background: #e6f0e8; text-decoration-style: solid; }
+.sn-science-guide .sn-question-hint { font-size: 14px; color: #617166; margin-bottom: 26px; }
+
+.sn-guide-table .sn-cell-value { min-width: 0; }
+@media(max-width:600px) {
+ .sn-guide-table td:empty { display: none; }
+ .dark .sn-guide-table td:first-child { background: #1b3023; color: #e5efe7; }
+}
+.dark .sn-science-guide a[data-science-question] { color: #acd3b7; }
+.dark .sn-science-guide a[data-science-question]:hover { background: #284432; color: #d8eddf; }
+.dark .sn-science-guide a:focus-visible { outline-color: #acd3b7; }
+.dark .sn-science-guide h2,
+.dark .sn-science-guide .sn-guide-overview,
+.dark .sn-science-guide .sn-guide-stats,
+.dark .sn-science-guide .sn-guide-toc,
+.dark .sn-science-guide .sn-guide-table,
+.dark .sn-science-guide .sn-guide-table tr,
+.dark .sn-science-guide .sn-guide-table th,
+.dark .sn-science-guide .sn-guide-table td,
+.dark .sn-science-guide .sn-guide-steps > li,
+.dark .sn-science-guide .sn-guide-source,
+.dark .sn-science-guide .sn-radar-note { border-color: #3b5142; }
+.dark .sn-science-guide .sn-guide-steps > li::before,
+.dark .sn-science-guide .sn-guide-source,
+.dark .sn-science-guide .sn-question-hint { color: #a9bdb0; }
+
+.sn-science-guide h3 { margin: 32px 0 16px; font-size: 21px; color: #183a25; line-height: 1.6; }
+.dark .sn-science-guide h3 { color: #e5efe7; }
+
+
+/* subject-interaction-start */
+.sn-subject-buttons { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin:12px 0 22px; }
+.sn-subject-buttons button { display:flex; flex-direction:column; gap:6px; align-items:center; padding:14px 8px; border:1px solid #bacfbe; border-radius:12px; background:#fff; color:#183a25; cursor:pointer; font:inherit; font-size:14px; }
+.sn-subject-buttons button:hover { background:#e6f0e8; }
+.sn-subject-buttons button:focus-visible { outline:3px solid #28613b; outline-offset:3px; }
+.sn-subject-buttons small { font-size:11px; }
+.sn-subject-all { margin:24px 0; border:1px solid #dce5de; border-radius:12px; padding:18px; }
+.sn-subject-all summary { cursor:pointer; font-weight:700; }
+.sn-subject-overview-table table { width:100%; margin-top:18px; font-size:14px; line-height:1.8; border-collapse:collapse; }
+.sn-subject-overview-table th,.sn-subject-overview-table td { text-align:left; vertical-align:top; padding:12px 8px; border-bottom:1px solid #dce5de; }
+.sn-subject-overview-table th:first-child { width:60px; white-space:nowrap; }
+.dark .sn-subject-buttons button { background:#1b3023; color:#e5efe7; border-color:#3b5142; }
+.dark .sn-subject-buttons button:hover { background:#284432; }
+.dark .sn-subject-all,.dark .sn-subject-overview-table th,.dark .sn-subject-overview-table td { border-color:#3b5142; }
+@media(max-width:600px) { .sn-subject-buttons { grid-template-columns:repeat(2,minmax(0,1fr)); } .sn-subject-all { padding:12px; } }
+/* subject-interaction-end */
+</style>
+<div class="sn-science-guide">
+<div class="sn-guide-overview">
+<p class="sn-guide-eyebrow">2028 수능 · 통합과학 학습 가이드</p>
+<p class="sn-guide-lead">개념을 연결하고, 조건을 구분하고,<br class="sn-guide-wide-break"> 자료를 근거로 판단하는 공부.</p>
+<p>25문항의 풀이와 역분해에서 찾은 통합과학의 학습 방향입니다.</p>
+<dl class="sn-guide-stats"><div><dt>분석 문항</dt><dd>25<span>문항</span></dd></div><div><dt>예시문항 총점</dt><dd>50<span>점</span></dd></div><div><dt>연관 자료</dt><dd>72<span>개</span></dd></div></dl>
+</div>
+<nav class="sn-guide-toc" aria-label="이 글의 목차"><p>이 글에서 살펴볼 내용</p><ol><li><a href="#overview">25문항의 학습 과제</a></li><li><a href="#science-subjects">물·화·생·지 연계</a></li><li><a href="#concepts">개념과 사례 구분</a></li><li><a href="#measurement">측정과 물리량</a></li><li><a href="#connections">원소와 물질의 연결</a></li><li><a href="#data">자료의 값과 기준</a></li><li><a href="#inquiry">탐구 설계와 결론</a></li><li><a href="#quantity">양적 관계와 운동</a></li><li><a href="#earth-systems">지구시스템의 변화</a></li><li><a href="#past-exams">유사 기출 활용법</a></li><li><a href="#study">다섯 단계 학습법</a></li><li><a href="#next">SNargen 제작 계획</a></li></ol></nav>
+<p class="sn-question-hint">밑줄이 있는 문항 번호를 누르면 통합과학 문제 원문이 팝업으로 열립니다. 전체 풀이·역분해는 분석 페이지에서 확인할 수 있습니다.</p>
+<p>규산염 광물과 반도체에서 같은 원소를 찾습니다. 기온 그래프로 모기가 채집되기 시작할 시기를 예측합니다. DNA 모형의 부품 수를 세고, 세 수용액을 섞은 뒤 남는 이온의 양을 비교합니다.</p>
+<p><strong>2028 수능 통합과학 예시문항 25개에 담긴 풀이 과정입니다.</strong> 익숙한 교과 개념이 등장하지만, 그 개념을 실제 자료의 기호·숫자·조건과 연결해야 답을 고를 수 있습니다.</p>
+<p>SN은 각 문항의 정답과 해설에 더해, 자료를 어떤 순서로 읽어야 하는지, 틀린 선지에서 무엇을 혼동하기 쉬운지, 기존 기출과 어떤 판단 과정을 공유하는지 정리했습니다. 이 글에서는 그 분석을 바탕으로 통합과학 공부의 방향을 살펴봅니다.</p>
+<p class="sn-guide-action"><a href="/problem-download/2028-integrated-science-examples">통합과학 예시문항 25제 풀이·역분해 살펴보기 →</a></p>
+<h2 id="overview">1. 25문항을 관통하는 질문: 무엇을 근거로 판단했는가?</h2>
+<p>이 글에서는 25문항을 복습할 때 필요한 판단 유형으로 나눕니다. 어떤 개념을 알아야 하는지, 자료에서 무엇을 읽어야 하는지, 결론까지 어떤 단계를 거치는지를 살펴보겠습니다.</p>
+<p>예를 들어 <a href="/problems/Integrated_science_Studies/28_examples/5.png" data-science-question="5" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 5번 문제 보기">5번</a>은 같은 종의 개미가 일을 나누는 상황을 제시합니다. 이를 ‘사회생활’이라고 아는 데서 한 걸음 더 나아가, 개체군 <strong>내</strong>의 관계인지 개체군 <strong>사이</strong>의 관계인지 구분해야 합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/24.png" data-science-question="24" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 24번 문제 보기">24번</a>은 중화 반응이라는 개념을 알아도 곧바로 답을 낼 수 없습니다. 원그래프에서 농도비를 찾고, 생성된 물의 양을 비교한 뒤, 남은 이온을 추적해야 합니다.</p>
+<p>두 문항의 계산량은 다르지만 공통된 학습 과제는 분명합니다. <strong>선지의 결론에 이르는 근거를 빠뜨리지 않고 연결하는 것</strong>입니다.</p>
+<p>25문항을 학습할 때 먼저 점검할 과제에 따라 나누면 다음과 같습니다. 아래 분류는 복습 순서를 위한 SN의 정리이며, 공식 영역별 출제 비율은 아닙니다. 한 문항 안에서도 여러 개념과 사고 과정이 겹칩니다. 여섯 범주를 본문 3~9절에서 차례로 다루며, 자료에 근거한 탐구는 자료 읽기와 실험 판단으로 나누어 살펴봅니다.</p>
+<div class="sn-guide-table"><table><thead><tr><th scope="col">먼저 점검할 학습 과제</th><th scope="col">해당 예시문항</th><th scope="col">복습할 내용</th></tr></thead><tbody><tr><td data-label="먼저 점검할 학습 과제"><span class="sn-cell-value"><a href="#concepts">개념과 사례 구분</a> · 3절</span></td><td data-label="해당 예시문항"><span class="sn-cell-value"><a href="/problems/Integrated_science_Studies/28_examples/1.png" data-science-question="1" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 1번 문제 보기">1번</a> · <a href="/problems/Integrated_science_Studies/28_examples/5.png" data-science-question="5" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 5번 문제 보기">5번</a> · <a href="/problems/Integrated_science_Studies/28_examples/7.png" data-science-question="7" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 7번 문제 보기">7번</a> · <a href="/problems/Integrated_science_Studies/28_examples/8.png" data-science-question="8" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 8번 문제 보기">8번</a></span></td><td data-label="복습할 내용"><span class="sn-cell-value">환경 변화의 원인, 생태계 관계, 열 출입 방향, 다양성과 자연 선택</span></td></tr><tr><td data-label="먼저 점검할 학습 과제"><span class="sn-cell-value"><a href="#measurement">측정과 물리량</a> · 4절</span></td><td data-label="해당 예시문항"><span class="sn-cell-value"><a href="/problems/Integrated_science_Studies/28_examples/2.png" data-science-question="2" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 2번 문제 보기">2번</a> · <a href="/problems/Integrated_science_Studies/28_examples/3.png" data-science-question="3" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 3번 문제 보기">3번</a></span></td><td data-label="복습할 내용"><span class="sn-cell-value">측정 표준의 조건, 기본량·유도량, 부피 단위의 관계</span></td></tr><tr><td data-label="먼저 점검할 학습 과제"><span class="sn-cell-value"><a href="#connections">원소와 물질의 연결</a> · 5절</span></td><td data-label="해당 예시문항"><span class="sn-cell-value"><a href="/problems/Integrated_science_Studies/28_examples/4.png" data-science-question="4" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 4번 문제 보기">4번</a> · <a href="/problems/Integrated_science_Studies/28_examples/11.png" data-science-question="11" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 11번 문제 보기">11번</a> · <a href="/problems/Integrated_science_Studies/28_examples/13.png" data-science-question="13" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 13번 문제 보기">13번</a> · <a href="/problems/Integrated_science_Studies/28_examples/14.png" data-science-question="14" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 14번 문제 보기">14번</a> · <a href="/problems/Integrated_science_Studies/28_examples/21.png" data-science-question="21" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 21번 문제 보기">21번</a></span></td><td data-label="복습할 내용"><span class="sn-cell-value">원소 식별, 주기율표, 원소 생성, 스펙트럼, 화학 결합</span></td></tr><tr><td data-label="먼저 점검할 학습 과제"><span class="sn-cell-value"><a href="#data">자료에 근거한 탐구</a> · 6~7절</span></td><td data-label="해당 예시문항"><span class="sn-cell-value"><a href="/problems/Integrated_science_Studies/28_examples/6.png" data-science-question="6" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 6번 문제 보기">6번</a> · <a href="/problems/Integrated_science_Studies/28_examples/9.png" data-science-question="9" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 9번 문제 보기">9번</a> · <a href="/problems/Integrated_science_Studies/28_examples/16.png" data-science-question="16" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 16번 문제 보기">16번</a> · <a href="/problems/Integrated_science_Studies/28_examples/23.png" data-science-question="23" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 23번 문제 보기">23번</a></span></td><td data-label="복습할 내용"><span class="sn-cell-value">데이터 정제, 규칙 도출과 예측, 변인 통제, 가설의 반례</span></td></tr><tr><td data-label="먼저 점검할 학습 과제"><span class="sn-cell-value"><a href="#quantity">양적 관계와 운동</a> · 8절</span></td><td data-label="해당 예시문항"><span class="sn-cell-value"><a href="/problems/Integrated_science_Studies/28_examples/10.png" data-science-question="10" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 10번 문제 보기">10번</a> · <a href="/problems/Integrated_science_Studies/28_examples/12.png" data-science-question="12" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 12번 문제 보기">12번</a> · <a href="/problems/Integrated_science_Studies/28_examples/18.png" data-science-question="18" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 18번 문제 보기">18번</a> · <a href="/problems/Integrated_science_Studies/28_examples/19.png" data-science-question="19" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 19번 문제 보기">19번</a> · <a href="/problems/Integrated_science_Studies/28_examples/20.png" data-science-question="20" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 20번 문제 보기">20번</a> · <a href="/problems/Integrated_science_Studies/28_examples/24.png" data-science-question="24" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 24번 문제 보기">24번</a></span></td><td data-label="복습할 내용"><span class="sn-cell-value">단위·효율, 전하, 충격량, 최대 조립량, 운동의 독립성, 중화량</span></td></tr><tr><td data-label="먼저 점검할 학습 과제"><span class="sn-cell-value"><a href="#earth-systems">지구시스템의 변화</a> · 9절</span></td><td data-label="해당 예시문항"><span class="sn-cell-value"><a href="/problems/Integrated_science_Studies/28_examples/15.png" data-science-question="15" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 15번 문제 보기">15번</a> · <a href="/problems/Integrated_science_Studies/28_examples/17.png" data-science-question="17" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 17번 문제 보기">17번</a> · <a href="/problems/Integrated_science_Studies/28_examples/22.png" data-science-question="22" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 22번 문제 보기">22번</a> · <a href="/problems/Integrated_science_Studies/28_examples/25.png" data-science-question="25" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 25번 문제 보기">25번</a></span></td><td data-label="복습할 내용"><span class="sn-cell-value">탄소 이동, 지질 시대, 판의 상대 운동, 해양·대기 상호 작용</span></td></tr></tbody></table></div>
+<section aria-labelledby="science-subjects">
+<h2 id="science-subjects"><span class="sn-guide-eyebrow">물·화·생·지 연계 분석</span>2. 한 문항에 어떤 과목의 개념들이 함께 쓰였을까요?</h2>
+<p>각 문항의 자료·선지·해설에서 실제로 연결되는 과목과 개념을 모두 기록했습니다. 주된 과목을 고르지 않으며, 한 문항에 여러 과목이 쓰이면 각 과목에 한 번씩 집계합니다. 같은 과목의 개념이 여러 개 나와도 그 과목에서는 1문항으로 셉니다.</p>
+<figure class="sn-subject-radar">
+<figcaption><strong>25문항에 쓰인 과목별 연결 개념</strong><span>중복 집계 · 과목명 또는 아래 카드를 누르면 문항별 분석이 열립니다</span></figcaption>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 440" role="group" aria-labelledby="science-radar-title science-radar-desc">
+<title id="science-radar-title">물리학 12문항, 화학 11문항, 생명과학 10문항, 지구과학 10문항</title>
+<desc id="science-radar-desc">25문항 중 각 과목 개념이 쓰인 문항 수를 중복 집계했습니다. 각 축은 0~15문항입니다. 네 과목명 링크를 선택하면 상세 창이 열립니다.</desc>
+<g class="sn-radar-grid" fill="none" stroke="currentColor" stroke-width="1"><polygon points="270,192 298,220 270,248 242,220"/><polygon points="270,164 326,220 270,276 214,220"/><polygon points="270,136 354,220 270,304 186,220"/><polygon points="270,108 382,220 270,332 158,220"/><polygon points="270,80 410,220 270,360 130,220"/><path d="M270 80V360M130 220H410"/></g>
+<g class="sn-radar-scale" font-family="Arial, sans-serif" font-size="12"><text x="280" y="224">0</text><text x="280" y="196">3</text><text x="280" y="168">6</text><text x="280" y="140">9</text><text x="280" y="112">12</text><text x="280" y="84">15</text></g>
+<polygon class="sn-radar-area" points="270,108 372.67,220 270,313.33 176.67,220" stroke-width="3"/>
+<g class="sn-radar-dots" fill="currentColor"><circle cx="270" cy="108" r="5"/><circle cx="372.67" cy="220" r="5"/><circle cx="270" cy="313.33" r="5"/><circle cx="176.67" cy="220" r="5"/></g>
+<g font-family="Arial, sans-serif" text-anchor="middle" font-size="20"><a href="#science-subject-details" data-science-subject="physics" aria-haspopup="dialog" aria-label="물리학 12문항 사용 개념 보기"><text class="sn-radar-label" x="270" y="31">물리학</text><text class="sn-radar-number" x="270" y="58" font-size="17">12문항 · 48%</text></a><a href="#science-subject-details" data-science-subject="chemistry" aria-haspopup="dialog" aria-label="화학 11문항 사용 개념 보기"><text class="sn-radar-label" x="478" y="212">화학</text><text class="sn-radar-number" x="478" y="239" font-size="17">11문항 · 44%</text></a><a href="#science-subject-details" data-science-subject="biology" aria-haspopup="dialog" aria-label="생명과학 10문항 사용 개념 보기"><text class="sn-radar-label" x="270" y="393">생명과학</text><text class="sn-radar-number" x="270" y="420" font-size="17">10문항 · 40%</text></a><a href="#science-subject-details" data-science-subject="earth" aria-haspopup="dialog" aria-label="지구과학 10문항 사용 개념 보기"><text class="sn-radar-label" x="62" y="212">지구과학</text><text class="sn-radar-number" x="62" y="239" font-size="17">10문항 · 40%</text></a></g>
+</svg>
+<div class="sn-subject-buttons"><button type="button" data-science-subject="physics" aria-haspopup="dialog"><strong>물리학</strong><span>12문항 · 48%</span><small>문항·개념 보기 ↗</small></button><button type="button" data-science-subject="chemistry" aria-haspopup="dialog"><strong>화학</strong><span>11문항 · 44%</span><small>문항·개념 보기 ↗</small></button><button type="button" data-science-subject="biology" aria-haspopup="dialog"><strong>생명과학</strong><span>10문항 · 40%</span><small>문항·개념 보기 ↗</small></button><button type="button" data-science-subject="earth" aria-haspopup="dialog"><strong>지구과학</strong><span>10문항 · 40%</span><small>문항·개념 보기 ↗</small></button></div>
+<p class="sn-radar-note">각 비율의 분모는 전체 25문항입니다. 13개 문항에서 두 과목 이상이 연결되어 총 43건으로 집계되므로, 문항 수의 합은 25를 넘고 비율의 합도 100%를 넘습니다.</p>
+</figure>
+<p>일반적인 그래프 읽기·비례 계산·변인 통제만으로 다른 과목을 추가하지는 않습니다. 자료의 원리로 연결되는 개념도 포함하되 단순한 소재 언급이나 풀이 비유는 제외합니다. 아래 수치는 개념의 개수·난도·배점 비중이 아니라 해당 과목 개념이 연결된 문항 수이며, SN의 해석에 따른 분류입니다.</p>
+<p>4번은 규산염·규소의 결합·반도체를 연결하므로 지구과학·화학·물리학에 함께 포함됩니다. 7번은 용해·상태 변화·세포 호흡을 연결하므로 화학·물리학·생명과학에 포함됩니다. 19번의 DNA 조립량을 ‘한계 반응물’에 비유할 수는 있지만 화학 개념을 별도로 적용하는 문항은 아니므로 생명과학에만 집계했습니다.</p>
+<details id="science-subject-details" class="sn-subject-all"><summary>전체 25문항의 과목·개념 대응표 보기</summary><div class="sn-subject-overview-table"><table><thead><tr><th scope="col">문항</th><th scope="col">연결된 과목과 개념</th></tr></thead><tbody><tr><th scope="row">1번</th><td><strong>생명과학</strong>: 생태계 평형·외래종·서식지<br><strong>지구과학</strong>: 지구 온난화와 기온 변화</td></tr><tr><th scope="row">2번</th><td><strong>물리학</strong>: 길이·시간 표준, 열팽창, 빛의 속력</td></tr><tr><th scope="row">3번</th><td><strong>물리학</strong>: 기본량·유도량, 부피·밀도, 단위 환산</td></tr><tr><th scope="row">4번</th><td><strong>물리학</strong>: 반도체의 전기적 성질<br><strong>화학</strong>: 규소·산소, 공유 결합과 원자 구조 모형<br><strong>지구과학</strong>: 지각 구성 물질·규산염 광물</td></tr><tr><th scope="row">5번</th><td><strong>생명과학</strong>: 소비자·분해자, 반작용, 개체군 내 상호 작용</td></tr><tr><th scope="row">6번</th><td><strong>지구과학</strong>: 기온·기압·상대 습도의 시간 변화</td></tr><tr><th scope="row">7번</th><td><strong>물리학</strong>: 증발·승화와 열 흡수<br><strong>화학</strong>: 용해의 열 출입·발열과 흡열·반응 에너지<br><strong>생명과학</strong>: 세포 호흡의 에너지 방출</td></tr><tr><th scope="row">8번</th><td><strong>생명과학</strong>: 유전적 다양성·유전되는 변이·자연 선택</td></tr><tr><th scope="row">9번</th><td><strong>생명과학</strong>: 감염병·매개 생물·개체 수 관측<br><strong>지구과학</strong>: 최고·최저 기온과 계절별 기상 자료</td></tr><tr><th scope="row">10번</th><td><strong>물리학</strong>: 에너지 전환·효율·에너지 단위<br><strong>화학</strong>: 화석 연료의 화학 에너지·발열량</td></tr><tr><th scope="row">11번</th><td><strong>물리학</strong>: 핵융합과 높은 온도 조건<br><strong>화학</strong>: 탄소·규소의 주기율표상 위치<br><strong>지구과학</strong>: 별의 층상 구조·원소 생성·지구 구성 원소</td></tr><tr><th scope="row">12번</th><td><strong>화학</strong>: 금속의 산화·환원, 이온 전하, 전기적 중성</td></tr><tr><th scope="row">13번</th><td><strong>물리학</strong>: 흡수 스펙트럼과 선의 위치<br><strong>화학</strong>: 수소·헬륨, 원자핵과 전자의 결합<br><strong>지구과학</strong>: 초기 우주·우주 원소 질량비·별의 원소 생성</td></tr><tr><th scope="row">14번</th><td><strong>화학</strong>: 전자껍질·원자가 전자·주기율표·화학 결합</td></tr><tr><th scope="row">15번</th><td><strong>화학</strong>: 탄산염 침전·탄산칼슘<br><strong>생명과학</strong>: 광합성·호흡·생물체의 탄소<br><strong>지구과학</strong>: 지구계 권역·탄소 순환·석탄과 석회암</td></tr><tr><th scope="row">16번</th><td><strong>물리학</strong>: 전자기 유도·자기장·낙하 조건·에너지 전환</td></tr><tr><th scope="row">17번</th><td><strong>생명과학</strong>: 생물의 번성과 멸종·생물상 변화<br><strong>지구과학</strong>: 수륙 분포·판게아·지질 시대·빙하기</td></tr><tr><th scope="row">18번</th><td><strong>물리학</strong>: 운동량·충격량·평균 힘·충돌 시간</td></tr><tr><th scope="row">19번</th><td><strong>생명과학</strong>: DNA·뉴클레오타이드·상보적 결합</td></tr><tr><th scope="row">20번</th><td><strong>물리학</strong>: 자유 낙하·수평 투사·중력 가속도</td></tr><tr><th scope="row">21번</th><td><strong>화학</strong>: 주기·족·원자가 전자·화학식<br><strong>생명과학</strong>: 인체 구성 원소·광합성의 원료</td></tr><tr><th scope="row">22번</th><td><strong>물리학</strong>: 상대 속도·운동 방향<br><strong>지구과학</strong>: 발산·수렴 경계·맨틀 상승·섭입과 화산호</td></tr><tr><th scope="row">23번</th><td><strong>화학</strong>: 과산화 수소의 분해·생성물·촉매<br><strong>생명과학</strong>: 코돈·아미노산·돌연변이·효소 기능</td></tr><tr><th scope="row">24번</th><td><strong>물리학</strong>: 열량과 온도 상승·용액의 양<br><strong>화학</strong>: 산·염기·중화량·구경꾼 이온·잉여 이온</td></tr><tr><th scope="row">25번</th><td><strong>지구과학</strong>: 엘니뇨·라니냐·등수온선 깊이·강수와 해수면</td></tr></tbody></table></div></details>
+</section>
+<h2 id="concepts">3. 개념과 사례: 이름보다 판단 기준을 구분하세요</h2>
+<p><a href="/problems/Integrated_science_Studies/28_examples/1.png" data-science-question="1" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 1번 문제 보기">1번</a>은 생태계에 피해가 생겼다는 공통점 속에서 환경 오염·외래종 유입·지구 온난화를 구분합니다. 피해의 원인이 다르면 대응 방법도 달라집니다. 생물을 보호한다는 말 자체보다, 제시된 생태계 교란을 줄이는 대책인지 확인해야 합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/5.png" data-science-question="5" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 5번 문제 보기">5번</a>의 개미는 곰팡이를 기르지만 생산자가 아니라 소비자입니다. 같은 종의 분업은 개체군 내 관계이고, 곰팡이가 토양에 영향을 주는 것은 생물에서 비생물적 환경으로 향하는 반작용입니다. 일상적인 표현과 교과 개념의 정의를 구분하는 연습이 필요합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/7.png" data-science-question="7" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 7번 문제 보기">7번</a>에서는 ‘반대 방향’이라는 조건을 놓치지 않아야 합니다. 염화 암모늄 용해 때 온도가 낮아지는 현상에서 열 흡수를 판단한 다음, 반대로 에너지를 방출하는 사례를 찾습니다. 물의 증발·드라이아이스의 승화와 세포 호흡을 같은 열 출입 기준으로 비교하는 과정입니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/8.png" data-science-question="8" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 8번 문제 보기">8번</a>의 같은 종 내 표현형 차이는 유전적 다양성에 해당합니다. 환경별 표현형 빈도를 읽을 때는 제시문에 주어진 유전과 생존 조건을 함께 확인해야 합니다. <strong>어떤 표현형의 빈도가 높다는 사실만으로 자연 선택이 그 차이의 원인이라고 증명되는 것은 아닙니다.</strong> 이 문항에서 제공한 맥락과 그래프를 함께 사용해 판단하는 것이 중요합니다.</p>
+<p>이 범주의 복습에서는 사례 옆에 개념 이름만 쓰지 말고, 그 개념에 해당하는 근거도 한 문장으로 적어 보세요.</p>
+<h2 id="measurement">4. 측정과 물리량: 정의에 붙은 조건을 읽으세요</h2>
+<p><a href="/problems/Integrated_science_Studies/28_examples/2.png" data-science-question="2" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 2번 문제 보기">2번</a>은 길이 표준의 이름뿐 아니라 정의에 온도와 시간이 필요한 이유를 묻습니다. 금속 원기는 온도에 따라 길이가 달라질 수 있으므로 온도를 정해야 합니다. 빛이 정해진 시간 동안 이동한 거리로 길이를 정의하려면 시간의 표준도 필요합니다. <strong>조건이 붙은 이유를 설명하는 것</strong>이 표준의 발전 순서를 외우는 공부와 함께 이루어져야 합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/3.png" data-science-question="3" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 3번 문제 보기">3번</a>은 한 변이 1 cm인 정육면체의 부피와 눈금실린더의 증가량 1 mL를 같은 물체의 부피로 연결합니다. 11 mL라는 마지막 눈금 전체가 구리의 부피는 아닙니다. 처음 눈금 10 mL를 빼야 합니다. 밀도도 질량/부피에서 멈추지 않고, 부피가 길이의 세제곱으로부터 유도된다는 관계까지 설명할 수 있어야 합니다.</p>
+<p>측정값을 읽을 때는 무엇을 직접 측정했고 무엇을 계산했는지, 처음과 나중의 값 중 무엇을 사용해야 하는지 구분해 보세요.</p>
+<h2 id="connections">5. 통합적 사고는 서로 다른 자료를 연결하는 과정에서 드러납니다</h2>
+<p>앞의 과목별 연계 분석에서 <a href="/problems/Integrated_science_Studies/28_examples/4.png" data-science-question="4" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 4번 문제 보기">4번</a>은 지구과학·화학·물리학 세 과목이 연결되는 문항으로 집계했습니다. 규산염 광물, 공통 원소인 규소, 반도체의 전기적 성질을 함께 사용하기 때문입니다. ‘반도체의 원료가 규소’라는 지식을 떠올린 다음, 규산염 사면체 그림에서 규소가 어느 위치에 있는지 찾아야 합니다.</p>
+<p>풀이 순서는 <strong>문장의 단서 → 원소의 이름 → 그림 속 위치 → 기호</strong>입니다. 규소를 알고도 그림의 중심과 꼭짓점을 혼동하면 선지 판단이 달라집니다. 또한 같은 원소를 포함한다고 두 물질이 같은 성질을 갖는 것은 아닙니다. 원소의 종류와 물질의 구조를 함께 구분해야 합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/11.png" data-science-question="11" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 11번 문제 보기">11번</a> 역시 별의 구조와 지구 구성, 핵융합의 온도 조건, 주기율표를 연결해 세 과목에 집계했습니다. 별 내부의 원소 층에서 출발해 주기율표와 지구 구성 원소로 이어지는 풀이에서 그 연결을 확인할 수 있습니다. 여기서는 ‘지구 전체’와 ‘지각’의 구성 비율을 혼동하지 않는 것도 중요합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/21.png" data-science-question="21" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 21번 문제 보기">21번</a>은 원자가 전자 수의 비와 원자 번호 조건으로 원소를 찾은 뒤, 인체 구성 원소와 광합성에 쓰이는 물질을 판단합니다. 원소를 추론하는 단계와 화학식을 해석하는 단계가 연결되어 있습니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/13.png" data-science-question="13" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 13번 문제 보기">13번</a>은 우주 원소의 질량비와 스펙트럼을 함께 사용합니다. 원자핵이 만들어지는 시기와 전자가 결합해 원자가 형성되는 시기를 구분하고, 스펙트럼에서는 일치하는 선뿐 아니라 남는 선도 확인해야 합니다. 수소·헬륨이 포함되었다는 결론과 그 두 원소로만 구성되었다는 결론은 다릅니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/14.png" data-science-question="14" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 14번 문제 보기">14번</a>은 산소의 값으로 미지수 a를 구하고 원자 번호 범위로 후보를 좁혀 S·Al·Na를 찾습니다. 이후 공유 결합과 이온 결합, 용융 상태에서의 전도성까지 판단합니다. 원소 추론의 정량 조건과 물질의 성질을 연결하는 연습입니다.</p>
+<p>따라서 단원별 개념 정리와 함께, <strong>같은 개념이 다른 자료에서 어떤 모습으로 등장하는지</strong> 정리해 보세요. 규소를 복습한다면 규산염 사면체의 위치, 주기율표의 족, 반도체에서의 활용을 연결하되 각각의 조건과 물질을 구분하는 방식입니다.</p>
+<h2 id="data">6. 자료를 읽을 때는 값의 이름과 비교 기준부터 확인하세요</h2>
+<p>그래프에서 곡선이 높아 보인다는 이유만으로 정답을 고르면 위험합니다. 무엇을 나타내는 값인지, 어느 축을 읽어야 하는지, 무엇과 비교하는지를 먼저 확인해야 합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/6.png" data-science-question="6" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 6번 문제 보기">6번</a>에서는 상대 습도의 <strong>값</strong>과 <strong>변화량</strong>이 다릅니다. 낮은 값에서 출발한 구간의 변화 폭이 더 클 수 있습니다. B 구간에도 변화가 있으므로, 눈에 덜 가파르게 보인다는 이유로 거의 일정하다고 읽지 않아야 합니다. 기온과 기압의 변화 경향을 읽을 때도 주어진 자료에서 확인되는 관계와 그 원인에 대한 설명을 구분해야 합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/18.png" data-science-question="18" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 18번 문제 보기">18번</a>의 힘–시간 그래프에서는 높이가 힘, 면적이 충격량을 뜻합니다. 충격량을 충돌 시간으로 나누면 평균 힘이 됩니다. 힘이 가장 큰 순간이라고 운동량도 가장 큰 것은 아닙니다. 그래프가 직접 보여 주는 물리량과 그 그래프로부터 구할 물리량을 나누어 읽어야 합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/25.png" data-science-question="25" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 25번 문제 보기">25번</a>은 더 세밀한 구분을 요구합니다. 이 그래프의 깊이 축에서는 화면 위쪽이 더 얕은 곳입니다. 또 20℃ 등수온선 깊이는 수온 약층의 변화를 살피는 지표이지만, 혼합층 두께와 같은 정의는 아닙니다. 해수면 높이 편차를 비교할 때는 ‘관측값−평년값’이라는 기준과 ‘서쪽−동쪽’이라는 뺄셈 순서를 끝까지 유지해야 합니다.</p>
+<p>자료를 읽기 전에 다음 네 가지를 짧게 적어 보세요.</p>
+<ul>
+<li><strong>대상:</strong> 기온인가, 수온인가, 깊이인가?</li>
+<li><strong>단위:</strong> J·kJ·MJ 중 무엇인가? 개수인가, 비율인가?</li>
+<li><strong>기준:</strong> 관측값인가, 편차인가? 전체인가, 단위 부피당인가?</li>
+<li><strong>요구:</strong> 값의 크기인가, 변화량인가, 두 값의 차이인가?</li>
+</ul>
+<p>이 확인 과정은 계산을 시작하기 전에 잘못된 식을 세우는 일을 줄여 줍니다.</p>
+<h2 id="inquiry">7. 탐구 문항에서는 바꾼 조건, 얻은 결과, 가능한 결론을 나누세요</h2>
+<p>통합과학의 탐구 문항을 공부할 때는 실험에 등장한 현상과 실험의 목적을 함께 읽어야 합니다.</p>
+<h3>같은 조건을 유지한 이유를 설명하기</h3>
+<p><a href="/problems/Integrated_science_Studies/28_examples/16.png" data-science-question="16" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 16번 문제 보기">16번</a>은 전자기 유도 실험입니다. 자석의 개수는 달리하고, 극의 방향과 낙하 높이는 같게 유지합니다.</p>
+<p>여기서 극의 방향을 고정했다는 사실은 방향의 영향을 조사한다는 뜻이 아닙니다. 방향의 영향을 비교하려면 그 조건을 바꾸어야 합니다. 또한 같은 높이에서 놓는다는 조건과 전기 에너지로 전환되는 양이 같다는 주장은 다릅니다.</p>
+<p>실험을 읽으면 <strong>바꾼 조건·같게 둔 조건·측정한 결과</strong>를 세 칸으로 나누어 적어 보세요. 조작 변인과 통제 변인의 이름을 외우는 데서 나아가, 왜 그렇게 설계했는지 설명하는 연습입니다.</p>
+<h3>과거의 답 대신 적용할 규칙 찾기</h3>
+<p><a href="/problems/Integrated_science_Studies/28_examples/9.png" data-science-question="9" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 9번 문제 보기">9번</a>에서는 과거에 모기가 채집되었던 달을 새해에 그대로 옮기면 안 됩니다. 과거 자료에서 찾아야 할 것은 달의 이름이 아니라 채집 시작과 대응하는 기온 조건입니다.</p>
+<p>최고 기온이 기준값을 넘었는데도 채집되지 않은 기간을 확인하면 잘못된 후보를 배제할 수 있습니다. 최저 기온 조건을 찾은 다음에는 그 조건을 새로운 연도의 예측 그래프에 적용합니다.</p>
+<p>이 문항은 <strong>관측 자료 → 조건 도출 → 새로운 자료에 적용</strong>하는 연습입니다. 다만 제시 자료의 대응 관계만으로 최저 기온이 모기 발생의 유일한 원인이라고 결론 내릴 수는 없습니다.</p>
+<h3>하나의 반례가 결론을 바꿀 수 있음을 이해하기</h3>
+<p><a href="/problems/Integrated_science_Studies/28_examples/23.png" data-science-question="23" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 23번 문제 보기">23번</a>에서는 코돈이 CAU에서 CAC로 바뀌어도 같은 아미노산을 지정합니다. 제시 조건에서 효소 기능이 유지되는 경우가 있으므로, ‘돌연변이가 생기면 모두 기능을 잃는다’는 설명은 성립하지 않습니다.</p>
+<p>반대로 다른 두 사례에서 기능이 상실되었다고 모든 아미노산 변화가 기능 상실을 일으킨다고 일반화할 수도 없습니다.</p>
+<p>탐구 문항의 해설을 읽은 뒤에는 <strong>자료가 뒷받침하는 결론과 아직 말할 수 없는 결론</strong>을 하나씩 적어 보세요. 이 구분이 가설과 실험 결과를 연결하는 힘을 길러 줍니다.</p>
+<h2 id="quantity">8. 계산은 숫자를 고르기 전에 관계를 세우는 연습입니다</h2>
+<h3>단위를 맞추고 비교할 관계를 세우기</h3>
+<p><a href="/problems/Integrated_science_Studies/28_examples/10.png" data-science-question="10" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 10번 문제 보기">10번</a>은 공급 에너지가 같을 때 생산 전기 에너지를 비교하라고 묻습니다. 이를 효율 비교로 해석하고 단위를 맞추면 A 80%, B 20%, C 40%를 얻습니다. C는 연료의 질량과 단위 질량당 에너지를 곱해 공급량을 먼저 구해야 합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/12.png" data-science-question="12" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 12번 문제 보기">12번</a>에서는 이온의 개수와 전하를 구분합니다. 수용액의 전기적 중성으로 3a=6, 2b=6을 세우면 a=2, b=3입니다. 이온 수가 줄었다고 전하량까지 사라지는 것은 아닙니다. 금속 Y의 산화도 산소를 얻는 과정이 아니라 전자를 잃는 과정으로 판단해야 합니다.</p>
+<h3>상한을 구한 뒤 실제로 가능한지 확인하기</h3>
+<p><a href="/problems/Integrated_science_Studies/28_examples/19.png" data-science-question="19" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 19번 문제 보기">19번</a>은 준비된 부품을 모두 더하는 문제가 아닙니다. A–T는 15쌍, G–C는 13쌍까지 만들 수 있습니다. 28쌍을 조립할 다른 부품도 충분한지 확인하면 뉴클레오타이드 56개라는 최대값을 얻습니다. <strong>준비된 수와 사용할 수 있는 수, 염기쌍 수와 뉴클레오타이드 수</strong>를 구분하는 것이 핵심입니다.</p>
+<h3>반응한 양과 남은 양을 끝까지 추적하기</h3>
+<p><a href="/problems/Integrated_science_Studies/28_examples/24.png" data-science-question="24" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 24번 문제 보기">24번</a>에서는 원그래프의 네 등분을 보고 반응에 직접 참여하지 않는 이온들의 양이 같음을 찾아냅니다. 농도비 3:2:1을 구한 뒤에는 생성된 물과 남은 이온을 별도로 계산합니다. 이 문항의 조건에서는 초기 온도와 총부피가 같으므로 물 생성량으로 온도를 비교할 수 있습니다.</p>
+<p>여기서 가장 높은 온도를 보이는 용액이 반드시 중성인 것은 아닙니다. 실제로 (나)는 산성입니다. 또 산성과 염기성을 섞는다는 사실만으로 중성을 판단할 수 없습니다. 남아 있는 H⁺와 OH⁻의 양이 같아야 합니다.</p>
+<h3>바뀐 조건의 영향을 방향별로 나누기</h3>
+<p><a href="/problems/Integrated_science_Studies/28_examples/20.png" data-science-question="20" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 20번 문제 보기">20번</a>은 수평 방향과 연직 방향을 나누어 읽어야 합니다. 같은 시간 간격에서 수평 이동 간격은 초기 수평 속력에, 연직 낙하 거리는 중력 가속도에 연결됩니다. 중력이 작은 행성에서도 같은 수평 속력으로 실험하면 수평 간격은 유지되고 연직 낙하 거리는 줄어듭니다. 두 구슬의 연직 운동이 같다는 조건도 함께 확인해야 합니다.</p>
+<p>계산 오답을 복습할 때는 ‘계산 실수’ 한 줄로 끝내지 마세요. <strong>단위를 잘못 맞췄는지, 분모를 빠뜨렸는지, 남은 양과 반응한 양을 혼동했는지</strong>를 적어야 다음 문제에서 고칠 행동이 분명해집니다.</p>
+<h2 id="earth-systems">9. 지구시스템: 이동 방향과 시간 범위를 추적하세요</h2>
+<p><a href="/problems/Integrated_science_Studies/28_examples/15.png" data-science-question="15" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 15번 문제 보기">15번</a>의 탄소 순환은 과정의 이름과 화살표 방향을 함께 읽어야 합니다. 산호 골격 생성과 석탄 생성의 예로 권역을 찾고, 물속의 탄소가 석회암으로 이동하는 과정을 연결합니다. 특히 ㉢은 생물권에서 기권으로 향하므로 반대 방향인 광합성을 대응시킬 수 없습니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/17.png" data-science-question="17" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 17번 문제 보기">17번</a>은 수륙 분포와 연대로 지질 시대를 찾은 뒤, 두 시기 ‘사이’의 사건과 한 시기 ‘이후’의 사건을 구분합니다. 삼엽충의 멸종 시기와 빙하기의 반복을 판단할 때도 선지가 요구한 시간 범위를 먼저 정해야 합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/22.png" data-science-question="22" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 22번 문제 보기">22번</a>은 앞의 연계 분석처럼 물리학의 상대 속도가 지구과학의 판 경계 판단에 사용됩니다. 화살표가 모두 동쪽을 향해도 판들의 속력이 다르면 사이가 벌어지거나 좁아집니다. 상대 운동으로 발산·수렴을 찾은 다음 맨틀 상승과 섭입대의 화산 활동 위치를 연결합니다.</p>
+<p><a href="/problems/Integrated_science_Studies/28_examples/25.png" data-science-question="25" aria-haspopup="dialog" aria-label="통합과학 공식 예시문항 25번 문제 보기">25번</a>도 깊이 지표에서 엘니뇨·라니냐를 판별한 뒤 강수량과 해수면 높이 관계로 이어집니다. 6절에서 확인한 축과 편차의 정의를 이용해 변화의 방향을 추적하는 것입니다.</p>
+<p>이 범주에서는 <strong>출발점과 도착점, 앞선 시기와 뒤의 시기, 관찰 기준</strong>을 표시하며 읽어 보세요. 과정 이름을 알아도 방향이나 시간 범위를 바꾸어 읽으면 선지의 참거짓이 달라집니다.</p>
+<h2 id="past-exams">10. 유사 기출은 무엇이 비슷한지 알고 풀어야 합니다</h2>
+<p>기존 과학 기출은 개념과 자료 해석을 연습하는 데 도움이 됩니다. 다만 소재가 같다는 이유만으로 같은 유형이라고 판단하면 정작 부족한 능력을 연습하지 못할 수 있습니다.</p>
+<p>예를 들어 9번과 말라리아 기출은 질병 개념을 공유하지만, 질병 분류 문제만으로 기온 기준값을 도출하고 채집 시기를 예측하는 연습까지 할 수는 없습니다. 6번과 태풍 기출 역시 그래프가 비슷해 보여도 사용하는 개념과 판단 과제가 다릅니다.</p>
+<p>반대로 16번의 변인 통제는 생명과학 실험에서도 연습할 수 있습니다. 포식자의 유무를 달리하면서 수조 크기를 같게 유지하는 실험은, 바꾼 조건과 고정한 조건의 역할을 구분한다는 점에서 직접 연결됩니다. <strong>소재가 달라도 필요한 판단 과정이 같을 수 있습니다.</strong></p>
+<div class="sn-guide-table"><table><thead><tr><th scope="col">예시문항</th><th scope="col">유사 기출에서 연습할 내용</th><th scope="col">따로 확인할 차이</th></tr></thead><tbody><tr><td data-label="예시문항"><span class="sn-cell-value">2번 측정 표준</span></td><td data-label="유사 기출에서 연습할 내용"><span class="sn-cell-value">길이 정의에 시간 표준이 필요한 이유</span></td><td data-label="따로 확인할 차이"><span class="sn-cell-value">시간 표준의 역사만 다루는 자료는 개념 보충</span></td></tr><tr><td data-label="예시문항"><span class="sn-cell-value">5번 생태계 관계</span></td><td data-label="유사 기출에서 연습할 내용"><span class="sn-cell-value">개체군 내·사이 구분, 생물 → 환경의 영향</span></td><td data-label="따로 확인할 차이"><span class="sn-cell-value">그림의 기호와 관계 방향은 새로 읽기</span></td></tr><tr><td data-label="예시문항"><span class="sn-cell-value">16번 탐구 설계</span></td><td data-label="유사 기출에서 연습할 내용"><span class="sn-cell-value">조작·통제·종속 변인 구분</span></td><td data-label="따로 확인할 차이"><span class="sn-cell-value">낙하 높이와 속력의 물리적 관계는 별도 복습</span></td></tr><tr><td data-label="예시문항"><span class="sn-cell-value">18번 충격량</span></td><td data-label="유사 기출에서 연습할 내용"><span class="sn-cell-value">그래프 면적과 평균 힘 비교</span></td><td data-label="따로 확인할 차이"><span class="sn-cell-value">기출의 충격량이 서로 같은지 먼저 확인</span></td></tr><tr><td data-label="예시문항"><span class="sn-cell-value">24번 중화 반응</span></td><td data-label="유사 기출에서 연습할 내용"><span class="sn-cell-value">농도·반응량·잉여 이온 추론</span></td><td data-label="따로 확인할 차이"><span class="sn-cell-value">총부피와 초기 온도 등 비교 조건 확인</span></td></tr><tr><td data-label="예시문항"><span class="sn-cell-value">25번 해양·대기</span></td><td data-label="유사 기출에서 연습할 내용"><span class="sn-cell-value">깊이 지표, 편차, 동서 차이 해석</span></td><td data-label="따로 확인할 차이"><span class="sn-cell-value">관측값과 편차, 물리량과 뺄셈 순서 구분</span></td></tr></tbody></table></div>
+<p>SN 분석 페이지에서는 연관 자료를 <strong>직접 유사·부분 직접 연결·보충 학습·심화 학습</strong>으로 구분하고, 각 자료에 연결 이유와 차이를 함께 표시했습니다. 심화 학습이라는 표시는 유사도가 더 높다는 뜻이 아닙니다. 추가 지식이 필요한 자료라는 의미입니다.</p>
+<p>문제를 두 개 풀었다면 공통으로 사용한 풀이 방법과 그대로 옮겨 적용하면 안 되는 조건을 한 줄씩 정리해 보세요. 유사 기출의 가치는 다음 자료에서도 스스로 사용할 수 있는 판단 방법을 익히는 데 있습니다.</p>
+<h2 id="study">11. 개념부터 독립적인 풀이까지, 다섯 단계로 공부하세요</h2>
+<ol class="sn-guide-steps" aria-label="통합과학 다섯 단계 학습법"><li><strong>헷갈리는 개념을 나란히 정리하세요.</strong><p>기본량과 유도량, 개체군 내와 개체군 사이, 원자와 원자핵, 평균 힘과 최대 힘을 비교하세요. 정의와 함께 구분에 필요한 단서를 적습니다.</p></li>
+<li><strong>자료의 조건을 표시하세요.</strong><p>축·단위·범례·비교 기준을 먼저 읽습니다. ‘같은’, ‘이상’, ‘이후’, ‘단위 부피당’처럼 풀이 범위를 정하는 표현도 표시합니다.</p></li>
+<li><strong>선지마다 근거를 연결하세요.</strong><p>어느 문장이나 그래프, 어떤 개념으로 판단했는지 적습니다. 틀린 선지는 어느 부분이 틀렸는지 설명하고 올바르게 고쳐 봅니다.</p></li>
+<li><strong>부족한 판단에 맞춰 유사 기출을 고르세요.</strong><p>개념이 부족하면 보충 자료를, 자료 적용이 약하면 직접 연결되는 기출을 먼저 풉니다. 어려운 문제를 푸는 것과 필요한 문제를 푸는 것을 구분합니다.</p></li>
+<li><strong>해설 없이 다시 풀고 풀이 시간을 기록하세요.</strong><p>답을 기억해 고르는 데 그치지 않고, 자료에서 결론까지 자신의 말로 설명해 보세요. 오답은 개념 혼동·자료 오독·조건 누락·관계식 오류·계산 실수로 나누어 가장 자주 나타나는 원인부터 보완합니다.</p></li></ol>
+<p>마지막으로 공식 예시문항 한 문제를 골라 다음 세 질문에 답해 보세요.</p>
+<ul>
+<li><strong>이 자료가 나타내는 것은 무엇인가?</strong></li>
+<li><strong>어떤 조건과 개념으로 선지를 판단했는가?</strong></li>
+<li><strong>다른 문제에도 적용할 수 있는 풀이 방법은 무엇인가?</strong></li>
+</ul>
+<p>정답과 함께 이 세 가지를 자신의 말로 설명할 수 있다면, 처음의 질문인 ‘무엇을 근거로 판단했는가’에 답한 것입니다. 그 근거를 다음 문제에서도 찾아 적용하는 것이 통합과학 공부의 목표입니다.</p>
+<h2 id="next">12. SNargen은 분석한 사고 과정을 새로운 문제로 연결하겠습니다</h2>
+<p>앞에서 살펴본 학습을 이어갈 수 있도록, 마지막으로 SN의 후속 문항 제작 계획을 소개합니다.</p>
+<p>SN은 예시문항마다 <strong>평가할 개념, 자료를 해석하는 순서, 선지의 판단 조건, 혼동하기 쉬운 지점</strong>을 정리했습니다. SNargen의 문항 제작은 이 분석에서 출발합니다. 학생이 같은 원리를 새로운 조건에서도 적용할 수 있는지 확인하는 문제를 만들겠습니다.</p>
+<p>학습 단계는 <strong>기본 개념 확인 → 새로운 상황에 적용 → 여러 조건을 연결하는 추론</strong>으로 구성하겠습니다. 이 세 단계를 다음 다섯 가지 제작 방향으로 구체화하겠습니다.</p>
+<h3>다섯 가지 제작 방향</h3>
+<p><strong>첫째, 자료의 표현을 바꾸어도 같은 원리를 읽어 내는지 확인하겠습니다.</strong> 6번에서 구분한 값과 변화량, 18번에서 연결한 그래프 면적과 충격량, 25번에서 해석한 관측값과 편차를 제작 기준으로 삼겠습니다. 표·그래프·모형 등 자료의 제시 방식을 바꾸면서도 학생이 축과 단위를 확인하고 필요한 관계를 스스로 찾아내도록 구성하겠습니다.</p>
+<p><strong>둘째, 실험 조건이 바뀌었을 때 유지되는 것과 달라지는 것을 묻겠습니다.</strong> 16번의 조작 변인·통제 변인·측정 결과 구분을 바탕으로 탐구 목적에 맞는 실험 조건을 판단하는 문항을 만들겠습니다. 20번처럼 운동 조건이 달라지는 상황에서도 어떤 물리량이 영향을 받는지 설명할 수 있도록 설계하겠습니다.</p>
+<p><strong>셋째, 계산 결과까지 이어지는 중간 판단을 연습시키겠습니다.</strong> 10번의 단위 환산과 효율, 19번의 상보적 결합과 최대 조립량, 24번의 농도비·중화량·잉여 이온을 활용하겠습니다. 공급된 양·실제 사용된 양·남은 양을 구분하고 비교 기준을 맞추는 과정을 평가하겠습니다. 계산의 각 단계가 어떤 개념을 확인하는지 분명하게 구성하겠습니다.</p>
+<p><strong>넷째, 여러 과목의 개념이 하나의 풀이 안에서 연결되도록 만들겠습니다.</strong> 과목별 연계 분석에서 확인한 4번의 규산염·규소·반도체, 21번의 전자 배치·인체 구성 원소·광합성이 그 사례입니다. 한 자료에서 찾은 정보가 다음 판단에 사용되도록 설계하고, 각 문항에 연결된 과목과 개념을 표시해 복습할 내용을 안내하겠습니다.</p>
+<p><strong>다섯째, 반례를 확인하고 결론의 범위를 판단하는 문항을 만들겠습니다.</strong> 9번의 관측 조건 적용과 23번의 기능 유지 사례를 바탕으로, 자료가 뒷받침하는 결론과 아직 확정할 수 없는 결론을 구분하는 탐구 문항을 제작하겠습니다.</p>
+<h3>오답에는 놓친 판단 과정을 담겠습니다</h3>
+<p>오답 선지는 문항 분석에서 확인한 혼동 지점을 바탕으로 구성하겠습니다. 그래프의 높이를 변화량으로 읽는 오류, 통제 변인을 조작 변인으로 이해하는 오류, 염기쌍 수와 뉴클레오타이드 수를 혼동하는 오류, 산성과 염기성을 섞으면 항상 중성이 된다고 판단하는 오류 등을 검토하겠습니다.</p>
+<p>해설에는 <strong>어느 조건을 놓쳤는지, 어떤 개념을 다시 확인해야 하는지, 올바른 판단 순서는 무엇인지</strong>를 설명하겠습니다. 학생이 틀린 이유를 다음 학습에서 고칠 수 있도록 하겠습니다.</p>
+<h3>검토를 거쳐 단계별 연습과 실전 세트로 제공하겠습니다</h3>
+<p>생성된 문항은 <strong>교육과정 적합성, 자료와 수치의 일치, 정답의 유일성, 오답 판단의 근거</strong>를 검토한 뒤 공개하겠습니다. 실험 문항은 변인 통제와 결과의 타당성을, 그래프 문항은 축·범례·단위와 해설의 일치를 함께 확인하겠습니다. 학습용으로 구성한 가상 자료도 명시하겠습니다.</p>
+<p>유사 기출은 연결된 개념과 풀이 방법을 참고하는 자료로 활용하겠습니다. 직접 연결되는 문제와 보충·심화 문제를 구분하고, 정답이나 출처 확인이 필요한 자료는 검증을 마친 뒤 제작 근거로 사용하겠습니다.</p>
+<p>먼저 개념별·사고 과정별 연습 문항을 확보하고, 이후 물리학·화학·생명과학·지구과학의 연결을 고려한 25문항 세트로 넓혀 가겠습니다. 이번에 집계한 과목별 연계 빈도는 참고 자료로 활용하되, 향후 출제 비율로 고정하지 않겠습니다.</p>
+<p><strong>공식 예시문항 분석 → 필요한 유사 기출 학습 → SNargen 단계별 문항 → 종합 연습</strong>으로 이어지는 학습을 제공하겠습니다. 현재 통합과학 변형문제는 준비 중이며, 완성된 문항부터 검토를 거쳐 순차적으로 공개할 예정입니다.</p>
+<p class="sn-guide-action"><a href="/problem-download/2028-integrated-science-examples">통합과학 예시문항 25제 분석과 유사 기출 살펴보기 →</a></p>
+<hr/>
+<p class="sn-guide-source"><small>이 글은 SN 통합과학 예시문항 분석 페이지의 25문항 풀이·역분해와 유사 기출 검토를 바탕으로 작성한 SN의 분석입니다. 문항 분류와 학습 제안은 SN의 해석이며, 평가원의 공식 출제 의도·향후 출제 비율·실제 난도 예측을 뜻하지 않습니다. 유사 기출의 연결은 풀이 과정의 공통점을 의미하며 직접 차용 여부를 주장하지 않습니다.</small></p>
+</div>

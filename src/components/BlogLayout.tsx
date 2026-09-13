@@ -8,7 +8,22 @@ import AcademicCalendar2026 from './posts/2026AcademicCalendar';
 import RepeaterClass2027 from './posts/RepeaterClass2027';
 import ProblemViewerModal from './ProblemViewerModal';
 import { integratedSocialExamples } from '@/data/integrated-social-examples';
+import { integratedScienceExamples } from '@/data/integrated-science-examples';
 import { BASE_URL, ORGANIZATION_INFO } from '@/lib/config';
+import ScienceSubjectModal from './problems/ScienceSubjectModal';
+
+const scienceQuestionImages = integratedScienceExamples.flatMap(q =>
+  q.image
+    ? [
+        {
+          number: q.number,
+          image: q.image.src,
+          width: q.image.width,
+          height: q.image.height,
+        },
+      ]
+    : []
+);
 
 interface BlogLayoutProps {
   post: {
@@ -30,9 +45,16 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const questionDialogRef = useRef<HTMLDialogElement>(null);
   const [questionNumber, setQuestionNumber] = useState<number | null>(null);
-  const selectedQuestion = integratedSocialExamples.find(
-    q => q.number === questionNumber
+  const [questionSubject, setQuestionSubject] = useState<'social' | 'science'>(
+    'social'
   );
+  const questionSubjectLabel =
+    questionSubject === 'science' ? '통합과학' : '통합사회';
+  const selectedQuestion = (
+    questionSubject === 'science'
+      ? scienceQuestionImages
+      : integratedSocialExamples
+  ).find(q => q.number === questionNumber);
 
   useEffect(() => {
     const dialog = questionDialogRef.current;
@@ -57,7 +79,7 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
     const handleContentClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const questionLink = target.closest<HTMLElement>(
-        '[data-social-question]'
+        '[data-social-question], [data-science-question]'
       );
       if (
         questionLink &&
@@ -66,9 +88,18 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
         !e.shiftKey &&
         !e.altKey
       ) {
-        const number = Number(questionLink.dataset.socialQuestion);
-        if (integratedSocialExamples.some(q => q.number === number)) {
+        const isScience = questionLink.dataset.scienceQuestion !== undefined;
+        const number = Number(
+          isScience
+            ? questionLink.dataset.scienceQuestion
+            : questionLink.dataset.socialQuestion
+        );
+        const examples = isScience
+          ? scienceQuestionImages
+          : integratedSocialExamples;
+        if (examples.some(q => q.number === number)) {
           e.preventDefault();
+          setQuestionSubject(isScience ? 'science' : 'social');
           setQuestionNumber(number);
           return;
         }
@@ -346,6 +377,10 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
         />
       </article>
 
+      {post.id === '2028-integrated-science-study-guide' && (
+        <ScienceSubjectModal container={contentRef} />
+      )}
+
       {/* 문제 바로보기 모달 */}
       {showProblemModal && post.problemFileUrl && (
         <ProblemViewerModal
@@ -357,7 +392,7 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
 
       <dialog
         ref={questionDialogRef}
-        aria-labelledby="social-question-dialog-title"
+        aria-labelledby="example-question-dialog-title"
         className="m-auto w-[94vw] max-w-4xl max-h-[92dvh] rounded-xl border-0 p-0 bg-white text-gray-900 shadow-2xl backdrop:bg-black/70"
         onClose={() => setQuestionNumber(null)}
         onCancel={() => setQuestionNumber(null)}
@@ -366,10 +401,10 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
           <div className="flex max-h-[92dvh] flex-col">
             <div className="flex shrink-0 items-center justify-between gap-3 border-b border-gray-200 px-4 py-3">
               <h2
-                id="social-question-dialog-title"
+                id="example-question-dialog-title"
                 className="text-base font-bold"
               >
-                통합사회 공식 예시문항 {selectedQuestion.number}번
+                {questionSubjectLabel} 공식 예시문항 {selectedQuestion.number}번
               </h2>
               <button
                 type="button"
@@ -386,7 +421,7 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
                 src={selectedQuestion.image}
                 width={selectedQuestion.width}
                 height={selectedQuestion.height}
-                alt={`2028 수능 통합사회 공식 예시문항 ${selectedQuestion.number}번 문제 원문`}
+                alt={`2028 수능 ${questionSubjectLabel} 공식 예시문항 ${selectedQuestion.number}번 문제 원문`}
                 className="block h-auto w-full"
               />
               <a
