@@ -202,6 +202,8 @@ export function QuestionThirteenRelated() {
   const items = [
     {
       file: '2114-1.png',
+      connection:
+        '공식 13번의 공공부조 사례 판단과 직접 연결됩니다. 국민기초생활보장제도·기초연금을 사회보험과 구별하고 기본생활 보장이라는 제도의 목적을 확인합니다.',
       width: 2011,
       height: 1612,
       title: '2018년 3월 전국연합학력평가 · 사회·문화 14번',
@@ -211,6 +213,8 @@ export function QuestionThirteenRelated() {
     },
     {
       file: '634-1.png',
+      connection:
+        '공식 13번에서 빈곤과 불평등의 완화 방안을 해석하는 데 필요한 기출입니다. 국민기초생활보장제도의 공공부조 성격과 소득 재분배 기능을 사회보험과 비교합니다.',
       width: 2812,
       height: 2510,
       title: '2014학년도 6월 모의평가 · 사회·문화 14번',
@@ -220,6 +224,8 @@ export function QuestionThirteenRelated() {
     },
     {
       file: '216338-1.png',
+      connection:
+        '공식 13번의 사회보장제도 판단을 보완합니다. 비용 부담자와 수혜자, 지원 방식, 상호 부조 원리를 비교하여 공공부조와 사회보험의 공통점·차이점을 구별합니다.',
       width: 2870,
       height: 2009,
       title: '2020년 4월 전국연합학력평가 · 사회·문화 19번',
@@ -243,6 +249,15 @@ export function QuestionThirteenRelated() {
           <section className={card} key={item.file}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 13번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

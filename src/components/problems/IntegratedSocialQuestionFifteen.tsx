@@ -166,6 +166,8 @@ export function QuestionFifteenRelated() {
   const items = [
     {
       file: '214900-1.png',
+      connection:
+        '공식 15번처럼 롤스와 노직의 제시문을 비교하고 탐구 도식에 입장을 배치합니다. 대립점뿐 아니라 절차와 개인의 권리라는 공통 토대를 구별하는 연습입니다.',
       width: 2830,
       height: 4180,
       title: '2019년 9월 전국연합학력평가 · 생활과 윤리 6번',
@@ -175,6 +177,8 @@ export function QuestionFifteenRelated() {
     },
     {
       file: '196663-1.png',
+      connection:
+        '공식 15번의 원초적 입장과 우연성 배제 선지를 뒷받침하는 기출입니다. 무지의 베일이 공정한 합의를 위한 조건이라는 점을 확인해 롤스의 절차적 정의를 이해합니다.',
       width: 1974,
       height: 1841,
       title: '2013년 3월 전국연합학력평가 · 생활과 윤리 19번',
@@ -184,6 +188,8 @@ export function QuestionFifteenRelated() {
     },
     {
       file: '197388-1.png',
+      connection:
+        '공식 15번의 공리주의 비판이라는 공통점 선지에 연결됩니다. 롤스가 다수의 이익을 위해 소수자의 기본적 자유를 희생시키는 논리를 거부함을 확인합니다. 노직의 입장까지 직접 비교하는 문항은 아닙니다.',
       width: 2840,
       height: 2724,
       title: '2014학년도 6월 모의평가 · 윤리와 사상 19번',
@@ -207,6 +213,15 @@ export function QuestionFifteenRelated() {
           <section className={card} key={item.file}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 15번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

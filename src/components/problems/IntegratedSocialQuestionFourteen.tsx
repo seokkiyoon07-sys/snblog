@@ -176,6 +176,8 @@ export function QuestionFourteenRelated() {
   const items = [
     {
       file: '232343-1.png',
+      connection:
+        '공식 14번과 같이 롤스의 거의 정의로운 사회를 전제로 시민 불복종을 판단합니다. 비폭력적 위법 행위가 헌법 질서를 부정하는 혁명과 어떻게 다른지 확인합니다.',
       width: 2856,
       height: 2409,
       title: '2026학년도 대학수학능력시험 · 생활과 윤리 9번',
@@ -185,6 +187,8 @@ export function QuestionFourteenRelated() {
     },
     {
       file: '216231-1.png',
+      connection:
+        '공식 14번의 헌법 체계에 대한 저항 여부를 묻는 선지와 연결됩니다. 시민 불복종이 위법 행위이면서도 입헌 체제의 정의를 지키려는 행위라는 두 층위를 구별합니다.',
       width: 2801,
       height: 3212,
       title: '2020년 4월 전국연합학력평가 · 생활과 윤리 12번',
@@ -194,6 +198,8 @@ export function QuestionFourteenRelated() {
     },
     {
       file: '210352-1.png',
+      connection:
+        '공식 14번에 적용되는 시민 불복종의 정당화 조건을 개별 항목으로 점검합니다. 공유된 정의관·공개성·처벌 감수·최후 수단·비폭력성을 구별하는 연습입니다.',
       width: 1989,
       height: 1656,
       title: '생활과 윤리 8번 · 시민 불복종의 정당화 조건',
@@ -203,6 +209,8 @@ export function QuestionFourteenRelated() {
     },
     {
       file: '126102-1.png',
+      connection:
+        '추가 심화 자료입니다. 공식 14번의 불복종 대상과 정당화 범위를 더 세밀하게 검토하며, 직접·간접 불복종에서 항의 대상 법과 실제 위반하는 법이 반드시 같지는 않음을 확인합니다.',
       width: 2791,
       height: 2127,
       title: '생활과 윤리 3번 · 직접·간접 시민 불복종',
@@ -226,6 +234,15 @@ export function QuestionFourteenRelated() {
           <section className={card} key={item.file}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 14번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

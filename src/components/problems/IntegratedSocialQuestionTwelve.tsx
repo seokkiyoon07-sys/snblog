@@ -202,6 +202,8 @@ export function QuestionTwelveRelated() {
   const items = [
     {
       file: '309770-1.png',
+      connection:
+        '공식 12번과 같이 난민 구호를 소재로 국제 사회의 행위 주체를 구별합니다. 국가·국제 연합·민간 구호 단체의 성격과 회원 자격을 비교하는 판단 구조가 닮았습니다.',
       width: 2870,
       height: 3296,
       title: '2023년 3월 전국연합학력평가 · 정치와 법 10번',
@@ -211,6 +213,8 @@ export function QuestionTwelveRelated() {
     },
     {
       file: '226964-1.png',
+      connection:
+        '공식 12번의 국제 연합과 국제앰네스티 구별에 필요한 개념을 연습합니다. 국제 연합과 국경 없는 의사회·그린피스를 구분하며 국가 간 기구와 민간 기구의 차이를 확인합니다.',
       width: 2836,
       height: 4659,
       title: '2024년 3월 전국연합학력평가 · 통합사회 20번',
@@ -220,6 +224,8 @@ export function QuestionTwelveRelated() {
     },
     {
       file: '310779-1.png',
+      connection:
+        '공식 12번에서 국제기구의 역할을 판별하는 부분을 심화합니다. 국제 연합의 기관별 기능과 회원 자격을 확인하며, 난민 통계 해석보다는 행위 주체에 관한 배경 지식을 보완합니다.',
       width: 2851,
       height: 2636,
       title: '2018년 7월 전국연합학력평가 · 법과 정치 19번',
@@ -243,6 +249,15 @@ export function QuestionTwelveRelated() {
           <section className={card} key={item.file}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 12번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

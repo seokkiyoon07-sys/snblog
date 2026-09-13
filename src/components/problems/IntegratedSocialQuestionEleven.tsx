@@ -203,6 +203,8 @@ export function QuestionElevenRelated() {
   const items = [
     {
       file: '311027-1.png',
+      connection:
+        '공식 11번의 자유권과 청구권 판단에 연결됩니다. 소극적·방어적 권리와 기본권 보장을 위한 수단적·절차적 권리를 구별하는 동일한 개념 분류를 연습합니다.',
       width: 2798,
       height: 2337,
       title: '2021학년도 6월 모의평가 · 정치와 법 7번',
@@ -212,6 +214,8 @@ export function QuestionElevenRelated() {
     },
     {
       file: '228428-1.png',
+      connection:
+        '공식 11번의 종교의 자유와 교육을 받을 권리처럼, 사례에서 침해된 권리를 추출해 자유권·평등권·사회권의 성격에 연결하는 기출입니다.',
       width: 2883,
       height: 2776,
       title: '2024년 9월 전국연합학력평가 · 통합사회 9번',
@@ -221,6 +225,8 @@ export function QuestionElevenRelated() {
     },
     {
       file: '309452-1.png',
+      connection:
+        '공식 11번에서 교육을 받을 권리와 구제를 청구하는 권리를 구별하는 부분에 연결됩니다. 사회권의 내용과 청구권의 수단적 성격을 혼동하지 않는 연습입니다.',
       width: 2939,
       height: 3337,
       title: '2019년 3월 전국연합학력평가 · 정치와 법 12번',
@@ -244,6 +250,15 @@ export function QuestionElevenRelated() {
           <section className={card} key={item.file}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 11번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

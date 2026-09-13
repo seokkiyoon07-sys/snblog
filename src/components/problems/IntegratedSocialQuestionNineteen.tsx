@@ -197,6 +197,8 @@ export function QuestionNineteenRelated() {
   const items = [
     {
       file: '230504-1.png',
+      connection:
+        '공식 19번의 기회비용 계산을 확장합니다. 공식 문항은 명시적 비용이 없지만, 이 기출은 편익과 명시적 비용을 함께 제시하여 포기한 대안의 순가치를 구별해야 합니다.',
       width: 2824,
       height: 3401,
       title: '2025년 6월 전국연합학력평가 · 경제 5번',
@@ -206,12 +208,14 @@ export function QuestionNineteenRelated() {
     },
     {
       file: '212879-1.png',
+      connection:
+        '공식 19번의 기회비용 개념을 생활 사례로 확인합니다. 담뱃값처럼 지출한 돈뿐 아니라 흡연으로 포기한 건강도 비용에 포함하여 명시적 비용과 암묵적 비용을 구별합니다.',
       width: 2008,
       height: 1807,
-      title: '합리적 선택과 비금전적 비용 · 10번',
-      date: '제공 이미지 기준 · 시행 연도·과목 미확인',
+      title: '2018년 11월 전국연합학력평가 · 통합사회 10번',
+      date: '고1 · 교육청 · 제공된 출처 기준 · 난이도: 중상(제공 평가)',
       answer: '② · ㄱ, ㄷ',
-      text: '원문에서 합리적 선택과 흡연의 비용을 비교합니다. 편익에는 심리적 만족 같은 비금전적 이익도 포함되므로 ㄴ은 틀립니다. 흡연하지 않았다면 유지할 수 있었던 건강은 포기한 가치로 기회비용에 포함되므로 ㄷ은 옳습니다. 담뱃값도 명시적 비용으로 포함되므로 ㄹ은 틀립니다. 이 문항의 정답 조합은 ㄱ·ㄷ입니다.',
+      text: '19번 예시문항과 연결되는 핵심은 합리적 선택의 의미와 명시적·암묵적 비용을 함께 고려하는 것입니다. 이 문항에서 ㄱ은 비용보다 편익이 큰 선택이라는 설명으로 옳게 판정됩니다. 여러 대안을 비교할 때에는 순편익이 가장 큰 대안을 고른다는 기준까지 익혀야 합니다. ㄴ은 심리적 만족 같은 비금전적 이익을 편익에서 제외하여 틀립니다. 흡연하지 않았다면 유지할 수 있었던 건강은 포기한 가치인 암묵적 비용이므로 ㄷ은 옳습니다. 담뱃값도 명시적 비용으로 기회비용에 포함되므로 이를 제외한 ㄹ은 틀립니다. 정답은 ②(ㄱ, ㄷ)입니다.',
     },
   ];
   return (
@@ -224,6 +228,15 @@ export function QuestionNineteenRelated() {
           <section className={card} key={item.file}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 19번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

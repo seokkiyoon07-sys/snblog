@@ -392,6 +392,15 @@ export function QuestionThreeRelated() {
             <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
               {item.source} · 교육청
             </p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 3번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <figure className="mt-4">
               <a
                 href={src}
@@ -421,9 +430,7 @@ export function QuestionThreeRelated() {
                 </a>
               </figcaption>
             </figure>
-            <p className="mt-4 rounded-xl bg-gray-50 p-4 dark:bg-gray-800">
-              <strong>예시문항 3번과의 연결:</strong> {item.connection}
-            </p>
+
             <details className="mt-4 rounded-xl border border-emerald-200 p-4 dark:border-emerald-800">
               <summary className="cursor-pointer font-semibold text-emerald-900 dark:text-emerald-200">
                 정답·풀이 보기

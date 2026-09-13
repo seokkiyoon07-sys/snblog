@@ -249,10 +249,10 @@ export function QuestionOneRelated() {
   return (
     <div className="space-y-5 text-sm leading-7 text-gray-700 dark:text-gray-300">
       <h3 className="text-2xl font-bold text-gray-950 dark:text-white">
-        SN RAG 시스템 내 유사 기출과의 연결고리
+        공식 예시문항과 유사 기출의 연결고리
       </h3>
       <p>
-        SN RAG 시스템에서 찾은 유사 기출 3문항입니다. 모두 예시문항 1번의{' '}
+        제공된 유사 기출 3문항입니다. 모두 예시문항 1번의{' '}
         <strong>을 · 에피쿠로스</strong>와 연결됩니다. 참된 쾌락의 뜻을
         확인하고, 생활 속 태도와 선택의 기준으로 넓혀보세요.
       </p>
@@ -277,6 +277,15 @@ export function QuestionOneRelated() {
               {item.source}
             </p>
             <p className="mt-2">{item.focus}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 1번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <figure className="mt-4">
               <a
                 href={image}
@@ -307,9 +316,7 @@ export function QuestionOneRelated() {
                 </a>
               </figcaption>
             </figure>
-            <p className="mt-4 rounded-xl bg-gray-50 p-4 dark:bg-gray-800">
-              <strong>예시문항 1번과의 연결:</strong> {item.connection}
-            </p>
+
             <details className="mt-4 rounded-xl border border-emerald-200 p-4 dark:border-emerald-800">
               <summary className="cursor-pointer font-semibold text-emerald-900 dark:text-emerald-200">
                 정답·풀이 보기

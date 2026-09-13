@@ -189,6 +189,8 @@ export function QuestionEighteenRelated() {
   const items = [
     {
       file: '227078-1.png',
+      connection:
+        '공식 18번의 문화적 폭력 선지와 연결됩니다. 문화가 직접적·구조적 폭력을 정당화할 수 있다는 갈퉁의 폭력 분류를 도식에 적용합니다.',
       width: 3016,
       height: 2769,
       title: '2024년 3월 전국연합학력평가 · 윤리와 사상 9번',
@@ -198,6 +200,8 @@ export function QuestionEighteenRelated() {
     },
     {
       file: '218906-1.png',
+      connection:
+        '공식 18번처럼 문화적 폭력과 구조적 폭력을 함께 판단합니다. 사회 구조의 개선이 적극적 평화에 기여한다는 점과 폭력을 정당화하는 문화의 역할을 구별합니다.',
       width: 2862,
       height: 3090,
       title: '2021년 3월 전국연합학력평가 · 생활과 윤리 12번',
@@ -207,6 +211,8 @@ export function QuestionEighteenRelated() {
     },
     {
       file: '126128-1.png',
+      connection:
+        '공식 18번의 갈등을 무조건 회피해야 한다는 오답을 점검합니다. 갈등의 존재 자체보다 비폭력적 해결·변환과 폭력 감소의 과정에 주목하는 갈퉁의 관점을 연습합니다.',
       width: 2913,
       height: 2061,
       title: '2026년 5월 전국연합학력평가 · 윤리와 사상 9번',
@@ -227,6 +233,15 @@ export function QuestionEighteenRelated() {
           <section className={card} key={item.file}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 18번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

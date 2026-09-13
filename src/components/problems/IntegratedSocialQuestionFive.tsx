@@ -238,6 +238,19 @@ export function QuestionFiveRelated() {
           2022학년도 대학수학능력시험 · 세계지리 5번
         </h4>
         <p className="mt-2">2021년 11월 18일 시행 · 한국교육과정평가원</p>
+        <div
+          data-similarity-reason
+          className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+        >
+          <p className="font-bold text-emerald-900 dark:text-emerald-200">
+            유사 이유 · 공식 5번과의 연결
+          </p>
+          <p className="mt-2">
+            공식 5번과 월 기온 편차·월 강수 편차의 정의가 같습니다. 편차의
+            부호와 계절 변화를 지도 속 지역에 연결하되, 이 기출은 월별 좌표
+            전체와 해발 고도를 함께 읽어 기후를 구별합니다.
+          </p>
+        </div>
         <a
           href={src}
           target="_blank"
@@ -255,11 +268,6 @@ export function QuestionFiveRelated() {
             alt="월 기온 편차와 월 강수 편차의 좌표 그래프를 아프리카 A·B·C 지점과 연결하는 문제"
           />
         </a>
-        <p className="mt-4">
-          기온 편차는 가로축, 강수 편차는 세로축입니다. 공식 예시문항 5번과 지표
-          정의는 같지만, 이 문항은 월별 변화 전체와 지도에 제시된 해발 고도를
-          함께 읽습니다.
-        </p>
         <details className="mt-4 rounded-xl border border-emerald-200 p-4 dark:border-emerald-800">
           <summary className="cursor-pointer font-bold">정답·풀이 보기</summary>
           <p className="mt-3 font-bold">

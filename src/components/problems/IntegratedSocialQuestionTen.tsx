@@ -184,6 +184,8 @@ export function QuestionTenRelated() {
   const items = [
     {
       file: '223651-1.png',
+      connection:
+        '공식 10번과 같이 제임스 2세의 정책, 윌리엄·메리의 즉위라는 사료 단서로 명예혁명을 식별하고 권리 장전 승인으로 연결합니다. 역사적 사건과 인권 보장 문서를 짝짓는 판단 방식이 같습니다.',
       width: 2793,
       height: 3217,
       title: '2022년 10월 전국연합학력평가 · 세계사 7번',
@@ -193,6 +195,8 @@ export function QuestionTenRelated() {
     },
     {
       file: '227682-1.png',
+      connection:
+        '공식 10번의 인민헌장 오답 선지를 점검하는 기출입니다. 노동자의 선거권 확대 요구를 참정권의 발전과 연결하여, 명예혁명·권리 장전과 시기 및 권리의 성격을 구별합니다.',
       width: 2798,
       height: 2458,
       title: '2024년 6월 전국연합학력평가 · 통합사회 13번',
@@ -202,6 +206,8 @@ export function QuestionTenRelated() {
     },
     {
       file: '232897-1.png',
+      connection:
+        '추가 연계 자료입니다. 공식 10번과 마찬가지로 국왕과 의회의 갈등을 사료로 읽지만, 찰스 1세·권리 청원을 다룹니다. 제임스 2세·권리 장전과 혼동하지 않는 연습이 됩니다.',
       width: 2683,
       height: 1900,
       title: '세계사 13번 · 찰스 1세와 의회의 갈등',
@@ -211,6 +217,8 @@ export function QuestionTenRelated() {
     },
     {
       file: '309610-1.png',
+      connection:
+        '공식 10번의 바이마르 헌법 선지와 연결됩니다. 자유권·사회권·청구권의 성격을 구별하여, 사회권의 발전을 근대 자유권의 확립과 바꾸어 읽는 오류를 점검합니다.',
       width: 2890,
       height: 2678,
       title: '2021년 3월 전국연합학력평가 · 정치와 법 10번',
@@ -230,6 +238,15 @@ export function QuestionTenRelated() {
           <section key={item.file} className={card}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 10번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

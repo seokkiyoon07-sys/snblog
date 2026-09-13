@@ -7,6 +7,7 @@ import AdmissionGuide2026 from './posts/2026AdmissionGuide';
 import AcademicCalendar2026 from './posts/2026AcademicCalendar';
 import RepeaterClass2027 from './posts/RepeaterClass2027';
 import ProblemViewerModal from './ProblemViewerModal';
+import { integratedSocialExamples } from '@/data/integrated-social-examples';
 import { BASE_URL, ORGANIZATION_INFO } from '@/lib/config';
 
 interface BlogLayoutProps {
@@ -27,6 +28,24 @@ interface BlogLayoutProps {
 
 export default function BlogLayout({ post }: BlogLayoutProps) {
   const contentRef = useRef<HTMLDivElement>(null);
+  const questionDialogRef = useRef<HTMLDialogElement>(null);
+  const [questionNumber, setQuestionNumber] = useState<number | null>(null);
+  const selectedQuestion = integratedSocialExamples.find(
+    q => q.number === questionNumber
+  );
+
+  useEffect(() => {
+    const dialog = questionDialogRef.current;
+    if (!selectedQuestion || !dialog) return;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [selectedQuestion]);
+
   const [modalImage, setModalImage] = useState<string | null>(null);
   const [showProblemModal, setShowProblemModal] = useState(false);
   const [katexLoaded, setKatexLoaded] = useState(
@@ -37,6 +56,23 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
   useEffect(() => {
     const handleContentClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      const questionLink = target.closest<HTMLElement>(
+        '[data-social-question]'
+      );
+      if (
+        questionLink &&
+        !e.ctrlKey &&
+        !e.metaKey &&
+        !e.shiftKey &&
+        !e.altKey
+      ) {
+        const number = Number(questionLink.dataset.socialQuestion);
+        if (integratedSocialExamples.some(q => q.number === number)) {
+          e.preventDefault();
+          setQuestionNumber(number);
+          return;
+        }
+      }
 
       // 문제 바로보기 버튼 (data-problem-viewer)
       const problemBtn = target.closest('[data-problem-viewer]');
@@ -239,7 +275,9 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
       description: post.excerpt || post.title,
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': post.url ? `${BASE_URL}${post.url}` : `${BASE_URL}/problem-download/${post.id}`,
+        '@id': post.url
+          ? `${BASE_URL}${post.url}`
+          : `${BASE_URL}/problem-download/${post.id}`,
       },
       ...(post.thumbnail
         ? {
@@ -316,6 +354,53 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
           onClose={() => setShowProblemModal(false)}
         />
       )}
+
+      <dialog
+        ref={questionDialogRef}
+        aria-labelledby="social-question-dialog-title"
+        className="m-auto w-[94vw] max-w-4xl max-h-[92dvh] rounded-xl border-0 p-0 bg-white text-gray-900 shadow-2xl backdrop:bg-black/70"
+        onClose={() => setQuestionNumber(null)}
+        onCancel={() => setQuestionNumber(null)}
+      >
+        {selectedQuestion && (
+          <div className="flex max-h-[92dvh] flex-col">
+            <div className="flex shrink-0 items-center justify-between gap-3 border-b border-gray-200 px-4 py-3">
+              <h2
+                id="social-question-dialog-title"
+                className="text-base font-bold"
+              >
+                통합사회 공식 예시문항 {selectedQuestion.number}번
+              </h2>
+              <button
+                type="button"
+                onClick={() => setQuestionNumber(null)}
+                aria-label="문제 팝업 닫기"
+                className="shrink-0 rounded-lg px-3 py-2 text-sm font-semibold hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-green-800"
+              >
+                닫기 ×
+              </button>
+            </div>
+            <div className="min-h-0 overflow-y-auto overscroll-contain p-3 sm:p-6">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={selectedQuestion.image}
+                width={selectedQuestion.width}
+                height={selectedQuestion.height}
+                alt={`2028 수능 통합사회 공식 예시문항 ${selectedQuestion.number}번 문제 원문`}
+                className="block h-auto w-full"
+              />
+              <a
+                href={selectedQuestion.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 block text-center text-sm text-green-800 underline"
+              >
+                문제 원본 크게 보기 ↗
+              </a>
+            </div>
+          </div>
+        )}
+      </dialog>
 
       {/* 이미지 모달 */}
       {modalImage && (

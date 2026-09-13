@@ -144,6 +144,8 @@ export function QuestionSixteenRelated() {
   const items = [
     {
       file: '215725-1.png',
+      connection:
+        '공식 16번의 정답인 살인범의 존엄성 존중과 연결됩니다. 칸트에게 응분의 책임을 묻는 형벌이 범죄자를 책임 있는 인격으로 대우하는 것임을 확인합니다.',
       width: 1987,
       height: 2489,
       title: '2019년 11월 전국연합학력평가 · 생활과 윤리 6번',
@@ -153,6 +155,8 @@ export function QuestionSixteenRelated() {
     },
     {
       file: '203885-1.png',
+      connection:
+        '공식 16번과 같이 형벌의 동등성 원리와 인간을 단순한 수단으로 취급해서는 안 된다는 논리를 적용합니다. 응보의 근거와 과도한 형벌을 구별하는 연습입니다.',
       width: 2793,
       height: 3013,
       title: '2015년 9월 전국연합학력평가 · 생활과 윤리 16번',
@@ -162,6 +166,8 @@ export function QuestionSixteenRelated() {
     },
     {
       file: '205163-1.png',
+      connection:
+        '공식 16번의 공리주의적 이유를 끼워 넣은 오답과 연결됩니다. 사형 찬성 여부만 보지 않고 범죄 예방·유용성이 칸트의 형벌 정당화 근거인지 따져야 합니다.',
       width: 2805,
       height: 2465,
       title: '2016년 3월 전국연합학력평가 · 생활과 윤리 19번',
@@ -182,6 +188,15 @@ export function QuestionSixteenRelated() {
           <section className={card} key={item.file}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 16번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

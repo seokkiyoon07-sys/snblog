@@ -189,6 +189,8 @@ export function QuestionSeventeenRelated() {
   const items = [
     {
       file: '227031-1.png',
+      connection:
+        '공식 17번의 절대 왕정·중상주의·상업 자본주의 연결을 연습합니다. 시대적 배경과 자본주의 단계의 특징을 짝지어 다른 시기의 경제 현상을 구별합니다.',
       width: 2880,
       height: 2138,
       title: '2024년 3월 전국연합학력평가 · 경제 12번',
@@ -198,6 +200,8 @@ export function QuestionSeventeenRelated() {
     },
     {
       file: '180826-1.png',
+      connection:
+        '공식 17번의 선지들이 포괄하는 자본주의 전개 과정을 비교합니다. 상업·산업·독점·수정 자본주의와 신자유주의의 배경을 시간 순서에 맞게 배치하는 연습입니다.',
       width: 2885,
       height: 2865,
       title: '2007년 4월 전국연합학력평가 · 경제 7번',
@@ -207,6 +211,8 @@ export function QuestionSeventeenRelated() {
     },
     {
       file: '194747-1.png',
+      connection:
+        '공식 17번의 대공황·석유 파동 오답 선지와 연결됩니다. 수정 자본주의와 신자유주의의 등장 배경을 구별하여 사료가 가리키는 시기와 다른 사건을 배제합니다.',
       width: 2885,
       height: 1783,
       title: '2012년 7월 전국연합학력평가 · 경제 3번',
@@ -227,6 +233,15 @@ export function QuestionSeventeenRelated() {
           <section className={card} key={item.file}>
             <h4 className="text-lg font-bold">{item.title}</h4>
             <p>{item.date}</p>
+            <div
+              data-similarity-reason
+              className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4 dark:border-emerald-900 dark:bg-emerald-950/30"
+            >
+              <p className="font-bold text-emerald-900 dark:text-emerald-200">
+                유사 이유 · 공식 17번과의 연결
+              </p>
+              <p className="mt-2">{item.connection}</p>
+            </div>
             <a
               href={src}
               target="_blank"

@@ -52,7 +52,7 @@ export default function IntegratedSocialExamplesPage() {
         </p>
         <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 border-t border-emerald-900/10 pt-4 text-xs text-emerald-900 dark:border-emerald-800 dark:text-emerald-200">
           <span>공식 예시문항 25개</span>
-          <span>1~19번 분석 공개</span>
+          <span>1~25번 분석 공개</span>
           <span>1~5번 연계 변형문제 공개</span>
           <span>SN Academy · 2026.09.11</span>
         </div>

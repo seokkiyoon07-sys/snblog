@@ -125,8 +125,45 @@ import {
   QuestionNineteenRelated,
 } from './IntegratedSocialQuestionNineteen';
 
+import {
+  QuestionTwentySolution,
+  QuestionTwentyAnalysis,
+  QuestionTwentyRelated,
+} from './IntegratedSocialQuestionTwenty';
+
+import {
+  QuestionTwentyOneSolution,
+  QuestionTwentyOneAnalysis,
+  QuestionTwentyOneRelated,
+} from './IntegratedSocialQuestionTwentyOne';
+
+import {
+  QuestionTwentyTwoSolution,
+  QuestionTwentyTwoAnalysis,
+  QuestionTwentyTwoRelated,
+} from './IntegratedSocialQuestionTwentyTwo';
+
+import {
+  QuestionTwentyThreeSolution,
+  QuestionTwentyThreeAnalysis,
+  QuestionTwentyThreeRelated,
+} from './IntegratedSocialQuestionTwentyThree';
+
+import {
+  QuestionTwentyFourSolution,
+  QuestionTwentyFourAnalysis,
+  QuestionTwentyFourRelated,
+} from './IntegratedSocialQuestionTwentyFour';
+
+import {
+  QuestionTwentyFiveSolution,
+  QuestionTwentyFiveAnalysis,
+  QuestionTwentyFiveRelated,
+} from './IntegratedSocialQuestionTwentyFive';
+
 const publishedQuestions = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25,
 ];
 
 const sections = [
@@ -276,7 +313,19 @@ export default function IntegratedSocialExplorer() {
                                                 ? '전쟁이 없으면 평화가 완성될까?'
                                                 : question === 19
                                                   ? '금융 상품을 선택할 때 무엇을 포기할까?'
-                                                  : `${question}번 공식 예시문항`}
+                                                  : question === 20
+                                                    ? '순위 단서로 세계 도시의 기능을 찾을 수 있을까?'
+                                                    : question === 21
+                                                      ? '모든 재화에 절대 우위여도 무역할까?'
+                                                      : question === 22
+                                                        ? '남북 교류는 분단 비용을 어떻게 줄일까?'
+                                                        : question === 23
+                                                          ? '동북공정을 역사와 지리로 어떻게 읽을까?'
+                                                          : question === 24
+                                                            ? '인구 비율이 높으면 인구 수도 많을까?'
+                                                            : question === 25
+                                                              ? '국가별 소비 구조에서 에너지원을 어떻게 찾을까?'
+                                                              : `${question}번 공식 예시문항`}
           </h2>
           <p className="mt-2 text-sm leading-6 text-gray-500 dark:text-gray-400">
             {question === 1
@@ -317,7 +366,19 @@ export default function IntegratedSocialExplorer() {
                                                 ? '갈퉁 · 적극적 평화 · 폭력의 삼각형'
                                                 : question === 19
                                                   ? '금융 상품 · 기회비용 · 합리적 선택'
-                                                  : '문제를 먼저 풀어보세요. 분석은 순차적으로 공개합니다.'}
+                                                  : question === 20
+                                                    ? '세계 도시 · 기능별 순위 · 지표 해석'
+                                                    : question === 21
+                                                      ? '절대 우위 · 비교 우위 · 국제 무역'
+                                                      : question === 22
+                                                        ? '6·15 남북 공동 선언 · 분단 비용 · 평화와 협력'
+                                                        : question === 23
+                                                          ? '동북공정 · 중국 동북 지역 · 냉대 기후'
+                                                          : question === 24
+                                                            ? '버블 차트 · 생산 가능 인구 · 총부양비'
+                                                            : question === 25
+                                                              ? '1차 에너지 · 소비 비율 · 국가별 특성'
+                                                              : '문제를 먼저 풀어보세요. 분석은 순차적으로 공개합니다.'}
           </p>
         </div>
         <QuestionContent key={question} question={question} />
@@ -511,6 +572,18 @@ function QuestionContent({ question }: { question: number }) {
               <QuestionEighteenSolution />
             ) : question === 19 ? (
               <QuestionNineteenSolution />
+            ) : question === 20 ? (
+              <QuestionTwentySolution />
+            ) : question === 21 ? (
+              <QuestionTwentyOneSolution />
+            ) : question === 22 ? (
+              <QuestionTwentyTwoSolution />
+            ) : question === 23 ? (
+              <QuestionTwentyThreeSolution />
+            ) : question === 24 ? (
+              <QuestionTwentyFourSolution />
+            ) : question === 25 ? (
+              <QuestionTwentyFiveSolution />
             ) : (
               <PendingAnalysis />
             )}
@@ -603,6 +676,30 @@ function QuestionContent({ question }: { question: number }) {
           <QuestionNineteenAnalysis />
         ) : question === 19 && section === 3 ? (
           <QuestionNineteenRelated />
+        ) : question === 20 && section === 2 ? (
+          <QuestionTwentyAnalysis />
+        ) : question === 20 && section === 3 ? (
+          <QuestionTwentyRelated />
+        ) : question === 21 && section === 2 ? (
+          <QuestionTwentyOneAnalysis />
+        ) : question === 21 && section === 3 ? (
+          <QuestionTwentyOneRelated />
+        ) : question === 22 && section === 2 ? (
+          <QuestionTwentyTwoAnalysis />
+        ) : question === 22 && section === 3 ? (
+          <QuestionTwentyTwoRelated />
+        ) : question === 23 && section === 2 ? (
+          <QuestionTwentyThreeAnalysis />
+        ) : question === 23 && section === 3 ? (
+          <QuestionTwentyThreeRelated />
+        ) : question === 24 && section === 2 ? (
+          <QuestionTwentyFourAnalysis />
+        ) : question === 24 && section === 3 ? (
+          <QuestionTwentyFourRelated />
+        ) : question === 25 && section === 2 ? (
+          <QuestionTwentyFiveAnalysis />
+        ) : question === 25 && section === 3 ? (
+          <QuestionTwentyFiveRelated />
         ) : section === 1 ? (
           <p className="rounded-xl border border-dashed border-gray-300 p-6 text-sm leading-7 text-gray-600 dark:border-gray-700 dark:text-gray-300">
             이 문항의 SNargen 생성 변형문제는 준비 중입니다. 1번 문항에서
