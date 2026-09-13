@@ -22,7 +22,7 @@ const post = {
   url: '/originals/sample',
 };
 
-test('detects multiple additions, edits and newly published posts, but ignores drafts and removals', () => {
+test('detects additions and publication transitions, ignoring edits, drafts and removals', () => {
   const before = [
     post,
     { ...post, id: 'draft', published: false },
@@ -36,12 +36,12 @@ test('detects multiple additions, edits and newly published posts, but ignores d
   ];
   assert.deepEqual(
     changedPosts(before, after, []).map(p => p.id),
-    ['sample', 'draft', 'added']
+    ['draft', 'added']
   );
   assert.deepEqual(changedPosts([post], [{ ...post }], []), []);
 });
 
-test('detects body-only changes using storage category aliases', () => {
+test('ignores body-only changes using storage category aliases', () => {
   for (const [category, folder] of [
     ['SN Originals', 'originals'],
     ['SN History', 'history'],
@@ -52,13 +52,51 @@ test('detects body-only changes using storage category aliases', () => {
     assert.equal(
       changedPosts([record], [record], [`content/${folder}/sample.html`])
         .length,
-      1
+      0
     );
     assert.equal(
       changedPosts([record], [record], ['content/posts/unrelated.html']).length,
       0
     );
   }
+});
+
+test('recommendations, ordering and metadata edits do not announce existing posts', () => {
+  const other = { ...post, id: 'other', featured: false };
+  assert.deepEqual(
+    changedPosts(
+      [post, other],
+      [
+        { ...other, featured: true },
+        {
+          ...post,
+          featured: true,
+          title: 'Revised',
+          date: '2026-09-13',
+          thumbnail: '/new.svg',
+        },
+      ]
+    ),
+    []
+  );
+  assert.deepEqual(changedPosts([post], [{ ...post, published: false }]), []);
+});
+
+test('first push skips the archive even in send mode', () => {
+  const { execFileSync } = require('node:child_process');
+  const output = execFileSync(
+    process.execPath,
+    [path.join(__dirname, 'notify-posts.cjs'), '--send'],
+    {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        BEFORE_SHA: '0'.repeat(40),
+        JANDI_WEBHOOK_URL: '',
+      },
+    }
+  );
+  assert.match(output, /skipping notifications/);
 });
 
 test('reads typed records and produces JSON with quotes, newlines and absolute image URLs', () => {
