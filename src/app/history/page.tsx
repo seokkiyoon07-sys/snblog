@@ -1,20 +1,21 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Bookmark, Youtube } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowUpRight, Play, Youtube } from 'lucide-react';
 import { getPostsByCategory } from '@/data/posts';
+import { odysseyEpisodes, formatVideoDuration } from '@/data/odyssey';
 import { BASE_URL, EXTERNAL_URLS } from '@/lib/config';
-import HistoryTabs from '@/components/HistoryTabs';
+import HistoryEpisodeRail from '@/components/HistoryEpisodeRail';
 
 const description =
-  '역사 속 사람과 사건을 만나는 짧은 이야기. SN History는 한국사부터 세계사까지, 궁금한 역사를 숏츠로 전합니다.';
-
+  '오디세이아 시즌 1, 24부작과 무오사화 시즌 1, 4부작. SN History의 역사 시리즈를 작품별 소개와 에피소드 목록으로 만나고, 1화부터 순서대로 감상하세요.';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: 'SN History | 역사 속으로, 짧고 깊게',
+  title: 'SN History | 오디세이아·무오사화 시리즈',
   description,
   alternates: { canonical: '/history' },
   openGraph: {
-    title: 'SN History | 역사 속으로, 짧고 깊게',
+    title: 'SN History | 오디세이아·무오사화 시리즈',
     description,
     url: `${BASE_URL}/history`,
     type: 'website',
@@ -22,15 +23,43 @@ export const metadata: Metadata = {
   },
 };
 
+const seriesDefinitions = [
+  {
+    id: 'odyssey',
+    tag: '오디세이아',
+    title: '오디세이아',
+    subtitle: '전쟁은 끝났다. 돌아갈 집은 아직 멀었다.',
+    description:
+      '트로이아에서 이타카까지, 오디세우스의 기나긴 귀향. 신과 괴물, 유혹과 상실을 지나 가족에게 돌아가는 이야기를 사건의 흐름에 따라 만납니다.',
+    genre: '고대 그리스 · 신화와 고전',
+    background: 'from-[#203e40] via-[#172c30] to-[#111b23]',
+    guideUrl: '/history/odyssey',
+    guideLabel: '줄거리·등장인물',
+  },
+  {
+    id: 'muo-sahwa',
+    tag: '무오사화',
+    title: '무오사화',
+    subtitle: '기록 속 한 편의 글이, 거대한 비극이 되다.',
+    description:
+      '조선의 사초에서 시작된 정치적 격랑. 조위를 둘러싼 이야기에서 사림의 참극까지, 인물과 사건을 따라 무오사화의 전개를 네 편으로 살펴봅니다.',
+    genre: '조선 · 인물과 사건',
+    background: 'from-[#44302d] via-[#2d2528] to-[#171b24]',
+    guideUrl: undefined,
+    guideLabel: undefined,
+  },
+];
+
 export default function HistoryPage() {
-  const posts = getPostsByCategory('SN History').sort(
-    (a, b) =>
-      (a.seriesOrder ?? Number.MAX_SAFE_INTEGER) -
-        (b.seriesOrder ?? Number.MAX_SAFE_INTEGER) ||
-      b.date.localeCompare(a.date)
-  );
+  const posts = getPostsByCategory('SN History');
+  const series = seriesDefinitions.map(definition => ({
+    ...definition,
+    episodes: posts
+      .filter(post => post.tags?.includes(definition.tag))
+      .sort((a, b) => (a.seriesOrder ?? 0) - (b.seriesOrder ?? 0)),
+  }));
   return (
-    <div className="space-y-6 lg:space-y-8">
+    <div className="min-w-0 space-y-7 pb-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -42,111 +71,170 @@ export default function HistoryPage() {
             url: `${BASE_URL}/history`,
             mainEntity: {
               '@type': 'ItemList',
-              itemListElement: posts.map((post, index) => ({
-                '@type': 'ListItem',
-                position: index + 1,
-                name: post.title,
-                url: `${BASE_URL}/history/${post.id}`,
-              })),
+              itemListElement: series
+                .flatMap(item => item.episodes)
+                .map((post, index) => ({
+                  '@type': 'ListItem',
+                  position: index + 1,
+                  name: post.title,
+                  url: `${BASE_URL}${post.url}`,
+                })),
             },
           }).replace(/</g, '\\u003c'),
         }}
       />
-      <section
-        aria-labelledby="history-intro-heading"
-        className="space-y-4 lg:space-y-6"
-      >
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span
-              className="h-2 w-2 rounded-full bg-sn-primary"
-              aria-hidden="true"
-            />
-            <h1
-              id="history-intro-heading"
-              className="text-lg font-semibold text-gray-900 dark:text-white"
-            >
-              SN History 소개
-            </h1>
-          </div>
-          <div className="flex items-center gap-2">
-            <a
-              href={EXTERNAL_URLS.HISTORY_YOUTUBE}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="SN History 유튜브 채널 바로가기"
-              className="inline-flex items-center gap-1.5 rounded-full bg-red-600 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
-            >
-              <Youtube className="h-4 w-4" aria-hidden="true" />
-              <span className="hidden sm:inline">채널 바로가기</span>
-            </a>
-            <a
-              href={EXTERNAL_URLS.HISTORY_YOUTUBE + '?sub_confirmation=1'}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="SN History 유튜브 구독하기"
-              className="inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
-            >
-              <Bookmark className="h-4 w-4" aria-hidden="true" />
-              <span className="hidden sm:inline">구독하기</span>
-            </a>
-          </div>
+      <header className="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <p className="mb-2 text-xs font-bold tracking-[0.2em] text-amber-800 dark:text-amber-300">
+            이야기로 만나는 역사
+          </p>
+          <h1 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-white">
+            SN History
+          </h1>
+          <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
+            한 편에서 시작해, 하나의 이야기 끝까지.
+          </p>
         </div>
-        <div className="rounded-lg border border-sn-primary/20 bg-sn-primary/5 p-4 dark:border-sn-primary/30 dark:bg-sn-primary/10">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr] lg:gap-6">
-            <div className="relative h-48 w-full overflow-hidden rounded-lg sm:h-28 sm:w-40 lg:h-32 lg:w-48">
-              <Image
-                src="/images/branding/SNhistory_logo-transparent.png"
-                alt="SN History 로고"
-                fill
-                priority
-                sizes="(max-width: 640px) 192px, (max-width: 1024px) 112px, 128px"
-                className="object-contain"
-              />
-            </div>
-            <div className="space-y-3">
-              <div className="flex flex-wrap gap-2 text-xs font-medium text-gray-600 dark:text-gray-400">
-                {['한국사와 세계사', '인물 · 사건 · 문화', '역사 숏츠'].map(
-                  tag => (
-                    <span
-                      key={tag}
-                      className="rounded bg-gray-100 px-2 py-1 dark:bg-gray-800"
-                    >
-                      {tag}
+        <a
+          href={EXTERNAL_URLS.HISTORY_YOUTUBE}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+        >
+          <Youtube className="h-4 w-4 text-red-600" aria-hidden="true" />
+          유튜브 채널
+          <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+        </a>
+      </header>
+      <nav aria-label="시리즈 바로가기" className="flex flex-wrap gap-2">
+        {series.map(item => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+          >
+            {item.title}
+            <span className="ml-2 text-xs text-slate-500 dark:text-slate-400">
+              {item.episodes.length}부작
+            </span>
+          </a>
+        ))}
+      </nav>
+      {series.map((item, index) => {
+        const first = item.episodes[0];
+        if (!first) return null;
+        const totalSeconds =
+          item.id === 'odyssey'
+            ? odysseyEpisodes.reduce(
+                (total, episode) => total + episode.durationSeconds,
+                0
+              )
+            : undefined;
+        return (
+          <section
+            key={item.id}
+            id={item.id}
+            aria-labelledby={`${item.id}-heading`}
+            className="min-w-0 scroll-mt-24 overflow-hidden rounded-2xl bg-[#111b23] shadow-sm"
+            data-history-series={item.id}
+          >
+            <div
+              className={`relative overflow-hidden bg-gradient-to-br ${item.background}`}
+            >
+              <div className="relative grid gap-5 p-5 sm:grid-cols-[1fr_140px] sm:gap-7 sm:p-7 lg:p-8">
+                <div className="min-w-0 space-y-4">
+                  <p className="text-[10px] font-bold tracking-[0.22em] text-amber-200">
+                    SN HISTORY SERIES · {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <h2
+                    id={`${item.id}-heading`}
+                    className="text-4xl font-bold tracking-tight text-white"
+                  >
+                    {item.title}
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-300">
+                    <span className="font-semibold text-emerald-300">
+                      시즌 1
                     </span>
-                  )
+                    <span>{item.episodes.length}부작</span>
+                    <span className="rounded border border-white/25 px-1.5 py-0.5 text-[10px]">
+                      완결
+                    </span>
+                    <span>{item.genre}</span>
+                    {totalSeconds && (
+                      <span>
+                        총 {Math.floor(totalSeconds / 60)}분 {totalSeconds % 60}
+                        초
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-base font-medium leading-7 text-amber-100">
+                    {item.subtitle}
+                  </p>
+                  <p className="max-w-xl text-sm leading-7 text-slate-300">
+                    {item.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    <Link
+                      href={first.url}
+                      className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-bold text-slate-950 transition-colors hover:bg-amber-100"
+                    >
+                      <Play
+                        className="h-4 w-4 fill-current"
+                        aria-hidden="true"
+                      />
+                      1화부터 보기
+                    </Link>
+                    {item.guideUrl && (
+                      <Link
+                        href={item.guideUrl}
+                        className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/20"
+                      >
+                        {item.guideLabel}
+                        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+                {first.thumbnail && (
+                  <div className="relative hidden aspect-[9/16] w-full self-center overflow-hidden rounded-lg shadow-2xl ring-1 ring-white/10 sm:block">
+                    <Image
+                      src={first.thumbnail}
+                      alt={`${item.title} 시즌 1 표지`}
+                      fill
+                      priority={index === 0}
+                      sizes="140px"
+                      className="object-cover"
+                    />
+                  </div>
                 )}
               </div>
-              <h2 className="text-lg font-semibold text-gray-900 sm:text-xl lg:text-2xl dark:text-white">
-                역사 속으로, 짧고 깊게
-              </h2>
-              <p className="text-sm leading-relaxed text-gray-600 lg:text-base dark:text-gray-300">
-                한 사람의 선택, 세상을 바꾼 사건, 일상에 남은 과거의 흔적. SN
-                History는 궁금한 장면에서 시작해 역사 속 사람과 사건을 짧은
-                영상으로 만납니다.
-              </p>
             </div>
-          </div>
-        </div>
-      </section>
-      <section
-        aria-labelledby="history-stories-heading"
-        className="space-y-4 lg:space-y-6"
-      >
-        <div className="flex items-center gap-2">
-          <span
-            className="h-2 w-2 rounded-full bg-amber-500"
-            aria-hidden="true"
-          />
-          <h2
-            id="history-stories-heading"
-            className="text-lg font-semibold text-gray-900 dark:text-white"
-          >
-            이야기 분류
-          </h2>
-        </div>
-        <HistoryTabs posts={posts} />
-      </section>
+            <div className="min-w-0 border-t border-white/5 p-5 sm:p-7 lg:p-8">
+              <HistoryEpisodeRail
+                id={item.id}
+                title={item.title}
+                episodes={item.episodes.map((post, episodeIndex) => ({
+                  id: post.id,
+                  url: post.url,
+                  title:
+                    post.title.split('|').slice(1).join('|').trim() ||
+                    post.title,
+                  excerpt: post.excerpt,
+                  thumbnail: post.thumbnail,
+                  number: episodeIndex + 1,
+                  duration:
+                    item.id === 'odyssey'
+                      ? formatVideoDuration(
+                          odysseyEpisodes[episodeIndex].durationSeconds
+                        )
+                      : undefined,
+                }))}
+              />
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 }

@@ -12,6 +12,9 @@ export default function HistoryTabs({ posts }: { posts: Post[] }) {
   const [view, setView] = useState<'card' | 'list'>('card');
   const filters = [
     { key: 'all', label: '전체보기' },
+    ...(posts.some(post => post.tags?.includes('오디세이아'))
+      ? [{ key: '오디세이아', label: '오디세이아 · 24부작' }]
+      : []),
     ...(posts.some(post => post.tags?.includes('무오사화'))
       ? [{ key: '무오사화', label: '무오사화' }]
       : []),
@@ -65,6 +68,9 @@ export default function HistoryTabs({ posts }: { posts: Post[] }) {
           ))}
         </div>
       </div>
+      <p role="status" className="text-sm text-gray-500 dark:text-gray-400">
+        {filter === 'all' ? '전체 이야기' : filter} · {visiblePosts.length}편
+      </p>
       {visiblePosts.length === 0 ? (
         <p className="py-8 text-center text-gray-500 dark:text-gray-400">
           등록된 이야기가 없습니다.
@@ -82,7 +88,9 @@ export default function HistoryTabs({ posts }: { posts: Post[] }) {
               placement="history_card"
               className="group block overflow-hidden rounded-lg border border-gray-200 bg-white transition-all hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
             >
-              <div className="relative aspect-video overflow-hidden bg-gray-950">
+              <div
+                className={`relative overflow-hidden bg-gray-950 ${post.tags?.includes('오디세이아') ? 'aspect-[3/4]' : 'aspect-video'}`}
+              >
                 {post.thumbnail && (
                   <Image
                     src={post.thumbnail}
@@ -102,6 +110,9 @@ export default function HistoryTabs({ posts }: { posts: Post[] }) {
                 <h3 className="line-clamp-2 text-sm font-medium text-gray-900 transition-colors group-hover:text-sn-primary dark:text-white dark:group-hover:text-emerald-400">
                   {post.title}
                 </h3>
+                <p className="mt-2 line-clamp-2 text-xs leading-5 text-gray-500 dark:text-gray-400">
+                  {post.excerpt}
+                </p>
               </div>
             </TrackedPostLink>
           ))}

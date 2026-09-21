@@ -1,6 +1,38 @@
 import type { Post } from './posts';
+import { odysseyPosts } from './odyssey';
 
 export const allPosts: Post[] = [
+  {
+    id: 'trainee-patient',
+    title:
+      '아파서 환자가 아니라, 환자라서 아프다 | EBS 2027 수능완성 문학 현대소설 최인호 「견습 환자」',
+    excerpt:
+      '1967년 발표된 최인호의 현대소설 「견습 환자」. 늑막염으로 입원한 ‘나’가 문패와 환자복, 회진과 체온계 속에서 환자 노릇을 익혀 가는 과정을 읽습니다. 1인칭 주인공 시점과 제목의 역설, 웃음을 잃은 의료진과 그들을 웃기려는 환자의 역할 역전을 살펴봅니다.',
+    category: 'SN Originals',
+    tags: [
+      '견습환자',
+      '최인호',
+      '현대소설',
+      '단편소설',
+      '1인칭주인공시점',
+      '풍자',
+      '역설',
+      'EBS수능완성',
+      '수능국어',
+      'SNOriginals',
+    ],
+    author: 'SN Academy',
+    date: '2026-09-21',
+    readTime: '6',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/originals/70_trainee_patient.png',
+    youtubeUrl: 'https://www.youtube.com/embed/R5VJ1yXNNiY',
+    url: '/originals/trainee-patient',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
+  ...odysseyPosts,
   {
     id: '2028-integrated-science-study-guide',
     title: '2028 수능 통합과학, 25개 예시문항에서 공부의 방향을 찾다',

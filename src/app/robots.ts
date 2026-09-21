@@ -16,6 +16,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'Zumbot', allow: '/' }, // 줌
       { userAgent: 'Daumoa', allow: '/' }, // 다음/카카오
     ],
-    sitemap: `${BASE_URL}/sitemap.xml`,
+    sitemap: [`${BASE_URL}/sitemap.xml`, `${BASE_URL}/video-sitemap.xml`],
   };
 }

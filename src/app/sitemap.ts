@@ -1,12 +1,19 @@
 import { MetadataRoute } from 'next';
 import { allPosts } from '@/data/posts';
 import { BASE_URL } from '@/lib/config';
+import { ODYSSEY_PATH, ODYSSEY_UPDATED } from '@/data/odyssey';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BASE_URL;
 
   // 메인 홈
   const staticPages = [
+    {
+      url: `${baseUrl}${ODYSSEY_PATH}`,
+      lastModified: new Date(ODYSSEY_UPDATED),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    },
     {
       url: baseUrl,
       lastModified: new Date(),
