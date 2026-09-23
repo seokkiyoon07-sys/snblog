@@ -246,7 +246,7 @@ export default function OriginalsIntroPage() {
               <p className="text-gray-700 leading-relaxed">
                 <strong className="font-semibold text-gray-900">📺 </strong>
                 <a
-                  href="https://www.youtube.com/@SN_gisuk_original"
+                  href="https://www.youtube.com/@SN_Academy_Original"
                   className="text-sn-primary hover:text-sn-primary-dark underline font-semibold"
                   target="_blank"
                   rel="noopener noreferrer"

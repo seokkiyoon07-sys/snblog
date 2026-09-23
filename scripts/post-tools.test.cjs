@@ -4,6 +4,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {
   readRecords,
+  createSlackPayload,
+  notificationTargets,
   readRevisionRecords,
   changedPosts,
   createPayload,
@@ -24,6 +26,19 @@ const post = {
   published: true,
   url: '/originals/sample',
 };
+
+test('Slack shares the summary and explicit channel selection avoids duplicate Jandi sends', () => {
+  const payload = createUpdatePayload(post, [{ date: '2026-09-23', title: 'Update', summary: 'Summary' }]);
+  const slack = createSlackPayload(payload);
+  assert.ok(slack.text.includes(payload.connectInfo[0].description));
+  assert.equal(slack.mrkdwn, false);
+  const env = { JANDI_WEBHOOK_URL: 'https://example.com/jandi', SLACK_WEBHOOK_URL: 'https://example.com/slack' };
+  assert.deepEqual(notificationTargets(env, 'slack').map(t => t.name), ['slack']);
+  assert.equal(notificationTargets(env).length, 2);
+  assert.equal(notificationTargets({ JANDI_WEBHOOK_URL: env.JANDI_WEBHOOK_URL }).length, 1);
+  assert.equal(notificationTargets({}, 'slack').length, 0);
+  assert.throws(() => notificationTargets(env, 'unknown'), /Use --channel/);
+});
 
 test('loads imported post data from the matching git revision', () => {
   const sources = {

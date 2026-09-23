@@ -1335,7 +1335,7 @@ export default function AIDocsPage() {
               <strong>채널명:</strong> SNoriginals
             </li>
             <li>
-              <strong>URL:</strong> https://www.youtube.com/@SN_gisuk_original
+              <strong>URL:</strong> https://www.youtube.com/@SN_Academy_Original
             </li>
             <li>
               <strong>콘텐츠 성격:</strong> 현재는 고전문학 전용 콘텐츠, 국어

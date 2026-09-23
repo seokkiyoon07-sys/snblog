@@ -184,7 +184,7 @@ export default async function OriginalsPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <a
-                    href="https://www.youtube.com/@SN_gisuk_original"
+                    href="https://www.youtube.com/@SN_Academy_Original"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-full transition-colors"
@@ -199,7 +199,7 @@ export default async function OriginalsPage() {
                     <span className="hidden sm:inline">채널 바로가기</span>
                   </a>
                   <a
-                    href="https://www.youtube.com/@SN_gisuk_original?sub_confirmation=1"
+                    href="https://www.youtube.com/@SN_Academy_Original?sub_confirmation=1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-full transition-colors"

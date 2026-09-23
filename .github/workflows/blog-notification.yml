@@ -27,4 +27,5 @@ jobs:
         env:
           BEFORE_SHA: ${{ github.event.before }}
           AFTER_SHA: ${{ github.sha }}
-          JANDI_WEBHOOK_URL: 'https://wh.jandi.com/connect-api/webhook/13116580/2eb500fa1618a7c8b4d5ee7e29b46523'
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          JANDI_WEBHOOK_URL: ${{ secrets.JANDI_WEBHOOK_URL }}

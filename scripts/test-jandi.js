@@ -1,6 +1,6 @@
 // 테스트용 잔디 웹훅 스크립트
 const https = require('https');
-require('dotenv').config();
+require('dotenv').config({ path: '.env.local', quiet: true });
 
 const webhookUrl = process.env.JANDI_WEBHOOK_URL;
 

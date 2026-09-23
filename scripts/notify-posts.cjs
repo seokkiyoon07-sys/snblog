@@ -85,7 +85,25 @@ function createPayload(post, baseUrl = 'https://blog.snacademy.co.kr') {
   };
 }
 
+function createSlackPayload(payload) {
+  return {
+    text: [payload.body, ...payload.connectInfo.map(info => info.description)].join('\n\n'),
+    mrkdwn: false,
+    unfurl_links: false,
+    unfurl_media: false,
+  };
+}
+
+function notificationTargets(env, channel = 'all') {
+  if (!['all', 'jandi', 'slack'].includes(channel)) throw new Error('Use --channel=all, --channel=jandi or --channel=slack');
+  return [
+    { name: 'jandi', url: env.JANDI_WEBHOOK_URL },
+    { name: 'slack', url: env.SLACK_WEBHOOK_URL },
+  ].filter(target => target.url && (channel === 'all' || channel === target.name));
+}
+
 async function main() {
+  require('dotenv').config({ path: '.env.local', quiet: true });
   const before = process.env.BEFORE_SHA;
   const after = process.env.AFTER_SHA || 'HEAD';
   if (!before) throw new Error('BEFORE_SHA is required');
@@ -120,24 +138,38 @@ async function main() {
     }
   }
   const send = process.argv.includes('--send');
-  if (send && notifications.length && !process.env.JANDI_WEBHOOK_URL)
-    throw new Error('JANDI_WEBHOOK_URL is required');
+  const channel = process.argv.find(arg => arg.startsWith('--channel='))?.split('=')[1] || 'all';
+  const targets = notificationTargets(process.env, channel);
+  if (send && notifications.length && !targets.length)
+    throw new Error(`No webhook configured for ${channel}; set JANDI_WEBHOOK_URL or SLACK_WEBHOOK_URL`);
+  const failures = [];
   for (const { id, payload } of notifications) {
-    if (send) {
-      const response = await fetch(process.env.JANDI_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      if (!response.ok) throw new Error(`Jandi returned ${response.status}`);
+    if (!send) {
+      console.log(`Dry run: ${id}`);
+      console.log(JSON.stringify(channel === 'slack' ? createSlackPayload(payload) : payload, null, 2));
+      continue;
     }
-    console.log(`${send ? 'Sent' : 'Dry run'}: ${id}`);
-    if (!send) console.log(JSON.stringify(payload, null, 2));
+    for (const target of targets) {
+      try {
+        const response = await fetch(target.url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(target.name === 'slack' ? createSlackPayload(payload) : payload),
+          signal: AbortSignal.timeout(15000),
+        });
+        if (!response.ok) throw new Error();
+        if (target.name === 'slack' && (await response.text()).trim() !== 'ok') throw new Error();
+        console.log(`Sent (${target.name}): ${id}`);
+      } catch {
+        failures.push(`${target.name}: ${id}`);
+      }
+    }
   }
+  if (failures.length) throw new Error(`Notification failed (${failures.join(', ')}). Retry only the failed channel with --channel=...`);
   console.log(`${notifications.length} notifications`);
 }
 
-module.exports = { readRecords, readRevisionRecords, changedPosts, createPayload, addedTimelineEntries, createUpdatePayload };
+module.exports = { readRecords, readRevisionRecords, changedPosts, createPayload, addedTimelineEntries, createUpdatePayload, createSlackPayload, notificationTargets };
 if (require.main === module)
   main().catch(error => {
     console.error(error.message);

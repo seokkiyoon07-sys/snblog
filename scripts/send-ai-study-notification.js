@@ -1,8 +1,9 @@
 // AI 공부법 포스트 잔디 알림 스크립트
 const https = require('https');
 
-const webhookUrl =
-  'https://wh.jandi.com/connect-api/webhook/13116580/2eb500fa1618a7c8b4d5ee7e29b46523';
+require('dotenv').config({ path: '.env.local', quiet: true });
+const webhookUrl = process.env.JANDI_WEBHOOK_URL;
+if (!webhookUrl) throw new Error('JANDI_WEBHOOK_URL is required');
 
 const aiStudyMessage = {
   body: '새 포스트가 게시되었어요 - AI에게 배우는 진짜 공부법',
