@@ -23,14 +23,41 @@ function createUpdatePayload(post, entries) {
   return payload;
 }
 
-function readRecords(source) {
+function readRecords(source, resolveImport) {
   if (!source) return [];
   const { outputText } = ts.transpileModule(source, {
     compilerOptions: { module: ts.ModuleKind.CommonJS },
   });
-  const context = { exports: {} };
+  const context = { exports: {}, require: resolveImport };
   vm.runInNewContext(outputText, context);
   return JSON.parse(JSON.stringify(context.exports.allPosts));
+}
+
+function readRevisionRecords(git, revision) {
+  const path = require('node:path').posix;
+  const cache = new Map();
+  function load(file) {
+    if (cache.has(file)) return cache.get(file);
+    const source = git(['show', `${revision}:${file}`]);
+    if (file.endsWith('.json')) {
+      const value = JSON.parse(source);
+      cache.set(file, value);
+      return value;
+    }
+    const { outputText } = ts.transpileModule(source, {
+      compilerOptions: { module: ts.ModuleKind.CommonJS, esModuleInterop: true },
+    });
+    const context = { exports: {}, require: name => {
+      if (!name.startsWith('./') && !name.startsWith('../')) throw new Error('Only relative data imports are supported');
+      const target = path.normalize(path.join(path.dirname(file), name + (path.extname(name) ? '' : '.ts')));
+      if (!target.startsWith('src/data/')) throw new Error('Data import must stay within src/data');
+      return load(target);
+    } };
+    cache.set(file, context.exports);
+    vm.runInNewContext(outputText, context);
+    return context.exports;
+  }
+  return JSON.parse(JSON.stringify(load(RECORDS).allPosts));
 }
 
 function changedPosts(before, after) {
@@ -69,10 +96,8 @@ async function main() {
     console.log('No previous revision; skipping notifications');
     return;
   }
-  const oldSource = git(['show', `${before}:${RECORDS}`]);
-  const newSource = git(['show', `${after}:${RECORDS}`]);
-  const records = readRecords(newSource);
-  const posts = changedPosts(readRecords(oldSource), records);
+  const records = readRevisionRecords(git, after);
+  const posts = changedPosts(readRevisionRecords(git, before), records);
   const notifications = posts.map(post => ({ id: post.id, payload: createPayload(post) }));
   const timelinePost = records.find(post => post.id === TIMELINE_ID && post.published);
   if (timelinePost && !posts.some(post => post.id === TIMELINE_ID)) {
@@ -112,7 +137,7 @@ async function main() {
   console.log(`${notifications.length} notifications`);
 }
 
-module.exports = { readRecords, changedPosts, createPayload, addedTimelineEntries, createUpdatePayload };
+module.exports = { readRecords, readRevisionRecords, changedPosts, createPayload, addedTimelineEntries, createUpdatePayload };
 if (require.main === module)
   main().catch(error => {
     console.error(error.message);

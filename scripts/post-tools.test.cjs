@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {
   readRecords,
+  readRevisionRecords,
   changedPosts,
   createPayload,
   addedTimelineEntries,
@@ -23,6 +24,19 @@ const post = {
   published: true,
   url: '/originals/sample',
 };
+
+test('loads imported post data from the matching git revision', () => {
+  const sources = {
+    'old:src/data/post-records.ts': "import { items } from './items'; export const allPosts = [...items];",
+    'old:src/data/items.ts': `export const items = ${JSON.stringify([post])};`,
+    'new:src/data/post-records.ts': "import { items } from './items'; export const allPosts = [...items];",
+    'new:src/data/items.ts': "import data from './items.json'; export const items = data;",
+    'new:src/data/items.json': JSON.stringify([{ ...post, title: 'Changed' }]),
+  };
+  const git = args => { assert.equal(args[0], 'show'); return sources[args[1]]; };
+  assert.equal(readRevisionRecords(git, 'old')[0].title, 'Title');
+  assert.equal(readRevisionRecords(git, 'new')[0].title, 'Changed');
+});
 
 test('timeline notifications include only new dates and ignore edits or removals', () => {
   const entry = (date, title = '제목', summary = '요약') =>
