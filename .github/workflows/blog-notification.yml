@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'src/data/post-records.ts'
+      - 'content/startup/snargpt-development-2026.html'
 
 permissions:
   contents: read
@@ -21,7 +22,7 @@ jobs:
           node-version-file: 'package.json'
           cache: 'npm'
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - name: Notify newly published posts
+      - name: Notify published posts and timeline updates
         run: node scripts/notify-posts.cjs --send
         env:
           BEFORE_SHA: ${{ github.event.before }}

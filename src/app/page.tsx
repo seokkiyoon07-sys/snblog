@@ -1,5 +1,7 @@
 import { getFeaturedPosts, getPaginatedPosts } from '@/data/posts';
 import PostCard from '@/components/PostCard';
+import PostUpdateStatus from '@/components/PostUpdateStatus';
+import { withLatestUpdate } from '@/lib/post-updates';
 import Pagination from '@/components/Pagination';
 import { formatReadTime } from '@/lib/utils';
 import { Metadata } from 'next';
@@ -48,7 +50,7 @@ export default async function Home({ searchParams }: HomeProps) {
     currentPage,
     6
   );
-  const featuredPosts = await getFeaturedPosts();
+  const featuredPosts = getFeaturedPosts().map(withLatestUpdate);
 
   // 스키마 마크업 데이터
   const blogSchema = {
@@ -186,7 +188,11 @@ export default async function Home({ searchParams }: HomeProps) {
 
                     {/* 콘텐츠 */}
                     <div className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
+                      <div className="flex flex-wrap items-center gap-2 mb-3">
+                        <PostUpdateStatus
+                          update={post.latestUpdate}
+                          badgeOnly
+                        />
                         <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full">
                           {post.category}
                         </span>
@@ -203,6 +209,11 @@ export default async function Home({ searchParams }: HomeProps) {
                         {post.excerpt}
                       </p>
 
+                      {post.latestUpdate && (
+                        <div className="mb-4">
+                          <PostUpdateStatus update={post.latestUpdate} />
+                        </div>
+                      )}
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">

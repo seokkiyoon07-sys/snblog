@@ -3,6 +3,25 @@ const vm = require('node:vm');
 const ts = require('typescript');
 
 const RECORDS = 'src/data/post-records.ts';
+const TIMELINE = 'content/startup/snargpt-development-2026.html';
+const TIMELINE_ID = 'snargpt-development-2026';
+
+function addedTimelineEntries(before, after) {
+  const parse = source => Array.from(source.matchAll(
+    /<time datetime="([^"]+)">[^<]*<\/time><div class="sn-update-card"><h3>([^<]+)<\/h3><p class="sn-update-brief">([^<]+)<\/p>/g
+  ), match => ({ date: match[1], title: match[2], summary: match[3] }));
+  const oldDates = new Set(parse(before).map(entry => entry.date));
+  return parse(after).filter(entry => !oldDates.has(entry.date));
+}
+
+function createUpdatePayload(post, entries) {
+  const payload = createPayload(post);
+  payload.body = `📝 ${post.title} 업데이트`;
+  payload.connectInfo[0].description = entries.map(entry =>
+    `${entry.date} · ${entry.title}\n${entry.summary}`
+  ).join('\n\n') + `\n\n${payload.connectButtons[0].url}`;
+  return payload;
+}
 
 function readRecords(source) {
   if (!source) return [];
@@ -52,12 +71,33 @@ async function main() {
   }
   const oldSource = git(['show', `${before}:${RECORDS}`]);
   const newSource = git(['show', `${after}:${RECORDS}`]);
-  const posts = changedPosts(readRecords(oldSource), readRecords(newSource));
+  const records = readRecords(newSource);
+  const posts = changedPosts(readRecords(oldSource), records);
+  const notifications = posts.map(post => ({ id: post.id, payload: createPayload(post) }));
+  const timelinePost = records.find(post => post.id === TIMELINE_ID && post.published);
+  if (timelinePost && !posts.some(post => post.id === TIMELINE_ID)) {
+    const changedFiles = git(['diff', '--name-only', before, after, '--', TIMELINE]).trim();
+    if (changedFiles) {
+      // Only announce newly added dates, never wording fixes to historical entries.
+      // A newly introduced timeline has no baseline: do not announce the archive.
+      const existed = git(['ls-tree', '--name-only', before, '--', TIMELINE]).trim();
+      const exists = git(['ls-tree', '--name-only', after, '--', TIMELINE]).trim();
+      if (existed && exists) {
+        const entries = addedTimelineEntries(
+          git(['show', `${before}:${TIMELINE}`]),
+          git(['show', `${after}:${TIMELINE}`])
+        );
+        if (entries.length) notifications.push({
+          id: TIMELINE_ID,
+          payload: createUpdatePayload(timelinePost, entries),
+        });
+      }
+    }
+  }
   const send = process.argv.includes('--send');
-  if (send && !process.env.JANDI_WEBHOOK_URL)
+  if (send && notifications.length && !process.env.JANDI_WEBHOOK_URL)
     throw new Error('JANDI_WEBHOOK_URL is required');
-  for (const post of posts) {
-    const payload = createPayload(post);
+  for (const { id, payload } of notifications) {
     if (send) {
       const response = await fetch(process.env.JANDI_WEBHOOK_URL, {
         method: 'POST',
@@ -66,12 +106,13 @@ async function main() {
       });
       if (!response.ok) throw new Error(`Jandi returned ${response.status}`);
     }
-    console.log(`${send ? 'Sent' : 'Dry run'}: ${post.id}`);
+    console.log(`${send ? 'Sent' : 'Dry run'}: ${id}`);
+    if (!send) console.log(JSON.stringify(payload, null, 2));
   }
-  console.log(`${posts.length} newly published posts`);
+  console.log(`${notifications.length} notifications`);
 }
 
-module.exports = { readRecords, changedPosts, createPayload };
+module.exports = { readRecords, changedPosts, createPayload, addedTimelineEntries, createUpdatePayload };
 if (require.main === module)
   main().catch(error => {
     console.error(error.message);

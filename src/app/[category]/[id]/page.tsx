@@ -12,6 +12,8 @@ import { getCategoryConfig, formatReadTime } from '@/lib/utils';
 import ArticleContent from '@/components/ArticleContent';
 import SNarGPTGuidePost from '@/components/special-posts/SNarGPTGuidePost';
 import { PROSE_CLASSES } from '@/lib/constants';
+import { withLatestUpdate } from '@/lib/post-updates';
+import PostUpdateStatus from '@/components/PostUpdateStatus';
 
 interface PostPageProps {
   params: Promise<{
@@ -129,6 +131,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   const renderedContent = isSnargptGuide ? '' : renderMarkdown(content);
   const isUpdateTimeline = post.id === 'snargpt-development-2026';
+  const latestUpdate = withLatestUpdate(post).latestUpdate;
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-800 text-slate-800 dark:text-gray-100">
@@ -209,8 +212,19 @@ export default async function PostPage({ params }: PostPageProps) {
                     clipRule="evenodd"
                   />
                 </svg>
-                {post.date}
+                {latestUpdate ? `최초 작성 ${post.date}` : post.date}
               </span>
+              {latestUpdate && (
+                <span className="flex flex-wrap items-center justify-center gap-2 text-emerald-700 dark:text-emerald-300">
+                  <PostUpdateStatus update={latestUpdate} badgeOnly />
+                  <span>
+                    최근 업데이트{' '}
+                    <time dateTime={latestUpdate.date}>
+                      {latestUpdate.date.replace(/-/g, '.')}
+                    </time>
+                  </span>
+                </span>
+              )}
               <span className="flex items-center">
                 <svg
                   className="w-5 h-5 mr-2"
@@ -307,7 +321,7 @@ export default async function PostPage({ params }: PostPageProps) {
           description: post.excerpt,
           author: post.author,
           datePublished: post.date,
-          dateModified: post.date,
+          dateModified: latestUpdate?.date ?? post.date,
           image: post.thumbnail,
           url: `https://blog.snacademy.co.kr${post.url}`,
           category: post.category,

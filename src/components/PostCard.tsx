@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { formatReadTime } from '@/lib/utils';
 import { BASE_URL, getCategoryEmoji, getCategoryRoute } from '@/lib/config';
 import TrackedPostLink from '@/components/analytics/TrackedPostLink';
+import PostUpdateStatus from '@/components/PostUpdateStatus';
 
 interface Post {
   id: string;
@@ -11,6 +12,7 @@ interface Post {
   category: string;
   tags?: string[];
   date: string;
+  latestUpdate?: { date: string; summary: string };
   readTime: string;
   thumbnail?: string;
   url: string;
@@ -49,6 +51,7 @@ export default function PostCard({
     description: post.excerpt,
     url: `${BASE_URL}${post.url}`,
     datePublished: isoDate,
+    dateModified: post.latestUpdate?.date ?? isoDate,
     author: {
       '@type': 'Organization',
       name: 'SN Academy',
@@ -141,6 +144,7 @@ export default function PostCard({
             >
               <span className="mr-2">{emoji}</span>
               <span className="flex flex-col gap-2">
+                <PostUpdateStatus update={post.latestUpdate} badgeOnly />
                 {post.badge && (
                   <span className="inline-flex items-center px-2 py-0.5 text-xs font-medium border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded">
                     {post.badge}
@@ -167,13 +171,14 @@ export default function PostCard({
           </p>
 
           {/* 메타 정보 */}
+          <PostUpdateStatus update={post.latestUpdate} />
           <div className="flex items-center space-x-3 sm:space-x-4 text-sm lg:text-base text-gray-500 dark:text-gray-400">
             <time
               dateTime={isoDate}
               className="font-medium"
               itemProp="datePublished"
             >
-              {post.date}
+              {post.latestUpdate ? `최초 작성 ${post.date}` : post.date}
             </time>
             <span aria-hidden="true">•</span>
             <span itemProp="wordCount">{formatReadTime(post.readTime)}</span>

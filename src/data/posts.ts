@@ -46,6 +46,7 @@ export interface Post {
   tags?: string[];
   author: string;
   date: string;
+  latestUpdate?: { date: string; summary: string };
   readTime: string;
   featured: boolean;
   featuredOrder?: number;

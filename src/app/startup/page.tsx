@@ -1,6 +1,7 @@
 import StartupTabs from '@/components/StartupTabs';
 import { Metadata } from 'next';
 import { getPostsByCategory } from '@/data/posts';
+import { withLatestUpdate } from '@/lib/post-updates';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://blog.snacademy.co.kr'),
@@ -40,7 +41,13 @@ export const metadata: Metadata = {
 };
 
 export default function StartupPage() {
-  const startups = getPostsByCategory('startup');
+  const startups = getPostsByCategory('startup')
+    .map(withLatestUpdate)
+    .sort(
+      (a, b) =>
+        new Date(b.latestUpdate?.date ?? b.date).getTime() -
+        new Date(a.latestUpdate?.date ?? a.date).getTime()
+    );
 
   return (
     <div className="space-y-6 lg:space-y-8">

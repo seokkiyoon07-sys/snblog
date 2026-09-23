@@ -6,6 +6,8 @@ const {
   readRecords,
   changedPosts,
   createPayload,
+  addedTimelineEntries,
+  createUpdatePayload,
 } = require('./notify-posts.cjs');
 const {
   createBackup,
@@ -21,6 +23,22 @@ const post = {
   published: true,
   url: '/originals/sample',
 };
+
+test('timeline notifications include only new dates and ignore edits or removals', () => {
+  const entry = (date, title = '제목', summary = '요약') =>
+    `<time datetime="${date}">${date}</time><div class="sn-update-card"><h3>${title}</h3><p class="sn-update-brief">${summary}</p>`;
+  const before = entry('2026-09-18') + entry('2026-09-07');
+  const after = entry('2026-09-23', '모델 교체', '최신 모드 비용 주의') + entry('2026-09-21') + entry('2026-09-18', '수정');
+  const entries = addedTimelineEntries(before, after);
+  assert.deepEqual(entries.map(entry => entry.date), ['2026-09-23', '2026-09-21']);
+  assert.deepEqual(addedTimelineEntries(after, after), []);
+  assert.deepEqual(addedTimelineEntries(before, entry('2026-09-18', '수정')), []);
+  const payload = createUpdatePayload(post, entries);
+  assert.match(payload.body, /업데이트/);
+  assert.match(payload.connectInfo[0].description, /최신 모드 비용 주의/);
+  assert.doesNotMatch(payload.connectInfo[0].description, /2026-09-18/);
+  assert.match(payload.connectInfo[0].description, /https:\/\/blog.snacademy.co.kr\/originals\/sample/);
+});
 
 test('detects additions and publication transitions, ignoring edits, drafts and removals', () => {
   const before = [
