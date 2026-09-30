@@ -138,9 +138,13 @@ export default async function OriginalsPage() {
       .filter((post): post is NonNullable<typeof post> => post !== undefined);
 
   // 전체보기: 모든 SN Originals 작품 (소개글 제외)
-  const allOriginalsWorks = getPostsByCategory('SN Originals').filter(
-    post => post.id !== 'sn-originals-intro'
-  );
+  const allOriginalsWorks = getPostsByCategory('SN Originals')
+    .filter(post => post.id !== 'sn-originals-intro')
+    .sort(
+      (a, b) =>
+        Number(b.id === '2027-suneung-literature-marathon') -
+        Number(a.id === '2027-suneung-literature-marathon')
+    );
 
   const steadyWorks = getWorksByIds(STEADY_WORK_IDS);
   const schoolExamWorks = getWorksByIds(SCHOOL_EXAM_WORK_IDS);

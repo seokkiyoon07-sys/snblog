@@ -1,7 +1,68 @@
 import type { Post } from './posts';
 import { odysseyPosts } from './odyssey';
+import { koreanHistoryPosts } from './korean-history';
 
 export const allPosts: Post[] = [
+  {
+    id: '2027-suneung-literature-marathon',
+    title:
+      '수능 50일 전, 이 30편은 꼭 다시 보고 가세요 | EBS 2027 수능특강 문학 30편 몰아보기',
+    excerpt:
+      'HJ KIM 선생님이 엄선한 EBS 2027 수능특강 문학 30편을 영상 하나로 복습하세요. 작품별 시작 시간과 교재 쪽수·단원, 개별 해설 페이지를 한눈에 정리했습니다. 자막이 필요하면 각 작품의 개별 페이지에서 시청할 수 있습니다.',
+    category: 'SN Originals',
+    tags: [
+      'EBS수능특강',
+      '2027학년도',
+      '수능국어',
+      '문학',
+      '몰아보기',
+      '수능대비',
+      'SNOriginals',
+    ],
+    author: 'SN Academy',
+    date: '2026-09-30',
+    readTime: '5',
+    featured: true,
+    published: true,
+    badge: '2027 수능특강 · 30편 몰아보기',
+    thumbnail:
+      '/images/thumbnail/originals/2027_Binge-watching_CSAT_Korean_prep_lecturesEpisode 30.png',
+    youtubeUrl: 'https://www.youtube.com/embed/uH1psJ6VJoc',
+    url: '/originals/2027-suneung-literature-marathon',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
+  {
+    id: 'a-box-of-western-confectionery',
+    title:
+      '과자 한 갑에 무너진 지식인의 자존심 | EBS 2027 수능완성 문학 현대소설 염상섭 「양과자갑」',
+    excerpt:
+      'SN 오리지날 71번째 작품, 염상섭의 「양과자갑」. 해방 직후 서울, 영어가 찍힌 과자 한 갑에 담긴 계급의 차이와 영문학자 영수의 자존심을 살펴봅니다. 지키려는 사람과 살아야 하는 사람 사이에서, 지식인의 신념과 생계가 부딪치는 순간을 만나보세요.',
+    category: 'SN Originals',
+    tags: [
+      '양과자갑',
+      '염상섭',
+      '현대소설',
+      '해방직후',
+      '미군정',
+      '지식인',
+      'EBS수능완성',
+      '수능국어',
+      'SNOriginals',
+    ],
+    author: 'SN Academy',
+    date: '2026-09-30',
+    readTime: '6',
+    featured: false,
+    published: true,
+    badge: 'SN Originals · 71번째 작품',
+    thumbnail:
+      '/images/thumbnail/originals/71_A_Box_of_Western_Confectionery.png',
+    youtubeUrl: 'https://www.youtube.com/embed/jCeX-SjaRi8',
+    url: '/originals/a-box-of-western-confectionery',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
   {
     id: 'trainee-patient',
     title:
@@ -33,6 +94,7 @@ export const allPosts: Post[] = [
     type: 'special',
   },
   ...odysseyPosts,
+  ...koreanHistoryPosts,
   {
     id: '2028-integrated-science-study-guide',
     title: '2028 수능 통합과학, 25개 예시문항에서 공부의 방향을 찾다',

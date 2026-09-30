@@ -19,10 +19,12 @@ export default function HistoryEpisodeRail({
   id,
   title,
   episodes,
+  ongoing = false,
 }: {
   id: string;
   title: string;
   episodes: HistoryEpisode[];
+  ongoing?: boolean;
 }) {
   const rail = useRef<HTMLOListElement>(null);
   const [edges, setEdges] = useState({ previous: false, next: false });
@@ -65,10 +67,12 @@ export default function HistoryEpisodeRail({
             에피소드
           </h3>
           <span className="rounded-md border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200">
-            시즌 1
+            {ongoing ? '연재 중' : '시즌 1'}
           </span>
           <span className="text-xs text-slate-400">
-            1–{episodes.length}화 · 전체 공개
+            {ongoing
+              ? `${episodes.length}화까지 공개`
+              : `1–${episodes.length}화 · 전체 공개`}
           </span>
         </div>
         <div className="flex gap-2">

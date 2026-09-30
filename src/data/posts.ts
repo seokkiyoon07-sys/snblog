@@ -98,11 +98,12 @@ function seededScore(value: string): number {
   return hash / 0xffffffff;
 }
 
-export function getFeaturedPosts(limit = 6): Post[] {
+export function getFeaturedPosts(limit = 7): Post[] {
   const posts = getPosts();
   const today = new Date();
   const seed = getRecommendationSeed(today);
   const pinnedRecommendationIds = [
+    '2027-suneung-literature-marathon',
     '2027-repeater-class',
     'snargpt-development-2026',
     '2027-september-mock-korean-analysis',

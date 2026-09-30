@@ -4,18 +4,25 @@ import Link from 'next/link';
 import { ArrowUpRight, Play, Youtube } from 'lucide-react';
 import { getPostsByCategory } from '@/data/posts';
 import { odysseyEpisodes, formatVideoDuration } from '@/data/odyssey';
+import {
+  koreanHistoryEpisodes,
+  KOREAN_HISTORY_TITLE,
+  KOREAN_HISTORY_TAGLINE,
+  KOREAN_HISTORY_DESCRIPTION,
+  KOREAN_HISTORY_PATH,
+} from '@/data/korean-history';
 import { BASE_URL, EXTERNAL_URLS } from '@/lib/config';
 import HistoryEpisodeRail from '@/components/HistoryEpisodeRail';
 
 const description =
-  '오디세이아 시즌 1, 24부작과 무오사화 시즌 1, 4부작. SN History의 역사 시리즈를 작품별 소개와 에피소드 목록으로 만나고, 1화부터 순서대로 감상하세요.';
+  '연재 중인 숏츠로 준비하는 수능 한국사, 오디세이아 24부작, 무오사화 4부작. SN History의 역사 시리즈를 소개와 에피소드 목록으로 만나고, 1화부터 순서대로 감상하세요.';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: 'SN History | 오디세이아·무오사화 시리즈',
+  title: 'SN History | 한국사·오디세이아·무오사화 시리즈',
   description,
   alternates: { canonical: '/history' },
   openGraph: {
-    title: 'SN History | 오디세이아·무오사화 시리즈',
+    title: 'SN History | 한국사·오디세이아·무오사화 시리즈',
     description,
     url: `${BASE_URL}/history`,
     type: 'website',
@@ -24,6 +31,18 @@ export const metadata: Metadata = {
 };
 
 const seriesDefinitions = [
+  {
+    id: 'korean-history',
+    tag: '한국사',
+    title: KOREAN_HISTORY_TITLE,
+    subtitle: KOREAN_HISTORY_TAGLINE,
+    description: KOREAN_HISTORY_DESCRIPTION,
+    genre: '교과서로 읽는 한국사 · 핵심 개념',
+    background: 'from-[#4b3a24] via-[#302b24] to-[#141e24]',
+    guideUrl: KOREAN_HISTORY_PATH,
+    guideLabel: '전체 목차',
+    ongoing: true,
+  },
   {
     id: 'odyssey',
     tag: '오디세이아',
@@ -35,6 +54,7 @@ const seriesDefinitions = [
     background: 'from-[#203e40] via-[#172c30] to-[#111b23]',
     guideUrl: '/history/odyssey',
     guideLabel: '줄거리·등장인물',
+    ongoing: false,
   },
   {
     id: 'muo-sahwa',
@@ -47,6 +67,7 @@ const seriesDefinitions = [
     background: 'from-[#44302d] via-[#2d2528] to-[#171b24]',
     guideUrl: undefined,
     guideLabel: undefined,
+    ongoing: false,
   },
 ];
 
@@ -115,7 +136,9 @@ export default function HistoryPage() {
           >
             {item.title}
             <span className="ml-2 text-xs text-slate-500 dark:text-slate-400">
-              {item.episodes.length}부작
+              {item.ongoing
+                ? `${item.episodes.length}화 공개`
+                : `${item.episodes.length}부작`}
             </span>
           </a>
         ))}
@@ -123,13 +146,18 @@ export default function HistoryPage() {
       {series.map((item, index) => {
         const first = item.episodes[0];
         if (!first) return null;
-        const totalSeconds =
+        const videoEpisodes =
           item.id === 'odyssey'
-            ? odysseyEpisodes.reduce(
-                (total, episode) => total + episode.durationSeconds,
-                0
-              )
-            : undefined;
+            ? odysseyEpisodes
+            : item.id === 'korean-history'
+              ? koreanHistoryEpisodes
+              : undefined;
+        const totalSeconds = videoEpisodes
+          ? videoEpisodes.reduce(
+              (total, episode) => total + episode.durationSeconds,
+              0
+            )
+          : undefined;
         return (
           <section
             key={item.id}
@@ -154,11 +182,15 @@ export default function HistoryPage() {
                   </h2>
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-300">
                     <span className="font-semibold text-emerald-300">
-                      시즌 1
+                      {item.ongoing ? '연재 시리즈' : '시즌 1'}
                     </span>
-                    <span>{item.episodes.length}부작</span>
+                    <span>
+                      {item.ongoing
+                        ? `${item.episodes.length}화 공개`
+                        : `${item.episodes.length}부작`}
+                    </span>
                     <span className="rounded border border-white/25 px-1.5 py-0.5 text-[10px]">
-                      완결
+                      {item.ongoing ? '연재 중' : '완결'}
                     </span>
                     <span>{item.genre}</span>
                     {totalSeconds && (
@@ -183,8 +215,20 @@ export default function HistoryPage() {
                         className="h-4 w-4 fill-current"
                         aria-hidden="true"
                       />
-                      1화부터 보기
+                      {item.id === 'korean-history'
+                        ? '1화부터 가볍게 시작하기'
+                        : '1화부터 보기'}
                     </Link>
+                    {item.ongoing && (
+                      <Link
+                        href={item.episodes[item.episodes.length - 1].url}
+                        className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/20"
+                      >
+                        최신{' '}
+                        {item.episodes[item.episodes.length - 1].seriesOrder}화
+                        보기
+                      </Link>
+                    )}
                     {item.guideUrl && (
                       <Link
                         href={item.guideUrl}
@@ -200,7 +244,7 @@ export default function HistoryPage() {
                   <div className="relative hidden aspect-[9/16] w-full self-center overflow-hidden rounded-lg shadow-2xl ring-1 ring-white/10 sm:block">
                     <Image
                       src={first.thumbnail}
-                      alt={`${item.title} 시즌 1 표지`}
+                      alt={`${item.title} 표지`}
                       fill
                       priority={index === 0}
                       sizes="140px"
@@ -214,6 +258,7 @@ export default function HistoryPage() {
               <HistoryEpisodeRail
                 id={item.id}
                 title={item.title}
+                ongoing={item.ongoing}
                 episodes={item.episodes.map((post, episodeIndex) => ({
                   id: post.id,
                   url: post.url,
@@ -222,13 +267,15 @@ export default function HistoryPage() {
                     post.title,
                   excerpt: post.excerpt,
                   thumbnail: post.thumbnail,
-                  number: episodeIndex + 1,
-                  duration:
-                    item.id === 'odyssey'
-                      ? formatVideoDuration(
-                          odysseyEpisodes[episodeIndex].durationSeconds
-                        )
-                      : undefined,
+                  number: post.seriesOrder ?? episodeIndex + 1,
+                  duration: videoEpisodes?.find(
+                    episode => episode.id === post.id
+                  )
+                    ? formatVideoDuration(
+                        videoEpisodes.find(episode => episode.id === post.id)!
+                          .durationSeconds
+                      )
+                    : undefined,
                 }))}
               />
             </div>

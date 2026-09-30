@@ -1,5 +1,6 @@
 import { BASE_URL } from '@/lib/config';
 import { odysseyEpisodes } from '@/data/odyssey';
+import { koreanHistoryEpisodes } from '@/data/korean-history';
 
 export const dynamic = 'force-static';
 
@@ -18,7 +19,7 @@ function xml(value: string) {
 }
 
 export function GET() {
-  const entries = odysseyEpisodes
+  const entries = [...odysseyEpisodes, ...koreanHistoryEpisodes]
     .map(
       episode => `
   <url>

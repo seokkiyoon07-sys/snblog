@@ -40,6 +40,7 @@ const SUNEUNG_2025_WORK_ID = 'buksaegok';
 
 // SN고전문학 몰아보기 IDs
 const MARATHON_WORK_IDS = [
+  '2027-suneung-literature-marathon',
   'classic-literature-marathon-2026',
   'classic-literature-marathon-2',
 ];

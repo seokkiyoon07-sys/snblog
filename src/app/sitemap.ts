@@ -2,12 +2,22 @@ import { MetadataRoute } from 'next';
 import { allPosts } from '@/data/posts';
 import { BASE_URL } from '@/lib/config';
 import { ODYSSEY_PATH, ODYSSEY_UPDATED } from '@/data/odyssey';
+import {
+  KOREAN_HISTORY_PATH,
+  KOREAN_HISTORY_UPDATED,
+} from '@/data/korean-history';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = BASE_URL;
 
   // 메인 홈
   const staticPages = [
+    {
+      url: `${baseUrl}${KOREAN_HISTORY_PATH}`,
+      lastModified: new Date(KOREAN_HISTORY_UPDATED),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}${ODYSSEY_PATH}`,
       lastModified: new Date(ODYSSEY_UPDATED),

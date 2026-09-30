@@ -8,6 +8,8 @@ import { BASE_URL } from '@/lib/config';
 import { getOdysseyEpisode, formatVideoDuration } from '@/data/odyssey';
 import { odysseyVideoSchema, odysseyBreadcrumbs } from '@/lib/odyssey-schema';
 import OdysseyEpisodeNotes from '@/components/OdysseyEpisodeNotes';
+import { getKoreanHistoryEpisode } from '@/data/korean-history';
+import KoreanHistoryEpisodePage from '@/components/KoreanHistoryEpisode';
 
 interface HistoryPostProps {
   params: Promise<{ id: string }>;
@@ -47,10 +49,12 @@ export async function generateMetadata({
   const post = getPostById(id);
   if (!post || !post.published || post.category !== 'SN History') notFound();
   const episode = getOdysseyEpisode(id);
+  const koreanEpisode = getKoreanHistoryEpisode(id);
   return {
-    title: episode
-      ? { absolute: `${post.title} | SN History` }
-      : `${post.title} | SN History`,
+    title:
+      episode || koreanEpisode
+        ? { absolute: `${post.title} | SN History` }
+        : `${post.title} | SN History`,
     description: post.excerpt,
     alternates: { canonical: `/history/${post.id}` },
     openGraph: {
@@ -59,7 +63,7 @@ export async function generateMetadata({
       type: 'article',
       url: `${BASE_URL}/history/${post.id}`,
       ...(post.thumbnail ? { images: [post.thumbnail] } : {}),
-      ...(episode
+      ...(episode || koreanEpisode
         ? {
             publishedTime: post.date,
             authors: ['SN History'],
@@ -68,13 +72,13 @@ export async function generateMetadata({
           }
         : {}),
     },
-    ...(episode
+    ...(episode || koreanEpisode
       ? {
           twitter: {
             card: 'summary_large_image' as const,
             title: post.title,
             description: post.excerpt,
-            images: [episode.thumbnail],
+            images: [(episode ?? koreanEpisode)!.thumbnail],
           },
           keywords: post.tags,
         }
@@ -86,6 +90,9 @@ export default async function HistoryPostPage({ params }: HistoryPostProps) {
   const { id } = await params;
   const post = getPostById(id);
   if (!post || !post.published || post.category !== 'SN History') notFound();
+  const koreanEpisode = getKoreanHistoryEpisode(id);
+  if (koreanEpisode)
+    return <KoreanHistoryEpisodePage episode={koreanEpisode} />;
   const videoId = getVideoId(post.youtubeUrl);
   const episode = getOdysseyEpisode(id);
   const content = loadPostContent(post.id, post.category);
