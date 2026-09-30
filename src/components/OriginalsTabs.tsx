@@ -7,11 +7,7 @@ import Image from 'next/image';
 import { formatReadTime } from '@/lib/utils';
 import { getCategoryEmoji, getCategoryRoute } from '@/lib/config';
 import { Post } from '@/types';
-import {
-  ORIGINALS_GENRES,
-  getOriginalsGenre,
-  type OriginalsGenre,
-} from '@/lib/originals-genre';
+import OriginalsEbsCatalog from '@/components/OriginalsEbsCatalog';
 
 interface OriginalsTabsProps {
   allWorks: Post[];
@@ -61,7 +57,6 @@ export default function OriginalsTabs({
   const [activeTab, setActiveTab] = useState<TabKey>('all');
   const [viewMode, setViewMode] = useState<ViewMode>('card');
   const [currentPage, setCurrentPage] = useState(1);
-  const [ebsGenre, setEbsGenre] = useState<OriginalsGenre | 'all'>('all');
 
   const getWorksForTab = (tab: TabKey): Post[] => {
     switch (tab) {
@@ -78,21 +73,7 @@ export default function OriginalsTabs({
     }
   };
 
-  const tabWorks = getWorksForTab(activeTab);
-  const currentWorks =
-    activeTab === 'ebs2027' && ebsGenre !== 'all'
-      ? tabWorks.filter(work => getOriginalsGenre(work) === ebsGenre)
-      : tabWorks;
-  const genreFilters = [
-    { key: 'all' as const, label: '전체', count: ebsSuneung2027Works.length },
-    ...ORIGINALS_GENRES.map(genre => ({
-      key: genre,
-      label: genre,
-      count: ebsSuneung2027Works.filter(
-        work => getOriginalsGenre(work) === genre
-      ).length,
-    })),
-  ];
+  const currentWorks = getWorksForTab(activeTab);
 
   // 리스트 보기에서 페이지네이션 적용
   const totalPages = Math.ceil(currentWorks.length / ITEMS_PER_PAGE);
@@ -117,7 +98,7 @@ export default function OriginalsTabs({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="min-w-0 space-y-4">
       {/* 탭 버튼들 + 보기 모드 토글 */}
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex flex-wrap gap-2">
@@ -139,94 +120,62 @@ export default function OriginalsTabs({
         </div>
 
         {/* 보기 모드 토글 */}
-        <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
-          <button
-            onClick={() => handleViewModeChange('card')}
-            className={`p-2 rounded transition-colors ${
-              viewMode === 'card'
-                ? 'bg-white dark:bg-gray-700 shadow-sm'
-                : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
-            }`}
-            aria-label="카드 보기"
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        {activeTab !== 'ebs2027' && (
+          <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+            <button
+              onClick={() => handleViewModeChange('card')}
+              className={`p-2 rounded transition-colors ${
+                viewMode === 'card'
+                  ? 'bg-white dark:bg-gray-700 shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
+              }`}
+              aria-label="카드 보기"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-              />
-            </svg>
-          </button>
-          <button
-            onClick={() => handleViewModeChange('list')}
-            className={`p-2 rounded transition-colors ${
-              viewMode === 'list'
-                ? 'bg-white dark:bg-gray-700 shadow-sm'
-                : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
-            }`}
-            aria-label="리스트 보기"
-          >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={() => handleViewModeChange('list')}
+              className={`p-2 rounded transition-colors ${
+                viewMode === 'list'
+                  ? 'bg-white dark:bg-gray-700 shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
+              }`}
+              aria-label="리스트 보기"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
 
-      {activeTab === 'ebs2027' && (
-        <div className="space-y-3 rounded-xl border border-gray-200 bg-gray-50 p-3 sm:p-4 dark:border-gray-700 dark:bg-gray-900/50">
-          <div
-            role="group"
-            aria-label="2027 EBS 연계 갈래 필터"
-            className="flex flex-wrap gap-2"
-          >
-            {genreFilters.map(filter => (
-              <button
-                key={filter.key}
-                type="button"
-                aria-pressed={ebsGenre === filter.key}
-                onClick={() => {
-                  setEbsGenre(filter.key);
-                  setCurrentPage(1);
-                }}
-                className={`rounded-full border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sn-primary focus-visible:ring-offset-2 ${
-                  ebsGenre === filter.key
-                    ? 'border-sn-primary bg-sn-primary text-white'
-                    : 'border-gray-200 bg-white text-gray-700 hover:border-sn-primary dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200'
-                }`}
-              >
-                {filter.label}{' '}
-                <span className="ml-1 text-xs opacity-80">{filter.count}</span>
-              </button>
-            ))}
-          </div>
-          <p role="status" className="text-sm text-gray-600 dark:text-gray-300">
-            {ebsGenre === 'all' ? '전체' : ebsGenre} 작품 {currentWorks.length}
-            편
-            {ebsGenre === 'all' &&
-              ' · 고전산문 등 다른 갈래는 전체에서 볼 수 있습니다.'}
-          </p>
-        </div>
-      )}
-
       {/* 작품 목록 */}
-      {currentWorks.length > 0 ? (
+      {activeTab === 'ebs2027' ? (
+        <OriginalsEbsCatalog works={ebsSuneung2027Works} />
+      ) : currentWorks.length > 0 ? (
         viewMode === 'card' ? (
           // 카드 보기
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
