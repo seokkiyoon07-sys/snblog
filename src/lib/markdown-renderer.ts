@@ -129,6 +129,57 @@ function normalizeDetailsMarkdown(innerContent: string): string {
 }
 
 /**
+ * 표 마크다운을 HTML로 변환
+ * | a | b |
+ * |---|---|
+ * | 1 | 2 |
+ */
+const TABLE_SEPARATOR_PATTERN = /^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?$/;
+
+function splitTableRow(row: string): string[] {
+  return row
+    .trim()
+    .replace(/^\|/, '')
+    .replace(/\|$/, '')
+    .split('|')
+    .map(cell => cell.trim());
+}
+
+function transformTable(paragraph: string): string | null {
+  const lines = paragraph.trim().split('\n');
+  if (
+    lines.length < 2 ||
+    !lines.every(line => line.trim().startsWith('|')) ||
+    !TABLE_SEPARATOR_PATTERN.test(lines[1].trim())
+  ) {
+    return null;
+  }
+
+  const header = splitTableRow(lines[0])
+    .map(
+      cell =>
+        `<th class="px-4 py-3 text-left font-semibold text-gray-900 dark:text-gray-100 whitespace-nowrap">${cell}</th>`
+    )
+    .join('');
+  const body = lines
+    .slice(2)
+    .map(
+      line =>
+        `<tr class="border-t border-gray-200 dark:border-gray-700">${splitTableRow(
+          line
+        )
+          .map(
+            (cell, index) =>
+              `<td class="px-4 py-3 align-top text-gray-700 dark:text-gray-300${index === 0 ? ' w-[30%] min-w-[7rem] font-medium text-gray-900 dark:text-gray-100' : ''}">${cell}</td>`
+          )
+          .join('')}</tr>`
+    )
+    .join('');
+
+  return `<div class="my-6 overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700"><table class="w-full text-sm"><thead class="bg-gray-50 dark:bg-gray-800/60"><tr>${header}</tr></thead><tbody>${body}</tbody></table></div>`;
+}
+
+/**
  * 문단을 HTML로 변환
  */
 function transformParagraph(paragraph: string): string {
@@ -136,6 +187,11 @@ function transformParagraph(paragraph: string): string {
 
   if (trimmed === '') {
     return '';
+  }
+
+  if (trimmed.startsWith('|')) {
+    const table = transformTable(trimmed);
+    if (table) return table;
   }
 
   if (/^@@RAW_HTML_BLOCK_\d+@@$/.test(trimmed)) {
@@ -200,7 +256,10 @@ function processDetailsContent(innerContent: string): string {
  * 마크다운 콘텐츠를 HTML로 변환
  */
 export function renderMarkdown(content: string): string {
-  const preprocessed = content.replace(/^(---)\s+(#{2,4}\s)/gm, '$1\n\n$2');
+  // Windows에서 체크아웃한 CRLF 파일도 문단(\n\n) 단위로 나뉘도록 줄바꿈을 통일한다.
+  const preprocessed = content
+    .replace(/\r\n?/g, '\n')
+    .replace(/^(---)\s+(#{2,4}\s)/gm, '$1\n\n$2');
 
   const withProcessedPlainDetails = preprocessed
     .replace(

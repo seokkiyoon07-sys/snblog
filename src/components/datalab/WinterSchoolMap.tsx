@@ -156,10 +156,11 @@ function escapeHtml(value: string): string {
 }
 
 function formatPrice(program: WinterProgram): string {
+  const suffix = program.priceSuffix ? ` ${program.priceSuffix}` : '';
   if (typeof program.monthlyPrice === 'number')
-    return `월 ${program.monthlyPrice.toLocaleString('ko-KR')}만원`;
+    return `월 ${program.monthlyPrice.toLocaleString('ko-KR')}만원${suffix}`;
   if (!program.totalPrice) return '가격 공개 대기';
-  return `${program.totalPrice.toLocaleString('ko-KR')}만원${program.priceSuffix ? ` ${program.priceSuffix}` : ''}`;
+  return `${program.totalPrice.toLocaleString('ko-KR')}만원${suffix}`;
 }
 
 function getMarkerPrice(school: WinterSchool): string {
@@ -174,10 +175,30 @@ function getMarkerColor(school: WinterSchool): string {
 
   if (fiveWeekPrice === null) return '#64748b';
   if (fiveWeekPrice < 300) return '#22c55e';
-  if (fiveWeekPrice < 400) return '#eab308';
+  // 흰 글자 이름을 올리므로 노란색은 한 단계 진하게 쓴다.
+  if (fiveWeekPrice < 400) return '#ca8a04';
   if (fiveWeekPrice < 500) return '#f97316';
   return '#ef4444';
 }
+
+// 지도 위에서는 짧게: "4.2주 · 365만+" (정확한 금액은 상세 패널에서 확인)
+function getMarkerShortPrice(school: WinterSchool): string {
+  const program = getRepresentativeWinterProgram(school);
+  if (!program) return '가격 미공개';
+  const plus = program.priceSuffix ? '+' : '';
+  if (typeof program.monthlyPrice === 'number')
+    return `월 ${Math.round(program.monthlyPrice)}만${plus}`;
+  if (!program.totalPrice) return '가격 미공개';
+  const duration = program.durationLabel
+    .replace(/^약\s*/, '')
+    .split(/[·(]/)[0]
+    .trim();
+  return `${duration} · ${Math.round(program.totalPrice)}만${plus}`;
+}
+
+// 밝은 지도에서도 읽히도록 검정 글자에 흰 테두리를 두른다.
+const MARKER_PRICE_STYLE =
+  'color:#0f172a;font-size:12px;font-weight:800;margin-bottom:2px;white-space:nowrap;text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 0 4px #fff';
 
 function matchesPriceFilter(
   school: WinterSchool,
@@ -454,8 +475,8 @@ export default function WinterSchoolMap() {
         const isSnAcademy = school.id === SN_ACADEMY_ID;
         const color = getMarkerColor(school);
         const markerContent = isSnAcademy
-          ? `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;font-family:system-ui,sans-serif"><div style="background:rgba(0,0,0,.6);color:white;padding:2px 6px;border-radius:8px;font-size:8px;font-weight:bold;margin-bottom:3px;white-space:nowrap">AI 특화관</div><div style="color:white;font-size:10px;font-weight:bold;margin-bottom:2px;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.8),0 0 5px rgba(0,0,0,.5);line-height:1.3;text-align:center">${escapeHtml(getMarkerPrice(school))}</div><div style="width:50px;height:50px;border-radius:50%;border:3px solid #10b981;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)"><img src="/images/Data_LAB/SN_landscape1.png" alt="" style="width:100%;height:100%;object-fit:cover" /></div><div style="background:linear-gradient(135deg,#10b981,#059669);color:white;padding:4px 8px;border-radius:12px;font-size:10px;font-weight:bold;margin-top:4px;box-shadow:0 2px 6px rgba(0,0,0,.2);white-space:nowrap">⭐ ${escapeHtml(school.name)}</div></div>`
-          : `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;font-family:system-ui,sans-serif"><div style="color:white;font-size:10px;font-weight:bold;margin-bottom:2px;white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.8),0 0 5px rgba(0,0,0,.5)">${escapeHtml(getMarkerPrice(school))}</div><div style="background-color:${color};color:white;padding:6px 10px;border-radius:16px;font-size:11px;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,.3);white-space:nowrap;max-width:120px;overflow:hidden;text-overflow:ellipsis">${escapeHtml(school.name)}</div></div>`;
+          ? `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;font-family:system-ui,sans-serif"><div style="background:rgba(0,0,0,.6);color:white;padding:2px 6px;border-radius:8px;font-size:8px;font-weight:bold;margin-bottom:3px;white-space:nowrap">AI 특화관</div><div style="${MARKER_PRICE_STYLE};line-height:1.3;text-align:center">${escapeHtml(getMarkerShortPrice(school))}</div><div style="width:50px;height:50px;border-radius:50%;border:3px solid #10b981;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.3)"><img src="/images/Data_LAB/SN_landscape1.png" alt="" style="width:100%;height:100%;object-fit:cover" /></div><div style="background:linear-gradient(135deg,#10b981,#059669);color:white;padding:4px 8px;border-radius:12px;font-size:10px;font-weight:bold;margin-top:4px;box-shadow:0 2px 6px rgba(0,0,0,.2);white-space:nowrap">⭐ ${escapeHtml(school.name)}</div></div>`
+          : `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;font-family:system-ui,sans-serif"><div style="${MARKER_PRICE_STYLE}">${escapeHtml(getMarkerShortPrice(school))}</div><div style="background-color:${color};color:white;padding:6px 10px;border-radius:16px;font-size:11px;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,.3);white-space:nowrap;max-width:120px;overflow:hidden;text-overflow:ellipsis">${escapeHtml(school.name)}</div></div>`;
         const marker = new maps.Marker({
           position: new maps.LatLng(school.lat, school.lng),
           map: targetMap,
@@ -517,7 +538,7 @@ export default function WinterSchoolMap() {
 
       <section className="order-1 space-y-3 text-center">
         <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">
-          2026.09.10 추가 조사 반영
+          2026.10.18 가격 업데이트 반영
         </span>
         <div>
           <h2 className="text-2xl font-bold text-slate-950 dark:text-white sm:text-3xl">
@@ -728,7 +749,7 @@ export default function WinterSchoolMap() {
           300만원 미만
         </span>
         <span className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-          <span className="h-3 w-3 rounded-full bg-yellow-500" />
+          <span className="h-3 w-3 rounded-full bg-yellow-600" />
           300만원대
         </span>
         <span className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
@@ -974,7 +995,7 @@ export default function WinterSchoolMap() {
             </p>
           </div>
           <span className="text-sm text-slate-500 dark:text-slate-400">
-            최근 업데이트 2026.09.10
+            최근 업데이트 2026.10.18
           </span>
         </div>
 
