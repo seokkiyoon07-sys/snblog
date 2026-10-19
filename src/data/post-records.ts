@@ -1685,6 +1685,29 @@ export const allPosts: Post[] = [
     url: '/problem-download/ai-korean-reading-ep5',
   },
   {
+    id: 'ai-philosophy-question',
+    title: 'AI 철학 오개념?\n먼저 질문부터 다시 봅시다',
+    excerpt:
+      '"AI 철학 오개념 많음, 쓰지 마셈." 정말 AI가 틀린 걸까요? 수능 기준과 학문 기준의 차이, 그리고 윤리 과목에서 AI에게 제대로 질문하는 법을 정리했습니다.',
+    category: 'columns',
+    tags: [
+      '생활과윤리',
+      '윤리와사상',
+      'AI질문법',
+      'SNarGPT',
+      '칸트',
+      '니체',
+      '수능',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-10-19',
+    readTime: '7',
+    featured: false,
+    published: true,
+    thumbnail: '/images/columns/ai-philosophy-question.png',
+    url: '/columns/ai-philosophy-question',
+  },
+  {
     id: 'growing-vs-stagnant',
     title: '성적이 오르는 학생\nvs. 제자리인 학생\n결정적 차이 4가지',
     excerpt:
