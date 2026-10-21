@@ -22,13 +22,13 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL('https://blog.snacademy.co.kr'),
-    title: `${post.title} | SN독학기숙학원 공지사항`,
+    title: post.title,
     description: post.excerpt,
     alternates: {
       canonical: post.url,
     },
     openGraph: {
-      title: `${post.title} | SN독학기숙학원 공지사항`,
+      title: `${post.title} | SN독학기숙학원`,
       description: post.excerpt,
       type: 'article',
       locale: 'ko_KR',
@@ -36,11 +36,22 @@ export async function generateMetadata({
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
+      images: post.thumbnail
+        ? [
+            {
+              url: `https://blog.snacademy.co.kr${post.thumbnail}`,
+              alt: post.title,
+            },
+          ]
+        : [],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${post.title} | SN독학기숙학원 공지사항`,
+      title: `${post.title} | SN독학기숙학원`,
       description: post.excerpt,
+      images: post.thumbnail
+        ? [`https://blog.snacademy.co.kr${post.thumbnail}`]
+        : [],
     },
     robots: {
       index: true,

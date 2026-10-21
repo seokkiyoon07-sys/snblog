@@ -123,19 +123,22 @@ export function getFeaturedPosts(limit = 7): Post[] {
   const today = new Date();
   const seed = getRecommendationSeed(today);
   const pinnedRecommendationIds = [
+    'how-ai-makes-suneung-problems',
     '2027-suneung-literature-marathon',
-    '2027-repeater-class',
     'snargpt-development-2026',
     '2027-september-mock-korean-analysis',
     '2027-september-mock-math-solution',
-    '2028-integrated-social-study-guide',
-    '2028-integrated-science-study-guide',
   ];
   const excludedRecommendationIds = [
     'sntk-math1-level3-free',
     '2027-june-mock-math-solution',
     'why-sn-knows-ai-best',
     'snargpt-rag-english-16000',
+    '2027-repeater-class',
+    '2028-integrated-social-study-guide',
+    '2028-integrated-science-study-guide',
+    '2028-integrated-social-examples',
+    '2028-integrated-science-examples',
   ];
   const latestPool = posts
     .filter(post => post.thumbnail)

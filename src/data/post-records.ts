@@ -2471,6 +2471,30 @@ export const allPosts: Post[] = [
     type: 'special',
   },
   {
+    id: '2027-winter-school',
+    title: '2027 독학기숙학원 윈터스쿨 모집 안내 (예비 고2·고3)',
+    excerpt:
+      'SN독학기숙학원 2027 윈터스쿨 모집. 예비 고2·고3, 5주 335만 원·8주 500만 원. 2028 수능 통합 교육과정 일일 테스트, SNarGPT 무료 제공, 하루 일과와 선택 전 고려사항까지 안내합니다.',
+    category: 'notice',
+    tags: [
+      '독학기숙학원 윈터스쿨',
+      '윈터스쿨',
+      '독학기숙학원',
+      '기숙학원 윈터스쿨',
+      '겨울방학',
+      '모집요강',
+      '2027',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-10-21',
+    readTime: '6',
+    featured: false,
+    published: true,
+    thumbnail: '/images/notice/2027-winter/web/sn-campus.jpg',
+    url: '/notice/2027-winter-school',
+    type: 'standard',
+  },
+  {
     id: '2027-repeater-class',
     title: '2027학년도 반수반 모집',
     excerpt:

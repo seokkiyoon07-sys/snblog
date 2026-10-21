@@ -1,0 +1,286 @@
+<style>
+  .winter-notice { --wn-green: #1a4d2a; --wn-green-dark: #122918; --wn-green-text: #1a4d2a; --wn-green-soft: #ecf3ee; --wn-text: #1f2937; --wn-muted: #4b5563; --wn-border: #e5e7eb; --wn-surface: #ffffff; --wn-subtle: #f9fafb; color: var(--wn-text); font-size: 16px; line-height: 1.85; }
+  .dark .winter-notice { --wn-green-text: #8fd0a2; --wn-green-soft: rgba(26, 77, 42, .35); --wn-text: #e5e7eb; --wn-muted: #9ca3af; --wn-border: #374151; --wn-surface: #111827; --wn-subtle: #1f2937; }
+  .winter-notice p { margin: 0 0 16px; }
+  .winter-notice strong { color: inherit; }
+  .winter-notice a { color: var(--wn-green-text); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+  .winter-notice a:focus-visible { outline: 3px solid var(--wn-green-text); outline-offset: 4px; border-radius: 4px; }
+
+  .winter-notice .wn-hero { background: linear-gradient(135deg, var(--wn-green-dark), var(--wn-green)); color: #f9fafb; border-radius: 16px; padding: 32px 28px 28px; margin-bottom: 28px; }
+  .winter-notice .wn-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .winter-notice .wn-badge { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .04em; padding: 4px 10px; border-radius: 999px; background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .25); }
+  .winter-notice .wn-badge-live { background: #fbbf24; border-color: #fbbf24; color: #451a03; }
+  .winter-notice .wn-hero h2 { color: #fff; font-size: 26px; font-weight: 800; line-height: 1.45; margin: 0 0 16px; }
+  .winter-notice .wn-hero p { color: rgba(255, 255, 255, .86); }
+  .winter-notice .wn-hero .wn-lead { color: #fff; font-size: 17px; font-weight: 700; }
+  .winter-notice .wn-photo { width: 100%; max-height: 340px; object-fit: cover; display: block; margin: 20px 0 0; border-radius: 12px; }
+
+  .winter-notice nav { display: flex; flex-wrap: wrap; gap: 4px 0; padding: 14px 0; margin-bottom: 8px; border-top: 1px solid var(--wn-text); border-bottom: 1px solid var(--wn-border); font-size: 14px; }
+  .winter-notice nav a { color: var(--wn-muted); font-weight: 500; text-decoration: none; padding: 0 14px; border-left: 1px solid var(--wn-border); }
+  .winter-notice nav a:first-child { padding-left: 0; border-left: 0; }
+  .winter-notice nav a:hover { color: var(--wn-green-text); }
+
+  .winter-notice section { padding: 48px 0 8px; scroll-margin-top: 24px; }
+  .winter-notice section h2::before { content: ""; display: block; width: 28px; height: 3px; background: var(--wn-green-text); margin-bottom: 14px; }
+  .winter-notice section h2 { color: var(--wn-text); font-size: 22px; font-weight: 700; line-height: 1.5; margin: 0 0 24px; padding-bottom: 14px; border-bottom: 1px solid var(--wn-border); }
+  .winter-notice h3 { color: var(--wn-text); font-size: 17px; font-weight: 700; line-height: 1.55; margin: 28px 0 8px; padding-left: 12px; border-left: 3px solid var(--wn-green-text); }
+  .winter-notice section h2 + h3 { margin-top: 0; }
+  .winter-notice .wn-note { font-size: 14px; color: var(--wn-muted); }
+
+  .winter-notice table { width: 100%; border-collapse: collapse; margin: 0 0 16px; border-top: 2px solid var(--wn-text); font-size: 15px; }
+  .winter-notice th, .winter-notice td { text-align: left; vertical-align: top; padding: 14px 16px; border-bottom: 1px solid var(--wn-border); }
+  .winter-notice th { width: 140px; font-weight: 600; color: var(--wn-text); background: var(--wn-subtle); }
+  .winter-notice td strong { color: var(--wn-green-text); }
+
+  .winter-notice ul { list-style: none; padding: 0; margin: 0 0 20px; }
+  .winter-notice ul li { position: relative; padding-left: 14px; margin: 8px 0; }
+  .winter-notice ul li::before { content: ""; position: absolute; left: 0; top: .8em; width: 4px; height: 4px; background: var(--wn-green-text); }
+
+  .winter-notice .wn-closing { margin: 28px 0 0; padding: 18px 20px; background: var(--wn-green-soft); border-left: 3px solid var(--wn-green-text); font-weight: 600; color: var(--wn-text); }
+  .winter-notice .wn-contact { margin-top: 40px; padding: 32px 0 0; border-top: 1px solid var(--wn-border); }
+  .winter-notice .wn-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .winter-notice .wn-button { display: inline-block; padding: 12px 22px; border-radius: 4px; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid var(--wn-border); color: var(--wn-text); background: var(--wn-surface); }
+  .winter-notice .wn-button:hover { border-color: var(--wn-text); }
+  .winter-notice .wn-button-primary { background: var(--wn-green); border-color: var(--wn-green); color: #fff; }
+  .winter-notice .wn-button-primary:hover { background: var(--wn-green-dark); border-color: var(--wn-green-dark); }
+
+  @media (max-width: 600px) {
+    .winter-notice .wn-hero { padding: 26px 18px; }
+    .winter-notice .wn-hero h2 { font-size: 22px; }
+    .winter-notice section h2 { font-size: 20px; }
+    .winter-notice th, .winter-notice td { display: block; width: auto; }
+    .winter-notice th { padding: 10px 12px; border-bottom: 0; }
+    .winter-notice td { padding: 10px 12px 14px; }
+    .winter-notice .wn-button { flex: 1 1 100%; text-align: center; }
+  }
+
+  .winter-notice .wn-day-plan { margin: 24px 0; }
+  .winter-notice .wn-day-plan img { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; border-radius: 20px; }
+  .winter-notice .wn-day-plan figcaption { margin-top: 16px; font-size: 13px; line-height: 1.7; color: var(--wn-muted); text-align: center; }
+  .winter-notice .wn-study-total { margin: 18px 0 0; padding: 18px; border-radius: 12px; background: var(--wn-green-soft); color: var(--wn-green-text); text-align: center; }
+  .winter-notice .wn-study-total strong { display: block; font-size: 24px; font-weight: 800; }
+  .winter-notice .wn-study-total span { display: block; margin-top: 4px; font-size: 13px; color: var(--wn-muted); }
+  .winter-notice .wn-schedule-details { margin: 24px 0; border: 1px solid var(--wn-border); border-radius: 12px; padding: 16px 20px; }
+  .winter-notice .wn-schedule-details summary { cursor: pointer; font-weight: 700; color: var(--wn-green-text); }
+  .winter-notice .wn-schedule-details summary:focus-visible { outline: 2px solid var(--wn-green-text); outline-offset: 5px; }
+  .winter-notice .wn-schedule-details ol { list-style: none; padding: 0; margin: 16px 0 0; }
+  .winter-notice .wn-schedule-details li { display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 10px 0; border-top: 1px solid var(--wn-border); font-size: 14px; }
+  .winter-notice .wn-schedule-details li span { flex: 0 0 175px; color: var(--wn-muted); font-variant-numeric: tabular-nums; }
+  .winter-notice .wn-schedule-details li strong { font-weight: 500; }
+  .winter-notice .wn-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0 0 28px; }
+  .winter-notice .wn-gallery figure, .winter-notice .wn-figure { margin: 0; }
+  .winter-notice .wn-gallery img, .winter-notice .wn-figure img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 8px; }
+  .winter-notice .wn-gallery figcaption, .winter-notice .wn-figure figcaption { margin-top: 6px; font-size: 13px; color: var(--wn-muted); }
+  .winter-notice .wn-figure { margin: 16px 0 24px; }
+  .winter-notice .wn-gallery-title { margin: 32px 0 12px; font-size: 15px; font-weight: 700; color: var(--wn-text); }
+  .winter-notice .wn-tests { margin: 8px 0 28px; padding: 20px; border: 1px solid var(--wn-border); border-radius: 12px; background: var(--wn-subtle); }
+  .winter-notice .wn-tests-title { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--wn-text); }
+  .winter-notice .wn-tests-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+  .winter-notice .wn-test { margin: 0; }
+  .winter-notice .wn-test img { display: block; width: 100%; height: auto; aspect-ratio: 272 / 394; object-fit: cover; object-position: top; border: 1px solid var(--wn-border); border-radius: 6px; background: #fff; }
+  .winter-notice .wn-test figcaption { margin-top: 8px; font-size: 14px; font-weight: 700; color: var(--wn-text); }
+  .winter-notice .wn-test-links { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 2px; font-size: 13px; }
+  @media (max-width: 600px) { .winter-notice .wn-tests { padding: 16px; } .winter-notice .wn-tests-grid { grid-template-columns: 1fr 1fr; } }
+  .winter-notice .wn-hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .winter-notice .wn-hero-actions a { display: inline-block; padding: 12px 22px; border-radius: 4px; font-size: 15px; font-weight: 700; text-decoration: none; }
+  .winter-notice .wn-cta-apply { background: #fbbf24; color: #451a03 !important; border: 1px solid #fbbf24; }
+  .winter-notice .wn-cta-apply:hover { background: #f59e0b; border-color: #f59e0b; }
+  .winter-notice .wn-hero-actions .wn-cta-ghost { color: #fff; border: 1px solid rgba(255, 255, 255, .5); }
+  .winter-notice .wn-hero-actions .wn-cta-ghost:hover { background: rgba(255, 255, 255, .12); }
+  .winter-notice .wn-inline-cta { margin: 20px 0 0; }
+  @media (max-width: 600px) { .winter-notice .wn-hero-actions a { flex: 1 1 100%; text-align: center; } }
+  .winter-notice .wn-actions-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .winter-notice .wn-actions-row .wn-button { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 10px; text-align: center; font-size: 14px; line-height: 1.4; word-break: keep-all; }
+  .winter-notice .wn-actions-row .wn-button small { display: block; margin-top: 2px; font-size: 12px; font-weight: 500; color: var(--wn-muted); }
+  @media (max-width: 600px) { .winter-notice .wn-actions-row { grid-template-columns: 1fr 1fr; } }
+  .winter-notice .wn-figure-shot img { aspect-ratio: auto; object-fit: contain; border: 1px solid var(--wn-border); border-radius: 10px; }
+</style>
+<div class="winter-notice not-prose">
+  <div class="wn-hero">
+    <div class="wn-badges">
+      <span class="wn-badge wn-badge-live">모집 중 · 선착순 마감</span>
+      <span class="wn-badge">예비 고2·고3</span>
+      <span class="wn-badge">5주 · 8주 과정</span>
+    </div>
+    <h2>우리 아이에게 맞는<br />겨울방학일까요?</h2>
+    <p class="wn-lead">SN에서 어떻게 공부하고 생활하는지, 좋은 점과 불편한 점을 함께 말씀드립니다.</p>
+    <p>집에서 계획대로 공부할 수 있을지, 기숙학원에 가면 무엇이 달라질지. 겨울방학을 앞둔 학생과 부모님이 궁금해하실 부분입니다.</p>
+    <p>SN독학기숙학원 윈터스쿨은 일일 테스트와 정기 상담, 학습에 집중할 수 있는 인터넷 환경을 제공합니다. 그만큼 생활의 자유는 줄어들고, 비용과 공동생활의 부담도 있습니다. 이번 겨울의 목표에 맞는 선택인지 판단하실 수 있도록 실제 운영 방식을 소개합니다.</p>
+    <img class="wn-photo" src="/images/notice/2027-winter/web/sn-campus.jpg" width="1600" height="1200" alt="SN독학기숙학원 윈터스쿨 캠퍼스 전경" />
+    <div class="wn-hero-actions">
+      <a class="wn-cta-apply" href="https://www.snacademy.co.kr/admission/online/register?rType=2027%20%EC%9C%88%ED%84%B0%EC%8A%A4%EC%BF%A8">2027 윈터스쿨 원서접수</a>
+      <a class="wn-cta-ghost" href="tel:031-771-0300">전화 상담 031-771-0300</a>
+    </div>
+  </div>
+  <nav aria-label="윈터스쿨 글 목차">
+    <a href="#winter-admission">모집 안내</a>
+    <a href="#winter-learning">학습 환경</a>
+    <a href="#winter-schedule">하루 일과</a>
+    <a href="#winter-considerations">선택 전 고려사항</a>
+    <a href="#winter-fit">이런 학생에게</a>
+    <a href="#winter-faq">자주 묻는 질문</a>
+    <a href="#winter-contact">상담 안내</a>
+  </nav>
+  <section id="winter-admission" aria-labelledby="winter-admission-title">
+    <h2 id="winter-admission-title">모집 안내를 먼저 확인하세요</h2>
+    <table>
+      <caption class="sr-only">2027 윈터스쿨 모집 요약</caption>
+      <tbody>
+        <tr><th scope="row">모집 대상</th><td>예비 고2·고3</td></tr>
+        <tr><th scope="row">등록 기간</th><td>선착순 마감</td></tr>
+        <tr><th scope="row">운영 기간</th><td>2026년 12월 26일 개강 ~ 2027년 2월 27일 종강</td></tr>
+        <tr><th scope="row">위치</th><td>경기도 양평군 용문면 용문로 147 SN독학기숙학원</td></tr>
+        <tr><th scope="row">입소 일정</th><td>2027년 1월 9일 전까지 입소<br />방학 일정에 따라 입소 조정 가능</td></tr>
+        <tr><th scope="row">기간 및 비용</th><td><strong>5주 335만 원 / 8주 500만 원</strong></td></tr>
+        <tr><th scope="row">과정 일정</th><td>개별 일정 조율<br />입소일부터 35일(5주) 학습을 기준으로, 학교 방학 일정에 맞춰 입소일을 정합니다.</td></tr>
+        <tr><th scope="row">일일 테스트</th><td>윈터스쿨 기간 내내 매일 시행(2028 수능 통합 교육과정 대비)<br />독서 1지문 · 수학 4문항 · 통합사회 4문항 · 통합과학 4문항</td></tr>
+        <tr><th scope="row">포함 항목</th><td>기숙사비·식비·세탁비</td></tr>
+        <tr><th scope="row">혜택</th><td><strong>SNarGPT 사용권 무료 제공</strong>(월 3만 원 상당)</td></tr>
+        <tr><th scope="row">별도 비용</th><td>2인실 선택 시 20만 원 추가<br />일일 테스트지 실비(제본비, 과목당 5천 원 내외)<br />인터넷 강의: 학생이 인강 업체(대형 인강 사이트 등)에 직접 개별 결제</td></tr>
+      </tbody>
+    </table>
+    <p class="wn-note">성적 조건과 장학금은 <a href="https://www.snacademy.co.kr/admission/winter_2027_r03">공식 모집요강</a>에서 확인해 주세요. 예비 고2 학생의 적용 성적 기준은 상담 시 확인해 주시기 바랍니다.</p>
+    <div class="wn-actions wn-inline-cta"><a class="wn-button wn-button-primary" href="https://www.snacademy.co.kr/admission/online/register?rType=2027%20%EC%9C%88%ED%84%B0%EC%8A%A4%EC%BF%A8">원서접수 바로가기</a></div>
+  </section>
+  <section id="winter-learning" aria-labelledby="winter-learning-title">
+    <h2 id="winter-learning-title">SN에서 보내는 겨울,<br />어떤 도움을 받을 수 있을까요?</h2>
+    <div class="wn-gallery">
+      <figure><img src="/images/notice/2027-winter/web/study-hall.jpg" width="1600" height="1066" alt="칸막이 개인 좌석이 늘어선 SN독학기숙학원 자습실" loading="lazy" /><figcaption>자습실</figcaption></figure>
+      <figure><img src="/images/notice/2027-winter/web/study-desk.jpg" width="1600" height="1066" alt="번호가 붙은 SN독학기숙학원 개인 학습 좌석" loading="lazy" /><figcaption>개인 학습 좌석</figcaption></figure>
+    </div>
+    <h3>2028 수능 통합 교육과정에 맞춘 일일 테스트를 매일 봅니다</h3>
+    <p>예비 고2·고3은 2022 개정 교육과정이 적용되는 2028학년도 수능부터 응시합니다. 윈터스쿨 기간 내내 독서 1지문, 수학 4문항, 통합사회 4문항, 통합과학 4문항을 매일 풉니다. 새 교육과정의 문제 유형을 꾸준히 접하고, 틀린 문항은 그날 다시 확인합니다. 반복되는 약점은 학습담임과의 상담에서 함께 점검합니다.</p>
+    <div class="wn-tests">
+      <p class="wn-tests-title">1회차 일일 테스트 미리보기</p>
+      <p class="wn-note" style="margin:0">SN이 직접 출제한 1회차 문제지입니다. 문제지와 정답·해설을 내려받아 풀어볼 수 있습니다.</p>
+      <div class="wn-tests-grid">
+        <figure class="wn-test">
+          <img src="/images/notice/2027-winter/web/test-korean.jpg" width="1178" height="1707" alt="2028학년도 수능 대비 국어 영역 독서 1회차 일일 테스트 문제지 첫 페이지" loading="lazy" />
+          <figcaption>국어 · 독서</figcaption>
+          <div class="wn-test-links"><a href="/pdfs/2027-winter-daily-test-1-korean.pdf" download>문제지 PDF</a><a href="/pdfs/2027-winter-daily-test-1-korean-answer.pdf" download>정답·해설 PDF</a></div>
+        </figure>
+        <figure class="wn-test">
+          <img src="/images/notice/2027-winter/web/test-math.jpg" width="1178" height="1707" alt="2028학년도 수능 대비 수학 영역 1회차 일일 테스트 문제지 첫 페이지" loading="lazy" />
+          <figcaption>수학</figcaption>
+          <div class="wn-test-links"><a href="/pdfs/2027-winter-daily-test-1-math.pdf" download>문제지 PDF</a><a href="/pdfs/2027-winter-daily-test-1-math-answer.pdf" download>정답·해설 PDF</a></div>
+        </figure>
+        <figure class="wn-test">
+          <img src="/images/notice/2027-winter/web/test-science.jpg" width="1178" height="1707" alt="2028학년도 수능 대비 통합과학 1회차 일일 테스트 문제지 첫 페이지" loading="lazy" />
+          <figcaption>통합과학</figcaption>
+          <div class="wn-test-links"><a href="/pdfs/2027-winter-daily-test-1-science.pdf" download>문제지 PDF</a><a href="/pdfs/2027-winter-daily-test-1-science-answer.pdf" download>정답·해설 PDF</a></div>
+        </figure>
+      </div>
+    </div>
+    <p class="wn-note">새 수능의 통합사회·통합과학 출제 방향은 <a href="/problem-download/2028-integrated-social-study-guide">통합사회 예시문항 가이드</a>와 <a href="/problem-download/2028-integrated-science-study-guide">통합과학 예시문항 가이드</a>에서 확인할 수 있습니다.</p>
+    <h3>디지털 디톡스, 공부 외의 유혹을 줄입니다</h3>
+    <p>공부하려고 태블릿을 켰다가 다른 콘텐츠를 보며 시간을 보내는 일이 있습니다. SN은 SNarLink로 <strong>학습 관련 사이트만 접속할 수 있는</strong> 인터넷 환경을 운영합니다. VPN 등으로 차단을 우회하려는 시도는 AI가 탐지해 관리자에게 바로 알림이 갑니다. 공부 중 다른 활동으로 새는 시간을 줄이기 위한 관리입니다.</p>
+    <h3>혼자 세운 계획을 함께 점검합니다</h3>
+    <p>주 1회 학습담임과 일대일 정기 상담을 진행하고, AI 리포트를 학습 설계에 활용합니다. 계획대로 공부하고 있는지, 시간을 들여도 막히는 부분은 무엇인지 함께 점검합니다.</p>
+    <h3>공부하다 생긴 질문을 해결하는 도구를 제공합니다</h3>
+    <p>윈터스쿨 기간에는 수능 특화 AI인 SNarGPT 사용권(월 3만 원 상당)을 무료로 제공합니다. 이해가 어려운 부분을 다시 묻고 복습에 활용할 수 있습니다. 설명을 읽은 뒤 직접 문제를 풀어보면, 이해한 부분과 더 공부할 부분을 구분하는 데 도움이 됩니다.</p>
+    <figure class="wn-figure wn-figure-shot"><img src="/images/notice/2027-winter/web/snargpt.jpg" width="1502" height="665" alt="수능 특화 AI SNarGPT 질문 입력 화면" loading="lazy" /><figcaption>SNarGPT 질문 화면</figcaption></figure>
+    <p class="wn-note"><a href="https://www.snacademy.co.kr/admission/winter_2027_r01">공식 소개에서 학습 시스템 자세히 보기</a></p>
+  </section>
+  <section id="winter-schedule" aria-labelledby="winter-schedule-title">
+    <h2 id="winter-schedule-title">윈터스쿨 하루 일과표,<br />SN에서의 하루</h2>
+    <p>월요일부터 토요일까지 하루 8교시의 기본 학습 시간은 <strong>10시간 20분</strong>이며, 추가 자율학습을 포함하면 <strong>최대 14시간까지 학습할 수 있습니다.</strong> 공부하고, 식사하고, 쉬는 하루의 흐름을 생활계획표로 살펴보세요.</p>
+    <figure class="wn-day-plan">
+      <img src="/images/notice/2027-winter-schedule.svg" width="720" height="720" alt="월~토 24시간 원형 생활계획표. 23:30~06:30 수면, 06:30 아침 준비, 08:00 오전 학습, 12:10 점심, 13:05 오후 학습, 17:30 저녁, 18:35 저녁 학습, 21:30 간식, 22:05 하루 마무리. 정확한 시간은 아래 세부 일정을 참고하세요." loading="lazy" />
+      <div class="wn-study-total">하루 학습시간<strong>10시간 20분 ~ 최대 14시간</strong><span>월~토 · 기본 8교시 10시간 20분 · 추가 자율학습 포함 시 최대 14시간 가능</span></div>
+      <figcaption>위쪽 00시부터 시계 방향으로 읽어주세요.<br />학습 구간에는 쉬는 시간이, 식사 구간에는 인원 점검·생활담임 시간이 포함됩니다. 간식 이후에는 5분의 학습담임 시간이 있습니다.</figcaption>
+    </figure>
+    <details class="wn-schedule-details">
+      <summary>교시별 정확한 시간 펼쳐보기</summary>
+      <ol><li><span>06:30 ~ 07:50</span><strong>기상, 세면, 식사</strong></li>
+<li><span>07:50 ~ 08:00</span><strong>인원 점검</strong></li>
+<li><span>08:00 ~ 08:30</span><strong>1교시 자기주도 학습 (30분)</strong></li>
+<li><span>08:30 ~ 08:40</span><strong>쉬는 시간</strong></li>
+<li><span>08:40 ~ 10:00</span><strong>2교시 자기주도 학습 (80분)</strong></li>
+<li><span>10:00 ~ 10:20</span><strong>쉬는 시간</strong></li>
+<li><span>10:20 ~ 12:10</span><strong>3교시 자기주도 학습 (110분)</strong></li>
+<li><span>12:10 ~ 13:00</span><strong>점심 시간</strong></li>
+<li><span>13:00 ~ 13:05</span><strong>인원 점검</strong></li>
+<li><span>13:05 ~ 14:20</span><strong>4교시 자기주도 학습 (75분)</strong></li>
+<li><span>14:20 ~ 14:40</span><strong>쉬는 시간</strong></li>
+<li><span>14:40 ~ 16:30</span><strong>5교시 자기주도 학습 (110분)</strong></li>
+<li><span>16:30 ~ 16:40</span><strong>쉬는 시간</strong></li>
+<li><span>16:40 ~ 17:30</span><strong>6교시 자기주도 학습 (50분)</strong></li>
+<li><span>17:30 ~ 18:30</span><strong>저녁 시간</strong></li>
+<li><span>18:30 ~ 18:35</span><strong>생활담임 시간</strong></li>
+<li><span>18:35 ~ 19:50</span><strong>7교시 자기주도 학습 (75분)</strong></li>
+<li><span>19:50 ~ 20:00</span><strong>쉬는 시간</strong></li>
+<li><span>20:00 ~ 21:30</span><strong>8교시 자기주도 학습 (90분)</strong></li>
+<li><span>21:30 ~ 22:00</span><strong>간식 시간</strong></li>
+<li><span>22:00 ~ 22:05</span><strong>학습담임 시간</strong></li>
+<li><span>22:05 ~ 22:30</span><strong>일과 종료</strong></li>
+<li><span>22:30 ~ 23:30</span><strong>세면 및 점호</strong></li>
+<li><span>23:30 ~ 다음 날 06:30</span><strong>취침</strong></li></ol>
+    </details>
+    <p class="wn-note">일요일은 07:00에 기상하며, 08:00~11:00은 개인 자유 시간(취침·운동·자기주도 학습·종교 활동 중 선택)입니다. 이후 6교시 자기주도 학습을 진행하고 23:30에 취침합니다. <a href="https://www.snacademy.co.kr/learning/learning_timetable.asp">공식 일과표 보기</a></p>
+    <p class="wn-gallery-title">공부 사이, 식사하고 쉬는 공간</p>
+    <div class="wn-gallery">
+      <figure><img src="/images/notice/2027-winter/web/cafeteria.jpg" width="1600" height="1066" alt="SN 카페테리아 식당 내부" loading="lazy" /><figcaption>카페테리아</figcaption></figure>
+      <figure><img src="/images/notice/2027-winter/web/study-cafe.jpg" width="1600" height="1066" alt="SN독학기숙학원 스터디 카페" loading="lazy" /><figcaption>스터디 카페</figcaption></figure>
+      <figure><img src="/images/notice/2027-winter/web/gym.jpg" width="1600" height="1066" alt="운동 기구가 갖춰진 SN독학기숙학원 체력단련실" loading="lazy" /><figcaption>체력단련실</figcaption></figure>
+      <figure><img src="/images/notice/2027-winter/web/field.jpg" width="1067" height="1600" alt="SN독학기숙학원 운동장 잔디 위의 축구공" loading="lazy" /><figcaption>운동장</figcaption></figure>
+    </div>
+  </section>
+  <section id="winter-considerations" aria-labelledby="winter-considerations-title">
+    <h2 id="winter-considerations-title">선택하기 전에,<br />이런 점도 생각해 주세요</h2>
+    <h3>집중할 환경을 만드는 만큼, 생활의 자유는 줄어듭니다</h3>
+    <p>학습에 집중할 수 있도록 인터넷과 기기 사용을 관리합니다. 개인 노트북과 태블릿은 정해진 조건 아래 학습동에서만 사용할 수 있으며, 기숙사 반입은 금지합니다. 외출·외박도 제한하며 학습 목적 등의 예외를 두고 있습니다.</p>
+    <p>평소 자유롭게 기기를 사용하던 학생에게는 답답할 수 있습니다. 입소 전에 <a href="https://www.snacademy.co.kr/admission/winter_2027_r04">생활 규칙</a>을 함께 읽고, 학생이 이 방식으로 생활할 수 있을지 이야기해 주세요.</p>
+    <h3>함께 공부하는 자극과 공동생활의 불편이 있습니다</h3>
+    <p>주변에서 공부하는 모습이 자극이 될 수 있지만, 생활 공간을 다른 학생과 함께 써야 합니다. 평소 잠자리나 소음에 민감하다면 방의 형태와 생활 방식을 먼저 확인해 주세요. 공부할 환경뿐 아니라 쉴 환경도 자신에게 맞아야 합니다.</p>
+    <figure class="wn-figure"><img src="/images/notice/2027-winter/web/dorm-room.jpg" width="1600" height="1066" alt="침대 두 개와 수납장이 있는 SN독학기숙학원 기숙사 방" loading="lazy" /><figcaption>기숙사 방</figcaption></figure>
+    <h3>전체 비용과 중도 퇴소 조건을 확인해 주세요</h3>
+    <p>5주 335만 원, 8주 500만 원은 가볍게 결정할 금액이 아닙니다. 기숙사비·식비·세탁비는 포함되지만, 2인실 선택 비용과 테스트지 제본비는 별도이며, 인터넷 강의는 학생이 인강 업체에 직접 결제합니다.</p>
+    <p>8주 과정에는 할인 금액을 적용합니다. 중도 퇴소 시 환불은 5주 기준 금액으로 계산하므로, 등록 전 <a href="https://www.snacademy.co.kr/admission/winter_2027_r03">상세 비용 및 환불 조건</a>을 확인해 주세요.</p>
+    <h3>저희가 맡는 일은 환경을 만들고, 공부 과정을 점검하는 것입니다</h3>
+    <p>일일 테스트와 정기 상담으로 학습 상태를 살피고, 계획과 실행을 점검합니다. 이 관리가 성적 향상으로 이어지려면 직접 문제를 풀고 복습하는 과정이 함께 필요합니다. 입소만으로 성적이 오른다고 약속드릴 수는 없지만, 학생이 어떻게 공부하고 있는지 함께 살피는 것이 저희 역할입니다.</p>
+  </section>
+  <section id="winter-fit" aria-labelledby="winter-fit-title">
+    <h2 id="winter-fit-title">이런 학생이라면<br />SN의 환경을 검토해 보세요</h2>
+    <ul>
+      <li>공부할 마음은 있지만 집에서는 생활 리듬이 자주 흐트러지는 학생</li>
+      <li>인터넷이나 기기 사용으로 공부 시간이 줄어드는 학생</li>
+      <li>자신의 학습 계획을 정기적으로 점검받고 싶은 학생</li>
+      <li>겨울방학 동안 보완할 과목과 목표를 가지고 집중해 보고 싶은 학생</li>
+      <li>2028 수능 통합사회·통합과학을 겨울부터 미리 준비하고 싶은 학생</li>
+    </ul>
+    <p>이미 집이나 독서실에서 꾸준히 공부하고 있다면 지금의 환경을 유지하는 것도 좋은 선택입니다. 무엇보다 학생이 이번 겨울에 바꾸고 싶은 점이 무엇인지, 입소할 마음이 있는지 먼저 들어보셨으면 합니다.</p>
+  </section>
+  <section id="winter-faq" aria-labelledby="winter-faq-title">
+    <h2 id="winter-faq-title">자주 묻는 질문</h2>
+    <h3>2027 윈터스쿨은 언제 시작하고 언제 끝나나요?</h3>
+    <p>2026년 12월 26일에 개강해 2027년 2월 27일에 종강합니다. 입소일은 학교 방학 일정에 맞춰 개별로 조율하며, 입소일부터 35일(5주) 학습을 기준으로 합니다. 2027년 1월 9일 전까지 입소해 주세요.</p>
+    <h3>비용은 얼마이고, 무엇이 포함되나요?</h3>
+    <p>5주 과정은 335만 원, 8주 과정은 500만 원입니다. 기숙사비·식비·세탁비가 포함되며, 2인실 선택 시 20만 원이 추가됩니다. 일일 테스트지 제본비는 과목당 5천 원 내외의 실비로 별도입니다.</p>
+    <h3>일일 테스트는 어떤 과목을 보나요?</h3>
+    <p>윈터스쿨 기간 내내 매일 2028 수능 통합 교육과정에 맞춘 독서 1지문, 수학 4문항, 통합사회 4문항, 통합과학 4문항을 풉니다.</p>
+    <h3>휴대폰이나 노트북을 쓸 수 있나요?</h3>
+    <p>개인 노트북과 태블릿은 정해진 조건 아래 학습동에서만 사용할 수 있으며, 기숙사 반입은 금지됩니다. 인터넷은 SNarLink로 학습 관련 사이트만 접속할 수 있고, VPN 등 우회 시도는 AI가 탐지해 관리자에게 알림이 갑니다.</p>
+    <h3>인터넷 강의를 들을 수 있나요?</h3>
+    <p>네. SNarLink는 학습 관련 사이트 접속을 허용하므로 인터넷 강의를 들을 수 있습니다. 수강료는 윈터스쿨 비용과 별개로, 학생이 인강 업체에 직접 개별 결제합니다.</p>
+    <h3>외출이나 외박을 할 수 있나요?</h3>
+    <p>외출·외박은 제한되며, 학습 목적 등 예외적인 경우에만 허용됩니다. 자세한 기준은 공식 생활 FAQ에서 확인해 주세요.</p>
+    <h3>중도에 퇴소하면 환불되나요?</h3>
+    <p>중도 퇴소 시 환불은 5주 기준 금액으로 계산합니다. 8주 과정은 할인 금액이 적용된 가격이므로, 등록 전 공식 모집요강의 환불 조건을 꼭 확인해 주세요.</p>
+    <h3>윈터스쿨은 어디에 있나요?</h3>
+    <p>SN독학기숙학원 윈터스쿨은 경기도 양평군 용문면 용문로 147에 있습니다. 상담은 전화 031-771-0300(09:00~21:00)으로 받습니다.</p>
+  </section>
+  <section id="winter-contact" class="wn-contact" aria-labelledby="winter-contact-title">
+    <h2 id="winter-contact-title">상담에서는<br />학생의 현재 상황부터 듣겠습니다</h2>
+    <p>어려운 과목, 평소의 공부 습관, 이번 겨울에 이루고 싶은 목표를 말씀해 주세요. 학생의 현재 상황을 듣고 SN의 학습 관리와 생활 방식이 맞는지 함께 살펴보겠습니다.</p>
+    <p class="wn-note">상담 가능 시간: 09:00 ~ 21:00</p>
+    <p class="wn-closing">이번 겨울이 단순히 오래 앉아 있었던 시간이 아니라, 자신의 공부를 이해하고 실천해 본 시간으로 남기를 바랍니다.</p>
+    <div class="wn-actions wn-actions-row">
+      <a class="wn-button wn-button-primary" href="https://www.snacademy.co.kr/admission/online/register?rType=2027%20%EC%9C%88%ED%84%B0%EC%8A%A4%EC%BF%A8">원서접수 하기</a>
+      <a class="wn-button" href="https://www.snacademy.co.kr/admission/winter_2027_r03">모집요강 확인하기</a>
+      <a class="wn-button" href="tel:031-771-0300">전화 상담 031-771-0300<small>09:00~21:00</small></a>
+      <a class="wn-button" href="https://www.snacademy.co.kr/admission/winter_2027_r04">자주 묻는 질문</a>
+    </div>
+  </section>
+</div>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Course", "name": "SN독학기숙학원 2027 윈터스쿨", "description": "예비 고2·고3 대상 독학기숙학원 윈터스쿨. 2028 수능 통합 교육과정 일일 테스트(독서·수학·통합사회·통합과학), 주 1회 학습담임 상담, SNarLink 학습 인터넷 환경, SNarGPT 무료 제공.", "url": "https://blog.snacademy.co.kr/notice/2027-winter-school", "inLanguage": "ko", "educationalLevel": "예비 고2·고3", "provider": {"@type": "EducationalOrganization", "name": "SN독학기숙학원", "url": "https://www.snacademy.co.kr", "telephone": "+82-31-771-0300"}, "offers": [{"@type": "Offer", "name": "5주 과정", "price": 3350000, "priceCurrency": "KRW", "category": "Paid", "url": "https://www.snacademy.co.kr/admission/online/register?rType=2027%20%EC%9C%88%ED%84%B0%EC%8A%A4%EC%BF%A8", "availability": "https://schema.org/InStock"}, {"@type": "Offer", "name": "8주 과정", "price": 5000000, "priceCurrency": "KRW", "category": "Paid", "url": "https://www.snacademy.co.kr/admission/online/register?rType=2027%20%EC%9C%88%ED%84%B0%EC%8A%A4%EC%BF%A8", "availability": "https://schema.org/InStock"}], "hasCourseInstance": [{"@type": "CourseInstance", "courseMode": "Onsite", "startDate": "2026-12-26", "endDate": "2027-02-27", "courseSchedule": {"@type": "Schedule", "repeatFrequency": "Daily", "startDate": "2026-12-26", "endDate": "2027-02-27"}, "location": {"@type": "Place", "name": "SN독학기숙학원", "address": {"@type": "PostalAddress", "streetAddress": "용문면 용문로 147", "addressLocality": "양평군", "addressRegion": "경기도", "addressCountry": "KR"}}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "2027 윈터스쿨은 언제 시작하고 언제 끝나나요?", "acceptedAnswer": {"@type": "Answer", "text": "2026년 12월 26일에 개강해 2027년 2월 27일에 종강합니다. 입소일은 학교 방학 일정에 맞춰 개별로 조율하며, 입소일부터 35일(5주) 학습을 기준으로 합니다. 2027년 1월 9일 전까지 입소해 주세요."}}, {"@type": "Question", "name": "비용은 얼마이고, 무엇이 포함되나요?", "acceptedAnswer": {"@type": "Answer", "text": "5주 과정은 335만 원, 8주 과정은 500만 원입니다. 기숙사비·식비·세탁비가 포함되며, 2인실 선택 시 20만 원이 추가됩니다. 일일 테스트지 제본비는 과목당 5천 원 내외의 실비로 별도입니다."}}, {"@type": "Question", "name": "일일 테스트는 어떤 과목을 보나요?", "acceptedAnswer": {"@type": "Answer", "text": "윈터스쿨 기간 내내 매일 2028 수능 통합 교육과정에 맞춘 독서 1지문, 수학 4문항, 통합사회 4문항, 통합과학 4문항을 풉니다."}}, {"@type": "Question", "name": "휴대폰이나 노트북을 쓸 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "개인 노트북과 태블릿은 정해진 조건 아래 학습동에서만 사용할 수 있으며, 기숙사 반입은 금지됩니다. 인터넷은 SNarLink로 학습 관련 사이트만 접속할 수 있고, VPN 등 우회 시도는 AI가 탐지해 관리자에게 알림이 갑니다."}}, {"@type": "Question", "name": "인터넷 강의를 들을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. SNarLink는 학습 관련 사이트 접속을 허용하므로 인터넷 강의를 들을 수 있습니다. 수강료는 윈터스쿨 비용과 별개로, 학생이 인강 업체에 직접 개별 결제합니다."}}, {"@type": "Question", "name": "외출이나 외박을 할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "외출·외박은 제한되며, 학습 목적 등 예외적인 경우에만 허용됩니다. 자세한 기준은 공식 생활 FAQ에서 확인해 주세요."}}, {"@type": "Question", "name": "중도에 퇴소하면 환불되나요?", "acceptedAnswer": {"@type": "Answer", "text": "중도 퇴소 시 환불은 5주 기준 금액으로 계산합니다. 8주 과정은 할인 금액이 적용된 가격이므로, 등록 전 공식 모집요강의 환불 조건을 꼭 확인해 주세요."}}, {"@type": "Question", "name": "윈터스쿨은 어디에 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "SN독학기숙학원 윈터스쿨은 경기도 양평군 용문면 용문로 147에 있습니다. 상담은 전화 031-771-0300(09:00~21:00)으로 받습니다."}}]}</script>
