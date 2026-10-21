@@ -4,6 +4,22 @@ import { koreanHistoryPosts } from './korean-history';
 
 export const allPosts: Post[] = [
   {
+    id: 'how-ai-makes-suneung-problems',
+    title: 'AI는 수능형 문제를 어떻게 만들까? 초안부터 검토·수정까지',
+    excerpt:
+      '사람의 출제 목표 설정부터 SNarGEN의 초안 작성, AI 교차 검수와 수정, 교과 선생님의 최종 검증까지. 수능형 문항의 제작 과정과 검토 기준을 소개합니다.',
+    category: 'ai-problem',
+    problemContentType: 'column',
+    tags: ['AI출제', '수능형문제', 'SNarGEN', '문항검토', 'SN독학기숙학원'],
+    author: 'SN독학기숙학원',
+    date: '2026-10-21',
+    readTime: '7',
+    featured: false,
+    published: true,
+    thumbnail: '/images/problem-download/Thumbnil_snargpt_problem_gen.png',
+    url: '/problems/how-ai-makes-suneung-problems',
+  },
+  {
     id: 'banssijeon',
     title:
       '며느리들 싸움의 끝은 사형이었다 | EBS 2027 수능특강 문학 고전소설 「반씨전」',
@@ -439,6 +455,7 @@ export const allPosts: Post[] = [
     published: true,
     thumbnail: '/images/thumbnail/problem-download/20260902_math_thumbnail.png',
     url: '/problem-download/2027-september-mock-math-solution',
+    problemContentType: 'solution',
   },
   {
     id: '2027-september-mock-korean-analysis',
@@ -467,6 +484,7 @@ export const allPosts: Post[] = [
     published: true,
     thumbnail: '/images/thumbnail/problem-download/260902_Korean_thumbnail.png',
     url: '/problem-download/2027-september-mock-korean-analysis',
+    problemContentType: 'solution',
   },
   {
     id: 'manbunga',
@@ -590,6 +608,7 @@ export const allPosts: Post[] = [
     published: true,
     thumbnail: '/images/thumbnail/problem-download/2706_kice_math.png',
     url: '/problem-download/2027-june-mock-math-solution',
+    problemContentType: 'solution',
   },
   {
     id: 'snargpt-rag-suneung-ai',
@@ -2351,6 +2370,7 @@ export const allPosts: Post[] = [
     published: true,
     thumbnail: '/images/thumbnail/problem-download/AI_26_suneung.png',
     url: '/problem-download/2026-suneung-similar-problems',
+    problemContentType: 'solution',
   },
   {
     id: 'snargpt-guide-1',
@@ -2545,6 +2565,7 @@ export const allPosts: Post[] = [
     thumbnail:
       '/images/thumbnail/problem-download/SNarGPT-2026-Math-Answer-Release.png',
     url: '/problem-download/suneung-math-solution-10min',
+    problemContentType: 'solution',
   },
   {
     id: 'why-we-invest-in-ai',

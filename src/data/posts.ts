@@ -2,6 +2,11 @@
 // 콘텐츠 로딩: import { loadPostContent } from '@/lib/post-content';
 
 import { allPosts as postRecords } from './post-records';
+import type {
+  ProblemContentType,
+  ProblemErrorType,
+  ProblemSubject,
+} from '@/lib/config';
 
 export { allPosts } from './post-records';
 
@@ -59,6 +64,21 @@ export interface Post {
   badge?: string;
   problemFileUrl?: string;
   problemDataId?: string;
+  // AI 수능 출제(/problems) 전용. 생략하면 category·subcategory로 추론
+  problemContentType?: ProblemContentType;
+  problemSubject?: ProblemSubject;
+  problemLog?: ProblemLog;
+}
+
+// 출제 로그 지표. 허브 페이지의 누적 지표가 이 값들로 계산된다.
+export interface ProblemLog {
+  model: string; // 사용 모델 (예: 'SNarGEN + Claude')
+  promptSummary: string; // 프롬프트 요약 (전문은 비공개)
+  draftCount: number; // AI 초안 생성 횟수
+  revisionCount: number; // 사람이 수정한 항목 수 (0 = 초안 그대로 채택)
+  errorTypes: ProblemErrorType[]; // 수정한 오류 유형
+  pdfUrl?: string; // 문제 PDF
+  answerUrl?: string; // 정답·해설 PDF
 }
 
 // 🔗 콘텐츠 로딩이 필요한 경우: import { loadPostContent } from '@/lib/post-content';

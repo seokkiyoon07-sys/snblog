@@ -106,6 +106,12 @@ export function getCategoryConfig(category: string) {
       subject: '문제 해결',
       learningObjectives: ['논리적 사고', '알고리즘', '코딩 실력'],
     },
+    'ai-problem': {
+      backLink: '/problems',
+      backText: '← AI 수능 출제로 돌아가기',
+      subject: 'AI 출제',
+      learningObjectives: ['AI 출제 과정', '문항 검수', '교육 인사이트'],
+    },
     reviews: {
       backLink: '/reviews',
       backText: '← 리뷰 목록으로 돌아가기',

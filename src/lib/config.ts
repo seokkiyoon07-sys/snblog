@@ -28,7 +28,7 @@ export const NAVIGATION_MENU = [
   { name: 'AI 스타트업', href: '/startup' },
   { name: '컬럼', href: '/columns' },
   { name: 'SN DataLAB', href: '/datalab' },
-  { name: '문제 다운로드', href: '/problems' },
+  { name: 'AI 수능 출제', href: '/problems' },
   { name: 'SN Originals', href: '/originals' },
   { name: 'SN History', href: '/history' },
   { name: '공지사항', href: '/notice' },
@@ -86,7 +86,12 @@ export const CATEGORY_CONFIG = {
   problems: {
     route: '/problems',
     emoji: '📝',
-    label: '문제 다운로드',
+    label: 'AI 수능 출제',
+  },
+  'ai-problem': {
+    route: '/problems',
+    emoji: '🧪',
+    label: 'AI 수능 출제',
   },
   'integrated-social-problem': {
     route: '/problems',
@@ -207,6 +212,29 @@ export const PROBLEM_SUBJECT_CONFIG = {
 } as const;
 
 export type ProblemSubject = keyof typeof PROBLEM_SUBJECT_CONFIG;
+
+// AI 수능 출제(/problems) 콘텐츠 유형
+export const PROBLEM_CONTENT_TYPE_CONFIG = {
+  log: { label: '출제 로그', emoji: '🧪' },
+  solution: { label: '모의고사·수능 해설', emoji: '✅' },
+  column: { label: '칼럼', emoji: '✍️' },
+  issue: { label: '이슈·리포트', emoji: '🔎' },
+  devlog: { label: '개발기', emoji: '🛠️' },
+  resource: { label: '자료실', emoji: '📂' },
+} as const;
+
+export type ProblemContentType = keyof typeof PROBLEM_CONTENT_TYPE_CONFIG;
+
+// 출제 로그에서 사람이 바로잡은 AI 초안의 오류 유형
+export const PROBLEM_ERROR_TYPE_CONFIG = {
+  fact: '사실 오류',
+  math: '수식·계산 오류',
+  choice: '선지 구성',
+  difficulty: '난이도 보정',
+  wording: '표현·발문',
+} as const;
+
+export type ProblemErrorType = keyof typeof PROBLEM_ERROR_TYPE_CONFIG;
 
 // Helper functions
 export function getCategoryRoute(category: string): string {

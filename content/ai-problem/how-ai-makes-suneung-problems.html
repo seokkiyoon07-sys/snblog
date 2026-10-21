@@ -1,0 +1,423 @@
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">
+  AI 수능 출제 · 칼럼
+</p>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  AI에게 “수능형 문제를 만들어 줘”라고 요청하면 짧은 시간 안에 지문이나 자료,
+  발문과 선택지가 나옵니다. 겉보기에는 꽤 그럴듯합니다. 하지만 그럴듯한 초안과
+  학생에게 제시할 수 있는 문항 사이에는 거리가 있습니다.
+</p>
+
+<div class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-8">
+  <p class="text-lg text-gray-900 dark:text-gray-100 leading-relaxed">
+    그 거리를 메우는 일이 출제입니다.
+  </p>
+</div>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+  SN독학기숙학원은 SNarGPT의 출제 AI인 <strong>SNarGEN</strong>과 범용 AI를
+  활용해 국어·수학·영어·통합사회·통합과학의 수능형 문제를 만들고 있습니다. 이
+  블로그에서는 완성된 문제뿐 아니라 AI가 어떤 초안을 만들었고, 검토 과정에서
+  무엇이 발견됐으며, 왜 수정했는지도 기록하려 합니다.
+</p>
+
+<div class="not-prose border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg p-5 my-6">
+  <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3">핵심 요약</p>
+  <ul class="space-y-2 text-gray-800 dark:text-gray-200 leading-relaxed">
+    <li>• 사람이 출제 목표를 정하면 SNarGEN이 문제와 해설을 쓰고, SNarGO·Claude·GPT 등을 활용한 교차 검수와 수정을 거칩니다.</li>
+    <li>• 마지막 관문은 국어·수학·영어·과학·사회 교과 선생님의 검증이며, 통과하지 못한 문항은 다시 수정 단계로 돌아갑니다.</li>
+    <li>• 검수 포인트와 선생님 피드백은 SNarGPT 캔버스에 출제 노하우로 쌓여, 다음 출제 프롬프트에 반영됩니다.</li>
+    <li>• 정답의 정확성과 함께, 의도한 사고를 거치지 않고도 답을 찾을 수 있는지 확인합니다.</li>
+    <li>• 문항이 실패하는 방식은 과목마다 달라서, 검토 질문도 과목별로 다르게 던집니다.</li>
+  </ul>
+</div>
+
+<nav class="not-prose border-y border-gray-300 dark:border-gray-700 py-5 my-8" aria-label="글 목차">
+  <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3">목차</p>
+  <ol class="grid gap-2 text-gray-800 dark:text-gray-200">
+    <li><a class="hover:underline" href="#process">1. 한눈에 보는 출제 과정</a></li>
+    <li><a class="hover:underline" href="#design">2. 출발점은 ‘어떤 판단을 요구할 것인가’</a></li>
+    <li><a class="hover:underline" href="#cases">3. AI 초안은 어디에서 흔들릴까</a></li>
+    <li><a class="hover:underline" href="#subjects">4. 과목별 검토 질문</a></li>
+    <li><a class="hover:underline" href="#revision">5. 수정한 뒤에는 왜 다시 풀어야 할까</a></li>
+    <li><a class="hover:underline" href="#disclosure">6. 이 블로그에서 공개할 것</a></li>
+    <li><a class="hover:underline" href="#faq">7. 자주 묻는 질문</a></li>
+  </ol>
+</nav>
+
+<h2 id="process" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+  1. 한눈에 보는 출제 과정
+</h2>
+
+<div class="not-prose my-6" role="figure" aria-label="AI 수능형 문제 제작 과정 도식">
+  <div class="rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+    <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">사전 설계 · 사람</p>
+    <p class="font-bold text-gray-900 dark:text-gray-100">무엇을 평가할지 정한다</p>
+    <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">출제 담당자가 대상 학년도와 교육과정, 과목별 범위, 평가할 능력, 목표 난도와 문항 형식을 정합니다.</p>
+  </div>
+  <div class="flex justify-center py-1 text-gray-400 dark:text-gray-500" aria-hidden="true">↓</div>
+  <div class="rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+    <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">STEP 1 · 출제·해설 작성</p>
+    <p class="font-bold text-gray-900 dark:text-gray-100">문제와 해설 초안을 만든다</p>
+    <p class="mt-2"><span class="inline-block rounded bg-emerald-100 dark:bg-emerald-900/50 px-2 py-0.5 text-xs font-semibold text-emerald-800 dark:text-emerald-200">SNarGEN</span></p>
+    <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">SNarGPT 안의 출제 에이전트가 정해진 과목·범위·난도에 맞춰 문항과 해설을 함께 작성합니다.</p>
+    <div class="mt-3 rounded-md bg-gray-50 dark:bg-gray-800 p-3">
+      <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">참고 자료</p>
+      <ul class="space-y-1.5 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <li>• 고등학교 교과서</li>
+        <li>• SNarGPT RAG에 축적된 기출 — <strong>평가원 문제 1순위</strong>, 교육청 문제 2순위</li>
+        <li>• 한국교육과정평가원의 2028학년도 수능 예시문항 안내 자료 <span class="text-gray-500 dark:text-gray-400">(글 끝 참고 자료)</span></li>
+        <li>• SNarGPT 캔버스에 축적된 출제 노하우 (프롬프트에 반영)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex justify-center py-1 text-gray-400 dark:text-gray-500" aria-hidden="true">↓</div>
+  <div class="rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+    <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">STEP 2 · 교차 검수</p>
+    <p class="font-bold text-gray-900 dark:text-gray-100">각 AI가 문항과 해설을 검토한다</p>
+    <div class="mt-3 grid grid-cols-3 gap-2">
+      <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200">SNarGO</div>
+      <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200">Claude</div>
+      <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200">GPT</div>
+    </div>
+    <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">서로 다른 AI가 정답의 유일성, 선지의 근거, 해설과 문항의 일치 여부를 각자 점검하고 검수 포인트를 남깁니다.</p>
+    <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">위 도구들을 교차 검수에 활용하며, 개별 사례에는 실제 검토에 참여한 AI를 구분해 기록합니다.</p>
+  </div>
+  <div class="flex justify-center py-1 text-gray-400 dark:text-gray-500" aria-hidden="true">↓</div>
+  <div style="position:relative;padding-right:30px;">
+    <div class="rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+      <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">STEP 3 · 수정</p>
+      <p class="font-bold text-gray-900 dark:text-gray-100">검수 포인트를 반영해 고친다</p>
+      <p class="mt-2"><span class="inline-block rounded bg-emerald-100 dark:bg-emerald-900/50 px-2 py-0.5 text-xs font-semibold text-emerald-800 dark:text-emerald-200">SNarGEN</span></p>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">모인 검수 포인트를 바탕으로 출제 에이전트가 문항과 해설을 수정합니다. STEP 5에서 보완 요청을 받은 문항도 이 단계로 돌아옵니다.</p>
+    </div>
+    <div class="flex justify-center py-1 text-gray-400 dark:text-gray-500" aria-hidden="true">↓</div>
+    <div class="rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+      <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">STEP 4 · AI 재검수</p>
+      <p class="font-bold text-gray-900 dark:text-gray-100">수정본을 다시 확인한다</p>
+      <p class="mt-2"><span class="inline-block rounded bg-emerald-100 dark:bg-emerald-900/50 px-2 py-0.5 text-xs font-semibold text-emerald-800 dark:text-emerald-200">검수 AI</span></p>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">검수 AI가 수정된 문항을 다시 풀고 해설과 대조합니다. 고친 부분이 다른 선지나 해설을 흔들지 않았는지 확인한 뒤, 교과 선생님의 최종 검토를 거칩니다.</p>
+    </div>
+    <div class="flex justify-center py-1 text-gray-400 dark:text-gray-500" aria-hidden="true">↓</div>
+    <div class="rounded-lg border-2 border-sn-primary dark:border-emerald-500 bg-white dark:bg-gray-900 p-4">
+      <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">STEP 5 · 교과 선생님 검증</p>
+      <p class="font-bold text-gray-900 dark:text-gray-100">과목별 선생님이 직접 검증한다</p>
+      <div class="mt-3 grid grid-cols-3 gap-2">
+        <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200">국어</div>
+        <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200">수학</div>
+        <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200">영어</div>
+        <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200">과학</div>
+        <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-2 py-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200">사회</div>
+      </div>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">AI 검수를 모두 거친 완성본만 교과 선생님에게 갑니다. 선생님이 문항과 해설을 직접 풀고 검증해, 통과시키거나 보완할 점을 짚어 돌려보냅니다.</p>
+      <p class="mt-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400">보완 필요 시 STEP 3으로 ↺</p>
+    </div>
+    <div aria-hidden="true" style="position:absolute;right:2px;top:34px;bottom:24px;width:20px;border:2px dashed #9ca3af;border-left:none;border-radius:0 12px 12px 0;"></div>
+    <span aria-hidden="true" style="position:absolute;right:16px;top:24px;color:#9ca3af;font-size:13px;line-height:1;">◀</span>
+  </div>
+  <div style="padding-right:30px;">
+    <div class="flex justify-center py-1 text-gray-400 dark:text-gray-500" aria-hidden="true">↓</div>
+    <div class="rounded-lg bg-sn-primary dark:bg-emerald-600 p-4 text-center">
+      <p class="font-bold text-white">✓ 교과 검증 통과 → 최종 공개 결정</p>
+      <p class="mt-1 text-sm text-gray-300">출제 로그와 문제 PDF로 공개</p>
+    </div>
+    <div class="flex justify-center py-1 text-gray-400 dark:text-gray-500" aria-hidden="true">↓</div>
+    <div class="rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 p-4">
+      <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">축적 · 출제 노하우</p>
+      <p class="font-bold text-gray-900 dark:text-gray-100">검수에서 나온 지적을 쌓아 다음 출제에 반영한다</p>
+      <div class="mt-3 grid grid-cols-2 gap-2">
+        <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 p-3">
+          <p class="text-sm font-semibold text-gray-900 dark:text-gray-100">개별 문항</p>
+          <p class="mt-1 text-xs text-gray-600 dark:text-gray-400 leading-relaxed">해당 문항의 수정에 바로 적용</p>
+        </div>
+        <div class="rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 p-3">
+          <p class="text-sm font-semibold text-gray-900 dark:text-gray-100">공통 액기스</p>
+          <p class="mt-1 text-xs text-gray-600 dark:text-gray-400 leading-relaxed">모든 출제에 적용할 원칙으로 정리</p>
+        </div>
+      </div>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">STEP 2의 검수 포인트와 STEP 5의 선생님 피드백을 <strong>SNarGPT 캔버스</strong>에 기록하고, 공통 원칙은 출제 프롬프트에 계속 반영합니다.</p>
+      <p class="mt-3 text-right text-xs font-semibold text-gray-500 dark:text-gray-400">↻ 다음 출제의 STEP 1로</p>
+    </div>
+  </div>
+</div>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  만드는 AI와 검수하는 AI를 나누고 검토 결과를 비교하는 것은 한 AI가 놓친 오류를
+  찾기 위해서입니다. 다만 여러 AI의 판단이 일치하더라도 정확성이 보장되는 것은
+  아닙니다. 같은 오류를 놓칠 수 있으므로 교차 검수 뒤에도 최종 검토가 필요합니다.
+</p>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  다만 AI가 여럿이라고 판단까지 맡길 수는 없습니다. 마지막 관문은
+  <strong>교과 선생님</strong>입니다. 국어·수학·영어·과학·사회 선생님이 과목별로 문항을
+  직접 검증하고, 통과하지 못한 문항은 보완할 점과 함께 STEP 3으로 돌려보냅니다.
+  선생님의 통과를 받은 문항만 공개합니다.
+</p>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  STEP 1부터 STEP 4까지는 <strong>자동화</strong>되어 있습니다. 출제, 교차 검수,
+  수정, 재검수가 사람의 개입 없이 이어지기 때문에, 선생님은 초안을 하나하나
+  다듬는 대신 완성본을 검증하는 데 시간을 쓸 수 있습니다. 자동화 과정은 별도의
+  글에서 자세히 다루겠습니다.
+</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 id="design" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+  2. 출발점은 ‘어떤 판단을 요구할 것인가’
+</h2>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  같은 소재로도 서로 다른 문항을 만들 수 있습니다. 국어 독서 지문이라면 개념의
+  정의를 찾게 할 수도 있고, 떨어진 문단의 정보를 연결해 새로운 사례를 판단하게
+  할 수도 있습니다. 수학이라면 공식을 적용하게 할 수도 있고, 주어진 조건들이
+  답을 하나로 결정하는지 따지게 할 수도 있습니다.
+</p>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  어느 쪽이든 중요한 것은 <strong>출제 의도와 실제 풀이가 일치하는가</strong>입니다.
+  ‘여러 정보를 결합하는 추론’을 목표로 했는데 지문의 한 문장만 보고 답을 고를 수
+  있다면, 프롬프트에 무엇을 주문했든 결과물은 목표와 어긋난 셈입니다.
+</p>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  그래서 AI에 초안을 요청하기 전에는 대상 학년도와 교육과정, 과목별 범위, 평가할 내용, 목표
+  난도와 형식을 정합니다. 그리고 초안이 나오면 이렇게 묻습니다.
+</p>
+
+<div class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-8">
+  <p class="text-lg text-gray-900 dark:text-gray-100 leading-relaxed">
+    이 문항은 의도한 사고를 거치지 않고도<br />
+    정답에 도달할 수 있는가?
+  </p>
+</div>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 id="cases" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+  3. AI 초안은 어디에서 흔들릴까
+</h2>
+
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+  아래는 국어 독서 세트에서 발견한 문제와 수정 제안입니다. 최종 수정 결과를
+  확인한 사례와 구분해 소개하며, 수정 전·후 원문과 재검수 결과는 대조를 마친 뒤
+  별도의 출제 로그에서 다루겠습니다.
+</p>
+
+<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mt-7 mb-3">
+  사례 ① 다른 문항에만 정의된 이름, ‘도로 A’
+</h3>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  이 국어 독서 세트의 초안은 SNarGEN이 만들었고, 검토는 검토 에이전트인
+  <strong>SNarGO</strong>와 <strong>Claude</strong>가 맡았습니다. 검토 과정에서
+  한 선지의 ‘도로 A’라는 표현이 지적됐습니다. 해당 문항의 지문과 자료에는 정의가
+  없고, 뒤 문항의 〈보기〉에만 등장한다는 것이었습니다.
+</p>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  세트 전체를 알고 있는 출제자에게는 자연스러운 표현일 수 있습니다. 검토할 점은
+  학생이 문항을 읽는 순서가 아니라, 해당 문항에 주어진 정보만으로 선지를 판단할 수
+  있는가입니다. 이에 ‘도로 A’를 <strong>‘요금 부과 도로’</strong>로 바꾸자는
+  수정안이 나왔습니다.
+</p>
+
+<div class="not-prose border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg p-5 my-6">
+  <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-2">검토 기준</p>
+  <p class="text-gray-800 dark:text-gray-200 leading-relaxed">
+    해당 문항의 지문과 자료만으로 <strong>선지가 가리키는 대상을 명확히 알 수
+    있는가</strong>를 확인해야 합니다.
+  </p>
+</div>
+
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+  ‘도로 A → 요금 부과 도로’는 검토 과정에서 나온 제안이며, 확정된 수정 결과는
+  아닙니다. 두 표현이 같은 대상을 가리키는지, 대체 표현만으로 대상이 명확해지는지,
+  정답과 해설에 영향이 없는지를 원문과 대조해야 합니다.
+</p>
+
+<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mt-7 mb-3">
+  사례 ② 정답은 맞는데, 독해 없이 풀린다
+</h3>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  국어 독서 문항을 검토하면서는 이런 지적도 나왔습니다. 계산과 정답은 맞지만,
+  지문의 핵심 개념을 이해하지 않고 표의 숫자만 계산해도 답에 도달할 수 있다는
+  것이었습니다.
+</p>
+
+<div class="not-prose border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg p-5 my-6">
+  <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-2">검토 기준</p>
+  <p class="text-gray-800 dark:text-gray-200 leading-relaxed">
+    “정답이 맞는가?”를 넘어, <strong>“이 문항을 맞히기 위해 의도한 독해가 실제로
+    필요한가?”</strong>를 물어야 합니다.
+  </p>
+</div>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 id="subjects" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+  4. 과목이 달라지면 검토 질문도 달라진다
+</h2>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-6">
+  모든 과목에 똑같은 점검표를 기계적으로 적용할 수는 없습니다. 정답의 정확성은
+  공통 출발점이지만, 문항이 실패하는 방식은 과목마다 다릅니다.
+</p>
+
+<div class="not-prose grid gap-4 md:grid-cols-2 my-6">
+  <div class="rounded-lg border border-gray-300 dark:border-gray-700 p-5">
+    <p class="font-bold text-gray-900 dark:text-gray-100 mb-3">📖 국어</p>
+    <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <li>• 지문에 근거해 판단할 수 있는가?</li>
+      <li>• 해당 문항의 지문과 자료만으로 선지의 대상을 명확히 알 수 있는가?</li>
+      <li>• 세트 안의 다른 문항이나 〈보기〉가 정답을 알려 주지는 않는가?</li>
+      <li>• 의도한 독해 없이도 답을 찾을 수 있지는 않은가?</li>
+    </ul>
+  </div>
+  <div class="rounded-lg border border-gray-300 dark:border-gray-700 p-5">
+    <p class="font-bold text-gray-900 dark:text-gray-100 mb-3">📐 수학</p>
+    <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <li>• 조건과 범위가 답을 하나로 결정하는가?</li>
+      <li>• 요구한 값과 해설에서 구한 값이 같은가?</li>
+      <li>• 평가하려는 개념이나 추론을 사용하지 않고도 답을 구할 수 있는가?</li>
+    </ul>
+  </div>
+  <div class="rounded-lg border border-gray-300 dark:border-gray-700 p-5">
+    <p class="font-bold text-gray-900 dark:text-gray-100 mb-3">🔤 영어</p>
+    <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <li>• 정답의 근거가 지문 흐름에 있는가?</li>
+      <li>• 빈칸·순서·삽입 문항의 단서가 서로 충돌하지 않는가?</li>
+      <li>• 오답이 단순히 어색해서 지문 이해 없이 소거되지는 않는가?</li>
+    </ul>
+  </div>
+  <div class="rounded-lg border border-gray-300 dark:border-gray-700 p-5">
+    <p class="font-bold text-gray-900 dark:text-gray-100 mb-3">🌏 통합사회</p>
+    <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <li>• 자료를 해석하는 데 필요한 개념이 정확한가?</li>
+      <li>• 수치 비교만으로 풀려, 의도한 사회 개념을 사용하지 않아도 되는 문항은 아닌가?</li>
+    </ul>
+  </div>
+  <div class="rounded-lg border border-gray-300 dark:border-gray-700 p-5 md:col-span-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 mb-3">🔬 통합과학</p>
+    <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <li>• 현상과 자료의 설명이 정확한가?</li>
+      <li>• 교육과정에서 요구하는 이해를 평가하는가?</li>
+      <li>• 계산이나 그림이 핵심 개념을 흐리거나 잘못 전달하지는 않는가?</li>
+    </ul>
+  </div>
+</div>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  이 질문들은 모든 문항이 복잡해야 한다는 뜻이 아닙니다. 간결한 풀이 자체가
+  결함인 것도 아닙니다. 기본 개념을 확인하는
+  문항이라면 그 목적에 맞게 명확해야 하고, 자료를 결합하는 문항이라면 그 결합이
+  실제로 답을 고르는 데 필요해야 합니다. 난도보다 먼저 확인할 것은
+  <strong>문항의 목표와 작동 방식이 일치하는가</strong>입니다.
+</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 id="revision" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+  5. 수정한 뒤에는 왜 다시 풀어야 할까
+</h2>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  선지 하나를 바꾸면 다른 선지와의 관계도 달라질 수 있습니다. 자료의 수치를
+  고치면 정답뿐 아니라 해설과 난도도 바뀔 수 있습니다. 문항은 수정됐는데
+  해설에는 이전 표현이 남는 경우도 생깁니다.
+</p>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  따라서 수정은 ‘지적된 부분을 고쳤다’에서 끝나지 않습니다. 바뀐 문항을 다시 풀고
+  아래 세 가지를 확인합니다.
+</p>
+<ul class="not-prose space-y-2 text-gray-800 dark:text-gray-200 leading-relaxed mb-6 pl-1">
+  <li>✓ 정답이 여전히 하나인가?</li>
+  <li>✓ 오답마다 틀린 근거가 분명한가?</li>
+  <li>✓ 해설이 최종 문항을 정확히 설명하는가?</li>
+</ul>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  AI는 대안 제시와 검산을 도울 수 있지만,
+  <strong>그 제안을 채택할지와 최종 문항을 공개할지는 사람이 결정합니다.</strong>
+</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 id="disclosure" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+  6. 이 블로그에서 공개할 것
+</h2>
+
+<div class="not-prose space-y-4 my-6">
+  <div class="border-l-2 border-gray-300 dark:border-gray-600 pl-4">
+    <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">출제 로그</p>
+    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+      대상 학년도와 교육과정, 문항과 출제 의도, 참여 AI와 작업 요약을 기록합니다.
+      초안에서 발견한 문제와 수정 전·후, 재검수 결과를 함께 보여드리고,
+      검증을 마친 문제 PDF는 글 끝에 첨부합니다.
+    </p>
+  </div>
+  <div class="border-l-2 border-gray-300 dark:border-gray-600 pl-4">
+    <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">칼럼</p>
+    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+      출제 과정의 일화와 AI 출제의 한계, 개발 과정의 고민을 다룹니다.
+    </p>
+  </div>
+  <div class="border-l-2 border-gray-300 dark:border-gray-600 pl-4">
+    <p class="font-semibold text-gray-900 dark:text-gray-100 mb-1">해설 · 자료실</p>
+    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+      기존 모의고사·수능 해설과 다운로드 자료도 각각 찾아볼 수 있도록 유지합니다.
+    </p>
+  </div>
+</div>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  프롬프트는 작업의 취지를 알 수 있도록 <strong>요약만</strong> 공개하고 전문은
+  공개하지 않습니다. 누적 출제 문항 수, 초안 채택 비율, 수정 횟수, 오류 유형 등의
+  지표는 실제 출제 기록에서 확인하고 집계할 수 있는 범위에 한해 표시하겠습니다.
+</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<h2 id="faq" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+  7. 자주 묻는 질문
+</h2>
+
+<div class="not-prose divide-y divide-gray-200 dark:divide-gray-700 border-y border-gray-200 dark:border-gray-700 my-6">
+  <div class="py-4">
+    <p class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Q. 이 문제들은 평가원이 출제한 수능 문제인가요?</p>
+    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+      아닙니다. 교육과정과 수능형 문항의 특성을 검토하며 자체 제작한 문제입니다.
+      평가원 기출과 혼동되지 않도록 ‘AI가 만든 수능형 문제’임을 명확히 밝히겠습니다.
+    </p>
+  </div>
+  <div class="py-4">
+    <p class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Q. AI가 문제를 혼자 만드나요?</p>
+    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+      아닙니다. 사람이 출제 목표를 정하고, SNarGEN이 초안을 작성합니다.
+      SNarGO·Claude·GPT 등을 활용한 교차 검수와 수정을 거친 뒤,
+      과목별 교과 선생님의 검증을 통과한 문항에 대해 최종 공개를 결정합니다.
+    </p>
+  </div>
+  <div class="py-4">
+    <p class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Q. 문제 PDF는 어디서 받을 수 있나요?</p>
+    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+      출제 로그가 올라오면 각 글 끝에서 받을 수 있습니다.
+    </p>
+  </div>
+</div>
+
+<div class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-8">
+  <p class="text-lg text-gray-900 dark:text-gray-100 leading-relaxed">
+    중요한 질문은 “얼마나 빨리 만들었나?”에서
+    “어떤 기준으로 검토했고, 그 기준을 통과했나?”로 옮겨갑니다.
+  </p>
+</div>
+
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">
+  이 블로그에서는 AI의 초안에서 어떤 문제가 발견됐고, 왜 고쳤으며, 수정 후에는
+  무엇을 확인했는지 기록하겠습니다. 완성된 문제와 함께 그 판단의 근거를 보여드리겠습니다.
+  그리고 그 기록이 쌓여 다음 문제를 더 낫게 만드는 출제 노하우가 됩니다.
+</p>
+
+<hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+<div class="not-prose my-6">
+  <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3">참고 자료</p>
+  <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+    <li>• 전반적인 2028 수능형 문항: 한국교육과정평가원, 『2028학년도 대학수학능력시험 예시문항 안내』(2025). 교육부 게시 페이지 별첨 자료.</li>
+    <li>• 통합사회·통합과학: 한국교육과정평가원, 『2028 대학입시제도 개편안에 따른 통합사회·통합과학 예시문항 안내』(2024). 교육부 게시 페이지 붙임 자료.</li>
+  </ul>
+</div>
