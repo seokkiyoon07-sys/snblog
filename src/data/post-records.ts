@@ -2471,6 +2471,30 @@ export const allPosts: Post[] = [
     type: 'special',
   },
   {
+    id: '2027-goyo-winter-daechi',
+    title: '2027 대치동 윈터스쿨 모집 | SN고요의숲 대치점 (예비 고1~고3·N수)',
+    excerpt:
+      'SN고요의숲 대치점 2027 윈터스쿨 모집. 예비 고1~고3·N수, 4주 78만 원. 대치 단과와 자습을 잇는 시내 관리형 윈터스쿨로 SNarLink·SNarGPT·학사 포탈, 2028 수능 통합사회·통합과학 데일리 문항까지 안내합니다.',
+    category: 'notice',
+    tags: [
+      '대치동 윈터스쿨',
+      '윈터스쿨',
+      'SN고요의숲',
+      '대치동 관리형 독서실',
+      '겨울방학',
+      '모집요강',
+      '2027',
+    ],
+    author: 'SN고요의숲',
+    date: '2026-10-21',
+    readTime: '8',
+    featured: false,
+    published: true,
+    thumbnail: '/images/notice/2027-goyo-winter/web/4fstudy_room.jpg',
+    url: '/notice/2027-goyo-winter-daechi',
+    type: 'standard',
+  },
+  {
     id: '2027-winter-school',
     title: '2027 독학기숙학원 윈터스쿨 모집 안내 (예비 고2·고3)',
     excerpt:
