@@ -65,7 +65,7 @@ export default function ProblemsPage() {
       {/* 읽을거리: 칼럼 · 해설 · 자료실 (+ 이슈 · 개발기) */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-          칼럼 · 해설 · 자료
+          칼럼 · 해설 · 읽기 자료
         </h2>
         <ProblemsFeed items={feedItems} subjects={HUB_SUBJECTS} />
       </section>

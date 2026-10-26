@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Script from 'next/script';
 import SuneungNotice from './SuneungNotice';
 import AdmissionGuide2026 from './posts/2026AdmissionGuide';
@@ -39,9 +39,11 @@ interface BlogLayoutProps {
     problemDataId?: string;
     thumbnail?: string;
   };
+  /** 제목 바로 아래, 썸네일 자리에 넣을 요소(예: 카드뉴스 캐러셀) */
+  lead?: ReactNode;
 }
 
-export default function BlogLayout({ post }: BlogLayoutProps) {
+export default function BlogLayout({ post, lead }: BlogLayoutProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const questionDialogRef = useRef<HTMLDialogElement>(null);
   const [questionNumber, setQuestionNumber] = useState<number | null>(null);
@@ -360,7 +362,9 @@ export default function BlogLayout({ post }: BlogLayoutProps) {
             post.title
           )}
         </h1>
-        {shouldRenderThumbnail && (
+        {lead ? (
+          <div className="not-prose mb-10">{lead}</div>
+        ) : shouldRenderThumbnail && (
           <div className="not-prose mb-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

@@ -218,6 +218,7 @@ export const PROBLEM_CONTENT_TYPE_CONFIG = {
   log: { label: '출제 로그', emoji: '🧪' },
   solution: { label: '모의고사·수능 해설', emoji: '✅' },
   column: { label: '칼럼', emoji: '✍️' },
+  reading: { label: '읽기 자료', emoji: '📖' },
   issue: { label: '이슈·리포트', emoji: '🔎' },
   devlog: { label: '개발기', emoji: '🛠️' },
   resource: { label: '자료실', emoji: '📂' },

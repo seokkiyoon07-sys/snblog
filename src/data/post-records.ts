@@ -29,6 +29,34 @@ export const allPosts: Post[] = [
     url: '/columns/2027-nonsul-schedule',
   },
   {
+    id: 'possible-worlds',
+    title:
+      '2019 수능 국어 「가능세계」 쉽게 읽기: 일관성·포괄성·완결성·독립성',
+    excerpt:
+      '2019학년도 수능 국어 독서 39~42번 「가능세계」 지문을 해설합니다. 가능세계의 뜻, 일관성·포괄성·완결성·독립성 네 조건, ‘만약 그랬다면’ 문장을 현실세계와의 유사성으로 판정하는 방법, 41번·42번 선지 풀이까지 정리했습니다.',
+    category: 'ai-problem',
+    problemContentType: 'reading',
+    problemSubject: 'korean',
+    tags: [
+      '가능세계',
+      '가능세계 지문',
+      '2019 수능 국어',
+      '수능 국어 독서',
+      '일관성 포괄성',
+      '완결성 독립성',
+      '배중률',
+      '비문학',
+      'SNarGPT',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-10-26',
+    readTime: '8',
+    featured: false,
+    published: true,
+    thumbnail: '/images/problems/possible-worlds/thumbnail.jpg',
+    url: '/problems/possible-worlds',
+  },
+  {
     id: 'how-ai-makes-suneung-problems',
     title: 'AI는 수능형 문제를 어떻게 만들까? 초안부터 검토·수정까지',
     excerpt:

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogLayout from '@/components/BlogLayout';
 import ProblemLogSummary from '@/components/problems/ProblemLogSummary';
+import CardNewsCarousel from '@/components/posts/CardNewsCarousel';
+import { CARD_NEWS } from '@/data/card-news';
 import { loadPostContent } from '@/lib/post-content';
 import { BASE_URL } from '@/lib/config';
 import { AI_PROBLEM_CATEGORY, getAiProblemPosts } from '@/lib/problems';
@@ -32,7 +34,8 @@ export async function generateMetadata({
     return { title: '글을 찾을 수 없습니다 | SN독학기숙학원' };
   }
 
-  const title = `${post.title} | SN AI 수능 출제`;
+  // 블로그 이름은 루트 레이아웃의 title.template 이 붙인다
+  const title = post.title;
   const image = post.thumbnail ? `${BASE_URL}${post.thumbnail}` : undefined;
 
   return {
@@ -93,6 +96,8 @@ export default async function ProblemPostPage({
     ],
   };
 
+  const cardNews = CARD_NEWS[post.id];
+
   const siblings = post.problemLog
     ? getAiProblemPosts().filter(
         other =>
@@ -111,6 +116,7 @@ export default async function ProblemPostPage({
           ...post,
           content: loadPostContent(post.id, AI_PROBLEM_CATEGORY),
         }}
+        lead={cardNews && <CardNewsCarousel cards={cardNews} />}
       />
       {post.problemLog ? (
         <ProblemLogSummary

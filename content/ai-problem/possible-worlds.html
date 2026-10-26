@@ -1,0 +1,294 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
+.pw{--ink:#161616;--sub:#6E6A63;--mute:#9A958C;--line:#D6D0C5;--red:#C2412B;--paper:#EEEAE3;--card:#FBFAF6;--hl:#F6DD6B;--sans:Pretendard,system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--serif:"Noto Serif KR",serif;--num:"Instrument Serif",serif;color:var(--ink);font-size:17px;line-height:1.85;letter-spacing:-.01em;word-break:keep-all}
+.dark .pw{--ink:#ECEAE6;--sub:#ABA69D;--mute:#7F7A72;--line:#3B3934;--red:#EC7A62;--card:#1D1C1A;--hl:rgba(246,221,107,.32)}
+.pw *{box-sizing:border-box}
+.pw p{margin:0 0 1.05em}
+.pw b,.pw strong{font-weight:700}
+.pw .v{color:var(--red)}
+.pw .hy{background:linear-gradient(180deg,transparent 58%,var(--hl) 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.pw .kicker{font-size:13.5px;font-weight:700;color:var(--sub);margin:0 0 10px}
+.pw .deck{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.5;letter-spacing:-.04em;margin:0 0 22px}
+.pw .info{width:100%;border-collapse:collapse;border-top:1.5px solid var(--ink);margin:30px 0 8px;font-size:14.5px;line-height:1.6}
+.pw .info th{width:92px;text-align:left;vertical-align:top;font-weight:700;color:var(--sub);padding:10px 12px 10px 0;border-bottom:1px solid var(--line)}
+.pw .info td{padding:10px 0;border-bottom:1px solid var(--line)}
+.pw .toc{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:4px}
+.pw .toc a{display:flex;gap:16px;align-items:baseline;color:var(--ink);text-decoration:none;font-weight:600;font-size:16px}
+.pw .toc a:hover{color:var(--red)}
+.pw .toc i{font-family:var(--num);font-style:italic;font-weight:400;font-size:24px;line-height:1;color:var(--red);width:14px}
+.pw .sec{margin:96px 0 30px;padding-top:22px;border-top:1.5px solid var(--ink);scroll-margin-top:110px}
+.pw .sec .num{font-family:var(--num);font-style:italic;font-size:104px;line-height:.82;color:var(--red);margin:6px 0 0;letter-spacing:-.04em}
+.pw .sec h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.3;letter-spacing:-.05em;margin:18px 0 0}
+.pw .sec .lead{margin:16px 0 0;font-size:17px}
+.pw .sec .small{margin:8px 0 0;font-size:14.5px;color:var(--sub);line-height:1.65}
+.pw h3{display:flex;gap:12px;align-items:baseline;font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.4;letter-spacing:-.04em;margin:60px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.pw h3 .k{flex:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0;color:var(--sub)}
+.pw .plate{max-width:600px;margin:26px auto 8px;padding:18px 20px;background:var(--paper);border-radius:3px;overflow-x:auto}
+.pw .plate svg{display:block;width:100%;max-width:540px;min-width:440px;height:auto;margin:0 auto;overflow:visible}
+.pw .plate + p:not(.cap){margin-top:22px}
+.pw .plate svg text[font-family="SUIT"]{font-family:var(--sans)}
+.pw .cap{font-size:13.5px;line-height:1.6;color:var(--sub);margin:0 0 22px}
+.pw .plate + .cap{max-width:600px;margin-left:auto;margin-right:auto}
+.pw .exam{margin:24px 0;padding:18px 22px;border:1.5px solid var(--ink);background:var(--card);font-family:var(--serif);font-size:16.5px;line-height:1.8;letter-spacing:-.01em}
+.dark .pw .exam{border-color:var(--line)}
+.pw .exam .q{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--sub);margin-bottom:6px}
+.pw .talk{display:grid;gap:12px;margin:22px 0 26px}
+.pw .talk .row{display:flex;gap:14px;align-items:flex-start}
+.pw .talk .who{flex:none;width:40px;padding-top:11px;text-align:right;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .talk .bb{margin:0;padding:10px 18px;border:1.5px solid var(--ink);border-radius:20px;border-top-left-radius:5px;background:var(--card);font-weight:600}
+.dark .pw .talk .bb{border-color:var(--line)}
+.pw .names{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0}
+.pw .names .nm{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.04em;color:var(--red);line-height:1.2;margin:0 0 6px}
+.pw .names p{font-size:15.5px;line-height:1.7;margin:0}
+.pw .quotes{display:grid;grid-template-columns:64px 1fr;gap:6px 14px;margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.7}
+.pw .quotes dt{font-weight:700;color:var(--sub)}
+.pw .quotes dd{margin:0;font-family:var(--serif);color:var(--sub)}
+.pw .rule{display:grid;grid-template-columns:90px 1fr;gap:4px 16px;align-items:baseline;margin:26px 0;padding-top:16px;border-top:1.5px solid var(--ink)}
+.pw .rule .nm{font-family:var(--serif);font-weight:700;font-size:24px;letter-spacing:-.04em;color:var(--red)}
+.pw .rule .say{font-size:13.5px;font-weight:600;color:var(--sub)}
+.pw .rule .ex{grid-column:2;margin:0;font-family:var(--serif);font-size:16px;line-height:1.75}
+.pw .qa{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:20px 0}
+.pw .qa dt{font-weight:700;white-space:nowrap}
+.pw .qa dd{margin:0}
+.pw .sum{display:grid;grid-template-columns:96px 1fr;margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .sum dt,.pw .sum dd{margin:0;padding:11px 0;border-bottom:1px solid var(--line)}
+.pw .sum dt{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:-.04em;color:var(--red)}
+.pw .sum dd{font-weight:600}
+.pw .trap{margin:30px 0;padding:20px 22px;background:var(--card);border:1px solid var(--line)}
+.pw .trap h4{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .trap .ld{margin:0 0 14px;font-size:14.5px;line-height:1.65;color:var(--sub)}
+.pw .trap .opt{display:flex;gap:12px;margin:12px 0 0;font-size:15.5px;line-height:1.7}
+.pw .trap .opt i{flex:none;width:18px;font-style:normal;font-weight:800}
+.pw .trap .opt i.x{color:var(--red)}
+.pw .trap .opt small{display:block;margin-top:3px;font-size:13.5px;color:var(--sub)}
+.pw .ol{list-style:none;margin:12px 0 18px;padding:0;display:grid;gap:8px}
+.pw .ol li{display:flex;gap:14px;align-items:baseline}
+.pw .ol li > i{flex:none;width:14px;font-family:var(--num);font-style:italic;font-size:24px;line-height:1;color:var(--red)}
+.pw .demo{margin:4px 0 22px 28px;padding:12px 16px;background:var(--card);border:1px solid var(--line);font-size:15px;line-height:1.75;color:var(--sub)}
+.pw .arrows{margin:4px 0 22px 28px;display:grid;gap:4px;font-weight:700}
+.pw .arrows span{display:inline-block;min-width:150px}
+.pw .flip{margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .flip .r{padding:16px 0;border-bottom:1px solid var(--line)}
+.pw .flip .a{margin:0;font-family:var(--serif)}
+.pw .flip .b{margin:4px 0 0;font-weight:700}
+.pw .flip .b em{font-style:normal;color:var(--red)}
+.pw .flip .c{margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--sub)}
+.pw .gist{margin:30px 0 0;border-top:1.5px solid var(--ink)}
+.pw .gist p.t{margin:12px 0 4px;font-size:13.5px;font-weight:700;color:var(--sub)}
+.pw .gist dl{display:grid;grid-template-columns:92px 1fr;margin:0}
+.pw .gist dt,.pw .gist dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.7}
+.pw .gist dt{font-weight:700}
+.pw .gist dfn{font-style:normal;font-weight:700}
+.pw .faq{margin:0;border-top:1.5px solid var(--ink)}
+.pw .faq dt{margin:0;padding:16px 0 4px;font-weight:700;font-size:16.5px}
+.pw .faq dd{margin:0;padding:0 0 16px;border-bottom:1px solid var(--line);color:var(--ink)}
+.pw .close{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.35;letter-spacing:-.05em;margin:96px 0 24px;padding-top:22px;border-top:1.5px solid var(--ink)}
+.pw .shot{display:block;width:100%;max-width:520px;border:1.5px solid var(--ink);margin:20px 0 6px}
+.pw .ask{margin:10px 0 18px;padding:14px 18px;border:1.5px solid var(--ink);border-radius:16px;background:var(--card);font-weight:600}
+.dark .pw .ask,.dark .pw .shot{border-color:var(--line)}
+.pw .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.7;color:var(--sub)}
+.pw .foot a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){
+.pw .gist dl{grid-template-columns:1fr}.pw .gist dt{padding-bottom:0;border-bottom:0}
+.pw{font-size:16px;line-height:1.8}
+.pw .deck{font-size:20px}
+.pw .info{font-size:13.5px}.pw .info th{width:76px}
+.pw .sec{margin-top:72px}.pw .sec .num{font-size:80px}.pw .sec h2{font-size:27px}
+.pw h3{flex-direction:column;gap:2px;font-size:20px;margin-top:48px}
+.pw .plate{width:100vw;max-width:none;margin:22px 0 8px calc(50% - 50vw);padding:14px 10px;border-radius:0;overflow:visible}
+.pw .plate svg{min-width:0;max-width:100%}
+.pw .plate + .cap{max-width:none}
+.pw .exam{padding:14px 16px;font-size:15.5px}
+.pw .talk .who{width:32px;font-size:13px}.pw .talk .bb{padding:9px 14px;font-size:15px}
+.pw .names{grid-template-columns:1fr;gap:14px}.pw .names .nm{font-size:23px}
+.pw .quotes{grid-template-columns:1fr;gap:0}.pw .quotes dd{margin-bottom:10px}
+.pw .rule{grid-template-columns:1fr;gap:2px}.pw .rule .ex{grid-column:1;margin-top:6px}
+.pw .qa{grid-template-columns:1fr;gap:2px}.pw .qa dd{margin-bottom:10px}
+.pw .sum{grid-template-columns:76px 1fr}.pw .sum dt{font-size:17px}.pw .sum dd{font-size:15px}
+.pw .trap{padding:16px}.pw .trap .opt{font-size:15px}
+.pw .demo,.pw .arrows{margin-left:0}.pw .arrows span{min-width:118px}
+.pw .flip .a{font-size:15.5px}
+.pw .shot{max-width:100%}
+.pw .close{font-size:24px;margin-top:72px}
+}
+</style>
+
+<div class="pw">
+
+<p class="kicker">SN독학기숙학원 · 수능 국어 독서 읽기 자료 · <time datetime="2026-10-26">2026.10.26</time></p>
+<p class="deck">‘만약 그랬다면’이라는 말은 언제 참이 될까. 2019학년도 수능의 고난도 독서 지문 「가능세계」를 하나의 대회 이야기로 다시 읽는다.</p>
+
+<p>2019학년도 수능 국어 독서의 「가능세계」 지문은 철학·논리학 분야의 대표적인 고난도 지문으로 꼽힌다. 용어가 추상적이고, 닮은 문장이 방향만 바꿔 나란히 놓여 있어서 끝까지 읽고 나서도 무엇을 읽었는지 흐릿해지기 쉽다.</p>
+<p>이 글은 지문 속 개념을 「천하제일 ‘가능’대회」라는 이야기로 옮겨 따라간다. 대회에는 규칙이 넷, 판정 기준이 하나 있다. 그 다섯 가지를 차례로 익힌 뒤, 시험지에서는 왜 유독 어렵게 느껴지는지와 실제 선지에서 어떻게 넘어가는지까지 짚는다.</p>
+
+<div class="gist">
+<p class="t">핵심 정리</p>
+<dl>
+<dt>가능세계</dt><dd><dfn>가능세계</dfn>는 현실과 달리 ‘그럴 수도 있었던’ 세계다. ‘P는 가능하다’는 P가 적어도 하나의 가능세계에서 성립한다는 뜻이고, ‘P는 필연적이다’는 P가 모든 가능세계에서 성립한다는 뜻이다.</dd>
+<dt>네 조건</dt><dd><b>일관성</b>(불가능한 것이 성립하는 세계는 없다), <b>포괄성</b>(가능한 것이 성립하는 세계는 반드시 있다), <b>완결성</b>(모든 명제는 참 또는 거짓이다), <b>독립성</b>(세계끼리 시간과 공간이 이어지지 않는다).</dd>
+<dt>판정 기준</dt><dd>‘만약 그랬다면’처럼 사실과 다른 일을 가정하는 문장은 그 가정이 성립하는 가능세계들 가운데 <b>현실세계와 가장 유사한 세계</b>를 기준으로 참과 거짓을 가린다.</dd>
+</dl>
+</div>
+
+<table class="info">
+<tr><th>지문</th><td>2019학년도 대학수학능력시험 국어 독서 39~42번 「가능세계」</td></tr>
+<tr><th>분야</th><td>인문 · 철학, 논리학</td></tr>
+<tr><th>핵심 개념</th><td>가능세계, 일관성 · 포괄성 · 완결성 · 독립성, 현실세계와의 유사성, 가능과 필연</td></tr>
+<tr><th>다루는 문항</th><td>40번 ④, 41번 ⓐ, 42번 ⑤</td></tr>
+</table>
+
+<ol class="toc">
+<li><a href="#pw-1"><i>1</i>허언과 가능, 그 사이 어딘가</a></li>
+<li><a href="#pw-2"><i>2</i>천하제일 ‘가능’대회</a></li>
+<li><a href="#pw-3"><i>3</i>시험지에선 왜 유독 어렵게 느껴질까</a></li>
+<li><a href="#pw-faq"><i>Q</i>자주 묻는 질문</a></li>
+</ol>
+
+<div class="sec" id="pw-1">
+<p class="num">1</p>
+<h2>허언과 가능, 그 사이 어딘가</h2>
+</div>
+
+<h3><span class="k">말싸움</span>8시 기차를 탔더라면, 정말 안 늦었을까?</h3>
+<p>나는 8시 기차를 놓쳤고 지각했다. 놓친 그 기차는 제시간에 도착했다.</p>
+<div class="talk">
+<div class="row"><span class="who">나</span><p class="bb">“그 기차만 탔으면 안 늦었어.”</p></div>
+<div class="row"><span class="who">친구</span><p class="bb">“8시 기차 탔어도 고장 나서 늦을 수도 있었잖아.”</p></div>
+</div>
+<p>탔으면 제때 도착했을지, 탔어도 늦었을지. 둘 다 확인할 길이 없다. <b>탄 적이 없으니까.</b></p>
+<p class="cap">기차 상황: 2019학년도 수능 국어 독서 지문 3문단</p>
+
+<h3><span class="k">전통 논리학의 조건문</span>논리학도 못 가린다</h3>
+<div class="exam"><span class="q">지문 3문단 · 전통 논리학의 규칙</span>전통 논리학에서는 “만약 A이면 B이다.”라는 형식의 명제는 <span class="hy">A가 거짓인 경우에는 B의 참 거짓에 상관없이 참이라고 규정한다.</span></div>
+<p>그러면 이렇게 된다. 실제로는 기차를 안 탔으니 앞부분 ‘만약 탔으면’은 거짓이다.</p>
+<div class="plate"><svg viewBox="0 0 896 286" role="img" aria-label="만약 탔으면 뒤에 안 늦었다, 그래도 늦었다, 하늘을 날았다가 모두 참이 되는 그림"><rect x="1" y="98" width="256" height="78" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="129" y="149" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="36" fill="#161616">‘만약 탔으면’</text><path d="M258,137 C320,137 320,36 382,36" fill="none" stroke="#6E6A63" stroke-width="2.5"/><path d="M372,28 L384,36 L372,44" fill="none" stroke="#6E6A63" stroke-width="2.5" stroke-linecap="round"/><text x="400" y="49" text-anchor="start" font-family="SUIT" font-weight="700" font-size="36" fill="#161616">‘안 늦었다’</text><g transform="rotate(-6 760 36)"><rect x="728" y="10" width="64" height="50" rx="8" fill="none" stroke="#C2412B" stroke-width="2.5"/></g><text x="760" y="47" text-anchor="middle" font-family="Noto Serif KR" font-weight="800" font-size="30" fill="#C2412B">참</text><path d="M258,137 C320,137 320,137 382,137" fill="none" stroke="#6E6A63" stroke-width="2.5"/><path d="M372,129 L384,137 L372,145" fill="none" stroke="#6E6A63" stroke-width="2.5" stroke-linecap="round"/><text x="400" y="150" text-anchor="start" font-family="SUIT" font-weight="700" font-size="36" fill="#161616">‘(그래도) 늦었다’</text><g transform="rotate(-6 760 137)"><rect x="728" y="111" width="64" height="50" rx="8" fill="none" stroke="#C2412B" stroke-width="2.5"/></g><text x="760" y="148" text-anchor="middle" font-family="Noto Serif KR" font-weight="800" font-size="30" fill="#C2412B">참</text><path d="M258,137 C320,137 320,238 382,238" fill="none" stroke="#6E6A63" stroke-width="2.5" stroke-dasharray="7 7"/><path d="M372,230 L384,238 L372,246" fill="none" stroke="#6E6A63" stroke-width="2.5" stroke-linecap="round"/><text x="400" y="251" text-anchor="start" font-family="SUIT" font-weight="700" font-size="36" fill="#161616">‘하늘을 날았다’</text><g transform="rotate(-6 760 238)"><rect x="728" y="212" width="64" height="50" rx="8" fill="none" stroke="#C2412B" stroke-width="2.5"/></g><text x="760" y="249" text-anchor="middle" font-family="Noto Serif KR" font-weight="800" font-size="30" fill="#C2412B">참</text><g transform="rotate(-6 129 221)"><rect x="87" y="196" width="84" height="50" rx="8" fill="none" stroke="#2F5BA6" stroke-width="2.5"/></g><text x="129" y="232" text-anchor="middle" font-family="Noto Serif KR" font-weight="800" font-size="30" fill="#2F5BA6">거짓</text><text x="129" y="276" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">실제로는 안 탔다</text></svg></div>
+<p class="cap">‘참’ 도장은 ‘만약 탔으면 ○○’ 문장 전체에 찍힌 것이다. 뒷말이 참이라는 뜻이 아니다.</p>
+<p>셋 다 참이 돼 버린다. 하늘을 날았다는 허언까지. ‘만약 탔으면’ 뒤에 무슨 말을 붙여도 그 문장은 참이 되니, 이대로는 <b>판정이 안 난다.</b> 지문이 전통 논리학을 넘어 가능세계라는 도구를 꺼내는 이유가 여기에 있다.</p>
+
+<div class="sec" id="pw-2">
+<p class="num">2</p>
+<h2>천하제일 ‘가능’대회</h2>
+<p class="lead">그래서 대회를 열기로 했다. 참가자는 ‘그럴 수도 있었던 이야기’들이고, 현실도 그중 하나로 나온다.</p>
+<p class="small">철학자들은 이 ‘가능’한 이야기들을 ‘가능세계’라고 부른다. 대회 규칙은 2019학년도 수능 국어 지문(39~42번)에서 가져왔다. 아래에서 가능대회는 가능세계 전체, 참가 이야기 하나는 가능세계 하나를 뜻한다.</p>
+</div>
+
+<h3><span class="k">규칙 1 · 2 · 일관성과 포괄성</span>하나씩 보고, 빠짐없이 넣는다</h3>
+<div class="plate"><svg viewBox="0 0 896 410" role="img" aria-label="천하제일 가능대회 예선장 그림. 탔으면서 안 탄 이야기는 탈락, 기차가 고장 난 이야기는 줄을 선다"><rect x="1" y="1" width="894" height="408" fill="#F4F1EA" stroke="#161616" stroke-width="1.5"/><path d="M0,10 L896,10" stroke="#161616" stroke-width="1.5"/><path d="M10,10 L46,10 L28,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M54,10 L90,10 L72,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M98,10 L134,10 L116,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M142,10 L178,10 L160,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M186,10 L222,10 L204,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M230,10 L266,10 L248,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M274,10 L310,10 L292,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M318,10 L354,10 L336,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M362,10 L398,10 L380,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M406,10 L442,10 L424,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M450,10 L486,10 L468,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M494,10 L530,10 L512,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M538,10 L574,10 L556,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M582,10 L618,10 L600,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M626,10 L662,10 L644,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M670,10 L706,10 L688,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M714,10 L750,10 L732,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M758,10 L794,10 L776,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M802,10 L838,10 L820,36 Z" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><path d="M846,10 L882,10 L864,36 Z" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><rect x="300" y="46" width="460" height="56" fill="#C2412B" stroke="#161616" stroke-width="2"/><text x="530" y="85" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="31" fill="#FBFAF6">천하제일 ‘가능’대회 예선</text><path d="M0,388 L896,388" stroke="#161616" stroke-width="2"/><path d="M778,388 L778,226 Q828,170 878,226 L878,388" fill="#FBFAF6" stroke="#161616" stroke-width="3"/><rect x="786" y="150" width="84" height="40" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="828" y="180" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="27" fill="#161616">대회장</text><g transform="translate(828 388) scale(0.72 0.72)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="4.17" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="4.17" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="4.17" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="4.17" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="4.17" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-8 828 250)"><rect x="776" y="223" width="104" height="54" rx="8" fill="#FBFAF6" stroke="#161616" stroke-width="4"/><text x="828" y="262" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="34" fill="#161616">통과</text></g><g transform="translate(300 388) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-17" y="-92" width="34" height="44" fill="#FFFFFF" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-10,-80 L10,-80 M-10,-70 L10,-70 M-10,-60 L4,-60" fill="none" stroke="#9A958C" stroke-width="2.50"/><path d="M-21,-90 Q-30,-74 -17,-66 M21,-90 Q30,-74 17,-66" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(360 388) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-17" y="-92" width="34" height="44" fill="#FFFFFF" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-10,-80 L10,-80 M-10,-70 L10,-70 M-10,-60 L4,-60" fill="none" stroke="#9A958C" stroke-width="2.50"/><path d="M-21,-90 Q-30,-74 -17,-66 M21,-90 Q30,-74 17,-66" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(420 388) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-17" y="-92" width="34" height="44" fill="#FFFFFF" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-10,-80 L10,-80 M-10,-70 L10,-70 M-10,-60 L4,-60" fill="none" stroke="#9A958C" stroke-width="2.50"/><path d="M-21,-90 Q-30,-74 -17,-66 M21,-90 Q30,-74 17,-66" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(500 388) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-109 Q0,-115 6,-109" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-8 500 334)"><rect x="463" y="315" width="74" height="38" rx="6" fill="#C2412B" stroke="#161616" stroke-width="1.5"/><text x="500" y="343" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="27" fill="#FBFAF6">모순</text></g><rect x="388.5" y="112" width="223" height="92" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="500" y="159" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">탔으면서</text><text x="500" y="192" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">안 탄 이야기</text><g transform="translate(652 334) scale(0.9 0.9)"><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><path d="M20,-90 L42,-122 M-20,-88 L-44,-70" fill="none" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><rect x="32" y="-150" width="22" height="16" rx="3" fill="#161616" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><rect x="28" y="-134" width="30" height="8" fill="#C2412B" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><rect x="-76" y="-84" width="40" height="30" fill="#FBFAF6" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-10 -56 -69)"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><path d="M-22,-128 Q0,-158 22,-128 Z" fill="#C2412B" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><path d="M14,-131 L34,-129" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="560" y="300" width="186" height="88" fill="#FBFAF6" stroke="#161616" stroke-width="2.5"/><text x="653" y="356" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">예선 심사</text><g transform="rotate(-10 556 238)"><rect x="504" y="211" width="104" height="54" rx="8" fill="#FBFAF6" stroke="#C2412B" stroke-width="4"/><text x="556" y="250" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="34" fill="#C2412B">탈락</text></g><path d="M36,144 L66,254 L68,144" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><rect x="10" y="46" width="250" height="98" rx="20" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M38,143 L66,143" stroke="#FBFAF6" stroke-width="3"/><text x="135.0" y="94" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">가능한 이야기는</text><text x="135.0" y="130" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">빠짐없이 줄 서!</text><g transform="translate(70 388) scale(0.85 0.85)"><path d="M-9,-42 L-14,0 M9,-42 L18,-2" fill="none" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-88 Q-32,-70 -24,-56 M20,-90 L104,-98" fill="none" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><circle cx="108" cy="-98" r="7" fill="#FBFAF6" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><rect x="44" y="-102" width="16" height="10" fill="#C2412B" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-6 52 -97)"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><path d="M-22,-128 Q0,-158 22,-128 Z" fill="#C2412B" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><path d="M14,-131 L34,-129" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(204 388) scale(-0.85 0.85)"><path d="M-6,-44 L-24,-14 L-40,-12 M8,-44 L20,-20 L30,0" fill="none" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(14 0 -70)"><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><path d="M-18,-88 L-40,-100 M18,-88 L38,-74" fill="none" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><rect x="30" y="-90" width="26" height="32" fill="#FFFFFF" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-3,-111 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" fill="none" stroke="#161616" stroke-width="3.53" stroke-linecap="round" stroke-linejoin="round"/></g></g><rect x="79.0" y="160" width="250" height="92" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="204" y="207" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">기차가 고장 난</text><text x="204" y="240" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">이야기</text></svg></div>
+<p class="cap">예선장. ‘탔으면서 안 탄 이야기’는 모순으로 탈락하고, ‘기차가 고장 난 이야기’는 줄을 선다.</p>
+<div class="names">
+<div><p class="nm">일관성</p><p>서류를 하나씩 보고, <span class="hy">불가능한 이야기는 뺀다.</span></p></div>
+<div><p class="nm">포괄성</p><p><span class="hy">가능한 이야기는 모두 넣는다.</span> 하나도 못 빠진다.</p></div>
+</div>
+<p>일관성만으로는 다 들어오지 않는다. 다 넣는 건 포괄성이 하는 일이다. 두 규칙은 닮았지만 방향이 반대다. 일관성은 문을 막고, 포괄성은 문을 연다.</p>
+<dl class="quotes">
+<dt>일관성</dt><dd>“가능세계는 명칭 그대로 가능한 세계이므로 어떤 것이 가능하지 않다면 그것이 성립하는 가능세계는 없다.”</dd>
+<dt>포괄성</dt><dd>“어떤 것이 가능하다면 그것이 성립하는 가능세계는 존재한다.”</dd>
+</dl>
+
+<h3><span class="k">규칙 3 · 완결성</span>참가작은 현실처럼 다 정해져 있다</h3>
+<p>소설은 주인공 혈액형을 안 정해도 된다. 현실은 다르다. 기차 이야기에 안 나와도 그날 코스피는 정해져 있었다. 참가작도 현실 쪽이다. 아무 문장이나 짚으면 참 또는 거짓이 나온다.</p>
+<div class="plate"><svg viewBox="0 0 896 232" role="img" aria-label="참가작 속 문장마다 참 또는 거짓이 정해져 있는 그림"><path d="M448,22 Q300,0 40,18 L40,218 Q300,198 448,224 Q596,198 856,218 L856,18 Q596,0 448,22 Z" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><path d="M448,22 L448,224" stroke="#161616" stroke-width="1.5"/><text x="76" y="72" text-anchor="start" font-family="SUIT" font-weight="600" font-size="29" fill="#161616">그날 비가 왔다.</text><path d="M420,63 L486,63" stroke="#9A958C" stroke-width="1.5" stroke-dasharray="4 6"/><rect x="500" y="40" width="96" height="44" rx="22" fill="none" stroke="#C2412B" stroke-width="2.5"/><text x="548.0" y="71" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="29" fill="#C2412B">거짓</text><text x="76" y="126" text-anchor="start" font-family="SUIT" font-weight="600" font-size="29" fill="#161616">기관사는 아침을 먹었다.</text><path d="M420,117 L486,117" stroke="#9A958C" stroke-width="1.5" stroke-dasharray="4 6"/><rect x="500" y="94" width="66" height="44" rx="22" fill="none" stroke="#C2412B" stroke-width="2.5"/><text x="533.0" y="125" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="29" fill="#C2412B">참</text><text x="76" y="180" text-anchor="start" font-family="SUIT" font-weight="600" font-size="29" fill="#161616">옆자리 승객은 졸았다.</text><path d="M420,171 L486,171" stroke="#9A958C" stroke-width="1.5" stroke-dasharray="4 6"/><rect x="500" y="148" width="66" height="44" rx="22" fill="none" stroke="#C2412B" stroke-width="2.5"/><text x="533.0" y="179" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="29" fill="#C2412B">참</text></svg></div>
+<p>그래서 ‘기차를 탔다’는 참가작 하나가 아니다. <span class="hy">날씨만 다른 판, 코스피만 다른 판이 따로따로 다 들어와 있다.</span></p>
+<dl class="qa">
+<dt>‘모른다’는?</dt><dd>우리 사정이다. 우리가 모르는 건 어느 이야기가 현실인가뿐이다.</dd>
+<dt>참이면서 거짓인 문장은?</dt><dd>그런 모순된 이야기는 일관성에서 이미 빠졌다.</dd>
+</dl>
+<div class="rule"><span class="nm">완결성</span><span class="say">지문은 이 규칙을 이렇게 부른다.</span><p class="ex">“어느 세계에서든 임의의 명제 P에 대해 ‘P이거나 ～P이다.’라는 배중률이 성립한다.”</p></div>
+
+<h3><span class="k">규칙 4 · 독립성</span>이야기는 다른 이야기를 침범할 수 없다</h3>
+<div class="plate"><svg viewBox="0 0 896 336" role="img" aria-label="세 이야기가 각자 다른 공 안에 있고 서로 이어지지 않는 그림"><circle cx="150" cy="130" r="118" fill="#FBFAF6" fill-opacity=".55" stroke="#161616" stroke-width="2"/><path d="M80,70 Q90,40 120,30" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/><g transform="translate(150 214) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-17" y="-90" width="34" height="40" fill="#C2412B" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-21,-90 Q-30,-74 -17,-66 M21,-90 Q30,-74 17,-66" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><text x="150" y="290" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">기차를 타고</text><text x="150" y="324" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">제시간에 온 이야기</text><circle cx="448" cy="130" r="118" fill="#FBFAF6" fill-opacity=".55" stroke="#161616" stroke-width="2"/><path d="M378,70 Q388,40 418,30" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/><g transform="translate(448 214) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-17" y="-90" width="34" height="40" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-21,-90 Q-30,-74 -17,-66 M21,-90 Q30,-74 17,-66" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><text x="448" y="290" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">기차를 놓친</text><text x="448" y="324" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">이야기(현실)</text><circle cx="746" cy="130" r="118" fill="#FBFAF6" fill-opacity=".55" stroke="#161616" stroke-width="2"/><path d="M676,70 Q686,40 716,30" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/><g transform="translate(746 214) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-17" y="-90" width="34" height="40" fill="#C2412B" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-21,-90 Q-30,-74 -17,-66 M21,-90 Q30,-74 17,-66" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><text x="746" y="290" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">기차가 고장 난</text><text x="746" y="324" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">이야기</text><path d="M281,118 L317,142 M317,118 L281,142" stroke="#C2412B" stroke-width="4" stroke-linecap="round"/><path d="M579,118 L615,142 M615,118 L579,142" stroke="#C2412B" stroke-width="4" stroke-linecap="round"/></svg></div>
+<p>이야기 하나는 처음부터 끝까지 모든 시간과 공간을 다 가진다. 그래서 <span class="hy">한 이야기에서 다른 이야기로 가는 길이 아예 없다.</span> 기차를 탄 이야기의 기차가 놓친 이야기의 역에 설 수는 없다.</p>
+<div class="rule"><span class="nm">독립성</span><span class="say">지문은 이 규칙을 이렇게 부른다.</span><p class="ex">“한 가능세계 W<sub>1</sub>의 시간과 공간이, 다른 가능세계 W<sub>2</sub>의 시간과 공간으로 이어질 수는 없다.”</p></div>
+
+<h3><span class="k">정리</span>규칙 넷, 한 장으로</h3>
+<div class="plate"><svg viewBox="0 0 896 450" role="img" aria-label="모든 이야기 가운데 가능한 이야기의 원과 대회 점선이 겹치는 그림"><rect x="1" y="1" width="894" height="448" fill="none" stroke="#161616" stroke-width="1.5"/><text x="24" y="44" text-anchor="start" font-family="SUIT" font-weight="700" font-size="28" fill="#6E6A63">모든 이야기</text><circle cx="320" cy="240" r="196" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><circle cx="320" cy="240" r="204" fill="none" stroke="#C2412B" stroke-width="3" stroke-dasharray="12 10"/><rect x="260.0" y="76" width="120" height="55" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="320" y="123" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">현실</text><rect x="195.0" y="140" width="250" height="92" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="320" y="187" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">기차가 고장 난</text><text x="320" y="220" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">이야기</text><rect x="195.0" y="250" width="250" height="92" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="320" y="297" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">다보탑이 개성에</text><text x="320" y="330" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">있는 이야기</text><text x="320" y="392" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">가능한 이야기</text><path d="M470,412 L454,397" stroke="#C2412B" stroke-width="2"/><text x="472" y="438" text-anchor="start" font-family="SUIT" font-weight="700" font-size="27" fill="#C2412B">점선 = 대회(가능세계)</text><rect x="618.5" y="56" width="223" height="92" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="730" y="103" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">탔으면서</text><text x="730" y="136" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">안 탄 이야기</text><path d="M690,182 L770,252 M770,182 L690,252" stroke="#C2412B" stroke-width="5" stroke-linecap="round"/><text x="730" y="294" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#C2412B">못 나온다</text><text x="730" y="330" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">(일관성)</text></svg></div>
+<p class="cap">점선인 대회(가능세계)가 원과 딱 겹친다. 원 안은 하나도 안 빠지고(포괄성), 원 밖은 하나도 안 들어온다(일관성).</p>
+<dl class="sum">
+<dt>일관성</dt><dd>불가능한 이야기는 뺀다.</dd>
+<dt>포괄성</dt><dd>가능한 이야기는 모두 넣는다.</dd>
+<dt>완결성</dt><dd>어떤 문장이든 참 또는 거짓이 정해져 있다.</dd>
+<dt>독립성</dt><dd>다른 이야기를 침범할 수 없다.</dd>
+</dl>
+
+<h3><span class="k">판정 · 현실세계와의 유사성</span>현실과 가장 닮은 이야기가 힘을 얻는다</h3>
+<p>대회가 열렸으니 이제 1부의 말싸움에 판정을 내릴 수 있다. ‘탔으면 어떻게 됐을까’는 기차를 탄 이야기들 가운데 <b>현실과 가장 닮은 이야기</b>가 정한다.</p>
+<div class="plate"><svg viewBox="0 0 896 176" role="img" aria-label="현실, 탄 이야기 A, 탄 이야기 B를 현실과의 거리로 잇는 선"><path d="M80,72 L330,72" stroke="#C2412B" stroke-width="4"/><path d="M330,72 L740,72" stroke="#9A958C" stroke-width="2.5" stroke-dasharray="8 8"/><circle cx="80" cy="72" r="14" fill="#161616"/><circle cx="330" cy="72" r="14" fill="#C2412B"/><circle cx="740" cy="72" r="14" fill="#FBFAF6" stroke="#9A958C" stroke-width="3"/><text x="80" y="38" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">현실</text><text x="330" y="38" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">탄 이야기 A</text><text x="740" y="38" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#6E6A63">탄 이야기 B</text><text x="205" y="62" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#C2412B">가깝다</text><text x="535" y="62" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">멀다</text><text x="40" y="124" text-anchor="start" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">기차는</text><text x="40" y="158" text-anchor="start" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">제시간에 왔다</text><text x="330" y="124" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="27" fill="#C2412B">별다른 이변 없이</text><text x="330" y="158" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="27" fill="#C2412B">제시간 도착, 안 늦음</text><text x="740" y="124" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">고장으로 멈춤,</text><text x="740" y="158" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">늦음</text></svg></div>
+<p>친구 말처럼 고장 나 늦는 이야기도 대회(가능세계)에 있다. 하지만 현실과 더 닮은 건 A다. 그래서 <b class="v">‘탔으면 안 늦었다’</b>가 우세하다.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 41번</h4>
+<p class="ld">ⓐ “내가 만약 그 기차를 탔다면 여전히 지각을 했을 것이라고 주장하지는 않는 이유는 무엇일까?”</p>
+<p class="opt"><i>○</i><span>“내가 그 기차를 탄 가능세계들끼리 비교할 때 내가 지각을 한 가능세계가 내가 지각을 하지 않은 가능세계에 비해 현실세계와의 유사성이 더 낮기 때문이다.”<small>현실과 닮은 정도로 답했다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>“내가 그 기차를 탄 가능세계들끼리 비교할 때 그 가능세계들의 대다수에서 내가 지각을 하지 않았기 때문이다.”<small>다수결로 답했다. 이 대회는 다수결이 아니다.</small></span></p>
+</div>
+
+<div class="sec" id="pw-3">
+<p class="num">3</p>
+<h2>시험지에선 왜 유독 어렵게 느껴질까</h2>
+<p class="lead">규칙을 이해했는데도 문제가 안 풀리는 데는 이유가 있다.</p>
+</div>
+
+<h3><span class="k">까닭</span>한눈에 읽히지 않게 쓰였다</h3>
+<ol class="ol">
+<li><i>1</i><span>규칙은 이름만으로는 뜻이 안 보인다(너무 추상적).</span></li>
+<li><i>2</i><span>닮은 문장이 방향만 바꿔 나란히 있다(일관성과 포괄성).</span></li>
+<li><i>3</i><span>선지는 그 문장이 <b>직접적으로 말하지 않는 것</b>을 묻는다.</span></li>
+</ol>
+
+<h3><span class="k">넘어가는 법</span>예시에서 출발해 개념으로</h3>
+<ol class="ol"><li><i>1</i><span>이해가 잘 되는 예시에서 출발해 개념으로 이어 본다.</span></li></ol>
+<div class="demo"><b class="v">예시</b> 1문단 다보탑: 경주에 있으면서 없는 세계는 없다. 그런 일은 애초에 불가능하니까.<br>→ 4문단 일관성: 불가능한 일이 성립하는 세계는 없다.</div>
+<ol class="ol"><li><i>2</i><span>어려운 용어나 개념은 화살표로 정리하면서, 본문에서는 동그라미를 쳐 둔다.</span></li></ol>
+<div class="arrows"><p style="margin:0"><span>이야기 성립 불가</span> → <b class="v">일관성 없음</b></p><p style="margin:0"><span>이야기 성립 가능</span> → <b class="v">포괄성 대상</b></p></div>
+<ol class="ol"><li><i>3</i><span>선지에서 그 용어나 개념을 만나면, 내 말로 정리한 화살표를 먼저 보고, 동그라미 친 자리로 가서 앞뒤 문장을 읽어 본다.</span></li></ol>
+
+<h3><span class="k">실제 선지로</span>선지는 문장이 말하지 않는 것을 묻는다</h3>
+<div class="exam"><span class="q">42번 [3점] 윗글을 참고할 때, &lt;보기&gt;를 이해한 내용으로 적절한 것은?</span>⑤ 가능세계의 일관성에 따르면, 학생들 중 절반은 연필을 쓰고 절반은 연필을 쓰지 않는 가능세계가 존재하겠군.</div>
+<p>학생들 중 절반만 연필을 쓰는 반은 <b>불가능한 이야기가 아니다.</b> 그러니 일관성은 이 이야기에 대해 할 말이 없다.</p>
+<p>대회에 있다고, 곧 그런 가능세계가 존재한다고 말해 주는 건 <b class="v">포괄성</b>이다. ⑤는 규칙 이름을 바꿔 댔다.</p>
+<dl class="sum">
+<dt>일관성</dt><dd>불가능한 이야기만 다룬다. → <span class="v">가능대회 참가 불가</span></dd>
+<dt>포괄성</dt><dd>가능한 이야기는 다 포함시킨다. → <span class="v">가능대회 참가 필수</span></dd>
+</dl>
+<p class="cap">2019학년도 수능 국어 42번 선지 ⑤, 정답은 ④</p>
+
+<h3><span class="k">부정</span>‘모두 그렇다’의 부정은 ‘어떤 것은 아니다’</h3>
+<div class="exam"><span class="q">지문 2문단</span>‘P는 가능하다’는 P가 적어도 하나의 가능세계에서 성립한다는 뜻이며, ‘P는 필연적이다’는 P가 모든 가능세계에서 성립한다는 뜻이다.</div>
+<p><b>‘모든’</b>과 <b>‘어떤(적어도 하나)’</b>이 이 짝이다. 부정하면 둘이 자리를 바꾼다.</p>
+<div class="flip">
+<div class="r"><p class="a">“모든 학생은 연필을 쓴다.”</p><p class="b">부정하면 → “<em>어떤 학생은</em> 연필을 쓰지 않는다.”</p><p class="c">한 명이라도 안 쓰면 된다. “어떤 학생도 연필을 쓰지 않는다.”는 부정이 아니라 반대쪽 끝이다. 42번 &lt;보기&gt;는 이 둘을 ‘반대 관계’라고 부른다.</p></div>
+<div class="r"><p class="a">거꾸로도 된다. “다보탑은 개성에 있을 수도 있었다.”(㉡)</p><p class="b">부정하면 → 다보탑은 <em>모든 가능세계에서</em> 개성에 없다.</p><p class="c">‘개성에 없을 수도 있다’가 아니다. 40번 ④는 같은 말을 “만약 ㉡이 거짓이라면 어떤 가능세계에서도 다보탑이 개성에 있지 않다.”로 썼다.</p></div>
+</div>
+
+<p class="close">후회는 곧 ‘가능’대회 참가일까?</p>
+<p>“그때 그 기차만 탔더라면.” 후회 속 그 이야기도 가능하다면 이미 가능대회 참가 중이다(포괄성).</p>
+<p>판정은 현실과 가장 닮은 이야기 몫이다. 이 판정단, ‘별다른 이변 없이’를 참 좋아한다. 낭만은 없다.</p>
+<p>그러니 후회에 너무 오래 머물지 말자. 판정단이 정하는 건 ‘그랬다면 어떻게 됐을까’까지다. <span class="hy">앞으로의 이야기가 늘 지금과 닮게 흘러가는 것은 아니니까.</span></p>
+
+<div class="sec" id="pw-faq">
+<h2>자주 묻는 질문</h2>
+</div>
+<dl class="faq">
+<dt>가능세계란 무엇인가요?</dt><dd>가능세계는 현실과 달리 ‘그럴 수도 있었던’ 세계를 말합니다. 2019학년도 수능 국어 39~42번 지문은 ‘P는 가능하다’를 P가 적어도 하나의 가능세계에서 성립한다는 뜻으로, ‘P는 필연적이다’를 P가 모든 가능세계에서 성립한다는 뜻으로 설명합니다.</dd>
+<dt>가능세계의 일관성과 포괄성은 어떻게 다른가요?</dt><dd>일관성은 가능하지 않은 것이 성립하는 가능세계는 없다는 조건이고, 포괄성은 가능한 것이라면 그것이 성립하는 가능세계가 반드시 존재한다는 조건입니다. 일관성은 불가능한 이야기를 빼고, 포괄성은 가능한 이야기를 빠짐없이 넣습니다.</dd>
+<dt>가능세계의 완결성과 독립성은 무엇인가요?</dt><dd>완결성은 어느 가능세계에서든 임의의 명제 P에 대해 ‘P이거나 ~P이다’라는 배중률이 성립한다는 조건으로, 모든 문장의 참과 거짓이 정해져 있다는 뜻입니다. 독립성은 한 가능세계의 시간과 공간이 다른 가능세계의 시간과 공간으로 이어질 수 없다는 조건입니다.</dd>
+<dt>전통 논리학으로는 왜 ‘만약 기차를 탔다면’ 문장을 판정할 수 없나요?</dt><dd>전통 논리학은 ‘만약 A이면 B이다’에서 A가 거짓이면 B의 참 거짓과 상관없이 문장 전체를 참으로 봅니다. 실제로 기차를 타지 않았다면 ‘탔다면 안 늦었다’와 ‘탔다면 늦었다’가 모두 참이 되어 둘을 구별할 수 없습니다.</dd>
+<dt>‘만약 기차를 탔다면’ 같은 문장은 가능세계로 어떻게 판정하나요?</dt><dd>가정이 성립하는 가능세계들, 예를 들어 기차를 탄 세계들 가운데 현실세계와 가장 유사한 세계에서 결과가 성립하는지를 봅니다. 기차를 탄 세계 중 별다른 이변 없이 제시간에 도착한 세계가 현실과 더 닮았으므로 ‘탔다면 안 늦었다’가 참이 됩니다. 기준은 다수결이 아니라 유사성이며, 41번이 이 점을 묻습니다.</dd>
+<dt>2019 수능 국어 42번 선지 ⑤는 왜 틀렸나요?</dt><dd>학생들 중 절반만 연필을 쓰는 상황은 불가능한 일이 아니므로 일관성은 이에 대해 말해 주지 않습니다. 그런 가능세계가 존재한다고 보장하는 것은 포괄성입니다. ⑤는 규칙 이름을 바꿔 쓴 선지이며, 42번의 정답은 ④입니다.</dd>
+<dt>‘모든 학생은 연필을 쓴다’를 부정하면 어떻게 되나요?</dt><dd>‘어떤 학생은 연필을 쓰지 않는다’가 됩니다. ‘어떤 학생도 연필을 쓰지 않는다’는 부정이 아니라 반대 관계입니다. 같은 원리로 ‘다보탑은 개성에 있을 수도 있었다’를 부정하면 ‘모든 가능세계에서 다보탑은 개성에 없다’가 됩니다.</dd>
+</dl>
+
+<h3><span class="k">SNarGPT</span>이번 편의 기출은 SNarGPT로 찾았다</h3>
+<img class="shot" src="/images/problems/possible-worlds/snar-answer.png" alt="SNarGPT가 2019학년도 수능 국어 39~42번 가능세계 지문을 찾아 준 답 화면" loading="lazy">
+<p class="cap">형광펜 친 줄이 이번 편의 기출이다.</p>
+<p style="margin:18px 0 0;font-weight:700">이렇게 물어보세요</p>
+<p class="ask">국어 지문 중 ‘가능세계’에 대해 나왔던 기출 좀 찾아서 보여줄래?</p>
+
+<div class="foot">
+<p style="margin:0">※ 지문과 문항 인용은 2019학년도 대학수학능력시험 국어영역(한국교육과정평가원) 39~42번에서 가져왔다.</p>
+<p style="margin:4px 0 0"><a href="https://snargpt.ai/" target="_blank" rel="noopener noreferrer">snargpt.ai</a> · 다음 읽을거리는 인스타그램 <a href="https://www.instagram.com/snargpt/" target="_blank" rel="noopener noreferrer">@snargpt</a>에서 먼저 볼 수 있다.</p>
+</div>
+
+</div>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "가능세계란 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "가능세계는 현실과 달리 ‘그럴 수도 있었던’ 세계를 말합니다. 2019학년도 수능 국어 39~42번 지문은 ‘P는 가능하다’를 P가 적어도 하나의 가능세계에서 성립한다는 뜻으로, ‘P는 필연적이다’를 P가 모든 가능세계에서 성립한다는 뜻으로 설명합니다."}}, {"@type": "Question", "name": "가능세계의 일관성과 포괄성은 어떻게 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "일관성은 가능하지 않은 것이 성립하는 가능세계는 없다는 조건이고, 포괄성은 가능한 것이라면 그것이 성립하는 가능세계가 반드시 존재한다는 조건입니다. 일관성은 불가능한 이야기를 빼고, 포괄성은 가능한 이야기를 빠짐없이 넣습니다."}}, {"@type": "Question", "name": "가능세계의 완결성과 독립성은 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "완결성은 어느 가능세계에서든 임의의 명제 P에 대해 ‘P이거나 ~P이다’라는 배중률이 성립한다는 조건으로, 모든 문장의 참과 거짓이 정해져 있다는 뜻입니다. 독립성은 한 가능세계의 시간과 공간이 다른 가능세계의 시간과 공간으로 이어질 수 없다는 조건입니다."}}, {"@type": "Question", "name": "전통 논리학으로는 왜 ‘만약 기차를 탔다면’ 문장을 판정할 수 없나요?", "acceptedAnswer": {"@type": "Answer", "text": "전통 논리학은 ‘만약 A이면 B이다’에서 A가 거짓이면 B의 참 거짓과 상관없이 문장 전체를 참으로 봅니다. 실제로 기차를 타지 않았다면 ‘탔다면 안 늦었다’와 ‘탔다면 늦었다’가 모두 참이 되어 둘을 구별할 수 없습니다."}}, {"@type": "Question", "name": "‘만약 기차를 탔다면’ 같은 문장은 가능세계로 어떻게 판정하나요?", "acceptedAnswer": {"@type": "Answer", "text": "가정이 성립하는 가능세계들, 예를 들어 기차를 탄 세계들 가운데 현실세계와 가장 유사한 세계에서 결과가 성립하는지를 봅니다. 기차를 탄 세계 중 별다른 이변 없이 제시간에 도착한 세계가 현실과 더 닮았으므로 ‘탔다면 안 늦었다’가 참이 됩니다. 기준은 다수결이 아니라 유사성이며, 41번이 이 점을 묻습니다."}}, {"@type": "Question", "name": "2019 수능 국어 42번 선지 ⑤는 왜 틀렸나요?", "acceptedAnswer": {"@type": "Answer", "text": "학생들 중 절반만 연필을 쓰는 상황은 불가능한 일이 아니므로 일관성은 이에 대해 말해 주지 않습니다. 그런 가능세계가 존재한다고 보장하는 것은 포괄성입니다. ⑤는 규칙 이름을 바꿔 쓴 선지이며, 42번의 정답은 ④입니다."}}, {"@type": "Question", "name": "‘모든 학생은 연필을 쓴다’를 부정하면 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "‘어떤 학생은 연필을 쓰지 않는다’가 됩니다. ‘어떤 학생도 연필을 쓰지 않는다’는 부정이 아니라 반대 관계입니다. 같은 원리로 ‘다보탑은 개성에 있을 수도 있었다’를 부정하면 ‘모든 가능세계에서 다보탑은 개성에 없다’가 됩니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "2019 수능 국어 「가능세계」 쉽게 읽기: 일관성·포괄성·완결성·독립성", "url": "https://blog.snacademy.co.kr/problems/possible-worlds", "inLanguage": "ko", "learningResourceType": "읽기 자료", "educationalLevel": "고등학교", "audience": {"@type": "EducationalAudience", "educationalRole": "student"}, "teaches": ["가능세계", "일관성", "포괄성", "완결성", "독립성", "배중률", "현실세계와의 유사성", "가능과 필연"], "about": {"@type": "Thing", "name": "가능세계"}, "isBasedOn": {"@type": "CreativeWork", "name": "2019학년도 대학수학능력시험 국어영역 독서 39~42번 「가능세계」", "publisher": {"@type": "Organization", "name": "한국교육과정평가원"}}, "author": {"@type": "Organization", "name": "SN독학기숙학원", "url": "https://blog.snacademy.co.kr"}, "datePublished": "2026-10-26", "image": "https://blog.snacademy.co.kr/images/problems/possible-worlds/thumbnail.jpg"}</script>

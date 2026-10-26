@@ -27,6 +27,7 @@ interface ProblemsFeedProps {
 // 칼럼 → 해설 → 자료실 순. 이슈·개발기는 글이 생기면 뒤에 붙는다
 const FEED_TYPES: ProblemContentType[] = [
   'column',
+  'reading',
   'solution',
   'resource',
   'issue',
@@ -69,15 +70,19 @@ export default function ProblemsFeed({ items, subjects }: ProblemsFeedProps) {
         <div className="flex gap-2 md:flex-wrap w-max md:w-auto">
           <button
             onClick={() => setActiveType('all')}
+            aria-pressed={activeType === 'all'}
             className={`px-5 py-2.5 text-sm font-semibold ${chipClass(activeType === 'all')}`}
           >
             전체
             <span className="ml-1.5 text-xs opacity-75">({items.length})</span>
           </button>
-          {FEED_TYPES.filter(type => typeCount(type) > 0).map(type => (
+          {FEED_TYPES.filter(
+            type => type === 'reading' || typeCount(type) > 0
+          ).map(type => (
             <button
               key={type}
               onClick={() => setActiveType(type)}
+              aria-pressed={activeType === type}
               className={`px-5 py-2.5 text-sm font-semibold ${chipClass(activeType === type)}`}
             >
               <span className="hidden md:inline mr-1.5">
@@ -104,7 +109,8 @@ export default function ProblemsFeed({ items, subjects }: ProblemsFeedProps) {
               <button
                 key={key}
                 onClick={() => setActiveSubject(key)}
-                disabled={count === 0 && key !== 'all'}
+                aria-pressed={activeSubject === key}
+                disabled={count === 0 && key !== 'all' && key !== 'korean'}
                 className={`px-3 py-1.5 text-xs font-medium disabled:opacity-40 disabled:cursor-default ${chipClass(activeSubject === key)}`}
               >
                 {key === 'all'
@@ -178,9 +184,18 @@ export default function ProblemsFeed({ items, subjects }: ProblemsFeedProps) {
           ))}
         </div>
       ) : (
-        <p className="py-16 text-center text-gray-500 dark:text-gray-400">
-          아직 글이 없습니다. 곧 업로드될 예정입니다.
-        </p>
+        <div className="rounded-lg border border-dashed border-gray-300 px-6 py-12 text-center dark:border-gray-600">
+          <h3 className="font-semibold text-gray-900 dark:text-white">
+            {activeType === 'reading'
+              ? '과목별 개념을 더 깊이 이해하는 읽기 자료'
+              : '아직 등록된 글이 없습니다'}
+          </h3>
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+            {activeType === 'reading'
+              ? '국어·수학 등 여러 과목의 배경 개념과 탐구 주제를 예시와 함께 소개할 예정입니다.'
+              : '자료가 등록되면 이곳에서 확인할 수 있습니다.'}
+          </p>
+        </div>
       )}
 
       {modalPost?.problemFileUrl && (
