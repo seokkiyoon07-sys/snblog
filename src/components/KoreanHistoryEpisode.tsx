@@ -250,9 +250,11 @@ export default function KoreanHistoryEpisodePage({
               여기까지 공개되었어요 · 연재 중
             </span>
             <p className="mt-2 font-semibold">
-              {episode.episode === 8
-                ? '다음 이야기: 삼국의 통일'
-                : '다음 이야기를 준비하고 있습니다.'}
+              {episode.episode === 30
+                ? '다음 이야기: 임진왜란'
+                : episode.episode === 8
+                  ? '다음 이야기: 삼국의 통일'
+                  : '다음 이야기를 준비하고 있습니다.'}
             </p>
             <p className="mt-2 text-sm text-slate-500">
               새 회차가 등록되면 이어서 볼 수 있습니다.
@@ -260,6 +262,14 @@ export default function KoreanHistoryEpisodePage({
           </div>
         )}
       </nav>
+      {episode.episode === 25 && (
+        <Link
+          href="/history/korean-history-25-extra"
+          className="block rounded-xl border border-amber-200 bg-amber-50 p-5 font-semibold text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200"
+        >
+          25화 외전 · 왕자의 난과 태종의 왕권 강화 →
+        </Link>
+      )}
       <section aria-labelledby="episode-contents" className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 id="episode-contents" className="text-xl font-bold">

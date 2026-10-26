@@ -1,8 +1,10 @@
 import type { Post } from './posts';
 import { odysseyPosts } from './odyssey';
 import { koreanHistoryPosts } from './korean-history';
+import { historySupplementPosts } from './history-supplements';
 
 export const allPosts: Post[] = [
+  ...historySupplementPosts,
   {
     id: '2027-nonsul-schedule',
     title:

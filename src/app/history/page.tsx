@@ -15,14 +15,14 @@ import { BASE_URL, EXTERNAL_URLS } from '@/lib/config';
 import HistoryEpisodeRail from '@/components/HistoryEpisodeRail';
 
 const description =
-  '연재 중인 숏츠로 준비하는 수능 한국사, 오디세이아 24부작, 무오사화 4부작. SN History의 역사 시리즈를 소개와 에피소드 목록으로 만나고, 1화부터 순서대로 감상하세요.';
+  '연재 중인 숏츠로 준비하는 수능 한국사와 한국사 외전, 운영전 2부작, 오디세이아 24부작, 무오사화 4부작. SN History의 역사 시리즈를 소개와 에피소드 목록으로 만나고, 1화부터 순서대로 감상하세요.';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: 'SN History | 한국사·오디세이아·무오사화 시리즈',
+  title: 'SN History | 한국사·운영전·오디세이아·무오사화 시리즈',
   description,
   alternates: { canonical: '/history' },
   openGraph: {
-    title: 'SN History | 한국사·오디세이아·무오사화 시리즈',
+    title: 'SN History | 한국사·운영전·오디세이아·무오사화 시리즈',
     description,
     url: `${BASE_URL}/history`,
     type: 'website',
@@ -42,6 +42,32 @@ const seriesDefinitions = [
     guideUrl: KOREAN_HISTORY_PATH,
     guideLabel: '전체 목차',
     ongoing: true,
+  },
+  {
+    id: 'korean-history-extra',
+    tag: '한국사 외전',
+    title: '한국사 외전',
+    subtitle: '본편 사이, 조금 더 깊이 들여다보는 이야기.',
+    description:
+      '왕자의 난과 태종의 왕권 강화, 세종의 통치 기반을 한국사 본편과 연결해 살펴봅니다.',
+    genre: '조선 · 인물과 권력',
+    background: 'from-[#42352b] via-[#2b2928] to-[#141e24]',
+    guideUrl: '/history/korean-history',
+    guideLabel: '한국사 본편 목차',
+    ongoing: true,
+  },
+  {
+    id: 'unyeongjeon',
+    tag: '운영전',
+    title: '운영전 속 역사',
+    subtitle: '소설 속 사랑의 무대에서 실제 조선의 역사를 만나다.',
+    description:
+      '안평대군의 삶과 계유정난, 한양의 지명에 겹쳐진 세 시대를 통해 문학과 역사의 경계를 살펴봅니다.',
+    genre: '조선 · 문학과 역사',
+    background: 'from-[#40324b] via-[#292634] to-[#171b24]',
+    guideUrl: '/originals/unyoungjeon',
+    guideLabel: 'SN 오리지날 운영전',
+    ongoing: false,
   },
   {
     id: 'odyssey',
@@ -224,9 +250,9 @@ export default function HistoryPage() {
                         href={item.episodes[item.episodes.length - 1].url}
                         className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/20"
                       >
-                        최신{' '}
-                        {item.episodes[item.episodes.length - 1].seriesOrder}화
-                        보기
+                        {item.id === 'korean-history-extra'
+                          ? '최신 외전 보기'
+                          : `최신 ${item.episodes[item.episodes.length - 1].seriesOrder}화 보기`}
                       </Link>
                     )}
                     {item.guideUrl && (
