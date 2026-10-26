@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { allPosts } from '@/data/posts';
+import { CARD_NEWS } from '@/data/card-news';
 import { BASE_URL } from '@/lib/config';
 import { ODYSSEY_PATH, ODYSSEY_UPDATED } from '@/data/odyssey';
 import {
@@ -117,11 +118,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const isOriginals = post.category === 'originals';
       const priority = isOriginals ? 0.85 : post.featured ? 0.9 : 0.8;
 
+      // 이미지 사이트맵: 대표 이미지와 글 상단 카드뉴스. 우리 사이트 이미지만 넣고,
+      // Next.js 가 image:loc 를 이스케이프하지 않아 & 는 직접 바꾼다
+      const images = [
+        post.thumbnail,
+        ...(CARD_NEWS[post.id]?.slides.map(slide => slide.src) ?? []),
+      ]
+        .filter((src): src is string => Boolean(src?.startsWith('/')))
+        .map(src => encodeURI(`${baseUrl}${src}`).replace(/&/g, '&amp;'));
+
       return {
         url: `${baseUrl}${post.url}`,
         lastModified: new Date(post.date),
         changeFrequency: 'monthly' as const,
         priority,
+        ...(images.length > 0 && { images }),
       };
     });
 
