@@ -40,6 +40,23 @@ test('Slack shares the summary and explicit channel selection avoids duplicate J
   assert.throws(() => notificationTargets(env, 'unknown'), /Use --channel/);
 });
 
+test('Korean history episodes and extras are excluded while other posts still notify', () => {
+  const history = { ...post, category: 'SN History' };
+  const candidates = [
+    { ...history, id: 'korean-history-30' },
+    { ...history, id: 'korean-history-25-extra', tags: ['한국사 외전'] },
+    { ...history, id: 'new-korean-series', tags: ['한국사'] },
+    { ...history, id: 'unyeongjeon-history-2', tags: ['운영전'] },
+    { ...history, id: 'odyssey-24', tags: ['오디세이아'] },
+    post,
+    { ...post, id: 'korean-reading', tags: ['한국사'] },
+  ];
+  assert.deepEqual(changedPosts([], candidates).map(item => item.id), [
+    'unyeongjeon-history-2', 'odyssey-24', 'sample', 'korean-reading',
+  ]);
+  assert.deepEqual(changedPosts(candidates, candidates), []);
+});
+
 test('loads imported post data from the matching git revision', () => {
   const sources = {
     'old:src/data/post-records.ts': "import { items } from './items'; export const allPosts = [...items];",

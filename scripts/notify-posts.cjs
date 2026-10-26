@@ -63,7 +63,11 @@ function readRevisionRecords(git, revision) {
 function changedPosts(before, after) {
   const previous = new Map(before.map(post => [post.id, post]));
   return after.filter(
-    post => post.published && !previous.get(post.id)?.published
+    post => post.published && !previous.get(post.id)?.published &&
+      !(post.category === 'SN History' && (
+        post.id.startsWith('korean-history-') ||
+        post.tags?.some(tag => tag === '한국사' || tag === '한국사 외전')
+      ))
   );
 }
 
