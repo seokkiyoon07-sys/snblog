@@ -4,6 +4,31 @@ import { koreanHistoryPosts } from './korean-history';
 
 export const allPosts: Post[] = [
   {
+    id: '2027-nonsul-schedule',
+    title:
+      '2027 수능 후 논술 일정 총정리: 36개 대학 시험일·시간과 수능 최저 없는 대학',
+    excerpt:
+      '2027학년도 수능(2026.11.19) 뒤 논술을 보는 36개 대학의 시험일·시험 시간·고사장 공지일을 정리했습니다. 지원 대학을 검색해 내 논술 일정과 겹치는 날을 바로 확인하세요(2026.10.20 기준).',
+    category: 'columns',
+    tags: [
+      '2027 논술 일정',
+      '수능 후 논술',
+      '수능 최저 없는 논술',
+      '논술 시험 시간',
+      '논술 고사장',
+      '수능 가채점',
+      '2027 수시',
+      'SN독학기숙학원',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-10-26',
+    readTime: '10',
+    featured: false,
+    published: true,
+    thumbnail: '/images/columns/2027-nonsul-schedule/01-cover.png',
+    url: '/columns/2027-nonsul-schedule',
+  },
+  {
     id: 'how-ai-makes-suneung-problems',
     title: 'AI는 수능형 문제를 어떻게 만들까? 초안부터 검토·수정까지',
     excerpt:

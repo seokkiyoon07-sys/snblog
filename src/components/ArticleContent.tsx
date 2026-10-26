@@ -204,6 +204,41 @@ export default function ArticleContent({
     };
   }, [printButtonItems, processedContent]);
 
+  // 논술 일정 검색기 placeholder에 렌더링 (해당 글에서만 불러온다)
+  useEffect(() => {
+    const placeholders = contentRef.current?.querySelectorAll(
+      '[data-nonsul-finder]'
+    );
+    if (!placeholders || placeholders.length === 0) return;
+
+    const roots: ReturnType<typeof createRoot>[] = [];
+    let cancelled = false;
+
+    import('./posts/NonsulScheduleFinder').then(
+      ({ default: NonsulScheduleFinder }) => {
+        if (cancelled) return;
+        placeholders.forEach(placeholder => {
+          const root = createRoot(placeholder);
+          root.render(<NonsulScheduleFinder />);
+          roots.push(root);
+        });
+      }
+    );
+
+    return () => {
+      cancelled = true;
+      setTimeout(() => {
+        roots.forEach(root => {
+          try {
+            root.unmount();
+          } catch {
+            // unmount 실패 무시
+          }
+        });
+      }, 0);
+    };
+  }, [processedContent]);
+
   // 기존 details.group 요소들을 Click-to-Reveal 형태로 변환
   useEffect(() => {
     if (!contentRef.current || !enableAnnotatedDetails) return;
