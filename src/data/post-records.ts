@@ -6,6 +6,35 @@ import { historySupplementPosts } from './history-supplements';
 export const allPosts: Post[] = [
   ...historySupplementPosts,
   {
+    id: 'myeonangjeongga-2027',
+    title:
+      '굽어보면 면, 우러러보면 앙! 면앙정가 시선 정리 | EBS 2027 수능특강 문학 고전시가 송순 「면앙정가」',
+    excerpt:
+      'SN 오리지날 75번째 작품, 송순의 「면앙정가」. 2027 수능특강 수록 지문을 바탕으로 면과 앙의 시선, 사계절의 경치, 자연 속 풍류와 임금의 은혜를 원문·현대어 풀이와 함께 살펴봅니다.',
+    category: 'SN Originals',
+    tags: [
+      '면앙정가',
+      '송순',
+      '고전시가',
+      '가사',
+      '강호가도',
+      'EBS수능특강',
+      '수능국어',
+      'SNOriginals',
+    ],
+    author: 'SN Academy',
+    date: '2026-10-26',
+    readTime: '10',
+    featured: false,
+    published: true,
+    badge: 'SN Originals · 75번째 작품',
+    thumbnail: '/images/thumbnail/originals/75_Myeonangjeongga.png',
+    youtubeUrl: 'https://www.youtube.com/embed/UDBH20M0zBs',
+    url: '/originals/myeonangjeongga-2027',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
+  {
     id: '2027-nonsul-schedule',
     title:
       '2027 수능 후 논술 일정 총정리: 36개 대학 시험일·시간과 수능 최저 없는 대학',
