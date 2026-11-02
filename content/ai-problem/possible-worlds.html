@@ -86,6 +86,28 @@
 .pw .shot{display:block;width:100%;max-width:520px;border:1.5px solid var(--ink);margin:20px 0 6px}
 .pw .ask{margin:10px 0 18px;padding:14px 18px;border:1.5px solid var(--ink);border-radius:16px;background:var(--card);font-weight:600}
 .dark .pw .ask,.dark .pw .shot{border-color:var(--line)}
+.pw .paper{margin:26px 0 0;font-family:var(--serif);font-size:16px;line-height:1.85;letter-spacing:-.01em}
+.pw .paper .set{margin:0 0 10px;font-family:var(--sans);font-size:15.5px;font-weight:700}
+.pw .paper .psg{padding:16px 20px;border:1px solid var(--ink);background:var(--card)}
+.pw .paper .psg p{margin:0;text-indent:1em}
+.pw .paper u{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.pw .paper .item{margin:34px 0 0}
+.pw .paper .stem{margin:0;font-weight:700}
+.pw .paper .stem b{margin-right:4px;font-size:18px}
+.pw .paper .bogi{margin:14px 0 0;padding:12px 18px 14px;border:1px solid var(--ink);font-size:15.5px}
+.pw .paper .bogi .t{margin:0 0 4px;text-align:center;font-size:14px}
+.pw .paper .bogi p:last-child{margin:0;text-indent:1em}
+.pw .paper .opts{list-style:none;margin:12px 0 0;padding:0}
+.pw .paper .opts li{display:flex;gap:6px;margin:0 0 4px;padding:0}
+.pw .paper .opts li > i{flex:none;font-style:normal}
+.dark .pw .paper .psg,.dark .pw .paper .bogi{border-color:var(--line)}
+.pw .ans{margin:34px 0 0;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--line)}
+.pw .ans summary{padding:12px 0;font-weight:700;cursor:pointer}
+.pw .ans p{margin:0 0 14px}
+.pw .pages{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.pw .pages figure{flex:0 0 min(86%,520px);margin:0;scroll-snap-align:start}
+.pw .pages .shot{margin:0 0 6px;max-width:100%}
+.pw .pages .cap{margin:0}
 .pw .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.7;color:var(--sub)}
 .pw .foot a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 @media (max-width:640px){
@@ -99,6 +121,7 @@
 .pw .plate svg{min-width:0;max-width:100%}
 .pw .plate + .cap{max-width:none}
 .pw .exam{padding:14px 16px;font-size:15.5px}
+.pw .paper{font-size:15.5px}.pw .paper .psg{padding:14px 16px}.pw .paper .bogi{padding:10px 14px 12px;font-size:15px}
 .pw .talk .who{width:32px;font-size:13px}.pw .talk .bb{padding:9px 14px;font-size:15px}
 .pw .names{grid-template-columns:1fr;gap:14px}.pw .names .nm{font-size:23px}
 .pw .quotes{grid-template-columns:1fr;gap:0}.pw .quotes dd{margin-bottom:10px}
@@ -135,12 +158,14 @@
 <tr><th>분야</th><td>인문 · 철학, 논리학</td></tr>
 <tr><th>핵심 개념</th><td>가능세계, 일관성 · 포괄성 · 완결성 · 독립성, 현실세계와의 유사성, 가능과 필연</td></tr>
 <tr><th>다루는 문항</th><td>40번 ④, 41번 ⓐ, 42번 ⑤</td></tr>
+<tr><th>원문</th><td>지문과 39~42번 전문, 원본 시험지 이미지 수록</td></tr>
 </table>
 
 <ol class="toc">
 <li><a href="#pw-1"><i>1</i>허언과 가능, 그 사이 어딘가</a></li>
 <li><a href="#pw-2"><i>2</i>천하제일 ‘가능’대회</a></li>
 <li><a href="#pw-3"><i>3</i>시험지에선 왜 유독 어렵게 느껴질까</a></li>
+<li><a href="#pw-4"><i>4</i>원문으로 직접 풀어 보기</a></li>
 <li><a href="#pw-faq"><i>Q</i>자주 묻는 질문</a></li>
 </ol>
 
@@ -198,7 +223,7 @@
 <h3><span class="k">규칙 4 · 독립성</span>이야기는 다른 이야기를 침범할 수 없다</h3>
 <div class="plate"><svg viewBox="0 0 896 336" role="img" aria-label="세 이야기가 각자 다른 공 안에 있고 서로 이어지지 않는 그림"><circle cx="150" cy="130" r="118" fill="#FBFAF6" fill-opacity=".55" stroke="#161616" stroke-width="2"/><path d="M80,70 Q90,40 120,30" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/><g transform="translate(150 214) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-17" y="-90" width="34" height="40" fill="#C2412B" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-21,-90 Q-30,-74 -17,-66 M21,-90 Q30,-74 17,-66" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><text x="150" y="290" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">기차를 타고</text><text x="150" y="324" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">제시간에 온 이야기</text><circle cx="448" cy="130" r="118" fill="#FBFAF6" fill-opacity=".55" stroke="#161616" stroke-width="2"/><path d="M378,70 Q388,40 418,30" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/><g transform="translate(448 214) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-17" y="-90" width="34" height="40" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-21,-90 Q-30,-74 -17,-66 M21,-90 Q30,-74 17,-66" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><text x="448" y="290" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">기차를 놓친</text><text x="448" y="324" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">이야기(현실)</text><circle cx="746" cy="130" r="118" fill="#FBFAF6" fill-opacity=".55" stroke="#161616" stroke-width="2"/><path d="M676,70 Q686,40 716,30" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/><g transform="translate(746 214) scale(0.8 0.8)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="-17" y="-90" width="34" height="40" fill="#C2412B" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M-21,-90 Q-30,-74 -17,-66 M21,-90 Q30,-74 17,-66" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/></g><text x="746" y="290" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">기차가 고장 난</text><text x="746" y="324" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">이야기</text><path d="M281,118 L317,142 M317,118 L281,142" stroke="#C2412B" stroke-width="4" stroke-linecap="round"/><path d="M579,118 L615,142 M615,118 L579,142" stroke="#C2412B" stroke-width="4" stroke-linecap="round"/></svg></div>
 <p>이야기 하나는 처음부터 끝까지 모든 시간과 공간을 다 가진다. 그래서 <span class="hy">한 이야기에서 다른 이야기로 가는 길이 아예 없다.</span> 기차를 탄 이야기의 기차가 놓친 이야기의 역에 설 수는 없다.</p>
-<div class="rule"><span class="nm">독립성</span><span class="say">지문은 이 규칙을 이렇게 부른다.</span><p class="ex">“한 가능세계 W<sub>1</sub>의 시간과 공간이, 다른 가능세계 W<sub>2</sub>의 시간과 공간으로 이어질 수는 없다.”</p></div>
+<div class="rule"><span class="nm">독립성</span><span class="say">지문은 이 규칙을 이렇게 부른다.</span><p class="ex">“한 가능세계 W1의 시간과 공간이, 다른 가능세계 W2의 시간과 공간으로 이어질 수는 없다.”</p></div>
 
 <h3><span class="k">정리</span>규칙 넷, 한 장으로</h3>
 <div class="plate"><svg viewBox="0 0 896 450" role="img" aria-label="모든 이야기 가운데 가능한 이야기의 원과 대회 점선이 겹치는 그림"><rect x="1" y="1" width="894" height="448" fill="none" stroke="#161616" stroke-width="1.5"/><text x="24" y="44" text-anchor="start" font-family="SUIT" font-weight="700" font-size="28" fill="#6E6A63">모든 이야기</text><circle cx="320" cy="240" r="196" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><circle cx="320" cy="240" r="204" fill="none" stroke="#C2412B" stroke-width="3" stroke-dasharray="12 10"/><rect x="260.0" y="76" width="120" height="55" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="320" y="123" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">현실</text><rect x="195.0" y="140" width="250" height="92" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="320" y="187" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">기차가 고장 난</text><text x="320" y="220" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">이야기</text><rect x="195.0" y="250" width="250" height="92" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="320" y="297" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">다보탑이 개성에</text><text x="320" y="330" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">있는 이야기</text><text x="320" y="392" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">가능한 이야기</text><path d="M470,412 L454,397" stroke="#C2412B" stroke-width="2"/><text x="472" y="438" text-anchor="start" font-family="SUIT" font-weight="700" font-size="27" fill="#C2412B">점선 = 대회(가능세계)</text><rect x="618.5" y="56" width="223" height="92" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="730" y="103" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">탔으면서</text><text x="730" y="136" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">안 탄 이야기</text><path d="M690,182 L770,252 M770,182 L690,252" stroke="#C2412B" stroke-width="5" stroke-linecap="round"/><text x="730" y="294" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#C2412B">못 나온다</text><text x="730" y="330" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">(일관성)</text></svg></div>
@@ -264,6 +289,83 @@
 <p>판정은 현실과 가장 닮은 이야기 몫이다. 이 판정단, ‘별다른 이변 없이’를 참 좋아한다. 낭만은 없다.</p>
 <p>그러니 후회에 너무 오래 머물지 말자. 판정단이 정하는 건 ‘그랬다면 어떻게 됐을까’까지다. <span class="hy">앞으로의 이야기가 늘 지금과 닮게 흘러가는 것은 아니니까.</span></p>
 
+<div class="sec" id="pw-4">
+<p class="num">4</p>
+<h2>원문으로 직접 풀어 보기</h2>
+<p class="lead">2019학년도 수능 국어 39~42번을 시험지 그대로 옮겼다. 정답은 아래에 접어 두었다.</p>
+</div>
+
+<div class="paper">
+<p class="set">[39～42] 다음 글을 읽고 물음에 답하시오.</p>
+<div class="psg">
+<p>두 명제가 모두 참인 것도 모두 거짓인 것도 가능하지 않은 관계를 모순 관계라고 한다. 예를 들어, 임의의 명제를 P라고 하면 P와 ～P는 모순 관계이다.(기호 ‘～’은 부정을 나타낸다.) P와 ～P가 모두 참인 것은 가능하지 않다는 법칙을 무모순율이라고 한다. 그런데 “㉠<u>다보탑은 경주에 있다.</u>”와 “㉡<u>다보탑은 개성에 있을 수도 있었다.</u>”는 모순 관계가 아니다. 현실과 다르게 다보탑을 경주가 아닌 곳에 세웠다면 다보탑의 소재지는 지금과 달라졌을 것이다. 철학자들은 이를 두고, P와 ～P가 모두 참인 혹은 모두 거짓인 가능세계는 없지만 다보탑이 개성에 있는 가능세계는 있다고 표현한다.</p>
+<p>‘가능세계’의 개념은 일상 언어에서 흔히 쓰이는 필연성과 가능성에 관한 진술을 분석하는 데 중요한 역할을 한다. ‘P는 가능하다’는 P가 적어도 하나의 가능세계에서 성립한다는 뜻이며, ‘P는 필연적이다’는 P가 모든 가능세계에서 성립한다는 뜻이다. “만약 Q이면 Q이다.”를 비롯한 필연적인 명제들은 모든 가능세계에서 성립한다. “다보탑은 경주에 있다.”와 같이 가능하지만 필연적이지는 않은 명제는 우리의 현실세계를 비롯한 어떤 가능세계에서는 성립하고 또 어떤 가능세계에서는 성립하지 않는다.</p>
+<p>가능세계를 통한 담론은 우리의 일상적인 몇몇 표현들을 보다 잘 이해하는 데 도움이 된다. 다음 상황을 생각해 보자. 나는 현실에서 아침 8시에 출발하는 기차를 놓쳤고, 지각을 했으며, 내가 놓친 기차는 제시간에 목적지에 도착했다. 그리고 나는 “만약 내가 8시 기차를 탔다면, 나는 지각을 하지 않았다.”라고 주장한다. 그런데 전통 논리학에서는 “만약 A이면 B이다.”라는 형식의 명제는 A가 거짓인 경우에는 B의 참 거짓에 상관없이 참이라고 규정한다. 그럼에도 ⓐ<u>내가 만약 그 기차를 탔다면 여전히 지각을 했을 것이라고 주장하지는 않는 이유는 무엇일까?</u> 내가 그 기차를 탄 가능세계들을 생각해 보면 그 이유를 알 수 있다. 그 가능세계 중 어떤 세계에서 나는 여전히 지각을 한다. 가령 내가 탄 그 기차가 고장으로 선로에 멈춰 운행이 오랫동안 지연된 세계가 그런 예이다. 하지만 내가 기차를 탄 세계들 중에서, 내가 기차를 타고 별다른 이변 없이 제시간에 도착한 세계가 그렇지 않은 세계보다 우리의 현실세계와의 유사성이 더 높다. 일반적으로, A가 참인 가능세계들 중에 비교할 때, B도 참인 가능세계가 B가 거짓인 가능세계보다 현실세계와 더 유사하다면, 현실세계의 나는 A가 실현되지 않은 경우에, 만약 A라면 ～B가 아닌 B이라고 말할 수 있다.</p>
+<p>가능세계는 다음의 네 가지 성질을 갖는다. 첫째는 가능세계의 일관성이다. 가능세계는 명칭 그대로 가능한 세계이므로 어떤 것이 가능하지 않다면 그것이 성립하는 가능세계는 없다. 둘째는 가능세계의 포괄성이다. 이것은 어떤 것이 가능하다면 그것이 성립하는 가능세계는 존재한다는 것이다. 셋째는 가능세계의 완결성이다. 어느 세계에서든 임의의 명제 P에 대해 “P이거나 ～P이다.”라는 배중률이 성립한다. 즉 P와 ～P 중 하나는 반드시 참이라는 것이다. 넷째는 가능세계의 독립성이다. 한 가능세계는 모든 시간과 공간을 포함해야만 하며, 연속된 시간과 공간에 포함된 존재들은 모두 동일한 하나의 세계에만 속한다. 한 가능세계 W1의 시간과 공간이, 다른 가능세계 W2의 시간과 공간으로 이어질 수는 없다. W1과 W2는 서로 시간과 공간이 전혀 다른 세계이다.</p>
+<p>가능세계의 개념은 철학에서 갖가지 흥미로운 질문과 통찰을 이끌어 내며, 그에 관한 연구 역시 활발히 진행되고 있다. 나아가 가능세계를 활용한 논의는 오늘날 인지 과학, 언어학, 공학 등의 분야로 그 응용의 폭을 넓히고 있다.</p>
+</div>
+
+<div class="item">
+<p class="stem"><b>39.</b> 윗글의 내용과 일치하는 것은?</p>
+<ol class="opts">
+<li><i>①</i><span>배중률은 모든 가능세계에서 성립한다.</span></li>
+<li><i>②</i><span>모든 가능한 명제는 현실세계에서 성립한다.</span></li>
+<li><i>③</i><span>필연적인 명제가 성립하지 않는 가능세계가 있다.</span></li>
+<li><i>④</i><span>무모순율에 의하면 P와 ～P가 모두 참인 것은 가능하다.</span></li>
+<li><i>⑤</i><span>전통 논리학에 따르면 “만약 A이면 B이다.”의 참 거짓은 A의 참 거짓과 상관없이 결정된다.</span></li>
+</ol>
+</div>
+
+<div class="item">
+<p class="stem"><b>40.</b> ㉠, ㉡에 대한 이해로 적절하지 <u>않은</u> 것은?</p>
+<ol class="opts">
+<li><i>①</i><span>㉠이 성립하지 않는 가능세계가 존재한다.</span></li>
+<li><i>②</i><span>“만약 다보탑이 개성에 있다면, 다보탑은 개성에 있다.”가 성립하는 가능세계 중에는 ㉠이 거짓인 가능세계는 없다.</span></li>
+<li><i>③</i><span>㉡과 “다보탑은 개성에 있지 않다.”는 모순 관계가 아니다.</span></li>
+<li><i>④</i><span>만약 ㉡이 거짓이라면 어떤 가능세계에서도 다보탑이 개성에 있지 않다.</span></li>
+<li><i>⑤</i><span>㉠과 ㉡은 현실세계에서 둘 다 참인 것이 가능하다.</span></li>
+</ol>
+</div>
+
+<div class="item">
+<p class="stem"><b>41.</b> 윗글을 바탕으로 할 때, ⓐ에 대한 답으로 가장 적절한 것은?</p>
+<ol class="opts">
+<li><i>①</i><span>내가 그 기차를 타지 않은 가능세계들끼리 비교할 때 지각을 한 가능세계와 지각을 하지 않은 가능세계가 현실세계와의 유사성의 정도가 다르기 때문이다.</span></li>
+<li><i>②</i><span>내가 그 기차를 타지 않은 가능세계들끼리 비교할 때 기차 고장이 자주 일어나지 않는 가능세계가 현실세계와의 유사성이 높기 때문이다.</span></li>
+<li><i>③</i><span>내가 그 기차를 탄 가능세계들끼리 비교할 때 내가 지각을 한 가능세계가 내가 지각을 하지 않은 가능세계에 비해 현실세계와의 유사성이 더 낮기 때문이다.</span></li>
+<li><i>④</i><span>내가 그 기차를 탄 가능세계들끼리 비교할 때 그 가능세계들의 대다수에서 내가 지각을 하지 않았기 때문이다.</span></li>
+<li><i>⑤</i><span>내가 그 기차를 탄 것이 현실세계에서 거짓이기 때문이다.</span></li>
+</ol>
+</div>
+
+<div class="item">
+<p class="stem"><b>42.</b> 윗글을 참고할 때, &lt;보기&gt;를 이해한 내용으로 적절한 것은? [3점]</p>
+<div class="bogi">
+<p class="t">&lt;보 기&gt;</p>
+<p>명제 “모든 학생은 연필을 쓴다.”와 “어떤 학생도 연필을 쓰지 않는다.”는 반대 관계이다. 이 말은, 두 명제 다 참인 것은 가능하지 않지만, 둘 중 하나만 참이거나 둘 다 거짓인 것은 가능하다는 뜻이다.</p>
+</div>
+<ol class="opts">
+<li><i>①</i><span>가능세계의 완결성과 독립성에 따르면, 모든 학생이 연필을 쓰는 가능세계가 존재한다는 것과 어떤 학생도 연필을 쓰지 않는 가능세계가 존재한다는 것 중 하나는 반드시 참이고, 그중 한 세계의 시간과 공간이 다른 세계로 이어질 수 없겠군.</span></li>
+<li><i>②</i><span>가능세계의 포괄성과 독립성에 따르면, “어떤 학생도 연필을 쓰지 않는다.”가 성립하면서 그 세계에 속한 한 명의 학생이 연필을 쓰는 가능세계들이 존재하고, 그 세계들의 시간과 공간은 서로 단절되어 있겠군.</span></li>
+<li><i>③</i><span>가능세계의 완결성에 따르면, 어느 세계에서든 “어떤 학생은 연필을 쓴다.”와 “어떤 학생은 연필을 쓰지 않는다.” 중 하나는 반드시 참이겠군.</span></li>
+<li><i>④</i><span>가능세계의 포괄성에 따르면, ‘“모든 학생은 연필을 쓴다.”가 참이거나 “어떤 학생도 연필을 쓰지 않는다.”가 참’인 가능세계들이 있겠군.</span></li>
+<li><i>⑤</i><span>가능세계의 일관성에 따르면, 학생들 중 절반은 연필을 쓰고 절반은 연필을 쓰지 않는 가능세계가 존재하겠군.</span></li>
+</ol>
+</div>
+</div>
+
+<details class="ans">
+<summary>정답 보기</summary>
+<p>39번 ① · 40번 ② · 41번 ③ · 42번 ④</p>
+</details>
+
+<h3><span class="k">원본</span>시험지 원본</h3>
+<p class="cap">옆으로 넘기면 다음 쪽이 나온다.</p>
+<div class="pages" tabindex="0" role="group" aria-label="시험지 원본 14~15쪽, 가로로 넘겨 보기">
+<figure><img class="shot" src="/images/problems/possible-worlds/exam-p14.png" alt="2019학년도 수능 국어 시험지 14쪽. 왼쪽 단은 38번, 오른쪽 단은 39~42번 가능세계 지문의 앞부분" loading="lazy"><figcaption class="cap">시험지 14쪽. 왼쪽 단의 38번은 앞 지문의 문항이다.</figcaption></figure>
+<figure><img class="shot" src="/images/problems/possible-worlds/exam-p15.png" alt="2019학년도 수능 국어 시험지 15쪽. 가능세계 지문의 끝부분과 39~42번 문항" loading="lazy"><figcaption class="cap">시험지 15쪽.</figcaption></figure>
+</div>
+
 <div class="sec" id="pw-faq">
 <h2>자주 묻는 질문</h2>
 </div>
@@ -284,7 +386,7 @@
 <p class="ask">국어 지문 중 ‘가능세계’에 대해 나왔던 기출 좀 찾아서 보여줄래?</p>
 
 <div class="foot">
-<p style="margin:0">※ 지문과 문항 인용은 2019학년도 대학수학능력시험 국어영역(한국교육과정평가원) 39~42번에서 가져왔다.</p>
+<p style="margin:0">※ 지문과 문항 전문, 원본 시험지 이미지는 2019학년도 대학수학능력시험 국어영역 39~42번에서 가져왔으며, 저작권은 한국교육과정평가원에 있다.</p>
 <p style="margin:4px 0 0"><a href="https://snargpt.ai/" target="_blank" rel="noopener noreferrer">snargpt.ai</a> · 다음 읽을거리는 인스타그램 <a href="https://www.instagram.com/snargpt/" target="_blank" rel="noopener noreferrer">@snargpt</a>에서 먼저 볼 수 있다.</p>
 </div>
 
