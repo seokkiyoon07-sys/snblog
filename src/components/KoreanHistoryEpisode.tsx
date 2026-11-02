@@ -3,7 +3,6 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import {
   KOREAN_HISTORY_PATH,
   KOREAN_HISTORY_TITLE,
-  KOREAN_HISTORY_UPDATED,
   koreanHistoryEpisodes,
   type KoreanHistoryEpisode,
 } from '@/data/korean-history';
@@ -39,7 +38,7 @@ export default function KoreanHistoryEpisodePage({
                 name: episode.title,
                 description: episode.summary,
                 inLanguage: 'ko',
-                datePublished: KOREAN_HISTORY_UPDATED,
+                datePublished: episode.publishedDate,
                 mainEntity: { '@id': `${BASE_URL}${episode.url}#video` },
                 isPartOf: { '@id': `${BASE_URL}${KOREAN_HISTORY_PATH}#series` },
               },
@@ -70,9 +69,7 @@ export default function KoreanHistoryEpisodePage({
         </h1>
         <p className="text-sm text-slate-500">
           SN History · 글 게시{' '}
-          <time dateTime={KOREAN_HISTORY_UPDATED}>
-            {KOREAN_HISTORY_UPDATED}
-          </time>
+          <time dateTime={episode.publishedDate}>{episode.publishedDate}</time>
         </p>
       </header>
       <section
@@ -250,8 +247,8 @@ export default function KoreanHistoryEpisodePage({
               여기까지 공개되었어요 · 연재 중
             </span>
             <p className="mt-2 font-semibold">
-              {episode.episode === 30
-                ? '다음 이야기: 임진왜란'
+              {episode.episode === 38
+                ? '다음 이야기: 홍경래의 난과 임술 농민 봉기'
                 : episode.episode === 8
                   ? '다음 이야기: 삼국의 통일'
                   : '다음 이야기를 준비하고 있습니다.'}
