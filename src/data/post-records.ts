@@ -6,6 +6,34 @@ import { historySupplementPosts } from './history-supplements';
 export const allPosts: Post[] = [
   ...historySupplementPosts,
   {
+    id: '2027-suneung-wanseong-literature-marathon',
+    title:
+      '수능 3주 전, 수완 주요 문학 11편 한 번에 훑기 | EBS 2027 수능완성 주요 문학 11편 몰아보기',
+    excerpt:
+      'SN아카데미가 엄선한 EBS 2027 수능완성 주요 문학 11편을 1시간 38분으로 복습하세요. 「줄」부터 「만분가」까지 교재 순서에 맞춘 작품별 타임라인과 쪽수를 정리했습니다.',
+    category: 'SN Originals',
+    tags: [
+      'EBS수능완성',
+      '2027학년도',
+      '수능국어',
+      '문학',
+      '몰아보기',
+      '수능대비',
+      'SNOriginals',
+    ],
+    author: 'SN Academy',
+    date: '2026-11-02',
+    readTime: '4',
+    featured: true,
+    published: true,
+    badge: '2027 수능완성 · 11편 몰아보기',
+    thumbnail: '/images/thumbnail/originals/thumbnail_bB.png',
+    youtubeUrl: 'https://www.youtube.com/embed/Ob6ecSjKEQ4',
+    url: '/originals/2027-suneung-wanseong-literature-marathon',
+    layoutVariant: 'original-only',
+    type: 'special',
+  },
+  {
     id: 'myeonangjeongga-2027',
     title:
       '굽어보면 면, 우러러보면 앙! 면앙정가 시선 정리 | EBS 2027 수능특강 문학 고전시가 송순 「면앙정가」',
@@ -215,7 +243,7 @@ export const allPosts: Post[] = [
     readTime: '5',
     featured: true,
     published: true,
-    badge: '2027 수능특강 · 30편 몰아보기 · 유튜브 5만뷰',
+    badge: '2027 수능특강 · 30편 몰아보기 · 유튜브 10만뷰 눈앞',
     thumbnail:
       '/images/thumbnail/originals/2027_Binge-watching_CSAT_Korean_prep_lecturesEpisode 30.png',
     youtubeUrl: 'https://www.youtube.com/embed/uH1psJ6VJoc',

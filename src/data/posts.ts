@@ -118,16 +118,15 @@ function seededScore(value: string): number {
   return hash / 0xffffffff;
 }
 
-export function getFeaturedPosts(limit = 7): Post[] {
+export function getFeaturedPosts(limit = 4): Post[] {
   const posts = getPosts();
   const today = new Date();
   const seed = getRecommendationSeed(today);
   const pinnedRecommendationIds = [
-    'how-ai-makes-suneung-problems',
+    '2027-suneung-wanseong-literature-marathon',
     '2027-suneung-literature-marathon',
+    'how-ai-makes-suneung-problems',
     'snargpt-development-2026',
-    '2027-september-mock-korean-analysis',
-    '2027-september-mock-math-solution',
   ];
   const excludedRecommendationIds = [
     'sntk-math1-level3-free',
