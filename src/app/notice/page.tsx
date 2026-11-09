@@ -38,7 +38,15 @@ export const metadata: Metadata = {
 };
 
 export default function NoticePage() {
-  const notices = getPostsByCategory('notice');
+  // 상단 고정 공지 (배열 순서대로 맨 위에 노출)
+  const PINNED_NOTICE_IDS = ['261119suneungnotice'];
+  const allNotices = getPostsByCategory('notice');
+  const notices = [
+    ...PINNED_NOTICE_IDS.map(id => allNotices.find(p => p.id === id)).filter(
+      (p): p is (typeof allNotices)[number] => Boolean(p)
+    ),
+    ...allNotices.filter(p => !PINNED_NOTICE_IDS.includes(p.id)),
+  ];
 
   return (
     <div className="space-y-8">

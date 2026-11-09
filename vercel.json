@@ -90,6 +90,11 @@
   ],
   "redirects": [
     {
+      "source": "/suneung",
+      "destination": "/notice/261119suneungnotice",
+      "permanent": false
+    },
+    {
       "source": "/blog.snacademy.co.kr",
       "destination": "/",
       "permanent": true

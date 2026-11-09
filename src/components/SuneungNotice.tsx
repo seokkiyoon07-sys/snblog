@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import CollapsibleSection from '@/components/CollapsibleSection';
 import NoticeTable from '@/components/NoticeTable';
 import InfoBox from '@/components/InfoBox';
@@ -16,7 +17,7 @@ export default function SuneungNotice() {
       '2026학년도 대학수학능력시험 전일, 당일 및 향후 일정을 안내드립니다. 수험표 배부, 고사장 배정, 당일 일정 및 학원 지원 사항을 확인하세요.',
     image: {
       '@type': 'ImageObject',
-      url: 'https://blog.snacademy.co.kr/images/thumbnail/2026_k-sat_notice.png',
+      url: 'https://blog.snacademy.co.kr/images/thumbnail/notice/2026_k-sat_notice.png',
       width: 1200,
       height: 630,
       alt: '2026학년도 수능 전·당일 안내문 썸네일',
@@ -169,6 +170,17 @@ export default function SuneungNotice() {
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-5 py-6 sm:py-7 pb-12 sm:pb-16">
+        {/* 올해 안내문 안내 배너 */}
+        <Link
+          href="/notice/261119suneungnotice"
+          className="block mb-6 rounded-lg border-2 border-green-600 bg-green-50 dark:bg-green-900/20 dark:border-green-500 px-4 py-3 text-sm sm:text-base text-green-800 dark:text-green-200 hover:bg-green-100 dark:hover:bg-green-900/40 transition-colors"
+        >
+          📢 이 글은 <strong>작년(2026학년도)</strong> 안내문입니다.{' '}
+          <span className="font-bold underline">
+            👉 2027 수능 안내(26.11.19 시행) 보러 가기
+          </span>
+        </Link>
+
         {/* 헤더 */}
         <header
           className="border-b-3 border-green-700 pb-4 mb-6 text-center"
@@ -186,7 +198,7 @@ export default function SuneungNotice() {
         <div className="mb-6 sm:mb-8">
           <div className="relative w-full h-48 sm:h-64 lg:h-80 rounded-lg overflow-hidden shadow-lg">
             <Image
-              src="/images/thumbnail/2026_k-sat_notice.png"
+              src="/images/thumbnail/notice/2026_k-sat_notice.png"
               alt="2026학년도 수능 전·당일 안내문 썸네일"
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1024px"

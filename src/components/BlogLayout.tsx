@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Script from 'next/script';
 import SuneungNotice from './SuneungNotice';
+import SuneungNotice2027 from './SuneungNotice2027';
 import AdmissionGuide2026 from './posts/2026AdmissionGuide';
 import AcademicCalendar2026 from './posts/2026AcademicCalendar';
 import RepeaterClass2027 from './posts/RepeaterClass2027';
@@ -253,6 +254,9 @@ export default function BlogLayout({ post, lead }: BlogLayoutProps) {
     post.type === 'special' &&
     (post.content || '').trim() === 'special-component'
   ) {
+    if (post.id === '261119suneungnotice') {
+      return <SuneungNotice2027 />;
+    }
     if (post.id === '251113suneungnotice') {
       return <SuneungNotice />;
     }
@@ -364,15 +368,17 @@ export default function BlogLayout({ post, lead }: BlogLayoutProps) {
         </h1>
         {lead ? (
           <div className="not-prose mb-10">{lead}</div>
-        ) : shouldRenderThumbnail && (
-          <div className="not-prose mb-6">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={post.thumbnail}
-              alt={post.title}
-              className="w-full rounded-lg"
-            />
-          </div>
+        ) : (
+          shouldRenderThumbnail && (
+            <div className="not-prose mb-6">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={post.thumbnail}
+                alt={post.title}
+                className="w-full rounded-lg"
+              />
+            </div>
+          )
         )}
         <div
           ref={contentRef}
