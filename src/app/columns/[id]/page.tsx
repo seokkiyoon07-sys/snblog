@@ -2,7 +2,14 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { getPostById, getPostsByCategory } from '@/data/posts';
+import {
+  getAllPosts,
+  getPostById,
+  getPostsByCategory,
+  type Post,
+} from '@/data/posts';
+import { CARD_NEWS } from '@/data/card-news';
+import CardNewsCarousel from '@/components/posts/CardNewsCarousel';
 import { loadPostContent } from '@/lib/post-content';
 import StructuredData from '@/components/StructuredData';
 import AIDataGenerator from '@/components/AIDataGenerator';
@@ -11,9 +18,19 @@ import { formatReadTime } from '@/lib/utils';
 import ArticleContent from '@/components/ArticleContent';
 import { PROSE_CLASSES } from '@/lib/constants';
 import SNarGPTPresentation from '@/components/posts/SNarGPTPresentation';
+import BlogLayout from '@/components/BlogLayout';
 
 interface PageProps {
   params: Promise<{ id: string }>;
+}
+
+// 개발 서버에서는 미공개 칼럼도 '초안'으로 열어 검토할 수 있게 한다
+function findColumn(id: string): Post | undefined {
+  const post = getPostById(id);
+  if (post || process.env.NODE_ENV !== 'development') return post;
+  return getAllPosts().find(
+    draft => draft.category === 'columns' && draft.id === id
+  );
 }
 
 // Static Params
@@ -27,7 +44,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const post = getPostById(id);
+  const post = findColumn(id);
 
   if (!post) {
     return {
@@ -90,10 +107,10 @@ export async function generateMetadata({
       creator: '@snacademy',
     },
     robots: {
-      index: true,
+      index: post.published,
       follow: true,
       googleBot: {
-        index: true,
+        index: post.published,
         follow: true,
         'max-video-preview': -1,
         'max-image-preview': 'large',
@@ -215,13 +232,31 @@ function TableOfContents() {
 // Main Page Component
 export default async function Page({ params }: PageProps) {
   const { id } = await params;
-  const post = getPostById(id);
+  const post = findColumn(id);
 
   if (!post || post.category !== 'columns') {
     notFound();
   }
 
   const postContent = loadPostContent(post.id, post.category);
+
+  // 카드뉴스가 있는 칼럼(쉼표 연재 등)은 기출 읽을거리와 같은 틀: 카드뉴스 → 본문
+  const cardNews = CARD_NEWS[post.id];
+  if (cardNews) {
+    return (
+      <>
+        {!post.published && (
+          <div className="mx-auto mt-6 max-w-3xl rounded border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-200">
+            초안 · 개발 서버에서만 보이는 미공개 글입니다.
+          </div>
+        )}
+        <BlogLayout
+          post={{ ...post, content: postContent }}
+          lead={<CardNewsCarousel cards={cardNews} />}
+        />
+      </>
+    );
+  }
 
   // snargpt-presentation 전용 템플릿
   if (id === 'snargpt-presentation') {

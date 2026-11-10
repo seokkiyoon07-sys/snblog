@@ -1,4 +1,4 @@
-// AI 수능 출제(/problems) 허브용 헬퍼.
+// 수능 문제 연구(/problems) 허브용 헬퍼.
 // 새 글은 url '/problems/{id}'. AI 출제 글은 category 'ai-problem', 국어 기출 해설은
 // 'korean-exam-analysis'. 기존 글은 /problem-download/* 주소를 유지한다.
 
@@ -41,11 +41,21 @@ export function getProblemContentType(post: Post): ProblemContentType {
   return post.subcategory?.startsWith('column-') ? 'column' : 'resource';
 }
 
+// 개발 서버에서는 미공개 /problems 글(ai-problem · 국어 기출)도 '초안'으로 보여 검토·코멘트할 수 있게 한다
+const SHOW_DRAFTS = process.env.NODE_ENV === 'development';
+
+function isVisible(post: Post): boolean {
+  return (
+    post.published ||
+    (SHOW_DRAFTS && PROBLEM_ROUTE_CATEGORIES.includes(post.category))
+  );
+}
+
 export function getProblemHubPosts(): Post[] {
   return allPosts
     .filter(
       post =>
-        post.published &&
+        isVisible(post) &&
         (PROBLEM_ROUTE_CATEGORIES.includes(post.category) ||
           LEGACY_CATEGORIES.includes(post.category))
     )
@@ -54,14 +64,13 @@ export function getProblemHubPosts(): Post[] {
 
 export function getProblemRoutePosts(): Post[] {
   return allPosts.filter(
-    post =>
-      post.published && PROBLEM_ROUTE_CATEGORIES.includes(post.category)
+    post => isVisible(post) && PROBLEM_ROUTE_CATEGORIES.includes(post.category)
   );
 }
 
 export function getAiProblemPosts(): Post[] {
   return allPosts.filter(
-    post => post.published && post.category === AI_PROBLEM_CATEGORY
+    post => isVisible(post) && post.category === AI_PROBLEM_CATEGORY
   );
 }
 

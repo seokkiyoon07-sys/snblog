@@ -51,8 +51,9 @@ export default function CardNewsCarousel({ cards }: { cards: CardNews }) {
     }
   };
 
+  // 카드 글자를 가리지 않게 화살표는 카드 바깥 양옆에 둔다 (모바일은 밀어서 넘김)
   const navButton =
-    'absolute top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#161616] shadow-md transition-opacity hover:bg-white disabled:pointer-events-none disabled:opacity-0 md:flex';
+    'absolute top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-700 transition hover:border-gray-900 hover:text-gray-900 disabled:pointer-events-none disabled:opacity-30 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:hover:border-gray-300 dark:hover:text-white md:flex';
 
   return (
     <section
@@ -110,7 +111,7 @@ export default function CardNewsCarousel({ cards }: { cards: CardNews }) {
           onClick={() => goTo(index - 1)}
           disabled={index === 0}
           aria-label="이전 카드"
-          className={`${navButton} left-3`}
+          className={`${navButton} -left-14`}
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -119,7 +120,7 @@ export default function CardNewsCarousel({ cards }: { cards: CardNews }) {
           onClick={() => goTo(index + 1)}
           disabled={index === total - 1}
           aria-label="다음 카드"
-          className={`${navButton} right-3`}
+          className={`${navButton} -right-14`}
         >
           <ChevronRight className="h-5 w-5" />
         </button>

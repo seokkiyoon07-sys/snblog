@@ -1,0 +1,279 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
+.pw{--ink:#161616;--sub:#6E6A63;--mute:#9A958C;--line:#D6D0C5;--red:#C2412B;--paper:#EEEAE3;--card:#FBFAF6;--hl:#F6DD6B;--sans:Pretendard,system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--serif:"Noto Serif KR",serif;--num:"Instrument Serif",serif;color:var(--ink);font-size:17px;line-height:1.85;letter-spacing:-.01em;word-break:keep-all}
+.dark .pw{--ink:#ECEAE6;--sub:#ABA69D;--mute:#7F7A72;--line:#3B3934;--red:#EC7A62;--card:#1D1C1A;--hl:rgba(246,221,107,.32)}
+.pw *{box-sizing:border-box}
+.pw p{margin:0 0 1.05em}
+.pw b,.pw strong{font-weight:700}
+.pw .v{color:var(--red)}
+.pw .hy{background:linear-gradient(180deg,transparent 58%,var(--hl) 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.pw .kicker{font-size:13.5px;font-weight:700;color:var(--sub);margin:0 0 10px}
+.pw .deck{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.5;letter-spacing:-.04em;margin:0 0 22px}
+.pw .info{width:100%;border-collapse:collapse;border-top:1.5px solid var(--ink);margin:30px 0 8px;font-size:14.5px;line-height:1.6}
+.pw .info th{width:92px;text-align:left;vertical-align:top;font-weight:700;color:var(--sub);padding:10px 12px 10px 0;border-bottom:1px solid var(--line)}
+.pw .info td{padding:10px 0;border-bottom:1px solid var(--line)}
+.pw .toc{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:4px}
+.pw .toc a{display:flex;gap:16px;align-items:baseline;color:var(--ink);text-decoration:none;font-weight:600;font-size:16px}
+.pw .toc a:hover{color:var(--red)}
+.pw .toc i{font-family:var(--num);font-style:italic;font-weight:400;font-size:24px;line-height:1;color:var(--red);width:14px}
+.pw .sec{margin:96px 0 30px;padding-top:22px;border-top:1.5px solid var(--ink);scroll-margin-top:110px}
+.pw .sec .num{font-family:var(--num);font-style:italic;font-size:104px;line-height:.82;color:var(--red);margin:6px 0 0;letter-spacing:-.04em}
+.pw .sec h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.3;letter-spacing:-.05em;margin:18px 0 0}
+.pw .sec .lead{margin:16px 0 0;font-size:17px}
+.pw .sec .small{margin:8px 0 0;font-size:14.5px;color:var(--sub);line-height:1.65}
+.pw h3{display:flex;gap:12px;align-items:baseline;font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.4;letter-spacing:-.04em;margin:60px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.pw h3 .k{flex:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0;color:var(--sub)}
+.pw .plate{max-width:600px;margin:26px auto 8px;padding:18px 20px;background:var(--paper);border-radius:3px;overflow-x:auto}
+.pw .plate svg{display:block;width:100%;max-width:540px;min-width:440px;height:auto;margin:0 auto;overflow:visible}
+.pw .plate + p:not(.cap){margin-top:22px}
+.pw .plate svg text[font-family="SUIT"]{font-family:var(--sans)}
+.pw .cap{font-size:13.5px;line-height:1.6;color:var(--sub);margin:0 0 22px}
+.pw .plate + .cap{max-width:600px;margin-left:auto;margin-right:auto}
+.pw .exam{margin:24px 0;padding:18px 22px;border:1.5px solid var(--ink);background:var(--card);font-family:var(--serif);font-size:16.5px;line-height:1.8;letter-spacing:-.01em}
+.dark .pw .exam{border-color:var(--line)}
+.pw .exam .q{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--sub);margin-bottom:6px}
+.pw .talk{display:grid;gap:12px;margin:22px 0 26px}
+.pw .talk .row{display:flex;gap:14px;align-items:flex-start}
+.pw .talk .who{flex:none;width:40px;padding-top:11px;text-align:right;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .talk .bb{margin:0;padding:10px 18px;border:1.5px solid var(--ink);border-radius:20px;border-top-left-radius:5px;background:var(--card);font-weight:600}
+.dark .pw .talk .bb{border-color:var(--line)}
+.pw .names{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0}
+.pw .names .nm{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.04em;color:var(--red);line-height:1.2;margin:0 0 6px}
+.pw .names p{font-size:15.5px;line-height:1.7;margin:0}
+.pw .quotes{display:grid;grid-template-columns:64px 1fr;gap:6px 14px;margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.7}
+.pw .quotes dt{font-weight:700;color:var(--sub)}
+.pw .quotes dd{margin:0;font-family:var(--serif);color:var(--sub)}
+.pw .rule{display:grid;grid-template-columns:90px 1fr;gap:4px 16px;align-items:baseline;margin:26px 0;padding-top:16px;border-top:1.5px solid var(--ink)}
+.pw .rule .nm{font-family:var(--serif);font-weight:700;font-size:24px;letter-spacing:-.04em;color:var(--red)}
+.pw .rule .say{font-size:13.5px;font-weight:600;color:var(--sub)}
+.pw .rule .ex{grid-column:2;margin:0;font-family:var(--serif);font-size:16px;line-height:1.75}
+.pw .qa{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:20px 0}
+.pw .qa dt{font-weight:700;white-space:nowrap}
+.pw .qa dd{margin:0}
+.pw .sum{display:grid;grid-template-columns:96px 1fr;margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .sum dt,.pw .sum dd{margin:0;padding:11px 0;border-bottom:1px solid var(--line)}
+.pw .sum dt{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:-.04em;color:var(--red)}
+.pw .sum dd{font-weight:600}
+.pw .trap{margin:30px 0;padding:20px 22px;background:var(--card);border:1px solid var(--line)}
+.pw .trap h4{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .trap .ld{margin:0 0 14px;font-size:14.5px;line-height:1.65;color:var(--sub)}
+.pw .trap .opt{display:flex;gap:12px;margin:12px 0 0;font-size:15.5px;line-height:1.7}
+.pw .trap .opt i{flex:none;width:18px;font-style:normal;font-weight:800}
+.pw .trap .opt i.x{color:var(--red)}
+.pw .trap .opt small{display:block;margin-top:3px;font-size:13.5px;color:var(--sub)}
+.pw .ol{list-style:none;margin:12px 0 18px;padding:0;display:grid;gap:8px}
+.pw .ol li{display:flex;gap:14px;align-items:baseline}
+.pw .ol li > i{flex:none;width:14px;font-family:var(--num);font-style:italic;font-size:24px;line-height:1;color:var(--red)}
+.pw .demo{margin:4px 0 22px 28px;padding:12px 16px;background:var(--card);border:1px solid var(--line);font-size:15px;line-height:1.75;color:var(--sub)}
+.pw .arrows{margin:4px 0 22px 28px;display:grid;gap:4px;font-weight:700}
+.pw .arrows span{display:inline-block;min-width:150px}
+.pw .flip{margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .flip .r{padding:16px 0;border-bottom:1px solid var(--line)}
+.pw .flip .a{margin:0;font-family:var(--serif)}
+.pw .flip .b{margin:4px 0 0;font-weight:700}
+.pw .flip .b em{font-style:normal;color:var(--red)}
+.pw .flip .c{margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--sub)}
+.pw .gist{margin:30px 0 0;border-top:1.5px solid var(--ink)}
+.pw .gist p.t{margin:12px 0 4px;font-size:13.5px;font-weight:700;color:var(--sub)}
+.pw .gist dl{display:grid;grid-template-columns:92px 1fr;margin:0}
+.pw .gist dt,.pw .gist dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.7}
+.pw .gist dt{font-weight:700}
+.pw .gist dfn{font-style:normal;font-weight:700}
+.pw .faq{margin:0;border-top:1.5px solid var(--ink)}
+.pw .faq dt{margin:0;padding:16px 0 4px;font-weight:700;font-size:16.5px}
+.pw .faq dd{margin:0;padding:0 0 16px;border-bottom:1px solid var(--line);color:var(--ink)}
+.pw .close{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.35;letter-spacing:-.05em;margin:96px 0 24px;padding-top:22px;border-top:1.5px solid var(--ink)}
+.pw .shot{display:block;width:100%;max-width:520px;border:1.5px solid var(--ink);margin:20px 0 6px}
+.pw .ask{margin:10px 0 18px;padding:14px 18px;border:1.5px solid var(--ink);border-radius:16px;background:var(--card);font-weight:600}
+.dark .pw .ask,.dark .pw .shot{border-color:var(--line)}
+.pw .paper{margin:26px 0 0;font-family:var(--serif);font-size:16px;line-height:1.85;letter-spacing:-.01em}
+.pw .paper .set{margin:0 0 10px;font-family:var(--sans);font-size:15.5px;font-weight:700}
+.pw .paper .psg{padding:16px 20px;border:1px solid var(--ink);background:var(--card)}
+.pw .paper .psg p{margin:0;text-indent:1em}
+.pw .paper u{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.pw .paper .item{margin:34px 0 0}
+.pw .paper .stem{margin:0;font-weight:700}
+.pw .paper .stem b{margin-right:4px;font-size:18px}
+.pw .paper .bogi{margin:14px 0 0;padding:12px 18px 14px;border:1px solid var(--ink);font-size:15.5px}
+.pw .paper .bogi .t{margin:0 0 4px;text-align:center;font-size:14px}
+.pw .paper .bogi p:last-child{margin:0;text-indent:1em}
+.pw .paper .opts{list-style:none;margin:12px 0 0;padding:0}
+.pw .paper .opts li{display:flex;gap:6px;margin:0 0 4px;padding:0}
+.pw .paper .opts li > i{flex:none;font-style:normal}
+.dark .pw .paper .psg,.dark .pw .paper .bogi{border-color:var(--line)}
+.pw .ans{margin:34px 0 0;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--line)}
+.pw .ans summary{padding:12px 0;font-weight:700;cursor:pointer}
+.pw .ans p{margin:0 0 14px}
+.pw .pages{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.pw .pages figure{flex:0 0 min(86%,520px);margin:0;scroll-snap-align:start}
+.pw .pages .shot{margin:0 0 6px;max-width:100%}
+.pw .pages .cap{margin:0}
+.pw .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.7;color:var(--sub)}
+.pw .foot a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){
+.pw .gist dl{grid-template-columns:1fr}.pw .gist dt{padding-bottom:0;border-bottom:0}
+.pw{font-size:16px;line-height:1.8}
+.pw .deck{font-size:20px}
+.pw .info{font-size:13.5px}.pw .info th{width:76px}
+.pw .sec{margin-top:72px}.pw .sec .num{font-size:80px}.pw .sec h2{font-size:27px}
+.pw h3{flex-direction:column;gap:2px;font-size:20px;margin-top:48px}
+.pw .plate{width:100vw;max-width:none;margin:22px 0 8px calc(50% - 50vw);padding:14px 10px;border-radius:0;overflow:visible}
+.pw .plate svg{min-width:0;max-width:100%}
+.pw .plate + .cap{max-width:none}
+.pw .exam{padding:14px 16px;font-size:15.5px}
+.pw .paper{font-size:15.5px}.pw .paper .psg{padding:14px 16px}.pw .paper .bogi{padding:10px 14px 12px;font-size:15px}
+.pw .talk .who{width:32px;font-size:13px}.pw .talk .bb{padding:9px 14px;font-size:15px}
+.pw .names{grid-template-columns:1fr;gap:14px}.pw .names .nm{font-size:23px}
+.pw .quotes{grid-template-columns:1fr;gap:0}.pw .quotes dd{margin-bottom:10px}
+.pw .rule{grid-template-columns:1fr;gap:2px}.pw .rule .ex{grid-column:1;margin-top:6px}
+.pw .qa{grid-template-columns:1fr;gap:2px}.pw .qa dd{margin-bottom:10px}
+.pw .sum{grid-template-columns:76px 1fr}.pw .sum dt{font-size:17px}.pw .sum dd{font-size:15px}
+.pw .trap{padding:16px}.pw .trap .opt{font-size:15px}
+.pw .demo,.pw .arrows{margin-left:0}.pw .arrows span{min-width:118px}
+.pw .flip .a{font-size:15.5px}
+.pw .shot{max-width:100%}
+.pw .close{font-size:24px;margin-top:72px}
+}
+.pw .hp{background:linear-gradient(180deg,transparent 58%,#F5C4BC 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.dark .pw .hp{background:linear-gradient(180deg,transparent 58%,rgba(236,122,98,.35) 58%)}
+.pw .paper .psg p.mk{margin:0 0 0 -10px;padding-left:8px;border-left:2px solid var(--ink)}
+.pw .paper .psg p.mk .tag{margin-right:6px;font-family:var(--sans);font-size:14px;font-weight:700}
+.pw .paper .sheet{margin:14px 0 0;padding:14px 18px 16px;border:1px solid var(--ink);font-size:15px;line-height:1.7}
+.pw .paper .sheet .lead{display:flex;gap:4px;margin:0 0 10px;text-indent:0}
+.pw .paper .sheet .ck{flex:none;font-family:var(--sans)}
+.pw .paper .sheet .box{border:1px solid var(--ink);margin:10px 0 0}
+.pw .paper .sheet .h{margin:0;padding:5px 10px;border-bottom:1px solid var(--ink);background:var(--paper);font-family:var(--sans);font-size:14px;text-indent:0}
+.pw .paper .sheet ul{list-style:none;margin:0;padding:8px 10px 10px}
+.pw .paper .sheet .box{background:var(--card)}
+.pw .paper .sheet li{position:relative;margin:0;padding:0 30px 0 12px}
+.pw .paper .sheet li::before{content:"•";position:absolute;left:0;top:0}
+.pw .paper .sheet li + li{margin-top:4px}
+.pw .paper .sheet li.n::after{content:"";position:absolute;left:12px;right:26px;bottom:.45em;border-bottom:2px dotted var(--mute)}
+.pw .paper .sheet li .tx{position:relative;z-index:1;padding-right:6px;background:var(--card)}
+.pw .paper .sheet li i{position:absolute;right:0;bottom:0;font-style:normal}
+.dark .pw .paper .sheet,.dark .pw .paper .sheet .box,.dark .pw .paper .sheet .h,.dark .pw .paper .psg p.mk{border-color:var(--line)}
+.dark .pw .paper .sheet .h{background:var(--card)}
+@media (max-width:640px){.pw .paper .sheet{padding:10px 14px 12px}}
+</style>
+
+<style>
+/* 쉼표 연재: 카드 색(올리브 그린 · 노란 형광)에 맞춰 강조색만 바꾼다 */
+.pw.cm{--red:#5B7A12;--hl:#F3E37A}
+.dark .pw.cm{--red:#B7D46A;--hl:rgba(243,227,122,.32)}
+.pw.cm .hp{background:linear-gradient(180deg,transparent 58%,#DCE8A8 58%)}
+.dark .pw.cm .hp{background:linear-gradient(180deg,transparent 58%,rgba(183,212,106,.35) 58%)}
+.pw .tl{display:grid;grid-template-columns:96px 1fr;margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .tl dt,.pw .tl dd{margin:0;padding:11px 0;border-bottom:1px solid var(--line)}
+.pw .tl dt{font-family:var(--num);font-style:italic;font-size:24px;line-height:1.2;color:var(--red)}
+.pw .tl dd{font-weight:600}
+.pw .tl dd small{display:block;font-weight:400;font-size:14px;color:var(--sub)}
+.pw .tl .up{display:contents}
+.pw .tl .up dt,.pw .tl .up dd{background:var(--card)}
+@media (max-width:640px){.pw .tl{grid-template-columns:76px 1fr}.pw .tl dt{font-size:20px}}
+</style>
+
+<div class="pw cm">
+
+<p class="kicker">SN독학기숙학원 · 쉼표 No. 01 · <time datetime="2026-11-10">2026.11.10</time></p>
+<p class="deck">다 끝낸 사람은 없다. 13년 만에 역주행한 베스티의 이야기로, 수능을 앞둔 수험생에게 쉼표 하나를 건넨다.</p>
+
+<p>수능을 앞두고 다들 지쳐 있을 것이다. 공부에는 끝이 없어서, 불안한 만큼 붙잡고 있어도 다 끝냈다는 느낌은 오지 않는다. 그러다 보면 ‘이 정도로는 안 되겠다’ 싶어 벌써 다음을 생각하기도 한다. 그 마음에, 요즘 화제인 이야기 하나를 꺼내 본다.</p>
+
+<div class="gist">
+<p class="t">한 줄씩 정리</p>
+<dl>
+<dt>역주행</dt><dd>2013년 TOP100에 들지 못했던 베스티 ‘연애의 조건’이 <b>13년 만에</b> 멜론 TOP100에 올랐다.</dd>
+<dt>멈추지 않은 일상</dt><dd>팀은 해체 수순을 밟았지만, 넷은 트로트 · 뮤지컬 · 연기 · 솔로로 <b>각자 일을 놓지 않았다.</b></dd>
+<dt>기본기</dt><dd>기회는 우연히 왔지만, 무대가 빛난 건 <b>성실하게 쌓아 온 일상</b> 덕분이었다.</dd>
+<dt>수험생에게</dt><dd>완벽하지 않아도 괜찮다. <b>지속할 수 있는 만큼만</b> 성실하게, 끝까지 걸어가 보자.</dd>
+</dl>
+</div>
+
+<ol class="toc">
+<li><a href="#pw-1"><i>1</i>13년 만의 역주행</a></li>
+<li><a href="#pw-2"><i>2</i>넷의 삶은 멈추지 않았다</a></li>
+<li><a href="#pw-3"><i>3</i>수험생에게 건네는 쉼표</a></li>
+</ol>
+
+<!-- ───────────────────────── 1 ───────────────────────── -->
+<div class="sec" id="pw-1">
+<p class="num">1</p>
+<h2>13년 만의 역주행</h2>
+<p class="lead">2013년에 데뷔한 4인조 걸그룹 베스티. 그해 낸 ‘연애의 조건’이 13년 만에 멜론 TOP100에 올랐고, 해체했던 넷이 다시 무대에 섰다.</p>
+</div>
+
+<h3><span class="k">그때는</span>바라던 TOP100에 닿지 못했다</h3>
+<dl class="tl">
+<dt>2013</dt><dd>‘연애의 조건’ 발표<small>바라던 TOP100에 들지 못했다.</small></dd>
+<dt>2015</dt><dd>앨범 활동 뒤 각자 활동</dd>
+<dt>2017</dt><dd>두 멤버 탈퇴</dd>
+<dt>2018</dt><dd>사실상 해체 수순</dd>
+<div class="up"><dt>2026</dt><dd>13년 만에 멜론 TOP100<small>7월 말, 한 팬이 하츠투하츠의 안무 영상에 이 노래를 입힌 영상이 크게 퍼진 게 계기였다.</small></dd></div>
+</dl>
+<p class="cap">출처: 엑스포츠뉴스(2026.09.14), 연합뉴스(2017.09.05), 일간스포츠, 매일경제(2026.10.17), 더팩트(2026.10.06)</p>
+<p>여기까지만 보면 <span class="hy">끝난 이야기</span>였다. 그런데 그게 끝이 아니었다.</p>
+
+<!-- ───────────────────────── 2 ───────────────────────── -->
+<div class="sec" id="pw-2">
+<p class="num">2</p>
+<h2>넷의 삶은 멈추지 않았다</h2>
+<p class="lead">팀 활동은 멈춰도, 넷은 각자 일을 놓지 않았다.</p>
+</div>
+
+<div class="names">
+<div><p class="nm">혜연</p><p>힘들 때 카페 아르바이트와 옷 장사로 버텼다. ‘가수를 포기해야 하나’ 생각도 했지만, 2018년 트로트 가수로 다시 시작해 2021년 ‘미스트롯2’에서 8위에 올랐다.</p></div>
+<div><p class="nm">유지</p><p>팀 시절 시작한 뮤지컬을 이어 갔다. ‘광주’, ‘노트르담 드 파리’ 같은 무대에 섰고, 2024년 ‘베르사유의 장미’에서 주인공 오스칼을 맡았다.</p></div>
+<div><p class="nm">해령</p><p>아역 때부터 해 온 연기를 이어 가, 2016년 KBS 드라마 ‘내 마음의 꽃비’로 지상파 첫 주연을 맡았다.</p></div>
+<div><p class="nm">다혜</p><p>2020년 솔로 가수로 데뷔했다. 앨범을 준비하지 않을 때도 연습을 쉬지 않았다고 했다.</p></div>
+</div>
+<div class="exam"><span class="q">다혜 · 2020년 솔로 데뷔 때(OSEN)</span>“앨범 준비하지 않을 때도 <span class="hy">노래와 춤 연습은 쉬어 본 적이 없어요.</span> PT도 받고 홈트, 요가도 하면서 몸과 마음을 다스리면서 생활해 왔어요.”</div>
+<p class="cap">출처: 데일리안(2018), 일간스포츠(2023), 연합뉴스(2015), SBS연예뉴스(2018), 더뮤지컬(2020, 2024), 이데일리(2016.02.24), OSEN(2020.10.09)</p>
+
+<h3><span class="k">다시 무대</span>베스티를 다시 일으킨 것</h3>
+<p>10월 31일, 넷은 4,000여 일 만에 함께 음악방송 무대에 섰다.</p>
+<div class="exam"><span class="q">멤버들 · 컴백 무대 뒤(iMBC연예, 일간스포츠 2026.11.01)</span>“막상 연습을 시작하니 <span class="hy">몸이 기억하고 있구나</span> 싶었다.”</div>
+<p>무대를 본 사람들은 13년 전과 변한 게 없다며, 관리를 정말 잘했다고들 했다. 그 관리는 하루아침에 된 게 아니다.</p>
+<p><span class="hp"><b>기회는 우연히 왔지만, 베스티의 무대가 여전히 빛날 수 있었던 건 그동안 성실하게 쌓아 온 일상이었다.</b></span></p>
+
+<!-- ───────────────────────── 3 ───────────────────────── -->
+<div class="sec" id="pw-3">
+<p class="num">3</p>
+<h2>수험생에게 건네는 쉼표</h2>
+<p class="lead">베스티의 이야기를 수능 앞에 놓아 본다.</p>
+</div>
+
+<h3><span class="k">기본기</span>인생은 수능으로 끝나지 않는다</h3>
+<p>여러분 앞에도 수능만큼, 어쩌면 그보다 무거운 일들이 수없이 찾아올 것이다.</p>
+<ul class="ol">
+<li><i>1</i><span>사랑</span></li>
+<li><i>2</i><span>군대</span></li>
+<li><i>3</i><span>취업</span></li>
+<li><i>4</i><span>이별 …</span></li>
+</ul>
+<p>그때마다 나를 받쳐 주는 건, <span class="hy">하루하루를 정직하고 성실하게 살아온 나의 기본기</span>다.</p>
+
+<h3><span class="k">관대하게</span>나만큼은 나 자신에게 관대하게</h3>
+<div class="flip">
+<div class="r"><p class="a">완벽하지 않으면 망친 것 같다.</p><p class="b">→ <em>누구나 완벽하게 해내기는 힘들다.</em></p><p class="c">둘러보면 다들 완벽하게 해내는 것 같아서 더 그렇게 느낄 뿐이다.</p></div>
+<div class="r"><p class="a">공부한 만큼 나와야 한다.</p><p class="b">→ <em>시험에는 운도 있다.</em></p><p class="c">공부한 데서 많이 나올 수도, 손 못 댄 데서는 하나도 안 나올 수도 있다. 결과는 끝까지 가 봐야 안다.</p></div>
+</div>
+<p>그러니 보이지 않는 벽을 세워 두고 스스로를 옥죄지 말자.</p>
+
+<h3><span class="k">지속</span>지속할 수 있는 만큼만 성실하게</h3>
+<p>내 양심에 맞게, 지금 할 수 있는 만큼 성실하게 해 나가면 된다.</p>
+<dl class="qa">
+<dt>잠이 쏟아지면</dt><dd>침대에 드러눕는 대신 <b>알람을 맞추고 30분만.</b></dd>
+<dt>해설지는</dt><dd>정답만 보고 덮지 말고, 두 줄 볼 것을 <b>한 줄로 줄여서라도.</b></dd>
+</dl>
+<p>딱 내가 지속할 수 있는 만큼만.</p>
+
+<p class="close">쉼표는 찍어도, 마침표는 아직 찍지 말자</p>
+<p>누군가에게는 기회가 늦게 올 수도, 끝내 오지 않을 수도 있다. 그래도 한 걸음 한 걸음 성실하게 걷다 보면 기회가 올 거라고 믿으며 살아 보자.</p>
+<p>물론 그 기회가 <span class="hy">이번 수능날</span>이 되길 기원한다.</p>
+
+<div class="foot">
+<p style="margin:0">※ 인물 이야기와 인용은 위에 적은 기사에서 가져왔다. 카드뉴스의 그림은 방송 · 공연 영상을 바탕으로 실루엣으로 다시 그렸다.</p>
+<p style="margin:4px 0 0">쉼표는 SNarGPT가 지친 수험생에게 건네는 가벼운 읽을거리다. <a href="https://snargpt.ai/" target="_blank" rel="noopener noreferrer">snargpt.ai</a> · 다음 읽을거리는 인스타그램 <a href="https://www.instagram.com/snargpt/" target="_blank" rel="noopener noreferrer">@snargpt</a>에서 먼저 볼 수 있다.</p>
+</div>
+
+</div>

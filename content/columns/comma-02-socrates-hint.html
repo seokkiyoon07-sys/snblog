@@ -1,0 +1,274 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
+.pw{--ink:#161616;--sub:#6E6A63;--mute:#9A958C;--line:#D6D0C5;--red:#C2412B;--paper:#EEEAE3;--card:#FBFAF6;--hl:#F6DD6B;--sans:Pretendard,system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--serif:"Noto Serif KR",serif;--num:"Instrument Serif",serif;color:var(--ink);font-size:17px;line-height:1.85;letter-spacing:-.01em;word-break:keep-all}
+.dark .pw{--ink:#ECEAE6;--sub:#ABA69D;--mute:#7F7A72;--line:#3B3934;--red:#EC7A62;--card:#1D1C1A;--hl:rgba(246,221,107,.32)}
+.pw *{box-sizing:border-box}
+.pw p{margin:0 0 1.05em}
+.pw b,.pw strong{font-weight:700}
+.pw .v{color:var(--red)}
+.pw .hy{background:linear-gradient(180deg,transparent 58%,var(--hl) 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.pw .kicker{font-size:13.5px;font-weight:700;color:var(--sub);margin:0 0 10px}
+.pw .deck{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.5;letter-spacing:-.04em;margin:0 0 22px}
+.pw .info{width:100%;border-collapse:collapse;border-top:1.5px solid var(--ink);margin:30px 0 8px;font-size:14.5px;line-height:1.6}
+.pw .info th{width:92px;text-align:left;vertical-align:top;font-weight:700;color:var(--sub);padding:10px 12px 10px 0;border-bottom:1px solid var(--line)}
+.pw .info td{padding:10px 0;border-bottom:1px solid var(--line)}
+.pw .toc{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:4px}
+.pw .toc a{display:flex;gap:16px;align-items:baseline;color:var(--ink);text-decoration:none;font-weight:600;font-size:16px}
+.pw .toc a:hover{color:var(--red)}
+.pw .toc i{font-family:var(--num);font-style:italic;font-weight:400;font-size:24px;line-height:1;color:var(--red);width:14px}
+.pw .sec{margin:96px 0 30px;padding-top:22px;border-top:1.5px solid var(--ink);scroll-margin-top:110px}
+.pw .sec .num{font-family:var(--num);font-style:italic;font-size:104px;line-height:.82;color:var(--red);margin:6px 0 0;letter-spacing:-.04em}
+.pw .sec h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.3;letter-spacing:-.05em;margin:18px 0 0}
+.pw .sec .lead{margin:16px 0 0;font-size:17px}
+.pw .sec .small{margin:8px 0 0;font-size:14.5px;color:var(--sub);line-height:1.65}
+.pw h3{display:flex;gap:12px;align-items:baseline;font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.4;letter-spacing:-.04em;margin:60px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.pw h3 .k{flex:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0;color:var(--sub)}
+.pw .plate{max-width:600px;margin:26px auto 8px;padding:18px 20px;background:var(--paper);border-radius:3px;overflow-x:auto}
+.pw .plate svg{display:block;width:100%;max-width:540px;min-width:440px;height:auto;margin:0 auto;overflow:visible}
+.pw .plate + p:not(.cap){margin-top:22px}
+.pw .plate svg text[font-family="SUIT"]{font-family:var(--sans)}
+.pw .cap{font-size:13.5px;line-height:1.6;color:var(--sub);margin:0 0 22px}
+.pw .plate + .cap{max-width:600px;margin-left:auto;margin-right:auto}
+.pw .exam{margin:24px 0;padding:18px 22px;border:1.5px solid var(--ink);background:var(--card);font-family:var(--serif);font-size:16.5px;line-height:1.8;letter-spacing:-.01em}
+.dark .pw .exam{border-color:var(--line)}
+.pw .exam .q{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--sub);margin-bottom:6px}
+.pw .talk{display:grid;gap:12px;margin:22px 0 26px}
+.pw .talk .row{display:flex;gap:14px;align-items:flex-start}
+.pw .talk .who{flex:none;width:40px;padding-top:11px;text-align:right;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .talk .bb{margin:0;padding:10px 18px;border:1.5px solid var(--ink);border-radius:20px;border-top-left-radius:5px;background:var(--card);font-weight:600}
+.dark .pw .talk .bb{border-color:var(--line)}
+.pw .names{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0}
+.pw .names .nm{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.04em;color:var(--red);line-height:1.2;margin:0 0 6px}
+.pw .names p{font-size:15.5px;line-height:1.7;margin:0}
+.pw .quotes{display:grid;grid-template-columns:64px 1fr;gap:6px 14px;margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.7}
+.pw .quotes dt{font-weight:700;color:var(--sub)}
+.pw .quotes dd{margin:0;font-family:var(--serif);color:var(--sub)}
+.pw .rule{display:grid;grid-template-columns:90px 1fr;gap:4px 16px;align-items:baseline;margin:26px 0;padding-top:16px;border-top:1.5px solid var(--ink)}
+.pw .rule .nm{font-family:var(--serif);font-weight:700;font-size:24px;letter-spacing:-.04em;color:var(--red)}
+.pw .rule .say{font-size:13.5px;font-weight:600;color:var(--sub)}
+.pw .rule .ex{grid-column:2;margin:0;font-family:var(--serif);font-size:16px;line-height:1.75}
+.pw .qa{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:20px 0}
+.pw .qa dt{font-weight:700;white-space:nowrap}
+.pw .qa dd{margin:0}
+.pw .sum{display:grid;grid-template-columns:96px 1fr;margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .sum dt,.pw .sum dd{margin:0;padding:11px 0;border-bottom:1px solid var(--line)}
+.pw .sum dt{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:-.04em;color:var(--red)}
+.pw .sum dd{font-weight:600}
+.pw .trap{margin:30px 0;padding:20px 22px;background:var(--card);border:1px solid var(--line)}
+.pw .trap h4{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .trap .ld{margin:0 0 14px;font-size:14.5px;line-height:1.65;color:var(--sub)}
+.pw .trap .opt{display:flex;gap:12px;margin:12px 0 0;font-size:15.5px;line-height:1.7}
+.pw .trap .opt i{flex:none;width:18px;font-style:normal;font-weight:800}
+.pw .trap .opt i.x{color:var(--red)}
+.pw .trap .opt small{display:block;margin-top:3px;font-size:13.5px;color:var(--sub)}
+.pw .ol{list-style:none;margin:12px 0 18px;padding:0;display:grid;gap:8px}
+.pw .ol li{display:flex;gap:14px;align-items:baseline}
+.pw .ol li > i{flex:none;width:14px;font-family:var(--num);font-style:italic;font-size:24px;line-height:1;color:var(--red)}
+.pw .demo{margin:4px 0 22px 28px;padding:12px 16px;background:var(--card);border:1px solid var(--line);font-size:15px;line-height:1.75;color:var(--sub)}
+.pw .arrows{margin:4px 0 22px 28px;display:grid;gap:4px;font-weight:700}
+.pw .arrows span{display:inline-block;min-width:150px}
+.pw .flip{margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .flip .r{padding:16px 0;border-bottom:1px solid var(--line)}
+.pw .flip .a{margin:0;font-family:var(--serif)}
+.pw .flip .b{margin:4px 0 0;font-weight:700}
+.pw .flip .b em{font-style:normal;color:var(--red)}
+.pw .flip .c{margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--sub)}
+.pw .gist{margin:30px 0 0;border-top:1.5px solid var(--ink)}
+.pw .gist p.t{margin:12px 0 4px;font-size:13.5px;font-weight:700;color:var(--sub)}
+.pw .gist dl{display:grid;grid-template-columns:92px 1fr;margin:0}
+.pw .gist dt,.pw .gist dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.7}
+.pw .gist dt{font-weight:700}
+.pw .gist dfn{font-style:normal;font-weight:700}
+.pw .faq{margin:0;border-top:1.5px solid var(--ink)}
+.pw .faq dt{margin:0;padding:16px 0 4px;font-weight:700;font-size:16.5px}
+.pw .faq dd{margin:0;padding:0 0 16px;border-bottom:1px solid var(--line);color:var(--ink)}
+.pw .close{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.35;letter-spacing:-.05em;margin:96px 0 24px;padding-top:22px;border-top:1.5px solid var(--ink)}
+.pw .shot{display:block;width:100%;max-width:520px;border:1.5px solid var(--ink);margin:20px 0 6px}
+.pw .ask{margin:10px 0 18px;padding:14px 18px;border:1.5px solid var(--ink);border-radius:16px;background:var(--card);font-weight:600}
+.dark .pw .ask,.dark .pw .shot{border-color:var(--line)}
+.pw .paper{margin:26px 0 0;font-family:var(--serif);font-size:16px;line-height:1.85;letter-spacing:-.01em}
+.pw .paper .set{margin:0 0 10px;font-family:var(--sans);font-size:15.5px;font-weight:700}
+.pw .paper .psg{padding:16px 20px;border:1px solid var(--ink);background:var(--card)}
+.pw .paper .psg p{margin:0;text-indent:1em}
+.pw .paper u{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.pw .paper .item{margin:34px 0 0}
+.pw .paper .stem{margin:0;font-weight:700}
+.pw .paper .stem b{margin-right:4px;font-size:18px}
+.pw .paper .bogi{margin:14px 0 0;padding:12px 18px 14px;border:1px solid var(--ink);font-size:15.5px}
+.pw .paper .bogi .t{margin:0 0 4px;text-align:center;font-size:14px}
+.pw .paper .bogi p:last-child{margin:0;text-indent:1em}
+.pw .paper .opts{list-style:none;margin:12px 0 0;padding:0}
+.pw .paper .opts li{display:flex;gap:6px;margin:0 0 4px;padding:0}
+.pw .paper .opts li > i{flex:none;font-style:normal}
+.dark .pw .paper .psg,.dark .pw .paper .bogi{border-color:var(--line)}
+.pw .ans{margin:34px 0 0;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--line)}
+.pw .ans summary{padding:12px 0;font-weight:700;cursor:pointer}
+.pw .ans p{margin:0 0 14px}
+.pw .pages{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.pw .pages figure{flex:0 0 min(86%,520px);margin:0;scroll-snap-align:start}
+.pw .pages .shot{margin:0 0 6px;max-width:100%}
+.pw .pages .cap{margin:0}
+.pw .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.7;color:var(--sub)}
+.pw .foot a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){
+.pw .gist dl{grid-template-columns:1fr}.pw .gist dt{padding-bottom:0;border-bottom:0}
+.pw{font-size:16px;line-height:1.8}
+.pw .deck{font-size:20px}
+.pw .info{font-size:13.5px}.pw .info th{width:76px}
+.pw .sec{margin-top:72px}.pw .sec .num{font-size:80px}.pw .sec h2{font-size:27px}
+.pw h3{flex-direction:column;gap:2px;font-size:20px;margin-top:48px}
+.pw .plate{width:100vw;max-width:none;margin:22px 0 8px calc(50% - 50vw);padding:14px 10px;border-radius:0;overflow:visible}
+.pw .plate svg{min-width:0;max-width:100%}
+.pw .plate + .cap{max-width:none}
+.pw .exam{padding:14px 16px;font-size:15.5px}
+.pw .paper{font-size:15.5px}.pw .paper .psg{padding:14px 16px}.pw .paper .bogi{padding:10px 14px 12px;font-size:15px}
+.pw .talk .who{width:32px;font-size:13px}.pw .talk .bb{padding:9px 14px;font-size:15px}
+.pw .names{grid-template-columns:1fr;gap:14px}.pw .names .nm{font-size:23px}
+.pw .quotes{grid-template-columns:1fr;gap:0}.pw .quotes dd{margin-bottom:10px}
+.pw .rule{grid-template-columns:1fr;gap:2px}.pw .rule .ex{grid-column:1;margin-top:6px}
+.pw .qa{grid-template-columns:1fr;gap:2px}.pw .qa dd{margin-bottom:10px}
+.pw .sum{grid-template-columns:76px 1fr}.pw .sum dt{font-size:17px}.pw .sum dd{font-size:15px}
+.pw .trap{padding:16px}.pw .trap .opt{font-size:15px}
+.pw .demo,.pw .arrows{margin-left:0}.pw .arrows span{min-width:118px}
+.pw .flip .a{font-size:15.5px}
+.pw .shot{max-width:100%}
+.pw .close{font-size:24px;margin-top:72px}
+}
+.pw .hp{background:linear-gradient(180deg,transparent 58%,#F5C4BC 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.dark .pw .hp{background:linear-gradient(180deg,transparent 58%,rgba(236,122,98,.35) 58%)}
+.pw .paper .psg p.mk{margin:0 0 0 -10px;padding-left:8px;border-left:2px solid var(--ink)}
+.pw .paper .psg p.mk .tag{margin-right:6px;font-family:var(--sans);font-size:14px;font-weight:700}
+.pw .paper .sheet{margin:14px 0 0;padding:14px 18px 16px;border:1px solid var(--ink);font-size:15px;line-height:1.7}
+.pw .paper .sheet .lead{display:flex;gap:4px;margin:0 0 10px;text-indent:0}
+.pw .paper .sheet .ck{flex:none;font-family:var(--sans)}
+.pw .paper .sheet .box{border:1px solid var(--ink);margin:10px 0 0}
+.pw .paper .sheet .h{margin:0;padding:5px 10px;border-bottom:1px solid var(--ink);background:var(--paper);font-family:var(--sans);font-size:14px;text-indent:0}
+.pw .paper .sheet ul{list-style:none;margin:0;padding:8px 10px 10px}
+.pw .paper .sheet .box{background:var(--card)}
+.pw .paper .sheet li{position:relative;margin:0;padding:0 30px 0 12px}
+.pw .paper .sheet li::before{content:"•";position:absolute;left:0;top:0}
+.pw .paper .sheet li + li{margin-top:4px}
+.pw .paper .sheet li.n::after{content:"";position:absolute;left:12px;right:26px;bottom:.45em;border-bottom:2px dotted var(--mute)}
+.pw .paper .sheet li .tx{position:relative;z-index:1;padding-right:6px;background:var(--card)}
+.pw .paper .sheet li i{position:absolute;right:0;bottom:0;font-style:normal}
+.dark .pw .paper .sheet,.dark .pw .paper .sheet .box,.dark .pw .paper .sheet .h,.dark .pw .paper .psg p.mk{border-color:var(--line)}
+.dark .pw .paper .sheet .h{background:var(--card)}
+@media (max-width:640px){.pw .paper .sheet{padding:10px 14px 12px}}
+</style>
+
+<style>
+/* 쉼표 No. 02: 카드 색(남색 · 노랑)에 맞춘 강조색 */
+.pw.cm2{--red:#24356B;--hl:#F3D35B}
+.dark .pw.cm2{--red:#A9BBEF;--hl:rgba(243,211,91,.32)}
+.pw.cm2 .hp{background:linear-gradient(180deg,transparent 58%,#D9E1F4 58%)}
+.dark .pw.cm2 .hp{background:linear-gradient(180deg,transparent 58%,rgba(169,187,239,.3) 58%)}
+</style>
+
+<div class="pw cm2">
+
+<p class="kicker">SN독학기숙학원 · 쉼표 No. 02 · <time datetime="2026-11-10">2026.11.10</time></p>
+<p class="deck">막혔을 때, 어디까지 도움받아야 할까. 2,400년 전 소크라테스가 막힌 아이에게 내민 ‘한 걸음’에서 답을 찾는다.</p>
+
+<p>문제를 풀다 막히면 해설을 펼치고 싶어진다. 그런데 해설을 볼 땐 다 아는 것 같았는데, 막상 덮고 풀려니 손이 안 나간 적이 있을 것이다. 도움은 받아야 한다. 문제는 <b>어디까지</b> 받느냐다. 플라톤의 대화편 『메논』에 이 물음에 딱 맞는 장면이 있다.</p>
+
+<div class="gist">
+<p class="t">한 줄씩 정리</p>
+<dl>
+<dt>장면</dt><dd>소크라테스가 아이에게 넓이가 두 배인 정사각형의 한 변을 묻는다. 아이는 <b>자신 있게 틀리고</b>, 고쳐서 또 틀리고, 결국 “모르겠습니다”라고 말한다.</dd>
+<dt>메타인지</dt><dd>모른다는 걸 아는 것. 막힘은 실패가 아니라 <b>배움이 시작되는 자리</b>다.</dd>
+<dt>도움의 순서</dt><dd>내 답을 먼저 낸다 → 어디가 틀렸는지 확인받는다 → 그래도 막히면 <b>다음 한 걸음만</b> 받는다 → 그 뒤는 다시 내가 잇는다.</dd>
+<dt>AI 활용</dt><dd>정답 대신 확인과 힌트만 얻는 공부는 AI를 쓰기 좋은 영역이다.</dd>
+</dl>
+</div>
+
+<ol class="toc">
+<li><a href="#pw-1"><i>1</i>자신 있게 틀린 아이</a></li>
+<li><a href="#pw-2"><i>2</i>소크라테스가 내민 한 걸음</a></li>
+<li><a href="#pw-3"><i>3</i>우리는 어디까지 도움받을까</a></li>
+</ol>
+
+<!-- ───────────────────────── 1 ───────────────────────── -->
+<div class="sec" id="pw-1">
+<p class="num">1</p>
+<h2>자신 있게 틀린 아이</h2>
+<p class="lead">소크라테스가 아이에게 한 변이 2인 정사각형을 그려 보인다. 넓이는 4칸이다.</p>
+</div>
+
+<div class="exam"><span class="q">소크라테스의 질문</span>“넓이가 두 배인 <span class="hy">8칸짜리 정사각형</span>을 만들려면, 한 변은 얼마일까?”</div>
+
+<h3><span class="k">추측과 확인</span>그려 볼 때마다 어긋났다</h3>
+<div class="flip">
+<div class="r"><p class="a">“두 배니까 4요.”</p><p class="b">→ 그려 보니 <em>16칸</em>, 원래 것의 네 배</p></div>
+<div class="r"><p class="a">“4는 너무 크고 2는 너무 작으니, 3이요.”</p><p class="b">→ 그려 보니 <em>9칸</em>, 이번에도 8이 아니다</p></div>
+<div class="r"><p class="a">“모르겠습니다.”</p><p class="b">→ 처음엔 자신 있게 틀렸고, <em>이제는 막혔다</em></p></div>
+</div>
+<p class="cap">자료: 플라톤 『메논』 82b–84a. 원문에서 이 아이는 메논의 노예다.</p>
+
+<h3><span class="k">메타인지</span>모른다는 걸 알기까지</h3>
+<p>아이가 막히자 소크라테스가 메논에게 묻는다.</p>
+<div class="exam"><span class="q">소크라테스가 메논에게</span>“막혀서 모르는 줄 깨닫고 알고 싶어지기 전에, <span class="hy">안다고 여기던 걸 알아보려 했을까?</span>”</div>
+<p>메논의 답은 “아니다”였다. 안다고 여기는 동안에는 알아볼 마음이 생기지 않는다. <span class="hp"><b>모른다는 걸 아는 것</b></span>, 요즘 말로 메타인지의 한 모습이다. 해설을 볼 땐 다 아는 것 같았는데 덮고 풀려니 손이 안 나가는 순간이 바로 그때다.</p>
+
+<!-- ───────────────────────── 2 ───────────────────────── -->
+<div class="sec" id="pw-2">
+<p class="num">2</p>
+<h2>소크라테스가 내민 한 걸음</h2>
+<p class="lead">소크라테스는 틀린 걸 확인해 주는 데서 그치지 않는다.</p>
+</div>
+
+<h3><span class="k">대각선</span>틀렸다는 데서 그치지 않는다</h3>
+<div class="plate"><svg role="img" aria-label="16칸 정사각형 안의 네 정사각형마다 대각선을 그으면 안쪽에 8칸짜리 정사각형이 생긴다" width="896" height="360" viewBox="0 0 896 360"><g stroke="#161616" stroke-width="2" fill="#FBFAF6"><rect x="300" y="20" width="296" height="296"/></g><g stroke="#9A958C" stroke-width="1.5"><path d="M374,20 L374,316 M448,20 L448,316 M522,20 L522,316 M300,94 L596,94 M300,168 L596,168 M300,242 L596,242"/></g><path d="M448,20 L596,168 L448,316 L300,168 Z" fill="#F3D35B" fill-opacity=".55" stroke="#24356B" stroke-width="4"/><text x="448" y="178" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="32" fill="#24356B">8칸</text><text x="448" y="350" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="24" fill="#6E6A63">16칸 속 정사각형마다 모서리에서 모서리로 선을 긋는다</text></svg></div>
+<p>16칸 속 정사각형마다 모서리에서 모서리로 선을 그으면, 안쪽에 두 배인 8칸이 생긴다. 답은 처음 정사각형의 <b>대각선</b>이었다(오늘날 쓰는 \(\sqrt{8}\), 약 2.83). 아이가 못 찾던 다음 한 걸음을 소크라테스가 내민 것이다.</p>
+<p class="cap">자료: 플라톤 『메논』 84a–85b. 플라톤의 ‘배움은 떠올림’ 주장에서 장면만 빌려 왔다.</p>
+
+<h3><span class="k">순서</span>먼저, 아이의 생각이 있었다</h3>
+<p>이 장면에서 중요한 건 막혔다는 사실 자체보다, 아이가 ‘넓이가 두 배면 변도 두 배’라는 <b>제 생각을 먼저 갖고 있었다</b>는 것이다.</p>
+<ul class="ol">
+<li><i>1</i><span>아이가 제 생각을 낸다.</span></li>
+<li><i>2</i><span>그려서 검증받는다.</span></li>
+<li><i>3</i><span>틀렸고, 어디가 틀렸는지 확인받는다.</span></li>
+<li><i>4</i><span>그다음에서야 소크라테스가 한 걸음을 내민다.</span></li>
+</ul>
+<p>낸 생각이 없었다면 검증받을 것도, 틀린 자리를 찾을 것도 없었다. 그래서 이 장면에서 이렇게 말하고 싶다. <span class="hy">먼저 제 생각을 내게 하고, 틀린 자리까지 확인한 다음, 한 걸음만.</span></p>
+
+<!-- ───────────────────────── 3 ───────────────────────── -->
+<div class="sec" id="pw-3">
+<p class="num">3</p>
+<h2>우리는 어디까지 도움받을까</h2>
+<p class="lead">막혔다는 건 빈손이 아니라는 뜻이다.</p>
+</div>
+
+<h3><span class="k">막힘</span>막막함은 배움이 시작되는 자리</h3>
+<p>공부하다 막혔다면, 그 주제에 대해 이미 내 생각이 있다는 뜻일 수 있다. 생각이 있어야 새로 배우는 내용과 부딪히니까. 지금 생각으로는 안 된다고 느끼는 그 순간이 <span class="hp"><b>공부의 첫 단계</b></span>다. 그때 내가 낸 답에 물음을 던져 보자.</p>
+<div class="talk">
+<div class="row"><span class="who">나</span><p class="bb">이게 정말 맞나?</p></div>
+<div class="row"><span class="who">나</span><p class="bb">이게 다인가?</p></div>
+<div class="row"><span class="who">나</span><p class="bb">더 없나?</p></div>
+</div>
+<p>그 물음을 붙잡고, 앞뒤를 훑고 돌아오고, 그래도 안 되면 누군가에게 묻는다.</p>
+<p class="cap">자료: 포스너 외 1982. 생각이 크게 바뀌는 조건 넷 가운데 첫째로 지금 생각에 대한 불만을 꼽았다.</p>
+
+<h3><span class="k">우리 공부로</span>도움받는 네 단계</h3>
+<dl class="sum">
+<dt>1</dt><dd>내 답을 먼저 낸다. 틀려도 괜찮다.</dd>
+<dt>2</dt><dd>맞는지, 어디가 틀렸는지 확인받는다.</dd>
+<dt>3</dt><dd>그래도 막히면 다음 한 걸음만 받는다.</dd>
+<dt>4</dt><dd>그 뒤는 다시 내가 잇는다.</dd>
+</dl>
+<p>정답을 바로 얻지 않고 확인과 힌트만 얻는 공부는 요즘 AI를 활용하기 참 좋은 영역이다. 어느 AI라도 상관없으니, 이렇게 한번 던져 보자.</p>
+<p class="ask">이게 내 풀이야. 어디가 틀렸는지 짚고, 다음 한 걸음만 힌트로 줘.</p>
+
+<h3><span class="k">SNarGPT</span>한 걸음을 견고하게 내디디도록</h3>
+<p>우리는 공부 질문만 받아 주는 SNarGPT 힌트 모드에 틀린 답을 먼저 내 봤다.</p>
+<img class="shot" src="/images/columns/comma-02-socrates-hint/snar-answer.png" alt="SNarGPT 힌트 모드에 '넓이가 두 배니까 한 변도 두 배로 해서 4로 하면 되는 거 아니야?'라고 묻자, 정답 대신 원래 정사각형의 넓이, 한 변을 4로 늘린 정사각형의 넓이, 원래 정사각형이 몇 개 들어가는지를 차례로 묻는 힌트가 돌아온 화면" loading="lazy">
+<p class="cap">아이에게 소크라테스가 그려 보인 자리와 닮았다.</p>
+
+<p class="close">도움은 한 걸음까지, 그다음은 다시 내가 잇는다</p>
+<p>막힌 자리는 빈손이 아니다. 내 생각을 먼저 내고, 틀린 자리를 확인하고, 딱 한 걸음만 빌리자. 남은 길은 내 발로 걸어야 내 것이 된다.</p>
+
+<div class="foot">
+<p style="margin:0">※ 자료: 플라톤 『메논』 82b–85b. Posner, G. J. 외(1982), Accommodation of a scientific conception, <i>Science Education</i>.</p>
+<p style="margin:4px 0 0">쉼표는 SNarGPT가 지친 수험생에게 건네는 가벼운 읽을거리다. <a href="https://snargpt.ai/" target="_blank" rel="noopener noreferrer">snargpt.ai</a> · 다음 읽을거리는 인스타그램 <a href="https://www.instagram.com/snargpt/" target="_blank" rel="noopener noreferrer">@snargpt</a>에서 먼저 볼 수 있다.</p>
+</div>
+
+</div>

@@ -21,10 +21,12 @@ export interface FeedItem {
 interface ProblemsFeedProps {
   items: FeedItem[];
   subjects: ProblemSubject[];
+  // false 면 유형·과목 필터 없이 카드만 보여 준다 (기출 읽을거리 구역)
+  showFilters?: boolean;
 }
 
 // 출제 로그는 허브 아래 '출제 로그' 섹션에서 따로 보여주므로 피드에서 제외
-// 칼럼 → 해설 → 자료실 순. 이슈·개발기는 글이 생기면 뒤에 붙는다
+// 칼럼 → 읽기 자료 → 해설 → 자료실 순. 글이 있는 유형만 탭으로 보인다
 const FEED_TYPES: ProblemContentType[] = [
   'column',
   'reading',
@@ -41,7 +43,11 @@ const chipClass = (active: boolean) =>
       : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
   }`;
 
-export default function ProblemsFeed({ items, subjects }: ProblemsFeedProps) {
+export default function ProblemsFeed({
+  items,
+  subjects,
+  showFilters = true,
+}: ProblemsFeedProps) {
   const [activeType, setActiveType] = useState<'all' | ProblemContentType>(
     'all'
   );
@@ -65,63 +71,67 @@ export default function ProblemsFeed({ items, subjects }: ProblemsFeedProps) {
 
   return (
     <div className="space-y-5">
-      {/* 콘텐츠 유형 탭 */}
-      <div className="overflow-x-auto md:overflow-visible scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
-        <div className="flex gap-2 md:flex-wrap w-max md:w-auto">
-          <button
-            onClick={() => setActiveType('all')}
-            aria-pressed={activeType === 'all'}
-            className={`px-5 py-2.5 text-sm font-semibold ${chipClass(activeType === 'all')}`}
-          >
-            전체
-            <span className="ml-1.5 text-xs opacity-75">({items.length})</span>
-          </button>
-          {FEED_TYPES.filter(
-            type => type === 'reading' || typeCount(type) > 0
-          ).map(type => (
-            <button
-              key={type}
-              onClick={() => setActiveType(type)}
-              aria-pressed={activeType === type}
-              className={`px-5 py-2.5 text-sm font-semibold ${chipClass(activeType === type)}`}
-            >
-              <span className="hidden md:inline mr-1.5">
-                {PROBLEM_CONTENT_TYPE_CONFIG[type].emoji}
-              </span>
-              {PROBLEM_CONTENT_TYPE_CONFIG[type].label}
-              <span className="ml-1.5 text-xs opacity-75">
-                ({typeCount(type)})
-              </span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* 과목 필터 */}
-      <div className="overflow-x-auto md:overflow-visible scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
-        <div className="flex gap-1.5 md:flex-wrap w-max md:w-auto">
-          {(['all', ...subjects] as const).map(key => {
-            const count =
-              key === 'all'
-                ? typeItems.length
-                : typeItems.filter(item => item.subject === key).length;
-            return (
+      {showFilters && (
+        <>
+          {/* 콘텐츠 유형 탭 */}
+          <div className="overflow-x-auto md:overflow-visible scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="flex gap-2 md:flex-wrap w-max md:w-auto">
               <button
-                key={key}
-                onClick={() => setActiveSubject(key)}
-                aria-pressed={activeSubject === key}
-                disabled={count === 0 && key !== 'all' && key !== 'korean'}
-                className={`px-3 py-1.5 text-xs font-medium disabled:opacity-40 disabled:cursor-default ${chipClass(activeSubject === key)}`}
+                onClick={() => setActiveType('all')}
+                aria-pressed={activeType === 'all'}
+                className={`px-5 py-2.5 text-sm font-semibold ${chipClass(activeType === 'all')}`}
               >
-                {key === 'all'
-                  ? '전체 과목'
-                  : PROBLEM_SUBJECT_CONFIG[key].label}
-                <span className="ml-1 opacity-75">({count})</span>
+                전체
+                <span className="ml-1.5 text-xs opacity-75">
+                  ({items.length})
+                </span>
               </button>
-            );
-          })}
-        </div>
-      </div>
+              {FEED_TYPES.filter(type => typeCount(type) > 0).map(type => (
+                <button
+                  key={type}
+                  onClick={() => setActiveType(type)}
+                  aria-pressed={activeType === type}
+                  className={`px-5 py-2.5 text-sm font-semibold ${chipClass(activeType === type)}`}
+                >
+                  <span className="hidden md:inline mr-1.5">
+                    {PROBLEM_CONTENT_TYPE_CONFIG[type].emoji}
+                  </span>
+                  {PROBLEM_CONTENT_TYPE_CONFIG[type].label}
+                  <span className="ml-1.5 text-xs opacity-75">
+                    ({typeCount(type)})
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* 과목 필터 */}
+          <div className="overflow-x-auto md:overflow-visible scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="flex gap-1.5 md:flex-wrap w-max md:w-auto">
+              {(['all', ...subjects] as const).map(key => {
+                const count =
+                  key === 'all'
+                    ? typeItems.length
+                    : typeItems.filter(item => item.subject === key).length;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setActiveSubject(key)}
+                    aria-pressed={activeSubject === key}
+                    disabled={count === 0 && key !== 'all' && key !== 'korean'}
+                    className={`px-3 py-1.5 text-xs font-medium disabled:opacity-40 disabled:cursor-default ${chipClass(activeSubject === key)}`}
+                  >
+                    {key === 'all'
+                      ? '전체 과목'
+                      : PROBLEM_SUBJECT_CONFIG[key].label}
+                    <span className="ml-1 opacity-75">({count})</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
 
       {/* 카드 그리드 */}
       {visibleItems.length > 0 ? (
@@ -137,7 +147,7 @@ export default function ProblemsFeed({ items, subjects }: ProblemsFeedProps) {
                 placement="problems_card"
               >
                 {post.thumbnail && (
-                  <div className="relative w-full h-48 overflow-hidden">
+                  <div className="relative w-full aspect-[1200/630] overflow-hidden">
                     <Image
                       src={post.thumbnail}
                       alt={post.title}
@@ -149,6 +159,11 @@ export default function ProblemsFeed({ items, subjects }: ProblemsFeedProps) {
                 )}
                 <div className="p-4">
                   <div className="mb-2 flex flex-wrap gap-1.5 text-xs font-medium">
+                    {!post.published && (
+                      <span className="rounded bg-amber-100 px-2 py-0.5 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200">
+                        초안
+                      </span>
+                    )}
                     <span className="rounded bg-sn-primary/10 px-2 py-0.5 text-sn-primary">
                       {PROBLEM_CONTENT_TYPE_CONFIG[contentType].label}
                     </span>
@@ -165,7 +180,11 @@ export default function ProblemsFeed({ items, subjects }: ProblemsFeedProps) {
                     {post.excerpt}
                   </p>
                   <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-                    <span>{post.date}</span>
+                    <span>
+                      {post.latestUpdate
+                        ? `업데이트 ${post.latestUpdate.date}`
+                        : post.date}
+                    </span>
                     <span>{post.readTime}분 읽기</span>
                   </div>
                 </div>
@@ -186,14 +205,10 @@ export default function ProblemsFeed({ items, subjects }: ProblemsFeedProps) {
       ) : (
         <div className="rounded-lg border border-dashed border-gray-300 px-6 py-12 text-center dark:border-gray-600">
           <h3 className="font-semibold text-gray-900 dark:text-white">
-            {activeType === 'reading'
-              ? '과목별 개념을 더 깊이 이해하는 읽기 자료'
-              : '아직 등록된 글이 없습니다'}
+            아직 등록된 글이 없습니다
           </h3>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            {activeType === 'reading'
-              ? '국어·수학 등 여러 과목의 배경 개념과 탐구 주제를 예시와 함께 소개할 예정입니다.'
-              : '자료가 등록되면 이곳에서 확인할 수 있습니다.'}
+            자료가 등록되면 이곳에서 확인할 수 있습니다.
           </p>
         </div>
       )}

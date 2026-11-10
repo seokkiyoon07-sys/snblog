@@ -1,0 +1,485 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
+.pw{--ink:#161616;--sub:#6E6A63;--mute:#9A958C;--line:#D6D0C5;--red:#C2412B;--paper:#EEEAE3;--card:#FBFAF6;--hl:#F6DD6B;--sans:Pretendard,system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--serif:"Noto Serif KR",serif;--num:"Instrument Serif",serif;color:var(--ink);font-size:17px;line-height:1.85;letter-spacing:-.01em;word-break:keep-all}
+.dark .pw{--ink:#ECEAE6;--sub:#ABA69D;--mute:#7F7A72;--line:#3B3934;--red:#EC7A62;--card:#1D1C1A;--hl:rgba(246,221,107,.32)}
+.pw *{box-sizing:border-box}
+.pw p{margin:0 0 1.05em}
+.pw b,.pw strong{font-weight:700}
+.pw .v{color:var(--red)}
+.pw .hy{background:linear-gradient(180deg,transparent 58%,var(--hl) 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.pw .kicker{font-size:13.5px;font-weight:700;color:var(--sub);margin:0 0 10px}
+.pw .deck{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.5;letter-spacing:-.04em;margin:0 0 22px}
+.pw .info{width:100%;border-collapse:collapse;border-top:1.5px solid var(--ink);margin:30px 0 8px;font-size:14.5px;line-height:1.6}
+.pw .info th{width:92px;text-align:left;vertical-align:top;font-weight:700;color:var(--sub);padding:10px 12px 10px 0;border-bottom:1px solid var(--line)}
+.pw .info td{padding:10px 0;border-bottom:1px solid var(--line)}
+.pw .toc{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:4px}
+.pw .toc a{display:flex;gap:16px;align-items:baseline;color:var(--ink);text-decoration:none;font-weight:600;font-size:16px}
+.pw .toc a:hover{color:var(--red)}
+.pw .toc i{font-family:var(--num);font-style:italic;font-weight:400;font-size:24px;line-height:1;color:var(--red);width:14px}
+.pw .sec{margin:96px 0 30px;padding-top:22px;border-top:1.5px solid var(--ink);scroll-margin-top:110px}
+.pw .sec .num{font-family:var(--num);font-style:italic;font-size:104px;line-height:.82;color:var(--red);margin:6px 0 0;letter-spacing:-.04em}
+.pw .sec h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.3;letter-spacing:-.05em;margin:18px 0 0}
+.pw .sec .lead{margin:16px 0 0;font-size:17px}
+.pw .sec .small{margin:8px 0 0;font-size:14.5px;color:var(--sub);line-height:1.65}
+.pw h3{display:flex;gap:12px;align-items:baseline;font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.4;letter-spacing:-.04em;margin:60px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.pw h3 .k{flex:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0;color:var(--sub)}
+.pw .plate{max-width:600px;margin:26px auto 8px;padding:18px 20px;background:var(--paper);border-radius:3px;overflow-x:auto}
+.pw .plate svg{display:block;width:100%;max-width:540px;min-width:440px;height:auto;margin:0 auto;overflow:visible}
+.pw .plate + p:not(.cap){margin-top:22px}
+.pw .plate svg text[font-family="SUIT"]{font-family:var(--sans)}
+.pw .cap{font-size:13.5px;line-height:1.6;color:var(--sub);margin:0 0 22px}
+.pw .plate + .cap{max-width:600px;margin-left:auto;margin-right:auto}
+.pw .exam{margin:24px 0;padding:18px 22px;border:1.5px solid var(--ink);background:var(--card);font-family:var(--serif);font-size:16.5px;line-height:1.8;letter-spacing:-.01em}
+.dark .pw .exam{border-color:var(--line)}
+.pw .exam .q{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--sub);margin-bottom:6px}
+.pw .talk{display:grid;gap:12px;margin:22px 0 26px}
+.pw .talk .row{display:flex;gap:14px;align-items:flex-start}
+.pw .talk .who{flex:none;width:40px;padding-top:11px;text-align:right;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .talk .bb{margin:0;padding:10px 18px;border:1.5px solid var(--ink);border-radius:20px;border-top-left-radius:5px;background:var(--card);font-weight:600}
+.dark .pw .talk .bb{border-color:var(--line)}
+.pw .names{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0}
+.pw .names .nm{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.04em;color:var(--red);line-height:1.2;margin:0 0 6px}
+.pw .names p{font-size:15.5px;line-height:1.7;margin:0}
+.pw .quotes{display:grid;grid-template-columns:64px 1fr;gap:6px 14px;margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.7}
+.pw .quotes dt{font-weight:700;color:var(--sub)}
+.pw .quotes dd{margin:0;font-family:var(--serif);color:var(--sub)}
+.pw .rule{display:grid;grid-template-columns:90px 1fr;gap:4px 16px;align-items:baseline;margin:26px 0;padding-top:16px;border-top:1.5px solid var(--ink)}
+.pw .rule .nm{font-family:var(--serif);font-weight:700;font-size:24px;letter-spacing:-.04em;color:var(--red)}
+.pw .rule .say{font-size:13.5px;font-weight:600;color:var(--sub)}
+.pw .rule .ex{grid-column:2;margin:0;font-family:var(--serif);font-size:16px;line-height:1.75}
+.pw .qa{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:20px 0}
+.pw .qa dt{font-weight:700;white-space:nowrap}
+.pw .qa dd{margin:0}
+.pw .sum{display:grid;grid-template-columns:96px 1fr;margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .sum dt,.pw .sum dd{margin:0;padding:11px 0;border-bottom:1px solid var(--line)}
+.pw .sum dt{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:-.04em;color:var(--red)}
+.pw .sum dd{font-weight:600}
+.pw .trap{margin:30px 0;padding:20px 22px;background:var(--card);border:1px solid var(--line)}
+.pw .trap h4{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .trap .ld{margin:0 0 14px;font-size:14.5px;line-height:1.65;color:var(--sub)}
+.pw .trap .opt{display:flex;gap:12px;margin:12px 0 0;font-size:15.5px;line-height:1.7}
+.pw .trap .opt i{flex:none;width:18px;font-style:normal;font-weight:800}
+.pw .trap .opt i.x{color:var(--red)}
+.pw .trap .opt small{display:block;margin-top:3px;font-size:13.5px;color:var(--sub)}
+.pw .ol{list-style:none;margin:12px 0 18px;padding:0;display:grid;gap:8px}
+.pw .ol li{display:flex;gap:14px;align-items:baseline}
+.pw .ol li > i{flex:none;width:14px;font-family:var(--num);font-style:italic;font-size:24px;line-height:1;color:var(--red)}
+.pw .demo{margin:4px 0 22px 28px;padding:12px 16px;background:var(--card);border:1px solid var(--line);font-size:15px;line-height:1.75;color:var(--sub)}
+.pw .arrows{margin:4px 0 22px 28px;display:grid;gap:4px;font-weight:700}
+.pw .arrows span{display:inline-block;min-width:150px}
+.pw .flip{margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .flip .r{padding:16px 0;border-bottom:1px solid var(--line)}
+.pw .flip .a{margin:0;font-family:var(--serif)}
+.pw .flip .b{margin:4px 0 0;font-weight:700}
+.pw .flip .b em{font-style:normal;color:var(--red)}
+.pw .flip .c{margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--sub)}
+.pw .gist{margin:30px 0 0;border-top:1.5px solid var(--ink)}
+.pw .gist p.t{margin:12px 0 4px;font-size:13.5px;font-weight:700;color:var(--sub)}
+.pw .gist dl{display:grid;grid-template-columns:92px 1fr;margin:0}
+.pw .gist dt,.pw .gist dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.7}
+.pw .gist dt{font-weight:700}
+.pw .gist dfn{font-style:normal;font-weight:700}
+.pw .faq{margin:0;border-top:1.5px solid var(--ink)}
+.pw .faq dt{margin:0;padding:16px 0 4px;font-weight:700;font-size:16.5px}
+.pw .faq dd{margin:0;padding:0 0 16px;border-bottom:1px solid var(--line);color:var(--ink)}
+.pw .close{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.35;letter-spacing:-.05em;margin:96px 0 24px;padding-top:22px;border-top:1.5px solid var(--ink)}
+.pw .shot{display:block;width:100%;max-width:520px;border:1.5px solid var(--ink);margin:20px 0 6px}
+.pw .ask{margin:10px 0 18px;padding:14px 18px;border:1.5px solid var(--ink);border-radius:16px;background:var(--card);font-weight:600}
+.dark .pw .ask,.dark .pw .shot{border-color:var(--line)}
+.pw .paper{margin:26px 0 0;font-family:var(--serif);font-size:16px;line-height:1.85;letter-spacing:-.01em}
+.pw .paper .set{margin:0 0 10px;font-family:var(--sans);font-size:15.5px;font-weight:700}
+.pw .paper .psg{padding:16px 20px;border:1px solid var(--ink);background:var(--card)}
+.pw .paper .psg p{margin:0;text-indent:1em}
+.pw .paper u{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.pw .paper .item{margin:34px 0 0}
+.pw .paper .stem{margin:0;font-weight:700}
+.pw .paper .stem b{margin-right:4px;font-size:18px}
+.pw .paper .bogi{margin:14px 0 0;padding:12px 18px 14px;border:1px solid var(--ink);font-size:15.5px}
+.pw .paper .bogi .t{margin:0 0 4px;text-align:center;font-size:14px}
+.pw .paper .bogi p:last-child{margin:0;text-indent:1em}
+.pw .paper .opts{list-style:none;margin:12px 0 0;padding:0}
+.pw .paper .opts li{display:flex;gap:6px;margin:0 0 4px;padding:0}
+.pw .paper .opts li > i{flex:none;font-style:normal}
+.dark .pw .paper .psg,.dark .pw .paper .bogi{border-color:var(--line)}
+.pw .ans{margin:34px 0 0;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--line)}
+.pw .ans summary{padding:12px 0;font-weight:700;cursor:pointer}
+.pw .ans p{margin:0 0 14px}
+.pw .pages{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.pw .pages figure{flex:0 0 min(86%,520px);margin:0;scroll-snap-align:start}
+.pw .pages .shot{margin:0 0 6px;max-width:100%}
+.pw .pages .cap{margin:0}
+.pw .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.7;color:var(--sub)}
+.pw .foot a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){
+.pw .gist dl{grid-template-columns:1fr}.pw .gist dt{padding-bottom:0;border-bottom:0}
+.pw{font-size:16px;line-height:1.8}
+.pw .deck{font-size:20px}
+.pw .info{font-size:13.5px}.pw .info th{width:76px}
+.pw .sec{margin-top:72px}.pw .sec .num{font-size:80px}.pw .sec h2{font-size:27px}
+.pw h3{flex-direction:column;gap:2px;font-size:20px;margin-top:48px}
+.pw .plate{width:100vw;max-width:none;margin:22px 0 8px calc(50% - 50vw);padding:14px 10px;border-radius:0;overflow:visible}
+.pw .plate svg{min-width:0;max-width:100%}
+.pw .plate + .cap{max-width:none}
+.pw .exam{padding:14px 16px;font-size:15.5px}
+.pw .paper{font-size:15.5px}.pw .paper .psg{padding:14px 16px}.pw .paper .bogi{padding:10px 14px 12px;font-size:15px}
+.pw .talk .who{width:32px;font-size:13px}.pw .talk .bb{padding:9px 14px;font-size:15px}
+.pw .names{grid-template-columns:1fr;gap:14px}.pw .names .nm{font-size:23px}
+.pw .quotes{grid-template-columns:1fr;gap:0}.pw .quotes dd{margin-bottom:10px}
+.pw .rule{grid-template-columns:1fr;gap:2px}.pw .rule .ex{grid-column:1;margin-top:6px}
+.pw .qa{grid-template-columns:1fr;gap:2px}.pw .qa dd{margin-bottom:10px}
+.pw .sum{grid-template-columns:76px 1fr}.pw .sum dt{font-size:17px}.pw .sum dd{font-size:15px}
+.pw .trap{padding:16px}.pw .trap .opt{font-size:15px}
+.pw .demo,.pw .arrows{margin-left:0}.pw .arrows span{min-width:118px}
+.pw .flip .a{font-size:15.5px}
+.pw .shot{max-width:100%}
+.pw .close{font-size:24px;margin-top:72px}
+}
+.pw .hp{background:linear-gradient(180deg,transparent 58%,#F5C4BC 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.dark .pw .hp{background:linear-gradient(180deg,transparent 58%,rgba(236,122,98,.35) 58%)}
+.pw .paper .psg p.mk{margin:0 0 0 -10px;padding-left:8px;border-left:2px solid var(--ink)}
+.pw .paper .psg p.mk .tag{margin-right:6px;font-family:var(--sans);font-size:14px;font-weight:700}
+.pw .paper .sheet{margin:14px 0 0;padding:14px 18px 16px;border:1px solid var(--ink);font-size:15px;line-height:1.7}
+.pw .paper .sheet .lead{display:flex;gap:4px;margin:0 0 10px;text-indent:0}
+.pw .paper .sheet .ck{flex:none;font-family:var(--sans)}
+.pw .paper .sheet .box{border:1px solid var(--ink);margin:10px 0 0}
+.pw .paper .sheet .h{margin:0;padding:5px 10px;border-bottom:1px solid var(--ink);background:var(--paper);font-family:var(--sans);font-size:14px;text-indent:0}
+.pw .paper .sheet ul{list-style:none;margin:0;padding:8px 10px 10px}
+.pw .paper .sheet .box{background:var(--card)}
+.pw .paper .sheet li{position:relative;margin:0;padding:0 30px 0 12px}
+.pw .paper .sheet li::before{content:"•";position:absolute;left:0;top:0}
+.pw .paper .sheet li + li{margin-top:4px}
+.pw .paper .sheet li.n::after{content:"";position:absolute;left:12px;right:26px;bottom:.45em;border-bottom:2px dotted var(--mute)}
+.pw .paper .sheet li .tx{position:relative;z-index:1;padding-right:6px;background:var(--card)}
+.pw .paper .sheet li i{position:absolute;right:0;bottom:0;font-style:normal}
+.dark .pw .paper .sheet,.dark .pw .paper .sheet .box,.dark .pw .paper .sheet .h,.dark .pw .paper .psg p.mk{border-color:var(--line)}
+.dark .pw .paper .sheet .h{background:var(--card)}
+@media (max-width:640px){.pw .paper .sheet{padding:10px 14px 12px}}
+</style>
+
+<!--
+  초안 (published: false) · 카드 원본: content/drafts/cards/2022-suneung-bretton-woods.html
+  TODO
+  - [ ] 지문 밖 수치(1949 · 1960 · 1971 금 보유량, BIS 2025 조사) 출처 재확인
+-->
+
+<div class="pw">
+
+<p class="kicker">SN독학기숙학원 · 수능 국어 독서 기출 읽을거리 · <time datetime="2026-11-10">2026.11.10</time></p>
+<p class="deck">원화와 달러는 얼마에 바꿔야 할까. 2022학년도 수능 독서 「브레턴우즈 체제」를 금, 금에 묶인 달러, 금 교환을 멈춘 달러 순서로 다시 읽는다.</p>
+
+<p>2022학년도 수능 국어 독서 10~13번은 기축 통화와 환율 제도를 다룬 경제 지문이다. 금 본위 체제, 브레턴우즈 체제, 트리핀 딜레마, 닉슨 쇼크까지 백 년 가까운 국제 통화 체제의 흐름을 한 지문에 담았다. 12번은 세 나라가 있을 때 체제마다 환율이 몇 개 생기는지 세게 해서, 경제보다 경우의 수 문제에 가깝다.</p>
+<p>이 글은 원화만 쓰는 나라와 달러만 쓰는 나라라는 장면에서 출발한다. 두 돈을 바꾸는 기준이 금에서 달러로, 다시 금 교환을 멈춘 달러로 바뀐 과정을 따라가고, 지문 밖 배경 세 가지를 끼워 넣는다. 그다음 12번을 그림으로 직접 센다.</p>
+
+<div class="gist">
+<p class="t">핵심 정리</p>
+<dl>
+<dt>기축 통화</dt><dd><dfn>기축 통화</dfn>는 국제 거래에 결제 수단으로 통용되고 환율 결정에 기준이 되는 통화다(지문 1문단). 지금은 주로 달러가 이 역할을 한다.</dd>
+<dt>금 본위</dt><dd>각국이 제 돈 값을 <b>정해진 양의 금</b>에 고정한다. 그러면 나라 사이 환율은 <b>자동적으로</b> 결정된다.</dd>
+<dt>브레턴우즈</dt><dd>1944년 성립. <b>달러만 금에</b>(금 1온스 = 35달러) 묶고, 다른 나라 돈은 <b>달러에</b> 묶는다. 미국 중앙은행은 금 태환 의무를 진다.</dd>
+<dt>트리핀 딜레마</dt><dd>세계에 달러가 돌려면 미국이 적자로 달러를 내보내야 하는데, 많이 내보낼수록 달러를 금으로 바꿔 줄 수 있다는 <b>신뢰</b>가 떨어진다.</dd>
+<dt>1971년 이후</dt><dd>미국이 금 태환을 정지했지만 달러는 기축 통화로 남았다. 기축 통화가 있으면 정할 환율이 <b>\({}_{n}\mathrm{C}_{2}\)개에서 \(n-1\)개</b>로 줄어 거래 비용이 적기 때문이다.</dd>
+</dl>
+</div>
+
+<table class="info">
+<tr><th>지문</th><td>2022학년도 대학수학능력시험 국어 독서 10~13번 「브레턴우즈 체제」</td></tr>
+<tr><th>분야</th><td>사회 · 경제</td></tr>
+<tr><th>핵심 개념</th><td>기축 통화, 금 본위 체제, 브레턴우즈 체제, 금 태환, 교차 환율, 트리핀 딜레마</td></tr>
+<tr><th>다루는 문항</th><td>10번 ②, 11번 ⑤, 12번 ⑤, 13번 ④</td></tr>
+<tr><th>원문</th><td>지문과 10~13번 전문, 원본 시험지 이미지 수록</td></tr>
+</table>
+
+<ol class="toc">
+<li><a href="#pw-1"><i>1</i>원화만 쓰는 나라와 달러만 쓰는 나라</a></li>
+<li><a href="#pw-2"><i>2</i>세계가 써 온 환율의 기준</a></li>
+<li><a href="#pw-3"><i>3</i>시험지에선 왜 유독 어렵게 느껴질까</a></li>
+<li><a href="#pw-4"><i>4</i>원문으로 직접 풀어 보기</a></li>
+<li><a href="#pw-faq"><i>Q</i>자주 묻는 질문</a></li>
+</ol>
+
+<!-- ───────────────────────── 1 ───────────────────────── -->
+<div class="sec" id="pw-1">
+<p class="num">1</p>
+<h2>원화만 쓰는 나라와 달러만 쓰는 나라</h2>
+</div>
+
+<h3><span class="k">물음</span>1달러는 몇 원으로 쳐야 할까?</h3>
+<div class="plate"><svg role="img" aria-label="원화만 받는 한국과 달러만 받는 미국 사이에 물음표" width="896" height="300" viewBox="0 0 896 300"><rect x="40" y="30" width="300" height="220" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="190" y="84" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">한국</text><circle cx="190" cy="148" r="38" fill="#F6DD6B" stroke="#161616" stroke-width="2"/><text x="190" y="162" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="40" fill="#161616">₩</text><text x="190" y="222" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="26" fill="#6E6A63">원화만 받는다</text><rect x="556" y="30" width="300" height="220" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="706" y="84" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">미국</text><circle cx="706" cy="148" r="38" fill="#F6DD6B" stroke="#161616" stroke-width="2"/><text x="706" y="162" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="40" fill="#161616">$</text><text x="706" y="222" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="26" fill="#6E6A63">달러만 받는다</text><path d="M360,140 L536,140" stroke="#C2412B" stroke-width="3" stroke-dasharray="9 9"/><text x="448" y="122" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="56" fill="#C2412B">?</text></svg></div>
+<p>한국은 원화만, 미국은 달러만 받는다고 가정하자. 미국인이 달러를 들고 한국에 와서 10만 원짜리 운동화를 사려면 몇 달러가 필요할까? 그 비율은 누가, 무엇을 기준으로 정할까?</p>
+<p>쉬워 보이는 물음이지만, 세계는 백 년 넘게 그 답을 바꿔 왔다.</p>
+
+<h3><span class="k">기준</span>두 돈을 함께 잴 기준이 있으면 된다</h3>
+<div class="plate"><svg role="img" aria-label="모두가 값어치를 인정하는 물건 하나가 한국에서 1,000원, 미국에서 1달러이면 1달러는 1,000원" width="896" height="270" viewBox="0 0 896 270"><rect x="40" y="40" width="220" height="110" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="150" y="108" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="34" fill="#161616">1,000원</text><rect x="636" y="40" width="220" height="110" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="746" y="108" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="34" fill="#161616">1달러</text><rect x="338" y="30" width="220" height="130" rx="14" fill="#F6DD6B" stroke="#161616" stroke-width="2"/><text x="448" y="88" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="25" fill="#161616">모두가 값어치를</text><text x="448" y="122" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="25" fill="#161616">인정하는 물건</text><path d="M268,95 L330,95 M566,95 L628,95" stroke="#161616" stroke-width="2.5"/><text x="448" y="222" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="32" fill="#C2412B">그러면 1달러 = 1,000원</text><text x="448" y="258" text-anchor="middle" font-family="SUIT" font-weight="600" font-size="22" fill="#6E6A63">(숫자는 가상)</text></svg></div>
+<p>모두가 값어치를 인정하는 물건 하나를 한국에서는 1,000원, 미국에서는 1달러로 쳐 준다면, 1달러는 1,000원이고 10만 원짜리 운동화는 100달러다. 이런 역할을 특정 돈이 맡으면, 그 돈을 <b>기축 통화</b>라 한다.</p>
+<div class="exam"><span class="q">지문 1문단</span><span class="hy">기축 통화는 국제 거래에 결제 수단으로 통용되고 환율 결정에 기준이 되는 통화이다.</span></div>
+<p class="cap">이 글의 시험지 문장은 모두 2022학년도 수능 국어 독서 10~13번에서 가져왔다.</p>
+
+<!-- ───────────────────────── 2 ───────────────────────── -->
+<div class="sec" id="pw-2">
+<p class="num">2</p>
+<h2>세계가 써 온 환율의 기준</h2>
+<p class="lead">지문은 금 → 금에 묶인 달러(1944) → 금 교환을 멈춘 달러(1971) 순서로 흘러간다.</p>
+<p class="small">사이사이에 지문 밖 정보 세 가지를 끼웠다. 시험에 직접 나오지는 않지만, 지문의 문장이 왜 그렇게 이어지는지 알려 준다.</p>
+</div>
+
+<h3><span class="k">기준 ① · 금</span>나라마다 금값을 정하면 환율은 저절로 정해진다</h3>
+<div class="plate"><svg role="img" aria-label="한국 1,000원 = 금 1그램, 미국 1달러 = 금 1그램이면 1달러 = 1,000원" width="896" height="320" viewBox="0 0 896 320"><rect x="368" y="20" width="160" height="80" rx="10" fill="#F6DD6B" stroke="#161616" stroke-width="2"/><text x="448" y="72" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="34" fill="#161616">금</text><rect x="60" y="150" width="300" height="100" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="210" y="190" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="25" fill="#6E6A63">한국</text><text x="210" y="228" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="27" fill="#161616">1,000원 = 금 1그램</text><rect x="536" y="150" width="300" height="100" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="686" y="190" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="25" fill="#6E6A63">미국</text><text x="686" y="228" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="27" fill="#161616">1달러 = 금 1그램</text><path d="M390,100 L250,148 M506,100 L646,148" stroke="#C2412B" stroke-width="3"/><path d="M362,200 L534,200" stroke="#161616" stroke-width="2.5" stroke-dasharray="8 8"/><text x="448" y="296" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#C2412B">그러면 1달러 = 1,000원 <tspan font-size="22" font-weight="600" fill="#6E6A63">(숫자는 가상)</tspan></text></svg></div>
+<p>모두가 값어치를 인정하는 물건, 그 대표가 금이었다. 각국이 ‘우리 돈 1 = 금 몇 그램’을 법으로 먼저 정하면, 두 돈의 비율은 금을 거쳐 <b>저절로</b> 정해진다. 지폐를 가져오면 나라가 정해진 양의 금으로 바꿔 주었다.</p>
+<p>금은 누구도 마음대로 만들어 낼 수 없어 믿음은 단단했다. 대신 금이 늘지 않으면, 찍어 낼 수 있는 돈에도 한계가 있었다.</p>
+<div class="exam"><span class="q">지문 2문단</span>㉠금 본위 체제에서는 금이 국제 유동성의 역할을 했으며, 각 국가의 통화 가치는 정해진 양의 금의 가치에 고정되었다. 이에 따라 <span class="hy">국가 간 통화의 교환 비율인 환율은 자동적으로 결정되었다.</span></div>
+
+<h3><span class="k">지문 밖 ① · 왜 금인가</span>금이 세계의 기준이 된 까닭</h3>
+<p>금값을 몇 원으로 할지는 나라마다 달라도 된다. 중요한 건 금 자체다. 금은 땅에서 조금씩만 나고, 누구도 마음대로 만들어 낼 수 없는 귀한 물건이다.</p>
+<p>만약 한국에서 금 1그램이 쌀 10kg, 미국에서는 쌀 5kg과 바뀐다면, 상인은 금 1그램을 미국에서 한국으로 가져와 쌀을 사서 미국에 판다. 이런 장사가 되풀이되면 두 곳의 값이 비슷해지고, 차이는 실어 나르는 운송비만큼만 남는다. 그래서 금 1그램의 값어치는 어디서나 같은 기준이 됐다.</p>
+<p class="cap">숫자는 가상. 이렇게 돈 값을 금에 묶는 방식을 금 본위 체제라 한다.</p>
+
+<h3><span class="k">지문 밖 ② · 브레턴우즈 이전</span>전쟁과 불황 앞에서 금 본위 체제가 흔들렸다</h3>
+<div class="plate"><svg role="img" aria-label="1914 1차 세계 대전, 1929 대공황, 1931~36 금 교환 약속 이행 중단, 1944 브레턴우즈" width="896" height="250" viewBox="0 0 896 250"><path d="M40,90 L856,90" stroke="#161616" stroke-width="2.5"/><circle cx="110" cy="90" r="10" fill="#161616"/><circle cx="330" cy="90" r="10" fill="#161616"/><circle cx="560" cy="90" r="10" fill="#161616"/><circle cx="790" cy="90" r="12" fill="#C2412B"/><text x="110" y="60" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">1914</text><text x="330" y="60" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">1929</text><text x="560" y="60" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">1931~36</text><text x="790" y="60" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#C2412B">1944</text><text x="110" y="136" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="24" fill="#6E6A63">1차 세계 대전</text><text x="330" y="136" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="24" fill="#6E6A63">대공황</text><text x="560" y="136" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="24" fill="#6E6A63">영국 · 미국 · 프랑스</text><text x="560" y="168" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="24" fill="#6E6A63">금 교환 약속 이행을</text><text x="560" y="200" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="24" fill="#6E6A63">멈춤</text><text x="790" y="136" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="24" fill="#C2412B">연합국이</text><text x="790" y="168" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="24" fill="#C2412B">브레턴우즈에서</text><text x="790" y="200" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="24" fill="#C2412B">새 기준을 짬</text></svg></div>
+<p>1914년 전쟁이 터지자 나라마다 지출이 늘어 돈을 풀어야 했고, 1929년 대공황 때도 돈을 풀어야 했다. 그런데 돈을 더 풀면 바꿔 줄 금이 모자라, 금 교환 약속을 지키기 어려워졌다. 결국 나라들은 하나둘 금 교환 약속의 이행을 멈췄다.</p>
+<p>1930년대 나라들 사이엔 이런 고리가 돌았다.</p>
+<ul class="ol">
+<li><i>1</i><span>한 나라가 돈을 풀어 제 돈 값이 내려간다.</span></li>
+<li><i>2</i><span>그 나라 물건이 외국에서 싸져 수출이 늘어난다.</span></li>
+<li><i>3</i><span>물건이 덜 팔리게 된 상대 나라도 돈 값을 내리거나 관세를 올린다.</span></li>
+<li><i>4</i><span>나라들은 돈 값 내리기와 관세 올리기를 서로 되풀이한다.</span></li>
+</ul>
+<p>환율은 언제 바뀔지 모르게 됐고, 대공황까지 겹쳐 세계 무역은 크게 쪼그라들었다. 브레턴우즈 체제는 이 혼란을 끝내려고 만든 새 기준이다.</p>
+
+<h3><span class="k">기준 ② · 금에 묶인 달러</span>달러만 금에 고정, 나머지는 달러에 고정</h3>
+<div class="plate"><svg role="img" aria-label="금 1온스 = 35달러로 달러만 금에 묶고, 마르크화 · 엔화 · 파운드화는 달러에 묶음" width="896" height="400" viewBox="0 0 896 400"><rect x="368" y="16" width="160" height="76" rx="10" fill="#F6DD6B" stroke="#161616" stroke-width="2"/><text x="448" y="66" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="34" fill="#161616">금</text><path d="M448,92 L448,172" stroke="#C2412B" stroke-width="3.5"/><text x="470" y="128" text-anchor="start" font-family="SUIT" font-weight="800" font-size="25" fill="#C2412B">금 1온스 = 35달러</text><text x="470" y="158" text-anchor="start" font-family="SUIT" font-weight="600" font-size="22" fill="#6E6A63">미국이 언제나 맞교환</text><circle cx="448" cy="216" r="44" fill="#FBFAF6" stroke="#161616" stroke-width="2.5"/><text x="448" y="232" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="44" fill="#161616">$</text><path d="M418,250 L170,320 M440,260 L380,320 M456,260 L516,320 M478,250 L726,320" stroke="#161616" stroke-width="2.5"/><rect x="90" y="320" width="160" height="60" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="170" y="360" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="25" fill="#161616">마르크화</text><rect x="300" y="320" width="160" height="60" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="380" y="360" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="25" fill="#161616">엔화</text><rect x="436" y="320" width="160" height="60" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="2" transform="translate(80 0)"/><text x="596" y="360" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="25" fill="#161616">파운드화</text><text x="760" y="360" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#6E6A63">…</text><text x="40" y="270" text-anchor="start" font-family="SUIT" font-weight="600" font-size="22" fill="#6E6A63">각국은 달러에 고정</text></svg></div>
+<p>1944년, 연합국들이 미국 브레턴우즈에 모였다. 금을 가장 많이 가진 미국의 <b>달러만 금에</b> 묶고, <b>다른 나라 돈은 달러에</b> 묶었다. 마르크화와 엔화 사이의 환율도 달러를 거쳐 저절로 정해졌다. 이렇게 기축 통화를 뺀 나머지 돈끼리의 환율을 <b>교차 환율</b>이라 한다(지문 2문단).</p>
+<div class="exam"><span class="q">지문 2문단</span>1944년에 성립된 이 체제는 <span class="hy">미국의 중앙은행에 ‘금 태환 조항’에 따라 금 1온스와 35달러를 언제나 맞교환해 주어야 한다는 의무</span>를 지게 했다.</div>
+<p class="cap">태환: 지폐를 약속한 금으로 바꿔 주는 일.</p>
+<p>지문은 여기에 두 가지를 더 적는다. 다른 나라는 <b>달러화로만 금을 살 수 있었고</b>, 환율은 예외적인 경우를 빼면 <b>±1% 안에서만</b> 움직일 수 있었다. 그래서 금본위에서 금만 하던 국제 유동성 역할에 달러화가 더해져, 이 체제를 ‘금 환 본위제’라고도 부른다.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 11번</h4>
+<p class="ld">윗글을 바탕으로 추론한 내용으로 적절하지 않은 것은?</p>
+<p class="opt"><i class="x">✕</i><span>⑤ “브레턴우즈 체제에서 마르크화가 달러화에 대해 평가 절상되면, 같은 금액의 마르크화로 구입 가능한 금의 양은 감소한다.”<small>금 1온스 = 35달러는 그대로고, 금은 달러로만 산다. 마르크화 값이 오르면 같은 마르크화로 달러를 더 받으니, 살 수 있는 금은 오히려 늘어난다. 11번의 정답이다.</small></span></p>
+</div>
+
+<h3><span class="k">지문 밖 ③ · 고정 환율의 속사정</span>고정 환율이면, 돈을 마구 찍어 바꾸면 되지 않을까?</h3>
+<p>한국이 1달러 = 1,000원으로 묶어 두었다고 가정하자.</p>
+<ul class="ol">
+<li><i>1</i><span>한국이 원화를 잔뜩 찍어 미국 물건을 산다.</span></li>
+<li><i>2</i><span>미국 쪽은 원화를 쓸 데가 없으니 한국 중앙은행에 되판다.</span></li>
+<li><i>3</i><span>한국 중앙은행은 약속대로 1,000원마다 1달러를 내줘야 한다.</span></li>
+</ul>
+<p>원화는 잔뜩 한국 중앙은행으로 되돌아오고, 금고의 달러는 모자라게 된다. 바닥나면 약속을 못 지키고 원화 값을 내려야 한다. 그래서 고정 환율 아래에서 각국은 돈을 마음대로 찍을 수 없었다.</p>
+<p><span class="hp">예외는 미국이었다.</span> 미국이 찍은 달러는 세계가 받아 줬다. 대신 미국은 그 대가를 금고의 금으로 치렀다.</p>
+
+<h3><span class="k">트리핀 딜레마</span>내보내야 돌고, 내보낼수록 못 믿는다</h3>
+<p>달러가 기준이 되자, 세계는 달러로 거래했다. 달러가 세계로 나가려면 미국이 외국에 쓰는 돈이 버는 돈보다 많아야 한다. 곧 미국의 <b>적자</b>다.</p>
+<dl class="sum">
+<dt>덜 내보내면</dt><dd>각국이 거래에 쓸 달러가 모자라 세계 경제가 쪼그라든다.</dd>
+<dt>더 내보내면</dt><dd>외국에 달러가 쌓여 ‘다 금으로 바꿔 줄 수 있나?’ 의심이 자란다.</dd>
+</dl>
+<p>어느 길로 가도 탈이 난다. 1960년 트리핀 교수가 지적한 이 구조적 모순이 <b>트리핀 딜레마</b>다. 지문은 첫 문단부터 이 이야기로 시작한다.</p>
+<div class="exam"><span class="q">지문 1문단</span>그는 “<span class="hy">미국이 경상 수지 적자를 허용하지 않아 국제 유동성 공급이 중단되면 세계 경제는 크게 위축될 것</span>”이라면서도 “반면 <span class="hy">적자 상태가 지속돼 달러화가 과잉 공급되면 준비 자산으로서의 신뢰도가 저하되고 고정 환율 제도도 붕괴될 것</span>”이라고 말했다.</div>
+<div class="exam"><span class="q">지문 2문단</span>이러한 트리핀 딜레마는 <span class="hy">국제 유동성 확보와 달러화의 신뢰도 간의 문제</span>이다.</div>
+<p class="cap">경상 수지: 한 나라의 재화와 서비스의 수출입 간 차이. 수입이 수출보다 많으면 적자, 수출이 수입보다 많으면 흑자다(지문 1문단).</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 10번 · 11번</h4>
+<p class="ld">10번: 윗글을 통해 답을 찾을 수 없는 질문은?</p>
+<p class="opt"><i class="x">✕</i><span>② “브레턴우즈 체제 붕괴 이후의 세계 경제 위축에 대해 트리핀은 어떤 전망을 했는가?”<small>트리핀의 전망은 브레턴우즈 체제 <b>안에서</b> 미국이 적자를 허용하지 않을 때의 이야기다. 붕괴 이후에 대한 전망은 지문에 없다. 10번의 정답이다.</small></span></p>
+<p class="ld" style="margin-top:16px">11번: 윗글을 바탕으로 추론한 내용으로 적절하지 않은 것은?</p>
+<p class="opt"><i>○</i><span>③ “금의 생산량 증가를 통한 국제 유동성 공급량의 증가는 트리핀 딜레마 상황을 완화하는 한 가지 방법이 될 수 있다.”<small>달러를 더 내보내지 않고도 유동성이 늘어나니, 신뢰를 덜 깎는다.</small></span></p>
+<p class="opt"><i>○</i><span>④ “트리핀 딜레마는 달러화를 통한 국제 유동성 공급을 중단할 수도 없고 공급량을 무한정 늘릴 수도 없는 상황을 말한다.”<small>위 두 갈래 그대로다.</small></span></p>
+</div>
+<p>실제로는 적자가 이어지는 쪽으로 흘러갔다.</p>
+<div class="plate"><svg role="img" aria-label="미국 금고의 금과 외국에 나간 달러. 1949년 245억 대 80억, 1960년 184억 대 192억, 1971년 8월 100억 대 400억 달러" width="896" height="400" viewBox="0 0 896 400"><path d="M60,320 L860,320" stroke="#161616" stroke-width="2"/><rect x="120" y="124" width="70" height="196" fill="#F6DD6B" stroke="#161616" stroke-width="1.5"/><rect x="196" y="256" width="70" height="64" fill="#C2412B"/><text x="155" y="112" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="22" fill="#161616">245억</text><text x="231" y="244" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="22" fill="#C2412B">80억</text><text x="193" y="356" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="26" fill="#161616">1949년</text><rect x="380" y="173" width="70" height="147" fill="#F6DD6B" stroke="#161616" stroke-width="1.5"/><rect x="456" y="166" width="70" height="154" fill="#C2412B"/><text x="415" y="161" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="22" fill="#161616">184억</text><text x="491" y="154" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="22" fill="#C2412B">192억</text><text x="453" y="356" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="26" fill="#161616">1960년</text><text x="453" y="388" text-anchor="middle" font-family="SUIT" font-weight="600" font-size="21" fill="#6E6A63">트리핀의 경고</text><rect x="640" y="240" width="70" height="80" fill="#F6DD6B" stroke="#161616" stroke-width="1.5"/><rect x="716" y="0" width="70" height="320" fill="#C2412B"/><text x="675" y="228" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="22" fill="#161616">100억</text><text x="751" y="0" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="22" fill="#FBFAF6" dy="30">400억</text><text x="713" y="356" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="26" fill="#161616">1971년 8월</text><rect x="60" y="10" width="22" height="22" fill="#F6DD6B" stroke="#161616" stroke-width="1.5"/><text x="92" y="29" font-family="SUIT" font-weight="700" font-size="22" fill="#161616">미국 금고의 금</text><rect x="290" y="10" width="22" height="22" fill="#C2412B"/><text x="322" y="29" font-family="SUIT" font-weight="700" font-size="22" fill="#161616">외국에 나간 달러</text></svg></div>
+<p class="cap">단위 달러, 어림값. 자료: 1949년 연준, 1960년 트리핀, 1971년 IMF. 지문 밖 정보다.</p>
+
+<h3><span class="k">1971년</span>결국 미국은 금 교환을 포기할 수밖에 없었다</h3>
+<p>1970년대 초, 미국이 적자로 내보낸 달러가 너무 많아졌다. 외국이 그 달러를 금으로 바꿔 가면서 미국의 금은 빠르게 줄었다. 풀 방법은 두 가지였다.</p>
+<div class="flip">
+<div class="r"><p class="a">달러 값 내리기 (금에 대한 달러의 평가 절하)</p><p class="b">금 1온스 = 35달러를 더 많은 달러로 → <em>규정상 불가능</em></p></div>
+<div class="r"><p class="a">마르크화 · 엔화 값 올리기 (달러에 대한 평가 절상)</p><p class="b">1달러 = 360엔을 더 적은 엔으로 → <em>독일 · 일본이 꺼림</em></p></div>
+</div>
+<p>두 길이 다 막히자, 이대로는 오래 못 간다는 전망이 퍼졌다. 마르크화와 엔화 값이 오르리라 보고 두 돈을 미리 사들이는 투기적 수요가 늘었고, 각국은 쥔 달러를 서둘러 금으로 바꾸려 했다. 버티다 못한 미국은 1971년 <b>금 태환 정지</b>를 선언했다(닉슨 쇼크). 더 이상은 달러를 가져와도 금으로 바꿔 주지 않겠다는 선언이었다.</p>
+<div class="exam"><span class="q">지문 3문단</span>하지만 브레턴우즈 체제하에서 <span class="hy">달러화의 평가 절하는 규정상 불가능</span>했고, 당시 대규모 대미 무역 흑자 상태였던 독일, 일본 등 주요국들은 <span class="hy">평가 절상에 나서려고 하지 않았다.</span></div>
+<p class="cap">평가 절상: 달러화에 대한 여타국 통화의 환율을 하락시켜 그 가치를 올리는 것(지문 3문단). <b>환율 하락 = 그 나라 돈 값 상승</b>이다. 13번에서 다시 쓰인다.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 11번</h4>
+<p class="opt"><i>○</i><span>① “닉슨 쇼크가 단행된 이후 달러화의 고평가 문제를 해결할 수 있는 달러화의 평가 절하가 가능해졌다.”<small>평가 절하를 막던 것은 금 태환 규정이었다. 태환을 멈추면 그 제약이 사라진다.</small></span></p>
+<p class="opt"><i>○</i><span>② “브레턴우즈 체제에서 마르크화와 엔화의 투기적 수요가 증가한 것은 이들 통화의 평가 절상을 예상했기 때문이다.”<small>값이 오를 돈을 미리 사 두려는 수요다.</small></span></p>
+</div>
+
+<h3><span class="k">기준 ③ · 금 교환을 멈춘 달러</span>그래도 세계는 달러를 놓지 않았다</h3>
+<p>금이라는 기준이 사라졌는데도 달러를 놓지 않은 까닭은, 기축 통화 없이 나라마다 짝지어 환율을 정할 때를 보면 알 수 있다.</p>
+<div class="plate"><svg role="img" aria-label="기축 통화가 없으면 네 나라 사이 환율이 6개, 달러를 기축 통화로 두면 달러와의 환율 3개만 정하면 된다" width="896" height="380" viewBox="0 0 896 380"><text x="210" y="32" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="26" fill="#161616">기축 통화 없음</text><g stroke="#161616" stroke-width="2.5"><path d="M110,110 L310,110 M110,110 L110,290 M110,110 L310,290 M310,110 L110,290 M310,110 L310,290 M110,290 L310,290"/></g><g font-family="SUIT" font-weight="800" font-size="24" text-anchor="middle"><circle cx="110" cy="110" r="36" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="110" y="119" fill="#161616">원화</text><circle cx="310" cy="110" r="36" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="310" y="119" fill="#161616">엔화</text><circle cx="110" cy="290" r="36" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="110" y="299" fill="#161616">유로</text><circle cx="310" cy="290" r="36" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="310" y="301" font-size="32" fill="#161616">$</text></g><text x="210" y="364" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="26" fill="#C2412B">정할 환율 6개</text><text x="686" y="32" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="26" fill="#161616">달러가 기축 통화</text><g stroke="#161616" stroke-width="2.5"><path d="M686,200 L566,100 M686,200 L806,100 M686,200 L686,320"/></g><g stroke="#9A958C" stroke-width="2" stroke-dasharray="7 7"><path d="M566,100 L806,100 M566,100 L686,320 M806,100 L686,320"/></g><g font-family="SUIT" font-weight="800" font-size="24" text-anchor="middle"><circle cx="566" cy="100" r="36" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="566" y="109" fill="#161616">원화</text><circle cx="806" cy="100" r="36" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="806" y="109" fill="#161616">엔화</text><circle cx="686" cy="320" r="36" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="686" y="329" fill="#161616">유로</text><circle cx="686" cy="200" r="40" fill="#F6DD6B" stroke="#161616" stroke-width="2"/><text x="686" y="212" font-size="34" fill="#161616">$</text></g><text x="686" y="372" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="26" fill="#C2412B">정할 환율 3개 (점선은 저절로)</text></svg></div>
+<p>환율은 두 나라를 짝지을 때마다 하나씩 생긴다. 그래서 기축 통화가 없으면 그 수는 \(n\)개국 중 둘을 고르는 조합의 수, <b>\({}_{n}\mathrm{C}_{2}=\dfrac{n(n-1)}{2}\)</b>다.</p>
+<table class="info">
+<tr><th>3개국</th><td>\({}_{3}\mathrm{C}_{2}=3\)</td></tr>
+<tr><th>4개국</th><td>\({}_{4}\mathrm{C}_{2}=6\)</td></tr>
+<tr><th>10개국</th><td>\({}_{10}\mathrm{C}_{2}=45\)</td></tr>
+<tr><th>100개국</th><td>\({}_{100}\mathrm{C}_{2}=4{,}950\)</td></tr>
+</table>
+<div class="exam"><span class="q">지문 4문단</span>세계의 모든 국가에서 ㉢어떠한 기축 통화도 없이 각각 다른 통화가 사용되는 경우 <span class="hy">두 국가를 짝짓는 경우의 수만큼 환율의 가짓수가 생긴다.</span></div>
+<p>달러를 기축 통화로 두면, 각국이 정해야 할 환율은 달러와의 환율뿐이다. <span class="hp"><b>\({}_{n}\mathrm{C}_{2}\)개가 \(n-1\)개로</b></span> 줄고, 나머지는 달러를 거쳐 저절로 정해진다. 모두가 같은 기축 통화를 쓰니 외환 거래가 쉽고 비용도 적다.</p>
+<div class="exam"><span class="q">지문 4문단</span>그러나 붕괴 이후에도 달러화의 기축 통화 역할은 계속되었다. 그 이유로 규모의 경제를 생각할 수 있다. … 그러나 <span class="hy">하나의 기축 통화를 중심으로 외환 거래를 하면 비용을 절감하고 규모의 경제를 달성할 수 있다.</span></div>
+<p>그래서 미국의 금 태환 체제가 무너진 뒤에도 달러는 기축 통화로 남았다.</p>
+
+<!-- ───────────────────────── 3 ───────────────────────── -->
+<div class="sec" id="pw-3">
+<p class="num">3</p>
+<h2>시험지에선 왜 유독 어렵게 느껴질까</h2>
+<p class="lead">지문 곳곳에 흩어진, 환율을 정하는 세 방식을 시험지는 한자리에 놓고 세라고 한다.</p>
+</div>
+
+<h3><span class="k">12번</span>경제가 아니라 수학 문제</h3>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 12번</h4>
+<p class="ld">미국을 포함한 세 국가가 존재하고 각각 다른 통화를 사용할 때, ㉠～㉢에 대한 설명으로 적절한 것은?</p>
+</div>
+<dl class="sum">
+<dt>㉠</dt><dd>금 본위 체제: 나라마다 제 돈 값을 금에 고정 (2문단)</dd>
+<dt>㉡</dt><dd>브레턴우즈 체제: 달러만 금에, 나머지 돈은 달러에 고정 (2문단)</dd>
+<dt>㉢</dt><dd>기축 통화가 없을 때: 두 나라를 짝짓는 수만큼 환율이 생김 (4문단)</dd>
+</dl>
+<p>세 나라일 때 ㉠, ㉡, ㉢에서 <b>저절로 정해지는 환율</b>은 각각 몇 개일까? 낱말로만 따지면 헷갈리지만, 그려 보면 바로 보인다.</p>
+
+<h3><span class="k">그려 보기</span>체제별로 그려 보면, 경우의 수가 드러난다</h3>
+<div class="plate"><svg role="img" aria-label="세 나라일 때 금 본위는 저절로 정해지는 환율 3개, 브레턴우즈는 1개, 기축 통화 없음은 0개" width="896" height="420" viewBox="0 0 896 420"><g font-family="SUIT" text-anchor="middle"><text x="150" y="30" font-weight="800" font-size="25" fill="#161616">㉠ 금 본위</text><text x="448" y="30" font-weight="800" font-size="25" fill="#161616">㉡ 브레턴우즈</text><text x="746" y="30" font-weight="800" font-size="25" fill="#161616">㉢ 기축 통화 없음</text></g><g stroke="#C2412B" stroke-width="3"><path d="M150,96 L80,220 M150,96 L150,220 M150,96 L220,220"/><path d="M448,96 L448,180"/></g><g stroke="#9A958C" stroke-width="2.5" stroke-dasharray="7 7"><path d="M80,250 L150,330 M150,330 L220,250 M80,250 L220,250"/><path d="M368,330 L528,330"/></g><g stroke="#161616" stroke-width="3"><path d="M448,216 L368,330 M448,216 L528,330"/><path d="M746,140 L666,300 M746,140 L826,300 M666,300 L826,300"/></g><g font-family="SUIT" font-weight="800" text-anchor="middle"><rect x="110" y="62" width="80" height="40" rx="8" fill="#F6DD6B" stroke="#161616" stroke-width="2"/><text x="150" y="90" font-size="22" fill="#161616">금</text><rect x="408" y="62" width="80" height="40" rx="8" fill="#F6DD6B" stroke="#161616" stroke-width="2"/><text x="448" y="90" font-size="22" fill="#161616">금</text><circle cx="80" cy="240" r="26" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="80" y="250" font-size="26" fill="#161616">$</text><circle cx="220" cy="240" r="26" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="220" y="249" font-size="24" fill="#161616">A</text><circle cx="150" cy="330" r="26" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="150" y="339" font-size="24" fill="#161616">B</text><circle cx="448" cy="210" r="28" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="448" y="220" font-size="26" fill="#161616">$</text><circle cx="368" cy="330" r="26" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="368" y="339" font-size="24" fill="#161616">A</text><circle cx="528" cy="330" r="26" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="528" y="339" font-size="24" fill="#161616">B</text><circle cx="746" cy="140" r="26" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="746" y="150" font-size="26" fill="#161616">$</text><circle cx="666" cy="300" r="26" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="666" y="309" font-size="24" fill="#161616">A</text><circle cx="826" cy="300" r="26" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="826" y="309" font-size="24" fill="#161616">B</text><text x="150" y="400" font-size="26" fill="#C2412B">저절로 3개</text><text x="448" y="400" font-size="26" fill="#C2412B">저절로 1개</text><text x="746" y="400" font-size="26" fill="#C2412B">저절로 0개</text><text x="448" y="368" font-size="20" font-weight="700" fill="#6E6A63">교차 환율</text></g></svg></div>
+<p class="cap">빨간 선: 금에 고정 · 검은 선: 직접 정하는 환율 · 회색 점선: 저절로 정해지는 환율</p>
+<table class="info">
+<tr><th></th><td><b>㉠ 금 본위</b> · <b>㉡ 브레턴우즈</b> · <b>㉢ 기축 통화 없음</b></td></tr>
+<tr><th>세 나라</th><td>환율은 셋 다 3개. 저절로 정해지는 환율은 3개 · 1개 · 0개</td></tr>
+<tr><th>네 나라</th><td>환율은 셋 다 6개. 저절로 정해지는 환율은 6개 · 3개 · 0개</td></tr>
+</table>
+<p>환율의 개수는 세 체제 모두 같다. 다른 건 <b>그중 몇 개가 저절로 정해지느냐</b>다. 나라가 늘수록 ㉡에서 저절로 정해지는 교차 환율이 빠르게 늘어난다. 각국은 달러와의 환율만 정하면 되고, 외환 거래 비용도 줄어든다.</p>
+<p class="cap">교차 환율: 기축 통화(달러)를 뺀 나머지 돈끼리의 환율(지문 2문단).</p>
+<p>이 그림 하나로 12번 선지 다섯 개가 모두 갈린다.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 12번</h4>
+<p class="opt"><i class="x">✕</i><span>① “㉠에서 자동적으로 결정되는 환율의 가짓수는 금에 자국 통화의 가치를 고정한 국가 수보다 하나 적다.”<small>금에 고정한 나라 3개, 저절로 정해지는 환율도 3개. 같다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>② “㉡이 붕괴된 이후에도 여전히 달러화가 기축 통화라면 ㉡에 비해 교차 환율의 가짓수는 적어진다.”<small>달러가 계속 기축 통화면 그림은 ㉡과 같다. 교차 환율은 그대로 1개.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>③ “㉢에서 국가 수가 하나씩 증가할 때마다 환율의 전체 가짓수도 하나씩 증가한다.”<small>\({}_{n}\mathrm{C}_{2}\)다. 세 나라 3개, 네 나라 6개, 다섯 나라 10개로 하나씩이 아니라 더 빠르게 는다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>④ “㉠에서 ㉡으로 바뀌면 자동적으로 결정되는 환율의 가짓수가 많아진다.”<small>3개에서 1개로 줄어든다.</small></span></p>
+<p class="opt"><i>○</i><span>⑤ “㉡에서 교차 환율의 가짓수는 ㉢에서 생기는 환율의 가짓수보다 적다.”<small>㉡의 교차 환율 1개, ㉢의 환율 \({}_{3}\mathrm{C}_{2}=3\)개. 12번의 정답이다.</small></span></p>
+</div>
+
+<h3><span class="k">13번</span>환율이 내리면, 그 나라 돈 값이 오른다</h3>
+<p>13번 &lt;보기&gt;는 1985년 ‘플라자 합의’를 모티프로 했다. 브레턴우즈 이후, 기축 통화국 A가 주도해 세 나라가 환율을 움직인 이야기다.</p>
+<div class="exam"><span class="q">13번 &lt;보기&gt;</span>브레턴우즈 체제가 붕괴된 이후 두 차례의 석유 가격 급등을 겪으면서 기축 통화국인 A국의 금리는 인상되었고 통화 공급은 감소했다. 여기에 A국 정부의 소득세 감면과 군비 증대는 A국의 금리를 인상시켰으며, 높은 금리로 인해 대량으로 외국 자본이 유입되었다. A국은 이로 인한 상황을 해소하기 위한 국제적 합의를 주도하여, 서로 교역을 하며 각각 다른 통화를 사용하는 세 국가 A, B, C는 외환 시장에 대한 개입을 합의했다. 이로 인해 <span class="hy">A국 통화에 대한 B국 통화와 C국 통화의 환율은 각각 50%, 30% 하락했다.</span></div>
+<p>금리가 높으니 외국 자본이 A국으로 몰리고, A국 돈 값은 오른다. A국 물건이 외국에서 비싸져 A국의 경상 수지는 나빠진다. 그래서 A국은 B · C국 돈 값을 올리는(환율을 내리는) 합의를 주도했다. 지문의 평가 절상 정의대로 읽으면 <b>B국 돈 값도, C국 돈 값도 올랐다.</b> 다만 B국이 더 많이 올랐다.</p>
+<dl class="sum">
+<dt>B국 통화</dt><dd>A국 통화에 대한 환율 50% 하락 → 크게 절상</dd>
+<dt>C국 통화</dt><dd>A국 통화에 대한 환율 30% 하락 → 덜 절상</dd>
+<dt>B와 C 사이</dt><dd>B국 통화에 견주면 C국 통화는 값이 떨어진 셈 → B국 통화에 대한 C국 통화의 환율 상승</dd>
+</dl>
+<p>C국 돈이 B국 돈보다 상대적으로 싸지면, C국 물건은 B국에서 싸져 수출이 늘고 B국 물건은 C국에서 비싸져 수입이 준다. 그래서 <span class="hp">B국에 대한 C국의 경상 수지는 개선된다.</span> 교차 환율을 직접 정하지 않아도, 기축 통화와의 환율 두 개가 움직이면 그 사이 환율이 저절로 따라 움직인다는 것. 12번과 같은 그림이다.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 13번</h4>
+<p class="ld">윗글을 참고할 때, &lt;보기&gt;에 대한 반응으로 가장 적절한 것은? [3점]</p>
+<p class="opt"><i>○</i><span>④ “다른 모든 조건이 변하지 않았다면, 국제적 합의로 인해 A국 통화에 대한 B국과 C국 통화의 환율이 하락하여, B국에 대한 C국의 경상 수지는 개선되었겠군.”<small>B국 통화가 C국 통화보다 더 크게 절상되었으니 C국 쪽 수출이 유리해진다. 13번의 정답이다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>③ “다른 모든 조건이 변하지 않았다면, 국제적 합의로 인해 A국 통화에 대한 B국 통화의 환율과 B국 통화에 대한 C국 통화의 환율은 모두 하락했겠군.”<small>앞의 것은 하락이 맞지만, B국 통화에 대한 C국 통화의 환율은 상승한다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>① “A국의 금리 인상과 통화 공급 감소로 인해 A국 통화의 신뢰도가 낮아진 것은 외국 자본이 대량으로 유입되었기 때문이겠군.”<small>&lt;보기&gt;에서 높은 금리는 외국 자본 유입의 원인이다. 자본이 몰렸다면 A국 통화는 오히려 인기가 높았다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>② “국제적 합의로 인한 A국 통화에 대한 B국 통화의 환율 하락으로 국제 유동성 공급량이 증가하여 A국 통화의 가치가 상승했겠군.”<small>B국 통화의 환율이 내리면 B국 돈 값이 오르고, 상대적으로 A국 돈 값은 내려간다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>⑤ “… 그 완화 방안 중 하나는 A국 통화에 대한 B국 통화의 환율을 상승시키는 것이겠군.”<small>환율을 올리면 B국 돈 값이 내려가 A국 물건이 더 비싸진다. A국의 경상 수지를 완화하려면 거꾸로 환율을 내려야 하고, 실제 합의도 그렇게 했다.</small></span></p>
+</div>
+
+<p class="close">다른 나라 돈끼리는 같은 기준으로 잰다</p>
+<p>금에서, 금에 묶인 달러로, 다시 금 교환을 멈춘 달러로. 금 교환 약속이 없는 지금도 세계는 주로 달러를 기축 통화로 쓴다.</p>
+<p>일본 여행을 앞두고 바꾸는 원화와 엔화의 값도 <span class="hy">달러를 기준으로 환산된다.</span> 세계 외환 거래 열 건 중 아홉 건에 달러가 낀다(국제결제은행, 2025년 4월 조사).</p>
+
+<!-- ───────────────────────── 4 ───────────────────────── -->
+<div class="sec" id="pw-4">
+<p class="num">4</p>
+<h2>원문으로 직접 풀어 보기</h2>
+<p class="lead">2022학년도 수능 국어 10~13번을 시험지 그대로 옮겼다. 정답은 아래에 접어 두었다.</p>
+</div>
+
+<div class="paper">
+<p class="set">[10～13] 다음 글을 읽고 물음에 답하시오.</p>
+<div class="psg">
+<p>기축 통화는 국제 거래에 결제 수단으로 통용되고 환율 결정에 기준이 되는 통화이다. 1960년 트리핀 교수는 브레턴우즈 체제에서의 기축 통화인 달러화의 구조적 모순을 지적했다. 한 국가의 재화와 서비스의 수출입 간 차이인 경상 수지는 수입이 수출을 초과하면 적자이고, 수출이 수입을 초과하면 흑자이다. 그는 “미국이 경상 수지 적자를 허용하지 않아 국제 유동성 공급이 중단되면 세계 경제는 크게 위축될 것”이라면서도 “반면 적자 상태가 지속돼 달러화가 과잉 공급되면 준비 자산으로서의 신뢰도가 저하되고 고정 환율 제도도 붕괴될 것”이라고 말했다.</p>
+<p>이러한 트리핀 딜레마는 국제 유동성 확보와 달러화의 신뢰도 간의 문제이다. 국제 유동성이란 국제적으로 보편적인 통용력을 갖는 지불 수단을 말하는데, ㉠<u>금 본위 체제</u>에서는 금이 국제 유동성의 역할을 했으며, 각 국가의 통화 가치는 정해진 양의 금의 가치에 고정되었다. 이에 따라 국가 간 통화의 교환 비율인 환율은 자동적으로 결정되었다. 이후 ㉡<u>브레턴우즈 체제</u>에서는 국제 유동성으로 달러화가 추가되어 ‘금 환 본위제’가 되었다. 1944년에 성립된 이 체제는 미국의 중앙은행에 ‘금 태환 조항’에 따라 금 1온스와 35달러를 언제나 맞교환해 주어야 한다는 의무를 지게 했다. 다른 국가들은 달러화에 대한 자국 통화의 가치를 고정했고, 달러화로만 금을 매입할 수 있었다. 환율은 경상 수지의 구조적 불균형이 있는 예외적인 경우를 제외하면 ±1% 내에서의 변동만을 허용했다. 이에 따라 기축 통화인 달러화를 제외한 다른 통화들 간 환율인 교차 환율은 자동적으로 결정되었다.</p>
+<p>1970년대 초에 미국은 경상 수지 적자가 누적되기 시작하고 달러화가 과잉 공급되어 미국의 금 준비량이 급감했다. 이에 따라 미국은 달러화의 금 태환 의무를 더 이상 감당할 수 없는 상황에 도달했다. 이를 해결할 수 있는 방법은 달러화의 가치를 내리는 평가 절하, 또는 달러화에 대한 여타국 통화의 환율을 하락시켜 그 가치를 올리는 평가 절상이었다. 하지만 브레턴우즈 체제하에서 달러화의 평가 절하는 규정상 불가능했고, 당시 대규모 대미 무역 흑자 상태였던 독일, 일본 등 주요국들은 평가 절상에 나서려고 하지 않았다. 이 상황이 유지되기 어려울 것이라는 전망으로 독일의 마르크화와 일본의 엔화에 대한 투기적 수요가 증가했고, 결국 환율의 변동 압력은 더욱 커질 수밖에 없었다. 이러한 상황에서 각국은 보유한 달러화를 대규모로 금으로 바꾸기를 원했다. 미국은 결국 1971년 달러화의 금 태환 정지를 선언한 닉슨 쇼크를 단행했고, 브레턴우즈 체제는 붕괴되었다.</p>
+<p>그러나 붕괴 이후에도 달러화의 기축 통화 역할은 계속되었다. 그 이유로 규모의 경제를 생각할 수 있다. 세계의 모든 국가에서 ㉢<u>어떠한 기축 통화도 없이 각각 다른 통화가 사용되는 경우</u> 두 국가를 짝짓는 경우의 수만큼 환율의 가짓수가 생긴다. 그러나 하나의 기축 통화를 중심으로 외환 거래를 하면 비용을 절감하고 규모의 경제를 달성할 수 있다.</p>
+</div>
+
+<div class="item">
+<p class="stem"><b>10.</b> 윗글을 통해 답을 찾을 수 <u>없는</u> 질문은?</p>
+<ol class="opts">
+<li><i>①</i><span>브레턴우즈 체제 붕괴 이후에도 달러화가 기축 통화로서 역할을 할 수 있었던 이유는 무엇인가?</span></li>
+<li><i>②</i><span>브레턴우즈 체제 붕괴 이후의 세계 경제 위축에 대해 트리핀은 어떤 전망을 했는가?</span></li>
+<li><i>③</i><span>브레턴우즈 체제에서 미국 중앙은행은 어떤 의무를 수행해야 했는가?</span></li>
+<li><i>④</i><span>브레턴우즈 체제에서 국제 유동성의 역할을 한 것은 무엇인가?</span></li>
+<li><i>⑤</i><span>브레턴우즈 체제에서 달러화 신뢰도 하락의 원인은 무엇인가?</span></li>
+</ol>
+</div>
+
+<div class="item">
+<p class="stem"><b>11.</b> 윗글을 바탕으로 추론한 내용으로 적절하지 <u>않은</u> 것은?</p>
+<ol class="opts">
+<li><i>①</i><span>닉슨 쇼크가 단행된 이후 달러화의 고평가 문제를 해결할 수 있는 달러화의 평가 절하가 가능해졌다.</span></li>
+<li><i>②</i><span>브레턴우즈 체제에서 마르크화와 엔화의 투기적 수요가 증가한 것은 이들 통화의 평가 절상을 예상했기 때문이다.</span></li>
+<li><i>③</i><span>금의 생산량 증가를 통한 국제 유동성 공급량의 증가는 트리핀 딜레마 상황을 완화하는 한 가지 방법이 될 수 있다.</span></li>
+<li><i>④</i><span>트리핀 딜레마는 달러화를 통한 국제 유동성 공급을 중단할 수도 없고 공급량을 무한정 늘릴 수도 없는 상황을 말한다.</span></li>
+<li><i>⑤</i><span>브레턴우즈 체제에서 마르크화가 달러화에 대해 평가 절상되면, 같은 금액의 마르크화로 구입 가능한 금의 양은 감소한다.</span></li>
+</ol>
+</div>
+
+<div class="item">
+<p class="stem"><b>12.</b> 미국을 포함한 세 국가가 존재하고 각각 다른 통화를 사용할 때, ㉠～㉢에 대한 설명으로 적절한 것은?</p>
+<ol class="opts">
+<li><i>①</i><span>㉠에서 자동적으로 결정되는 환율의 가짓수는 금에 자국 통화의 가치를 고정한 국가 수보다 하나 적다.</span></li>
+<li><i>②</i><span>㉡이 붕괴된 이후에도 여전히 달러화가 기축 통화라면 ㉡에 비해 교차 환율의 가짓수는 적어진다.</span></li>
+<li><i>③</i><span>㉢에서 국가 수가 하나씩 증가할 때마다 환율의 전체 가짓수도 하나씩 증가한다.</span></li>
+<li><i>④</i><span>㉠에서 ㉡으로 바뀌면 자동적으로 결정되는 환율의 가짓수가 많아진다.</span></li>
+<li><i>⑤</i><span>㉡에서 교차 환율의 가짓수는 ㉢에서 생기는 환율의 가짓수보다 적다.</span></li>
+</ol>
+</div>
+
+<div class="item">
+<p class="stem"><b>13.</b> 윗글을 참고할 때, &lt;보기&gt;에 대한 반응으로 가장 적절한 것은? [3점]</p>
+<div class="bogi">
+<p class="t">&lt;보 기&gt;</p>
+<p>브레턴우즈 체제가 붕괴된 이후 두 차례의 석유 가격 급등을 겪으면서 기축 통화국인 A국의 금리는 인상되었고 통화 공급은 감소했다. 여기에 A국 정부의 소득세 감면과 군비 증대는 A국의 금리를 인상시켰으며, 높은 금리로 인해 대량으로 외국 자본이 유입되었다. A국은 이로 인한 상황을 해소하기 위한 국제적 합의를 주도하여, 서로 교역을 하며 각각 다른 통화를 사용하는 세 국가 A, B, C는 외환 시장에 대한 개입을 합의했다. 이로 인해 A국 통화에 대한 B국 통화와 C국 통화의 환율은 각각 50%, 30% 하락했다.</p>
+</div>
+<ol class="opts">
+<li><i>①</i><span>A국의 금리 인상과 통화 공급 감소로 인해 A국 통화의 신뢰도가 낮아진 것은 외국 자본이 대량으로 유입되었기 때문이겠군.</span></li>
+<li><i>②</i><span>국제적 합의로 인한 A국 통화에 대한 B국 통화의 환율 하락으로 국제 유동성 공급량이 증가하여 A국 통화의 가치가 상승했겠군.</span></li>
+<li><i>③</i><span>다른 모든 조건이 변하지 않았다면, 국제적 합의로 인해 A국 통화에 대한 B국 통화의 환율과 B국 통화에 대한 C국 통화의 환율은 모두 하락했겠군.</span></li>
+<li><i>④</i><span>다른 모든 조건이 변하지 않았다면, 국제적 합의로 인해 A국 통화에 대한 B국과 C국 통화의 환율이 하락하여, B국에 대한 C국의 경상 수지는 개선되었겠군.</span></li>
+<li><i>⑤</i><span>다른 모든 조건이 변하지 않았다면, A국의 소득세 감면과 군비 증대로 A국의 경상 수지가 악화되며, 그 완화 방안 중 하나는 A국 통화에 대한 B국 통화의 환율을 상승시키는 것이겠군.</span></li>
+</ol>
+</div>
+</div>
+
+<details class="ans">
+<summary>정답 보기</summary>
+<p>10번 ② · 11번 ⑤ · 12번 ⑤ · 13번 ④</p>
+</details>
+<h3><span class="k">원본</span>시험지 원본</h3>
+<p class="cap">옆으로 넘기면 다음 쪽이 나온다.</p>
+<div class="pages" tabindex="0" role="group" aria-label="시험지 원본 4~5쪽, 가로로 넘겨 보기">
+<figure><img class="shot" src="/images/problems/2022-suneung-bretton-woods/exam-p4.png" alt="2022학년도 수능 국어 시험지 4쪽. 왼쪽 단은 10~13번 브레턴우즈 체제 지문, 오른쪽 단은 10~12번 문항" loading="lazy"><figcaption class="cap">시험지 4쪽. 지문과 10~12번.</figcaption></figure>
+<figure><img class="shot" src="/images/problems/2022-suneung-bretton-woods/exam-q13.png" alt="2022학년도 수능 국어 13번 문항. 플라자 합의를 모티프로 한 보기와 선지 다섯 개" loading="lazy"><figcaption class="cap">시험지 5쪽의 13번.</figcaption></figure>
+</div>
+
+<div class="sec" id="pw-faq">
+<h2>자주 묻는 질문</h2>
+</div>
+<dl class="faq">
+<dt>기축 통화란 무엇인가요?</dt><dd>기축 통화는 국제 거래에 결제 수단으로 통용되고 환율 결정에 기준이 되는 통화입니다. 2022학년도 수능 국어 10~13번 지문은 금 본위 체제, 브레턴우즈 체제, 금 태환 정지 이후의 달러 순서로 기축 통화의 역할을 설명합니다.</dd>
+<dt>금 본위 체제에서 환율은 어떻게 정해지나요?</dt><dd>각 국가의 통화 가치가 정해진 양의 금의 가치에 고정되므로, 국가 간 통화의 교환 비율인 환율은 금을 거쳐 자동적으로 결정됩니다.</dd>
+<dt>브레턴우즈 체제는 무엇인가요?</dt><dd>1944년에 성립된 국제 통화 체제로, 미국 달러만 금에 고정하고(금 1온스 = 35달러) 다른 나라 통화는 달러에 고정했습니다. 미국의 중앙은행은 ‘금 태환 조항’에 따라 금 1온스와 35달러를 언제나 맞교환해 주어야 할 의무를 졌습니다.</dd>
+<dt>트리핀 딜레마란 무엇인가요?</dt><dd>세계 경제에 달러가 충분히 돌려면 미국이 적자를 내며 달러를 내보내야 하지만, 달러를 많이 내보낼수록 미국이 그 달러를 모두 금으로 바꿔 줄 수 있느냐는 신뢰가 떨어지는 문제입니다. 국제 유동성 확보와 달러화 신뢰도가 서로 부딪칩니다.</dd>
+<dt>기축 통화가 없으면 환율은 몇 개 생기나요?</dt><dd>두 국가를 짝짓는 경우의 수만큼 생기므로 \(n\)개국이면 \({}_{n}\mathrm{C}_{2}=\dfrac{n(n-1)}{2}\)개입니다. 하나의 기축 통화가 있으면 각국은 기축 통화와의 환율 \(n-1\)개만 정하면 되고, 나머지는 교차 환율로 저절로 정해집니다.</dd>
+<dt>2022 수능 국어 12번은 어떻게 푸나요?</dt><dd>세 나라일 때 ㉠ 금 본위 체제, ㉡ 브레턴우즈 체제, ㉢ 기축 통화가 없는 경우를 각각 그려 봅니다. 환율은 세 경우 모두 3개지만, 저절로 정해지는 환율은 ㉠ 3개, ㉡ 1개(교차 환율), ㉢ 0개로 다릅니다. 그래서 ‘㉡의 교차 환율 가짓수(1개)는 ㉢의 환율 가짓수(3개)보다 적다’는 ⑤가 정답입니다.</dd>
+<dt>2022 수능 국어 13번의 정답은 왜 ④인가요?</dt><dd>A국 통화에 대한 환율이 B국 통화는 50%, C국 통화는 30% 하락해 두 통화 모두 절상되었지만 B국 통화가 더 크게 절상되었습니다. 그러면 B국 통화에 대한 C국 통화의 환율은 상승하고, C국의 B국 수출이 유리해져 B국에 대한 C국의 경상 수지는 개선됩니다.</dd>
+</dl>
+
+<h3><span class="k">SNarGPT</span>이번 편의 기출은 SNarGPT로 찾았다</h3>
+<img class="shot" src="/images/problems/2022-suneung-bretton-woods/snar-answer.png" alt="SNarGPT가 2022학년도 수능 국어 10~13번 브레턴우즈 체제 지문을 찾아 준 답 화면" loading="lazy">
+<p class="cap">형광펜 친 줄이 이번 편의 기출이다.</p>
+<p style="margin:18px 0 0;font-weight:700">이렇게 물어보세요</p>
+<p class="ask">국어 지문 중 ‘브레턴우즈 체제’에 대해 나왔던 기출 좀 찾아서 보여줄래?</p>
+
+<div class="foot">
+<p style="margin:0">※ 지문과 문항 인용은 2022학년도 대학수학능력시험 국어영역 10~13번에서 가져왔으며, 저작권은 한국교육과정평가원에 있다.</p>
+<p style="margin:4px 0 0"><a href="https://snargpt.ai/" target="_blank" rel="noopener noreferrer">snargpt.ai</a> · 다음 읽을거리는 인스타그램 <a href="https://www.instagram.com/snargpt/" target="_blank" rel="noopener noreferrer">@snargpt</a>에서 먼저 볼 수 있다.</p>
+</div>
+
+</div>

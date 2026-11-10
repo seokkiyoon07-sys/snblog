@@ -57,6 +57,8 @@ export interface Post {
   featured: boolean;
   featuredOrder?: number;
   seriesOrder?: number;
+  // 칼럼 안 연재 이름 (예: '쉼표'). 칼럼 목록에서 따로 묶어 보여 준다
+  series?: string;
   published: boolean;
   thumbnail?: string;
   youtubeUrl?: string;
@@ -65,15 +67,15 @@ export interface Post {
   badge?: string;
   problemFileUrl?: string;
   problemDataId?: string;
-  // AI 수능 출제(/problems) 전용. 생략하면 category·subcategory로 추론
+  // 수능 문제 연구(/problems) 전용. 생략하면 category·subcategory로 추론
   problemContentType?: ProblemContentType;
   problemSubject?: ProblemSubject;
   problemLog?: ProblemLog;
-  // 기출 해설(problemContentType: 'solution') 전용. 출처 문항 정보
+  // 기출 읽을거리·해설(problemContentType: 'reading' | 'solution')의 출처 문항 정보
   exam?: ExamInfo;
 }
 
-// 기출 해설이 다루는 시험·문항. 연도별·시험별·영역별 목록을 만들 때 쓴다.
+// 기출 읽을거리·해설이 다루는 시험·문항. 연도별·시험별·영역별 목록을 만들 때 쓴다.
 export interface ExamInfo {
   year: number; // 학년도 (2019학년도 수능 → 2019)
   type: ExamType;

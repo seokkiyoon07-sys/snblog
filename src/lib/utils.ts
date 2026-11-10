@@ -107,15 +107,15 @@ export function getCategoryConfig(category: string) {
       learningObjectives: ['논리적 사고', '알고리즘', '코딩 실력'],
     },
     'ai-problem': {
-      backLink: '/problems',
-      backText: '← AI 수능 출제로 돌아가기',
+      backLink: '/problems#ai-notes',
+      backText: '← AI 출제 노트 목록으로',
       subject: 'AI 출제',
       learningObjectives: ['AI 출제 과정', '문항 검수', '교육 인사이트'],
     },
     'korean-exam-analysis': {
-      backLink: '/problems',
-      backText: '← AI 수능 출제로 돌아가기',
-      subject: '국어 기출 분석',
+      backLink: '/problems#readings',
+      backText: '← 기출 읽을거리 목록으로',
+      subject: '기출 읽을거리',
       learningObjectives: ['지문 독해', '개념 구분', '선지 판단'],
     },
     reviews: {

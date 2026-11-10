@@ -6,7 +6,8 @@ import ProblemLogSummary from '@/components/problems/ProblemLogSummary';
 import CardNewsCarousel from '@/components/posts/CardNewsCarousel';
 import { CARD_NEWS } from '@/data/card-news';
 import { loadPostContent } from '@/lib/post-content';
-import { BASE_URL } from '@/lib/config';
+import { BASE_URL, EXAM_TYPE_CONFIG } from '@/lib/config';
+import { buildExamJsonLd } from '@/lib/exam-jsonld';
 import { getAiProblemPosts, getProblemRoutePosts } from '@/lib/problems';
 
 interface ProblemPostPageProps {
@@ -63,7 +64,7 @@ export async function generateMetadata({
       images: image ? [image] : undefined,
     },
     keywords: post.tags,
-    robots: { index: true, follow: true },
+    robots: { index: post.published, follow: true },
   };
 }
 
@@ -77,6 +78,11 @@ export default async function ProblemPostPage({
     notFound();
   }
 
+  // 허브(수능 문제 연구) 안의 구역: 기출 읽을거리 / AI 출제 노트
+  const section = post.exam
+    ? { name: '기출 읽을거리', href: '/problems#readings' }
+    : { name: 'AI 출제 노트', href: '/problems#ai-notes' };
+
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -84,12 +90,18 @@ export default async function ProblemPostPage({
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'AI 수능 출제',
+        name: '수능 문제 연구',
         item: `${BASE_URL}/problems`,
       },
       {
         '@type': 'ListItem',
         position: 2,
+        name: section.name,
+        item: `${BASE_URL}${section.href}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
         name: post.title,
         item: `${BASE_URL}${post.url}`,
       },
@@ -97,6 +109,15 @@ export default async function ProblemPostPage({
   };
 
   const cardNews = CARD_NEWS[post.id];
+  const content = loadPostContent(post.id, post.category);
+  const examJsonLd = buildExamJsonLd(post, content);
+
+  // 기출 읽을거리끼리 서로 잇는다 (최신 학년도 먼저)
+  const relatedExamPosts = post.exam
+    ? getProblemRoutePosts()
+        .filter(other => other.exam && other.id !== post.id)
+        .sort((a, b) => b.exam!.year - a.exam!.year)
+    : [];
 
   const siblings = post.problemLog
     ? getAiProblemPosts().filter(
@@ -111,13 +132,55 @@ export default async function ProblemPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {examJsonLd.map((data, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(data).replace(/</g, '\\u003c'),
+          }}
+        />
+      ))}
+      {!post.published && (
+        <div className="mx-auto mt-6 max-w-3xl rounded border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-200">
+          초안 · 개발 서버에서만 보이는 미공개 글입니다.
+        </div>
+      )}
       <BlogLayout
         post={{
           ...post,
-          content: loadPostContent(post.id, post.category),
+          content,
         }}
         lead={cardNews && <CardNewsCarousel cards={cardNews} />}
       />
+      {relatedExamPosts.length > 0 && (
+        <nav
+          aria-label="다른 기출 읽을거리"
+          className="mx-auto max-w-3xl px-6 pb-8"
+        >
+          <h2 className="mb-3 text-base font-bold text-gray-900 dark:text-white">
+            다른 기출 읽을거리
+          </h2>
+          <ul className="divide-y divide-gray-200 border-y border-gray-200 dark:divide-gray-700 dark:border-gray-700">
+            {relatedExamPosts.map(other => (
+              <li key={other.id}>
+                <Link
+                  href={other.url}
+                  className="flex items-baseline gap-3 py-3 text-sm hover:text-sn-primary dark:hover:text-emerald-400"
+                >
+                  <span className="flex-none text-xs font-semibold text-gray-500 dark:text-gray-400">
+                    {other.exam!.year}{' '}
+                    {EXAM_TYPE_CONFIG[other.exam!.type].label}
+                  </span>
+                  <span className="font-medium text-gray-900 dark:text-gray-100">
+                    {other.title}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       {post.problemLog ? (
         <ProblemLogSummary
           log={post.problemLog}
@@ -127,10 +190,10 @@ export default async function ProblemPostPage({
       ) : (
         <div className="mx-auto max-w-3xl px-6 pb-12">
           <Link
-            href="/problems"
+            href={section.href}
             className="inline-block text-sm font-medium text-sn-primary hover:underline dark:text-emerald-400"
           >
-            ← AI 수능 출제로 돌아가기
+            ← {section.name} 목록으로
           </Link>
         </div>
       )}

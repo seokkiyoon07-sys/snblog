@@ -107,10 +107,10 @@ export default function ProblemLogSummary({
       )}
 
       <Link
-        href="/problems"
+        href="/problems#ai-notes"
         className="inline-block text-sm font-medium text-sn-primary hover:underline"
       >
-        ← AI 수능 출제로 돌아가기
+        ← AI 출제 노트 목록으로
       </Link>
     </aside>
   );

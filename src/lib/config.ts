@@ -28,7 +28,7 @@ export const NAVIGATION_MENU = [
   { name: 'AI 스타트업', href: '/startup' },
   { name: '컬럼', href: '/columns' },
   { name: 'SN DataLAB', href: '/datalab' },
-  { name: 'AI 수능 출제', href: '/problems' },
+  { name: '수능 문제 연구', href: '/problems' },
   { name: 'SN Originals', href: '/originals' },
   { name: 'SN History', href: '/history' },
   { name: '공지사항', href: '/notice' },
@@ -86,17 +86,17 @@ export const CATEGORY_CONFIG = {
   problems: {
     route: '/problems',
     emoji: '📝',
-    label: 'AI 수능 출제',
+    label: '수능 문제 연구',
   },
   'ai-problem': {
     route: '/problems',
     emoji: '🧪',
-    label: 'AI 수능 출제',
+    label: 'AI 출제 노트',
   },
   'korean-exam-analysis': {
     route: '/problems',
     emoji: '📖',
-    label: '국어 기출 분석',
+    label: '기출 읽을거리',
   },
   'integrated-social-problem': {
     route: '/problems',
@@ -218,7 +218,7 @@ export const PROBLEM_SUBJECT_CONFIG = {
 
 export type ProblemSubject = keyof typeof PROBLEM_SUBJECT_CONFIG;
 
-// AI 수능 출제(/problems) 콘텐츠 유형
+// 수능 문제 연구(/problems) 콘텐츠 유형
 export const PROBLEM_CONTENT_TYPE_CONFIG = {
   log: { label: '출제 로그', emoji: '🧪' },
   solution: { label: '모의고사·수능 해설', emoji: '✅' },
