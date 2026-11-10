@@ -119,7 +119,7 @@ export const allPosts: Post[] = [
     date: '2026-11-10',
     readTime: '10',
     featured: false,
-    published: false, // 초안: 개발 서버에서만 보임
+    published: true,
     thumbnail: '/images/problems/2020-june-symbiogenesis/thumbnail.jpg',
     url: '/problems/2020-june-symbiogenesis',
   },
@@ -155,7 +155,7 @@ export const allPosts: Post[] = [
     date: '2026-11-10',
     readTime: '10',
     featured: false,
-    published: false, // 초안: 개발 서버에서만 보임
+    published: true,
     thumbnail: '/images/problems/2022-suneung-bretton-woods/thumbnail.jpg',
     url: '/problems/2022-suneung-bretton-woods',
   },
@@ -1974,7 +1974,7 @@ export const allPosts: Post[] = [
     date: '2026-11-10',
     readTime: '6',
     featured: false,
-    published: false, // 초안: 개발 서버에서만 보임
+    published: true,
     thumbnail: '/images/columns/comma-03-retrieval/thumbnail.jpg',
     url: '/columns/comma-03-retrieval',
   },
@@ -2001,7 +2001,7 @@ export const allPosts: Post[] = [
     date: '2026-11-10',
     readTime: '6',
     featured: false,
-    published: false, // 초안: 개발 서버에서만 보임
+    published: true,
     thumbnail: '/images/columns/comma-02-socrates-hint/thumbnail.jpg',
     url: '/columns/comma-02-socrates-hint',
   },
@@ -2028,7 +2028,7 @@ export const allPosts: Post[] = [
     date: '2026-11-10',
     readTime: '4',
     featured: false,
-    published: false, // 초안: 개발 서버에서만 보임
+    published: true,
     thumbnail: '/images/columns/comma-01-besti/thumbnail.jpg',
     url: '/columns/comma-01-besti',
   },
