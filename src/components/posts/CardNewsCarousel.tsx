@@ -60,6 +60,15 @@ export default function CardNewsCarousel({ cards }: { cards: CardNews }) {
       aria-label={cards.title}
       className="mx-auto w-full max-w-[480px]"
     >
+      {/* 본문 삽화와 헷갈리지 않게, 넘겨 보는 카드뉴스라는 걸 먼저 알린다 */}
+      <p className="m-0 mb-2 flex items-baseline justify-between gap-3 text-sm">
+        <span className="font-bold text-gray-900 dark:text-white">
+          카드뉴스 {total}장
+        </span>
+        <span className="text-gray-500 dark:text-gray-400">
+          {index === 0 ? '옆으로 넘겨 보세요 →' : '← 옆으로 넘겨 보세요 →'}
+        </span>
+      </p>
       <div className="relative">
         {/* 가로 스크롤 영역은 키보드로도 넘길 수 있어야 해서 포커스를 받는다 */}
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}

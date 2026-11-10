@@ -1,5 +1,6 @@
 // AI 수능 출제(/problems) 허브용 헬퍼.
-// 새 글은 category 'ai-problem' + url '/problems/{id}', 기존 글은 /problem-download/* 주소를 유지한다.
+// 새 글은 url '/problems/{id}'. AI 출제 글은 category 'ai-problem', 국어 기출 해설은
+// 'korean-exam-analysis'. 기존 글은 /problem-download/* 주소를 유지한다.
 
 import { allPosts, type Post } from '@/data/posts';
 import {
@@ -10,6 +11,10 @@ import {
 } from '@/lib/config';
 
 export const AI_PROBLEM_CATEGORY = 'ai-problem';
+export const KOREAN_EXAM_CATEGORY = 'korean-exam-analysis';
+
+// /problems/{id} 경로로 서빙하는 카테고리
+const PROBLEM_ROUTE_CATEGORIES = [AI_PROBLEM_CATEGORY, KOREAN_EXAM_CATEGORY];
 
 export const HUB_SUBJECTS: ProblemSubject[] = [
   'korean',
@@ -41,10 +46,17 @@ export function getProblemHubPosts(): Post[] {
     .filter(
       post =>
         post.published &&
-        (post.category === AI_PROBLEM_CATEGORY ||
+        (PROBLEM_ROUTE_CATEGORIES.includes(post.category) ||
           LEGACY_CATEGORIES.includes(post.category))
     )
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export function getProblemRoutePosts(): Post[] {
+  return allPosts.filter(
+    post =>
+      post.published && PROBLEM_ROUTE_CATEGORIES.includes(post.category)
+  );
 }
 
 export function getAiProblemPosts(): Post[] {

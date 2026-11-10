@@ -3,6 +3,7 @@
 
 import { allPosts as postRecords } from './post-records';
 import type {
+  ExamType,
   ProblemContentType,
   ProblemErrorType,
   ProblemSubject,
@@ -68,6 +69,17 @@ export interface Post {
   problemContentType?: ProblemContentType;
   problemSubject?: ProblemSubject;
   problemLog?: ProblemLog;
+  // 기출 해설(problemContentType: 'solution') 전용. 출처 문항 정보
+  exam?: ExamInfo;
+}
+
+// 기출 해설이 다루는 시험·문항. 연도별·시험별·영역별 목록을 만들 때 쓴다.
+export interface ExamInfo {
+  year: number; // 학년도 (2019학년도 수능 → 2019)
+  type: ExamType;
+  area: string; // 영역 (예: '독서', '문학', '수학Ⅰ')
+  questions: string; // 문항 번호 (예: '39~42')
+  passage?: string; // 지문·작품 제목 (예: '가능세계')
 }
 
 // 출제 로그 지표. 허브 페이지의 누적 지표가 이 값들로 계산된다.

@@ -93,6 +93,11 @@ export const CATEGORY_CONFIG = {
     emoji: '🧪',
     label: 'AI 수능 출제',
   },
+  'korean-exam-analysis': {
+    route: '/problems',
+    emoji: '📖',
+    label: '국어 기출 분석',
+  },
   'integrated-social-problem': {
     route: '/problems',
     emoji: '🌏',
@@ -225,6 +230,16 @@ export const PROBLEM_CONTENT_TYPE_CONFIG = {
 } as const;
 
 export type ProblemContentType = keyof typeof PROBLEM_CONTENT_TYPE_CONFIG;
+
+// 기출 해설의 시험 종류. 슬러그 접두어로도 쓴다 (예: 2019-suneung-...)
+export const EXAM_TYPE_CONFIG = {
+  suneung: { label: '수능' },
+  june: { label: '6월 모의평가' },
+  september: { label: '9월 모의평가' },
+  'education-office': { label: '교육청 학력평가' },
+} as const;
+
+export type ExamType = keyof typeof EXAM_TYPE_CONFIG;
 
 // 출제 로그에서 사람이 바로잡은 AI 초안의 오류 유형
 export const PROBLEM_ERROR_TYPE_CONFIG = {

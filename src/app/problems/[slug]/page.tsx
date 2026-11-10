@@ -7,21 +7,21 @@ import CardNewsCarousel from '@/components/posts/CardNewsCarousel';
 import { CARD_NEWS } from '@/data/card-news';
 import { loadPostContent } from '@/lib/post-content';
 import { BASE_URL } from '@/lib/config';
-import { AI_PROBLEM_CATEGORY, getAiProblemPosts } from '@/lib/problems';
+import { getAiProblemPosts, getProblemRoutePosts } from '@/lib/problems';
 
 interface ProblemPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
-// 'ai-problem' 카테고리 글만 이 경로로 서빙한다
+// 'ai-problem', 'korean-exam-analysis' 카테고리 글만 이 경로로 서빙한다
 function findPost(slug: string) {
-  return getAiProblemPosts().find(post => post.id === slug);
+  return getProblemRoutePosts().find(post => post.id === slug);
 }
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getAiProblemPosts().map(post => ({ slug: post.id }));
+  return getProblemRoutePosts().map(post => ({ slug: post.id }));
 }
 
 export async function generateMetadata({
@@ -114,7 +114,7 @@ export default async function ProblemPostPage({
       <BlogLayout
         post={{
           ...post,
-          content: loadPostContent(post.id, AI_PROBLEM_CATEGORY),
+          content: loadPostContent(post.id, post.category),
         }}
         lead={cardNews && <CardNewsCarousel cards={cardNews} />}
       />

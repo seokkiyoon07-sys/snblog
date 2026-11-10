@@ -112,6 +112,12 @@ export function getCategoryConfig(category: string) {
       subject: 'AI 출제',
       learningObjectives: ['AI 출제 과정', '문항 검수', '교육 인사이트'],
     },
+    'korean-exam-analysis': {
+      backLink: '/problems',
+      backText: '← AI 수능 출제로 돌아가기',
+      subject: '국어 기출 분석',
+      learningObjectives: ['지문 독해', '개념 구분', '선지 판단'],
+    },
     reviews: {
       backLink: '/reviews',
       backText: '← 리뷰 목록으로 돌아가기',

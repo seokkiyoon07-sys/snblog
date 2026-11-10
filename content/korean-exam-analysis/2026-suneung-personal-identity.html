@@ -1,0 +1,475 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap');
+.pw{--ink:#161616;--sub:#6E6A63;--mute:#9A958C;--line:#D6D0C5;--red:#C2412B;--paper:#EEEAE3;--card:#FBFAF6;--hl:#F6DD6B;--sans:Pretendard,system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--serif:"Noto Serif KR",serif;--num:"Instrument Serif",serif;color:var(--ink);font-size:17px;line-height:1.85;letter-spacing:-.01em;word-break:keep-all}
+.dark .pw{--ink:#ECEAE6;--sub:#ABA69D;--mute:#7F7A72;--line:#3B3934;--red:#EC7A62;--card:#1D1C1A;--hl:rgba(246,221,107,.32)}
+.pw *{box-sizing:border-box}
+.pw p{margin:0 0 1.05em}
+.pw b,.pw strong{font-weight:700}
+.pw .v{color:var(--red)}
+.pw .hy{background:linear-gradient(180deg,transparent 58%,var(--hl) 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.pw .kicker{font-size:13.5px;font-weight:700;color:var(--sub);margin:0 0 10px}
+.pw .deck{font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.5;letter-spacing:-.04em;margin:0 0 22px}
+.pw .info{width:100%;border-collapse:collapse;border-top:1.5px solid var(--ink);margin:30px 0 8px;font-size:14.5px;line-height:1.6}
+.pw .info th{width:92px;text-align:left;vertical-align:top;font-weight:700;color:var(--sub);padding:10px 12px 10px 0;border-bottom:1px solid var(--line)}
+.pw .info td{padding:10px 0;border-bottom:1px solid var(--line)}
+.pw .toc{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:4px}
+.pw .toc a{display:flex;gap:16px;align-items:baseline;color:var(--ink);text-decoration:none;font-weight:600;font-size:16px}
+.pw .toc a:hover{color:var(--red)}
+.pw .toc i{font-family:var(--num);font-style:italic;font-weight:400;font-size:24px;line-height:1;color:var(--red);width:14px}
+.pw .sec{margin:96px 0 30px;padding-top:22px;border-top:1.5px solid var(--ink);scroll-margin-top:110px}
+.pw .sec .num{font-family:var(--num);font-style:italic;font-size:104px;line-height:.82;color:var(--red);margin:6px 0 0;letter-spacing:-.04em}
+.pw .sec h2{font-family:var(--serif);font-weight:700;font-size:34px;line-height:1.3;letter-spacing:-.05em;margin:18px 0 0}
+.pw .sec .lead{margin:16px 0 0;font-size:17px}
+.pw .sec .small{margin:8px 0 0;font-size:14.5px;color:var(--sub);line-height:1.65}
+.pw h3{display:flex;gap:12px;align-items:baseline;font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.4;letter-spacing:-.04em;margin:60px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.pw h3 .k{flex:none;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0;color:var(--sub)}
+.pw .plate{max-width:600px;margin:26px auto 8px;padding:18px 20px;background:var(--paper);border-radius:3px;overflow-x:auto}
+.pw .plate svg{display:block;width:100%;max-width:540px;min-width:440px;height:auto;margin:0 auto;overflow:visible}
+.pw .plate + p:not(.cap){margin-top:22px}
+.pw .plate svg text[font-family="SUIT"]{font-family:var(--sans)}
+.pw .cap{font-size:13.5px;line-height:1.6;color:var(--sub);margin:0 0 22px}
+.pw .plate + .cap{max-width:600px;margin-left:auto;margin-right:auto}
+.pw .exam{margin:24px 0;padding:18px 22px;border:1.5px solid var(--ink);background:var(--card);font-family:var(--serif);font-size:16.5px;line-height:1.8;letter-spacing:-.01em}
+.dark .pw .exam{border-color:var(--line)}
+.pw .exam .q{display:block;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--sub);margin-bottom:6px}
+.pw .talk{display:grid;gap:12px;margin:22px 0 26px}
+.pw .talk .row{display:flex;gap:14px;align-items:flex-start}
+.pw .talk .who{flex:none;width:40px;padding-top:11px;text-align:right;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .talk .bb{margin:0;padding:10px 18px;border:1.5px solid var(--ink);border-radius:20px;border-top-left-radius:5px;background:var(--card);font-weight:600}
+.dark .pw .talk .bb{border-color:var(--line)}
+.pw .names{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0}
+.pw .names .nm{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:-.04em;color:var(--red);line-height:1.2;margin:0 0 6px}
+.pw .names p{font-size:15.5px;line-height:1.7;margin:0}
+.pw .quotes{display:grid;grid-template-columns:64px 1fr;gap:6px 14px;margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.7}
+.pw .quotes dt{font-weight:700;color:var(--sub)}
+.pw .quotes dd{margin:0;font-family:var(--serif);color:var(--sub)}
+.pw .rule{display:grid;grid-template-columns:90px 1fr;gap:4px 16px;align-items:baseline;margin:26px 0;padding-top:16px;border-top:1.5px solid var(--ink)}
+.pw .rule .nm{font-family:var(--serif);font-weight:700;font-size:24px;letter-spacing:-.04em;color:var(--red)}
+.pw .rule .say{font-size:13.5px;font-weight:600;color:var(--sub)}
+.pw .rule .ex{grid-column:2;margin:0;font-family:var(--serif);font-size:16px;line-height:1.75}
+.pw .qa{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:20px 0}
+.pw .qa dt{font-weight:700;white-space:nowrap}
+.pw .qa dd{margin:0}
+.pw .sum{display:grid;grid-template-columns:96px 1fr;margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .sum dt,.pw .sum dd{margin:0;padding:11px 0;border-bottom:1px solid var(--line)}
+.pw .sum dt{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:-.04em;color:var(--red)}
+.pw .sum dd{font-weight:600}
+.pw .trap{margin:30px 0;padding:20px 22px;background:var(--card);border:1px solid var(--line)}
+.pw .trap h4{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--sub)}
+.pw .trap .ld{margin:0 0 14px;font-size:14.5px;line-height:1.65;color:var(--sub)}
+.pw .trap .opt{display:flex;gap:12px;margin:12px 0 0;font-size:15.5px;line-height:1.7}
+.pw .trap .opt i{flex:none;width:18px;font-style:normal;font-weight:800}
+.pw .trap .opt i.x{color:var(--red)}
+.pw .trap .opt small{display:block;margin-top:3px;font-size:13.5px;color:var(--sub)}
+.pw .ol{list-style:none;margin:12px 0 18px;padding:0;display:grid;gap:8px}
+.pw .ol li{display:flex;gap:14px;align-items:baseline}
+.pw .ol li > i{flex:none;width:14px;font-family:var(--num);font-style:italic;font-size:24px;line-height:1;color:var(--red)}
+.pw .demo{margin:4px 0 22px 28px;padding:12px 16px;background:var(--card);border:1px solid var(--line);font-size:15px;line-height:1.75;color:var(--sub)}
+.pw .arrows{margin:4px 0 22px 28px;display:grid;gap:4px;font-weight:700}
+.pw .arrows span{display:inline-block;min-width:150px}
+.pw .flip{margin:22px 0;border-top:1.5px solid var(--ink)}
+.pw .flip .r{padding:16px 0;border-bottom:1px solid var(--line)}
+.pw .flip .a{margin:0;font-family:var(--serif)}
+.pw .flip .b{margin:4px 0 0;font-weight:700}
+.pw .flip .b em{font-style:normal;color:var(--red)}
+.pw .flip .c{margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--sub)}
+.pw .gist{margin:30px 0 0;border-top:1.5px solid var(--ink)}
+.pw .gist p.t{margin:12px 0 4px;font-size:13.5px;font-weight:700;color:var(--sub)}
+.pw .gist dl{display:grid;grid-template-columns:92px 1fr;margin:0}
+.pw .gist dt,.pw .gist dd{margin:0;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;line-height:1.7}
+.pw .gist dt{font-weight:700}
+.pw .gist dfn{font-style:normal;font-weight:700}
+.pw .faq{margin:0;border-top:1.5px solid var(--ink)}
+.pw .faq dt{margin:0;padding:16px 0 4px;font-weight:700;font-size:16.5px}
+.pw .faq dd{margin:0;padding:0 0 16px;border-bottom:1px solid var(--line);color:var(--ink)}
+.pw .close{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.35;letter-spacing:-.05em;margin:96px 0 24px;padding-top:22px;border-top:1.5px solid var(--ink)}
+.pw .shot{display:block;width:100%;max-width:520px;border:1.5px solid var(--ink);margin:20px 0 6px}
+.pw .ask{margin:10px 0 18px;padding:14px 18px;border:1.5px solid var(--ink);border-radius:16px;background:var(--card);font-weight:600}
+.dark .pw .ask,.dark .pw .shot{border-color:var(--line)}
+.pw .paper{margin:26px 0 0;font-family:var(--serif);font-size:16px;line-height:1.85;letter-spacing:-.01em}
+.pw .paper .set{margin:0 0 10px;font-family:var(--sans);font-size:15.5px;font-weight:700}
+.pw .paper .psg{padding:16px 20px;border:1px solid var(--ink);background:var(--card)}
+.pw .paper .psg p{margin:0;text-indent:1em}
+.pw .paper u{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.pw .paper .item{margin:34px 0 0}
+.pw .paper .stem{margin:0;font-weight:700}
+.pw .paper .stem b{margin-right:4px;font-size:18px}
+.pw .paper .bogi{margin:14px 0 0;padding:12px 18px 14px;border:1px solid var(--ink);font-size:15.5px}
+.pw .paper .bogi .t{margin:0 0 4px;text-align:center;font-size:14px}
+.pw .paper .bogi p:last-child{margin:0;text-indent:1em}
+.pw .paper .opts{list-style:none;margin:12px 0 0;padding:0}
+.pw .paper .opts li{display:flex;gap:6px;margin:0 0 4px;padding:0}
+.pw .paper .opts li > i{flex:none;font-style:normal}
+.dark .pw .paper .psg,.dark .pw .paper .bogi{border-color:var(--line)}
+.pw .ans{margin:34px 0 0;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--line)}
+.pw .ans summary{padding:12px 0;font-weight:700;cursor:pointer}
+.pw .ans p{margin:0 0 14px}
+.pw .pages{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+.pw .pages figure{flex:0 0 min(86%,520px);margin:0;scroll-snap-align:start}
+.pw .pages .shot{margin:0 0 6px;max-width:100%}
+.pw .pages .cap{margin:0}
+.pw .foot{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.7;color:var(--sub)}
+.pw .foot a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){
+.pw .gist dl{grid-template-columns:1fr}.pw .gist dt{padding-bottom:0;border-bottom:0}
+.pw{font-size:16px;line-height:1.8}
+.pw .deck{font-size:20px}
+.pw .info{font-size:13.5px}.pw .info th{width:76px}
+.pw .sec{margin-top:72px}.pw .sec .num{font-size:80px}.pw .sec h2{font-size:27px}
+.pw h3{flex-direction:column;gap:2px;font-size:20px;margin-top:48px}
+.pw .plate{width:100vw;max-width:none;margin:22px 0 8px calc(50% - 50vw);padding:14px 10px;border-radius:0;overflow:visible}
+.pw .plate svg{min-width:0;max-width:100%}
+.pw .plate + .cap{max-width:none}
+.pw .exam{padding:14px 16px;font-size:15.5px}
+.pw .paper{font-size:15.5px}.pw .paper .psg{padding:14px 16px}.pw .paper .bogi{padding:10px 14px 12px;font-size:15px}
+.pw .talk .who{width:32px;font-size:13px}.pw .talk .bb{padding:9px 14px;font-size:15px}
+.pw .names{grid-template-columns:1fr;gap:14px}.pw .names .nm{font-size:23px}
+.pw .quotes{grid-template-columns:1fr;gap:0}.pw .quotes dd{margin-bottom:10px}
+.pw .rule{grid-template-columns:1fr;gap:2px}.pw .rule .ex{grid-column:1;margin-top:6px}
+.pw .qa{grid-template-columns:1fr;gap:2px}.pw .qa dd{margin-bottom:10px}
+.pw .sum{grid-template-columns:76px 1fr}.pw .sum dt{font-size:17px}.pw .sum dd{font-size:15px}
+.pw .trap{padding:16px}.pw .trap .opt{font-size:15px}
+.pw .demo,.pw .arrows{margin-left:0}.pw .arrows span{min-width:118px}
+.pw .flip .a{font-size:15.5px}
+.pw .shot{max-width:100%}
+.pw .close{font-size:24px;margin-top:72px}
+}
+.pw .hp{background:linear-gradient(180deg,transparent 58%,#F5C4BC 58%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+.dark .pw .hp{background:linear-gradient(180deg,transparent 58%,rgba(236,122,98,.35) 58%)}
+.pw .paper .psg p.mk{margin:0 0 0 -10px;padding-left:8px;border-left:2px solid var(--ink)}
+.pw .paper .psg p.mk .tag{margin-right:6px;font-family:var(--sans);font-size:14px;font-weight:700}
+.pw .paper .sheet{margin:14px 0 0;padding:14px 18px 16px;border:1px solid var(--ink);font-size:15px;line-height:1.7}
+.pw .paper .sheet .lead{display:flex;gap:4px;margin:0 0 10px;text-indent:0}
+.pw .paper .sheet .ck{flex:none;font-family:var(--sans)}
+.pw .paper .sheet .box{border:1px solid var(--ink);margin:10px 0 0}
+.pw .paper .sheet .h{margin:0;padding:5px 10px;border-bottom:1px solid var(--ink);background:var(--paper);font-family:var(--sans);font-size:14px;text-indent:0}
+.pw .paper .sheet ul{list-style:none;margin:0;padding:8px 10px 10px}
+.pw .paper .sheet .box{background:var(--card)}
+.pw .paper .sheet li{position:relative;margin:0;padding:0 30px 0 12px}
+.pw .paper .sheet li::before{content:"•";position:absolute;left:0;top:0}
+.pw .paper .sheet li + li{margin-top:4px}
+.pw .paper .sheet li.n::after{content:"";position:absolute;left:12px;right:26px;bottom:.45em;border-bottom:2px dotted var(--mute)}
+.pw .paper .sheet li .tx{position:relative;z-index:1;padding-right:6px;background:var(--card)}
+.pw .paper .sheet li i{position:absolute;right:0;bottom:0;font-style:normal}
+.dark .pw .paper .sheet,.dark .pw .paper .sheet .box,.dark .pw .paper .sheet .h,.dark .pw .paper .psg p.mk{border-color:var(--line)}
+.dark .pw .paper .sheet .h{background:var(--card)}
+@media (max-width:640px){.pw .paper .sheet{padding:10px 14px 12px}}
+</style>
+
+<div class="pw">
+
+<p class="kicker">SN독학기숙학원 · 수능 국어 독서 기출 해설 · <time datetime="2026-11-10">2026.11.10</time></p>
+<p class="deck">사진 속 초등학생과 지금의 나는 같은 사람일까. 2026학년도 수능 독서 「인격의 동일성」을 세 철학자의 답으로 다시 읽는다.</p>
+
+<p>2026학년도 수능 국어 독서 14~17번은 ‘인격의 동일성’을 두고 칸트, 스트로슨, 롱게네스의 견해를 나란히 놓은 인문 지문이다. 세 사람은 같은 질문에 같은 답을 하면서도 근거가 다르고, 의식 · 인식 · 경험 · 가정 같은 낱말이 뜻을 조금씩 바꿔 가며 쓰인다. 17번은 시험 뒤 정답을 두고 이의 제기가 이어지기도 했다.</p>
+<p>이 글은 사진 속 아이와 지금의 나라는 장면에서 출발한다. 먼저 질문을 손에 쥐고, 세 철학자가 그 질문에 어떻게 답했는지 따라간다. 그다음 시험지를 헷갈리게 만드는 ‘아 다르고 어 다른 말’을 짚고, 14~17번을 원문으로 직접 푼다.</p>
+
+<div class="gist">
+<p class="t">핵심 정리</p>
+<dl>
+<dt>인격의 동일성</dt><dd><dfn>인격의 동일성</dfn>은 과거의 나와 현재의 나가 같은 인격이라는 것이다. 지문은 이를 ‘모든 생각의 기반’이라 하고, 과거에 한 약속을 지금의 내가 지켜야 하는 근거로 든다.</dd>
+<dt>칸트</dt><dd>자기의식(‘나는 생각한다’)은 영혼의 실재를 <b>보장하지 않는다</b>. 그래서 같은 인격을 증명하는 대신, 시간 속 여러 주관이 동일한 인격으로 인식된다는 <b>가정이 반드시 선행</b>되어야 한다고 본다.</dd>
+<dt>스트로슨</dt><dd>그 가정은 철학적 상상이다. 인격은 <b>의식과 신체의 복합체</b>이고, 신체를 매개로 한 시공간적 세계의 경험이 통시적 동일성을 뒷받침한다.</dd>
+<dt>롱게네스</dt><dd>통시적으로 동일한 자아 없이는 경험적 인식이 성립하지 않는다. 다만 인격의 동일성의 기준은 각자가 자신의 것이라고 통시적으로 인식하는 <b>신체</b>다.</dd>
+</dl>
+</div>
+
+<table class="info">
+<tr><th>지문</th><td>2026학년도 대학수학능력시험 국어 독서 14~17번 「인격의 동일성」</td></tr>
+<tr><th>분야</th><td>인문 · 철학</td></tr>
+<tr><th>핵심 개념</th><td>인격의 동일성, 자기의식, 통시적 동일성, 경험적 인식, 추상화, 자율성</td></tr>
+<tr><th>다루는 문항</th><td>14번 ⑤, 15번 ①, 16번 ②, 17번 ③</td></tr>
+<tr><th>원문</th><td>지문과 14~17번 전문, 원본 시험지 이미지 수록</td></tr>
+</table>
+
+<ol class="toc">
+<li><a href="#pw-1"><i>1</i>동일인물 맞나요?</a></li>
+<li><a href="#pw-2"><i>2</i>세 철학자의 같은 답, 다른 이유</a></li>
+<li><a href="#pw-3"><i>3</i>아 다르고 어 다른 말</a></li>
+<li><a href="#pw-4"><i>4</i>원문으로 직접 풀어 보기</a></li>
+<li><a href="#pw-faq"><i>Q</i>자주 묻는 질문</a></li>
+</ol>
+
+<div class="sec" id="pw-1">
+<p class="num">1</p>
+<h2>동일인물 맞나요?</h2>
+</div>
+
+<h3><span class="k">사진</span>초등학생 때의 나와 지금의 나</h3>
+<div class="plate"><svg role="img" width="896" height="500" viewBox="0 0 896 500"><g><rect x="40" y="20" width="380" height="470" fill="#FFFFFF" stroke="#161616" stroke-width="2"/><rect x="58" y="38" width="344" height="374" fill="#E9E4DA" stroke="#161616" stroke-width="1.5"/><path d="M78,60 L78,380" stroke="#9A958C" stroke-width="2"/><path d="M78,380 L96,380" stroke="#9A958C" stroke-width="2"/><path d="M78,356 L88,356" stroke="#9A958C" stroke-width="2"/><path d="M78,332 L96,332" stroke="#9A958C" stroke-width="2"/><path d="M78,308 L88,308" stroke="#9A958C" stroke-width="2"/><path d="M78,284 L96,284" stroke="#9A958C" stroke-width="2"/><path d="M78,260 L88,260" stroke="#9A958C" stroke-width="2"/><path d="M78,236 L96,236" stroke="#9A958C" stroke-width="2"/><path d="M78,212 L88,212" stroke="#9A958C" stroke-width="2"/><path d="M78,188 L96,188" stroke="#9A958C" stroke-width="2"/><path d="M78,164 L88,164" stroke="#9A958C" stroke-width="2"/><path d="M78,140 L96,140" stroke="#9A958C" stroke-width="2"/><path d="M78,116 L88,116" stroke="#9A958C" stroke-width="2"/><path d="M78,92 L96,92" stroke="#9A958C" stroke-width="2"/><path d="M78,68 L88,68" stroke="#9A958C" stroke-width="2"/><g transform="translate(230 378) scale(0.95 0.95)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/></g><text x="230.0" y="456" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">초등학생 때</text></g><g><rect x="476" y="20" width="380" height="470" fill="#FFFFFF" stroke="#161616" stroke-width="2"/><rect x="494" y="38" width="344" height="374" fill="#E9E4DA" stroke="#161616" stroke-width="1.5"/><path d="M514,60 L514,380" stroke="#9A958C" stroke-width="2"/><path d="M514,380 L532,380" stroke="#9A958C" stroke-width="2"/><path d="M514,356 L524,356" stroke="#9A958C" stroke-width="2"/><path d="M514,332 L532,332" stroke="#9A958C" stroke-width="2"/><path d="M514,308 L524,308" stroke="#9A958C" stroke-width="2"/><path d="M514,284 L532,284" stroke="#9A958C" stroke-width="2"/><path d="M514,260 L524,260" stroke="#9A958C" stroke-width="2"/><path d="M514,236 L532,236" stroke="#9A958C" stroke-width="2"/><path d="M514,212 L524,212" stroke="#9A958C" stroke-width="2"/><path d="M514,188 L532,188" stroke="#9A958C" stroke-width="2"/><path d="M514,164 L524,164" stroke="#9A958C" stroke-width="2"/><path d="M514,140 L532,140" stroke="#9A958C" stroke-width="2"/><path d="M514,116 L524,116" stroke="#9A958C" stroke-width="2"/><path d="M514,92 L532,92" stroke="#9A958C" stroke-width="2"/><path d="M514,68 L524,68" stroke="#9A958C" stroke-width="2"/><g transform="translate(666 378) scale(1.42 1.42)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="2.11" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2.11" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="2.11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="2.11" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="2.11" stroke-linecap="round" stroke-linejoin="round"/></g><text x="666.0" y="456" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">지금</text></g><text x="448" y="270" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="64" fill="#C2412B">?</text></svg></div>
+<p>키도, 얼굴도, 목소리도, 좋아하는 것도 바뀌었다. 그런데 우리는 사진을 보며 망설임 없이 말한다. <b>‘이거 나야.’</b> 대체 뭐가 같길래?</p>
+
+<h3><span class="k">약속</span>그 아이가 한 약속, 내가 지켜야 할까?</h3>
+<div class="plate"><svg role="img" width="896" height="290" viewBox="0 0 896 290"><g transform="rotate(-2 448 150)"><rect x="40" y="20" width="816" height="250" fill="#FFFFFF" stroke="#161616" stroke-width="2"/><path d="M80,92 L820,92" stroke="#C9C3B8" stroke-width="1.5"/><path d="M80,144 L820,144" stroke="#C9C3B8" stroke-width="1.5"/><path d="M80,196 L820,196" stroke="#C9C3B8" stroke-width="1.5"/><path d="M80,248 L820,248" stroke="#C9C3B8" stroke-width="1.5"/><text x="80" y="80" text-anchor="start" font-family="SUIT" font-weight="800" font-size="30" fill="#6E6A63">나의 장래희망</text><text x="80" y="186" text-anchor="start" font-family="Noto Serif KR" font-weight="700" font-size="44" fill="#161616">커서 꼭 ○○가 될 거야!</text><text x="820" y="246" text-anchor="end" font-family="SUIT" font-weight="600" font-size="27" fill="#6E6A63">초등학교 3학년 ○반 ○○○</text></g></svg></div>
+<p>초등학생 때 꾹꾹 눌러 쓴 꿈. 그 약속은 그 아이의 것일까, 나의 것일까? 지문은 첫 문단에서 바로 이 물음을 꺼낸다.</p>
+<div class="exam"><span class="q">지문 1문단</span>우리는 <span class="hy">과거의 내가 현재의 나와 동일한 인격이기에</span> 과거에 내가 한 약속을 현재의 내가 지켜야 한다고 판단한다.</div>
+<p>철학은 이것을 ‘인격의 동일성’이라 부르고, 모든 생각의 기반이라고까지 한다. 지문에서 ‘인격’은 특정한 개인으로서의 인간을, ‘자아’는 그중 ‘나’를 가리킨다.</p>
+
+<h3><span class="k">옛 답</span>내 안의 변하지 않는 누군가</h3>
+<div class="plate"><svg role="img" width="896" height="396" viewBox="0 40 896 396"><g transform="translate(260 360) scale(1.35 1.35)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(650 380) scale(1.95 1.95)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="1.54" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="1.54" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="1.54" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="1.54" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="1.54" stroke-linecap="round" stroke-linejoin="round"/></g><circle cx="260" cy="267" r="37.400000000000006" fill="#F6DD6B" opacity=".45"/><circle cx="260" cy="267" r="17" fill="#F6DD6B" stroke="#161616" stroke-width="1.5"/><circle cx="650" cy="245" r="52.800000000000004" fill="#F6DD6B" opacity=".45"/><circle cx="650" cy="245" r="24" fill="#F6DD6B" stroke="#161616" stroke-width="1.5"/><path d="M300,262 C410,200 520,200 606,242" fill="none" stroke="#C2412B" stroke-width="3" stroke-dasharray="9 9"/><text x="452" y="196" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#C2412B">같은 하나?</text><text x="260" y="404" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">초등학생 때</text><text x="650" y="424" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">지금</text></svg></div>
+<p>칸트 이전의 답은 이랬다. 몸은 바뀌어도 안쪽에서 생각하는 나, 곧 <b>영혼</b>은 하나로 쭉 이어진다. 그러니 같은 사람이다.</p>
+<div class="exam"><span class="q">지문 1문단</span>칸트 이전까지 인격의 동일성을 설명하는 유력한 견해는, <span class="hy">‘생각하는 나’인 영혼이 단일한 주관으로서 시간의 흐름 속에 지속한다</span>는 것이었다.</div>
+<p class="cap">‘주관’은 인식의 주체, ‘인식’은 ‘앎’이다(지문 1문단). 두 낱말은 지문 끝까지 이 뜻으로 쓰인다.</p>
+
+<div class="sec" id="pw-2">
+<p class="num">2</p>
+<h2>세 철학자의 같은 답, 다른 이유</h2>
+<p class="lead">지문이 고른 세 사람은 칸트, 스트로슨, 롱게네스. 셋 모두 사진 속 아이와 지금의 나는 같은 사람이라고 봤다.</p>
+<p class="small">갈린 건 무엇이 같은 사람으로 만드느냐였다. 아래 인용은 모두 2026학년도 수능 국어 독서 14~17번 지문에서 가져왔다.</p>
+</div>
+
+<h3><span class="k">칸트 ① · 자기의식</span>‘나는 생각한다’는 증거가 못 된다</h3>
+<div class="plate"><svg role="img" width="896" height="300" viewBox="0 0 896 300"><g transform="translate(380 292) scale(1.0)"><path d="M-120,0 L-112,-70 Q-104,-100 -70,-104 L20,-104 Q44,-100 48,-72 L56,0 Z" fill="#D6CFC2" stroke="#161616" stroke-width="2.50"/><path d="M-40,-122 L70,-130" stroke="#2A2826" stroke-width="46" stroke-linecap="round"/><path d="M74,-122 L84,-16" stroke="#2A2826" stroke-width="32" stroke-linecap="round"/><path d="M80,-9 L116,-9" stroke="#2A2826" stroke-width="18" stroke-linecap="round"/><path d="M-68,-118 C-78,-170 -60,-222 -10,-240 L20,-246 L44,-232 C60,-210 58,-170 40,-140 L30,-128 L-40,-100 Z" fill="#2A2826"/><path d="M24,-238 L58,-240" stroke="#2A2826" stroke-width="30" stroke-linecap="round"/><circle cx="64" cy="-244" r="27" fill="#2A2826"/><path d="M24,-224 L66,-142" stroke="#2A2826" stroke-width="28" stroke-linecap="round"/><path d="M68,-142 L80,-210" stroke="#2A2826" stroke-width="22" stroke-linecap="round"/><circle cx="80" cy="-214" r="14" fill="#2A2826"/></g><circle cx="372" cy="114" r="28" fill="#FBF1CF" stroke="#B8921C" stroke-width="2.5" stroke-dasharray="7 6"/><text x="372" y="124" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#6E6A63">?</text><path d="M336,114 L212,114" stroke="#6E6A63" stroke-width="2" stroke-dasharray="6 6"/><text x="122" y="108" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">영혼은</text><text x="122" y="144" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">정말 있나?</text><circle cx="488" cy="44" r="5" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><circle cx="506" cy="30" r="8" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><rect x="528" y="4" width="280" height="64" rx="32" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="668" y="47" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">나는 생각한다</text></svg></div>
+<p>‘나는 생각한다, 그러므로 나는 존재한다.’ 데카르트의 말로 들어 봤을 것이다. 옛 답의 근거도 이 ‘나는 생각한다’였다.</p>
+<p>칸트는 이것을 ‘자기의식’이라 부르고, 인식이 이루어지게 하는 <b>조건 중 하나</b>에 불과하다고 본다. 조건은 무언가가 실제로 있음을 보장하지 않는다. 내가 생각하고 있음을 의식한다고 해서, 하나로 쭉 이어지는 영혼이 실제로 있다고 말할 수는 없다.</p>
+<div class="exam"><span class="q">지문 2문단</span>그렇기에 자기의식은 ‘생각하는 나’가 단일한 주관으로서 실제로 존재한다는 것, 즉 <span class="hy">‘영혼의 실재함’을 보장하지 않고, ‘영혼이 실재할 가능성’을 열어둘 뿐이다.</span></div>
+<p>없다는 말이 아니다. 이것만으로는 있다고도 없다고도 할 수 없다는 말이다.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 14번</h4>
+<p class="ld">윗글의 내용과 일치하는 것은?</p>
+<p class="opt"><i class="x">✕</i><span>① “칸트에 따르면 자기의식은 영혼의 실재를 보장한다.”<small>보장하지 않는다. 가능성을 열어 둘 뿐이다.</small></span></p>
+</div>
+
+<h3><span class="k">칸트 ② · [A]</span>같은 ‘의식’이라는 말도 뜻이 달라 결론이 나오지 않는다</h3>
+<div class="plate"><svg role="img" width="896" height="404" viewBox="0 0 896 404"><rect x="2" y="10" width="420" height="168" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="22" y="44" text-anchor="start" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">전제 1</text><text x="212" y="92" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">시간의 흐름 속에서</text><text x="212" y="130" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">스스로의 동일성을 <tspan fill="#C2412B">의식</tspan>하는 것은</text><text x="212" y="168" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">인격이다</text><rect x="474" y="10" width="420" height="168" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="494" y="44" text-anchor="start" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">전제 2</text><text x="684" y="111" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">영혼이</text><text x="684" y="149" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">자기<tspan fill="#C2412B">의식</tspan>을 한다</text><text x="448" y="108" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="42" fill="#C2412B">≠</text><path d="M212,178 L392,262 M684,178 L504,262" stroke="#161616" stroke-width="2.5"/><path d="M383,249 L392,262 L376,263 M513,249 L504,262 L520,263" fill="none" stroke="#161616" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="258" y="262" width="380" height="90" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="448" y="318" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="32" fill="#161616">영혼이 인격이다</text><path d="M610,248 L666,304 M666,248 L610,304" stroke="#C2412B" stroke-width="5" stroke-linecap="round"/><text x="448" y="392" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="27" fill="#C2412B">결론이 나오지 않는다</text></svg></div>
+<p>칸트는 두 전제를 모두 받아들인다. 그래도 ‘영혼이 인격이다’라는 결론은 나오지 않는다고 본다.</p>
+<p>전제 1의 ‘의식’은 <b>실제로 있는 무언가</b>에 대해 의식한다는 뜻이다. 전제 2의 ‘영혼’은 ‘생각하는 나’(1문단), ‘자기의식’은 ‘나는 생각한다’(2문단)이니, 바꿔 끼우면 ‘생각하는 나는 생각한다’와 다름없는 말이 된다. 그 안의 ‘의식’은 <b>무언가가 꼭 실재한다는 뜻을 담지 않는다.</b></p>
+<p><span class="hp">낱말은 같은데 뜻이 달라</span> 두 전제가 이어지지 않는다.</p>
+<div class="rule"><span class="nm">[A]</span><span class="say">지문은 이 대목을 이렇게 쓴다.</span><p class="ex">“첫 번째 전제에 등장하는 ‘의식’은 실제로 존재하는 무언가에 대해 의식한다는 뜻이지만, ‘생각하는 나는 생각한다.’와 다름없는 두 번째 전제에 등장하는 ‘의식’은 무언가가 꼭 실재함을 뜻하지는 않기 때문이다.”</p></div>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 15번</h4>
+<p class="ld">[A]에서 답을 찾을 수 있는 질문으로 가장 적절한 것은?</p>
+<p class="opt"><i>○</i><span>① “‘두 전제’를 연결하는 개념의 함의는 실재성과 관련하여 어떤 점에서 서로 다를까?”<small>두 전제를 잇는 개념은 ‘의식’이다. 실재와 관련해 그 뜻이 다르다는 것이 [A]의 핵심이다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>⑤ “‘영혼이 자기의식을 한다.’라는 전제가 ‘생각하는 나는 생각한다.’라는 전제와 다름없는 근거는 무엇일까?”<small>[A]는 둘이 다름없다고 말만 한다. 근거(영혼 = 생각하는 나, 자기의식 = 나는 생각한다)는 1 · 2문단에 있다.</small></span></p>
+</div>
+
+<h3><span class="k">칸트 ③ · 가정</span>증명 대신, 가정으로 깔고 시작한다</h3>
+<div class="plate"><svg role="img" width="896" height="240" viewBox="0 0 896 240"><path d="M20,120 C160,40 300,200 448,120 S740,40 876,120" fill="none" stroke="#C2412B" stroke-width="3.5"/><rect x="40" y="70" width="220" height="100" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="150" y="112" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">사진 속</text><text x="150" y="148" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="29" fill="#161616">그때의 나</text><rect x="338" y="70" width="220" height="100" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="448" y="112" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">사진을 보는</text><text x="448" y="148" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="29" fill="#161616">지금의 나</text><rect x="636" y="70" width="220" height="100" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="746" y="112" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">약속을 지킬</text><text x="746" y="148" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="29" fill="#161616">앞으로의 나</text><text x="448" y="228" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#C2412B">같은 나라고 깔고 시작한다</text></svg></div>
+<p>결국 칸트는 인격이 시간이 흘러도 동일한지 증명하지 않는다. 대신 <span class="hp"><b>같다고 먼저 놓아야 생각이 된다</b></span>고 본다.</p>
+<p>사진을 보며 ‘이때 나 진짜 작았네’라고 말하려면, 그때의 나와 지금 보는 나를 같은 나로 놓아야 한다. 앞으로 지킬 약속도 마찬가지다. 지문의 말로는 생각의 구성이 시간의 흐름을 따르기 때문에, 그 구성은 통시적으로 동일한 인격을 반드시 필요로 한다.</p>
+<div class="exam"><span class="q">지문 4문단</span>칸트는 통시적으로 동일한 인격의 존재를 직접 증명하는 대신 ‘시간의 흐름 속에서 마주치는 복수의 주관이 동일한 인격으로 인식된다.’라는 <span class="hy">가정이 반드시 선행되어야 한다</span>고 제안한다.</div>
+<p class="cap">통시적: 한 시점이 아니라 시간의 흐름을 따라 여러 때에 걸친다는 뜻.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 14번</h4>
+<p class="opt"><i class="x">✕</i><span>② “칸트에 따르면 생각의 구성은 시간의 흐름과 독립적이다.”<small>생각의 구성은 시간의 흐름을 따른다(4문단). 그래서 같은 인격이 필요하다.</small></span></p>
+</div>
+
+<h3><span class="k">스트로슨</span>상상 말고, 몸</h3>
+<div class="plate"><svg role="img" width="896" height="300" viewBox="0 0 896 300"><path d="M60,250 C180,250 220,120 340,120 S520,260 620,200 S760,90 840,110" fill="none" stroke="#141414" stroke-width="30" stroke-linecap="round"/><path d="M60,250 C180,250 220,120 340,120 S520,260 620,200 S760,90 840,110" fill="none" stroke="#F6F1E7" stroke-width="16" stroke-linecap="round"/><g transform="translate(60 238) scale(0.62 0.62)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="4.84" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="4.84" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="4.84" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="4.84" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="4.84" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(840 98) scale(0.95 0.95)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/></g><circle cx="340" cy="120" r="9" fill="#C2412B"/><text x="340" y="82" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">학교</text><circle cx="551" cy="213" r="9" fill="#C2412B"/><text x="551" y="268" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">운동장</text><circle cx="737" cy="125" r="9" fill="#C2412B"/><text x="737" y="88" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">교실</text></svg></div>
+<p>스트로슨은 칸트의 한 가지에는 동의한다. 자아를 인식하는 방식이 경험적 인식의 방식과 구별된다는 것. 하지만 여러 주관을 동일한 인격으로 놓는 칸트의 가정은 <b>철학적 상상</b>에 불과하다고 비판한다.</p>
+<p>칸트가 신체를 간과했다는 것이다. 스트로슨에게 인격은 의식과 신체의 복합체이고, <span class="hp">우리는 신체를 매개로 대상을 경험한다.</span> 자아에 대한 인식도 그런 경험적 인식들로부터 추상화된다. 그래서 <span class="hp"><b>시공간적 세계에서의 경험</b></span>이 같은 사람임을 받쳐 준다.</p>
+<div class="exam"><span class="q">지문 5문단</span>그러므로 <span class="hy">시공간적 세계에서의 경험이 인격의 통시적 동일성을 뒷받침한다</span>고 그는 주장한다.</div>
+<p>같은 논리로 스트로슨은 자기의식도 경험에 의존한다고 본다. 자기의식이 인식을 가능하게 하는 조건이라는 칸트의 견해는 잘못이라는 것이다.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 14번</h4>
+<p class="opt"><i class="x">✕</i><span>③ “스트로슨에 따르면 자기의식은 인식을 가능하게 하는 조건이다.”<small>칸트의 견해다. 스트로슨은 이것이 잘못이라고 본다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>④ “스트로슨에 따르면 의식을 매개로 대상이 경험된다는 것은 과학적 사실이다.”<small>지문은 ‘신체를 매개로’다. 낱말 하나를 바꿨다.</small></span></p>
+</div>
+
+<h3><span class="k">롱게네스</span>같은 나가 먼저, 기준은 내 몸</h3>
+<div class="plate"><svg role="img" width="896" height="350" viewBox="0 0 896 350"><g transform="translate(300 330) scale(1.45 1.45)"><path d="M-9,-42 L-14,0 M9,-42 L18,-2" fill="none" stroke="#161616" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-88 Q-32,-70 -24,-56 M20,-90 L104,-98" fill="none" stroke="#161616" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"/><circle cx="108" cy="-98" r="7" fill="#FBFAF6" stroke="#161616" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-6 470 160)"><rect x="410" y="80" width="130" height="160" fill="#FFFFFF" stroke="#161616" stroke-width="2"/><rect x="420" y="90" width="110" height="110" fill="#E9E4DA" stroke="#161616" stroke-width="1.2"/><g transform="translate(475 196) scale(0.42 0.42)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="7.14" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="7.14" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="7.14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="7.14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="7.14" stroke-linecap="round" stroke-linejoin="round"/></g></g><rect x="590" y="40" width="290" height="96" rx="24" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><path d="M600,118 L560,150 L630,134" fill="#FBFAF6" stroke="#161616" stroke-width="1.5"/><text x="735" y="98" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">‘이건 내 몸이었어’</text></svg></div>
+<p>롱게네스는 다시 칸트 쪽에 선다. <span class="hp">통시적으로 동일한 자아가 없으면 경험적 인식이 성립할 수조차 없다.</span> 그러니 자아에 대한 인식은 경험에서 추상화된 것이 아니다. 스트로슨과 정반대 방향이다.</p>
+<p>다만 자아와 인격은 시공간적 세계를 경험하는 <b>인간</b>에게만 적용되는 개념이라고 본다. 인간은 자율성을 지닌 도덕적 존재인데(칸트의 견해를 인정), 자율성은 시공간적 세계를 살아가며 겪는 것들 사이에서 스스로 선택한다는 뜻이다. 그러려면 <span class="hp"><b>신체가 있고 살아 있어야</b></span> 한다.</p>
+<div class="exam"><span class="q">지문 6문단</span>그러려면 신체가 있고 살아 있어야 하므로, <span class="hy">인격의 동일성의 기준은 각자가 자신의 것이라고 통시적으로 인식하는 신체</span>라고 롱게네스는 주장한다.</div>
+<p>사진을 보며 ‘이건 내 몸이었어’라고 알아보는 바로 그 몸이 기준이다.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 14번</h4>
+<p class="opt"><i>○</i><span>⑤ “롱게네스에 따르면 살아 있다는 것은 시공간적 세계 안에서의 선택에 필수적이다.”<small>스스로 선택하려면 신체가 있고 살아 있어야 한다. 14번의 정답이다.</small></span></p>
+</div>
+
+<h3><span class="k">정리</span>같은 사람, 세 가지 이유</h3>
+<div class="plate"><svg role="img" width="896" height="748" viewBox="0 0 896 748"><circle cx="333" cy="260" r="230" fill="#F4E3DD" fill-opacity=".55" stroke="#161616" stroke-width="2"/><circle cx="563" cy="260" r="230" fill="#E3E9F2" fill-opacity=".55" stroke="#161616" stroke-width="2"/><circle cx="448" cy="510" r="230" fill="#E7EEDF" fill-opacity=".55" stroke="#161616" stroke-width="2"/><circle cx="448" cy="346" r="58" fill="#F6DD6B" opacity=".55"/><text x="130" y="60" text-anchor="middle" font-family="Noto Serif KR" font-weight="700" font-size="40" fill="#C2412B">칸트</text><text x="776" y="60" text-anchor="middle" font-family="Noto Serif KR" font-weight="700" font-size="40" fill="#C2412B">스트로슨</text><text x="200" y="712" text-anchor="middle" font-family="Noto Serif KR" font-weight="700" font-size="40" fill="#C2412B">롱게네스</text><text x="448" y="338" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">시간 속</text><text x="448" y="374" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">같은 나</text><text x="448" y="120" text-anchor="middle" font-family="Noto Serif KR" font-weight="700" font-size="27" fill="#161616">자아를</text><text x="448" y="155" text-anchor="middle" font-family="Noto Serif KR" font-weight="700" font-size="27" fill="#161616">인식하는</text><text x="448" y="190" text-anchor="middle" font-family="Noto Serif KR" font-weight="700" font-size="27" fill="#161616">방식이 경험적</text><text x="448" y="225" text-anchor="middle" font-family="Noto Serif KR" font-weight="700" font-size="27" fill="#161616">인식의 방식과</text><text x="448" y="260" text-anchor="middle" font-family="Noto Serif KR" font-weight="700" font-size="27" fill="#161616">구별된다.*</text><text x="313" y="421" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">같은 ‘나’가</text><text x="313" y="456" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">먼저.</text><text x="578" y="421" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">몸이</text><text x="578" y="456" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#161616">있어야.</text><text x="212" y="205" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">‘같은 나’를</text><text x="212" y="240" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">증명이 아닌</text><text x="212" y="275" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">가정으로</text><text x="212" y="310" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">깔고 시작.</text><text x="684" y="222" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">나를 앎은</text><text x="684" y="257" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">겪은 것에서.</text><text x="684" y="292" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">가정은 상상.</text><text x="448" y="606" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">내 것이라 아는</text><text x="448" y="641" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">살아 있는 몸.</text></svg></div>
+<p class="cap">* 자아를 인식하는 방식은 경험적 인식의 방식과 구별된다. 사과는 눈앞의 대상이라 보고 겪어서 안다. 그런데 나는 사과처럼 눈앞에 놓고 볼 수 없다. 사과를 보는 쪽이 나니까. 칸트의 생각이고, 스트로슨도 이에 동의했다(5문단). 롱게네스가 어떻게 보는지는 지문에 분명히 나오지 않는다.</p>
+<dl class="sum">
+<dt>칸트</dt><dd>‘같은 나’를 증명이 아닌 가정으로 깔고 시작한다.</dd>
+<dt>스트로슨</dt><dd>신체로 겪은 경험이 같은 나를 받쳐 준다. 가정은 상상.</dd>
+<dt>롱게네스</dt><dd>같은 나가 먼저. 기준은 내 것이라 아는 살아 있는 몸.</dd>
+</dl>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 16번</h4>
+<p class="ld">학습 활동지에서 적절하지 않은 것은?</p>
+<p class="opt"><i class="x">✕</i><span>② “스트로슨: 시공간적 세계에서 이루어지는 경험적 인식은 자아에 대한 인식에 의존한다고 본다.”<small>방향이 거꾸로다. 스트로슨에게는 자아에 대한 인식이 경험적 인식에서 추상화된다. 16번의 정답이다.</small></span></p>
+<p class="opt"><i>○</i><span>⑤ “칸트, 스트로슨, 롱게네스: ‘시간의 흐름 속 동일한 인격으로서의 나’라는 개념을 수용한다.”<small>이유는 달라도 셋 다 같은 사람이라는 데는 동의한다. 그림의 가운데 원이다.</small></span></p>
+</div>
+
+<div class="sec" id="pw-3">
+<p class="num">3</p>
+<h2>아 다르고 어 다른 말</h2>
+<p class="lead">이 지문이 어려운 건 내용이 어려워서가 아니다. 비슷한 말이 미묘하게 다르기 때문이다.</p>
+</div>
+
+<h3><span class="k">짝 ①</span>같다 ≠ 안 변했다</h3>
+<div class="plate"><svg role="img" width="896" height="300" viewBox="0 0 896 300"><path d="M230,46 L230,24 L670,24 L670,46" fill="none" stroke="#161616" stroke-width="2.5"/><text x="450" y="16" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="29" fill="#161616">같은 사람</text><g transform="translate(300 250) scale(0.95 0.95)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.16" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(600 250) scale(1.4 1.4)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="2.14" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2.14" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="2.14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="2.14" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="2.14" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M180,252 L720,252" stroke="#9A958C" stroke-width="2"/><text x="450" y="196" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="27" fill="#C2412B">모습은 변함</text><text x="300" y="288" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">초등학생 때</text><text x="600" y="288" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">지금</text></svg></div>
+<p>사진 속 아이와 나는 같은 사람이다. 그래도 변했다. <b>같다는 건 안 변했다는 뜻이 아니다.</b> 지문이 말하는 동일성은 시간이 흐르는 동안 같은 인격이라는 것이지, 모습이 그대로라는 것이 아니다.</p>
+
+<h3><span class="k">짝 ②</span>있다 ≠ 있다고 놓는다</h3>
+<div class="plate"><svg role="img" width="896" height="180" viewBox="0 0 896 180"><rect x="40" y="14" width="380" height="120" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="190" y="64" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="30" fill="#161616">있다고</text><text x="190" y="104" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="30" fill="#161616">증명한다</text><path d="M334,48 L386,100 M386,48 L334,100" stroke="#C2412B" stroke-width="6" stroke-linecap="round"/><rect x="476" y="14" width="380" height="120" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="626" y="64" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="30" fill="#161616">있다고 놓고</text><text x="626" y="104" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="30" fill="#161616">시작한다</text><circle cx="796" cy="74" r="30" fill="none" stroke="#161616" stroke-width="5"/><text x="666" y="170" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">칸트가 간 길</text></svg></div>
+<p>칸트는 같은 나가 있다고 증명하지 않는다. <b>있다고 놓고 시작한다.</b> 선지에서 칸트에게 ‘직접 증명’, ‘보장한다’가 붙으면 의심부터 한다.</p>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 15번</h4>
+<p class="opt"><i class="x">✕</i><span>④ “인격의 통시적 동일성이 ‘직접 증명’될 수 있다는 견해를 받아들여야 하는 근거는 무엇일까?”<small>칸트는 직접 증명 대신 가정을 제안한다. [A]에도, 지문 어디에도 이런 근거는 없다.</small></span></p>
+</div>
+
+<h3><span class="k">짝 ③</span>의식 ≠ 의식</h3>
+<div class="plate"><svg role="img" width="896" height="176" viewBox="0 0 896 176"><rect x="10" y="4" width="420" height="168" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="30" y="38" text-anchor="start" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">전제 1</text><text x="220" y="86" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">시간의 흐름 속에서</text><text x="220" y="124" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">스스로의 동일성을 <tspan fill="#C2412B">의식</tspan>하는 것은</text><text x="220" y="162" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">인격이다</text><rect x="466" y="4" width="420" height="168" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="486" y="38" text-anchor="start" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">전제 2</text><text x="676" y="105" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">영혼이</text><text x="676" y="143" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="28" fill="#161616">자기<tspan fill="#C2412B">의식</tspan>을 한다</text></svg></div>
+<p>전제 1의 ‘의식’은 실제로 있는 무언가를 의식한다는 뜻이다. 전제 2의 ‘의식’, 곧 ‘나는 생각한다’는 그런 뜻을 꼭 담지 않는다. 같은 낱말이 다른 뜻으로 쓰이면 두 전제는 이어지지 않는다. 15번 ①이 바로 이 점을 묻는다.</p>
+
+<h3><span class="k">짝 ④</span>무엇이 먼저인가</h3>
+<div class="plate"><svg role="img" width="896" height="272" viewBox="0 0 896 272"><text x="0" y="62" text-anchor="start" font-family="Noto Serif KR" font-weight="700" font-size="30" fill="#C2412B">스트로슨</text><rect x="180" y="18" width="230" height="74" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="295" y="66" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">나를 앎</text><rect x="640" y="18" width="230" height="74" rx="10" fill="#FBF1CF" stroke="#161616" stroke-width="2"/><text x="755" y="66" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">겪어서 앎</text><path d="M632,55 L418,55" stroke="#161616" stroke-width="2.5"/><path d="M432,43 L416,55 L432,67" fill="none" stroke="#161616" stroke-width="2.5"/><text x="525" y="128" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">겪은 것에서 나를 앎이 나온다</text><text x="0" y="194" text-anchor="start" font-family="Noto Serif KR" font-weight="700" font-size="30" fill="#C2412B">롱게네스</text><rect x="180" y="150" width="230" height="74" rx="10" fill="#FBF1CF" stroke="#161616" stroke-width="2"/><text x="295" y="198" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">같은 나</text><rect x="640" y="150" width="230" height="74" rx="10" fill="#FBFAF6" stroke="#161616" stroke-width="2"/><text x="755" y="198" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="30" fill="#161616">겪어서 앎</text><path d="M418,187 L632,187" stroke="#161616" stroke-width="2.5"/><path d="M618,175 L634,187 L618,199" fill="none" stroke="#161616" stroke-width="2.5"/><text x="525" y="260" text-anchor="middle" font-family="SUIT" font-weight="700" font-size="27" fill="#6E6A63">같은 나가 있어야 겪어서 알 수 있다</text></svg></div>
+<p>스트로슨과 롱게네스는 ‘나를 앎’과 ‘겪어서 앎’을 <b>정반대 방향으로</b> 잇는다.</p>
+<div class="flip">
+<div class="r"><p class="a">“자아에 대한 인식은 경험적 인식들로부터 추상화되는 것이다.”</p><p class="b">스트로슨 → <em>겪어서 앎이 먼저</em></p><p class="c">16번 [핵심 개념 2]의 스트로슨: 추상화 과정을 거치지 않고서 ‘나’를 인식할 수 있다는 것에 동의하지 않는다.</p></div>
+<div class="r"><p class="a">“자아에 대한 인식은 경험으로부터 추상화된 것이 아니다.”</p><p class="b">롱게네스 → <em>같은 나가 먼저</em></p><p class="c">16번 ③의 롱게네스: 추상화 과정을 거치지 않고서 ‘나’를 인식할 수 있다는 것에 동의한다.</p></div>
+</div>
+
+<h3><span class="k">수능이 낸 사고실험 · 17번</span>내 의식을 프로그램으로 옮기면, 그것도 나일까?</h3>
+<div class="plate"><svg role="img" width="896" height="200" viewBox="0 0 896 200"><path d="M150,30 C110,30 90,60 96,90 C70,100 72,140 100,150 C100,180 140,190 160,176 C180,196 220,190 226,164 C256,160 262,120 240,106 C252,72 220,40 190,48 C182,34 166,28 150,30 Z" fill="#FBFAF6" stroke="#161616" stroke-width="2.5"/><text x="166" y="122" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="32" fill="#161616">의식</text><path d="M260,110 L600,110" stroke="#C2412B" stroke-width="3" stroke-dasharray="10 10"/><path d="M590,98 L606,110 L590,122" fill="none" stroke="#C2412B" stroke-width="3"/><text x="430" y="92" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="27" fill="#C2412B">스캔해서 재현</text><rect x="640" y="40" width="200" height="130" rx="8" fill="#FBFAF6" stroke="#161616" stroke-width="2.5"/><path d="M610,186 L870,186 L846,170 L634,170 Z" fill="#FBFAF6" stroke="#161616" stroke-width="2.5"/><text x="740" y="116" text-anchor="middle" font-family="SUIT" font-weight="800" font-size="40" fill="#161616">나?</text></svg></div>
+<div class="talk">
+<div class="row"><span class="who">갑</span><p class="bb">“프로그램으로 재현된 의식은 나와 같은 사람이 아니야. 의식은 몸 전체가 함께 만든 거라, 살아 있는 몸까지 있어야 같은 사람이거든.”</p></div>
+<div class="row"><span class="who">을</span><p class="bb">“재현된 의식도 나와 같은 사람이야. 몸은 없어도 생각하는 기능이 같거든. 같은 사람인지는 그것만 보고 판단해야 해.”</p></div>
+</div>
+<p class="cap">2026학년도 수능 국어 17번 &lt;보기&gt;를 줄여 옮김</p>
+<p>17번은 칸트 이전의 견해와 세 철학자를 각각 잣대로 들고 갑과 을을 평가하게 한다. 푸는 길은 하나다. <b>선지가 고른 잣대에서 무엇이 인격의 기준인지</b>를 먼저 확인하고, 그 잣대로 갑 · 을의 말을 잰다.</p>
+<dl class="sum">
+<dt>칸트 이전</dt><dd>‘생각하는 나’(영혼)의 지속 = 인격의 동일성</dd>
+<dt>칸트</dt><dd>통시적 동일성에는 가정이 반드시 선행되어야 한다.</dd>
+<dt>스트로슨</dt><dd>인격 = 의식 + 신체</dd>
+<dt>롱게네스</dt><dd>기준은 자기 것으로 인식하는 신체. 인간에게만 적용.</dd>
+</dl>
+<div class="trap">
+<h4>수능엔 이렇게 나왔다 · 17번</h4>
+<p class="ld">윗글을 바탕으로 &lt;보기&gt;를 이해한 반응으로 가장 적절한 것은? [3점]</p>
+<p class="opt"><i>○</i><span>③ “칸트 이전까지 유력했던 견해에 의하면, ‘생각하는 나’의 지속만으로는 인격의 동일성을 보장하지 않는다는 갑의 입장은 옳지 않겠군.”<small>그 견해에서는 ‘생각하는 나’의 지속이 곧 인격의 동일성이다. 그것만으로는 부족하다는 갑은 그 잣대로 보면 옳지 않다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>④ “칸트의 견해에 의하면, 인격의 통시적 동일성은 그것에 대한 가정이 선행될 필요 없이 사고 기능의 동일성을 통해 판단된다는 을의 입장은 옳겠군.”<small>칸트는 가정이 반드시 선행되어야 한다고 본다. 을의 ‘어떤 가정도 두지 않고’와 정면으로 부딪친다.</small></span></p>
+<p class="opt"><i class="x">✕</i><span>⑤ “롱게네스의 견해에 의하면, 인간과 상이한 존재에 의해서도 동일하게 수행될 수 있는 사고 기능이 인격의 동일성을 판단하는 기준이라는 을의 입장은 옳겠군.”<small>롱게네스에게 인격은 시공간적 세계를 경험하는 인간에게만 적용되고, 기준은 신체다.</small></span></p>
+</div>
+<p>17번은 시험 뒤 정답을 두고 이의 제기가 많았던 문항이다. 지문 밖 철학 논의로 보면 다툴 여지가 있지만, 문항이 묻는 것은 ‘그 견해에 의하면’, 곧 지문이 요약한 입장과 선지의 대응이다. 평가원은 정답 ③을 유지했다. 쟁점은 <a href="/columns/suneung-korean-17">수능 국어 17번, 정말 오류일까?</a>에 따로 정리했다.</p>
+
+<p class="close">변했지만, 같은 사람</p>
+<p>사진 속 아이와 지금의 나. 세 철학자가 댄 이유는 달랐지만, 같은 사람이라는 데는 셋 다 고개를 끄덕였다.</p>
+<div class="plate"><svg role="img" width="896" height="220" viewBox="0 0 896 220"><path d="M20,200 C200,200 260,176 420,176 S680,206 876,190" fill="none" stroke="#141414" stroke-width="26" stroke-linecap="round"/><path d="M20,200 C200,200 260,176 420,176 S680,206 876,190" fill="none" stroke="#F6F1E7" stroke-width="13" stroke-linecap="round"/><g transform="translate(250 180) scale(0.9 0.9)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(640 184) scale(1.35 1.35)"><path d="M-9,-42 L-11,0 M9,-42 L11,0" fill="none" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/><rect x="-22" y="-98" width="44" height="58" rx="14" fill="#FBFAF6" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/><path d="M-20,-90 L-30,-52 M20,-90 L30,-52" fill="none" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-122" r="22" fill="#FBFAF6" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-7" cy="-125" r="2.8" fill="#161616"/><circle cx="7" cy="-125" r="2.8" fill="#161616"/><path d="M-6,-113 Q0,-107 6,-113" fill="none" stroke="#161616" stroke-width="2.22" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>
+<p>그러니 그때 적은 장래희망도 <span class="hy">아직 유효할지 모른다.</span></p>
+
+<div class="sec" id="pw-4">
+<p class="num">4</p>
+<h2>원문으로 직접 풀어 보기</h2>
+<p class="lead">2026학년도 수능 국어 14~17번을 시험지 그대로 옮겼다. 정답은 아래에 접어 두었다.</p>
+</div>
+
+<div class="paper">
+<p class="set">[14～17] 다음 글을 읽고 물음에 답하시오.</p>
+<div class="psg">
+<p>철학에서 특정한 개인으로서의 인간을 ‘인격’, 그중 ‘나’를 ‘자아’라고 한다. 인격의 동일성은 모든 생각의 기반이다. 우리는 과거의 내가 현재의 나와 동일한 인격이기에 과거에 내가 한 약속을 현재의 내가 지켜야 한다고 판단한다. 칸트 이전까지 인격의 동일성을 설명하는 유력한 견해는, ‘생각하는 나’인 영혼이 단일한 주관으로서 시간의 흐름 속에 지속한다는 것이었다. ‘주관’은 인식의 주체를 가리키며, ‘인식’은 ‘앎’을 말한다.</p>
+<p>그러나 칸트는 ‘나는 생각한다.’, 즉 ‘자기의식’은 인식이 이루어지는 것을 가능하게 하는 조건 중 하나에 불과하다고 본다. 그러한 조건 자체는 무언가가 실재함을 보장하지 않는다. 그렇기에 자기의식은 ‘생각하는 나’가 단일한 주관으로서 실제로 존재한다는 것, 즉 ‘영혼의 실재함’을 보장하지 않고, ‘영혼이 실재할 가능성’을 열어둘 뿐이다.</p>
+<p class="mk"><span class="tag">[A]</span>이를 바탕으로 칸트는 영혼이 인격이라는 견해를 반박한다. 칸트는 ‘시간의 흐름 속에서 스스로의 동일성을 의식하는 것은 인격이다.’와 ‘영혼이 자기의식을 한다.’라는 두 전제 모두 납득할 수 있다고 보지만, 그 전제들로부터 ‘영혼이 인격이다.’라는 결론은 도출되지 않는다고 지적한다. 첫 번째 전제에 등장하는 ‘의식’은 실제로 존재하는 무언가에 대해 의식한다는 뜻이지만, ‘생각하는 나는 생각한다.’와 다름없는 두 번째 전제에 등장하는 ‘의식’은 무언가가 꼭 실재함을 뜻하지는 않기 때문이다.</p>
+<p>칸트는 통시적으로 동일한 인격의 존재를 직접 증명하는 대신 ‘시간의 흐름 속에서 마주치는 복수의 주관이 동일한 인격으로 인식된다.’라는 가정이 반드시 선행되어야 한다고 제안한다. 그래야 경험적 판단, 윤리적 판단 등의 생각이 가능하기 때문이다. 생각의 구성은 시간의 흐름을 따르는데, 이러한 구성은 통시적으로 동일한 인격을 반드시 필요로 한다는 것이다.</p>
+<p>스트로슨은 자아를 인식하는 방식이 경험적 인식의 방식과 구별된다는 칸트의 견해에 동의하지만, 복수의 주관이 동일한 인격으로 인식된다고 가정하는 것은 철학적 상상에 불과하다고 칸트를 비판한다. 인격의 문제에서 신체를 간과한 칸트와 달리, 스트로슨은 인격을 의식과 신체의 복합체로 본다. 스트로슨에 따르면, 시공간적 세계 안에서 우리의 신체를 매개로 대상이 경험된다는 것은 과학적 사실이며 자아에 대한 인식은 경험적 인식들로부터 추상화되는 것이다. 그러므로 시공간적 세계에서의 경험이 인격의 통시적 동일성을 뒷받침한다고 그는 주장한다. 자기의식도 마찬가지로 경험에 의존하기에, 자기의식이 인식을 가능하게 하는 조건이라는 칸트의 견해는 잘못이라는 것이다.</p>
+<p>롱게네스는 통시적으로 동일한 자아가 없이는 경험적 인식이 성립할 수조차 없으므로, 자아에 대한 인식은 경험으로부터 추상화된 것이 아니라고 본다. 하지만 그는 자아와 인격이 시공간적 세계를 경험하는 인간에만 적용되는 개념이라고 주장한다. 롱게네스는 인간은 도덕적 존재이며 도덕적 존재로서의 인간은 자율성을 지닌 존재라는 칸트의 견해를 인정한다. 그러나 자율성을 지닌다는 것은 시공간적 세계를 살아가는 동안 경험하는 것들 사이에서 스스로 선택한다는 것을 뜻한다. 그러려면 신체가 있고 살아 있어야 하므로, 인격의 동일성의 기준은 각자가 자신의 것이라고 통시적으로 인식하는 신체라고 롱게네스는 주장한다.</p>
+</div>
+
+<div class="item">
+<p class="stem"><b>14.</b> 윗글의 내용과 일치하는 것은?</p>
+<ol class="opts">
+<li><i>①</i><span>칸트에 따르면 자기의식은 영혼의 실재를 보장한다.</span></li>
+<li><i>②</i><span>칸트에 따르면 생각의 구성은 시간의 흐름과 독립적이다.</span></li>
+<li><i>③</i><span>스트로슨에 따르면 자기의식은 인식을 가능하게 하는 조건이다.</span></li>
+<li><i>④</i><span>스트로슨에 따르면 의식을 매개로 대상이 경험된다는 것은 과학적 사실이다.</span></li>
+<li><i>⑤</i><span>롱게네스에 따르면 살아 있다는 것은 시공간적 세계 안에서의 선택에 필수적이다.</span></li>
+</ol>
+</div>
+
+<div class="item">
+<p class="stem"><b>15.</b> [A]에서 답을 찾을 수 있는 질문으로 가장 적절한 것은?</p>
+<ol class="opts">
+<li><i>①</i><span>‘두 전제’를 연결하는 개념의 함의는 실재성과 관련하여 어떤 점에서 서로 다를까?</span></li>
+<li><i>②</i><span>‘복수의 주관이 동일한 인격으로 인식된다.’라는 가정은 어떤 점에서 반박되고 있을까?</span></li>
+<li><i>③</i><span>‘영혼이 실재할 가능성’이 열려 있다는 것이 납득할 수 없는 견해인 근거는 무엇일까?</span></li>
+<li><i>④</i><span>인격의 통시적 동일성이 ‘직접 증명’될 수 있다는 견해를 받아들여야 하는 근거는 무엇일까?</span></li>
+<li><i>⑤</i><span>‘영혼이 자기의식을 한다.’라는 전제가 ‘생각하는 나는 생각한다.’라는 전제와 다름없는 근거는 무엇일까?</span></li>
+</ol>
+</div>
+
+<div class="item">
+<p class="stem"><b>16.</b> 다음은 윗글을 읽고 학생이 작성한 학습 활동지이다. 윗글을 바탕으로 할 때, 적절하지 <u>않은</u> 것은?</p>
+<div class="sheet">
+<p class="lead"><span class="ck" aria-hidden="true">□</span>아래의 핵심 개념에 대해 윗글에 제시된 학자들이 보일 수 있는 입장을 작성해 봅시다.</p>
+<div class="box">
+<p class="h"><b>[핵심 개념 1]</b> 자아에 대한 인식과 경험적 인식</p>
+<ul>
+<li class="n"><span class="tx">칸트: 자아를 인식하는 방식과 시공간적 세계의 대상들을 경험적으로 인식하는 방식은 다르다고 본다.</span><i>①</i></li>
+<li class="n"><span class="tx">스트로슨: 시공간적 세계에서 이루어지는 경험적 인식은 자아에 대한 인식에 의존한다고 본다.</span><i>②</i></li>
+</ul>
+</div>
+<div class="box">
+<p class="h"><b>[핵심 개념 2]</b> 추상화 과정</p>
+<ul>
+<li><span class="tx">스트로슨: 경험으로부터의 추상화 과정을 거치지 않고서 ‘나’를 인식할 수 있다는 것에 동의하지 않는다.</span></li>
+<li class="n"><span class="tx">롱게네스: 경험으로부터의 추상화 과정을 거치지 않고서 ‘나’를 인식할 수 있다는 것에 동의한다.</span><i>③</i></li>
+</ul>
+</div>
+<div class="box">
+<p class="h"><b>[핵심 개념 3]</b> 통시적 인격과 도덕적 존재</p>
+<ul>
+<li class="n"><span class="tx">칸트, 롱게네스: 도덕적 존재로서의 인간이 자율성을 지닌다는 것을 수용한다.</span><i>④</i></li>
+<li class="n"><span class="tx">칸트, 스트로슨, 롱게네스: ‘시간의 흐름 속 동일한 인격으로서의 나’라는 개념을 수용한다.</span><i>⑤</i></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="item">
+<p class="stem"><b>17.</b> 윗글을 바탕으로 &lt;보기&gt;를 이해한 반응으로 가장 적절한 것은? [3점]</p>
+<div class="bogi">
+<p class="t">&lt;보 기&gt;</p>
+<p><b>갑</b>: 두뇌에서 일어나는 의식을 스캔하여 프로그램으로 재현한다고 상상해 보자. 그런 경우, 본래의 자신과 재현된 의식은 동일한 인격이 아니야. 두뇌에서 일어나는 의식은 신체 전체의 기여로 일어난 것이기 때문이지. 즉, 프로그램으로 재현된 의식은 인격일 수 없어. ‘생각하는 나’의 지속만으로는 인격의 동일성이 보장될 수 없고, 살아 있는 신체도 인격의 구성 요소에 포함되어야 하거든.</p>
+<p><b>을</b>: 그렇지 않아. 프로그램으로 재현된 의식은 본래의 자신과 동일한 인격이야. 비록 프로그램은 신체가 없지만 우리 두뇌와 프로그램이 수행하는 사고 기능에는 근본적인 차이가 없거든. 인격의 동일성은 어떤 가정도 두지 않고 이러한 사고 기능의 동일성만을 기준으로 판단해야 해.</p>
+</div>
+<ol class="opts">
+<li><i>①</i><span>롱게네스의 견해에 의하면, 프로그램으로 재현된 의식만으로 인격이 될 수 있다는 갑의 입장은 옳겠군.</span></li>
+<li><i>②</i><span>스트로슨의 견해에 의하면, 신체를 지니지 않은 존재에게 인격이 귀속될 수 없다는 을의 입장은 옳지 않겠군.</span></li>
+<li><i>③</i><span>칸트 이전까지 유력했던 견해에 의하면, ‘생각하는 나’의 지속만으로는 인격의 동일성을 보장하지 않는다는 갑의 입장은 옳지 않겠군.</span></li>
+<li><i>④</i><span>칸트의 견해에 의하면, 인격의 통시적 동일성은 그것에 대한 가정이 선행될 필요 없이 사고 기능의 동일성을 통해 판단된다는 을의 입장은 옳겠군.</span></li>
+<li><i>⑤</i><span>롱게네스의 견해에 의하면, 인간과 상이한 존재에 의해서도 동일하게 수행될 수 있는 사고 기능이 인격의 동일성을 판단하는 기준이라는 을의 입장은 옳겠군.</span></li>
+</ol>
+</div>
+</div>
+
+<details class="ans">
+<summary>정답 보기</summary>
+<p>14번 ⑤ · 15번 ① · 16번 ② · 17번 ③</p>
+</details>
+
+<h3><span class="k">원본</span>시험지 원본</h3>
+<p class="cap">옆으로 넘기면 다음 쪽이 나온다.</p>
+<div class="pages" tabindex="0" role="group" aria-label="시험지 원본 5~6쪽, 가로로 넘겨 보기">
+<figure><img class="shot" src="/images/problems/2026-suneung-personal-identity/exam-p5.png" alt="2026학년도 수능 국어 시험지 5쪽. 왼쪽 단은 14~17번 인격의 동일성 지문, 오른쪽 단은 지문 끝부분과 14~16번 문항" loading="lazy"><figcaption class="cap">시험지 5쪽. 지문과 14~16번.</figcaption></figure>
+<figure><img class="shot" src="/images/problems/2026-suneung-personal-identity/exam-q17.png" alt="2026학년도 수능 국어 17번 문항. 갑과 을의 대화로 된 보기와 선지 다섯 개" loading="lazy"><figcaption class="cap">시험지 6쪽의 17번.</figcaption></figure>
+</div>
+
+<div class="sec" id="pw-faq">
+<h2>자주 묻는 질문</h2>
+</div>
+<dl class="faq">
+<dt>인격의 동일성이란 무엇인가요?</dt><dd>인격의 동일성은 과거의 나와 현재의 나가 같은 인격이라는 것입니다. 2026학년도 수능 국어 14~17번 지문은 이를 모든 생각의 기반이라고 하며, 과거에 내가 한 약속을 현재의 내가 지켜야 한다고 판단하는 근거로 듭니다.</dd>
+<dt>칸트는 왜 자기의식이 영혼의 실재를 보장하지 않는다고 보나요?</dt><dd>칸트는 ‘나는 생각한다’, 곧 자기의식을 인식이 이루어지게 하는 조건 중 하나로 봅니다. 조건 자체는 무언가가 실재함을 보장하지 않으므로, 자기의식은 ‘영혼의 실재함’을 보장하지 않고 ‘영혼이 실재할 가능성’을 열어 둘 뿐입니다.</dd>
+<dt>칸트는 왜 ‘영혼이 인격이다’라는 결론이 나오지 않는다고 하나요?</dt><dd>두 전제에 쓰인 ‘의식’의 뜻이 다르기 때문입니다. 첫 번째 전제의 ‘의식’은 실제로 존재하는 무언가에 대한 의식이지만, ‘생각하는 나는 생각한다’와 다름없는 두 번째 전제의 ‘의식’은 무언가가 꼭 실재함을 뜻하지 않습니다. 15번은 이 점을 묻습니다.</dd>
+<dt>칸트, 스트로슨, 롱게네스의 견해는 어떻게 다른가요?</dt><dd>세 사람 모두 시간의 흐름 속 동일한 인격으로서의 나를 받아들이지만 근거가 다릅니다. 칸트는 동일한 인격을 증명하는 대신 가정이 반드시 선행되어야 한다고 보고, 스트로슨은 그 가정을 철학적 상상이라 비판하며 신체를 매개로 한 경험이 동일성을 뒷받침한다고 봅니다. 롱게네스는 동일한 자아 없이는 경험적 인식이 불가능하다고 보면서, 기준은 각자가 자신의 것이라고 인식하는 신체라고 주장합니다.</dd>
+<dt>스트로슨과 롱게네스는 자아 인식과 경험의 관계를 어떻게 다르게 보나요?</dt><dd>스트로슨은 자아에 대한 인식이 경험적 인식들로부터 추상화된다고 보고, 롱게네스는 통시적으로 동일한 자아가 없으면 경험적 인식이 성립할 수 없으므로 자아에 대한 인식은 경험에서 추상화된 것이 아니라고 봅니다. 둘은 ‘나를 앎’과 ‘겪어서 앎’을 정반대 방향으로 잇습니다. 16번 ②는 스트로슨의 방향을 뒤집은 선지입니다.</dd>
+<dt>2026 수능 국어 17번의 정답은 왜 ③인가요?</dt><dd>칸트 이전까지 유력했던 견해는 ‘생각하는 나’인 영혼이 단일한 주관으로 지속하는 것을 곧 인격의 동일성으로 봅니다. 그러므로 ‘생각하는 나’의 지속만으로는 인격의 동일성이 보장되지 않는다는 갑의 입장은 그 견해에 따르면 옳지 않습니다. 문항은 지문이 요약한 각 견해와 선지의 대응을 묻습니다.</dd>
+</dl>
+
+<h3><span class="k">SNarGPT</span>이번 편의 기출은 SNarGPT로 찾았다</h3>
+<img class="shot" src="/images/problems/2026-suneung-personal-identity/snar-answer.png" alt="SNarGPT가 2026학년도 수능 국어 14~17번 인격의 동일성 지문을 찾아 준 답 화면" loading="lazy">
+<p class="cap">형광펜 친 줄이 이번 편의 기출이다.</p>
+<p style="margin:18px 0 0;font-weight:700">이렇게 물어보세요</p>
+<p class="ask">국어 지문 중 칸트의 ‘인격의 동일성’에 대해 나왔던 기출 좀 찾아서 보여줄래?</p>
+
+<div class="foot">
+<p style="margin:0">※ 지문과 문항 전문, 원본 시험지 이미지는 2026학년도 대학수학능력시험 국어영역 14~17번에서 가져왔으며, 저작권은 한국교육과정평가원에 있다.</p>
+<p style="margin:4px 0 0"><a href="https://snargpt.ai/" target="_blank" rel="noopener noreferrer">snargpt.ai</a> · 다음 읽을거리는 인스타그램 <a href="https://www.instagram.com/snargpt/" target="_blank" rel="noopener noreferrer">@snargpt</a>에서 먼저 볼 수 있다.</p>
+</div>
+
+</div>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "인격의 동일성이란 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "인격의 동일성은 과거의 나와 현재의 나가 같은 인격이라는 것입니다. 2026학년도 수능 국어 14~17번 지문은 이를 모든 생각의 기반이라고 하며, 과거에 내가 한 약속을 현재의 내가 지켜야 한다고 판단하는 근거로 듭니다."}}, {"@type": "Question", "name": "칸트는 왜 자기의식이 영혼의 실재를 보장하지 않는다고 보나요?", "acceptedAnswer": {"@type": "Answer", "text": "칸트는 ‘나는 생각한다’, 곧 자기의식을 인식이 이루어지게 하는 조건 중 하나로 봅니다. 조건 자체는 무언가가 실재함을 보장하지 않으므로, 자기의식은 ‘영혼의 실재함’을 보장하지 않고 ‘영혼이 실재할 가능성’을 열어 둘 뿐입니다."}}, {"@type": "Question", "name": "칸트는 왜 ‘영혼이 인격이다’라는 결론이 나오지 않는다고 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "두 전제에 쓰인 ‘의식’의 뜻이 다르기 때문입니다. 첫 번째 전제의 ‘의식’은 실제로 존재하는 무언가에 대한 의식이지만, ‘생각하는 나는 생각한다’와 다름없는 두 번째 전제의 ‘의식’은 무언가가 꼭 실재함을 뜻하지 않습니다. 15번은 이 점을 묻습니다."}}, {"@type": "Question", "name": "칸트, 스트로슨, 롱게네스의 견해는 어떻게 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "세 사람 모두 시간의 흐름 속 동일한 인격으로서의 나를 받아들이지만 근거가 다릅니다. 칸트는 동일한 인격을 증명하는 대신 가정이 반드시 선행되어야 한다고 보고, 스트로슨은 그 가정을 철학적 상상이라 비판하며 신체를 매개로 한 경험이 동일성을 뒷받침한다고 봅니다. 롱게네스는 동일한 자아 없이는 경험적 인식이 불가능하다고 보면서, 기준은 각자가 자신의 것이라고 인식하는 신체라고 주장합니다."}}, {"@type": "Question", "name": "스트로슨과 롱게네스는 자아 인식과 경험의 관계를 어떻게 다르게 보나요?", "acceptedAnswer": {"@type": "Answer", "text": "스트로슨은 자아에 대한 인식이 경험적 인식들로부터 추상화된다고 보고, 롱게네스는 통시적으로 동일한 자아가 없으면 경험적 인식이 성립할 수 없으므로 자아에 대한 인식은 경험에서 추상화된 것이 아니라고 봅니다. 둘은 ‘나를 앎’과 ‘겪어서 앎’을 정반대 방향으로 잇습니다. 16번 ②는 스트로슨의 방향을 뒤집은 선지입니다."}}, {"@type": "Question", "name": "2026 수능 국어 17번의 정답은 왜 ③인가요?", "acceptedAnswer": {"@type": "Answer", "text": "칸트 이전까지 유력했던 견해는 ‘생각하는 나’인 영혼이 단일한 주관으로 지속하는 것을 곧 인격의 동일성으로 봅니다. 그러므로 ‘생각하는 나’의 지속만으로는 인격의 동일성이 보장되지 않는다는 갑의 입장은 그 견해에 따르면 옳지 않습니다. 문항은 지문이 요약한 각 견해와 선지의 대응을 묻습니다."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "2026 수능 국어 「인격의 동일성」 쉽게 읽기: 칸트·스트로슨·롱게네스", "url": "https://blog.snacademy.co.kr/problems/2026-suneung-personal-identity", "inLanguage": "ko", "learningResourceType": "기출 해설", "educationalLevel": "고등학교", "audience": {"@type": "EducationalAudience", "educationalRole": "student"}, "teaches": ["인격의 동일성", "자기의식", "통시적 동일성", "경험적 인식", "추상화", "칸트", "스트로슨", "롱게네스"], "about": {"@type": "Thing", "name": "인격의 동일성"}, "isBasedOn": {"@type": "CreativeWork", "name": "2026학년도 대학수학능력시험 국어영역 독서 14~17번 「인격의 동일성」", "publisher": {"@type": "Organization", "name": "한국교육과정평가원"}}, "author": {"@type": "Organization", "name": "SN독학기숙학원", "url": "https://blog.snacademy.co.kr"}, "datePublished": "2026-11-10", "image": "https://blog.snacademy.co.kr/images/problems/2026-suneung-personal-identity/thumbnail.jpg"}</script>
