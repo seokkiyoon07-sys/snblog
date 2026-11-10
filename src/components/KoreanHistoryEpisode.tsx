@@ -247,8 +247,8 @@ export default function KoreanHistoryEpisodePage({
               여기까지 공개되었어요 · 연재 중
             </span>
             <p className="mt-2 font-semibold">
-              {episode.episode === 38
-                ? '다음 이야기: 홍경래의 난과 임술 농민 봉기'
+              {episode.episode === 46
+                ? '다음 이야기: 갑오개혁의 시작과 그 명암'
                 : episode.episode === 8
                   ? '다음 이야기: 삼국의 통일'
                   : '다음 이야기를 준비하고 있습니다.'}
