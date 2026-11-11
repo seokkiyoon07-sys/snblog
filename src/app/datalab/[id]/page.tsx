@@ -19,6 +19,7 @@ interface PostPageProps {
 
 const BOARDING_SCHOOL_MAP_ID = 'boarding-school-price-map-2026';
 const WINTER_SCHOOL_MAP_ID = 'winter-school-price-map-2027';
+const ACADEMY_MARKET_ID = 'academy-market-index-2026';
 
 // 동적 메타데이터 생성 (SEO/GEO 최적화)
 export async function generateMetadata({
@@ -149,6 +150,82 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
   const isBoardingSchoolMap = id === BOARDING_SCHOOL_MAP_ID;
   const isWinterSchoolMap = id === WINTER_SCHOOL_MAP_ID;
   const isSchoolPriceMap = isBoardingSchoolMap || isWinterSchoolMap;
+
+  // 학원상권 분석기
+  if (id === ACADEMY_MARKET_ID) {
+    const AcademyMarketMap = (
+      await import('@/components/datalab/AcademyMarketMap')
+    ).default;
+    const AcademyMarketArticle = (
+      await import('@/components/datalab/AcademyMarketArticle')
+    ).default;
+
+    return (
+      <main
+        data-wide-page
+        className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-gray-900 dark:to-gray-800 text-slate-800 dark:text-gray-100"
+      >
+        <div className="px-6 md:px-10 lg:px-16 pt-8">
+          <div className="mx-auto max-w-6xl">
+            <Link
+              href="/datalab"
+              className="inline-flex items-center text-sn-primary hover:text-sn-primary-dark transition-colors"
+            >
+              ← SN DataLAB으로 돌아가기
+            </Link>
+          </div>
+        </div>
+
+        <section className="px-6 md:px-10 lg:px-16 pt-12 pb-10 md:pt-16">
+          <div className="mx-auto max-w-4xl text-center">
+            {post.badge && (
+              <span className="mb-4 inline-flex items-center rounded border border-emerald-300 bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300">
+                {post.badge}
+              </span>
+            )}
+            <h1 className="mb-5 text-3xl font-bold leading-tight text-slate-900 dark:text-white md:text-4xl lg:text-5xl">
+              {post.title}
+            </h1>
+            <p className="mx-auto max-w-3xl text-lg text-slate-600 dark:text-gray-300 md:text-xl">
+              {post.excerpt}
+            </p>
+            <p className="mt-6 text-sm text-slate-500 dark:text-gray-400">
+              {post.author} · {post.date} · {formatReadTime(post.readTime)}
+            </p>
+          </div>
+        </section>
+
+        <section className="px-0 sm:px-6 md:px-10 lg:px-16 pb-12">
+          <div className="mx-auto max-w-6xl">
+            <div className="bg-white dark:bg-gray-900 sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8">
+              <AcademyMarketMap />
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 md:px-10 lg:px-16 pb-24">
+          <div className="mx-auto max-w-6xl">
+            <AcademyMarketArticle />
+          </div>
+        </section>
+
+        <StructuredData
+          type="article"
+          data={{
+            title: post.title,
+            description: post.excerpt,
+            author: post.author,
+            datePublished: post.date,
+            dateModified: post.date,
+            image: post.thumbnail,
+            url: `https://blog.snacademy.co.kr/datalab/${post.id}`,
+            category: 'datalab',
+            keywords: post.tags?.join(',') || '',
+          }}
+        />
+      </main>
+    );
+  }
 
   if (post.type === 'special' && isSchoolPriceMap) {
     const PriceMapComponent = isWinterSchoolMap

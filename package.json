@@ -17,6 +17,7 @@
     "type-check": "tsc --noEmit",
     "prepare": "husky install",
     "test:jandi": "node scripts/test-jandi.js",
+    "collect:academy-market": "node scripts/collect-academy-market.cjs",
     "audit:assets": "node scripts/audit-public-assets.cjs",
     "audit:seo": "node scripts/audit-seo-titles.cjs",
     "backup:posts": "node scripts/backup-posts.js",

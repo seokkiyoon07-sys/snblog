@@ -2089,6 +2089,33 @@ export const allPosts: Post[] = [
     url: '/columns/goyoui-sup-ai-paradigm-shift',
   },
   {
+    id: 'academy-market-index-2026',
+    title:
+      '[SN DataLAB] 학원 상권 분석기: 학생 수와 학원 좌석으로 본 8대 학원가',
+    excerpt:
+      '지도에서 지점을 고르면 반경 안 학교의 학년별 학생 수와 학원·교습소 좌석을 모아 학원 상권 지수로 보여 줍니다. 대치·목동·중계·분당·판교·평촌·광교·범어를 비교해 보세요.',
+    category: 'datalab',
+    tags: [
+      '학원 상권',
+      '학원가',
+      '대치동',
+      '목동',
+      '중계동',
+      '학생 수',
+      '데이터',
+      '지도',
+    ],
+    author: 'SN DataLAB',
+    date: '2026-11-11',
+    readTime: '5',
+    featured: false,
+    published: true,
+    thumbnail: '/images/Data_LAB/academy_market.png',
+    url: '/datalab/academy-market-index-2026',
+    type: 'special',
+    badge: 'NEW · 학교알리미·나이스 공공데이터',
+  },
+  {
     id: 'winter-school-price-map-2027',
     title: '2027 전국 기숙학원 윈터스쿨 가격 비교 지도',
     excerpt:

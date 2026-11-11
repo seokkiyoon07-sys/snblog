@@ -666,3 +666,14 @@ details div {
 .sn-exam-paper > h3 {
   font-weight: 400;
 }
+
+/* 넓은 화면이 필요한 페이지(예: DataLAB 학원 상권 분석기): 사이드바를 숨기고 본문을 전체 폭으로.
+   페이지 최상위 요소에 data-wide-page 속성을 달면 적용된다. */
+@media (min-width: 1024px) {
+  main:has([data-wide-page]) {
+    grid-column: 1 / -1;
+  }
+}
+div:has(> main [data-wide-page]) > aside {
+  display: none;
+}
