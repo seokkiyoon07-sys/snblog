@@ -134,3 +134,6 @@ data/students.csv
 # Local SNarGPT development notes
 /md/SNarGPT_development_notes.md
 /md/SNarGPT_development_notes.html
+
+# Private local-only files (robot vacuum webhook messages, logs, scripts)
+/private/
