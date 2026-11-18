@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import Image from 'next/image';
 
 // 2027 수능 안내문. 다른 공지의 공용 박스·표와 달리, 회색조와 괘선만 쓰는
 // 공문형 디자인이다 (이모지·컬러 박스 없음, 강조는 굵기와 '중요' 표시로만)
@@ -333,9 +334,9 @@ export default function SuneungNotice2027() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: '2027 수능 안내 | 전날·당일부터 정시 상담까지 (11.19 목)',
+    headline: '수능 전일·당일 운영 및 수능 이후 일정',
     description:
-      '2027학년도 대학수학능력시험 전일, 당일 및 향후 일정을 안내드립니다. 수험표 배부, 고사장 배정, 당일 일정, 학원 지원 사항과 무료 정시 상담 일정을 확인하세요.',
+      '2027학년도 수능(2026년 11월 19일) 안내. 11/18 변경 고시: 지우개·샤프심·수정테이프·컴퓨터용 검은색 사인펜 반입 금지 및 필수 준비물 변경을 확인하세요. 수능 전·당일 운영과 무료 정시 상담 일정도 안내드립니다.',
     image: {
       '@type': 'ImageObject',
       url: `https://blog.snacademy.co.kr${THUMBNAIL}`,
@@ -350,10 +351,18 @@ export default function SuneungNotice2027() {
       url: 'https://snacademy.co.kr',
     },
     datePublished: '2026-11-09',
-    dateModified: '2026-11-10',
+    dateModified: '2026-11-18',
     mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
     articleSection: '공지사항',
-    keywords: ['수능', '안내', '일정', '2027학년도', '대학수학능력시험'],
+    keywords: [
+      '긴급',
+      '11/18 변경 고시',
+      '수능',
+      '안내',
+      '일정',
+      '2027학년도',
+      '대학수학능력시험',
+    ],
     inLanguage: 'ko-KR',
     isAccessibleForFree: true,
     educationalLevel: '고등학교',
@@ -374,13 +383,13 @@ export default function SuneungNotice2027() {
         {/* 문서 머리 */}
         <header className="border-t-[3px] border-gray-900 pt-6 dark:border-gray-200">
           <p className="text-[13px] font-semibold tracking-wide text-gray-500 dark:text-gray-400">
-            공지사항 · 학부모 안내
+            2027학년도 수능 · 공지사항 · 학부모 안내
           </p>
           <h1 className="mt-3 text-[28px] font-bold leading-tight tracking-tight text-gray-900 sm:text-[34px] dark:text-white">
-            2027학년도 대학수학능력시험 안내
+            수능 전일·당일 운영 및 수능 이후 일정
           </h1>
           <p className="mt-2 text-base text-gray-600 sm:text-lg dark:text-gray-300">
-            수능 전일·당일 운영 및 수능 이후 일정
+            [긴급] 준비물·반입 금지 물품 변경 안내 (11/18 변경 고시)
           </p>
 
           <dl className="mt-7 grid grid-cols-[88px_1fr] border-y border-gray-300 text-sm sm:grid-cols-[88px_1fr_88px_1fr] dark:border-gray-600">
@@ -396,6 +405,40 @@ export default function SuneungNotice2027() {
             <dd className="px-3 py-2.5">SN독학기숙학원</dd>
           </dl>
         </header>
+
+        <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+          최종 수정: <time dateTime="2026-11-18">2026년 11월 18일</time>
+          {' · '}준비물·반입 금지 물품 변경 및 현장 배부 수험생 유의사항 추가
+        </p>
+
+        <div className="mt-6">
+          <Important title="[긴급] 11/18 변경 고시">
+            <p>
+              준비물 및 반입 금지 물품 안내가 변경되었습니다. 흑색 연필은 필수
+              준비물 목록에서 제외하며,{' '}
+              <strong>
+                지우개, 샤프심, 수정테이프, 컴퓨터용 검은색 사인펜
+              </strong>
+              은 시험장 반입이 금지됩니다.
+            </p>
+            <p>
+              귀마개에 대한 반입 금지 항목은 없으나, 초소형 인이어 이어폰 단속
+              등을 이유로 <strong>시험감독관이 수시로 확인할 수 있습니다.</strong>
+            </p>
+            <figure className="mt-4">
+              <figcaption className="mb-2 font-semibold">
+                수능 준비물 및 반입 금지 물품 변경 안내 (11/18)
+              </figcaption>
+              <Image
+                src="/images/notice/261118-suneung-products-update.png"
+                alt="수능 준비물 및 반입 금지 물품 변경 안내 (11/18)"
+                width={1024}
+                height={559}
+                className="h-auto w-full"
+              />
+            </figure>
+          </Important>
+        </div>
 
         {/* 인사말 */}
         <div className="mt-10 space-y-3 text-[15px] leading-7 text-gray-800 sm:text-base dark:text-gray-200">
@@ -456,7 +499,192 @@ export default function SuneungNotice2027() {
             ]}
           />
 
-          <Important title="스마트안경 시험장 반입 금지 (2027학년도 신설)">
+          <div id="nov17-notice">
+            <Important title="11/17 추가 안내 · 시험장 점검 및 부정행위 대응 강화">
+              <SubHeading>1. 시험 당일 현장 점검 및 통제 강화</SubHeading>
+              <DashList
+                items={[
+                  <>
+                    <strong>시작 전 위급재난문자 전국 동시 발송:</strong> 1교시
+                    시작 전인 <strong>오전 8시 25분~30분 사이</strong>에 수신
+                    거부가 불가능한 위급재난문자를 전국에 발송해, 미제출
+                    휴대전화의 진동·알림음으로 적발합니다.
+                  </>,
+                  <>
+                    <strong>안경 및 소지품 전수 재점검:</strong> 1교시 시작 전
+                    수험생이 안경을 책상에 내려놓게 하여{' '}
+                    <strong>스마트안경</strong>
+                    여부를 전수 점검하며, 이후 매 교시 착용 상태로 재확인합니다.
+                    3교시 시작 전 본인 확인 시간에는 휴대품 전수 재점검을 추가로
+                    실시합니다.
+                  </>,
+                  <>
+                    <strong>초소형 카메라 대응 (단추 스티커 부착):</strong>{' '}
+                    1교시 전 감독관 안내에 따라 수험생의{' '}
+                    <strong>옷 단추마다 스티커를 부착</strong>해 가리며, 양
+                    소매를 걷고 옷깃·단추를 확인합니다. 의심 정황이 발견되면
+                    금속탐지기로 소지 여부를 탐색합니다.
+                  </>,
+                  <>
+                    <strong>가방 복도 보관 및 전자기기 일절 금지:</strong>{' '}
+                    수험생 가방은 교실 밖 복도에 별도 보관하며,
+                    스마트반지·스마트워치·카메라 내장 필기구 등 모든 전자기기는
+                    전원을 끈 상태로 1교시 전 반드시 제출해야 합니다.
+                  </>,
+                ]}
+              />
+
+              <SubHeading>2. 감독 인력 증원 및 통신 모니터링</SubHeading>
+              <DashList
+                items={[
+                  <>
+                    <strong>감독 인력 8,400여 명 추가 배치:</strong> 기존 7만
+                    5천여 명 외에 스마트기기 전담 인력 1,800여 명, 복도 감독관
+                    6,600여 명을 추가 투입합니다.
+                  </>,
+                  <>
+                    <strong>특이 통신 신호 점검:</strong> 별도의 전파탐지기를
+                    설치하지는 않으나, 지자체·통신사와 협력해 시험장 내 와이파이
+                    및 LTE·5G 특이 통신 신호를 전담 인력이 집중 점검합니다.
+                  </>,
+                ]}
+              />
+
+              <SubHeading>3. 처벌 및 사후 추적 대폭 강화</SubHeading>
+              <DashList
+                items={[
+                  <>
+                    <strong>
+                      응시자격 제한 1년 → 10년 확대 (국회 협의 예정):
+                    </strong>{' '}
+                    부정행위 적발 시 응시 제한 기간을 기존 1년에서{' '}
+                    <strong>10년으로 확대</strong>하고, 올해(2027학년도) 수능
+                    적발자부터 소급 적용되도록 국회와 즉시 협의할 예정입니다.
+                  </>,
+                  <>
+                    <strong>입학 취소 및 형사 고발:</strong> 부정행위 입학자는
+                    입학 취소(재수생은 재학 대학 퇴학) 및 10년간 입학이
+                    금지되며, 첨단 기기 활용 등 중대 부정행위는 형법상 위계에
+                    의한 공무집행방해(5년 이하 징역)로 수사 의뢰합니다.
+                  </>,
+                  <>
+                    <strong>시험 종료 후 사후 추적:</strong> 교육부 누리집에
+                    부정행위 신고센터를 운영하고, 의심 정황이 포착될 경우 수능
+                    성적 분석과 함께 통신사로부터 AI 서비스 접속 기록 및
+                    통신사실확인자료를 제출받아 사후 조사를 진행합니다.
+                  </>,
+                ]}
+              />
+            </Important>
+          </div>
+
+          <Important title="수험생 유의사항 — 현장 배부 안내문">
+            <SubHeading>수능 당일 유의사항</SubHeading>
+            <DashList
+              items={[
+                <>
+                  <strong>수험표와 신분증</strong> 반드시 지참
+                </>,
+                <>
+                  <strong>오전 8시 10분까지 입실 완료</strong>
+                </>,
+                <>
+                  시험은 미리 정해 놓은 시험관리계획에 따라 실시하므로 수험생은
+                  반드시 지정된 시험장의 시험실에서 응시하여야 합니다.{' '}
+                  <strong>수험표에 명기된 장소</strong>를 확인해 주세요.
+                </>,
+              ]}
+            />
+
+            <SubHeading>
+              시험장 수험생 스티커 부착 안내 — 교탁 안내문
+            </SubHeading>
+            <ol className="list-decimal space-y-2 pl-5">
+              <li>시험실 입실 즉시 교탁 위에 놓인 스티커를 직접 챙겨주세요.</li>
+              <li>
+                본인 옷의 모든 단추에 스티커를 부착한 후 자리에 착석해주시기
+                바랍니다.
+              </li>
+              <li>
+                1교시 시작 전 스마트기기 검사 시 감독관이 부착 여부를 확인할
+                예정입니다.
+              </li>
+            </ol>
+
+            <SubHeading>수험생 유의사항 안내</SubHeading>
+            <p>공정한 시험을 위해 아래 사항을 꼭 확인해 주세요!</p>
+            <ol className="list-decimal space-y-4 pl-5">
+              <li>
+                <strong>본인 및 시계 확인 시 안경 확인!</strong>
+                <DashList
+                  items={[
+                    '안경을 벗어 책상 위에 올려놓아 주세요.',
+                    '매 교시 안경 착용 상태에서 확인합니다.',
+                  ]}
+                />
+              </li>
+              <li>
+                <strong>초소형 카메라 점검!</strong>
+                <DashList
+                  items={[
+                    '양쪽 소매를 걷고 대기해 주세요.',
+                    '양쪽 소매, 옷깃, 시계 등을 확인합니다.',
+                  ]}
+                />
+              </li>
+              <li>
+                <strong>가방은 시험실 밖 복도에 보관!</strong>
+                <DashList
+                  items={[
+                    '반입금지 물품 외 물품은 가방에 넣어서 시험실 밖 복도에 보관합니다.',
+                    '귀중품은 분실 우려가 있으니 가급적 지참하지 마세요.',
+                  ]}
+                />
+              </li>
+              <li>
+                <strong>후드티·장신구·단추 있는 옷 착용 자제!</strong>
+                <DashList
+                  items={[
+                    '원활한 시험 감독과 부정행위 예방을 위해 착용을 가급적 자제해 주세요.',
+                  ]}
+                />
+              </li>
+              <li>
+                <strong>재난안내문자 발송!</strong>
+                <DashList
+                  items={[
+                    '미제출 휴대전화 확인을 위해 재난안내문자가 발송됩니다.',
+                    '재난문자 발송과 함께 점검을 실시합니다.',
+                  ]}
+                />
+              </li>
+              <li>
+                <strong>시험장 통신망 점검 실시!</strong>
+                <DashList
+                  items={[
+                    '시험장 인터넷망 차단 및 공공와이파이 목록을 조회합니다.',
+                    '통신사 확인 자료 등을 통해 부정행위 여부를 확인합니다.',
+                  ]}
+                />
+              </li>
+              <li>
+                <strong>반입금지 물품은 반드시 제출!</strong>
+                <DashList
+                  items={[
+                    '반입금지 물품은 1교시 시작 전 수거 시간에 반드시 제출해 주세요.',
+                    '미제출 전자기기는 사용 여부와 관계없이 부정행위로 처리됩니다.',
+                    '제출 시간 이후 발견된 경우에도 부정행위로 처리됩니다.',
+                  ]}
+                />
+              </li>
+            </ol>
+            <p className="font-semibold">
+              모두가 공정하고 안전하게 시험에 응시할 수 있도록 수험생 여러분의
+              적극적인 협조 바랍니다!
+            </p>
+          </Important>
+
+          <Disclosure title="스마트안경 시험장 반입 금지 (2027학년도 신설)">
             <p>
               2027학년도 수능부터 <strong>스마트안경</strong>이 시험장 반입 금지
               물품으로 명시되었습니다. 외관이 일반 안경과 비슷하여 무심코
@@ -516,7 +744,7 @@ export default function SuneungNotice2027() {
               </a>
               )
             </p>
-          </Important>
+          </Disclosure>
 
           <Disclosure title="수능 준비물 상세 안내">
             <div>
@@ -530,11 +758,6 @@ export default function SuneungNotice2027() {
                     <strong>신분증</strong>: 주민등록증, 운전면허증, 청소년증 등
                     본인임을 증명할 수 있는 신분증
                   </>,
-                  <>
-                    <strong>흑색 연필, 지우개, 샤프심</strong>(흑색 0.5mm),{' '}
-                    <strong>흰색 수정테이프</strong>
-                  </>,
-                  <strong key="b">컴퓨터용 검은색 사인펜</strong>,
                   <>
                     <strong>수험용 아날로그 시계</strong>: 통신·결제 기능 및
                     전자식 화면이 없는 시계
@@ -556,6 +779,11 @@ export default function SuneungNotice2027() {
               <DashList
                 items={[
                   <>
+                    <strong>
+                      지우개, 샤프심, 수정테이프, 컴퓨터용 검은색 사인펜
+                    </strong>
+                  </>,
+                  <>
                     휴대전화, 스마트워치, <strong>스마트안경</strong>, 블루투스
                     이어폰 등 전자기기
                   </>,
@@ -572,7 +800,7 @@ export default function SuneungNotice2027() {
                   <>
                     위 물품은 쉬는 시간에 사용할 수 있으나,{' '}
                     <strong>
-                      매 교시 시작 전 가방에 넣어 시험실 앞에 제출
+                      매 교시 시작 전 가방에 넣어 시험실 밖 복도에 보관
                     </strong>
                     해야 합니다.
                   </>,

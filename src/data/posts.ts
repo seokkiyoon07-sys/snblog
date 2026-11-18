@@ -14,6 +14,7 @@ export { allPosts } from './post-records';
 export interface Post {
   id: string;
   title: string;
+  seoTitle?: string;
   excerpt: string;
   content?: string; // 런타임에 loadPostContent(id)로 로딩
   category: string;

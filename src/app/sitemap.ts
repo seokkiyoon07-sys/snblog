@@ -129,7 +129,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       return {
         url: `${baseUrl}${post.url}`,
-        lastModified: new Date(post.date),
+        lastModified: new Date(post.latestUpdate?.date ?? post.date),
         changeFrequency: 'monthly' as const,
         priority,
         ...(images.length > 0 && { images }),

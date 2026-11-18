@@ -22,18 +22,19 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL('https://blog.snacademy.co.kr'),
-    title: post.title,
+    title: post.seoTitle ?? post.title,
     description: post.excerpt,
     alternates: {
       canonical: post.url,
     },
     openGraph: {
-      title: `${post.title} | SN독학기숙학원`,
+      title: `${post.seoTitle ?? post.title} | SN독학기숙학원`,
       description: post.excerpt,
       type: 'article',
       locale: 'ko_KR',
       url: `https://blog.snacademy.co.kr${post.url}`,
       publishedTime: post.date,
+      modifiedTime: post.latestUpdate?.date ?? post.date,
       authors: [post.author],
       tags: post.tags,
       images: post.thumbnail
@@ -47,7 +48,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${post.title} | SN독학기숙학원`,
+      title: `${post.seoTitle ?? post.title} | SN독학기숙학원`,
       description: post.excerpt,
       images: post.thumbnail
         ? [`https://blog.snacademy.co.kr${post.thumbnail}`]
