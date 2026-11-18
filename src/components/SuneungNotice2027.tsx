@@ -199,6 +199,12 @@ const schoolData = [
       'https://map.naver.com/p/directions/-/14133449.328125,4517632.5,양일고등학교/-/car?c=16.00,0,0,0,dh',
   },
   {
+    name: '양평중학교',
+    address: '경기도 양평군 양평읍 양평중학교길 29',
+    time: '20분',
+    mapUrl: 'https://map.naver.com/p/search/양평중학교',
+  },
+  {
     name: '용문고등학교',
     address: '경기도 양평군 용문면 용문로 152',
     time: '5분',
@@ -237,7 +243,7 @@ const scheduleData = [
       '식당에서 도시락 수령',
       '수송차량 확인 및 탑승',
       '탑승 후 인원 확인',
-      '출발: 양서고 06:50 / 양평·양일고 07:00 / 용문고 07:20',
+      '출발: 양서고 06:50 / 양평고·양일고·양평중 07:00 / 용문고 07:10',
     ],
   },
   {
@@ -277,8 +283,8 @@ const scheduleData = [
 
 const departureData = [
   { school: '양서고등학교', time: '06:50' },
-  { school: '양평고등학교 · 양일고등학교', time: '07:00' },
-  { school: '용문고등학교', time: '07:20' },
+  { school: '양평고등학교 · 양일고등학교 · 양평중학교', time: '07:00' },
+  { school: '용문고등학교', time: '07:10' },
 ];
 
 const supportData = [
@@ -811,7 +817,7 @@ export default function SuneungNotice2027() {
 
           <Disclosure title="시험장(학교) 안내">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              수험생은 다음 4개 학교 중 한 곳에 배정됩니다. 주소를 누르면 네이버
+              수험생은 다음 5개 학교 중 한 곳에 배정됩니다. 주소를 누르면 네이버
               지도로 이동합니다.
             </p>
             <Table
@@ -832,6 +838,10 @@ export default function SuneungNotice2027() {
                 school.time,
               ])}
             />
+            <Note>
+              <strong>양평중학교</strong>는 작년에는 배정되지 않았지만, 올해
+              신규로 배정된 시험장입니다.
+            </Note>
             <Note>
               양서고는 본원 학생의 배정이 최소화될 것으로 예상되나, 최종 결과는{' '}
               <strong>11월 18일(수)</strong> 발표됩니다.
