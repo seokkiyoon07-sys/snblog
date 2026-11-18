@@ -4,6 +4,21 @@ import { koreanHistoryPosts } from './korean-history';
 import { historySupplementPosts } from './history-supplements';
 
 export const allPosts: Post[] = [
+  {
+    id: '261119-snargpt-exam-restriction',
+    title: '공정한 수능을 위한 SNarGPT의 부정행위 예방 조치',
+    excerpt:
+      '11월 19일 수능 당일, SNarGPT의 시험 문제 사진을 통한 풀이·정답 요청을 제한합니다. 각 과목 시험지가 공식 공개된 이후 과목별로 순차 해제할 예정입니다.',
+    category: 'startup',
+    subcategory: 'tech-blog',
+    tags: ['SNarGPT', '수능', '2027학년도', '교육AI', '부정행위 예방'],
+    author: 'SNarGPT',
+    date: '2026-11-18',
+    readTime: '2',
+    featured: false,
+    published: true,
+    url: '/startup/261119-snargpt-exam-restriction',
+  },
   ...historySupplementPosts,
   {
     id: '2027-suneung-wanseong-literature-marathon',

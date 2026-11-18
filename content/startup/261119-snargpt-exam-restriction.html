@@ -1,0 +1,83 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');
+.sx{--ink:#161616;--sub:#66625B;--mute:#9A958C;--line:#DDD7CC;--red:#B8402A;--soft:#F7F4EE;--sans:Pretendard,system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--serif:"Noto Serif KR",serif;font-family:var(--sans);color:var(--ink);font-size:17px;line-height:1.85;letter-spacing:-.01em;word-break:keep-all}
+.dark .sx{--ink:#ECEAE6;--sub:#ABA69D;--mute:#7F7A72;--line:#3B3934;--red:#EC7A62;--soft:#1F1E1C}
+.sx p{margin:0 0 1em}
+.sx strong{font-weight:700}
+.sx .kicker{margin:0 0 12px;font-size:14px;font-weight:700;color:var(--sub)}
+.sx .deck{margin:0 0 22px;font-family:var(--serif);font-size:28px;font-weight:700;line-height:1.45;letter-spacing:-.045em}
+.sx .deck em{font-style:normal;color:var(--red)}
+.sx .lead{font-size:17.5px}
+.sx .info{width:100%;border-collapse:collapse;margin:30px 0 0;border-top:1.5px solid var(--ink);font-size:15.5px;line-height:1.65}
+.sx .info th{width:96px;padding:13px 14px 13px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-weight:700;color:var(--sub)}
+.sx .info td{padding:13px 0;border-bottom:1px solid var(--line)}
+.sx .info td b{color:var(--red)}
+.sx h2{margin:72px 0 18px;padding-top:18px;border-top:1.5px solid var(--ink);font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.4;letter-spacing:-.045em}
+.sx .note{margin:-6px 0 18px;font-size:14.5px;color:var(--sub);line-height:1.7}
+.sx .day{width:100%;border-collapse:collapse;font-size:15px;line-height:1.55}
+.sx .day thead th{padding:0 10px 10px 0;border-bottom:1.5px solid var(--ink);text-align:left;font-size:13px;font-weight:700;color:var(--sub)}
+.sx .day td{padding:14px 10px 14px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.sx .day .t{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--sub)}
+.sx .day .s{font-weight:700;white-space:nowrap}
+.sx .day .lock{color:var(--red);font-weight:600}
+.sx .day .open{color:var(--sub)}
+.sx .cap{margin:12px 0 0;font-size:13.5px;line-height:1.65;color:var(--sub)}
+.sx .day tr.after td{background:var(--soft)}
+.sx .day tr.after td:first-child{padding-left:10px}
+.sx .steps{list-style:none;margin:6px 0 0;padding:0;counter-reset:st}
+.sx .steps li{position:relative;padding:0 0 18px 34px;counter-increment:st}
+.sx .steps li::before{content:counter(st);position:absolute;left:0;top:1px;font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.5;color:var(--red)}
+.sx .steps li b{display:block;margin-bottom:2px}
+.sx .steps li span{color:var(--sub);font-size:15.5px}
+.sx .orig{margin:0}
+.sx .orig img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px}
+.sx .orig figcaption{margin:10px 0 0;font-size:13.5px;color:var(--sub)}
+.sx .close{margin:72px 0 0;padding:26px 0 0;border-top:1.5px solid var(--ink)}
+.sx .close p{font-family:var(--serif);font-size:18px;line-height:1.85}
+.sx .sign{margin:26px 0 0;font-family:var(--sans);font-size:15px;font-weight:700;text-align:right}
+@media (max-width:640px){.sx{font-size:16px}.sx .deck{font-size:23px}.sx h2{font-size:21px;margin-top:56px}.sx .info th{width:76px}.sx .day{font-size:14px}.sx .day thead .hide,.sx .day td.hide{display:none}}
+</style>
+<div class="sx not-prose">
+<p class="kicker">SNarGPT 운영 안내 · 2026년 11월 18일</p>
+<p class="deck">11월 19일 수능 당일,<br /><em>시험 문제 사진</em>으로 풀이·정답을 묻는 요청을 잠시 막습니다.</p>
+<p class="lead">안녕하세요. SNarGPT입니다. 수능 부정행위에 이용될 가능성을 예방하고 공정한 시험 환경을 지키기 위해, 수능 당일 SNarGPT의 일부 기능을 제한합니다.</p>
+<table class="info">
+<tbody>
+<tr><th>적용일</th><td>2026년 11월 19일(목)<br />2027학년도 대학수학능력시험 당일</td></tr>
+<tr><th>제한 내용</th><td>시험 문제 <b>사진</b>을 올려 <b>풀이·정답</b>을 요청하는 기능</td></tr>
+<tr><th>해제 방식</th><td>각 과목 시험지가 공식 공개된 뒤, 과목별로 순차 해제<br />(첫 해제는 국어, <b>10:56</b> 이후)</td></tr>
+<tr><th>시험 이후</th><td>선생님과 수험생이 학습·해설 확인에 이용할 수 있도록 운영</td></tr>
+</tbody>
+</table>
+<h2>과목별로 이렇게 풀립니다</h2>
+<p class="note">수능 문제와 정답은 일반 수험생 시험이 끝날 때가 아니라, 시험 시간이 1.7배로 연장되는 <strong>중증 시각장애 수험생의 해당 교시 시험이 끝난 뒤</strong> 한국교육과정평가원 홈페이지에 공개됩니다. 그래서 일반 수험생이 시험을 마친 뒤에도 해당 과목은 한동안 제한이 유지됩니다.</p>
+<table class="day">
+<thead><tr><th class="hide">교시</th><th>영역</th><th>일반 수험생 종료</th><th>시험지 공개 · 제한 해제</th></tr></thead>
+<tbody>
+<tr><td class="t hide">1교시</td><td class="s">국어</td><td class="t">10:00</td><td><span class="lock">10:56</span> 이후</td></tr>
+<tr><td class="t hide">2교시</td><td class="s">수학</td><td class="t">12:10</td><td><span class="lock">14:10</span> 이후</td></tr>
+<tr><td class="t hide">3교시</td><td class="s">영어</td><td class="t">14:20</td><td><span class="lock">17:04</span> 이후</td></tr>
+<tr><td class="t hide">4교시</td><td class="s">한국사·탐구</td><td class="t">16:37</td><td><span class="lock">20:15</span> 이후</td></tr>
+<tr><td class="t hide">5교시</td><td class="s">제2외국어/한문</td><td class="t">17:45</td><td><span class="lock">21:48</span> 이후</td></tr>
+<tr class="after"><td class="t hide">시험 이후</td><td class="s" colspan="2">전 과목 공개 후</td><td>학습·해설 확인에 이용</td></tr>
+</tbody>
+</table>
+<p class="cap">출처: 한국교육과정평가원, 「2027학년도 대학수학능력시험 실시요강」 중증 시각장애 수험생 시험시간표. 공개 시각은 평가원 사정에 따라 조금 늦어질 수 있으며, SNarGPT는 공식 공개를 확인한 뒤 해당 과목의 제한을 해제합니다.</p>
+<h2>예를 들어 국어라면</h2>
+<ol class="steps">
+<li><b>08:40 – 10:00 국어 시험</b><span>국어 문제 사진으로 풀이·정답을 묻는 요청은 받지 않습니다.</span></li>
+<li><b>10:00 – 10:56 연장 시험 진행 중</b><span>일반 수험생은 시험을 마쳤지만, 시험 시간이 연장된 수험생이 아직 국어를 풀고 있어 제한을 유지합니다.</span></li>
+<li><b>10:56 이후 국어 시험지 공식 공개</b><span>평가원 공개를 확인하면 국어 과목의 제한부터 해제합니다.</span></li>
+<li><b>이후 과목도 같은 방식으로</b><span>수학 14:10, 영어 17:04, 한국사·탐구 20:15, 제2외국어/한문 21:48 이후 차례로 풀립니다.</span></li>
+</ol>
+<h2>원문 공지</h2>
+<p class="note">Dr. Ryun이 먼저 게시한 안내 원문입니다. 지난 10월 교육청 모의고사 때 양평 SN 학원에서 이미 한 차례 적용한 조치를 수능 당일에도 같은 방식으로 운영합니다.</p>
+<figure class="orig">
+<img src="/images/startup/261119-snargpt-exam-restriction.png" alt="Dr. Ryun의 원문 공지: 11월 19일 수능 당일 SNarGPT 사진 촬영/답 요청이 거절됩니다. 과목별로 시험지 공개 이후 거절이 순차 해제됩니다." width="1338" height="502" loading="lazy" />
+<figcaption>11월 19일 수능 당일 SNarGPT 사진 촬영/답 요청 거절 안내 원문</figcaption>
+</figure>
+<div class="close">
+<p>공정한 시험 환경을 위한 예방 조치이니 이용자 여러분의 이해와 협조를 부탁드립니다. 수험생 여러분이 준비한 실력을 충분히 발휘하시기를 응원합니다.</p>
+<p class="sign">SNarGPT</p>
+</div>
+</div>
