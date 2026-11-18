@@ -18,6 +18,7 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     url: '/startup/261119-snargpt-exam-restriction',
+    thumbnail: '/images/thumbnail/startup/261119-snargpt-exam-restriction.jpg',
   },
   ...historySupplementPosts,
   {
