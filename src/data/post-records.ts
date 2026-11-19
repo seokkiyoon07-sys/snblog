@@ -670,6 +670,32 @@ export const allPosts: Post[] = [
     url: '/history/muo-sahwa-4',
   },
   {
+    id: '2027-suneung-math-solution',
+    title: '2027학년도 수능 수학 문제 및 해설 | 정답·시험지·46문항 풀이',
+    excerpt:
+      '2027학년도 수능 수학 문제지와 평가원 정답, 공통·확률과 통계·미적분·기하 46문항 풀이를 정리합니다. 평가원 원본 시험지를 보며 문항별 정답과 해설을 확인하세요.',
+    category: 'problem-download',
+    subcategory: 'column-math',
+    tags: [
+      '2027학년도 수능',
+      '2027 수능 수학',
+      '수능 수학 해설',
+      '수능 수학 정답',
+      '수능 수학 문제지 PDF',
+      '확률과 통계',
+      '미적분',
+      '기하',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-11-19',
+    readTime: '15',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/problem-download/20261119_math_thumbnail.png',
+    url: '/problem-download/2027-suneung-math-solution',
+    problemContentType: 'solution',
+  },
+  {
     id: '2027-suneung-korean-solution',
     title:
       '2027학년도 수능 국어 문제 및 해설 | 정답·시험지·45문항 풀이',
