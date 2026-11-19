@@ -670,6 +670,32 @@ export const allPosts: Post[] = [
     url: '/history/muo-sahwa-4',
   },
   {
+    id: '2027-suneung-korean-solution',
+    title:
+      '2027학년도 수능 국어 문제 및 해설 | 정답·시험지·45문항 풀이',
+    excerpt:
+      '2027학년도 수능 국어 문제지와 평가원 정답, 공통·화법과 작문·언어와 매체 전 문항 해설을 정리합니다. 지문별 구조와 출제 포인트, 총평과 예상 등급컷을 함께 확인하세요.',
+    category: 'problem-download',
+    subcategory: 'column-korean',
+    tags: [
+      '2027학년도 수능',
+      '2027 수능 국어',
+      '수능 국어 해설',
+      '수능 국어 정답',
+      '수능 국어 문제지 PDF',
+      '화법과 작문',
+      '언어와 매체',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-11-19',
+    readTime: '15',
+    featured: false,
+    published: true,
+    thumbnail: '/images/thumbnail/problem-download/20261119_korean_thumbnail.png',
+    url: '/problem-download/2027-suneung-korean-solution',
+    problemContentType: 'solution',
+  },
+  {
     id: '2027-september-mock-math-solution',
     title:
       '2027학년도 9월 모의평가 수학 문제 및 해설 | 정답·시험지·46문항 풀이',
