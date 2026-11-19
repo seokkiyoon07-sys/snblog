@@ -59,7 +59,27 @@ const pub = (t) =>
     .replace(/사내 DB/g, 'SN 문항 데이터베이스')
     .replace(/사내 관찰 통계/g, 'SN 자체 관찰 통계')
     .replace(/사내 가채점 집계/g, 'SN 자체 가채점 집계')
-    .replace(/사내 /g, 'SN 자체 ');
+    .replace(/사내 /g, 'SN 자체 ')
+    .replace(/유사 기출의 실제 오답률을 참고해 추정한/g, '판단 구조가 닮은 기출과 비교해 추정한');
+
+// ---------- 확인되지 않은 통계 정리 ----------
+// SNarGPT 재점검 결과 유사 기출의 '실제 오답률'은 RAG에서 확인된 값이 아니었다(2026-11-19).
+// 사용자가 직접 준 2024·2025학년도 수능 14번(메가스터디)만 남기고 나머지 수치·출처는 싣지 않는다.
+const VERIFIED_RATE = (exam, no, rate) =>
+  /^(2024학년도 수능\(2023\.11\)|2025학년도 수능\(2024\.11\))$/.test(exam || '') && /^14번$/.test(no || '') && /메가스터디/.test(rate || '');
+const STAT_RE = /%|정답률|오답률|메가|EBS|대성|이투스|입시\s?기관|집계|통계|등급컷|Top\s?15/;
+// 문단에서 통계를 인용한 문장만 뺀다
+const dropStatSentences = (t) =>
+  t
+    .split(/\n{2,}/)
+    .map((para) =>
+      (para.match(/[^.!?。]+(?:[.!?。]+["”’)]?|$)/g) || [para])
+        .filter((sen) => !STAT_RE.test(sen))
+        .join('')
+        .trim()
+    )
+    .filter(Boolean)
+    .join('\n\n');
 
 // ---------- 마크다운 ----------
 marked.setOptions({ gfm: true, breaks: false });
@@ -159,7 +179,7 @@ if (fs.existsSync(simDir)) {
         .slice(1) // 머리 행 제외
         .map((l) => fixCircled(l).split('|').slice(1, -1).map((c) => c.trim()));
       const why = (part.match(/\*\*유사 이유\*\*\s*[:：]\s*([\s\S]*?)(?=\n\s*\n|$)/) || [])[1];
-      if (rows.length) SIMILAR.set(`${SIM_KEY[m[1]]}-${m[2]}`, { rows, why: why ? fixCircled(why.trim()) : '' });
+      if (rows.length) SIMILAR.set(`${SIM_KEY[m[1]]}-${m[2]}`, { rows, why: why ? dropStatSentences(fixCircled(why.trim())) : '' });
     }
   }
 }
@@ -167,7 +187,7 @@ if (fs.existsSync(simDir)) {
 function renderSimilar({ rows, why }) {
   const items = rows
     .map(([exam, no, stem, rate, like]) => `<li>
-  <div class="sim-head"><b>${inline(esc(exam || ''))} ${inline(esc(no || ''))}</b><span class="${/통계 없음/.test(rate || '') ? 'sim-rate is-none' : 'sim-rate'}">${inline(esc(rate || ''))}</span></div>
+  <div class="sim-head"><b>${inline(esc(exam || ''))} ${inline(esc(no || ''))}</b>${VERIFIED_RATE(exam, no, rate) ? `<span class="sim-rate">${inline(esc(rate))}</span>` : ''}</div>
   ${stem ? `<p class="sim-stem">${inline(esc(stem))}</p>` : ''}
   ${like ? `<p class="sim-like"><b>닮은 점</b>${inline(esc(like))}</p>` : ''}
 </li>`)
@@ -257,7 +277,7 @@ function renderQuestion(s, q, first) {
   <section class="study-answer-reveal">
     <div class="study-answer-line"><span>정답</span><strong>${q.answer}</strong></div>
     <div class="study-explain-block study-core-solution">${q.title ? `<h4>${inline(esc(q.title))}</h4>` : ''}${md(q.bodyMd, 2)}</div>
-    ${SIMILAR.has(`${s.subject}-${q.num}`) ? `<div class="study-explain-block study-similar"><h4>유사 기출 · 실제 오답률</h4>${renderSimilar(SIMILAR.get(`${s.subject}-${q.num}`))}<p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 오답률은 입시 기관 집계이며, 기관과 집계 시점에 따라 다를 수 있습니다.</p></div>` : ''}
+    ${SIMILAR.has(`${s.subject}-${q.num}`) ? `<div class="study-explain-block study-similar"><h4>유사 기출</h4>${renderSimilar(SIMILAR.get(`${s.subject}-${q.num}`))}<p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>` : ''}
   </section>
 </article>`;
 }
@@ -383,10 +403,17 @@ const hardSets = part(/^## 어려웠던 지문/);
 const errRate = part(/^## 오답률 높았을/)
   .replace(/^(## 오답률 높았을[^\n(]*?)\s*(\((예상치|예측)\))?\s*$/m, '$1 (AI 예측)')
   .replace(/^(\|[^\n]*\|\s*)예상 오답률(\s*\|)/m, '$1AI 예상 오답률$2')
-  .replace(/^> 문항 구조와 매력적 오답의 강도로 추정한/m, '> AI가 문항 구조와 매력적 오답의 강도를 분석해 추정한');
+  .replace(/^> 문항 구조와 매력적 오답의 강도로 추정한/m, '> AI가 문항 구조와 매력적 오답의 강도를 분석해 추정한')
+  .replace(/^> SNarGPT의 SNARVIS가[^\n]*/m, '> SNarGPT가 문항마다 묻는 판단의 구조가 닮은 기출을 찾고, 이를 바탕으로 이번 문항의 오답률을 AI로 추정했습니다. 추정에 참고한 기출의 오답률 통계는 출처를 확인하지 못해 싣지 않았으며, 예측치도 그만큼 불확실합니다. 예상 오답률이 높은 문항부터 실었고, 수치가 같은 문항은 같은 순위로 표시했습니다. 선택과목 문항은 해당 응시 집단 안에서의 예상치입니다. 실제 오답률은 입시 기관 통계로 확인하시기 바랍니다.')
+  .replace(/근거 유사 기출\(실제 오답률, 출처\)/, '근거 유사 기출')
+  .replace(/\s*\([^()\n]*%[^()\n]*\)/g, (m0, off, all) => (/^\s*\(\d+~\d+%\)$/.test(m0) ? m0 : ''))
+  .replace(/^- 56문항 가운데[^\n]*\n?/m, '');
 const gradeCut = part(/^## 등급컷/)
   .replace(/^## 등급컷 예측/m, '## 등급컷 AI 예측')
-  .replace(/^> \*\*이것은 예측입니다/m, '> **이것은 AI 예측입니다');
+  .replace(/^> \*\*이것은 예측입니다/m, '> **이것은 AI 예측입니다')
+  .replace(/^> SNarGPT의 SNARVIS가[^\n]*/m, '> 위 문항별 AI 예상 오답률의 분포(고난도 문항 수와 몰림)를 바탕으로 SNarGPT가 추정한 원점수 범위입니다. 과거 수능 등급컷 등 비교에 쓴 수치는 출처를 확인하지 못해 싣지 않았습니다. 실제 등급컷은 응시 집단과 표준점수 산출 방식에 따라 달라지므로, 원점수 추정 컷은 입시 기관 가채점 표본 통계로, 최종 표준점수 등급컷은 평가원 성적 발표로 반드시 확인하시기 바랍니다.')
+  .replace(/^### 비교한 과거 수능[\s\S]*?(?=^### 이렇게 예측한 근거)/m, '')
+  .replace(/ 2024학년도\(13개\)[^\n]*/, ' 최근 수능 가운데 중간 정도의 난도로 보았습니다.');
 const studyDir = part(/^## 공부 방향/);
 for (const [name, v] of Object.entries({ oneLine, areaFeel, hardSets, errRate, gradeCut, studyDir })) {
   if (!v) throw new Error(`총평 절 없음: ${name}`);
@@ -422,7 +449,7 @@ const whyItem = (s0, q) => {
   const why = md(sim.why).replace(/\[(원문 사실|원문 확인 사실|분석·추론|분석|추론)\]\s*:?\s*/g, '');
   const top = topInfo.get(key);
   const refs = sim.rows
-    .map((r) => `<span class="block">${inline(esc(`${r[0]} ${r[1]}`))} <span class="${/통계 없음/.test(r[3] || '') ? 'text-gray-400' : 'text-gray-500 dark:text-gray-400'}">· ${inline(esc(shortRate(r[3])))}</span></span>`)
+    .map((r) => `<span class="block">${inline(esc(`${r[0]} ${r[1]}`))}${VERIFIED_RATE(r[0], r[1], r[3]) ? ` <span class="text-gray-500 dark:text-gray-400">· ${inline(esc(shortRate(r[3])))}</span>` : ''}</span>`)
     .join('');
   const likes = sim.rows
     .filter((r) => r[4])
@@ -447,10 +474,10 @@ const whyGroups = [
   ['화법과 작문', sets.filter((x) => x.subject === 'hwajak')],
   ['언어와 매체', sets.filter((x) => x.subject === 'eonmae')],
 ];
-const whyHead = `<div class="grid grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] gap-3 border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 py-2 text-xs font-bold text-gray-700 dark:text-gray-300 max-sm:hidden"><span>문항</span><span>AI 예측 오답률</span><span>유사 기출 · 실제 오답률</span><span></span></div>`;
+const whyHead = `<div class="grid grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] gap-3 border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 py-2 text-xs font-bold text-gray-700 dark:text-gray-300 max-sm:hidden"><span>문항</span><span>AI 예측 오답률</span><span>유사 기출</span><span></span></div>`;
 let whyCount = 0;
 const allWhyHtml = `<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mt-10 mb-2">문항별 예측 오답률과 유사 기출</h3>
-<p class="${P}">56문항마다 SNarGPT가 판단 구조가 닮은 기출을 찾아, 그 기출의 실제 오답률을 참고해 이번 문항의 오답률을 예측했습니다. 다음 수능을 준비할 때 함께 풀어 볼 기출 목록으로 쓰세요. 줄을 누르면 닮은 점과 유사 이유가 펼쳐집니다.</p>
+<p class="${P}">56문항마다 SNarGPT가 판단 구조가 닮은 기출을 찾고, 이를 바탕으로 이번 문항의 오답률을 AI로 예측했습니다. 기출의 실제 오답률은 출처를 확인하지 못해 싣지 않았습니다. 다음 수능을 준비할 때 함께 풀어 볼 기출 목록으로 쓰세요. 줄을 누르면 닮은 점과 유사 이유가 펼쳐집니다.</p>
 <div class="not-prose mb-8" data-why-tabs>
   <div class="flex flex-wrap gap-2 mb-3" role="tablist" aria-label="영역 선택">${whyGroups
     .map(([name, ss], k) => `<button type="button" role="tab" aria-selected="${k === 0}" data-why-target="why-${k}" class="rounded-full border px-4 py-2 text-sm font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="const w=this.closest('[data-why-tabs]');w.querySelectorAll('[data-why-panel]').forEach(p=>p.hidden=p.dataset.whyPanel!==this.dataset.whyTarget);w.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',t===this))">${name} <span class="font-normal opacity-70">${ss.reduce((n, x) => n + x.questions.length, 0)}</span></button>`)
