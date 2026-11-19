@@ -9,6 +9,7 @@ import { formatReadableOriginalsContent } from '@/lib/originals-content';
 import { formatReadTime } from '@/lib/utils';
 import { PROSE_CLASSES } from '@/lib/constants';
 import RelatedHistorySeries from '@/components/RelatedHistorySeries';
+import { EXAM_BADGES, EXAM_BADGE_STYLE } from '@/data/exam-badges';
 
 interface OriginalsPostPageProps {
   params: Promise<{
@@ -99,6 +100,17 @@ export default async function OriginalsPostPage({
       <section className="px-6 md:px-10 lg:px-16 py-12 md:py-16">
         <article className="mx-auto max-w-5xl">
           <header className="text-center mb-10">
+            {EXAM_BADGES[post.id] &&
+              EXAM_BADGES[post.id].label !== post.badge && (
+                <div className="mb-2">
+                  <span
+                    className={`inline-flex items-center gap-1 px-3 py-1 text-sm font-bold text-white rounded-full ${EXAM_BADGE_STYLE[EXAM_BADGES[post.id].tone].badge}`}
+                  >
+                    <span aria-hidden="true">🎯</span>
+                    {EXAM_BADGES[post.id].label}
+                  </span>
+                </div>
+              )}
             {post.badge && (
               <div className="mb-4">
                 <span className="inline-flex items-center px-3 py-1 text-sm font-medium border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded">

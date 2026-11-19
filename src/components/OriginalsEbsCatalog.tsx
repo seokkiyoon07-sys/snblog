@@ -6,6 +6,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import TrackedPostLink from '@/components/analytics/TrackedPostLink';
 import { getOriginalsGenre } from '@/lib/originals-genre';
 import type { Post } from '@/types';
+import { EXAM_BADGES, EXAM_BADGE_STYLE } from '@/data/exam-badges';
 
 const genres = [
   {
@@ -177,6 +178,14 @@ function GenreRail({
                       className="object-cover transition-transform duration-300 motion-safe:group-hover:scale-105"
                     />
                   )}
+                  {EXAM_BADGES[work.id] && (
+                    <span
+                      className={`absolute top-2 left-2 flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-bold text-white shadow-lg ${EXAM_BADGE_STYLE[EXAM_BADGES[work.id].tone].badge}`}
+                    >
+                      <span aria-hidden="true">🎯</span>
+                      {EXAM_BADGES[work.id].label}
+                    </span>
+                  )}
                   <span className="absolute bottom-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-black/70 text-white">
                     <Play
                       className="h-3.5 w-3.5 fill-current"
@@ -261,8 +270,16 @@ export default function OriginalsEbsCatalog({ works }: { works: Post[] }) {
               </div>
             )}
             <div className="min-w-0">
-              <p className="text-xs font-semibold text-emerald-300">
+              <p className="flex flex-wrap items-center gap-2 text-xs font-semibold text-emerald-300">
                 한 번에 복습하는 몰아보기
+                {EXAM_BADGES[work.id] && (
+                  <span
+                    className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold text-white ${EXAM_BADGE_STYLE[EXAM_BADGES[work.id].tone].badge}`}
+                  >
+                    <span aria-hidden="true">🎯</span>
+                    {EXAM_BADGES[work.id].label}
+                  </span>
+                )}
               </p>
               <h4 className="mt-2 text-lg font-bold leading-7 text-white">
                 {work.title.split('|').pop()?.trim() || work.title}

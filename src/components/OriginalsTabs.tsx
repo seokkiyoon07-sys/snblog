@@ -8,6 +8,7 @@ import { formatReadTime } from '@/lib/utils';
 import { getCategoryEmoji, getCategoryRoute } from '@/lib/config';
 import { Post } from '@/types';
 import OriginalsEbsCatalog from '@/components/OriginalsEbsCatalog';
+import { EXAM_BADGES, EXAM_BADGE_STYLE } from '@/data/exam-badges';
 
 interface OriginalsTabsProps {
   allWorks: Post[];
@@ -16,7 +17,7 @@ interface OriginalsTabsProps {
   ebsSuneung2027Works: Post[];
 }
 
-type TabKey = 'all' | 'ebs2027' | 'steady' | 'school';
+type TabKey = 'all' | 'exam' | 'ebs2027' | 'steady' | 'school';
 type ViewMode = 'card' | 'list';
 
 const ITEMS_PER_PAGE = 6;
@@ -28,12 +29,6 @@ const JEONGCHEOL_TRILOGY_IDS = [
   'sokmieungok',
 ];
 
-// 2024 수능 출제 작품 ID
-const SUNEUNG_2024_WORK_ID = 'gapminga';
-
-// 2025 수능 출제 작품 ID
-const SUNEUNG_2025_WORK_ID = 'buksaegok';
-
 // SN고전문학 몰아보기 IDs
 const MARATHON_WORK_IDS = [
   '2027-suneung-literature-marathon',
@@ -44,6 +39,7 @@ const MARATHON_WORK_IDS = [
 
 const TABS: { key: TabKey; label: string }[] = [
   { key: 'all', label: '전체보기' },
+  { key: 'exam', label: '평가원 출제' },
   { key: 'ebs2027', label: '2027 EBS 연계' },
   { key: 'steady', label: '스테디 작품' },
   { key: 'school', label: '내신대비' },
@@ -63,6 +59,13 @@ export default function OriginalsTabs({
     switch (tab) {
       case 'all':
         return allWorks;
+      case 'exam':
+        // 평가원 시험에 출제된 작품만, 최근 시험 순
+        return allWorks
+          .filter(
+            work => EXAM_BADGES[work.id] && !MARATHON_WORK_IDS.includes(work.id)
+          )
+          .sort((a, b) => EXAM_BADGES[b.id].rank - EXAM_BADGES[a.id].rank);
       case 'ebs2027':
         return ebsSuneung2027Works;
       case 'steady':
@@ -182,9 +185,10 @@ export default function OriginalsTabs({
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {currentWorks.map(work => {
               const isTrilogy = JEONGCHEOL_TRILOGY_IDS.includes(work.id);
-              const is2024Work = work.id === SUNEUNG_2024_WORK_ID;
-              const is2025Work = work.id === SUNEUNG_2025_WORK_ID;
               const isMarathon = MARATHON_WORK_IDS.includes(work.id);
+              const exam = EXAM_BADGES[work.id];
+              const examStyle = exam ? EXAM_BADGE_STYLE[exam.tone] : null;
+              const examFrame = examStyle && !isMarathon ? examStyle : null;
               return (
                 <TrackedPostLink
                   key={work.id}
@@ -192,15 +196,13 @@ export default function OriginalsTabs({
                   postId={work.id}
                   placement="originals_card"
                   className={`group block bg-white dark:bg-gray-800 rounded-lg overflow-hidden border hover:shadow-md transition-all ${
-                    isMarathon
-                      ? 'border-emerald-400 dark:border-emerald-500 ring-1 ring-emerald-200 dark:ring-emerald-500/30'
-                      : isTrilogy
-                        ? 'border-blue-400 dark:border-blue-500 ring-1 ring-blue-200 dark:ring-blue-500/30'
-                        : is2025Work
-                          ? 'border-rose-400 dark:border-rose-500 ring-1 ring-rose-200 dark:ring-rose-500/30'
-                          : is2024Work
-                            ? 'border-violet-400 dark:border-violet-500 ring-1 ring-violet-200 dark:ring-violet-500/30'
-                            : 'border-gray-200 dark:border-gray-700'
+                    examFrame
+                      ? `${examFrame.border} ${examFrame.ring}`
+                      : isMarathon
+                        ? 'border-emerald-400 dark:border-emerald-500 ring-1 ring-emerald-200 dark:ring-emerald-500/30'
+                        : isTrilogy
+                          ? 'border-blue-400 dark:border-blue-500 ring-1 ring-blue-200 dark:ring-blue-500/30'
+                          : 'border-gray-200 dark:border-gray-700'
                   }`}
                 >
                   {work.thumbnail && (
@@ -219,18 +221,13 @@ export default function OriginalsTabs({
                           <span>정철 트릴로지</span>
                         </div>
                       )}
-                      {/* 2024 수능 출제 배지 */}
-                      {is2024Work && (
-                        <div className="absolute top-2 left-2 px-2 py-1 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-[10px] font-bold rounded-full shadow-lg flex items-center gap-1">
+                      {/* 평가원 출제 배지 (src/data/exam-badges.ts) */}
+                      {exam && examStyle && (
+                        <div
+                          className={`absolute ${isMarathon ? 'top-9' : 'top-2'} left-2 px-2 py-1 ${examStyle.badge} text-white text-[10px] font-bold rounded-full shadow-lg flex items-center gap-1`}
+                        >
                           <span>🎯</span>
-                          <span>2024 수능 출제</span>
-                        </div>
-                      )}
-                      {/* 2025 수능 출제 배지 */}
-                      {is2025Work && (
-                        <div className="absolute top-2 left-2 px-2 py-1 bg-gradient-to-r from-rose-500 to-pink-500 text-white text-[10px] font-bold rounded-full shadow-lg flex items-center gap-1">
-                          <span>🎯</span>
-                          <span>2025 수능 출제</span>
+                          <span>{exam.label}</span>
                         </div>
                       )}
                       {/* 몰아보기 배지 (posts.ts의 badge 필드 사용) */}
@@ -245,15 +242,13 @@ export default function OriginalsTabs({
                   <div className="p-3">
                     <h4
                       className={`text-sm font-medium line-clamp-2 transition-colors ${
-                        isMarathon
-                          ? 'text-emerald-700 dark:text-emerald-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-300'
-                          : isTrilogy
-                            ? 'text-blue-700 dark:text-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-300'
-                            : is2025Work
-                              ? 'text-rose-700 dark:text-rose-400 group-hover:text-rose-600 dark:group-hover:text-rose-300'
-                              : is2024Work
-                                ? 'text-violet-700 dark:text-violet-400 group-hover:text-violet-600 dark:group-hover:text-violet-300'
-                                : 'text-gray-900 dark:text-white group-hover:text-sn-primary dark:group-hover:text-emerald-400'
+                        examFrame
+                          ? examFrame.title
+                          : isMarathon
+                            ? 'text-emerald-700 dark:text-emerald-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-300'
+                            : isTrilogy
+                              ? 'text-blue-700 dark:text-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-300'
+                              : 'text-gray-900 dark:text-white group-hover:text-sn-primary dark:group-hover:text-emerald-400'
                       }`}
                     >
                       {work.title}
@@ -270,23 +265,22 @@ export default function OriginalsTabs({
               const emoji = getCategoryEmoji(work.category);
               const isoDate = work.date.replace(/\//g, '-');
               const isTrilogy = JEONGCHEOL_TRILOGY_IDS.includes(work.id);
-              const is2024Work = work.id === SUNEUNG_2024_WORK_ID;
-              const is2025Work = work.id === SUNEUNG_2025_WORK_ID;
               const isMarathon = MARATHON_WORK_IDS.includes(work.id);
+              const exam = EXAM_BADGES[work.id];
+              const examStyle = exam ? EXAM_BADGE_STYLE[exam.tone] : null;
+              const examFrame = examStyle && !isMarathon ? examStyle : null;
 
               return (
                 <article
                   key={work.id}
                   className={`pb-4 lg:pb-6 last:border-b-0 ${
-                    isMarathon
-                      ? 'border-l-4 border-l-emerald-400 pl-4 border-b border-b-gray-200 dark:border-b-gray-700'
-                      : isTrilogy
-                        ? 'border-l-4 border-l-blue-400 pl-4 border-b border-b-gray-200 dark:border-b-gray-700'
-                        : is2025Work
-                          ? 'border-l-4 border-l-rose-400 pl-4 border-b border-b-gray-200 dark:border-b-gray-700'
-                          : is2024Work
-                            ? 'border-l-4 border-l-violet-400 pl-4 border-b border-b-gray-200 dark:border-b-gray-700'
-                            : 'border-b border-gray-200 dark:border-gray-700'
+                    examFrame
+                      ? `border-l-4 ${examFrame.bar} pl-4 border-b border-b-gray-200 dark:border-b-gray-700`
+                      : isMarathon
+                        ? 'border-l-4 border-l-emerald-400 pl-4 border-b border-b-gray-200 dark:border-b-gray-700'
+                        : isTrilogy
+                          ? 'border-l-4 border-l-blue-400 pl-4 border-b border-b-gray-200 dark:border-b-gray-700'
+                          : 'border-b border-gray-200 dark:border-gray-700'
                   }`}
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-4 lg:gap-6">
@@ -341,16 +335,12 @@ export default function OriginalsTabs({
                                 <span>정철 트릴로지</span>
                               </span>
                             )}
-                            {is2024Work && (
-                              <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-full w-fit">
+                            {exam && examStyle && (
+                              <span
+                                className={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold ${examStyle.badge} text-white rounded-full w-fit`}
+                              >
                                 <span>🎯</span>
-                                <span>2024 수능 출제</span>
-                              </span>
-                            )}
-                            {is2025Work && (
-                              <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-rose-500 to-pink-500 text-white rounded-full w-fit">
-                                <span>🎯</span>
-                                <span>2025 수능 출제</span>
+                                <span>{exam.label}</span>
                               </span>
                             )}
                             {isMarathon && work.badge && (
