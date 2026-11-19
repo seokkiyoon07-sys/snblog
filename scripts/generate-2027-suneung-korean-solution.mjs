@@ -179,7 +179,7 @@ if (fs.existsSync(simDir)) {
         .slice(1) // 머리 행 제외
         .map((l) => fixCircled(l).split('|').slice(1, -1).map((c) => c.trim()));
       const why = (part.match(/\*\*유사 이유\*\*\s*[:：]\s*([\s\S]*?)(?=\n\s*\n|$)/) || [])[1];
-      if (rows.length) SIMILAR.set(`${SIM_KEY[m[1]]}-${m[2]}`, { rows, why: why ? dropStatSentences(fixCircled(why.trim())) : '' });
+      if (rows.length || why) SIMILAR.set(`${SIM_KEY[m[1]]}-${m[2]}`, { rows, why: why ? dropStatSentences(fixCircled(why.trim())) : '' });
     }
   }
 }
@@ -194,7 +194,7 @@ function renderSimilar({ rows, why }) {
     .join('');
   // [원문 사실] / [분석·추론] 같은 원고 표기는 작은 라벨로 바꾼다
   const whyHtml = why ? md(why).replace(/\[(원문 사실|원문 확인 사실|분석·추론|분석|추론)\]\s*:?\s*/g, (m0, t) => `<span class="sim-tag">${t.replace('원문 확인 사실', '원문 사실')}</span>`) : '';
-  return `<ol class="sim-list">${items}</ol>${why ? `<div class="sim-why"><b>유사 이유</b>${whyHtml}</div>` : ''}`;
+  return `${items ? `<ol class="sim-list">${items}</ol>` : '<p class="sim-none">이 문항과 판단 구조가 확인된 유사 기출은 아직 없습니다.</p>'}${why ? `<div class="sim-why"><b>유사 이유</b>${whyHtml}</div>` : ''}`;
 }
 
 // ---------- 세트 정보 ----------
@@ -408,22 +408,35 @@ const errRate = part(/^## 오답률 높았을/)
   .replace(/근거 유사 기출\(실제 오답률, 출처\)/, '근거 유사 기출')
   .replace(/\s*\([^()\n]*%[^()\n]*\)/g, (m0, off, all) => (/^\s*\(\d+~\d+%\)$/.test(m0) ? m0 : ''))
   .replace(/^- 56문항 가운데[^\n]*\n?/m, '');
-const gradeCut = part(/^## 등급컷/)
-  .replace(/^## 등급컷 예측/m, '## 등급컷 AI 예측')
-  .replace(/^> \*\*이것은 예측입니다/m, '> **이것은 AI 예측입니다')
-  .replace(/^> SNarGPT의 SNARVIS가[^\n]*/m, '> 위 문항별 AI 예상 오답률의 분포(고난도 문항 수와 몰림)를 바탕으로 SNarGPT가 추정한 원점수 범위입니다. 과거 수능 등급컷 등 비교에 쓴 수치는 출처를 확인하지 못해 싣지 않았습니다. 실제 등급컷은 응시 집단과 표준점수 산출 방식에 따라 달라지므로, 원점수 추정 컷은 입시 기관 가채점 표본 통계로, 최종 표준점수 등급컷은 평가원 성적 발표로 반드시 확인하시기 바랍니다.')
-  .replace(/^### 비교한 과거 수능[\s\S]*?(?=^### 이렇게 예측한 근거)/m, '')
-  .replace(/ 2024학년도\(13개\)[^\n]*/, ' 최근 수능 가운데 중간 정도의 난도로 보았습니다.');
+// 등급컷: 사용자가 제공한 SN 자체 회귀 분석(문항별 정답률 기반) 결과로 싣는다(2026-11-19)
+const CUTS = {
+  '화법과 작문': [91, 84, 75, 67, 54, 42, 29, 22],
+  '언어와 매체': [88, 81, 72, 64, 51, 39, 27, 20],
+};
+if (!part(/^## 등급컷/)) throw new Error('총평에 등급컷 절이 없음');
+const gradeCut = `## 등급컷 예측 (원점수, 정답률 회귀 분석)
+
+> 문항별 정답률을 바탕으로 한 SN독학기숙학원 자체 회귀 분석으로 추정한 원점수 등급컷입니다. 실제 등급컷은 응시 집단과 표준점수 산출 방식에 따라 달라지므로, 원점수 추정 컷은 입시 기관 가채점 표본 통계로, 최종 표준점수 등급컷은 평가원 성적 발표로 반드시 확인하시기 바랍니다.
+
+| 선택과목 | ${[1, 2, 3, 4, 5, 6, 7, 8].map((g) => `${g}등급`).join(' | ')} |
+|---|${'---|'.repeat(8)}
+${Object.entries(CUTS).map(([k, v]) => `| ${k} | ${v.join(' | ')} |`).join('\n')}
+
+*각 등급의 구분 점수(커트라인)로 예상되는 원점수입니다.
+`;
 const studyDir = part(/^## 공부 방향/);
 for (const [name, v] of Object.entries({ oneLine, areaFeel, hardSets, errRate, gradeCut, studyDir })) {
   if (!v) throw new Error(`총평 절 없음: ${name}`);
 }
-for (const must of ['(AI 예측)', 'AI 예상 오답률', '등급컷 AI 예측']) {
+for (const must of ['(AI 예측)', '정답률 회귀 분석']) {
   if (!(errRate + gradeCut).includes(must)) throw new Error(`AI 예측 표기 실패: ${must}`);
+}
+if (!/AI 예상 오답률|예상 오답률\(AI 예측\)/.test(errRate)) {
+  throw new Error('AI 예측 표기 실패: 오답률 열 이름');
 }
 const dropRule = (s) => s.replace(/\n---\s*$/, '\n');
 const quote = (oneLine.match(/\*\*"?([^*]+?)"?\*\*/) || [])[1] || '';
-const leadNote = lead.replace(/^>\s*/gm, '').replace('**예상 오답률·등급컷은 모두 예측치입니다.** 문항 구조와 함정 강도를 보고 추정한 것입니다.', '**예상 오답률·등급컷은 모두 AI 예측치입니다.** AI가 문항 구조와 함정 강도를 분석해 추정한 것입니다.');
+const leadNote = lead.replace(/^>\s*/gm, '').replace('**예상 오답률·등급컷은 모두 예측치입니다.** 문항 구조와 함정 강도를 보고 추정한 것입니다.', '**예상 오답률은 AI 예측치, 등급컷은 정답률 회귀 분석에 따른 예측치입니다.** 오답률은 AI가 문항 구조와 함정 강도를 분석해 추정했습니다.');
 
 // 56문항 전체 유사 이유: 5절(공부 방향)에 영역별로 접어서 싣는다
 // 오답률 표에 있는 문항은 순위와 AI 예상 오답률을 함께 보여 준다
@@ -448,7 +461,7 @@ const whyItem = (s0, q) => {
   if (!pred) throw new Error(`AI 예측 오답률 없음: ${key}`);
   const why = md(sim.why).replace(/\[(원문 사실|원문 확인 사실|분석·추론|분석|추론)\]\s*:?\s*/g, '');
   const top = topInfo.get(key);
-  const refs = sim.rows
+  const refs = !sim.rows.length ? '<span class="text-gray-400">확인된 유사 기출 없음</span>' : sim.rows
     .map((r) => `<span class="block">${inline(esc(`${r[0]} ${r[1]}`))}${VERIFIED_RATE(r[0], r[1], r[3]) ? ` <span class="text-gray-500 dark:text-gray-400">· ${inline(esc(shortRate(r[3])))}</span>` : ''}</span>`)
     .join('');
   const likes = sim.rows
@@ -677,7 +690,7 @@ ${paperHtml}
 
 const toc = [
   ['overall', '1. 시험 총평'],
-  ['area-notes', '2. 영역별 정리(오답률, 등급컷 AI 예측)'],
+  ['area-notes', '2. 영역별 정리(오답률 AI 예측, 등급컷 회귀 분석)'],
   ['answer-table', '3. 정답 (홀수형)'],
   ['detailed-solutions', '4. 평가원 원본 시험지 · 전 문항 해설'],
   ['study-plan', '5. 2028학년도 수능 준비생을 위한 국어 공부 방향'],
@@ -705,7 +718,7 @@ ${quote ? `<div class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-8
     <li>• 수록 범위: 공통 34문항과 화법과 작문·언어와 매체 각 11문항, 총 56문항(응시 기준 45문항)</li>
     <li>• 평가원 원본 시험지 20쪽 보기와 B4·A4 인쇄</li>
     <li>• 지문 원문과 문항별 해설, 지문 구조·출제 포인트 정리</li>
-    <li>• 예상 오답률과 등급컷은 AI 예측치</li>
+    <li>• 예상 오답률은 AI 예측, 등급컷은 정답률 회귀 분석 예측(1~8등급)</li>
   </ul>
 </div>
 
@@ -713,7 +726,7 @@ ${quote ? `<div class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-8
   <p class="font-bold text-amber-950 dark:text-amber-100 mb-2">정답·예측치 안내</p>
   <p class="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
     정답은 한국교육과정평가원이 문제지와 함께 공개한 정답표 기준이며, 해설은 SN독학기숙학원이 작성했습니다.
-    ‘영역별 정리’의 예상 오답률과 등급컷은 AI가 문항 구조를 분석해 낸 예측치입니다. 실제 수치는 입시기관 가채점 결과와
+    ‘영역별 정리’의 예상 오답률은 AI가 문항 구조를 분석해 낸 예측치이고, 등급컷은 문항별 정답률을 바탕으로 한 회귀 분석 예측치입니다. 실제 수치는 입시기관 가채점 결과와
     평가원 채점 결과 발표로 확인하세요. 이의 신청 심사 결과에 따라 확정 정답이 바뀌면 함께 고칩니다.
   </p>
 </div>
@@ -734,7 +747,7 @@ ${tw(md(dropRule(oneLine)))}
 ${tw(md(dropRule(areaFeel)))}
 ${tw(md(dropRule(hardSets)))}
 
-${h2('area-notes', '2. 영역별 정리(오답률, 등급컷 AI 예측)')}
+${h2('area-notes', '2. 영역별 정리(오답률 AI 예측, 등급컷 회귀 분석)')}
 
 ${tails.map((t) => tw(`<h3>${esc(t.area)}: ${inline(esc(t.title))}</h3>\n${md(t.bodyMd, 2)}`)).join('\n')}
 ${tw(md(dropRule(errRate)))}
@@ -787,7 +800,7 @@ ${h2('downloads', '6. 문제지·정답표 PDF')}
   <li>• <a class="underline hover:no-underline" href="/originals/chamhuirok">SN Originals, 윤동주 「참회록」</a></li>
 </ul>
 
-<p class="text-xs text-gray-500 dark:text-gray-400">작성: SN독학기숙학원 · 2026.11.19 작성 · 예상 오답률·등급컷은 AI 예측치</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">작성: SN독학기숙학원 · 2026.11.19 작성 · 예상 오답률은 AI 예측치, 등급컷은 정답률 회귀 분석 예측치</p>
 `;
 
 fs.writeFileSync(OUT, article);
