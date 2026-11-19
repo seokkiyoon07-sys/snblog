@@ -138,8 +138,11 @@ if (fs.existsSync(simDir)) {
   const pj = path.join(simDir, 'pred.json');
   if (fs.existsSync(pj)) {
     for (const x of JSON.parse(fs.readFileSync(pj, 'utf8'))) {
-      const r = String(x.pred || '').replace(/\s/g, '').match(/(\d+)~(\d+)%/);
+      const t = String(x.pred || '').replace(/\s/g, '');
+      const r = t.match(/(\d+)~(\d+)%/);
+      const one = t.match(/^약?(\d+)%$/);
       if (r) PRED.set(`${SIM_KEY[x.sec]}-${x.q}`, `약 ${Math.round((+r[1] + +r[2]) / 2)}% (${r[1]}~${r[2]}%)`);
+      else if (one) PRED.set(`${SIM_KEY[x.sec]}-${x.q}`, `약 ${one[1]}%`);
     }
   }
 }
@@ -382,6 +385,36 @@ ${SUBJECTS.map((s0, k) => {
 </div>`;
 }
 
+// 총평 '오답률 높았을 문항': 공통 표는 항상 보이고, 선택과목은 탭(확통 → 미적분 → 기하)
+function errRateHtml() {
+  const raw = dropRule(part(/^## 오답률/));
+  if (!raw) return '';
+  const [lead, ...subs] = raw.split(/^(?=### )/m);
+  const tailIdx = subs.length ? subs[subs.length - 1].search(/^\*\*한눈에 보는 패턴\*\*/m) : -1;
+  let tail = '';
+  if (tailIdx > 0) {
+    tail = subs[subs.length - 1].slice(tailIdx);
+    subs[subs.length - 1] = subs[subs.length - 1].slice(0, tailIdx);
+  }
+  const common = subs.find((x) => /^### 공통/.test(x)) || '';
+  const tabs = ['확률과 통계', '미적분', '기하']
+    .map((name) => [name, subs.find((x) => x.startsWith(`### ${name}`))])
+    .filter(([, body]) => body);
+  if (!common || tabs.length !== 3) return tw(md(raw)); // 형식이 다르면 그대로 싣는다
+  const body = (x) => tw(md(x.replace(/^### .*\n/, ''), 1));
+  return `${tw(md(lead))}
+<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-3">${esc(common.match(/^### (.*)/)[1])}</h3>
+${body(common)}
+<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-3">선택과목</h3>
+<div class="not-prose" data-err-tabs>
+  <div class="flex flex-wrap gap-2 mb-1" role="tablist" aria-label="선택과목">${tabs
+    .map(([name], k) => `<button type="button" role="tab" aria-selected="${k === 0}" data-err-target="err-${k}" class="rounded-full border px-4 py-2 text-sm font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="const w=this.closest('[data-err-tabs]');w.querySelectorAll('[data-err-panel]').forEach(p=>p.hidden=p.dataset.errPanel!==this.dataset.errTarget);w.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',t===this))">${name}</button>`)
+    .join('')}</div>
+${tabs.map(([name, x], k) => `  <div role="tabpanel" aria-label="${name}" data-err-panel="err-${k}"${k === 0 ? '' : ' hidden'}>${body(x)}</div>`).join('\n')}
+</div>
+${tail ? tw(md(tail)) : ''}`;
+}
+
 // ---------- 글 조립 ----------
 const pending = '<p class="' + P + '">총평은 해설 작업이 끝나는 대로 싣습니다.</p>';
 const sec = (re) => (part(re) ? tw(md(dropRule(part(re)))) : '');
@@ -432,7 +465,7 @@ ${h2('overall', '1. 시험 총평')}
 ${sec(/^## 한 줄 총평/) + sec(/^## 과목별/) + sec(/^## 어려웠던/) || pending}
 
 ${h2('predictions', '2. 오답률·등급컷 예측')}
-${sec(/^## 오답률/) + sec(/^## 등급컷/) || pending}
+${errRateHtml() + sec(/^## 등급컷/) || pending}
 
 ${h2('answer-table', '3. 정답 (홀수형)')}
 <p class="${P}">공통 1~22번과 본인이 응시한 선택과목 23~30번을 확인하세요. 1~15번과 23~28번은 5지선다형, 16~22번과 29~30번은 단답형입니다.</p>

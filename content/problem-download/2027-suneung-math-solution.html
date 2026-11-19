@@ -142,78 +142,133 @@
   2. 오답률·등급컷 예측
 </h2>
 <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-3">오답률 높았을 문항</h3>
-<blockquote class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-6 text-gray-800 dark:text-gray-200"><p class="leading-relaxed mb-2">아래 예상 오답률은 문항 구조를 바탕으로 한 AI 예측입니다. 실제 통계가 아닙니다. 지난 시험의 오답률 통계는 확인하지 못해 비교 자료로 쓰지 않았습니다. 선택과목 문항은 해당 과목 응시 집단 안에서의 예상치입니다. 예상 오답률이 같은 문항은 같은 순위로 표시했습니다.</p>
+<blockquote class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-6 text-gray-800 dark:text-gray-200"><p class="leading-relaxed mb-2">아래 예상 오답률은 문항 구조를 바탕으로 한 AI 예측입니다. 실제 통계가 아닙니다. 지난 시험의 오답률 통계는 확인하지 못해 비교 자료로 쓰지 않았습니다. 공통 문항은 모든 수험생, 선택과목 문항은 해당 과목 응시 집단 안에서의 예상치입니다. 순위는 표마다 따로 매겼습니다.</p>
 </blockquote>
+
+<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-3">공통 (모든 수험생)</h3>
 <div class="not-prose overflow-x-auto my-6"><table class="w-full border-collapse text-sm text-left">
 <thead><tr class="border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
 <th class="p-3 font-bold align-bottom">순위</th>
-<th class="p-3 font-bold align-bottom">과목·번호</th>
+<th class="p-3 font-bold align-bottom">문항</th>
 <th class="p-3 font-bold align-bottom">예상 오답률</th>
 <th class="p-3 font-bold align-bottom">이유(함정)</th>
 </tr>
 </thead>
 <tbody class="text-gray-800 dark:text-gray-200"><tr class="border-b border-gray-200 dark:border-gray-800">
 <td class="p-3 align-top">1</td>
-<td class="p-3 align-top">공통 21번</td>
+<td class="p-3 align-top">21번</td>
 <td class="p-3 align-top">약 88%</td>
 <td class="p-3 align-top">(가)의 미분계수 차가 극대 쪽 끝점($\delta$)에서 생기는지 극소 쪽 끝점($\gamma$)에서 생기는지 두 경우를 모두 따져야 합니다. 한 경우만 풀면 조건에 맞지 않는 삼차함수가 나옵니다.</td>
 </tr><tr class="border-b border-gray-200 dark:border-gray-800">
 <td class="p-3 align-top">2</td>
-<td class="p-3 align-top">미적분 30번</td>
-<td class="p-3 align-top">약 85%</td>
-<td class="p-3 align-top">$f=\sin x(\sqrt{1+3\cos^2x}-1)$ 하나로 고정해 버리면 (나)를 만족시키지 못합니다. 부호가 바뀔 수 있는 지점($h'=0$인 $x=\frac\pi2+n\pi$)을 놓치는 것이 가장 큰 함정입니다.</td>
-</tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">3</td>
-<td class="p-3 align-top">기하 30번</td>
-<td class="p-3 align-top">약 82%</td>
-<td class="p-3 align-top">평면 OAB와 점 D 사이의 거리가 &#39;점 C와 직선 AB 사이의 거리&#39;와 같다는 관찰을 놓치면 $S_2$의 반지름을 구하지 못합니다. 정사영의 각도를 $\overrightarrow{\mathrm{OD}}$ 기준으로 잡는 것도 실수가 잦습니다.</td>
-</tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">공동 4</td>
-<td class="p-3 align-top">공통 22번</td>
+<td class="p-3 align-top">22번</td>
 <td class="p-3 align-top">약 78%</td>
 <td class="p-3 align-top">주기 6과 주기 9에서 주기 3을 끌어내지 못하면 식이 넘칩니다. 마지막에 $40=3\times13+1$로 남는 한 항 $\frac1{a_1a_2}$를 빠뜨리기 쉽습니다.</td>
 </tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">공동 4</td>
-<td class="p-3 align-top">확률과 통계 30번</td>
-<td class="p-3 align-top">약 78%</td>
-<td class="p-3 align-top">$A\cap B$의 개수(6)를 잘못 세거나, &#39;6이 나온 시행은 점수가 0일 수 없다&#39;는 점을 놓쳐 $(2,2,0)$ 경우를 분자에 넣는 실수가 나옵니다.</td>
-</tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">6</td>
-<td class="p-3 align-top">미적분 29번</td>
-<td class="p-3 align-top">약 72%</td>
-<td class="p-3 align-top">극한값만 보고 $-1&lt;L&lt;1$인 $k$만 고르면 $k=5$를 놓칩니다. $k=8$처럼 극한이 $1$이지만 위에서 다가가는 경우를 발산으로 잘못 넣는 실수도 있습니다.</td>
-</tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">7</td>
-<td class="p-3 align-top">공통 15번</td>
+<td class="p-3 align-top">3</td>
+<td class="p-3 align-top">15번</td>
 <td class="p-3 align-top">약 70%</td>
 <td class="p-3 align-top">$x=0$을 불연속점으로 세어 $n=5$로 두는 실수가 가장 흔합니다. 이 경우 $a_3$이 달라져 답이 완전히 바뀝니다.</td>
 </tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">공동 8</td>
-<td class="p-3 align-top">확률과 통계 28번</td>
-<td class="p-3 align-top">약 65%</td>
-<td class="p-3 align-top">&#39;곱이 자연수이거나 같은 수&#39; 조건을 &#39;$\frac12$의 이웃은 $2,4,\frac12$만 가능&#39;으로 바꿔 읽지 못하면 경우가 끝없이 늘어납니다. 붙어 있는 $\frac12\frac12$와 떨어진 $\frac12$를 나눠 세다 중복이 생기기 쉽습니다.</td>
-</tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">공동 8</td>
-<td class="p-3 align-top">확률과 통계 29번</td>
-<td class="p-3 align-top">약 65%</td>
-<td class="p-3 align-top">$\mathrm V\le\sigma$이면 $\mathrm V\le1$이라는 점을 보지 못하면 부등식 범위로 접근하다 막힙니다. $a=\frac3{10}$에서 $b&gt;0$인지 확인하는 단계도 빠뜨리기 쉽습니다.</td>
-</tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">10</td>
-<td class="p-3 align-top">기하 29번</td>
-<td class="p-3 align-top">약 62%</td>
-<td class="p-3 align-top">점 F가 쌍곡선의 어느 가지 위에 있는지 정하지 않으면 $\overline{\mathrm{BF}}-\overline{\mathrm{AF}}=2a$의 부호가 흔들립니다. 꼭짓점 C가 B에 가까운 쪽이라는 조건도 함께 써야 합니다.</td>
-</tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">11</td>
-<td class="p-3 align-top">미적분 28번</td>
-<td class="p-3 align-top">약 60%</td>
-<td class="p-3 align-top">(가)를 $g(x)=x-f^{-1}(x)$로 바꾸는 첫 단계가 막히면 진행이 어렵습니다. (나)를 &#39;최댓값이 정확히 $\frac1b$&#39;로 해석해야 $a=e$가 나옵니다.</td>
-</tr><tr class="border-b border-gray-200 dark:border-gray-800">
-<td class="p-3 align-top">12</td>
-<td class="p-3 align-top">공통 13번</td>
+<td class="p-3 align-top">4</td>
+<td class="p-3 align-top">13번</td>
 <td class="p-3 align-top">약 55%</td>
 <td class="p-3 align-top">ㄷ에서 ㄴ과 같은 형태의 식이 나오자 &#39;$\alpha$가 $f(1)$보다 작을 수 있다&#39;고 판단하기 쉽습니다. $g$가 $t=f(1)$에서만 최소라는 점을 보여야 거짓으로 판정됩니다.</td>
 </tr>
 </tbody></table></div>
+
+<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-3">선택과목</h3>
+<div class="not-prose" data-err-tabs>
+  <div class="flex flex-wrap gap-2 mb-1" role="tablist" aria-label="선택과목"><button type="button" role="tab" aria-selected="true" data-err-target="err-0" class="rounded-full border px-4 py-2 text-sm font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="const w=this.closest('[data-err-tabs]');w.querySelectorAll('[data-err-panel]').forEach(p=>p.hidden=p.dataset.errPanel!==this.dataset.errTarget);w.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',t===this))">확률과 통계</button><button type="button" role="tab" aria-selected="false" data-err-target="err-1" class="rounded-full border px-4 py-2 text-sm font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="const w=this.closest('[data-err-tabs]');w.querySelectorAll('[data-err-panel]').forEach(p=>p.hidden=p.dataset.errPanel!==this.dataset.errTarget);w.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',t===this))">미적분</button><button type="button" role="tab" aria-selected="false" data-err-target="err-2" class="rounded-full border px-4 py-2 text-sm font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="const w=this.closest('[data-err-tabs]');w.querySelectorAll('[data-err-panel]').forEach(p=>p.hidden=p.dataset.errPanel!==this.dataset.errTarget);w.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',t===this))">기하</button></div>
+  <div role="tabpanel" aria-label="확률과 통계" data-err-panel="err-0"><div class="not-prose overflow-x-auto my-6"><table class="w-full border-collapse text-sm text-left">
+<thead><tr class="border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<th class="p-3 font-bold align-bottom">순위</th>
+<th class="p-3 font-bold align-bottom">문항</th>
+<th class="p-3 font-bold align-bottom">예상 오답률</th>
+<th class="p-3 font-bold align-bottom">이유(함정)</th>
+</tr>
+</thead>
+<tbody class="text-gray-800 dark:text-gray-200"><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">1</td>
+<td class="p-3 align-top">30번</td>
+<td class="p-3 align-top">약 78%</td>
+<td class="p-3 align-top">$A\cap B$의 개수(6)를 잘못 세거나, &#39;6이 나온 시행은 점수가 0일 수 없다&#39;는 점을 놓쳐 $(2,2,0)$ 경우를 분자에 넣는 실수가 나옵니다.</td>
+</tr><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">공동 2</td>
+<td class="p-3 align-top">28번</td>
+<td class="p-3 align-top">약 65%</td>
+<td class="p-3 align-top">&#39;곱이 자연수이거나 같은 수&#39; 조건을 &#39;$\frac12$의 이웃은 $2,4,\frac12$만 가능&#39;으로 바꿔 읽지 못하면 경우가 끝없이 늘어납니다. 붙어 있는 $\frac12\frac12$와 떨어진 $\frac12$를 나눠 세다 중복이 생기기 쉽습니다.</td>
+</tr><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">공동 2</td>
+<td class="p-3 align-top">29번</td>
+<td class="p-3 align-top">약 65%</td>
+<td class="p-3 align-top">$\mathrm V\le\sigma$이면 $\mathrm V\le1$이라는 점을 보지 못하면 부등식 범위로 접근하다 막힙니다. $a=\frac3{10}$에서 $b&gt;0$인지 확인하는 단계도 빠뜨리기 쉽습니다.</td>
+</tr><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">4</td>
+<td class="p-3 align-top">27번</td>
+<td class="p-3 align-top">약 25~33%</td>
+<td class="p-3 align-top">신뢰구간의 중점이 표본평균, 길이가 $2\times1.96\times\dfrac{\sigma}{\sqrt n}$이라는 두 관계를 함께 써야 합니다. 구간 길이를 $1.96\dfrac{\sigma}{\sqrt n}$ 하나로 착각하면 $\sigma$가 두 배로 나옵니다.</td>
+</tr>
+</tbody></table></div>
+</div>
+  <div role="tabpanel" aria-label="미적분" data-err-panel="err-1" hidden><div class="not-prose overflow-x-auto my-6"><table class="w-full border-collapse text-sm text-left">
+<thead><tr class="border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<th class="p-3 font-bold align-bottom">순위</th>
+<th class="p-3 font-bold align-bottom">문항</th>
+<th class="p-3 font-bold align-bottom">예상 오답률</th>
+<th class="p-3 font-bold align-bottom">이유(함정)</th>
+</tr>
+</thead>
+<tbody class="text-gray-800 dark:text-gray-200"><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">1</td>
+<td class="p-3 align-top">30번</td>
+<td class="p-3 align-top">약 85%</td>
+<td class="p-3 align-top">$f=\sin x(\sqrt{1+3\cos^2x}-1)$ 하나로 고정해 버리면 (나)를 만족시키지 못합니다. 부호가 바뀔 수 있는 지점($h'=0$인 $x=\frac\pi2+n\pi$)을 놓치는 것이 가장 큰 함정입니다.</td>
+</tr><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">2</td>
+<td class="p-3 align-top">29번</td>
+<td class="p-3 align-top">약 72%</td>
+<td class="p-3 align-top">극한값만 보고 $-1&lt;L&lt;1$인 $k$만 고르면 $k=5$를 놓칩니다. $k=8$처럼 극한이 $1$이지만 위에서 다가가는 경우를 발산으로 잘못 넣는 실수도 있습니다.</td>
+</tr><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">3</td>
+<td class="p-3 align-top">28번</td>
+<td class="p-3 align-top">약 60%</td>
+<td class="p-3 align-top">(가)를 $g(x)=x-f^{-1}(x)$로 바꾸는 첫 단계가 막히면 진행이 어렵습니다. (나)를 &#39;최댓값이 정확히 $\frac1b$&#39;로 해석해야 $a=e$가 나옵니다.</td>
+</tr><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">4</td>
+<td class="p-3 align-top">27번</td>
+<td class="p-3 align-top">약 38~48%</td>
+<td class="p-3 align-top">음함수 미분으로 두 접선의 기울기를 구한 뒤 교점까지 연립해야 하는 계산형 문항입니다. $y=1$에서 $e^{y^2-1}=1$이 되는 설계를 놓치면 계산이 길어지고, 점 $\left(-\frac3a,1\right)$에서 분모 $ax+2y$의 부호를 틀리기 쉽습니다.</td>
+</tr>
+</tbody></table></div>
+</div>
+  <div role="tabpanel" aria-label="기하" data-err-panel="err-2" hidden><div class="not-prose overflow-x-auto my-6"><table class="w-full border-collapse text-sm text-left">
+<thead><tr class="border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+<th class="p-3 font-bold align-bottom">순위</th>
+<th class="p-3 font-bold align-bottom">문항</th>
+<th class="p-3 font-bold align-bottom">예상 오답률</th>
+<th class="p-3 font-bold align-bottom">이유(함정)</th>
+</tr>
+</thead>
+<tbody class="text-gray-800 dark:text-gray-200"><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">1</td>
+<td class="p-3 align-top">30번</td>
+<td class="p-3 align-top">약 82%</td>
+<td class="p-3 align-top">평면 OAB와 점 D 사이의 거리가 &#39;점 C와 직선 AB 사이의 거리&#39;와 같다는 관찰을 놓치면 $S_2$의 반지름을 구하지 못합니다. 정사영의 각도를 $\overrightarrow{\mathrm{OD}}$ 기준으로 잡는 것도 실수가 잦습니다.</td>
+</tr><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">2</td>
+<td class="p-3 align-top">29번</td>
+<td class="p-3 align-top">약 62%</td>
+<td class="p-3 align-top">점 F가 쌍곡선의 어느 가지 위에 있는지 정하지 않으면 $\overline{\mathrm{BF}}-\overline{\mathrm{AF}}=2a$의 부호가 흔들립니다. 꼭짓점 C가 B에 가까운 쪽이라는 조건도 함께 써야 합니다.</td>
+</tr><tr class="border-b border-gray-200 dark:border-gray-800">
+<td class="p-3 align-top">3</td>
+<td class="p-3 align-top">28번</td>
+<td class="p-3 align-top">약 48~54%</td>
+<td class="p-3 align-top">조건 (가)·(나)를 점 R의 좌표로 옮겨 영역(삼각형)을 정확히 그려야 합니다. 내적 $\overrightarrow{\mathrm{OR}}\cdot\overrightarrow{\mathrm{BR}}$을 중점 N까지의 거리 $\overline{\mathrm{NR}}^2-1$로 바꾸지 못하면 최대·최소를 잡기 어렵습니다.</td>
+</tr>
+</tbody></table></div>
+</div>
+</div>
 <p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4"><strong>한눈에 보는 패턴</strong></p>
 <ul class="list-disc pl-5 text-gray-800 dark:text-gray-200 leading-relaxed space-y-2 mb-6">
 <li>공통은 4점 단답 끝자리(21·22번)와 선다 끝자리(15번)에 고난도 문항이 몰렸습니다. 13번은 넓이 해석형 보기 문항입니다.</li>
@@ -731,7 +786,16 @@
 </ol>
 <p><strong>핵심 포인트</strong>: 밑을 같은 소수로 맞추면 지수의 덧셈 한 번으로 끝납니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 10% (8~12%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 1번</b><span class="sim-rate">오답률 8% (정답률 92%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\sqrt[3]{5}\times 25^{\frac13}$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>거듭제곱근을 유리수 지수로 바꾸고 밑을 통일해 지수법칙을 적용하는 1번 계산 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 1번</b><span class="sim-rate">오답률 13% (정답률 87%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\sqrt[3]{24}\times 3^{\frac23}$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>소인수분해로 밑을 맞춘 뒤 지수의 덧셈으로 정수 값을 얻는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>이번 1번은 $\sqrt[3]{32}=2^{\frac53}$과 $4^{-\frac13}=2^{-\frac23}$을 밑 $2$로 통일해 $2^{\frac53-\frac23}=2$를 얻는 지수법칙 문항입니다. 최근 두 해 수능 1번과 마찬가지로 거듭제곱근과 유리수 지수가 섞인 식에서 밑을 통일하는 연산을 그대로 이어받았습니다. 기출에서 거듭제곱근을 지수로 바꾸는 단계가 유일한 고비였듯이, 이번에도 음의 지수 $-\frac13$의 부호를 놓치지 않는 것만이 관건인 전형적인 2점 도입 문항입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="2" hidden>
@@ -753,7 +817,16 @@
 </ol>
 <p><strong>핵심 포인트</strong>: $\displaystyle\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$ 꼴을 보면 바로 $f'(a)$로 읽으세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 11% (9~13%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 2번</b><span class="sim-rate">오답률 10% (정답률 90%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">함수 $f(x)=x^3-8x+7$에 대하여 $\displaystyle\lim_{h\to0}\frac{f(2+h)-f(2)}{h}$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>극한식을 미분계수 $f^{\prime}(a)$로 읽고 도함수에 대입하는 2번 전형 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 2번</b><span class="sim-rate">오답률 13% (정답률 87%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">함수 $f(x)=2x^3-5x^2+3$에 대하여 $\displaystyle\lim_{h\to0}\frac{f(2+h)-f(2)}{h}$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>다항함수의 미분법과 미분계수의 정의가 직접 결합된 풀이 과정</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>주어진 극한 $\displaystyle\lim_{h\to0}\frac{f(1+h)-f(1)}{h}$가 미분계수 $f^{\prime}(1)$임을 알아보고, $f^{\prime}(x)=8x^3+2$에 대입해 $f^{\prime}(1)=10$을 얻는 문항입니다. 2024·2025학년도 수능 2번과 발문 형식뿐 아니라 미분계수의 정의를 해석하는 능력을 그대로 묻습니다. 사차함수로 차수만 조금 올라갔을 뿐이며, 기출과 마찬가지로 일차항의 도함수를 빠뜨리는 단순 실수만 조심하면 되는 표준 계산 문항입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="3" hidden>
@@ -775,7 +848,16 @@
 </ol>
 <p><strong>핵심 포인트</strong>: $r$을 직접 구하지 않고 $r^2$ 덩어리로 끝까지 가면 계산이 깔끔합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 15% (13~17%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 3번</b><span class="sim-rate">오답률 14% (정답률 86%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">첫째항과 공비가 모두 양수 $k$인 등비수열 ${a_n}$이 $\dfrac{a_4}{a_2}+\dfrac{a_2}{a_1}=30$을 만족시킬 때, $k$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>떨어진 두 항의 비가 공비의 거듭제곱이 된다는 성질로 공비를 구하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 6번</b><span class="sim-rate">오답률 19% (정답률 81%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">등비수열 ${a_n}$에서 $S_4-S_2=3a_4,\ a_5=\dfrac34$일 때, $a_1+a_2$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>항 사이의 관계식으로 공비를 정한 뒤 목표 항을 계산하는 풀이 흐름</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>모든 항이 양수인 등비수열에서 $a_5=3a_3$으로부터 $r^2=3$을 파악하고 $a_7=a_1(r^2)^3=27$을 계산하는 문항입니다. 2025학년도 수능 3번처럼 연속하지 않은 두 항의 비가 공비의 거듭제곱 $r^2$으로 표현된다는 사실을 활용합니다. 공비 $r=\sqrt3$을 직접 구하지 않고 $r^2$ 단위로 계산하면 부담이 적고, 기출에서처럼 거듭제곱을 한 번 덜 곱하는 실수만 피하면 됩니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="4" hidden>
@@ -798,7 +880,16 @@
 </ol>
 <p><strong>핵심 포인트</strong>: 극한은 &quot;다가가는 높이&quot;, 함숫값은 &quot;채운 점의 높이&quot;입니다. 빈 점과 채운 점을 헷갈리지 마세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 14% (12~16%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 9월 모평(2023.09) 4번</b><span class="sim-rate">오답률 14% (정답률 86%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">그래프가 주어진 함수 $f(x)$에서 $\displaystyle\lim_{x\to-2+}f(x)+\lim_{x\to1-}f(x)$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>빈 점과 채운 점을 구분해 그래프에서 좌극한과 우극한을 읽는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 4번</b><span class="sim-rate">오답률 11% (정답률 89%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f(x)=\begin{cases}5x+a &amp; (x&lt;-2)\ x^2-a &amp; (x\ge-2)\end{cases}$가 실수 전체의 집합에서 연속일 때, 상수 $a$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>경계점에서 좌극한, 우극한, 함숫값의 일치를 판단하는 기본 개념</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>그래프에서 $\displaystyle\lim_{x\to0-}f(x)=3$과 $\displaystyle\lim_{x\to1+}f(x)=1$을 읽어 더하는 문항입니다. 2024학년도 9월 모평 4번과 같이 빈 점과 채운 점의 위치를 혼동하지 않고 한쪽 극한값을 읽어야 합니다. 기출에서 채운 점의 함숫값을 극한값으로 잘못 읽게 만들던 함정이 이번에도 $x=0$의 채운 점 $(0,0)$으로 그대로 나타납니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="5" hidden>
@@ -820,7 +911,16 @@
 </ol>
 <p><strong>핵심 포인트</strong>: 부정적분이 주어지면 굳이 $f$를 구하지 말고 바로 $F(b)-F(a)$를 계산합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 13% (11~15%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 5번</b><span class="sim-rate">오답률 12% (정답률 88%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">다항함수 $f(x)$가 $f^{\prime}(x)=3x(x-2),\ f(1)=6$을 만족시킬 때, $f(2)$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>도함수에서 원래 함수를 복원해 함숫값을 연결하는 적분의 기본 구조</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 7번</b><span class="sim-rate">오답률 13% (정답률 87%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">다항함수 $f(x)$가 $\displaystyle\int_0^x f(t),dt=3x^3+2x$를 만족시킬 때, $f(1)$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>정적분으로 표현된 함수와 피적분함수 사이의 관계를 다루는 계산</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>부정적분 $F(x)=x^3-x^2+x$가 직접 주어져 있으므로 $\displaystyle\int_0^2 f(x)\,dx=F(2)-F(0)$을 곧바로 적용하는 문항입니다. $F(x)$를 미분해 $f(x)=3x^2-2x+1$을 구한 뒤 다시 적분해도 같은 결과가 나오도록 설계되어 있습니다. 기출과 마찬가지로 정적분과 부정적분의 관계를 바르게 이해했는지만 확인하며, 대입 과정의 부호 처리 외에는 함정이 거의 없습니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="6" hidden>
@@ -842,7 +942,16 @@
 </ol>
 <p><strong>핵심 포인트</strong>: $y=a\sin bx+c$의 주기는 $\dfrac{2\pi}{|b|}$, 최댓값은 $|a|+c$입니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 29% (26~32%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 10번</b><span class="sim-rate">오답률 30% (정답률 70%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">닫힌구간 $[0,2\pi]$에서 $f(x)=a\cos bx+3$이 $x=\frac{\pi}{3}$에서 최댓값 $13$을 갖도록 하는 자연수 $a,b$에 대하여 $a+b$의 최솟값은?</p>
+  <p class="sim-like"><b>닮은 점</b>삼각함수의 계수, 주기, 평행이동이 최댓값 조건과 맞물리는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 6월 모평(2023.06) 6번</b><span class="sim-rate">오답률 32% (정답률 68%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\cos\theta&lt;0$이고 $\sin(-\theta)=\frac17\cos\theta$일 때, $\sin\theta$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>삼각함수의 기본 성질로 값을 결정하는 3점 문항</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$f(x)=3\sin\dfrac{2\pi x}{k}+k$의 주기 $\dfrac{2\pi}{2\pi/k}=k$로부터 $k=8$을 정하고 최댓값 $3+k=11$을 구하는 문항입니다. 2025학년도 수능 10번처럼 $x$의 계수가 주기와 직결되고, 상수항의 평행이동이 진폭과 결합해 최댓값을 정합니다. 기출에서 주기 공식의 역수 관계를 헷갈리게 하던 지점이 이번에도 그대로 변별 포인트가 됩니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="7" hidden>
@@ -865,7 +974,16 @@
 </ol>
 <p><strong>핵심 포인트</strong>: 미정계수를 구한 뒤 $f'(x)$를 인수분해해 극대·극소 위치를 꼭 다시 확인합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 20% (17~23%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 9월 모평(2023.09) 6번</b><span class="sim-rate">오답률 16% (정답률 84%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f(x)=x^3+ax^2+bx+1$이 $x=-1$에서 극대, $x=3$에서 극소일 때, $f(x)$의 극댓값은?</p>
+  <p class="sim-like"><b>닮은 점</b>극값을 갖는 점에서 $f^{\prime}(x)=0$을 이용해 계수를 정하고 극댓값을 계산하는 삼차함수 전형</p>
+</li><li>
+  <div class="sim-head"><b>2023학년도 수능(2022.11) 6번</b><span class="sim-rate">오답률 20% (정답률 80%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f(x)=2x^3-9x^2+ax+5$가 $x=1$에서 극대, $x=b$에서 극소일 때, $a+b$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>$f^{\prime}(1)=0$으로 미지수를 정하고 인수분해로 다른 극점을 찾는 과정</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$f^{\prime}(x)=3x^2+2ax-3a$에 극소 조건 $f^{\prime}(1)=3-a=0$을 적용해 $a=3$을 얻고, $f^{\prime}(x)=3(x+3)(x-1)$에서 극대점 $x=-3$을 찾아 극댓값 $f(-3)=28$을 구하는 문항입니다. 2024학년도 9월 모평 6번과 2023학년도 수능 6번처럼 도함수의 근과 극대·극소 판정을 결합한 평가원의 전형적인 3점 문항입니다. 기출에서와 같이 극점을 원래 함수에 대입할 때 음수의 거듭제곱 부호를 실수하는 것이 주된 함정입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="8" hidden>
@@ -888,7 +1006,16 @@
 </ol>
 <p><strong>핵심 포인트</strong>: $\dfrac{1}{\log_a b}=\log_b a$, 그리고 $\log_a b\times\log_b a=1$을 바로 떠올리세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 28% (25~31%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 8번</b><span class="sim-rate">오답률 27% (정답률 73%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$a=2\log\frac{1}{\sqrt{10}}+\log_2 20$, $b=\log 2$일 때, $a\times b$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>밑이 다른 로그를 밑변환으로 정리하고 곱으로 상쇄하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 9번</b><span class="sim-rate">오답률 43% (정답률 57%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">수직선 위의 두 점 $\mathrm P(\log_5 3)$, $\mathrm Q(\log_5 12)$에 대하여 선분 PQ를 $m:(1-m)$으로 내분하는 점의 좌표가 $1$일 때, $4^m$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>로그의 성질과 지수·로그의 역관계를 활용한 식 변형</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$a=\log_2 9=2\log_2 3$, $b=\log_3 2+\dfrac{1}{\log_8 3}=4\log_3 2$로 정리해 $a\times b=8$을 구하는 문항입니다. $\dfrac{1}{\log_8 3}$을 $\log_3 8=3\log_3 2$로 바꾼 뒤, 2025학년도 수능 8번에서 $\log_2 10\times\log 2=1$을 썼던 것처럼 역수 관계인 $\log_2 3\times\log_3 2=1$로 정수 값을 끌어냅니다. 기출에서 밑이 다른 로그를 정리하지 못해 식이 복잡해지던 함정이, 이번에는 역수 꼴의 로그를 밑변환하지 못하는 오류로 다시 나타납니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="9" hidden>
@@ -912,7 +1039,16 @@
 </ol>
 <p><strong>핵심 포인트</strong>: &quot;움직인 거리&quot;가 나오면 반사적으로 속도가 $0$이 되는 시각부터 찾으세요. 그냥 $\int_0^2 v\,dt=2$로 계산하면 위치 변화량이 나와 오답으로 이어집니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 50% (46~53%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 10번</b><span class="sim-rate">오답률 49% (정답률 51%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 점 P, Q의 속도가 $v_1(t)=t^2-6t+5$, $v_2(t)=2t-7$이고, 두 점 사이의 거리의 증감이 바뀌는 시각 $a,b$에 대하여 $t=a$에서 $t=b$까지 점 Q가 움직인 거리는?</p>
+  <p class="sim-like"><b>닮은 점</b>속도의 부호가 바뀌는 시각을 기준으로 구간을 나누어 속도의 절댓값을 적분하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 9번</b><span class="sim-rate">오답률 19% (정답률 81%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f(x)=3x^2-16x-20$에 대하여 $\displaystyle\int_{-2}^{a}f(x),dx=\int_{-2}^{0}f(x),dx$일 때, 양수 $a$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>이차함수의 정적분을 구간별로 계산하는 기본 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>속도 $v(t)=3(t-1)(t-5)$에서 점 P가 $t=1$에서 운동 방향을 바꾼다는 사실을 파악하고, 구간을 나누어 움직인 거리를 적분하는 4점 첫 문항입니다. 2024학년도 수능 10번처럼 위치의 변화량이 아니라 움직인 거리를 묻고 있으므로 $\displaystyle\int_0^2|v(t)|\,dt$를 정확히 계산해야 합니다. 기출에서 방향 전환 시각을 놓치고 단순 정적분을 하게 만들던 함정이 이번에도 $t=1$에서 그대로 재현됩니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="10" hidden>
@@ -938,7 +1074,20 @@ $$\sqrt{17}\,k=2\sqrt{17}\cdot\frac{2\sqrt2}{3}\quad\Longrightarrow\quad k=\frac
 </ol>
 <p><strong>핵심 포인트</strong>: 사인의 비는 곧 변의 비입니다. 각 $C$의 정보는 코사인법칙(변 $c$)과 사인법칙(외접원)에 모두 쓰이는 연결 고리입니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 51% (48~54%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 9월 모평(2024.09) 10번</b><span class="sim-rate">오답률 58% (정답률 42%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\angle\mathrm A&gt;\frac{\pi}{2}$인 삼각형 ABC에서 $\overline{\mathrm{AB}}:\overline{\mathrm{AC}}=\sqrt2:1$, $\overline{\mathrm{AH}}=2$이고 외접원의 넓이가 $50\pi$일 때, 선분 BH의 길이는?</p>
+  <p class="sim-like"><b>닮은 점</b>외접원의 넓이로 반지름을 구하고 변의 비와 사인법칙·코사인법칙을 결합하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 13번</b><span class="sim-rate">오답률 56% (정답률 44%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\overline{\mathrm{AB}}=3$, $\overline{\mathrm{BC}}=\sqrt{13}$, $\overline{\mathrm{AD}}\times\overline{\mathrm{CD}}=9$, $\angle\mathrm{BAC}=\frac{\pi}{3}$인 사각형 ABCD에서 $S_2=\frac56S_1$일 때, 삼각형 ACD의 외접원의 반지름 $R$에 대하여 $\dfrac{R}{\sin(\angle\mathrm{ADC})}$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>코사인법칙으로 변을 구하고 외접원의 반지름과 사인법칙을 연립하는 4점 도형 문항</p>
+</li><li>
+  <div class="sim-head"><b>2023학년도 수능(2022.11) 11번</b><span class="sim-rate">오답률 52% (정답률 48%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">원에 내접하는 사각형 ABCD에서 $\overline{\mathrm{AB}}=5$, $\overline{\mathrm{AC}}=3\sqrt5$, $\overline{\mathrm{AD}}=7$, $\angle\mathrm{BAC}=\angle\mathrm{CAD}$일 때, 원의 반지름의 길이는?</p>
+  <p class="sim-like"><b>닮은 점</b>코사인법칙과 사인법칙을 연립해 외접원의 반지름을 다루는 풀이 흐름</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$\sin A:\sin B=3:4$에서 $a:b=3:4$를 세우고 $\cos C=\frac13$을 코사인법칙에 넣어 $c=\sqrt{17}k$를 얻은 뒤, 외접원의 반지름 $R=\sqrt{17}$과 사인법칙 $c=2R\sin C$를 연립해 $a=4\sqrt2$를 구하는 문항입니다. 2025학년도 9월 모평 10번처럼 외접원의 넓이에서 반지름을 얻고, 2024학년도 수능 13번처럼 사인법칙과 코사인법칙을 교차 적용해야 합니다. 기출에서 연립 단계가 여러 겹이라 중간에 비례식을 잘못 세우던 함정이 이번에도 같은 자리에서 나타납니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="11" hidden>
@@ -962,7 +1111,20 @@ $$\sqrt{17}\,k=2\sqrt{17}\cdot\frac{2\sqrt2}{3}\quad\Longrightarrow\quad k=\frac
 </ol>
 <p><strong>핵심 포인트</strong>: 접선 문제는 항상 &quot;함숫값 일치&quot;와 &quot;기울기 일치&quot; 두 식을 세웁니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 36% (33~39%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 6월 모평(2023.06) 8번</b><span class="sim-rate">오답률 28% (정답률 72%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 곡선 $y=2x^2-1$, $y=x^3-x^2+k$가 만나는 점의 개수가 $2$가 되도록 하는 양수 $k$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>두 곡선이 접할 조건(함숫값과 기울기의 일치)을 연립하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 9월 모평(2024.09) 11번</b><span class="sim-rate">오답률 31% (정답률 69%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 점 P, Q의 위치가 $x_1=t^2+t-6$, $x_2=-t^3+7t^2$일 때, 위치가 같아지는 순간의 가속도 $p,q$에 대하여 $p-q$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>함숫값 일치 조건과 도함수 계산을 두 단계로 연결하는 미분 문항</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 5번</b><span class="sim-rate">오답률 12% (정답률 88%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f(x)=(x^2+1)(3x^2-x)$에 대하여 $f^{\prime}(1)$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>곱의 꼴로 정의된 함수에 곱의 미분법을 적용하는 계산</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>곡선 $y=x^2f(x)$ 위의 점 $(1,f(1))$이 접선 $y=7x-11$ 위에 있으므로 $f(1)=-4$를 먼저 얻고, 곱의 미분법으로 기울기 조건 $2f(1)+f^{\prime}(1)=7$을 풀어 $f^{\prime}(1)=15$를 구하는 문항입니다. 2024학년도 6월 모평 8번처럼 접점에서 함숫값 일치와 기울기 일치라는 두 정보를 모두 써야 합니다. 기출의 곱의 미분 계산에서 앞 항의 미분을 빠뜨리던 실수가, 이번에는 $2xf(x)$ 항을 놓치는 함정으로 다시 등장합니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="12" hidden>
@@ -987,7 +1149,16 @@ $$\sqrt{17}\,k=2\sqrt{17}\cdot\frac{2\sqrt2}{3}\quad\Longrightarrow\quad k=\frac
 </ol>
 <p><strong>핵심 포인트</strong>: 등차수열에서 연속한 홀수 개 항의 합은 &quot;가운데 항 × 개수&quot;입니다. 절댓값은 부호로 경우를 나눠 모순인 쪽을 지우세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 44% (40~48%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2022학년도 9월 모평(2021.09) 13번</b><span class="sim-rate">오답률 50% (정답률 50%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">첫째항이 $-45$이고 공차가 $d$인 등차수열이 $\lvert a_m\rvert =\lvert a_{m+3}\rvert $인 자연수 $m$이 존재하고 모든 $n$에 대하여 $\sum_{k=1}^{n}a_k&gt;-100$을 만족시키도록 하는 모든 자연수 $d$의 값의 합은?</p>
+  <p class="sim-like"><b>닮은 점</b>절댓값 등식에서 두 항의 부호가 반대임을 파악하고 부분합 조건과 연립하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2017학년도 6월 모평(2016.06) 12번(나형)</b><span class="sim-rate">오답률 15% (정답률 85%) / SN 기출 DB</span></div>
+  <p class="sim-stem">등차수열에서 $a_8=a_2+12$, $a_1+a_2+a_3=15$일 때 $a_{10}$의 값 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>항 번호 사이의 차이로 공차와 첫째항을 결정하는 전형적인 풀이</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>조건 $a_3=|a_8|$에서 공차가 $0$이 아니므로 두 항의 부호가 반대, 즉 $a_3+a_8=0$임을 알아차려야 한다는 점에서 2022학년도 9월 모평 13번과 판단 구조가 같습니다. 부분합의 차 $S_8-S_3=a_4+\cdots+a_8=-15$를 등차중항 $5a_6$으로 묶어 내는 간결한 처리를 요구합니다. 기출에서 식을 무작정 $a_1$과 $d$로 풀어 연립하다 부호가 꼬이던 함정이, 이번에는 음수 공차를 양수로 처리하는 실수로 이어지기 쉽습니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="13" hidden>
@@ -1025,7 +1196,16 @@ $$g(t)\ge\int_0^1 f(x)\,dx-\int_1^2 f(x)\,dx$$
 </ol>
 <p><strong>핵심 포인트</strong>: ㄴ에서 쓴 &quot;구간을 $x=1$에서 나누는 계산&quot;이 바로 ㄷ에서 $t=f(1)$일 때의 값과 같다는 점을 알아보는 것이 포인트입니다. 보기 사이의 연결을 놓치지 마세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 55%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 사관학교(2024.07) 13번</b></div>
+  <p class="sim-stem">$f(x)=2x(2-x)$와 직선 $y=t$의 위치 관계로 정의한 함수 $g(t)$의 해석</p>
+  <p class="sim-like"><b>닮은 점</b>직선 $y=t$와의 위치 관계에 따라 구간을 나누어 새 함수 $g(t)$를 정의하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 경찰대학(2023.07) 10번</b></div>
+  <p class="sim-stem">$g(t)=\displaystyle\int_{t-1}^{t+2}\lvert f(x)\rvert ,dx$의 최솟값 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>절댓값이 있는 피적분함수를 경계점에서 나누어 정적분을 정리하는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>정적분으로 정의된 $g(t)=\displaystyle\int_0^2|f(x)-t|\,dx$는 절댓값을 풀기 위해 곡선 $y=f(x)$와 직선 $y=t$의 위아래 관계를 구간별로 나누어야 한다는 점에서 사관학교 13번, 경찰대학 10번과 같은 판단을 공유합니다. ㄷ에서는 적분 구간을 $x=1$에서 나누면 $t$에 관한 항이 상쇄되어 $g(t)$의 하한이 나오고, 등호가 $t=f(1)$일 때만 성립한다는 점을 찾아야 합니다. 두 기출이 직선 $y=t$를 움직이며 함수의 값을 추적하게 했다면, 이번 ㄷ은 ㄴ과 같은 꼴의 식을 보고 부등호를 섣불리 일반화하지 않도록 등호 조건까지 따지게 합니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="14" hidden>
@@ -1052,7 +1232,16 @@ $$\left(\frac{5-1+r}{3},\ \frac{1+2-2r+11}{3}\right)=\left(\frac{4+r}{3},\ \frac
 </ol>
 <p><strong>핵심 포인트</strong>: 이상하게 구체적인 기울기 $-\dfrac16$이 나오면 &quot;$x$축의 방향으로 $-6$만큼, $y$축의 방향으로 $1$만큼 평행이동할 때 두 대응점을 잇는 직선의 기울기 $\dfrac{1}{-6}$&quot;을 의심해 보세요. Q를 계산 없이 바로 찾는 것이 이 문항의 핵심입니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 51% (47~54%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2022학년도 수능(2021.11) 9번</b><span class="sim-rate">오답률 45% (정답률 55%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">직선 $y=2x+k$가 두 함수 $y=\left(\frac23\right)^{x+3}+1$, $y=\left(\frac23\right)^{x+1}+\frac83$의 그래프와 만나는 점을 P, Q라 할 때, $\overline{\mathrm{PQ}}=\sqrt5$이면 $k$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>직선의 기울기와 선분의 길이로 두 교점의 좌표 차를 먼저 정하고 이를 두 곡선의 식에 연립하는 기하적 구조</p>
+</li><li>
+  <div class="sim-head"><b>2022학년도 수능(2021.11) 13번</b><span class="sim-rate">오답률 59% (정답률 41%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 점 $(a,\log_2 a)$, $(b,\log_2 b)$를 지나는 직선과 두 점 $(a,\log_4 a)$, $(b,\log_4 b)$를 지나는 직선의 $y$절편이 같을 때, $f(x)=a^{bx}+b^{ax}$에 대하여 $f(1)=40$이면 $f(2)$의 값은?</p>
+  <p class="sim-like"><b>닮은 점</b>좌표평면 위의 점과 로그 곡선의 식을 연립해 밑과 미지수의 관계를 끌어내는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$g(x)$는 $f(x)$를 $x$축 방향으로 $-6$, $y$축 방향으로 $1$만큼 평행이동한 곡선입니다. 점 $\mathrm P(5,1)$을 같은 만큼 옮긴 점 $(-1,2)$와 P를 잇는 직선의 기울기가 정확히 $-\frac16$이므로, 점 Q가 $(-1,2)$로 곧바로 정해지는 평행이동과 기울기의 일치 구조를 담고 있습니다. 2022학년도 수능 9번에서 기울기 $2$와 $\overline{\mathrm{PQ}}=\sqrt5$로 두 교점의 좌표 차 $(1,2)$를 먼저 읽어 내야 연립이 풀리도록 했던 장치가, 이번에는 기울기 $-\frac16$이 평행이동 $(-6,1)$의 방향과 일치함을 먼저 보아야 로그방정식을 직접 풀지 않고 Q를 정할 수 있는 장치로 다시 쓰였습니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="15" hidden>
@@ -1083,7 +1272,16 @@ $$s(x)=\begin{cases}-1 &amp; (x&lt;0)\\ 1 &amp; (0\le x&lt;1)\\ -1 &amp; (1\le x
 </ol>
 <p><strong>핵심 포인트</strong>: $x^2$은 $0$ 근처에서 오른쪽에서만 다가간다는 점, 그리고 $g$는 우극한으로 정의되어 $\displaystyle\lim_{x\to0+}g(x)=g(0)$이라는 점이 맞물려 $x=0$이 불연속점에서 빠집니다. 이 함정을 피하는 것이 정답의 열쇠입니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 70%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2009학년도 수능(2008.11) 6번(가·나형 공통)</b><span class="sim-rate">오답률 49% (정답률 51%) / SN 기출 DB</span></div>
+  <p class="sim-stem">극한으로 정의된 함수 $g(x)$와 다항함수 $f(x)$의 곱 $h(x)$의 연속성 판정</p>
+  <p class="sim-like"><b>닮은 점</b>극한으로 정의된 부호 함수와 다항식의 곱에서 불연속점을 판정하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2014학년도 수능(2013.11) 28번(A형)</b><span class="sim-rate">오답률 55% (정답률 45%) / SN 기출 DB</span></div>
+  <p class="sim-stem">구간별로 정의된 함수 $f(x)$에 대하여 $f(x)f(x-a)$가 $x=a$에서 연속이 되는 조건</p>
+  <p class="sim-like"><b>닮은 점</b>경계점에서 좌극한과 우극한을 추적해 연속성을 결정하는 논리</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$\displaystyle\lim_{t\to x+}\frac{f(t)}{|f(t)|}$는 $x$의 바로 오른쪽에서 삼차함수 $f$의 부호를 나타내므로, $f$의 부호가 바뀌는 점에서 값이 뛴다는 점에서 2009학년도 수능 6번과 소재가 같습니다. 핵심은 $g(x^2)$에서 $x=0$ 근처의 $x^2$이 $0$에 오른쪽에서만 다가가므로, $g$가 $0$에서 불연속이어도 $g(x^2)$은 $x=0$에서 연속이 된다는 점입니다. 2014학년도 수능 A형 28번에서 경계점의 한쪽 극한만 보고 연속성을 단정하게 하던 함정이, 이번에는 $x=0$까지 불연속점으로 세게 만드는 장치로 재현되었습니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="16" hidden>
@@ -1105,7 +1303,16 @@ $$s(x)=\begin{cases}-1 &amp; (x&lt;0)\\ 1 &amp; (0\le x&lt;1)\\ -1 &amp; (1\le x
 </ol>
 <p><strong>핵심 포인트</strong>: 밑을 같게 만들면 지수끼리 비교하는 일차방정식이 됩니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 5% (3~6%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2015학년도 수능(2014.11) 15번(A형)</b><span class="sim-rate">오답률 7% (정답률 93%) / SN 기출 DB</span></div>
+  <p class="sim-stem">지수부등식 $\left(\frac15\right)^{1-2x}\le 5^{x+4}$를 만족시키는 자연수 $x$ 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>밑 $\frac15$을 $5^{-1}$로 통일해 일차식으로 바꾸는 기본 지수 연산</p>
+</li><li>
+  <div class="sim-head"><b>2010학년도 수능(2009.11) 4번(나형)</b><span class="sim-rate">오답률 18% (정답률 82%) / SN 기출 DB</span></div>
+  <p class="sim-stem">지수방정식 $2^x+2^{2-x}=5$의 모든 실근의 합</p>
+  <p class="sim-like"><b>닮은 점</b>지수방정식의 밑을 맞추어 푸는 대수적 해법</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>우변의 밑 $\frac1{25}$을 $5^{-2}$로 바꾸어 지수끼리의 일차방정식 $x=-2(x-3)$으로 정리하는 기본 지수방정식입니다. 밑이 $1$보다 큰 $5$로 통일되므로 $3x=6$에서 $x=2$를 바로 얻습니다. 2015학년도 수능 A형 15번에서 분수 밑을 음의 지수로 바꾸던 첫 단계가 그대로 쓰였고, 기출과 마찬가지로 $-2(x-3)$을 전개할 때의 부호만 조심하면 됩니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="17" hidden>
@@ -1127,7 +1334,16 @@ $$s(x)=\begin{cases}-1 &amp; (x&lt;0)\\ 1 &amp; (0\le x&lt;1)\\ -1 &amp; (1\le x
 </ol>
 <p><strong>핵심 포인트</strong>: $f(2)=f(1)+\displaystyle\int_1^2 f'(x)\,dx=5+15=20$으로 검산할 수도 있습니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 7% (5~8%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 6월 모평(2024.06) 17번</b><span class="sim-rate">오답률 14% (정답률 86%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f^{\prime}(x)=6x^2+2$, $f(0)=3$일 때 $f(2)$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>도함수를 적분하고 주어진 함숫값으로 적분상수를 정해 함숫값을 계산하는 흐름</p>
+</li><li>
+  <div class="sim-head"><b>2026학년도 9월 모평(2025.09) 17번</b><span class="sim-rate">오답률 8% (정답률 92%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f^{\prime}(x)=3x^2+2x+1$, $f(1)=6$일 때 $f(2)$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>부정적분 후 주어진 함숫값으로 적분상수를 구하는 표준 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>도함수 $f^{\prime}(x)=6x^2+1$을 적분해 $f(x)=2x^3+x+C$를 구하고, $f(1)=5$에서 $C=2$를 정한 뒤 $f(2)=20$을 계산하는 전형적인 부정적분 문항입니다. 2025학년도 6월 모평 17번과 최고차항의 꼴, 조건의 성격, 최종적으로 묻는 값까지 같은 교과서 기본 유형입니다. 기출에서처럼 적분상수를 빠뜨리거나 주어진 점을 잘못 대입하는 실수만이 함정입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="18" hidden>
@@ -1149,7 +1365,16 @@ $$s(x)=\begin{cases}-1 &amp; (x&lt;0)\\ 1 &amp; (0\le x&lt;1)\\ -1 &amp; (1\le x
 </ol>
 <p><strong>핵심 포인트</strong>: 상수 $a$를 $5$번 더하면 $5a$라는 점을 빠뜨리지 마세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 8% (6~10%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2026학년도 6월 모평(2025.06) 3번</b><span class="sim-rate">오답률 10% (정답률 90%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\sum_{k=1}^{7}a_k=8$일 때 $\sum_{k=1}^{7}(2a_k+1)$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>시그마의 성질과 상수의 합 $nc$를 이용하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2026학년도 9월 모평(2025.09) 3번</b><span class="sim-rate">오답률 8% (정답률 92%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\sum_{k=1}^{6}(2a_k-1)=30$일 때 $\sum_{k=1}^{6}a_k$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>시그마의 성질로 일차방정식을 세우는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>좌변을 시그마의 성질로 $2\sum_{k=1}^{5}k+5a=30+5a$로 전개하고, 우변 $\sum_{k=1}^{5}k^2=55$를 계산해 $30+5a=55$를 푸는 문항입니다. 시그마의 기본 공식과 상수를 항의 개수만큼 곱하는 평가원 단골 계산을 그대로 따릅니다. 기출에서 상수항의 합을 $c$로만 적는 실수가 함정이었듯이, 이번에도 $a$를 $5$배 하지 않는 실수가 유일한 감점 요인입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="19" hidden>
@@ -1172,7 +1397,16 @@ $$s(x)=\begin{cases}-1 &amp; (x&lt;0)\\ 1 &amp; (0\le x&lt;1)\\ -1 &amp; (1\le x
 </ol>
 <p><strong>핵심 포인트</strong>: 수평선과 삼차함수의 교점이 2개이면 그 직선은 반드시 극값을 지나는 접선입니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 21% (18~24%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2021학년도 수능(2020.12) 25번(나형)</b><span class="sim-rate">오답률 24% (정답률 76%) / SN 기출 DB</span></div>
+  <p class="sim-stem">곡선 $y=4x^3-12x+7$과 직선 $y=k$가 만나는 점의 개수가 $2$가 되도록 하는 양수 $k$</p>
+  <p class="sim-like"><b>닮은 점</b>삼차함수와 수평선의 교점이 2개인 조건에서 극값을 선택하는 논리</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 6월 모평(2023.06) 8번</b><span class="sim-rate">오답률 28% (정답률 72%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 곡선 $y=2x^2-1$, $y=x^3-x^2+k$가 만나는 점의 개수가 $2$가 되도록 하는 양수 $k$</p>
+  <p class="sim-like"><b>닮은 점</b>삼차방정식이 중근과 다른 한 근을 가질 조건에서 양수 $k$를 정하는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>곡선 $y=x^3-3x^2-24x+3$과 직선 $y=k$의 교점이 2개가 되려면 직선이 극댓값 또는 극솟값 높이에 있어야 한다는 원리를 묻습니다. $y^{\prime}=3(x-4)(x+2)$에서 극대점 $x=-2$, 극소점 $x=4$를 찾고, 양수 $k$를 요구하므로 극댓값 $31$을 고르는 흐름입니다. 2021학년도 수능 나형 25번과 발문과 풀이 단계가 거의 같으며, 기출처럼 양수 조건으로 두 극값 중 하나를 고르는 판단과 음수 거듭제곱 계산이 관건입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="20" hidden>
@@ -1208,7 +1442,12 @@ $$x_1=\frac{72b\pm60b}{72}=\frac{11}{6}b\ \text{또는}\ \frac{1}{6}b$$
 </ol>
 <p><strong>핵심 포인트</strong>: 빈칸 추론은 앞줄의 결론을 그대로 다음 줄의 재료로 씁니다. (가)에서 $x_1+x_2=2b$를 대입하는 것, (나)에서 ㉠으로 $y_1$을 $x_1$로 바꾸는 것처럼 &quot;방금 얻은 식&quot;을 바로 쓰는 습관이 중요합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 49% (45~53%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2022학년도 수능(2021.11) 11번</b><span class="sim-rate">오답률 50% (정답률 50%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f(x)=\tan\frac{\pi x}{a}$의 그래프 위의 세 점 O, A, B를 지나는 직선과 정삼각형 조건</p>
+  <p class="sim-like"><b>닮은 점</b>그래프의 점대칭성을 이용해 교점의 좌표 관계를 세우고 도형 조건을 푸는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>사인함수 $f(x)=a\sin\dfrac{\pi x}{b}$의 그래프가 점 $(b,0)$에 대해 대칭이라는 성질과, 조건 $y_2(x_1-b)=y_1(x_2-b)$로부터 직선 AB가 점 $(b,0)$을 지난다는 사실을 연결해 두 교점의 중점이 $(b,0)$임을 파악하는 문항입니다. 2022학년도 수능 11번처럼 삼각함수 그래프의 점대칭성을 교점 좌표의 관계로 바꾸는 것이 출발점입니다. 이후 빈칸 추론 양식에서는 앞줄에서 얻은 식을 다음 줄에 그대로 대입해야 (가), (나), (다)가 어긋나지 않습니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="21" hidden>
@@ -1260,7 +1499,16 @@ $$-Af'(\gamma)=9(2-\gamma)(\gamma+1)^2=36\ \Longleftrightarrow\ \gamma^3-3\gamma
 </ol>
 <p><strong>핵심 포인트</strong>: &quot;구간 최댓값/최솟값 함수&quot;는 반드시 그래프를 그려 극값 높이와 같은 높이의 점($\delta,\gamma$)을 찾으세요. 미분 불가능한 점은 바로 그 이음매이고, 좌·우 미분계수의 차는 &quot;곱의 한쪽이 상수가 되는 순간&quot;에서 생깁니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 88%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2022년 10월 교육청(고3) 22번</b><span class="sim-rate">오답률 97% (정답률 3%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">사차함수 $f(x)$에 대하여 구간 $(-\infty,t]$와 $[t,\infty)$에서의 최솟값으로 정의한 함수 $g(t)$의 해석</p>
+  <p class="sim-like"><b>닮은 점</b>구간별 최댓값·최솟값을 추적해 새 함수를 정의하고 원래 함수의 개형을 역추론하는 논리</p>
+</li><li>
+  <div class="sim-head"><b>2027학년도 6월 모평(2026.06) 21번</b><span class="sim-rate">오답률 89% (정답률 11%, 확통 응시자 기준) / SN 기출 DB</span></div>
+  <p class="sim-stem">최고차항의 계수가 $1$인 삼차함수 $f(x)$에 대하여 $f(\alpha)=f^{\prime}(t)-4t^2+4$를 만족시키는 실수 $\alpha$의 최댓값 $g(t)$가 $t=3$에서만 불연속이고 $g(3)=1$일 때 $f(2)$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>삼차함수의 극값과 수평선의 위치 관계에 따라 정의된 새 함수 $g(t)$의 특이점을 분석하는 추론</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$t$를 경계로 왼쪽 구간 $(-\infty,t]$의 최댓값과 오른쪽 구간 $[t,\infty)$의 최솟값을 곱한 함수 $g(t)$를 분석하는 최고난도 문항으로, 2022년 10월 교육청 22번의 구간별 최대·최소 분할 아이디어를 이어받았습니다. 삼차함수가 극대와 극소를 가질 때 두 극점 사이에서는 $g(t)$가 상수가 되므로, $g^{\prime}(b)=0$인 $b$의 범위 조건이 극점과 근의 위치를 알려 줍니다. 2027학년도 6월 모평 21번에서 새 함수의 특이점이 생기는 위치를 경우별로 따지지 않으면 막히던 함정이, 이번에는 좌·우 미분계수의 차가 어느 이음매에서 생기는지 두 경우를 모두 확인해야 하는 장치로 재현되었습니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="22" hidden>
@@ -1297,7 +1545,20 @@ $$13\times\frac{15}{2}+\frac12=98$$
 </ol>
 <p><strong>핵심 포인트</strong>: $a_1,a_2$를 따로 구할 필요가 없습니다. 구하는 값이 $a_1+a_2$, $a_1a_2$, $a_3$만으로 표현되는 대칭식이라는 점을 보면 계산이 확 줄어듭니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 78%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2014학년도 6월 모평(2013.06) 28번(A형)</b><span class="sim-rate">오답률 33% (정답률 67%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$a_{n+6}=a_n$인 수열에서 $\sum_{k=1}^{50}a_k=258$일 때 $a_2$의 값 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>주기성을 파악하고 합을 주기 묶음과 나머지로 나누어 미지수를 정하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2011학년도 수능(2010.11) 30번(나형)</b><span class="sim-rate">오답률 52% (정답률 48%) / SN 기출 DB</span></div>
+  <p class="sim-stem">로그로 주어진 부분합 조건에서 수열의 값과 역수 꼴의 합 계산</p>
+  <p class="sim-like"><b>닮은 점</b>로그의 합으로 항들의 곱을 얻고 역수 꼴의 합을 계산하는 대수 구조</p>
+</li><li>
+  <div class="sim-head"><b>2012년 3월 교육청(고3) 17번(나형)</b><span class="sim-rate">오답률 58% (정답률 42%) / SN 기출 DB</span></div>
+  <p class="sim-stem">주기성을 갖는 수열에서 조건을 만족하는 항들의 부분합 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>주기를 갖는 수열의 묶음 합을 일반화해 계산하는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>조건 $a_n=a_{n+6}=a_{n+9}$에서 $n$ 대신 $n+3$을 넣으면 $a_{n+3}=a_n$이 성립하므로, 이 수열의 실제 주기가 $3$이라는 점을 알아차리는 것이 첫 단추입니다. 주기 $3$을 바탕으로 항의 합과 로그의 합을 주기 단위로 분해하면 $a_1+a_2$, $a_1a_2$, $a_3$을 연립해 구할 수 있습니다. 2014학년도 6월 모평 A형 28번에서 주기 묶음 뒤에 남는 나머지 항을 빠뜨리게 하던 함정이, 이번에도 $\sum_{k=1}^{40}\frac{1}{a_ka_{k+1}}$의 마지막 한 항으로 다시 나타납니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 </section>
@@ -1328,7 +1589,16 @@ $$ {}_2\Pi_7 = 2^7 = 128 $$
 </ol>
 <p><strong>핵심 포인트</strong>: ${}_n\Pi_r = n^r$입니다. &quot;서로 다른 $n$개에서 중복을 허용하여 $r$개를 택해 나열&quot;이라는 문장이 보이면 바로 거듭제곱을 떠올리면 됩니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 10% (8~12%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2026학년도 수능(2025.11) 23번(확통)</b><span class="sim-rate">오답률 10% (정답률 90%) / SN 기출 DB</span></div>
+  <p class="sim-stem">네 문자 $a,b,c,d$ 중에서 중복을 허락하여 $3$개를 택해 일렬로 나열하는 경우의 수</p>
+  <p class="sim-like"><b>닮은 점</b>서로 다른 $n$개에서 중복을 허락해 $r$개를 나열하는 중복순열 공식을 바로 적용하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2026학년도 9월 모평(2025.09) 23번(확통)</b><span class="sim-rate">오답률 8% (정답률 92%) / SN 기출 DB</span></div>
+  <p class="sim-stem">세 문자 $a,b,c$ 중에서 중복을 허락하여 $4$개를 택해 일렬로 나열하는 경우의 수</p>
+  <p class="sim-like"><b>닮은 점</b>문자와 자리 수만 바뀐 중복순열의 전형적인 2점 도입 문항 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>이번 23번은 두 문자 중에서 중복을 허용해 $7$개를 택해 나열하는 경우의 수 $2^7=128$을 묻고 있어, 2026학년도 수능 23번($4^3$)과 9월 모평 23번($3^4$)과 같은 중복순열 공식 대입형 문항입니다. 각 자리에 두 문자가 독립적으로 올 수 있다는 곱의 법칙만 적용하면 바로 해결됩니다. 기출에서 밑과 지수를 뒤바꾸게 만들던 순간적인 착각이 이번에도 유일한 함정입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="24" hidden>
@@ -1355,7 +1625,16 @@ $$ \mathrm{P}(A\cap B)=\frac{6}{12}+\frac{5}{12}-\frac{9}{12}=\frac{2}{12}=\frac
 </ol>
 <p><strong>핵심 포인트</strong>: 덧셈정리의 네 값 중 세 개가 주어지면 나머지 하나는 바로 나옵니다. 통분만 실수하지 않으면 됩니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 15% (12~18%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2021학년도 6월 모평(2020.06) 6번(나형)</b><span class="sim-rate">오답률 13% (정답률 87%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\mathrm P(A\cup B)=1$, $\mathrm P(B)=\frac13$, $\mathrm P(A\cap B)=\frac16$일 때 $\mathrm P(A^C)$</p>
+  <p class="sim-like"><b>닮은 점</b>덧셈정리 항등식으로 모르는 확률을 구하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 6월 모평(2023.06) 24번(확통)</b><span class="sim-rate">오답률 17% (정답률 83%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\mathrm P(A\cap B^C)=\frac19$, $\mathrm P(B^C)=\frac{7}{18}$일 때 $\mathrm P(A\cup B)$</p>
+  <p class="sim-like"><b>닮은 점</b>사건을 나누어 덧셈정리를 적용하고 분수 계산으로 답을 내는 3점 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>합사건과 각 사건의 확률이 주어졌을 때 곱사건의 확률을 구하는 문항으로, 덧셈정리 $\mathrm P(A\cup B)=\mathrm P(A)+\mathrm P(B)-\mathrm P(A\cap B)$를 직접 묻습니다. 2021학년도 6월 모평 나형 6번이나 2024학년도 6월 모평 24번처럼 복잡한 상황 해석 없이 주어진 값을 공식에 대입해 정리하는 판단 과정을 공유합니다. 기출에서 통분하며 이항 부호를 반대로 처리하던 실수가 이번에도 유일한 감점 요인입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="25" hidden>
@@ -1382,7 +1661,16 @@ $$ \mathrm{P}(A\cap B)=\frac{6}{12}+\frac{5}{12}-\frac{9}{12}=\frac{2}{12}=\frac
 </ol>
 <p><strong>핵심 포인트</strong>: 표준편차가 주어지면 먼저 제곱해서 분산으로 바꾸는 것이 출발점입니다. $\sigma$를 그대로 $np(1-p)$에 대입하는 실수를 조심하세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 19% (15~22%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2014학년도 수능(2013.11) 9번(A형)</b><span class="sim-rate">오답률 16% (정답률 84%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$X\sim\mathrm B(9,p)$이고 ${\mathrm E(X)}^2=\mathrm V(X)$일 때 $p$ 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>이항분포의 평균·분산 공식을 연립해 모수를 역산하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2013학년도 9월 모평(2012.09) 10번(나형)</b><span class="sim-rate">오답률 17% (정답률 83%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$X\sim\mathrm B!\left(6,\frac23\right)$일 때 일차식으로 변환한 확률변수의 분산 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>성공 확률 $\frac23$인 이항분포에 $\mathrm V(X)=np(1-p)$를 적용하는 계산</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$X\sim\mathrm B\!\left(n,\frac23\right)$에서 표준편차 조건 $\sigma(X)=4$로 $n$을 역산하고 평균 $\mathrm E(X)$를 구해 더하는 두 단계 계산 문항입니다. 2014학년도 수능 A형 9번처럼 $\mathrm E(X)=np$와 $\mathrm V(X)=np(1-p)$의 관계를 정확히 이해하는지 평가합니다. 기출에서 평균과 분산을 혼동하게 만들던 함정이, 이번에는 표준편차 $4$를 분산 $4$로 착각해 제곱을 빠뜨리는 실수로 나타납니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="26" hidden>
@@ -1422,7 +1710,16 @@ $$ \frac{25}{36} $$
 </ol>
 <p><strong>핵심 포인트</strong>: 범위가 넓은 조건은 양 끝(너무 작은 곱, 너무 큰 곱)만 세어서 빼는 것이 빠르고 안전합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 29% (25~32%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 6월 모평(2023.06) 27번(확통)</b><span class="sim-rate">오답률 28% (정답률 72%) / SN 기출 DB</span></div>
+  <p class="sim-stem">주사위를 두 번 던져 나온 눈 $a,b$에 대하여 $a\times b$가 $4$의 배수일 때 $a+b\le7$일 확률</p>
+  <p class="sim-like"><b>닮은 점</b>주사위 눈의 곱 조건을 순서쌍 36가지에서 체계적으로 세는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2027학년도 9월 모평(2026.09) 26번(확통)</b><span class="sim-rate">오답률 21% (정답률 79%) / SN 기출 DB</span></div>
+  <p class="sim-stem">주사위를 두 번 던져 나온 눈 $a,b$에 대하여 $a$가 $3$ 이하이거나 $a\times b$가 $8$의 배수일 확률</p>
+  <p class="sim-like"><b>닮은 점</b>두 번의 시행에서 곱의 조건을 분류해 합사건의 확률을 구하는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>주사위를 두 번 던지는 표본공간에서 곱의 부등식 조건 $5\le ab\le 28$을 만족하는 순서쌍의 개수를 구하는 문항입니다. 2024학년도 6월 모평 27번이나 2027학년도 9월 모평 26번처럼 두 눈의 곱 조건을 경우별로 분류하는 사고 과정을 공유합니다. 직접 세기보다 여사건 $ab&lt;5$ 또는 $ab&gt;28$을 이용하는 편이 빠른데, 기출에서 경계 순서쌍을 빠뜨리거나 중복해 세던 함정이 이번에도 경계값 $5$, $28$에서 그대로 나타납니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="27" hidden>
@@ -1451,7 +1748,16 @@ $$ \bar{x}=\frac{252.16+267.84}{2}=260 $$
 </ol>
 <p><strong>핵심 포인트</strong>: 신뢰구간 문제는 &quot;중점 = 표본평균, 길이 = $2k\dfrac{\sigma}{\sqrt n}$&quot; 두 줄이면 끝납니다. $15.68\div3.92=4$처럼 숫자가 깔끔하게 떨어지도록 설계되어 있습니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 29% (25~33%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 27번(확통)</b><span class="sim-rate">오답률 35% (정답률 65%) / SN 기출 DB</span></div>
+  <p class="sim-stem">정규분포 $\mathrm N(m,5^2)$에서 크기 $49$인 표본으로 구한 신뢰구간이 $a\le m\le\frac65a$일 때 $\overline{x}$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>신뢰구간 양 끝의 차와 합으로 미지수를 분리하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2026학년도 수능(2025.11) 26번(확통)</b><span class="sim-rate">오답률 27% (정답률 73%) / SN 기출 DB</span></div>
+  <p class="sim-stem">표준편차가 $5$인 정규분포에서 크기 $36$인 표본으로 구한 신뢰구간이 $1.2\le m\le a$일 때 $a$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>신뢰구간의 대칭성과 구간의 길이로 경계값을 복원하는 3점 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>주어진 신뢰구간의 중점에서 표본평균 $\overline{x}$를 찾고, 구간의 길이 $2\times1.96\times\dfrac{\sigma}{\sqrt{64}}$에서 모표준편차 $\sigma$를 구해 더하는 구조입니다. 2024학년도 수능 27번처럼 신뢰구간의 대칭성과 구간 길이 공식을 연립해 두 값을 분리하고, 2026학년도 수능 26번처럼 구간 길이 공식으로 신뢰구간의 끝값을 복원하는 흐름이 같습니다. 기출에서 구간의 절반 길이와 전체 길이를 혼동하게 하던 함정이, 이번에는 구간 길이 공식의 $2$를 빠뜨려 $\sigma$를 잘못 구하는 실수로 이어집니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="28" hidden>
@@ -1569,7 +1875,16 @@ $$ 200\times4=800 $$
 <p>여기에 $4$의 위치 $4$가지를 곱해 $800$입니다.</p>
 <p><strong>핵심 포인트</strong>: 곱이 자연수인지를 매번 따지지 말고, 표 한 장으로 &quot;$\frac12$–$1$만 금지&quot;라는 한 줄짜리 조건으로 바꾸는 것이 이 문제의 전부입니다. 그다음은 &quot;문제 되는 카드($1$)를 빼고 나열한 뒤 허용된 틈에 끼워 넣기&quot;라는 정석으로 처리하면 됩니다. 틈에 여러 장이 들어갈 수 있으니 조합이 아니라 <strong>중복조합</strong>이라는 점을 꼭 기억하세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 65%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2026학년도 9월 모평(2025.09) 28번(확통)</b><span class="sim-rate">오답률 64% (정답률 36%) / SN 기출 DB</span></div>
+  <p class="sim-stem">빨간색 $1$장, 파란색 $1$장, 노란색 $3$장, 보라색 $3$장의 카드를 세 학생에게 조건에 맞게 나누어 주는 경우의 수</p>
+  <p class="sim-like"><b>닮은 점</b>같은 것이 있는 대상을 제약 조건에 맞추어 경우를 나누어 세는 4점 구조</p>
+</li><li>
+  <div class="sim-head"><b>2009학년도 9월 모평(2008.09) 23번(나형)</b><span class="sim-rate">오답률 54% (정답률 46%) / SN 기출 DB</span></div>
+  <p class="sim-stem">6개의 좌석에 특정 구성원들이 이웃하도록 배열하는 경우의 수</p>
+  <p class="sim-like"><b>닮은 점</b>이웃 조건을 파악해 묶음과 사이에 놓을 원소로 나누어 세는 순열 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$\frac12$ 두 장, $1$ 세 장, $2$ 세 장, $4$ 한 장을 일렬로 나열할 때 이웃한 두 수의 곱이 자연수이거나 두 수가 같아야 한다는 조건을 분석하면, 금지되는 이웃은 $\frac12$과 $1$뿐이라는 하나의 제약으로 정리됩니다. 따라서 $\frac12$과 $1$ 사이에 $2$와 $4$를 어떻게 끼워 넣어 떼어 놓을지를 경우별로 나누어야 합니다. 2026학년도 9월 모평 28번에서 조건의 이면을 읽지 못하면 경우가 끝없이 늘어나던 함정이, 이번에도 붙어 있는 $\frac12$과 떨어진 $\frac12$을 나누어 세다 중복이 생기는 형태로 나타납니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="29" hidden>
@@ -1633,7 +1948,16 @@ $$ k^2=\frac{1}{10a^2-6a+4} $$
 </ol>
 <p><strong>핵심 포인트</strong>: &quot;$1\le V\le\sigma$&quot;라는 부등식이 사실은 $V=1$이라는 등식이라는 걸 알아채는 것이 핵심입니다. 그리고 이차식의 최솟값을 구한 뒤에는 반드시 그때의 $a,\ b$가 확률로서 $0$ 이상인지 확인하는 습관을 들이세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 65%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2022학년도 9월 모평(2021.09) 29번(확통)</b><span class="sim-rate">오답률 64% (정답률 36%) / SN 기출 DB</span></div>
+  <p class="sim-stem">대칭인 확률분포 $a,b,c,b,a$에서 $\mathrm V(X)=\frac{31}{5}$일 때 $10\times\mathrm V(Y)$ 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>분포의 대칭성으로 평균을 고정한 뒤 $\mathrm E(X^2)$를 이용해 분산 식을 정리하는 4점 구조</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 29번(확통)</b><span class="sim-rate">오답률 61% (정답률 39%) / SN 기출 DB</span></div>
+  <p class="sim-stem">정규분포의 대칭 조건 $\mathrm P(X\le x)=\mathrm P(X\ge40-x)$로 평균을 정하고 표준화로 $m_1+\sigma_2$ 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>분포의 대칭성으로 평균을 먼저 정하고 나머지 조건으로 모수를 확정하는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>대칭인 확률분포표에서 평균이 $0$임을 바로 파악하고, 부등식 $1\le\mathrm V(X)\le\sigma(X)$를 만족하는 경우가 $\mathrm V(X)=1$뿐임을 찾는 것이 출발점입니다. 2022학년도 9월 모평 29번처럼 대칭성으로 평균을 먼저 고정한 뒤 $\mathrm E(X^2)$로 분산 식을 정리하는 판단 구조를 공유하며, 이번에는 확률의 합 조건으로 $b$를 $a$로 나타내 문자를 하나 줄이는 과정이 더해집니다. 기출에서 대칭성을 놓치고 평균부터 계산하다 식이 길어지던 함정이, 이번에는 경계 조건 $\mathrm V(X)=1$을 보지 못하고 부등식 범위로 접근하다 막히는 형태로 나타납니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="30" hidden>
@@ -1728,7 +2052,16 @@ $$ \frac{432}{2808}=\frac{2}{13} $$
 </ol>
 <p><strong>핵심 포인트</strong>: 두 사건의 횟수 합 $a+b$를 &quot;시행마다 $0,1,2$점&quot;으로 바꿔 생각하면 복잡한 조건이 단순한 점수 합 문제가 됩니다. 조건부확률은 모두 같은 표본공간($20^3$) 위의 경우의 수 비로 구할 수 있어서, 확률 대신 개수로 계산하면 분수 계산 실수를 크게 줄일 수 있습니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 78%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2022학년도 6월 모평(2021.06) 30번(확통)</b><span class="sim-rate">오답률 71% (정답률 29%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$1,2,3$이 적힌 공을 복원추출하는 시행을 $5$번 반복할 때 다섯 수의 곱이 $6$의 배수일 확률</p>
+  <p class="sim-like"><b>닮은 점</b>반복 시행에서 두 조건의 결합을 경우 분할로 처리하는 4점 구조</p>
+</li><li>
+  <div class="sim-head"><b>2009학년도 9월 모평(2008.09) 30번(나형)</b><span class="sim-rate">오답률 77% (정답률 23%) / SN 기출 DB</span></div>
+  <p class="sim-stem">독립시행을 3번 반복할 때 사건이 일어나는 횟수 조건의 확률</p>
+  <p class="sim-like"><b>닮은 점</b>3번 반복하는 독립시행에서 발생 횟수 조건을 조합으로 분류하는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>$1$부터 $6$까지의 카드에서 $3$장을 꺼내는 시행을 $3$번 반복할 때, 두 사건 $A$, $B$의 발생 횟수 합 $a+b=4$를 조건으로 한 조건부확률을 묻습니다. 2022학년도 6월 모평 30번처럼 한 번의 시행에서 두 사건이 배반이 아니므로, $A\cap B$, $A\cap B^C$, $A^C\cap B$, $A^C\cap B^C$의 확률을 먼저 구한 뒤 세 번의 시행에서 횟수 조합을 따져야 합니다. 기출에서 두 조건을 독립처럼 단순 곱셈으로 처리하게 만들던 함정이 이번에도 그대로 나타납니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 </section>
@@ -1756,7 +2089,16 @@ $$\frac{\ln(1-3x)}{x}=\frac{\ln(1-3x)}{-3x}\times(-3)$$</li>
 </ol>
 <p><strong>핵심 포인트</strong>: 로그 안의 &#39;$1+\square$&#39;와 분모의 &#39;$\square$&#39;를 똑같이 맞추는 것이 전부입니다. 부호까지 그대로 맞춰야 실수가 없습니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 5% (3~6%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 23번(미적분)</b><span class="sim-rate">오답률 5% (정답률 95%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\displaystyle\lim_{x\to0}\frac{\ln(1+3x)}{\ln(1+5x)}$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>$\displaystyle\lim_{t\to0}\frac{\ln(1+t)}{t}=1$을 이용해 일차 계수의 비를 비교하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2026학년도 9월 모평(2025.09) 23번(미적분)</b><span class="sim-rate">오답률 4% (정답률 96%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\displaystyle\lim_{x\to1}\frac{e^x-e}{x-1}$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>기본 극한 공식을 한 번 적용해 해결하는 계산 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>로그함수의 기본 극한 $\displaystyle\lim_{t\to0}\frac{\ln(1+t)}{t}=1$을 직접 묻는 기본 문항입니다. 분자 $\ln(1-3x)$를 $-3x$에 대응시켜 분모 $x$와의 계수 비를 바로 얻는 풀이는 2024학년도 수능 23번에서 계수의 비를 구한 방식과 같습니다. 기출이 공식 대입만으로 끝났듯이 이번에도 분자의 음의 부호를 놓쳐 $3$으로 답하는 부호 실수가 사실상 유일한 함정입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="24" hidden>
@@ -1782,7 +2124,12 @@ $$\int_0^{\pi}x\sin4x\,dx=\left[-\frac{x\cos4x}{4}\right]_0^{\pi}+\frac14\int_0^
 </ol>
 <p><strong>핵심 포인트</strong>: 미분해서 간단해지는 쪽($x$)을 $u$로 두는 것이 부분적분의 기본입니다. $\sin4x$를 적분할 때 생기는 계수 $\dfrac14$를 빠뜨리지 않도록 주의합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 11% (8~14%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 24번(미적분)</b><span class="sim-rate">오답률 9% (정답률 91%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\displaystyle\int_0^{10}\frac{x+2}{x+1},dx$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>24번에 놓인 기본 적분법 한 번의 정확한 적용을 평가</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>다항함수 $x$와 삼각함수 $\sin4x$의 곱을 적분하는 전형적인 부분적분 문항입니다. $x$를 미분할 함수로, $\sin4x$를 적분할 함수로 두어 $\left[x\left(-\frac14\cos4x\right)\right]_0^{\pi}+\frac14\displaystyle\int_0^{\pi}\cos4x\,dx$로 나누는 정석 경로를 따릅니다. 2025학년도 수능 24번과 마찬가지로 기본 적분법 한 번의 정확한 적용을 점검하며, 이번에는 $\sin4x$의 부정적분 계수 $-\frac14$의 부호와 분모, 그리고 $\cos4\pi=1$의 대입을 정확히 처리해야 합니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="25" hidden>
@@ -1809,7 +2156,16 @@ $$\lim_{n\to\infty}\frac{a_{2n}+a_n}{3\times4^{n-1}}=\frac{a/2}{3/4}=\frac{2a}{3
 </ol>
 <p><strong>핵심 포인트</strong>: &quot;0이 아닌 값으로 수렴&quot;이라는 조건은 곧 &quot;최고차 속도가 같다&quot;는 뜻입니다. 공비의 부호가 두 가지로 나올 때 둘 다 확인하는 습관을 들이세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 14% (11~16%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 9월 모평(2024.09) 25번(미적분)</b><span class="sim-rate">오답률 11% (정답률 89%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\displaystyle\lim_{n\to\infty}\frac{4^na_n-1}{3\times2^{n+1}}=1$일 때 $a_1+a_2$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>분모와 분자의 지배항을 비교해 공비를 찾고 극한값으로 첫째항을 구하는 논리</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 25번(미적분)</b><span class="sim-rate">오답률 11% (정답률 89%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\displaystyle\lim_{n\to\infty}\frac{na_n}{n^2+3}=1$일 때 $\displaystyle\lim_{n\to\infty}\left(\sqrt{a_n^2+n}-a_n\right)$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>수열의 극한 조건에서 지배항의 계수와 차수를 정해 목표값을 구하는 두 단계 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>분모가 $4^n$ 꼴로 커지는 상황에서 극한값이 $0$이 아닌 상수로 수렴한다는 조건으로부터 분자의 지배항을 추론하는 문항입니다. $a_{2n}$의 공비가 $r^2$이 되므로 $r^2=4$에서 공비 $r=\pm2$를 정하고, 계수 비교로 첫째항을 구해 $a_4=12$를 얻는 과정($r=-2$이어도 $a_4$는 같습니다)은 2025학년도 9월 모평 25번에서 분모와 분자의 증가 속도를 비교해 공비를 정하던 논리와 같습니다. 기출에서 분모의 계수를 정리하는 단계가 있었듯이, 이번에도 $3\times4^{n-1}=\frac34\times4^n$의 처리와 $a_{2n}$의 공비를 $r$로 착각하는 실수가 주의할 지점입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="26" hidden>
@@ -1838,7 +2194,16 @@ $$V=\frac{\sqrt3}{4}(3e^2+1)=\frac{\sqrt3(3e^2+1)}{4}$$
 </ol>
 <p><strong>핵심 포인트</strong>: 부피 문제는 &quot;단면의 넓이 $S(x)$를 정확히 세우기&quot;가 절반입니다. 정삼각형 넓이 $\dfrac{\sqrt3}{4}a^2$을 바로 떠올릴 수 있어야 합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 21% (18~24%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 26번(미적분)</b><span class="sim-rate">오답률 18% (정답률 82%) / SN 기출 DB</span></div>
+  <p class="sim-stem">근호가 있는 곡선을 경계로 하는 부분을 밑면으로 하고 단면이 정사각형인 입체도형의 부피</p>
+  <p class="sim-like"><b>닮은 점</b>근호가 있는 곡선에서 단면의 넓이를 구할 때 제곱으로 근호가 사라지는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 9월 모평(2024.09) 26번(미적분)</b><span class="sim-rate">오답률 18% (정답률 82%) / SN 기출 DB</span></div>
+  <p class="sim-stem">근호가 있는 곡선을 경계로 하는 부분을 밑면으로 하고 단면이 반원인 입체도형의 부피</p>
+  <p class="sim-like"><b>닮은 점</b>단면의 모양에 따른 넓이 공식의 계수 처리와 적분법의 결합</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>곡선이 근호 꼴로 주어져 $x$축에 수직인 단면의 넓이를 구할 때 제곱으로 근호가 자연스럽게 사라지도록 설계된 입체도형의 부피 문항입니다. 2025학년도 수능 26번(정사각형 단면)과 9월 모평 26번(반원 단면)에 이어 이번에는 정삼각형 단면 $S(x)=\frac{\sqrt3}{4}y^2$이 쓰였습니다. 기출에서 단면 모양에 따라 넓이 공식의 계수를 정확히 적용해야 했던 것처럼, 이번에는 정삼각형 넓이의 계수 $\frac{\sqrt3}{4}$와 $(2x+1)e^x$의 부분적분 계산이 주의할 지점입니다($\int_0^2\sin\pi x\,dx=0$).</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="27" hidden>
@@ -1867,7 +2232,12 @@ $$\frac12\cdot\frac5a\cdot\frac{25}{3}=\frac{125}{6a}=5\quad\Rightarrow\quad a=\
 </ol>
 <p><strong>핵심 포인트</strong>: 높이 $\dfrac{25}{3}$이 $a$와 무관하게 나온다는 점이 깔끔한 설계입니다. $y=1$을 대입하면 $e^{y^2-1}$이 $1$이 되도록 만든 출제자의 의도를 읽어 내면 계산이 훨씬 가벼워집니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 43% (38~48%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 6월 모평(2024.06) 24번(미적분)</b><span class="sim-rate">오답률 13% (정답률 87%) / SN 기출 DB</span></div>
+  <p class="sim-stem">곡선 $x\sin 2y+3x=3$ 위의 점 $\left(1,\frac{\pi}{2}\right)$에서의 접선의 기울기</p>
+  <p class="sim-like"><b>닮은 점</b>음함수 곡선에서 곱의 미분과 합성함수의 미분으로 $\frac{dy}{dx}$를 구하는 기본 계산</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>다항식과 지수함수가 결합된 음함수 $a^2x^2+axy+e^{y^2-1}=7$에서 직선 $y=1$과의 교점을 구하고, 음함수의 미분법으로 두 접선의 교점을 찾아 삼각형의 넓이를 해석하는 문항입니다. $y=1$을 대입한 $(ax+3)(ax-2)=0$에서 P, Q의 좌표를 $a$로 나타낸 뒤 $\frac{dy}{dx}$를 구하는 과정은 평가원의 전형적인 음함수 미분 흐름입니다. 2025학년도 6월 모평 24번처럼 음함수의 미분으로 접선의 기울기를 구하는 단계가 핵심이며, 이번에는 그 기울기로 두 접선을 연립해 교점 R의 좌표를 구하고 직선 $y=1$로부터의 높이를 계산하는 단계에서 계산 실수가 나기 쉽습니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="28" hidden>
@@ -1904,7 +2274,20 @@ $$g(k)+g'(k+1)=\frac e2-\frac1{e-1}=\frac{e^2-e-2}{2(e-1)}=\frac{(e+1)(e-2)}{2(e
 </ol>
 <p><strong>핵심 포인트</strong>: $g(x)$를 $x$로 직접 다루려 하지 말고 $t=f^{-1}(x)$로 바꾸어 보는 것이 열쇠입니다. &quot;해가 하나&quot;라는 조건은 대부분 &quot;최댓값(또는 최솟값)에서 접한다&quot;로 번역됩니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 60%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 9월 모평(2024.09) 28번(미적분)</b><span class="sim-rate">오답률 45% (정답률 55%) / SN 기출 DB</span></div>
+  <p class="sim-stem">역함수를 갖는 함수의 조건식을 치환으로 해석하는 문항</p>
+  <p class="sim-like"><b>닮은 점</b>역함수 관계식을 치환 $x=f(t)$로 원래 함수의 성질로 바꾸는 접근</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 28번(미적분)</b><span class="sim-rate">오답률 69% (정답률 31%) / SN 기출 DB</span></div>
+  <p class="sim-stem">함수와 접선으로 둘러싸인 넓이 $g(t)$에 대하여 $g(1)+g^{\prime}(1)$의 값</p>
+  <p class="sim-like"><b>닮은 점</b>함수와 도함수가 함께 들어간 값을 묻는 질문 구조와 지수함수의 합성함수 미분</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 6월 모평(2024.06) 28번(미적분)</b><span class="sim-rate">오답률 44% (정답률 56%) / SN 기출 DB</span></div>
+  <p class="sim-stem">방정식 $f(x)=t$의 해로 정의한 함수 $g(t)$의 불연속점과 역함수의 미분법</p>
+  <p class="sim-like"><b>닮은 점</b>방정식의 해를 매개변수로 두고 역함수의 미분법으로 계산하는 논리</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>조건 (가)의 $f(x-g(x))=x$를 역함수의 정의로 $g(x)=x-f^{-1}(x)$로 바꾸고, $x=f(t)$로 치환하면 $g(f(t))=f(t)-t=ate^{-bt}$로 정리되는 고난도 함수 해석 문항입니다. 조건 (나)는 $t&gt;0$에서 $h(t)=ate^{-bt}$의 그래프와 직선 $y=\frac1b$의 위치 관계, 즉 최댓값 $\frac{a}{be}$가 $\frac1b$이어야 한다는 조건으로 해석됩니다. 2025학년도 9월 모평 28번과 6월 모평 28번에서 역함수 관계를 원래 함수의 성질로 바꾸는 첫 단계가 풀이의 관건이었듯이, 이번에는 그 관건이 $g^{\prime}(k+1)$을 구할 때 $f(t)=k+1$을 만족하는 $t$가 $k$라는 점을 연결하는 단계로 이어집니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="29" hidden>
@@ -1953,7 +2336,16 @@ $$\frac{6N^n}{N^n+10}=6-\frac{60}{N^n+10}$$
 <p><strong>왜 $k=5,7$만 발산하는가?</strong> 곱 $(a_n-1)(a_{n+1}+1)$이 음수가 되려면 $a_n$과 $a_{n+1}$이 사실상 $-1$과 $1$ 사이의 &#39;좁은 띠&#39; 근처에 머물러야 합니다. 극한값이 $\pm3$ 이상으로 떨어져 있으면 두 인수의 부호가 결국 같아져서 $b_n=1$은 유한 번밖에 나오지 않습니다. 남는 후보는 극한값이 정확히 $1$ 또는 $-1$인 경우인데, 이때는 극한값이 같아도 <strong>다가가는 방향</strong>이 결과를 가릅니다. 같은 극한값 $1$이어도 $k=5$(아래쪽에서 접근)는 $a_n-1&lt;0$이라 발산하고, $k=8$(위쪽에서 접근)은 $a_n-1&gt;0$이라 수렴합니다. 극한값 $-1$인 $k=7$은 위쪽에서 다가가므로 $a_{n+1}+1&gt;0$이 되어 발산합니다.</p>
 <p><strong>핵심 포인트</strong>: $0$과 $1$로만 이루어진 급수는 &quot;$1$이 몇 번 나오나&quot;의 문제입니다. 극한값이 경계값($\pm1$)과 같을 때는 극한값만으로는 판정할 수 없고, 수열이 어느 쪽에서 다가가는지(분수 부분의 부호, $6-\dfrac{60}{N^n+10}$처럼 $6$보다 작은지)를 반드시 따져야 합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 72%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 29번(미적분)</b><span class="sim-rate">오답률 79% (정답률 21%) / SN 기출 DB</span></div>
+  <p class="sim-stem">등비수열 ${a_n}$에서 $\lvert a_n\rvert $과 $a_n$이 결합된 급수 조건으로 공비를 정하고 부등식을 만족시키는 자연수 $m$의 값의 합 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>공비의 범위를 분류해 급수 조건을 추론하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 6월 모평(2023.06) 30번(미적분)</b><span class="sim-rate">오답률 89% (정답률 11%) / SN 기출 DB</span></div>
+  <p class="sim-stem">등비수열 ${a_n}$에 대하여 $a_n\le-1$이면 $-1$, $a_n&gt;-1$이면 $a_n$으로 정의한 수열 ${b_n}$의 급수 조건</p>
+  <p class="sim-like"><b>닮은 점</b>수열의 값이 경계값을 기준으로 갈라지는 상황에서 급수의 수렴 조건을 추론하는 논리</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>등비수열의 극한에서 분자와 분모의 밑 크기 비교와 급수의 발산 판정을 결합한 준킬러 단답형 문항입니다. $b_n$이 $0$과 $1$만 값으로 가지므로, 급수 $\sum b_n$이 발산하려면 부호 조건 $(a_n-1)(a_{n+1}+1)&lt;0$을 만족하는 $n$이 무수히 많아야 한다는 본질을 짚어야 합니다. 2024학년도 6월 모평 30번에서 경계값을 기준으로 수열이 갈라지는 지점을 따져야 했듯이, 이번에는 $a_n$의 극한값이 $\pm1$이 되는 $k=5,\,7,\,8$에서 $a_n$이 극한값에 어느 쪽에서 가까워지는지를 따지지 않고 판정해 버리는 것이 함정입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="30" hidden>
@@ -2012,7 +2404,20 @@ $$\alpha=3K=\frac{15}{18}=\frac56,\qquad 90\alpha=75$$
 </ol>
 <p><strong>핵심 포인트</strong>: 절댓값으로 주어진 함수는 &quot;어디서 부호를 바꿀 수 있는가&quot;를 먼저 따져야 합니다. $h$의 영점에서 $h'\ne0$이면 $f$가 그 점에서 부호를 바꿀 수 없고(미분가능성이 깨짐), $h'=0$이면 바꿀 수 있습니다. 그다음 (나)의 두 적분 조건이 각각 하나씩 부호를 확정하도록 설계되어 있으니, 대칭성($h(\pi-x)=h(x)$, $h(x+\pi)=-h(x)$)을 활용해 계산을 최소화하는 것이 시간 관리의 비결입니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 85%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 수능(2023.11) 30번(미적분)</b><span class="sim-rate">오답률 92% (정답률 8%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f^{\prime}(x)=\lvert \sin x\rvert \cos x$인 함수와 접선을 이용해 정의한 함수의 극값 조건</p>
+  <p class="sim-like"><b>닮은 점</b>절댓값이 있는 삼각함수의 값이 $0$이 되는 점 근처의 모양을 분석해 극값을 판정하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 9월 모평(2024.09) 30번(미적분)</b><span class="sim-rate">오답률 84% (정답률 16%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f(x)=(k-\lvert x\rvert )e^{-x}$와 $F^{\prime}(x)=f(x)$인 $F(x)$에 대한 부등식 조건</p>
+  <p class="sim-like"><b>닮은 점</b>절댓값이 포함된 함수의 미분가능성과 부등식 조건으로 함수를 결정하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 30번(미적분)</b><span class="sim-rate">오답률 82% (정답률 18%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$f(x)=\sin(ax+b+\sin x)$의 극대 조건과 정적분 계산</p>
+  <p class="sim-like"><b>닮은 점</b>삼각함수의 대칭성과 주기성으로 함수의 형태를 정하고 정적분을 계산하는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>절댓값이 포함된 함수의 미분가능성과 정적분 부등식을 이용한 구간별 부호 결정이 결합된 최고난도 문항입니다. 조건 (가)의 $|f(x)|=|\sin x|\left(\sqrt{1+3\cos^2x}-1\right)$에서 곡선 $y=\sin x\left(\sqrt{1+3\cos^2x}-1\right)$이 $\sin x=0$인 점에서는 $x$축을 뚫고 지나가고(미분계수가 $\pm1$) $\cos x=0$인 점에서는 $x$축에 접한다(미분계수가 $0$)는 차이를 분석해, 미분가능성을 유지하면서 $f(x)$의 부호를 바꿀 수 있는 곳은 $x=\frac{\pi}{2}+n\pi$($n$은 정수)뿐임을 가려내야 합니다. 2024학년도 수능 30번에서 $|\sin x|\cos x$가 $0$이 되는 점들의 구조를 분석해야 했듯이, 이번에는 구간마다 부호를 따로 정해야 하는데 $f(x)$를 한 가지 식으로 고정해 버려 조건 (나)를 만족시키지 못하는 것이 함정입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 </section>
@@ -2039,7 +2444,16 @@ $$\alpha=3K=\frac{15}{18}=\frac56,\qquad 90\alpha=75$$
 </ol>
 <p><strong>핵심 포인트</strong>: 성분의 합만 묻는다면 $2(1+0)+(3-2)=3$처럼 각 벡터의 성분 합으로 바로 계산해도 됩니다. 검산용으로 알아 두면 좋습니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 7% (5~8%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2027학년도 6월 모평(2026.06) 23번(기하)</b><span class="sim-rate">오답률 7% (정답률 93%) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 벡터 $\vec a=(3,0)$, $\vec b=(-1,2)$에 대하여 $\vec a+2\vec b$의 모든 성분의 합</p>
+  <p class="sim-like"><b>닮은 점</b>평면벡터의 실수배와 덧셈을 성분으로 계산한 뒤 성분의 합을 구하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2026학년도 수능(2025.11) 23번(기하)</b><span class="sim-rate">오답률 5% (정답률 95%) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 벡터 $\vec a=(4,1)$, $\vec b=(-1,-1)$에 대하여 $\vec a+\vec b$의 모든 성분의 합</p>
+  <p class="sim-like"><b>닮은 점</b>성분별 연산 후 합을 묻는 2점 기본 문항 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>두 평면벡터의 실수배와 성분별 덧셈을 수행해 최종 벡터의 모든 성분의 합을 구하는 전형적인 2점 문항입니다. 2027학년도 6월 모평 23번, 2026학년도 수능 23번과 마찬가지로 기하적 추론 없이 대수 계산만으로 해결됩니다. 이번 문항에서는 $2\vec a+\vec b=(5,-2)$를 구할 때 $\vec b$의 $y$성분 $-2$의 부호만 정확히 처리하면 됩니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="24" hidden>
@@ -2062,7 +2476,16 @@ $$\alpha=3K=\frac{15}{18}=\frac56,\qquad 90\alpha=75$$
 </ol>
 <p><strong>핵심 포인트</strong>: 정의로 검산할 수 있습니다. 준선은 $x=-5$이고, 점 $(0,4)$에서 초점까지의 거리 $\sqrt{9+16}=5$와 준선까지의 거리 $5$가 같습니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 13% (10~15%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 24번(기하)</b><span class="sim-rate">오답률 13% (정답률 87%) / SN 기출 DB</span></div>
+  <p class="sim-stem">꼭짓점이 $(1,0)$이고 준선이 $x=-1$인 포물선이 점 $(3,a)$를 지날 때 양수 $a$</p>
+  <p class="sim-like"><b>닮은 점</b>평행이동된 포물선에서 $p$를 구한 뒤 점을 대입해 미지수를 정하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2023학년도 수능(2022.11) 24번(기하)</b><span class="sim-rate">오답률 9% (정답률 91%) / SN 기출 DB</span></div>
+  <p class="sim-stem">초점이 $\left(\frac13,0\right)$, 준선이 $x=-\frac13$인 포물선이 점 $(a,2)$를 지날 때 $a$</p>
+  <p class="sim-like"><b>닮은 점</b>포물선의 방정식을 세운 뒤 점을 대입해 일차방정식을 푸는 방식</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>꼭짓점 $(-1,0)$과 초점 $(3,0)$으로부터 $p=4$를 파악해 평행이동된 포물선 $y^2=16(x+1)$을 세우는 3점 문항입니다. 2025학년도 수능 24번이 꼭짓점과 준선으로 $p$를 구하게 했던 것처럼, 꼭짓점이 원점이 아니라는 점을 정확히 반영하는지 점검합니다. 꼭짓점이 원점인 식 $y^2=16x$를 쓰면 $x=0$에서 $a=0$이 되어 조건을 만족시키지 못하므로, 평행이동을 반영한 식에 $x=0$을 대입해 $a^2=16$, $a=4$를 얻어야 합니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="25" hidden>
@@ -2088,7 +2511,16 @@ $$\left(\frac{3\cdot(-3)-2\cdot a}{3-2},\ \frac{3\cdot b-2\cdot(-3)}{3-2},\ \fra
 </ol>
 <p><strong>핵심 포인트</strong>: &#39;$yz$평면 위&#39; ⇔ $x$좌표 $=0$, &#39;$x$축 위&#39; ⇔ $y$, $z$좌표 $=0$입니다. 실제로 외분점은 $(-21,0,0)$, 내분점은 $\left(0,-\frac73,\frac{14}{3}\right)$로 조건을 만족합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 18% (15~20%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 수능(2024.11) 25번(기하)</b><span class="sim-rate">오답률 17% (정답률 83%) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 점 $\mathrm A(a,b,6)$, $\mathrm B(-4,-2,c)$에 대하여 선분 AB를 $3:2$로 내분하는 점이 $z$축 위, $3:2$로 외분하는 점이 $xy$평면 위에 있을 때 $a+b+c$</p>
+  <p class="sim-like"><b>닮은 점</b>내분점·외분점 공식과 좌표평면·좌표축의 성분 조건을 연립하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2025학년도 9월 모평(2024.09) 25번(기하)</b><span class="sim-rate">오답률 15% (정답률 85%) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 점 $\mathrm A(a,b,-5)$, $\mathrm B(-8,6,c)$에 대하여 선분 AB의 중점이 $zx$평면 위, $1:2$로 내분하는 점이 $y$축 위에 있을 때 $a+b+c$</p>
+  <p class="sim-like"><b>닮은 점</b>내분점의 성분이 0이라는 조건을 각각의 일차방정식으로 나누어 푸는 절차</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>공간좌표에서 매년 출제되는 내분점·외분점 공식의 적용 문항입니다. 2025학년도 수능 25번과 발문 형식과 풀이 흐름이 거의 같으며, $2:1$로 내분하는 점이 $yz$평면 위에 있으므로 $x$좌표가 $0$, $3:2$로 외분하는 점이 $x$축 위에 있으므로 $y$좌표와 $z$좌표가 모두 $0$이라는 조건으로 $a$, $b$, $c$를 각각 구합니다. 외분하는 점의 $y$좌표 $\frac{3b-2\times(-3)}{3-2}=3b+6$처럼 외분점 공식의 뺄셈 부호를 정확히 처리하는 것이 관건입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="26" hidden>
@@ -2115,7 +2547,16 @@ $$\overline{\mathrm{FF'}}^2=\overline{\mathrm{PF'}}^2-\overline{\mathrm{PF}}^2=7
 </ol>
 <p><strong>핵심 포인트</strong>: 초점을 지나고 $x$축에 수직인 직선 위의 점 $\mathrm{P}$는 두 초점과 직각삼각형을 이룹니다. 타원의 정의로 $a$를, 피타고라스 정리로 $c$를 구한 뒤 $b^2=a^2-c^2$으로 마무리하면 됩니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 21% (18~24%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2023학년도 9월 모평(2022.08) 25번(기하)</b><span class="sim-rate">오답률 12% (정답률 88%) / SN 기출 DB</span></div>
+  <p class="sim-stem">타원의 초점 F를 지나고 $x$축에 수직인 직선 위의 점에 대해 피타고라스 정리와 타원의 정의로 둘레 계산</p>
+  <p class="sim-like"><b>닮은 점</b>초점을 지나고 $x$축에 수직인 현에서 직각삼각형과 타원의 정의를 결합하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2024학년도 6월 모평(2023.06) 26번(기하)</b><span class="sim-rate">오답률 28% (정답률 72%) / SN 기출 DB</span></div>
+  <p class="sim-stem">타원 위의 점과 초점 사이의 거리 조건에서 타원의 정의와 $a^2-b^2=c^2$을 이용해 $a^2+b^2$ 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>타원의 정의와 초점 관계식을 연립해 $a^2+b^2$을 구하는 구조</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>초점을 지나고 장축에 수직인 현의 대칭성, 직각삼각형의 피타고라스 정리, 타원의 정의를 결합한 3점 문항입니다. 대칭성으로 $\overline{\mathrm{PF}}=3$을 바로 얻고, 타원의 정의에서 $2a=3+7=10$, 직각삼각형 $\mathrm{PFF^{\prime}}$에서 $\overline{\mathrm{FF^{\prime}}}^2=7^2-3^2=40$으로 $c^2=10$을 찾는 흐름입니다. 2023학년도 9월 모평 25번의 구성을 이어받았으며, 두 초점 사이의 거리가 $2c$이므로 $(2c)^2=40$에서 $c^2=10$으로 정리한 뒤 $b^2=25-10=15$를 구해야 한다는 점을 놓치지 않아야 합니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="27" hidden>
@@ -2143,7 +2584,16 @@ $$d(\mathrm{M'},\ \mathrm{GI})=\frac{|0-6-4|}{\sqrt{1+3}}=5$$
 </ol>
 <p><strong>핵심 포인트</strong>: 공간 삼각형의 넓이는 &#39;밑변 하나 + 그 밑변까지의 높이&#39;로 구하는 것이 가장 빠릅니다. 높이는 삼수선의 정리로 &quot;평면 위의 거리&quot;와 &quot;기둥의 높이&quot;를 피타고라스로 합치면 됩니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 25% (22~28%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2022학년도 수능(2021.11) 27번(기하)</b><span class="sim-rate">오답률 16% (정답률 84%) / SN 기출 DB</span></div>
+  <p class="sim-stem">한 모서리의 길이가 $4$인 정육면체에서 모서리의 중점 M과 두 꼭짓점이 이루는 삼각형 MEG의 넓이</p>
+  <p class="sim-like"><b>닮은 점</b>중점을 한 면에 정사영한 뒤 삼수선의 정리로 높이를 구하는 알고리즘</p>
+</li><li>
+  <div class="sim-head"><b>2027학년도 9월 모평(2026.09) 26번(기하)</b></div>
+  <p class="sim-stem">원기둥의 윗면 위의 점 D와 밑면의 지름 AB가 이루는 삼각형 ABD의 넓이</p>
+  <p class="sim-like"><b>닮은 점</b>기둥의 높이와 밑면 위의 거리로 피타고라스 정리를 써서 넓이를 구하는 유형</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>입체도형을 비스듬히 가로지르는 삼각형의 넓이를 삼수선의 정리로 구하는 표준 3점 공간도형 문항입니다. 점 M에서 아랫면에 내린 수선의 발(선분 KL의 중점)에서 선분 GI에 수선을 내려 평면 위의 거리 $5$를 구하고, 기둥의 높이 $2\sqrt6$과 피타고라스 정리로 삼각형의 높이 $7$을 얻는 흐름은 2022학년도 수능 27번 정육면체 풀이의 뼈대를 정육각기둥으로 바꾼 것입니다. 이번 문항에서는 정육각형 안에서 대각선 GI와 점 사이의 거리를 구하는 단계가 가장 주의할 부분입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="28" hidden>
@@ -2186,7 +2636,20 @@ $$\overline{\mathrm{NR}}^2_{\min}=\left(\frac{|1+0-10|}{\sqrt5}\right)^2=\frac{8
 </ol>
 <p><strong>핵심 포인트</strong>: $\overrightarrow{\mathrm{XR}}\cdot\overrightarrow{\mathrm{YR}}=\overline{\mathrm{NR}}^2-\left(\frac{\overline{\mathrm{XY}}}{2}\right)^2$ ($\mathrm{N}$은 $\mathrm{XY}$의 중점)은 기하 내적 최대·최소의 필수 도구입니다. 조건을 R의 좌표로 옮겨 영역을 그린 뒤, &quot;좌표의 범위로 잡는 최댓값, 경계 직선에 내린 수선의 발로 잡는 최솟값&quot;만 확인하면 계산이 깔끔하게 끝납니다. 수선의 발이 실제로 변 위에 있는지 꼭 확인하세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 51% (48~54%)</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 6월 모평(2023.06) 28번(기하)</b><span class="sim-rate">오답률 51% (정답률 49%) / SN 기출 DB</span></div>
+  <p class="sim-stem">좌표평면에서 내적 조건과 선분 위의 점 조건을 만족시키는 점의 영역을 구하고 내적의 최댓값·최솟값 계산</p>
+  <p class="sim-like"><b>닮은 점</b>선분 위의 점을 매개변수로 나타내 영역을 부등식으로 제한하고 내적의 극값을 구하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2022학년도 수능(2021.11) 29번(기하)</b><span class="sim-rate">오답률 90% (정답률 10%) / SN 기출 DB</span></div>
+  <p class="sim-stem">$\overrightarrow{\mathrm{OP}}=s\overrightarrow{\mathrm{OA}}+t\overrightarrow{\mathrm{OB}}$ $(0\le s\le1,\ 0\le t\le1)$와 내적 조건으로 점의 자취를 제한한 뒤 극값 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>벡터의 일차결합 계수 조건으로 영역을 정하고 내적 조건 부등식을 결합하는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2023학년도 수능(2022.11) 29번(기하)</b><span class="sim-rate">오답률 69% (정답률 31%) / SN 기출 DB</span></div>
+  <p class="sim-stem">벡터의 내적 관계식을 좌표로 바꾸어 점의 위치 제약을 찾고 내적값 계산</p>
+  <p class="sim-like"><b>닮은 점</b>벡터 조건을 좌표로 분해해 부등식 영역을 정밀하게 추출하는 풀이</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>두 선분 위를 움직이는 점 P, Q의 결합으로 점 R의 기본 영역을 정하고, 조건의 내적 부등식을 더해 최종 영역을 확정하는 4점 변별 문항입니다. 2024학년도 6월 모평 28번처럼 좌표를 도입해 조건을 부등식 영역으로 바꾸면, 영역은 삼각형이 되고 $\overrightarrow{\mathrm{OR}}\cdot\overrightarrow{\mathrm{BR}}$은 선분 OB의 중점 $(1,0)$까지의 거리의 제곱에서 $1$을 뺀 값으로 표현된다는 점이 드러납니다. 최댓값은 이 점에서 가장 먼 점 $(4,4)$에서, 최솟값은 이 점에서 경계 직선 $x+2y=10$에 내린 수선의 발 $\left(\frac{14}{5},\frac{18}{5}\right)$에서 나타나므로, 수선의 발이 영역의 변 위에 있는지 확인하는 단계를 놓치지 않아야 합니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="29" hidden>
@@ -2224,7 +2687,20 @@ $$\frac{\left|4\cdot\frac{39}{25}c+3\cdot\frac{48}{25}c\right|}{5}=\frac{300c}{1
 </ol>
 <p><strong>핵심 포인트</strong>: 이 문제의 출발점은 &quot;$\overline{\mathrm{AF}}=\overline{\mathrm{AB}}$ = 쌍곡선의 초점 거리 $2c$&quot;라는 연결입니다. 이후 $8\overline{\mathrm{BC}}=\overline{\mathrm{BF}}$로 $a:c=3:5$가 정해지면 $a:b:c=3:4:5$가 되어 점근선 기울기 $\frac43$이 자동으로 나옵니다. 모든 길이를 $c$ 하나로 표현해 두고 마지막에 거리 조건 하나로 $c$를 확정하는 흐름을 익혀 두세요.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 62%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2025학년도 9월 모평(2024.09) 29번(기하)</b><span class="sim-rate">오답률 50% (정답률 50%) / SN 기출 DB</span></div>
+  <p class="sim-stem">포물선 위의 점에서 준선에 내린 수선의 발과 쌍곡선의 정의를 결합해 선분의 비로 미지수 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>포물선의 정의와 쌍곡선의 정의를 결합해 길이의 비를 끌어내는 구조</p>
+</li><li>
+  <div class="sim-head"><b>2026학년도 수능(2025.11) 29번(기하)</b><span class="sim-rate">오답률 80% (정답률 20%) / SN 기출 DB</span></div>
+  <p class="sim-stem">포물선의 준선에 내린 수선의 발과 초점을 이용한 타원의 정의로 길이 결정</p>
+  <p class="sim-like"><b>닮은 점</b>준선 위의 수선의 발이 다른 이차곡선의 핵심 점이 되어 두 곡선의 정의를 이어 쓰는 구성</p>
+</li><li>
+  <div class="sim-head"><b>2023학년도 6월 모평(2022.06) 29번(기하)</b><span class="sim-rate">오답률 78% (정답률 22%) / SN 기출 DB</span></div>
+  <p class="sim-stem">준선 위의 수선의 발을 초점으로 하는 보조 곡선과 둘레 조건으로 미지수 구하기</p>
+  <p class="sim-like"><b>닮은 점</b>준선 위의 수선의 발을 다른 이차곡선의 기준점으로 삼아 둘레 조건을 활용하는 발상</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>포물선의 정의 $\overline{\mathrm{AF}}=\overline{\mathrm{AB}}$에서 출발해, 점 A와 준선 위의 점 B를 두 초점으로 하는 쌍곡선을 만들고 초점 F가 그 쌍곡선 위에 있다는 조건으로 쌍곡선의 정의를 엮는 이차곡선 융합 문항입니다. 2025학년도 9월 모평 29번과 2026학년도 수능 29번에서 이어져 온, 준선 위의 수선의 발을 매개로 두 이차곡선의 정의를 잇는 구성을 이어받았습니다. 점 F가 초점 A 쪽 가지 위에 있으므로 $\overline{\mathrm{BF}}-\overline{\mathrm{AF}}=2a$로 부호를 정하고, $8\overline{\mathrm{BC}}=\overline{\mathrm{BF}}$에서 $a:c=3:5$를 얻은 뒤 점 F와 점근선 $l$ 사이의 거리 조건으로 길이를 확정하는 단계가 핵심입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 <article class="study-question-panel" data-study-question="30" hidden>
@@ -2257,7 +2733,20 @@ $$\cos\theta=\frac{\overline{\mathrm{DE}}}{\overline{\mathrm{OD}}}=\frac{2\sqrt5
 </ol>
 <p><strong>핵심 포인트</strong>: 세 가지 장면 전환을 놓치지 마세요. ① 지름 위의 원주각 → $\angle\mathrm{ACB}=90^\circ$, ② 평면 $\mathrm{OAB}\perp\alpha$이고 $\mathrm{CD}\parallel$ 평면 $\mathrm{OAB}$ → D까지의 거리를 평면 $\alpha$ 위의 &#39;점과 직선 사이 거리&#39;로 환원, ③ 두 구의 교원의 평면은 중심을 잇는 선분 $\mathrm{OD}$에 수직 → 평면 $\mathrm{OCD}$로 자른 단면에서 이면각은 $\mathrm{OD}$와 $\mathrm{CD}$가 이루는 각. 이 세 단계만 잡히면 계산은 간단합니다.</p>
 </div>
-    
+    <div class="study-explain-block study-similar"><h4>추정 오답률 · 유사 기출</h4><p class="sim-pred"><b>AI 예상 오답률</b> 약 82%</p><ol class="sim-list"><li>
+  <div class="sim-head"><b>2024학년도 9월 모평(2023.09) 28번(기하)</b><span class="sim-rate">오답률 55% (정답률 45%) / SN 기출 DB</span></div>
+  <p class="sim-stem">구와 평면의 교원, 선분을 지름으로 하는 구와의 교원 위의 점과 정사영 넓이의 최댓값</p>
+  <p class="sim-like"><b>닮은 점</b>두 구가 만나 생기는 원과 평면 사이의 각의 코사인으로 정사영을 구하는 뼈대</p>
+</li><li>
+  <div class="sim-head"><b>2023학년도 9월 모평(2022.08) 29번(기하)</b><span class="sim-rate">오답률 84% (정답률 16%) / SN 기출 DB</span></div>
+  <p class="sim-stem">두 구의 교원의 반지름과 정사영 넓이 $\frac{q}{p}\pi$에서 $p+q$ 계산</p>
+  <p class="sim-like"><b>닮은 점</b>구와 평면의 교원의 반지름 공식과 두 평면이 이루는 각을 이용한 정사영 넓이 계산</p>
+</li><li>
+  <div class="sim-head"><b>2027학년도 9월 모평(2026.09) 28번(기하)</b></div>
+  <p class="sim-stem">구 위의 점들과 평면의 교원, 대칭성을 이용한 정사영 넓이 계산</p>
+  <p class="sim-like"><b>닮은 점</b>구의 대칭축을 기준으로 복합 입체 조건을 단순화하는 공간도형 추론</p>
+</li></ol><div class="sim-why"><b>유사 이유</b><p>구와 평면의 교원 $C_1$, 그 위의 점 C를 지나고 평면 $\alpha$에 수직인 직선이 구 $S_1$과 다시 만나는 점 D, 점 D를 중심으로 하고 평면 OAB에 접하는 구 $S_2$, 두 구의 교원 $C_2$의 정사영 넓이를 차례로 묻는 공간도형 최고난도 문항입니다. 2023학년도 9월 모평 29번, 2024학년도 9월 모평 28번에서 요구했던 두 구의 교원이 놓인 평면과 중심을 잇는 선분의 수직 관계, 정사영을 위한 두 평면이 이루는 각의 계산을 한데 모았습니다. 이번에는 평면 OAB가 평면 $\alpha$에 수직이고 직선 CD가 평면 OAB와 평행하다는 점을 이용해, 점 D와 평면 OAB 사이의 거리를 평면 $\alpha$ 위에서 점 C와 직선 AB 사이의 거리 $2\sqrt6$으로 바꾸는 관찰이 핵심입니다.</p>
+</div><p class="study-similar-note">SNarGPT가 판단 구조가 닮은 기출을 찾아 붙인 참고 자료입니다. 예상 오답률은 AI 예측이고, 기출의 실제 오답률은 출처를 확인한 값만 표시합니다.</p></div>
   </section>
 </article>
 </section>
@@ -3324,7 +3813,609 @@ $$\cos\theta=\frac{\overline{\mathrm{DE}}}{\overline{\mathrm{OD}}}=\frac{2\sqrt5
 </li>
 </ol>
 
+<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mt-10 mb-2">문항별 예상 오답률과 유사 기출</h3>
+<p class="text-gray-800 dark:text-gray-200 leading-relaxed mb-4">46문항마다 SNarGPT가 판단 구조가 닮은 기출을 찾고, 이를 바탕으로 이번 문항의 오답률을 AI로 예측했습니다. 다음 수능을 준비할 때 함께 풀어 볼 기출 목록으로 쓰세요. 줄을 누르면 닮은 점과 유사 이유가 펼쳐집니다.</p>
+<div class="not-prose mb-8" data-why-tabs>
+  <div class="flex flex-wrap gap-2 mb-3" role="tablist" aria-label="과목 선택"><button type="button" role="tab" aria-selected="true" data-why-target="why-0" class="rounded-full border px-4 py-2 text-sm font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="const w=this.closest('[data-why-tabs]');w.querySelectorAll('[data-why-panel]').forEach(p=>p.hidden=p.dataset.whyPanel!==this.dataset.whyTarget);w.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',t===this))">공통 <span class="font-normal opacity-70">22</span></button><button type="button" role="tab" aria-selected="false" data-why-target="why-1" class="rounded-full border px-4 py-2 text-sm font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="const w=this.closest('[data-why-tabs]');w.querySelectorAll('[data-why-panel]').forEach(p=>p.hidden=p.dataset.whyPanel!==this.dataset.whyTarget);w.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',t===this))">확률과 통계 <span class="font-normal opacity-70">8</span></button><button type="button" role="tab" aria-selected="false" data-why-target="why-2" class="rounded-full border px-4 py-2 text-sm font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="const w=this.closest('[data-why-tabs]');w.querySelectorAll('[data-why-panel]').forEach(p=>p.hidden=p.dataset.whyPanel!==this.dataset.whyTarget);w.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',t===this))">미적분 <span class="font-normal opacity-70">8</span></button><button type="button" role="tab" aria-selected="false" data-why-target="why-3" class="rounded-full border px-4 py-2 text-sm font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="const w=this.closest('[data-why-tabs]');w.querySelectorAll('[data-why-panel]').forEach(p=>p.hidden=p.dataset.whyPanel!==this.dataset.whyTarget);w.querySelectorAll('[role=tab]').forEach(t=>t.setAttribute('aria-selected',t===this))">기하 <span class="font-normal opacity-70">8</span></button></div>
+<div role="tabpanel" aria-label="공통" data-why-panel="why-0"><div class="grid grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] gap-3 border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 py-2 text-xs font-bold text-gray-700 dark:text-gray-300 max-sm:hidden"><span>문항</span><span>AI 예상 오답률</span><span>유사 기출</span><span></span></div><details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 1번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 10% (8~12%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 1번 <span class="text-gray-500 dark:text-gray-400">· 오답률 8%</span></span><span class="block">2024학년도 수능(2023.11) 1번 <span class="text-gray-500 dark:text-gray-400">· 오답률 13%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 1번</b>: 거듭제곱근을 유리수 지수로 바꾸고 밑을 통일해 지수법칙을 적용하는 1번 계산 구조</li><li><b>2024학년도 수능(2023.11) 1번</b>: 소인수분해로 밑을 맞춘 뒤 지수의 덧셈으로 정수 값을 얻는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>이번 1번은 $\sqrt[3]{32}=2^{\frac53}$과 $4^{-\frac13}=2^{-\frac23}$을 밑 $2$로 통일해 $2^{\frac53-\frac23}=2$를 얻는 지수법칙 문항입니다. 최근 두 해 수능 1번과 마찬가지로 거듭제곱근과 유리수 지수가 섞인 식에서 밑을 통일하는 연산을 그대로 이어받았습니다. 기출에서 거듭제곱근을 지수로 바꾸는 단계가 유일한 고비였듯이, 이번에도 음의 지수 $-\frac13$의 부호를 놓치지 않는 것만이 관건인 전형적인 2점 도입 문항입니다.</p>
 
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 2번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 11% (9~13%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 2번 <span class="text-gray-500 dark:text-gray-400">· 오답률 10%</span></span><span class="block">2024학년도 수능(2023.11) 2번 <span class="text-gray-500 dark:text-gray-400">· 오답률 13%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 2번</b>: 극한식을 미분계수 $f^{\prime}(a)$로 읽고 도함수에 대입하는 2번 전형 구조</li><li><b>2024학년도 수능(2023.11) 2번</b>: 다항함수의 미분법과 미분계수의 정의가 직접 결합된 풀이 과정</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>주어진 극한 $\displaystyle\lim_{h\to0}\frac{f(1+h)-f(1)}{h}$가 미분계수 $f^{\prime}(1)$임을 알아보고, $f^{\prime}(x)=8x^3+2$에 대입해 $f^{\prime}(1)=10$을 얻는 문항입니다. 2024·2025학년도 수능 2번과 발문 형식뿐 아니라 미분계수의 정의를 해석하는 능력을 그대로 묻습니다. 사차함수로 차수만 조금 올라갔을 뿐이며, 기출과 마찬가지로 일차항의 도함수를 빠뜨리는 단순 실수만 조심하면 되는 표준 계산 문항입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 3번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 15% (13~17%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 3번 <span class="text-gray-500 dark:text-gray-400">· 오답률 14%</span></span><span class="block">2024학년도 수능(2023.11) 6번 <span class="text-gray-500 dark:text-gray-400">· 오답률 19%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 3번</b>: 떨어진 두 항의 비가 공비의 거듭제곱이 된다는 성질로 공비를 구하는 구조</li><li><b>2024학년도 수능(2023.11) 6번</b>: 항 사이의 관계식으로 공비를 정한 뒤 목표 항을 계산하는 풀이 흐름</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>모든 항이 양수인 등비수열에서 $a_5=3a_3$으로부터 $r^2=3$을 파악하고 $a_7=a_1(r^2)^3=27$을 계산하는 문항입니다. 2025학년도 수능 3번처럼 연속하지 않은 두 항의 비가 공비의 거듭제곱 $r^2$으로 표현된다는 사실을 활용합니다. 공비 $r=\sqrt3$을 직접 구하지 않고 $r^2$ 단위로 계산하면 부담이 적고, 기출에서처럼 거듭제곱을 한 번 덜 곱하는 실수만 피하면 됩니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 4번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 14% (12~16%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 9월 모평(2023.09) 4번 <span class="text-gray-500 dark:text-gray-400">· 오답률 14%</span></span><span class="block">2025학년도 수능(2024.11) 4번 <span class="text-gray-500 dark:text-gray-400">· 오답률 11%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 9월 모평(2023.09) 4번</b>: 빈 점과 채운 점을 구분해 그래프에서 좌극한과 우극한을 읽는 구조</li><li><b>2025학년도 수능(2024.11) 4번</b>: 경계점에서 좌극한, 우극한, 함숫값의 일치를 판단하는 기본 개념</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>그래프에서 $\displaystyle\lim_{x\to0-}f(x)=3$과 $\displaystyle\lim_{x\to1+}f(x)=1$을 읽어 더하는 문항입니다. 2024학년도 9월 모평 4번과 같이 빈 점과 채운 점의 위치를 혼동하지 않고 한쪽 극한값을 읽어야 합니다. 기출에서 채운 점의 함숫값을 극한값으로 잘못 읽게 만들던 함정이 이번에도 $x=0$의 채운 점 $(0,0)$으로 그대로 나타납니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 5번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 13% (11~15%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 수능(2023.11) 5번 <span class="text-gray-500 dark:text-gray-400">· 오답률 12%</span></span><span class="block">2025학년도 수능(2024.11) 7번 <span class="text-gray-500 dark:text-gray-400">· 오답률 13%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 수능(2023.11) 5번</b>: 도함수에서 원래 함수를 복원해 함숫값을 연결하는 적분의 기본 구조</li><li><b>2025학년도 수능(2024.11) 7번</b>: 정적분으로 표현된 함수와 피적분함수 사이의 관계를 다루는 계산</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>부정적분 $F(x)=x^3-x^2+x$가 직접 주어져 있으므로 $\displaystyle\int_0^2 f(x)\,dx=F(2)-F(0)$을 곧바로 적용하는 문항입니다. $F(x)$를 미분해 $f(x)=3x^2-2x+1$을 구한 뒤 다시 적분해도 같은 결과가 나오도록 설계되어 있습니다. 기출과 마찬가지로 정적분과 부정적분의 관계를 바르게 이해했는지만 확인하며, 대입 과정의 부호 처리 외에는 함정이 거의 없습니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 6번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 29% (26~32%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 10번 <span class="text-gray-500 dark:text-gray-400">· 오답률 30%</span></span><span class="block">2024학년도 6월 모평(2023.06) 6번 <span class="text-gray-500 dark:text-gray-400">· 오답률 32%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 10번</b>: 삼각함수의 계수, 주기, 평행이동이 최댓값 조건과 맞물리는 구조</li><li><b>2024학년도 6월 모평(2023.06) 6번</b>: 삼각함수의 기본 성질로 값을 결정하는 3점 문항</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$f(x)=3\sin\dfrac{2\pi x}{k}+k$의 주기 $\dfrac{2\pi}{2\pi/k}=k$로부터 $k=8$을 정하고 최댓값 $3+k=11$을 구하는 문항입니다. 2025학년도 수능 10번처럼 $x$의 계수가 주기와 직결되고, 상수항의 평행이동이 진폭과 결합해 최댓값을 정합니다. 기출에서 주기 공식의 역수 관계를 헷갈리게 하던 지점이 이번에도 그대로 변별 포인트가 됩니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 7번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 20% (17~23%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 9월 모평(2023.09) 6번 <span class="text-gray-500 dark:text-gray-400">· 오답률 16%</span></span><span class="block">2023학년도 수능(2022.11) 6번 <span class="text-gray-500 dark:text-gray-400">· 오답률 20%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 9월 모평(2023.09) 6번</b>: 극값을 갖는 점에서 $f^{\prime}(x)=0$을 이용해 계수를 정하고 극댓값을 계산하는 삼차함수 전형</li><li><b>2023학년도 수능(2022.11) 6번</b>: $f^{\prime}(1)=0$으로 미지수를 정하고 인수분해로 다른 극점을 찾는 과정</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$f^{\prime}(x)=3x^2+2ax-3a$에 극소 조건 $f^{\prime}(1)=3-a=0$을 적용해 $a=3$을 얻고, $f^{\prime}(x)=3(x+3)(x-1)$에서 극대점 $x=-3$을 찾아 극댓값 $f(-3)=28$을 구하는 문항입니다. 2024학년도 9월 모평 6번과 2023학년도 수능 6번처럼 도함수의 근과 극대·극소 판정을 결합한 평가원의 전형적인 3점 문항입니다. 기출에서와 같이 극점을 원래 함수에 대입할 때 음수의 거듭제곱 부호를 실수하는 것이 주된 함정입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 8번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 28% (25~31%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 8번 <span class="text-gray-500 dark:text-gray-400">· 오답률 27%</span></span><span class="block">2024학년도 수능(2023.11) 9번 <span class="text-gray-500 dark:text-gray-400">· 오답률 43%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 8번</b>: 밑이 다른 로그를 밑변환으로 정리하고 곱으로 상쇄하는 구조</li><li><b>2024학년도 수능(2023.11) 9번</b>: 로그의 성질과 지수·로그의 역관계를 활용한 식 변형</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$a=\log_2 9=2\log_2 3$, $b=\log_3 2+\dfrac{1}{\log_8 3}=4\log_3 2$로 정리해 $a\times b=8$을 구하는 문항입니다. $\dfrac{1}{\log_8 3}$을 $\log_3 8=3\log_3 2$로 바꾼 뒤, 2025학년도 수능 8번에서 $\log_2 10\times\log 2=1$을 썼던 것처럼 역수 관계인 $\log_2 3\times\log_3 2=1$로 정수 값을 끌어냅니다. 기출에서 밑이 다른 로그를 정리하지 못해 식이 복잡해지던 함정이, 이번에는 역수 꼴의 로그를 밑변환하지 못하는 오류로 다시 나타납니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 9번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 50% (46~53%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 수능(2023.11) 10번 <span class="text-gray-500 dark:text-gray-400">· 오답률 49%</span></span><span class="block">2025학년도 수능(2024.11) 9번 <span class="text-gray-500 dark:text-gray-400">· 오답률 19%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 수능(2023.11) 10번</b>: 속도의 부호가 바뀌는 시각을 기준으로 구간을 나누어 속도의 절댓값을 적분하는 구조</li><li><b>2025학년도 수능(2024.11) 9번</b>: 이차함수의 정적분을 구간별로 계산하는 기본 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>속도 $v(t)=3(t-1)(t-5)$에서 점 P가 $t=1$에서 운동 방향을 바꾼다는 사실을 파악하고, 구간을 나누어 움직인 거리를 적분하는 4점 첫 문항입니다. 2024학년도 수능 10번처럼 위치의 변화량이 아니라 움직인 거리를 묻고 있으므로 $\displaystyle\int_0^2|v(t)|\,dt$를 정확히 계산해야 합니다. 기출에서 방향 전환 시각을 놓치고 단순 정적분을 하게 만들던 함정이 이번에도 $t=1$에서 그대로 재현됩니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 10번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 51% (48~54%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 9월 모평(2024.09) 10번 <span class="text-gray-500 dark:text-gray-400">· 오답률 58%</span></span><span class="block">2024학년도 수능(2023.11) 13번 <span class="text-gray-500 dark:text-gray-400">· 오답률 56%</span></span><span class="block">2023학년도 수능(2022.11) 11번 <span class="text-gray-500 dark:text-gray-400">· 오답률 52%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 9월 모평(2024.09) 10번</b>: 외접원의 넓이로 반지름을 구하고 변의 비와 사인법칙·코사인법칙을 결합하는 구조</li><li><b>2024학년도 수능(2023.11) 13번</b>: 코사인법칙으로 변을 구하고 외접원의 반지름과 사인법칙을 연립하는 4점 도형 문항</li><li><b>2023학년도 수능(2022.11) 11번</b>: 코사인법칙과 사인법칙을 연립해 외접원의 반지름을 다루는 풀이 흐름</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$\sin A:\sin B=3:4$에서 $a:b=3:4$를 세우고 $\cos C=\frac13$을 코사인법칙에 넣어 $c=\sqrt{17}k$를 얻은 뒤, 외접원의 반지름 $R=\sqrt{17}$과 사인법칙 $c=2R\sin C$를 연립해 $a=4\sqrt2$를 구하는 문항입니다. 2025학년도 9월 모평 10번처럼 외접원의 넓이에서 반지름을 얻고, 2024학년도 수능 13번처럼 사인법칙과 코사인법칙을 교차 적용해야 합니다. 기출에서 연립 단계가 여러 겹이라 중간에 비례식을 잘못 세우던 함정이 이번에도 같은 자리에서 나타납니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 11번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 36% (33~39%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 6월 모평(2023.06) 8번 <span class="text-gray-500 dark:text-gray-400">· 오답률 28%</span></span><span class="block">2025학년도 9월 모평(2024.09) 11번 <span class="text-gray-500 dark:text-gray-400">· 오답률 31%</span></span><span class="block">2025학년도 수능(2024.11) 5번 <span class="text-gray-500 dark:text-gray-400">· 오답률 12%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 6월 모평(2023.06) 8번</b>: 두 곡선이 접할 조건(함숫값과 기울기의 일치)을 연립하는 구조</li><li><b>2025학년도 9월 모평(2024.09) 11번</b>: 함숫값 일치 조건과 도함수 계산을 두 단계로 연결하는 미분 문항</li><li><b>2025학년도 수능(2024.11) 5번</b>: 곱의 꼴로 정의된 함수에 곱의 미분법을 적용하는 계산</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>곡선 $y=x^2f(x)$ 위의 점 $(1,f(1))$이 접선 $y=7x-11$ 위에 있으므로 $f(1)=-4$를 먼저 얻고, 곱의 미분법으로 기울기 조건 $2f(1)+f^{\prime}(1)=7$을 풀어 $f^{\prime}(1)=15$를 구하는 문항입니다. 2024학년도 6월 모평 8번처럼 접점에서 함숫값 일치와 기울기 일치라는 두 정보를 모두 써야 합니다. 기출의 곱의 미분 계산에서 앞 항의 미분을 빠뜨리던 실수가, 이번에는 $2xf(x)$ 항을 놓치는 함정으로 다시 등장합니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 12번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 44% (40~48%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2022학년도 9월 모평(2021.09) 13번 <span class="text-gray-500 dark:text-gray-400">· 오답률 50%</span></span><span class="block">2017학년도 6월 모평(2016.06) 12번(나형) <span class="text-gray-500 dark:text-gray-400">· 오답률 15%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2022학년도 9월 모평(2021.09) 13번</b>: 절댓값 등식에서 두 항의 부호가 반대임을 파악하고 부분합 조건과 연립하는 구조</li><li><b>2017학년도 6월 모평(2016.06) 12번(나형)</b>: 항 번호 사이의 차이로 공차와 첫째항을 결정하는 전형적인 풀이</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>조건 $a_3=|a_8|$에서 공차가 $0$이 아니므로 두 항의 부호가 반대, 즉 $a_3+a_8=0$임을 알아차려야 한다는 점에서 2022학년도 9월 모평 13번과 판단 구조가 같습니다. 부분합의 차 $S_8-S_3=a_4+\cdots+a_8=-15$를 등차중항 $5a_6$으로 묶어 내는 간결한 처리를 요구합니다. 기출에서 식을 무작정 $a_1$과 $d$로 풀어 연립하다 부호가 꼬이던 함정이, 이번에는 음수 공차를 양수로 처리하는 실수로 이어지기 쉽습니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 13번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 55%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 사관학교(2024.07) 13번</span><span class="block">2024학년도 경찰대학(2023.07) 10번</span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 사관학교(2024.07) 13번</b>: 직선 $y=t$와의 위치 관계에 따라 구간을 나누어 새 함수 $g(t)$를 정의하는 구조</li><li><b>2024학년도 경찰대학(2023.07) 10번</b>: 절댓값이 있는 피적분함수를 경계점에서 나누어 정적분을 정리하는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>정적분으로 정의된 $g(t)=\displaystyle\int_0^2|f(x)-t|\,dx$는 절댓값을 풀기 위해 곡선 $y=f(x)$와 직선 $y=t$의 위아래 관계를 구간별로 나누어야 한다는 점에서 사관학교 13번, 경찰대학 10번과 같은 판단을 공유합니다. ㄷ에서는 적분 구간을 $x=1$에서 나누면 $t$에 관한 항이 상쇄되어 $g(t)$의 하한이 나오고, 등호가 $t=f(1)$일 때만 성립한다는 점을 찾아야 합니다. 두 기출이 직선 $y=t$를 움직이며 함수의 값을 추적하게 했다면, 이번 ㄷ은 ㄴ과 같은 꼴의 식을 보고 부등호를 섣불리 일반화하지 않도록 등호 조건까지 따지게 합니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 14번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 51% (47~54%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2022학년도 수능(2021.11) 9번 <span class="text-gray-500 dark:text-gray-400">· 오답률 45%</span></span><span class="block">2022학년도 수능(2021.11) 13번 <span class="text-gray-500 dark:text-gray-400">· 오답률 59%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2022학년도 수능(2021.11) 9번</b>: 직선의 기울기와 선분의 길이로 두 교점의 좌표 차를 먼저 정하고 이를 두 곡선의 식에 연립하는 기하적 구조</li><li><b>2022학년도 수능(2021.11) 13번</b>: 좌표평면 위의 점과 로그 곡선의 식을 연립해 밑과 미지수의 관계를 끌어내는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$g(x)$는 $f(x)$를 $x$축 방향으로 $-6$, $y$축 방향으로 $1$만큼 평행이동한 곡선입니다. 점 $\mathrm P(5,1)$을 같은 만큼 옮긴 점 $(-1,2)$와 P를 잇는 직선의 기울기가 정확히 $-\frac16$이므로, 점 Q가 $(-1,2)$로 곧바로 정해지는 평행이동과 기울기의 일치 구조를 담고 있습니다. 2022학년도 수능 9번에서 기울기 $2$와 $\overline{\mathrm{PQ}}=\sqrt5$로 두 교점의 좌표 차 $(1,2)$를 먼저 읽어 내야 연립이 풀리도록 했던 장치가, 이번에는 기울기 $-\frac16$이 평행이동 $(-6,1)$의 방향과 일치함을 먼저 보아야 로그방정식을 직접 풀지 않고 Q를 정할 수 있는 장치로 다시 쓰였습니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 15번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 70%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2009학년도 수능(2008.11) 6번(가·나형 공통) <span class="text-gray-500 dark:text-gray-400">· 오답률 49%</span></span><span class="block">2014학년도 수능(2013.11) 28번(A형) <span class="text-gray-500 dark:text-gray-400">· 오답률 55%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2009학년도 수능(2008.11) 6번(가·나형 공통)</b>: 극한으로 정의된 부호 함수와 다항식의 곱에서 불연속점을 판정하는 구조</li><li><b>2014학년도 수능(2013.11) 28번(A형)</b>: 경계점에서 좌극한과 우극한을 추적해 연속성을 결정하는 논리</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$\displaystyle\lim_{t\to x+}\frac{f(t)}{|f(t)|}$는 $x$의 바로 오른쪽에서 삼차함수 $f$의 부호를 나타내므로, $f$의 부호가 바뀌는 점에서 값이 뛴다는 점에서 2009학년도 수능 6번과 소재가 같습니다. 핵심은 $g(x^2)$에서 $x=0$ 근처의 $x^2$이 $0$에 오른쪽에서만 다가가므로, $g$가 $0$에서 불연속이어도 $g(x^2)$은 $x=0$에서 연속이 된다는 점입니다. 2014학년도 수능 A형 28번에서 경계점의 한쪽 극한만 보고 연속성을 단정하게 하던 함정이, 이번에는 $x=0$까지 불연속점으로 세게 만드는 장치로 재현되었습니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 16번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 5% (3~6%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2015학년도 수능(2014.11) 15번(A형) <span class="text-gray-500 dark:text-gray-400">· 오답률 7%</span></span><span class="block">2010학년도 수능(2009.11) 4번(나형) <span class="text-gray-500 dark:text-gray-400">· 오답률 18%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2015학년도 수능(2014.11) 15번(A형)</b>: 밑 $\frac15$을 $5^{-1}$로 통일해 일차식으로 바꾸는 기본 지수 연산</li><li><b>2010학년도 수능(2009.11) 4번(나형)</b>: 지수방정식의 밑을 맞추어 푸는 대수적 해법</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>우변의 밑 $\frac1{25}$을 $5^{-2}$로 바꾸어 지수끼리의 일차방정식 $x=-2(x-3)$으로 정리하는 기본 지수방정식입니다. 밑이 $1$보다 큰 $5$로 통일되므로 $3x=6$에서 $x=2$를 바로 얻습니다. 2015학년도 수능 A형 15번에서 분수 밑을 음의 지수로 바꾸던 첫 단계가 그대로 쓰였고, 기출과 마찬가지로 $-2(x-3)$을 전개할 때의 부호만 조심하면 됩니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 17번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 7% (5~8%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 6월 모평(2024.06) 17번 <span class="text-gray-500 dark:text-gray-400">· 오답률 14%</span></span><span class="block">2026학년도 9월 모평(2025.09) 17번 <span class="text-gray-500 dark:text-gray-400">· 오답률 8%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 6월 모평(2024.06) 17번</b>: 도함수를 적분하고 주어진 함숫값으로 적분상수를 정해 함숫값을 계산하는 흐름</li><li><b>2026학년도 9월 모평(2025.09) 17번</b>: 부정적분 후 주어진 함숫값으로 적분상수를 구하는 표준 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>도함수 $f^{\prime}(x)=6x^2+1$을 적분해 $f(x)=2x^3+x+C$를 구하고, $f(1)=5$에서 $C=2$를 정한 뒤 $f(2)=20$을 계산하는 전형적인 부정적분 문항입니다. 2025학년도 6월 모평 17번과 최고차항의 꼴, 조건의 성격, 최종적으로 묻는 값까지 같은 교과서 기본 유형입니다. 기출에서처럼 적분상수를 빠뜨리거나 주어진 점을 잘못 대입하는 실수만이 함정입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 18번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 8% (6~10%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2026학년도 6월 모평(2025.06) 3번 <span class="text-gray-500 dark:text-gray-400">· 오답률 10%</span></span><span class="block">2026학년도 9월 모평(2025.09) 3번 <span class="text-gray-500 dark:text-gray-400">· 오답률 8%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2026학년도 6월 모평(2025.06) 3번</b>: 시그마의 성질과 상수의 합 $nc$를 이용하는 구조</li><li><b>2026학년도 9월 모평(2025.09) 3번</b>: 시그마의 성질로 일차방정식을 세우는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>좌변을 시그마의 성질로 $2\sum_{k=1}^{5}k+5a=30+5a$로 전개하고, 우변 $\sum_{k=1}^{5}k^2=55$를 계산해 $30+5a=55$를 푸는 문항입니다. 시그마의 기본 공식과 상수를 항의 개수만큼 곱하는 평가원 단골 계산을 그대로 따릅니다. 기출에서 상수항의 합을 $c$로만 적는 실수가 함정이었듯이, 이번에도 $a$를 $5$배 하지 않는 실수가 유일한 감점 요인입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 19번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 21% (18~24%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2021학년도 수능(2020.12) 25번(나형) <span class="text-gray-500 dark:text-gray-400">· 오답률 24%</span></span><span class="block">2024학년도 6월 모평(2023.06) 8번 <span class="text-gray-500 dark:text-gray-400">· 오답률 28%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2021학년도 수능(2020.12) 25번(나형)</b>: 삼차함수와 수평선의 교점이 2개인 조건에서 극값을 선택하는 논리</li><li><b>2024학년도 6월 모평(2023.06) 8번</b>: 삼차방정식이 중근과 다른 한 근을 가질 조건에서 양수 $k$를 정하는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>곡선 $y=x^3-3x^2-24x+3$과 직선 $y=k$의 교점이 2개가 되려면 직선이 극댓값 또는 극솟값 높이에 있어야 한다는 원리를 묻습니다. $y^{\prime}=3(x-4)(x+2)$에서 극대점 $x=-2$, 극소점 $x=4$를 찾고, 양수 $k$를 요구하므로 극댓값 $31$을 고르는 흐름입니다. 2021학년도 수능 나형 25번과 발문과 풀이 단계가 거의 같으며, 기출처럼 양수 조건으로 두 극값 중 하나를 고르는 판단과 음수 거듭제곱 계산이 관건입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 20번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 49% (45~53%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2022학년도 수능(2021.11) 11번 <span class="text-gray-500 dark:text-gray-400">· 오답률 50%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2022학년도 수능(2021.11) 11번</b>: 그래프의 점대칭성을 이용해 교점의 좌표 관계를 세우고 도형 조건을 푸는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>사인함수 $f(x)=a\sin\dfrac{\pi x}{b}$의 그래프가 점 $(b,0)$에 대해 대칭이라는 성질과, 조건 $y_2(x_1-b)=y_1(x_2-b)$로부터 직선 AB가 점 $(b,0)$을 지난다는 사실을 연결해 두 교점의 중점이 $(b,0)$임을 파악하는 문항입니다. 2022학년도 수능 11번처럼 삼각함수 그래프의 점대칭성을 교점 좌표의 관계로 바꾸는 것이 출발점입니다. 이후 빈칸 추론 양식에서는 앞줄에서 얻은 식을 다음 줄에 그대로 대입해야 (가), (나), (다)가 어긋나지 않습니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 21번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 88%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2022년 10월 교육청(고3) 22번 <span class="text-gray-500 dark:text-gray-400">· 오답률 97%</span></span><span class="block">2027학년도 6월 모평(2026.06) 21번 <span class="text-gray-500 dark:text-gray-400">· 오답률 89%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2022년 10월 교육청(고3) 22번</b>: 구간별 최댓값·최솟값을 추적해 새 함수를 정의하고 원래 함수의 개형을 역추론하는 논리</li><li><b>2027학년도 6월 모평(2026.06) 21번</b>: 삼차함수의 극값과 수평선의 위치 관계에 따라 정의된 새 함수 $g(t)$의 특이점을 분석하는 추론</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$t$를 경계로 왼쪽 구간 $(-\infty,t]$의 최댓값과 오른쪽 구간 $[t,\infty)$의 최솟값을 곱한 함수 $g(t)$를 분석하는 최고난도 문항으로, 2022년 10월 교육청 22번의 구간별 최대·최소 분할 아이디어를 이어받았습니다. 삼차함수가 극대와 극소를 가질 때 두 극점 사이에서는 $g(t)$가 상수가 되므로, $g^{\prime}(b)=0$인 $b$의 범위 조건이 극점과 근의 위치를 알려 줍니다. 2027학년도 6월 모평 21번에서 새 함수의 특이점이 생기는 위치를 경우별로 따지지 않으면 막히던 함정이, 이번에는 좌·우 미분계수의 차가 어느 이음매에서 생기는지 두 경우를 모두 확인해야 하는 장치로 재현되었습니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">공통 22번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 78%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2014학년도 6월 모평(2013.06) 28번(A형) <span class="text-gray-500 dark:text-gray-400">· 오답률 33%</span></span><span class="block">2011학년도 수능(2010.11) 30번(나형) <span class="text-gray-500 dark:text-gray-400">· 오답률 52%</span></span><span class="block">2012년 3월 교육청(고3) 17번(나형) <span class="text-gray-500 dark:text-gray-400">· 오답률 58%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2014학년도 6월 모평(2013.06) 28번(A형)</b>: 주기성을 파악하고 합을 주기 묶음과 나머지로 나누어 미지수를 정하는 구조</li><li><b>2011학년도 수능(2010.11) 30번(나형)</b>: 로그의 합으로 항들의 곱을 얻고 역수 꼴의 합을 계산하는 대수 구조</li><li><b>2012년 3월 교육청(고3) 17번(나형)</b>: 주기를 갖는 수열의 묶음 합을 일반화해 계산하는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>조건 $a_n=a_{n+6}=a_{n+9}$에서 $n$ 대신 $n+3$을 넣으면 $a_{n+3}=a_n$이 성립하므로, 이 수열의 실제 주기가 $3$이라는 점을 알아차리는 것이 첫 단추입니다. 주기 $3$을 바탕으로 항의 합과 로그의 합을 주기 단위로 분해하면 $a_1+a_2$, $a_1a_2$, $a_3$을 연립해 구할 수 있습니다. 2014학년도 6월 모평 A형 28번에서 주기 묶음 뒤에 남는 나머지 항을 빠뜨리게 하던 함정이, 이번에도 $\sum_{k=1}^{40}\frac{1}{a_ka_{k+1}}$의 마지막 한 항으로 다시 나타납니다.</p>
+
+  </div>
+</details></div>
+<div role="tabpanel" aria-label="확률과 통계" data-why-panel="why-1" hidden><div class="grid grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] gap-3 border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 py-2 text-xs font-bold text-gray-700 dark:text-gray-300 max-sm:hidden"><span>문항</span><span>AI 예상 오답률</span><span>유사 기출</span><span></span></div><details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">확통 23번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 10% (8~12%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2026학년도 수능(2025.11) 23번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 10%</span></span><span class="block">2026학년도 9월 모평(2025.09) 23번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 8%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2026학년도 수능(2025.11) 23번(확통)</b>: 서로 다른 $n$개에서 중복을 허락해 $r$개를 나열하는 중복순열 공식을 바로 적용하는 구조</li><li><b>2026학년도 9월 모평(2025.09) 23번(확통)</b>: 문자와 자리 수만 바뀐 중복순열의 전형적인 2점 도입 문항 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>이번 23번은 두 문자 중에서 중복을 허용해 $7$개를 택해 나열하는 경우의 수 $2^7=128$을 묻고 있어, 2026학년도 수능 23번($4^3$)과 9월 모평 23번($3^4$)과 같은 중복순열 공식 대입형 문항입니다. 각 자리에 두 문자가 독립적으로 올 수 있다는 곱의 법칙만 적용하면 바로 해결됩니다. 기출에서 밑과 지수를 뒤바꾸게 만들던 순간적인 착각이 이번에도 유일한 함정입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">확통 24번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 15% (12~18%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2021학년도 6월 모평(2020.06) 6번(나형) <span class="text-gray-500 dark:text-gray-400">· 오답률 13%</span></span><span class="block">2024학년도 6월 모평(2023.06) 24번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 17%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2021학년도 6월 모평(2020.06) 6번(나형)</b>: 덧셈정리 항등식으로 모르는 확률을 구하는 구조</li><li><b>2024학년도 6월 모평(2023.06) 24번(확통)</b>: 사건을 나누어 덧셈정리를 적용하고 분수 계산으로 답을 내는 3점 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>합사건과 각 사건의 확률이 주어졌을 때 곱사건의 확률을 구하는 문항으로, 덧셈정리 $\mathrm P(A\cup B)=\mathrm P(A)+\mathrm P(B)-\mathrm P(A\cap B)$를 직접 묻습니다. 2021학년도 6월 모평 나형 6번이나 2024학년도 6월 모평 24번처럼 복잡한 상황 해석 없이 주어진 값을 공식에 대입해 정리하는 판단 과정을 공유합니다. 기출에서 통분하며 이항 부호를 반대로 처리하던 실수가 이번에도 유일한 감점 요인입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">확통 25번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 19% (15~22%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2014학년도 수능(2013.11) 9번(A형) <span class="text-gray-500 dark:text-gray-400">· 오답률 16%</span></span><span class="block">2013학년도 9월 모평(2012.09) 10번(나형) <span class="text-gray-500 dark:text-gray-400">· 오답률 17%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2014학년도 수능(2013.11) 9번(A형)</b>: 이항분포의 평균·분산 공식을 연립해 모수를 역산하는 구조</li><li><b>2013학년도 9월 모평(2012.09) 10번(나형)</b>: 성공 확률 $\frac23$인 이항분포에 $\mathrm V(X)=np(1-p)$를 적용하는 계산</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$X\sim\mathrm B\!\left(n,\frac23\right)$에서 표준편차 조건 $\sigma(X)=4$로 $n$을 역산하고 평균 $\mathrm E(X)$를 구해 더하는 두 단계 계산 문항입니다. 2014학년도 수능 A형 9번처럼 $\mathrm E(X)=np$와 $\mathrm V(X)=np(1-p)$의 관계를 정확히 이해하는지 평가합니다. 기출에서 평균과 분산을 혼동하게 만들던 함정이, 이번에는 표준편차 $4$를 분산 $4$로 착각해 제곱을 빠뜨리는 실수로 나타납니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">확통 26번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 29% (25~32%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 6월 모평(2023.06) 27번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 28%</span></span><span class="block">2027학년도 9월 모평(2026.09) 26번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 21%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 6월 모평(2023.06) 27번(확통)</b>: 주사위 눈의 곱 조건을 순서쌍 36가지에서 체계적으로 세는 구조</li><li><b>2027학년도 9월 모평(2026.09) 26번(확통)</b>: 두 번의 시행에서 곱의 조건을 분류해 합사건의 확률을 구하는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>주사위를 두 번 던지는 표본공간에서 곱의 부등식 조건 $5\le ab\le 28$을 만족하는 순서쌍의 개수를 구하는 문항입니다. 2024학년도 6월 모평 27번이나 2027학년도 9월 모평 26번처럼 두 눈의 곱 조건을 경우별로 분류하는 사고 과정을 공유합니다. 직접 세기보다 여사건 $ab&lt;5$ 또는 $ab&gt;28$을 이용하는 편이 빠른데, 기출에서 경계 순서쌍을 빠뜨리거나 중복해 세던 함정이 이번에도 경계값 $5$, $28$에서 그대로 나타납니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">확통 27번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 29% (25~33%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 수능(2023.11) 27번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 35%</span></span><span class="block">2026학년도 수능(2025.11) 26번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 27%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 수능(2023.11) 27번(확통)</b>: 신뢰구간 양 끝의 차와 합으로 미지수를 분리하는 구조</li><li><b>2026학년도 수능(2025.11) 26번(확통)</b>: 신뢰구간의 대칭성과 구간의 길이로 경계값을 복원하는 3점 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>주어진 신뢰구간의 중점에서 표본평균 $\overline{x}$를 찾고, 구간의 길이 $2\times1.96\times\dfrac{\sigma}{\sqrt{64}}$에서 모표준편차 $\sigma$를 구해 더하는 구조입니다. 2024학년도 수능 27번처럼 신뢰구간의 대칭성과 구간 길이 공식을 연립해 두 값을 분리하고, 2026학년도 수능 26번처럼 구간 길이 공식으로 신뢰구간의 끝값을 복원하는 흐름이 같습니다. 기출에서 구간의 절반 길이와 전체 길이를 혼동하게 하던 함정이, 이번에는 구간 길이 공식의 $2$를 빠뜨려 $\sigma$를 잘못 구하는 실수로 이어집니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">확통 28번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 65%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2026학년도 9월 모평(2025.09) 28번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 64%</span></span><span class="block">2009학년도 9월 모평(2008.09) 23번(나형) <span class="text-gray-500 dark:text-gray-400">· 오답률 54%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2026학년도 9월 모평(2025.09) 28번(확통)</b>: 같은 것이 있는 대상을 제약 조건에 맞추어 경우를 나누어 세는 4점 구조</li><li><b>2009학년도 9월 모평(2008.09) 23번(나형)</b>: 이웃 조건을 파악해 묶음과 사이에 놓을 원소로 나누어 세는 순열 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$\frac12$ 두 장, $1$ 세 장, $2$ 세 장, $4$ 한 장을 일렬로 나열할 때 이웃한 두 수의 곱이 자연수이거나 두 수가 같아야 한다는 조건을 분석하면, 금지되는 이웃은 $\frac12$과 $1$뿐이라는 하나의 제약으로 정리됩니다. 따라서 $\frac12$과 $1$ 사이에 $2$와 $4$를 어떻게 끼워 넣어 떼어 놓을지를 경우별로 나누어야 합니다. 2026학년도 9월 모평 28번에서 조건의 이면을 읽지 못하면 경우가 끝없이 늘어나던 함정이, 이번에도 붙어 있는 $\frac12$과 떨어진 $\frac12$을 나누어 세다 중복이 생기는 형태로 나타납니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">확통 29번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 65%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2022학년도 9월 모평(2021.09) 29번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 64%</span></span><span class="block">2025학년도 수능(2024.11) 29번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 61%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2022학년도 9월 모평(2021.09) 29번(확통)</b>: 분포의 대칭성으로 평균을 고정한 뒤 $\mathrm E(X^2)$를 이용해 분산 식을 정리하는 4점 구조</li><li><b>2025학년도 수능(2024.11) 29번(확통)</b>: 분포의 대칭성으로 평균을 먼저 정하고 나머지 조건으로 모수를 확정하는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>대칭인 확률분포표에서 평균이 $0$임을 바로 파악하고, 부등식 $1\le\mathrm V(X)\le\sigma(X)$를 만족하는 경우가 $\mathrm V(X)=1$뿐임을 찾는 것이 출발점입니다. 2022학년도 9월 모평 29번처럼 대칭성으로 평균을 먼저 고정한 뒤 $\mathrm E(X^2)$로 분산 식을 정리하는 판단 구조를 공유하며, 이번에는 확률의 합 조건으로 $b$를 $a$로 나타내 문자를 하나 줄이는 과정이 더해집니다. 기출에서 대칭성을 놓치고 평균부터 계산하다 식이 길어지던 함정이, 이번에는 경계 조건 $\mathrm V(X)=1$을 보지 못하고 부등식 범위로 접근하다 막히는 형태로 나타납니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">확통 30번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 78%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2022학년도 6월 모평(2021.06) 30번(확통) <span class="text-gray-500 dark:text-gray-400">· 오답률 71%</span></span><span class="block">2009학년도 9월 모평(2008.09) 30번(나형) <span class="text-gray-500 dark:text-gray-400">· 오답률 77%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2022학년도 6월 모평(2021.06) 30번(확통)</b>: 반복 시행에서 두 조건의 결합을 경우 분할로 처리하는 4점 구조</li><li><b>2009학년도 9월 모평(2008.09) 30번(나형)</b>: 3번 반복하는 독립시행에서 발생 횟수 조건을 조합으로 분류하는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>$1$부터 $6$까지의 카드에서 $3$장을 꺼내는 시행을 $3$번 반복할 때, 두 사건 $A$, $B$의 발생 횟수 합 $a+b=4$를 조건으로 한 조건부확률을 묻습니다. 2022학년도 6월 모평 30번처럼 한 번의 시행에서 두 사건이 배반이 아니므로, $A\cap B$, $A\cap B^C$, $A^C\cap B$, $A^C\cap B^C$의 확률을 먼저 구한 뒤 세 번의 시행에서 횟수 조합을 따져야 합니다. 기출에서 두 조건을 독립처럼 단순 곱셈으로 처리하게 만들던 함정이 이번에도 그대로 나타납니다.</p>
+
+  </div>
+</details></div>
+<div role="tabpanel" aria-label="미적분" data-why-panel="why-2" hidden><div class="grid grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] gap-3 border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 py-2 text-xs font-bold text-gray-700 dark:text-gray-300 max-sm:hidden"><span>문항</span><span>AI 예상 오답률</span><span>유사 기출</span><span></span></div><details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">미적 23번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 5% (3~6%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 수능(2023.11) 23번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 5%</span></span><span class="block">2026학년도 9월 모평(2025.09) 23번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 4%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 수능(2023.11) 23번(미적분)</b>: $\displaystyle\lim_{t\to0}\frac{\ln(1+t)}{t}=1$을 이용해 일차 계수의 비를 비교하는 구조</li><li><b>2026학년도 9월 모평(2025.09) 23번(미적분)</b>: 기본 극한 공식을 한 번 적용해 해결하는 계산 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>로그함수의 기본 극한 $\displaystyle\lim_{t\to0}\frac{\ln(1+t)}{t}=1$을 직접 묻는 기본 문항입니다. 분자 $\ln(1-3x)$를 $-3x$에 대응시켜 분모 $x$와의 계수 비를 바로 얻는 풀이는 2024학년도 수능 23번에서 계수의 비를 구한 방식과 같습니다. 기출이 공식 대입만으로 끝났듯이 이번에도 분자의 음의 부호를 놓쳐 $3$으로 답하는 부호 실수가 사실상 유일한 함정입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">미적 24번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 11% (8~14%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 24번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 9%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 24번(미적분)</b>: 24번에 놓인 기본 적분법 한 번의 정확한 적용을 평가</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>다항함수 $x$와 삼각함수 $\sin4x$의 곱을 적분하는 전형적인 부분적분 문항입니다. $x$를 미분할 함수로, $\sin4x$를 적분할 함수로 두어 $\left[x\left(-\frac14\cos4x\right)\right]_0^{\pi}+\frac14\displaystyle\int_0^{\pi}\cos4x\,dx$로 나누는 정석 경로를 따릅니다. 2025학년도 수능 24번과 마찬가지로 기본 적분법 한 번의 정확한 적용을 점검하며, 이번에는 $\sin4x$의 부정적분 계수 $-\frac14$의 부호와 분모, 그리고 $\cos4\pi=1$의 대입을 정확히 처리해야 합니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">미적 25번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 14% (11~16%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 9월 모평(2024.09) 25번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 11%</span></span><span class="block">2025학년도 수능(2024.11) 25번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 11%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 9월 모평(2024.09) 25번(미적분)</b>: 분모와 분자의 지배항을 비교해 공비를 찾고 극한값으로 첫째항을 구하는 논리</li><li><b>2025학년도 수능(2024.11) 25번(미적분)</b>: 수열의 극한 조건에서 지배항의 계수와 차수를 정해 목표값을 구하는 두 단계 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>분모가 $4^n$ 꼴로 커지는 상황에서 극한값이 $0$이 아닌 상수로 수렴한다는 조건으로부터 분자의 지배항을 추론하는 문항입니다. $a_{2n}$의 공비가 $r^2$이 되므로 $r^2=4$에서 공비 $r=\pm2$를 정하고, 계수 비교로 첫째항을 구해 $a_4=12$를 얻는 과정($r=-2$이어도 $a_4$는 같습니다)은 2025학년도 9월 모평 25번에서 분모와 분자의 증가 속도를 비교해 공비를 정하던 논리와 같습니다. 기출에서 분모의 계수를 정리하는 단계가 있었듯이, 이번에도 $3\times4^{n-1}=\frac34\times4^n$의 처리와 $a_{2n}$의 공비를 $r$로 착각하는 실수가 주의할 지점입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">미적 26번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 21% (18~24%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 26번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 18%</span></span><span class="block">2025학년도 9월 모평(2024.09) 26번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 18%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 26번(미적분)</b>: 근호가 있는 곡선에서 단면의 넓이를 구할 때 제곱으로 근호가 사라지는 구조</li><li><b>2025학년도 9월 모평(2024.09) 26번(미적분)</b>: 단면의 모양에 따른 넓이 공식의 계수 처리와 적분법의 결합</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>곡선이 근호 꼴로 주어져 $x$축에 수직인 단면의 넓이를 구할 때 제곱으로 근호가 자연스럽게 사라지도록 설계된 입체도형의 부피 문항입니다. 2025학년도 수능 26번(정사각형 단면)과 9월 모평 26번(반원 단면)에 이어 이번에는 정삼각형 단면 $S(x)=\frac{\sqrt3}{4}y^2$이 쓰였습니다. 기출에서 단면 모양에 따라 넓이 공식의 계수를 정확히 적용해야 했던 것처럼, 이번에는 정삼각형 넓이의 계수 $\frac{\sqrt3}{4}$와 $(2x+1)e^x$의 부분적분 계산이 주의할 지점입니다($\int_0^2\sin\pi x\,dx=0$).</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">미적 27번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 43% (38~48%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 6월 모평(2024.06) 24번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 13%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 6월 모평(2024.06) 24번(미적분)</b>: 음함수 곡선에서 곱의 미분과 합성함수의 미분으로 $\frac{dy}{dx}$를 구하는 기본 계산</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>다항식과 지수함수가 결합된 음함수 $a^2x^2+axy+e^{y^2-1}=7$에서 직선 $y=1$과의 교점을 구하고, 음함수의 미분법으로 두 접선의 교점을 찾아 삼각형의 넓이를 해석하는 문항입니다. $y=1$을 대입한 $(ax+3)(ax-2)=0$에서 P, Q의 좌표를 $a$로 나타낸 뒤 $\frac{dy}{dx}$를 구하는 과정은 평가원의 전형적인 음함수 미분 흐름입니다. 2025학년도 6월 모평 24번처럼 음함수의 미분으로 접선의 기울기를 구하는 단계가 핵심이며, 이번에는 그 기울기로 두 접선을 연립해 교점 R의 좌표를 구하고 직선 $y=1$로부터의 높이를 계산하는 단계에서 계산 실수가 나기 쉽습니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">미적 28번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 60%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 9월 모평(2024.09) 28번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 45%</span></span><span class="block">2025학년도 수능(2024.11) 28번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 69%</span></span><span class="block">2025학년도 6월 모평(2024.06) 28번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 44%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 9월 모평(2024.09) 28번(미적분)</b>: 역함수 관계식을 치환 $x=f(t)$로 원래 함수의 성질로 바꾸는 접근</li><li><b>2025학년도 수능(2024.11) 28번(미적분)</b>: 함수와 도함수가 함께 들어간 값을 묻는 질문 구조와 지수함수의 합성함수 미분</li><li><b>2025학년도 6월 모평(2024.06) 28번(미적분)</b>: 방정식의 해를 매개변수로 두고 역함수의 미분법으로 계산하는 논리</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>조건 (가)의 $f(x-g(x))=x$를 역함수의 정의로 $g(x)=x-f^{-1}(x)$로 바꾸고, $x=f(t)$로 치환하면 $g(f(t))=f(t)-t=ate^{-bt}$로 정리되는 고난도 함수 해석 문항입니다. 조건 (나)는 $t&gt;0$에서 $h(t)=ate^{-bt}$의 그래프와 직선 $y=\frac1b$의 위치 관계, 즉 최댓값 $\frac{a}{be}$가 $\frac1b$이어야 한다는 조건으로 해석됩니다. 2025학년도 9월 모평 28번과 6월 모평 28번에서 역함수 관계를 원래 함수의 성질로 바꾸는 첫 단계가 풀이의 관건이었듯이, 이번에는 그 관건이 $g^{\prime}(k+1)$을 구할 때 $f(t)=k+1$을 만족하는 $t$가 $k$라는 점을 연결하는 단계로 이어집니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">미적 29번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 72%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 29번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 79%</span></span><span class="block">2024학년도 6월 모평(2023.06) 30번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 89%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 29번(미적분)</b>: 공비의 범위를 분류해 급수 조건을 추론하는 구조</li><li><b>2024학년도 6월 모평(2023.06) 30번(미적분)</b>: 수열의 값이 경계값을 기준으로 갈라지는 상황에서 급수의 수렴 조건을 추론하는 논리</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>등비수열의 극한에서 분자와 분모의 밑 크기 비교와 급수의 발산 판정을 결합한 준킬러 단답형 문항입니다. $b_n$이 $0$과 $1$만 값으로 가지므로, 급수 $\sum b_n$이 발산하려면 부호 조건 $(a_n-1)(a_{n+1}+1)&lt;0$을 만족하는 $n$이 무수히 많아야 한다는 본질을 짚어야 합니다. 2024학년도 6월 모평 30번에서 경계값을 기준으로 수열이 갈라지는 지점을 따져야 했듯이, 이번에는 $a_n$의 극한값이 $\pm1$이 되는 $k=5,\,7,\,8$에서 $a_n$이 극한값에 어느 쪽에서 가까워지는지를 따지지 않고 판정해 버리는 것이 함정입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">미적 30번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 85%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 수능(2023.11) 30번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 92%</span></span><span class="block">2025학년도 9월 모평(2024.09) 30번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 84%</span></span><span class="block">2025학년도 수능(2024.11) 30번(미적분) <span class="text-gray-500 dark:text-gray-400">· 오답률 82%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 수능(2023.11) 30번(미적분)</b>: 절댓값이 있는 삼각함수의 값이 $0$이 되는 점 근처의 모양을 분석해 극값을 판정하는 구조</li><li><b>2025학년도 9월 모평(2024.09) 30번(미적분)</b>: 절댓값이 포함된 함수의 미분가능성과 부등식 조건으로 함수를 결정하는 구조</li><li><b>2025학년도 수능(2024.11) 30번(미적분)</b>: 삼각함수의 대칭성과 주기성으로 함수의 형태를 정하고 정적분을 계산하는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>절댓값이 포함된 함수의 미분가능성과 정적분 부등식을 이용한 구간별 부호 결정이 결합된 최고난도 문항입니다. 조건 (가)의 $|f(x)|=|\sin x|\left(\sqrt{1+3\cos^2x}-1\right)$에서 곡선 $y=\sin x\left(\sqrt{1+3\cos^2x}-1\right)$이 $\sin x=0$인 점에서는 $x$축을 뚫고 지나가고(미분계수가 $\pm1$) $\cos x=0$인 점에서는 $x$축에 접한다(미분계수가 $0$)는 차이를 분석해, 미분가능성을 유지하면서 $f(x)$의 부호를 바꿀 수 있는 곳은 $x=\frac{\pi}{2}+n\pi$($n$은 정수)뿐임을 가려내야 합니다. 2024학년도 수능 30번에서 $|\sin x|\cos x$가 $0$이 되는 점들의 구조를 분석해야 했듯이, 이번에는 구간마다 부호를 따로 정해야 하는데 $f(x)$를 한 가지 식으로 고정해 버려 조건 (나)를 만족시키지 못하는 것이 함정입니다.</p>
+
+  </div>
+</details></div>
+<div role="tabpanel" aria-label="기하" data-why-panel="why-3" hidden><div class="grid grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] gap-3 border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 py-2 text-xs font-bold text-gray-700 dark:text-gray-300 max-sm:hidden"><span>문항</span><span>AI 예상 오답률</span><span>유사 기출</span><span></span></div><details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">기하 23번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 7% (5~8%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2027학년도 6월 모평(2026.06) 23번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 7%</span></span><span class="block">2026학년도 수능(2025.11) 23번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 5%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2027학년도 6월 모평(2026.06) 23번(기하)</b>: 평면벡터의 실수배와 덧셈을 성분으로 계산한 뒤 성분의 합을 구하는 구조</li><li><b>2026학년도 수능(2025.11) 23번(기하)</b>: 성분별 연산 후 합을 묻는 2점 기본 문항 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>두 평면벡터의 실수배와 성분별 덧셈을 수행해 최종 벡터의 모든 성분의 합을 구하는 전형적인 2점 문항입니다. 2027학년도 6월 모평 23번, 2026학년도 수능 23번과 마찬가지로 기하적 추론 없이 대수 계산만으로 해결됩니다. 이번 문항에서는 $2\vec a+\vec b=(5,-2)$를 구할 때 $\vec b$의 $y$성분 $-2$의 부호만 정확히 처리하면 됩니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">기하 24번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 13% (10~15%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 24번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 13%</span></span><span class="block">2023학년도 수능(2022.11) 24번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 9%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 24번(기하)</b>: 평행이동된 포물선에서 $p$를 구한 뒤 점을 대입해 미지수를 정하는 구조</li><li><b>2023학년도 수능(2022.11) 24번(기하)</b>: 포물선의 방정식을 세운 뒤 점을 대입해 일차방정식을 푸는 방식</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>꼭짓점 $(-1,0)$과 초점 $(3,0)$으로부터 $p=4$를 파악해 평행이동된 포물선 $y^2=16(x+1)$을 세우는 3점 문항입니다. 2025학년도 수능 24번이 꼭짓점과 준선으로 $p$를 구하게 했던 것처럼, 꼭짓점이 원점이 아니라는 점을 정확히 반영하는지 점검합니다. 꼭짓점이 원점인 식 $y^2=16x$를 쓰면 $x=0$에서 $a=0$이 되어 조건을 만족시키지 못하므로, 평행이동을 반영한 식에 $x=0$을 대입해 $a^2=16$, $a=4$를 얻어야 합니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">기하 25번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 18% (15~20%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 수능(2024.11) 25번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 17%</span></span><span class="block">2025학년도 9월 모평(2024.09) 25번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 15%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 수능(2024.11) 25번(기하)</b>: 내분점·외분점 공식과 좌표평면·좌표축의 성분 조건을 연립하는 구조</li><li><b>2025학년도 9월 모평(2024.09) 25번(기하)</b>: 내분점의 성분이 0이라는 조건을 각각의 일차방정식으로 나누어 푸는 절차</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>공간좌표에서 매년 출제되는 내분점·외분점 공식의 적용 문항입니다. 2025학년도 수능 25번과 발문 형식과 풀이 흐름이 거의 같으며, $2:1$로 내분하는 점이 $yz$평면 위에 있으므로 $x$좌표가 $0$, $3:2$로 외분하는 점이 $x$축 위에 있으므로 $y$좌표와 $z$좌표가 모두 $0$이라는 조건으로 $a$, $b$, $c$를 각각 구합니다. 외분하는 점의 $y$좌표 $\frac{3b-2\times(-3)}{3-2}=3b+6$처럼 외분점 공식의 뺄셈 부호를 정확히 처리하는 것이 관건입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">기하 26번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 21% (18~24%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2023학년도 9월 모평(2022.08) 25번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 12%</span></span><span class="block">2024학년도 6월 모평(2023.06) 26번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 28%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2023학년도 9월 모평(2022.08) 25번(기하)</b>: 초점을 지나고 $x$축에 수직인 현에서 직각삼각형과 타원의 정의를 결합하는 구조</li><li><b>2024학년도 6월 모평(2023.06) 26번(기하)</b>: 타원의 정의와 초점 관계식을 연립해 $a^2+b^2$을 구하는 구조</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>초점을 지나고 장축에 수직인 현의 대칭성, 직각삼각형의 피타고라스 정리, 타원의 정의를 결합한 3점 문항입니다. 대칭성으로 $\overline{\mathrm{PF}}=3$을 바로 얻고, 타원의 정의에서 $2a=3+7=10$, 직각삼각형 $\mathrm{PFF^{\prime}}$에서 $\overline{\mathrm{FF^{\prime}}}^2=7^2-3^2=40$으로 $c^2=10$을 찾는 흐름입니다. 2023학년도 9월 모평 25번의 구성을 이어받았으며, 두 초점 사이의 거리가 $2c$이므로 $(2c)^2=40$에서 $c^2=10$으로 정리한 뒤 $b^2=25-10=15$를 구해야 한다는 점을 놓치지 않아야 합니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">기하 27번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 25% (22~28%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2022학년도 수능(2021.11) 27번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 16%</span></span><span class="block">2027학년도 9월 모평(2026.09) 26번(기하)</span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2022학년도 수능(2021.11) 27번(기하)</b>: 중점을 한 면에 정사영한 뒤 삼수선의 정리로 높이를 구하는 알고리즘</li><li><b>2027학년도 9월 모평(2026.09) 26번(기하)</b>: 기둥의 높이와 밑면 위의 거리로 피타고라스 정리를 써서 넓이를 구하는 유형</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>입체도형을 비스듬히 가로지르는 삼각형의 넓이를 삼수선의 정리로 구하는 표준 3점 공간도형 문항입니다. 점 M에서 아랫면에 내린 수선의 발(선분 KL의 중점)에서 선분 GI에 수선을 내려 평면 위의 거리 $5$를 구하고, 기둥의 높이 $2\sqrt6$과 피타고라스 정리로 삼각형의 높이 $7$을 얻는 흐름은 2022학년도 수능 27번 정육면체 풀이의 뼈대를 정육각기둥으로 바꾼 것입니다. 이번 문항에서는 정육각형 안에서 대각선 GI와 점 사이의 거리를 구하는 단계가 가장 주의할 부분입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">기하 28번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 51% (48~54%)</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 6월 모평(2023.06) 28번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 51%</span></span><span class="block">2022학년도 수능(2021.11) 29번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 90%</span></span><span class="block">2023학년도 수능(2022.11) 29번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 69%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 6월 모평(2023.06) 28번(기하)</b>: 선분 위의 점을 매개변수로 나타내 영역을 부등식으로 제한하고 내적의 극값을 구하는 구조</li><li><b>2022학년도 수능(2021.11) 29번(기하)</b>: 벡터의 일차결합 계수 조건으로 영역을 정하고 내적 조건 부등식을 결합하는 구조</li><li><b>2023학년도 수능(2022.11) 29번(기하)</b>: 벡터 조건을 좌표로 분해해 부등식 영역을 정밀하게 추출하는 풀이</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>두 선분 위를 움직이는 점 P, Q의 결합으로 점 R의 기본 영역을 정하고, 조건의 내적 부등식을 더해 최종 영역을 확정하는 4점 변별 문항입니다. 2024학년도 6월 모평 28번처럼 좌표를 도입해 조건을 부등식 영역으로 바꾸면, 영역은 삼각형이 되고 $\overrightarrow{\mathrm{OR}}\cdot\overrightarrow{\mathrm{BR}}$은 선분 OB의 중점 $(1,0)$까지의 거리의 제곱에서 $1$을 뺀 값으로 표현된다는 점이 드러납니다. 최댓값은 이 점에서 가장 먼 점 $(4,4)$에서, 최솟값은 이 점에서 경계 직선 $x+2y=10$에 내린 수선의 발 $\left(\frac{14}{5},\frac{18}{5}\right)$에서 나타나므로, 수선의 발이 영역의 변 위에 있는지 확인하는 단계를 놓치지 않아야 합니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">기하 29번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 62%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2025학년도 9월 모평(2024.09) 29번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 50%</span></span><span class="block">2026학년도 수능(2025.11) 29번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 80%</span></span><span class="block">2023학년도 6월 모평(2022.06) 29번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 78%</span></span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2025학년도 9월 모평(2024.09) 29번(기하)</b>: 포물선의 정의와 쌍곡선의 정의를 결합해 길이의 비를 끌어내는 구조</li><li><b>2026학년도 수능(2025.11) 29번(기하)</b>: 준선 위의 수선의 발이 다른 이차곡선의 핵심 점이 되어 두 곡선의 정의를 이어 쓰는 구성</li><li><b>2023학년도 6월 모평(2022.06) 29번(기하)</b>: 준선 위의 수선의 발을 다른 이차곡선의 기준점으로 삼아 둘레 조건을 활용하는 발상</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>포물선의 정의 $\overline{\mathrm{AF}}=\overline{\mathrm{AB}}$에서 출발해, 점 A와 준선 위의 점 B를 두 초점으로 하는 쌍곡선을 만들고 초점 F가 그 쌍곡선 위에 있다는 조건으로 쌍곡선의 정의를 엮는 이차곡선 융합 문항입니다. 2025학년도 9월 모평 29번과 2026학년도 수능 29번에서 이어져 온, 준선 위의 수선의 발을 매개로 두 이차곡선의 정의를 잇는 구성을 이어받았습니다. 점 F가 초점 A 쪽 가지 위에 있으므로 $\overline{\mathrm{BF}}-\overline{\mathrm{AF}}=2a$로 부호를 정하고, $8\overline{\mathrm{BC}}=\overline{\mathrm{BF}}$에서 $a:c=3:5$를 얻은 뒤 점 F와 점근선 $l$ 사이의 거리 조건으로 길이를 확정하는 단계가 핵심입니다.</p>
+
+  </div>
+</details>
+<details class="group border-b border-gray-200 dark:border-gray-800">
+  <summary class="grid cursor-pointer list-none grid-cols-[5.5rem_minmax(0,8rem)_minmax(0,1fr)_1.5rem] items-start gap-3 py-3 text-sm hover:bg-gray-50 dark:hover:bg-gray-900 max-sm:grid-cols-[4.6rem_minmax(0,1fr)_1.2rem] [&::-webkit-details-marker]:hidden">
+    <span class="font-bold text-gray-900 dark:text-gray-100">기하 30번</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-start-2 max-sm:row-start-1">약 82%</span>
+    <span class="text-gray-800 dark:text-gray-200 max-sm:col-span-2 max-sm:col-start-1 max-sm:row-start-2"><span class="block">2024학년도 9월 모평(2023.09) 28번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 55%</span></span><span class="block">2023학년도 9월 모평(2022.08) 29번(기하) <span class="text-gray-500 dark:text-gray-400">· 오답률 84%</span></span><span class="block">2027학년도 9월 모평(2026.09) 28번(기하)</span></span>
+    <span class="text-gray-400 max-sm:col-start-3 max-sm:row-start-1"><span class="group-open:hidden">＋</span><span class="hidden group-open:inline">－</span></span>
+  </summary>
+  <div class="pb-4 pl-1 text-sm text-gray-800 dark:text-gray-200 leading-relaxed [&_p]:mb-2">
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">닮은 점</p><ul class="list-disc pl-5 mb-3 space-y-1"><li><b>2024학년도 9월 모평(2023.09) 28번(기하)</b>: 두 구가 만나 생기는 원과 평면 사이의 각의 코사인으로 정사영을 구하는 뼈대</li><li><b>2023학년도 9월 모평(2022.08) 29번(기하)</b>: 구와 평면의 교원의 반지름 공식과 두 평면이 이루는 각을 이용한 정사영 넓이 계산</li><li><b>2027학년도 9월 모평(2026.09) 28번(기하)</b>: 구의 대칭축을 기준으로 복합 입체 조건을 단순화하는 공간도형 추론</li></ul>
+    <p class="font-bold text-gray-900 dark:text-gray-100 !mb-1">유사 이유</p><p>구와 평면의 교원 $C_1$, 그 위의 점 C를 지나고 평면 $\alpha$에 수직인 직선이 구 $S_1$과 다시 만나는 점 D, 점 D를 중심으로 하고 평면 OAB에 접하는 구 $S_2$, 두 구의 교원 $C_2$의 정사영 넓이를 차례로 묻는 공간도형 최고난도 문항입니다. 2023학년도 9월 모평 29번, 2024학년도 9월 모평 28번에서 요구했던 두 구의 교원이 놓인 평면과 중심을 잇는 선분의 수직 관계, 정사영을 위한 두 평면이 이루는 각의 계산을 한데 모았습니다. 이번에는 평면 OAB가 평면 $\alpha$에 수직이고 직선 CD가 평면 OAB와 평행하다는 점을 이용해, 점 D와 평면 OAB 사이의 거리를 평면 $\alpha$ 위에서 점 C와 직선 AB 사이의 거리 $2\sqrt6$으로 바꾸는 관찰이 핵심입니다.</p>
+
+  </div>
+</details></div>
+</div>
 
 <h2 id="downloads" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-12 mb-4">
   6. 문제지·정답표 PDF
