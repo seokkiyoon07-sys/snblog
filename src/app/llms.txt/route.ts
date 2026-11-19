@@ -1,6 +1,12 @@
 // AI 검색·답변 엔진용 사이트 안내 (llmstxt.org 형식). 기출 읽을거리를 먼저 소개한다
-import { allPosts } from '@/data/posts';
+import { allPosts, getPostById } from '@/data/posts';
 import { BASE_URL, EXAM_TYPE_CONFIG } from '@/lib/config';
+
+// 수능 정답·해설 글(최신 시험 먼저)
+const SOLUTION_IDS = [
+  '2027-suneung-korean-solution',
+  '2027-suneung-math-solution',
+];
 
 export const dynamic = 'force-static';
 
@@ -23,6 +29,14 @@ export function GET() {
       const source = `${exam.year}학년도 ${EXAM_TYPE_CONFIG[exam.type].label} 국어 ${exam.area} ${exam.questions}번`;
       return `- [${post.title}](${BASE_URL}${post.url}): ${source}. ${post.excerpt}`;
     }),
+    '',
+    '## 수능 정답·해설',
+    '',
+    ...SOLUTION_IDS.map(id => getPostById(id))
+      .filter((post): post is NonNullable<typeof post> => Boolean(post))
+      .map(
+        post => `- [${post.title}](${BASE_URL}${post.url}): ${post.excerpt}`
+      ),
     '',
     '## 주요 페이지',
     '',

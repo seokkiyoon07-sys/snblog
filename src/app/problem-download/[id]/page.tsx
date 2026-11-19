@@ -3,6 +3,7 @@ import { getPostById, getPostsByCategory } from '@/data/posts';
 import { loadPostContent } from '@/lib/post-content';
 import { notFound } from 'next/navigation';
 import BlogLayout from '@/components/BlogLayout';
+import { extractFaq } from '@/lib/exam-jsonld';
 
 interface ProblemDownloadDetailPageProps {
   params: Promise<{ id: string }>;
@@ -63,8 +64,21 @@ export async function generateMetadata({
   };
 }
 
-function generateJsonLd(post: NonNullable<ReturnType<typeof getPostById>>) {
+function generateJsonLd(
+  post: NonNullable<ReturnType<typeof getPostById>>,
+  content: string
+) {
   const pageUrl = `https://blog.snacademy.co.kr${post.url}`;
+  // 본문의 <dl class="faq">가 있으면 FAQPage 구조화 데이터로도 내보낸다
+  // 답변 속 과목 탭은 버튼 줄을 빼고 '과목: 내용'으로 읽히게 한다
+  const faq = extractFaq(
+    content
+      .replace(/<div[^>]*role="tablist"[^>]*>[\s\S]*?<\/div>/g, '')
+      .replace(/<div role="tabpanel" aria-label="([^"]+)"[^>]*>/g, ' $1: ')
+      .replace(/<\/t[hd]>/g, ' ')
+      .replace(/<\/tr>/g, '. ')
+      .replace(/<\/(p|li)>/g, ' ')
+  );
 
   return {
     '@context': 'https://schema.org',
@@ -90,7 +104,7 @@ function generateJsonLd(post: NonNullable<ReturnType<typeof getPostById>>) {
           url: 'https://blog.snacademy.co.kr',
         },
         datePublished: post.date,
-        dateModified: post.date,
+        dateModified: post.latestUpdate?.date ?? post.date,
         mainEntityOfPage: {
           '@type': 'WebPage',
           '@id': pageUrl,
@@ -123,6 +137,18 @@ function generateJsonLd(post: NonNullable<ReturnType<typeof getPostById>>) {
           },
         ],
       },
+      ...(faq.length
+        ? [
+            {
+              '@type': 'FAQPage',
+              mainEntity: faq.map(({ q, a }) => ({
+                '@type': 'Question',
+                name: q,
+                acceptedAnswer: { '@type': 'Answer', text: a },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 }
@@ -146,7 +172,8 @@ export default async function ProblemDownloadDetailPage({
     notFound();
   }
 
-  const jsonLd = generateJsonLd(post);
+  const content = loadPostContent(post.id, post.category);
+  const jsonLd = generateJsonLd(post, content);
 
   return (
     <>
@@ -154,9 +181,7 @@ export default async function ProblemDownloadDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogLayout
-        post={{ ...post, content: loadPostContent(post.id, post.category) }}
-      />
+      <BlogLayout post={{ ...post, content }} />
     </>
   );
 }

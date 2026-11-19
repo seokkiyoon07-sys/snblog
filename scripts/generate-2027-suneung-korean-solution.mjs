@@ -504,6 +504,55 @@ ${whyGroups
 </div>`;
 if (whyCount !== 56) throw new Error(`유사 이유 문항 수: ${whyCount}`);
 
+// ---------- 검색·AI 답변용 핵심 사실과 자주 묻는 질문 ----------
+const topRowsSorted = errRate
+  .split('\n')
+  .filter((l) => /^\|\s*(공동\s*)?\d+\s*\|/.test(l))
+  .map((l) => l.split('|').slice(1, -1).map((c) => c.trim()))
+  .slice(0, 3);
+const keyFacts = {
+  hardest: topRowsSorted.map(([, no, , rate]) => `${no.replace(/\(3점\)/, '')}번(약 ${(rate.match(/(\d+)%/) || [])[1]}%)`).join(', '),
+};
+// FAQ 답변 안의 과목 탭
+let faqTabSeq = 0;
+const faqTabs = (items) => {
+  const id = `faq${++faqTabSeq}`;
+  return `<div class="mt-2" data-faq-tabs>
+  <div class="flex flex-wrap gap-1.5 mb-2" role="tablist">${items
+    .map(([label], k) => `<button type="button" role="tab" aria-selected="${k === 0}" data-faq-target="${id}-${k}" class="rounded-full border px-3 py-1 text-xs font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="var b=this,w=b.closest('[data-faq-tabs]');w.querySelectorAll('[data-faq-panel]').forEach(function(p){p.hidden=p.dataset.faqPanel!==b.dataset.faqTarget});w.querySelectorAll('[role=tab]').forEach(function(t){t.setAttribute('aria-selected',t===b)})">${label}</button>`)
+    .join('')}</div>
+${items.map(([label, html], k) => `  <div role="tabpanel" aria-label="${label}" data-faq-panel="${id}-${k}"${k === 0 ? '' : ' hidden'}>${html}</div>`).join('\n')}
+</div>`;
+};
+const ansGrid = (subject, a, b) => {
+  const cells = [];
+  for (let n = a; n <= b; n++) cells.push(`<span class="rounded border border-gray-200 dark:border-gray-700 px-1.5 py-1 text-center"><b class="text-gray-500 dark:text-gray-400 font-semibold">${n}번</b> ${answerOf(subject, n)}</span> `);
+  return `<div class="grid grid-cols-4 sm:grid-cols-6 gap-1.5 text-sm tabular-nums">${cells.join('')}</div>`;
+};
+const miniTable = (head, rows) => `<div class="overflow-x-auto mt-2"><table class="w-full border-collapse text-sm"><thead><tr class="border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">${head.map((h) => `<th class="px-2 py-1.5 text-left font-bold whitespace-nowrap">${h}</th>`).join('')}</tr></thead><tbody>${rows.map((r) => `<tr class="border-b border-gray-200 dark:border-gray-800">${r.map((c) => `<td class="px-2 py-1.5 whitespace-nowrap">${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const faqLead = (t) => `<p class="font-semibold">${t}</p>`;
+const allTop = errRate
+  .split('\n')
+  .filter((l) => /^\|\s*(공동\s*)?\d+\s*\|/.test(l))
+  .map((l) => l.split('|').slice(1, -1).map((c) => c.trim()));
+const FAQ = [
+  ['2027학년도 수능 국어 정답은 무엇인가요?', faqLead('한국교육과정평가원 공개 정답(홀수형) 기준입니다.') + faqTabs([['공통 1~34번', ansGrid('common', 1, 34)], ['화법과 작문', ansGrid('hwajak', 35, 45)], ['언어와 매체', ansGrid('eonmae', 35, 45)]])],
+  ['2027 수능 국어에서 가장 어려웠던 문항은 무엇인가요?', faqLead('AI 예측 기준, 예상 오답률이 높은 문항입니다.') + faqTabs([
+    ['공통', miniTable(['순위', '문항', '예상 오답률'], allTop.filter((r) => /공통/.test(r[1])).slice(0, 5).map(([rk, no, , rate]) => [rk, no.replace(/\(3점\)/, '') + '번', (rate.match(/약 \d+%/) || [rate])[0]]))],
+    ['화법과 작문', miniTable(['순위', '문항', '예상 오답률'], allTop.filter((r) => /화작/.test(r[1])).map(([rk, no, , rate]) => [rk, no.replace(/\(3점\)/, '') + '번', (rate.match(/약 \d+%/) || [rate])[0]]))],
+    ['언어와 매체', miniTable(['순위', '문항', '예상 오답률'], allTop.filter((r) => /언매/.test(r[1])).map(([rk, no, , rate]) => [rk, no.replace(/\(3점\)/, '') + '번', (rate.match(/약 \d+%/) || [rate])[0]]))],
+  ]) + '<ul class="list-disc pl-5 mt-2 space-y-1"><li>독서: 법 지문(의견 표현과 명예훼손, 14~17번), 인문 통합(배불론, 4~9번)</li><li>언어와 매체: 문법 35~39번</li></ul><p class="text-xs text-gray-500 dark:text-gray-400 mt-1">순위는 전체 열한 문항 기준입니다. 실제 오답률은 입시 기관 통계로 확인하세요.</p>'],
+  ['2027 수능 국어 등급컷은 몇 점인가요?', faqLead('정답률 회귀 분석에 따른 원점수 예측입니다. 최종 등급컷은 평가원 성적 발표로 확인하세요.') + miniTable(['선택과목', ...[1, 2, 3, 4, 5, 6, 7, 8].map((g) => `${g}등급`)], Object.entries(CUTS).map(([k, v]) => [k, ...v.map((x, i) => (i === 0 ? `<b>${x}</b>` : String(x)))]))],
+  ['2027 수능 국어 문학에 EBS 연계 작품이 나왔나요?', faqLead('네. 두 작품이 EBS 수록 작품이고, SN Originals에서 미리 해설했습니다.') + miniTable(['작품', 'EBS 교재', '출제 문항', 'SN Originals'], [['작자 미상, 「창선감의록」', '2027 수능완성', '18~21번', '<a class="underline" href="/originals/changseon-gamui-rok">해설 보기</a>'], ['윤동주, 「참회록」', '2027 수능특강', '22~26번', '<a class="underline" href="/originals/chamhuirok">해설 보기</a>']])],
+  ['2027 수능 국어 시험지와 정답 PDF는 어디서 받나요?', `<ul class="list-disc pl-5 space-y-1"><li><a class="underline" href="/pdfs/2027-suneung-korean.pdf" download>국어 영역 문제지 PDF (홀수형)</a></li><li><a class="underline" href="/pdfs/2027-suneung-korean_answer.pdf" download>국어 영역 정답표 PDF</a></li></ul><p class="text-xs text-gray-500 dark:text-gray-400 mt-1">문제지에 관한 저작권은 한국교육과정평가원에 있습니다.</p>`],
+];
+// <dl class="faq"><dt>…</dt><dd>…</dd> 형식은 페이지가 FAQPage 구조화 데이터로 읽는다(src/lib/exam-jsonld.ts). 형식을 바꾸지 말 것
+const faqHtml = `<div class="not-prose my-6 border-y border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 [&_dt]:pt-5 [&_dt]:text-base [&_dt]:font-bold [&_dt]:text-gray-900 dark:[&_dt]:text-gray-100 [&_dt]:before:content-['Q._'] [&_dd]:pb-5 [&_dd]:pt-2 [&_dd]:border-b [&_dd]:border-gray-200 dark:[&_dd]:border-gray-800 [&_dd]:leading-relaxed">
+<dl class="faq">
+${FAQ.map(([q, a]) => `  <dt>${esc(q)}</dt>\n  <dd>${a}</dd>`).join('\n')}
+</dl>
+</div>`;
+
 // ---------- 정답 ----------
 const answerGrid = (subject, from, to) => {
   const cells = [];
@@ -695,6 +744,7 @@ const toc = [
   ['detailed-solutions', '4. 평가원 원본 시험지 · 전 문항 해설'],
   ['study-plan', '5. 2028학년도 수능 준비생을 위한 국어 공부 방향'],
   ['downloads', '6. 문제지·정답표 PDF'],
+  ['faq', '7. 자주 묻는 질문'],
 ];
 
 const article = `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">
@@ -714,11 +764,11 @@ ${quote ? `<div class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-8
 <div id="summary" class="not-prose border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg p-5 my-6">
   <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3">핵심 요약</p>
   <ul class="space-y-2 text-gray-800 dark:text-gray-200 leading-relaxed">
-    <li>• 정답: 한국교육과정평가원 공개 정답표 기준(홀수형)</li>
-    <li>• 수록 범위: 공통 34문항과 화법과 작문·언어와 매체 각 11문항, 총 56문항(응시 기준 45문항)</li>
-    <li>• 평가원 원본 시험지 20쪽 보기와 B4·A4 인쇄</li>
-    <li>• 지문 원문과 문항별 해설, 지문 구조·출제 포인트 정리</li>
-    <li>• 예상 오답률은 AI 예측, 등급컷은 정답률 회귀 분석 예측(1~8등급)</li>
+    <li>• 시행: 2026년 11월 19일, 2027학년도 대학수학능력시험 국어 영역(홀수형). 정답은 한국교육과정평가원 공개 정답표 기준입니다.</li>
+    <li>• 가장 어려웠을 문항(AI 예측): ${keyFacts.hardest}</li>
+    <li>• 1등급 컷 예측(정답률 회귀 분석): 화법과 작문 ${CUTS['화법과 작문'][0]}점, 언어와 매체 ${CUTS['언어와 매체'][0]}점</li>
+    <li>• 출제 지문: 독서는 디지털 문서 읽기·배불론·가상 메모리와 TLB·의견 표현과 명예훼손, 문학은 「창선감의록」·「참회록」·「봄의 환(幻)」·「부여노정기」 등</li>
+    <li>• 수록 범위: 공통 34문항과 화법과 작문·언어와 매체 각 11문항, 총 56문항(응시 기준 45문항) 해설과 평가원 원본 시험지</li>
   </ul>
 </div>
 
@@ -789,6 +839,10 @@ ${h2('downloads', '6. 문제지·정답표 PDF')}
   <li>• <a class="underline hover:no-underline" href="/pdfs/2027-suneung-korean_answer.pdf" download>${EXAM} 국어 영역 정답표 PDF</a></li>
 </ul>
 <p class="text-sm text-gray-600 dark:text-gray-400 mb-8">이 문제지에 관한 저작권은 한국교육과정평가원에 있습니다.</p>
+
+${h2('faq', '7. 자주 묻는 질문')}
+
+${faqHtml}
 
 <h2 id="sources" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
   참고 자료

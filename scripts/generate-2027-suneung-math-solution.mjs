@@ -415,6 +415,70 @@ ${tabs.map(([name, x], k) => `  <div role="tabpanel" aria-label="${name}" data-e
 ${tail ? tw(md(tail)) : ''}`;
 }
 
+// ---------- 등급컷: 1등급 컷은 SN 판단 값(4점 문항 위주로 감점), 2·3등급은 원고의 AI 예측 ----------
+const CUT1 = { '확률과 통계': '88', 미적분: '84', 기하: '84' };
+const gradeCutMd = (() => {
+  let g = dropRule(part(/^## 등급컷/));
+  if (!g) return '';
+  for (const [name, v] of Object.entries(CUT1)) {
+    g = g.replace(new RegExp(`^(\\|\\s*${name}\\s*\\|)\\s*[^|]+\\|`, 'm'), `$1 ${v} |`);
+  }
+  return g.replace(/^(> [^\n]*)/m, `$1 다만 1등급 컷은 고난도 4점 문항 위주로 감점된다는 판단에 따라 확률과 통계 ${CUT1['확률과 통계']}점, 미적분 ${CUT1['미적분']}점, 기하 ${CUT1['기하']}점으로 보았습니다.`);
+})();
+
+// ---------- 검색·AI 답변용 핵심 사실과 자주 묻는 질문 ----------
+const predNum = (k) => +(String(PRED.get(k) || '').match(/약 (\d+)%/) || [0, 0])[1];
+const allKeys = SUBJECTS.flatMap((s0) => Array.from({ length: s0.to - s0.from + 1 }, (_, i) => [s0, s0.from + i]));
+const hardest = allKeys
+  .map(([s0, n]) => ({ label: `${s0.name} ${n}번`, v: predNum(`${s0.key}-${n}`) }))
+  .filter((x) => x.v > 0)
+  .sort((a, b) => b.v - a.v)
+  .slice(0, 4);
+const cutRows = (gradeCutMd.match(/^\| (확률과 통계|미적분|기하) \|[^\n]*/gm) || []).map((l) => l.split('|').slice(1, -1).map((c) => c.trim()));
+const keyFacts = {
+  hardest: hardest.map((x) => `${x.label}(약 ${x.v}%)`).join(', '),
+  cuts: cutRows.map(([name, c1]) => `${name} ${c1}점`).join(', '),
+};
+// FAQ 답변 안의 과목 탭
+let faqTabSeq = 0;
+const faqTabs = (items) => {
+  const id = `faq${++faqTabSeq}`;
+  return `<div class="mt-2" data-faq-tabs>
+  <div class="flex flex-wrap gap-1.5 mb-2" role="tablist">${items
+    .map(([label], k) => `<button type="button" role="tab" aria-selected="${k === 0}" data-faq-target="${id}-${k}" class="rounded-full border px-3 py-1 text-xs font-bold border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 aria-selected:border-gray-900 aria-selected:bg-gray-900 aria-selected:text-white dark:aria-selected:border-gray-100 dark:aria-selected:bg-gray-100 dark:aria-selected:text-gray-900" onclick="var b=this,w=b.closest('[data-faq-tabs]');w.querySelectorAll('[data-faq-panel]').forEach(function(p){p.hidden=p.dataset.faqPanel!==b.dataset.faqTarget});w.querySelectorAll('[role=tab]').forEach(function(t){t.setAttribute('aria-selected',t===b)})">${label}</button>`)
+    .join('')}</div>
+${items.map(([label, html], k) => `  <div role="tabpanel" aria-label="${label}" data-faq-panel="${id}-${k}"${k === 0 ? '' : ' hidden'}>${html}</div>`).join('\n')}
+</div>`;
+};
+const ansGrid = (s0) => {
+  const cells = [];
+  for (let n = s0.from; n <= s0.to; n++) cells.push(`<span class="rounded border border-gray-200 dark:border-gray-700 px-1.5 py-1 text-center"><b class="text-gray-500 dark:text-gray-400 font-semibold">${n}번</b> ${answerOf(s0, n)}</span> `);
+  return `<div class="grid grid-cols-4 sm:grid-cols-6 gap-1.5 text-sm tabular-nums">${cells.join('')}</div>`;
+};
+const miniTable = (head, rows) => `<div class="overflow-x-auto mt-2"><table class="w-full border-collapse text-sm"><thead><tr class="border-y border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">${head.map((h) => `<th class="px-2 py-1.5 text-left font-bold">${h}</th>`).join('')}</tr></thead><tbody>${rows.map((r) => `<tr class="border-b border-gray-200 dark:border-gray-800">${r.map((c) => `<td class="px-2 py-1.5">${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const topBySubj = (s0, k = 3) =>
+  Array.from({ length: s0.to - s0.from + 1 }, (_, i) => s0.from + i)
+    .map((n) => ({ n, v: predNum(`${s0.key}-${n}`) }))
+    .filter((x) => x.v > 0)
+    .sort((a, b) => b.v - a.v)
+    .slice(0, k);
+const lead = (t) => `<p class="font-semibold">${t}</p>`;
+const FAQ = [
+  ['2027학년도 수능 수학 정답은 무엇인가요?', lead('한국교육과정평가원 공개 정답(홀수형) 기준입니다.') + faqTabs(SUBJECTS.map((s0) => [s0.name, ansGrid(s0)]))],
+  ['2027 수능 수학에서 가장 어려웠던 문항은 무엇인가요?', lead('AI 예측 기준, 과목별로 예상 오답률이 높은 문항입니다.') + faqTabs(SUBJECTS.map((s0) => [s0.name, miniTable(['문항', '예상 오답률'], topBySubj(s0).map((x) => [`${n2(s0, x.n)}`, `약 ${x.v}%`]))])) + '<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">실제 오답률은 입시 기관 통계로 확인하세요.</p>'],
+  ...(cutRows.length ? [['2027 수능 수학 등급컷은 몇 점인가요?', lead('원점수 예측입니다. 최종 등급컷은 평가원 성적 발표로 확인하세요.') + miniTable(['선택과목', '1등급', '2등급', '3등급'], cutRows.map(([n, c1, c2, c3]) => [n, `<b>${c1}</b>`, c2, c3])) + '<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">1등급 컷은 고난도 4점 문항 위주로 감점된다는 판단을 반영했습니다.</p>']] : []),
+  ['2028학년도 수능 수학은 무엇이 달라지나요?', lead('선택과목이 없어지고 모든 수험생이 같은 시험을 봅니다.') + `<ul class="list-disc pl-5 mt-1 space-y-1"><li>출제 과목: 대수, 미적분Ⅰ, 확률과 통계</li><li>출제 범위에서 빠짐: 미적분Ⅱ, 기하</li><li>그대로: 30문항, 100분</li><li>예시문항 기준 1~21번 5지선다형, 22~30번 단답형</li></ul>`],
+  ['2027 수능 수학 해설은 교육과정 범위 안에서 작성됐나요?', lead('네. 46문항 모두 2015 개정 교육과정 안의 개념과 방법만으로 풀었습니다.') + `<ul class="list-disc pl-5 mt-1 space-y-1"><li>범위: 수학Ⅰ, 수학Ⅱ, 확률과 통계, 미적분, 기하</li><li>공개 전에 교육과정 범위를 따로 점검했습니다.</li></ul>`],
+  ['2027 수능 수학 시험지와 정답 PDF는 어디서 받나요?', `<ul class="list-disc pl-5 space-y-1"><li><a class="underline" href="/pdfs/2027-suneung-math.pdf" download>수학 영역 문제지 PDF (홀수형)</a></li><li><a class="underline" href="/pdfs/2027-suneung-math_answer.pdf" download>수학 영역 정답표 PDF</a></li></ul><p class="text-xs text-gray-500 dark:text-gray-400 mt-1">문제지에 관한 저작권은 한국교육과정평가원에 있습니다.</p>`],
+];
+function n2(s0, n) { return `${s0.short} ${n}번`; }
+// <dl class="faq"><dt>…</dt><dd>…</dd> 형식은 페이지가 FAQPage 구조화 데이터로 읽는다(src/lib/exam-jsonld.ts). 형식을 바꾸지 말 것
+const faqHtml = `<div class="not-prose my-6 border-y border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 [&_dt]:pt-5 [&_dt]:text-base [&_dt]:font-bold [&_dt]:text-gray-900 dark:[&_dt]:text-gray-100 [&_dt]:before:content-['Q._'] [&_dd]:pb-5 [&_dd]:pt-2 [&_dd]:border-b [&_dd]:border-gray-200 dark:[&_dd]:border-gray-800 [&_dd]:leading-relaxed">
+<dl class="faq">
+${FAQ.map(([q, a]) => `  <dt>${esc(q)}</dt>\n  <dd>${a}</dd>`).join('\n')}
+</dl>
+</div>`;
+
 // ---------- 글 조립 ----------
 const pending = '<p class="' + P + '">총평은 해설 작업이 끝나는 대로 싣습니다.</p>';
 const sec = (re) => (part(re) ? tw(md(dropRule(part(re)))) : '');
@@ -425,6 +489,7 @@ const toc = [
   ['detailed-solutions', '4. 평가원 원본 시험지 · 전 문항 해설'],
   ['study-plan', '5. 2028학년도 수능 준비생을 위한 수학 공부 방향'],
   ['downloads', '6. 문제지·정답표 PDF'],
+  ['faq', '7. 자주 묻는 질문'],
 ];
 const article = `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">${EXAM} 수학 영역 문제 및 해설 (홀수형)</p>
 
@@ -437,7 +502,9 @@ const article = `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">${EXAM
 <div id="summary" class="not-prose border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg p-5 my-6">
   <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3">핵심 요약</p>
   <ul class="space-y-2 text-gray-800 dark:text-gray-200 leading-relaxed">
-    <li>• 정답: 한국교육과정평가원 공개 정답표 기준(홀수형)</li>
+    <li>• 시행: 2026년 11월 19일, 2027학년도 대학수학능력시험 수학 영역(홀수형). 정답은 한국교육과정평가원 공개 정답표 기준입니다.</li>
+    <li>• 가장 어려웠을 문항(AI 예측): ${keyFacts.hardest}</li>
+    ${keyFacts.cuts ? `<li>• 1등급 컷 예측: ${keyFacts.cuts}</li>` : ''}
     <li>• 수록 범위: 공통 22문항과 확률과 통계·미적분·기하 각 8문항(응시 기준 30문항)</li>
     <li>• 평가원 원본 시험지 20쪽 보기와 선택과목별 인쇄</li>
     <li>• 문항별 정답과 풀이, 해설 한 번에 인쇄</li>
@@ -465,7 +532,7 @@ ${h2('overall', '1. 시험 총평')}
 ${sec(/^## 한 줄 총평/) + sec(/^## 과목별/) + sec(/^## 어려웠던/) || pending}
 
 ${h2('predictions', '2. 오답률·등급컷 예측')}
-${errRateHtml() + sec(/^## 등급컷/) || pending}
+${errRateHtml() + (gradeCutMd ? tw(md(gradeCutMd)) : '') || pending}
 
 ${h2('answer-table', '3. 정답 (홀수형)')}
 <p class="${P}">공통 1~22번과 본인이 응시한 선택과목 23~30번을 확인하세요. 1~15번과 23~28번은 5지선다형, 16~22번과 29~30번은 단답형입니다.</p>
@@ -485,6 +552,10 @@ ${h2('downloads', '6. 문제지·정답표 PDF')}
   <li>• <a class="underline hover:no-underline" href="/pdfs/2027-suneung-math_answer.pdf" download>${EXAM} 수학 영역 정답표 PDF</a></li>
 </ul>
 <p class="text-sm text-gray-600 dark:text-gray-400 mb-8">이 문제지에 관한 저작권은 한국교육과정평가원에 있습니다.</p>
+
+${h2('faq', '7. 자주 묻는 질문')}
+
+${faqHtml}
 
 <p class="text-xs text-gray-500 dark:text-gray-400">작성: SN독학기숙학원 · 2026.11.19 작성</p>
 `;
