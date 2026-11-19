@@ -5,8 +5,10 @@ import {
   ProblemLogArchive,
   ProblemMetricsBar,
 } from '@/components/problems/ProblemLogBoard';
+import PostCard from '@/components/PostCard';
 import {
   HUB_SUBJECTS,
+  PROBLEM_HUB_PINNED_IDS,
   computeProblemMetrics,
   getProblemContentType,
   getProblemHubPosts,
@@ -57,6 +59,11 @@ export default function ProblemsPage() {
   const noteItems = items.filter(
     item => !item.post.exam && item.contentType !== 'log'
   );
+  const pinnedPosts = PROBLEM_HUB_PINNED_IDS.map(id =>
+    items.find(item => item.post.id === id)
+  )
+    .filter((item): item is FeedItem => Boolean(item))
+    .map(item => item.post);
   const logGroups = groupLogsByDate(logs);
   const metrics = computeProblemMetrics(logs);
 
@@ -75,6 +82,26 @@ export default function ProblemsPage() {
           기록합니다
         </p>
       </div>
+
+      {pinnedPosts.length > 0 && (
+        <section aria-labelledby="problems-pinned" className="space-y-4">
+          <h2
+            id="problems-pinned"
+            className="border-b border-gray-200 pb-2 text-sm font-bold text-gray-700 dark:border-gray-700 dark:text-gray-300"
+          >
+            📌 2027학년도 수능 문제 및 해설
+          </h2>
+          <div className="space-y-4 lg:space-y-6">
+            {pinnedPosts.map(post => (
+              <PostCard
+                key={post.id}
+                post={post}
+                analyticsPlacement="problems_pinned"
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
       <SectionTabs
         ariaLabel="수능 문제 연구 구역"

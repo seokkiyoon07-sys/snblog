@@ -51,6 +51,17 @@ function isVisible(post: Post): boolean {
   );
 }
 
+// 수능 문제 연구 상단에 고정할 글(이 순서대로)
+export const PROBLEM_HUB_PINNED_IDS = [
+  '2027-suneung-korean-solution',
+  '2027-suneung-math-solution',
+];
+
+const pinRank = (post: Post) => {
+  const i = PROBLEM_HUB_PINNED_IDS.indexOf(post.id);
+  return i === -1 ? Infinity : i;
+};
+
 export function getProblemHubPosts(): Post[] {
   return allPosts
     .filter(
@@ -59,7 +70,11 @@ export function getProblemHubPosts(): Post[] {
         (PROBLEM_ROUTE_CATEGORIES.includes(post.category) ||
           LEGACY_CATEGORIES.includes(post.category))
     )
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort(
+      (a, b) =>
+        pinRank(a) - pinRank(b) ||
+        new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
 }
 
 export function getProblemRoutePosts(): Post[] {

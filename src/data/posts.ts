@@ -138,6 +138,8 @@ export function getFeaturedPosts(limit = 4): Post[] {
   const today = new Date();
   const seed = getRecommendationSeed(today);
   const pinnedRecommendationIds = [
+    '2027-suneung-korean-solution',
+    '2027-suneung-math-solution',
     '2027-suneung-wanseong-literature-marathon',
     '2027-suneung-literature-marathon',
     'how-ai-makes-suneung-problems',
