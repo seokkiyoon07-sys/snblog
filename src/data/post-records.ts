@@ -25,7 +25,8 @@ export const allPosts: Post[] = [
     date: '2026-11-19',
     readTime: '4',
     featured: false,
-    published: true,
+    // 재현 가능한 방법(Methods)으로 다시 예측할 때까지 비공개(2026-11-19)
+    published: false,
     url: '/startup/261119-snargpt-grade-cut-prediction',
     thumbnail:
       '/images/thumbnail/startup/261119-snargpt-grade-cut-prediction.jpg',
