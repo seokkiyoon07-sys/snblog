@@ -271,6 +271,10 @@ const extraCss = `<style>
   .study-core-solution .katex-display { margin: .6rem 0; overflow-x: auto; overflow-y: hidden; }
   .study-core-solution table, .exam-solution table { width: 100%; margin: .5rem 0; border-collapse: collapse; font-size: .74rem; }
   .study-core-solution th, .study-core-solution td, .exam-solution th, .exam-solution td { padding: .3rem .4rem; border: 1px solid #bbb; }
+  .exam-solution ol, .study-core-solution ol { list-style: decimal; padding-left: 1.4em; margin: .4em 0; }
+  .exam-solution ul, .study-core-solution ul { list-style: disc; padding-left: 1.2em; margin: .3em 0; }
+  .exam-solution li, .study-core-solution li { margin: .25em 0; }
+  .exam-solution li::marker, .study-core-solution li::marker { font-weight: 700; }
   .print-sol-head { display: none; }
   .sim-pred { margin: 0 0 .5rem !important; font-size: .78rem; } .sim-pred b { margin-right: .35rem; padding: 0 .3rem; border: 1px solid #111; font-size: .64rem; }
   .sim-list { display: grid; gap: .5rem; margin: .2rem 0 0; padding: 0; list-style: none; counter-reset: sim; }
@@ -304,6 +308,9 @@ const extraCss = `<style>
     html[data-exam-print="solutions"] .solution-group { margin: 0 0 3mm !important; padding: 0 !important; border: 0 !important; background: none !important; break-before: auto !important; }
     html[data-exam-print="solutions"] .solution-group-heading { display: block; margin: 0 0 1.6mm; padding: 1.2mm 0 1mm; border-top: 1.4pt solid #000; border-bottom: .5pt solid #000; break-after: avoid; }
     html[data-exam-print="solutions"] .exam-solution-grid { display: block; }
+    html[data-exam-print="solutions"] .katex-display { overflow: visible !important; padding: 0 !important; margin: 1mm 0 !important; text-align: left; }
+    html[data-exam-print="solutions"] .katex-display > .katex { white-space: normal !important; text-align: left !important; }
+    html[data-exam-print="solutions"] .katex-display > .katex > .katex-html { white-space: normal !important; }
     html[data-exam-print="solutions"] .exam-solution { margin: 0 0 2.4mm; padding: 0 0 2mm; border: 0; border-bottom: .3pt dashed #999; background: none; break-inside: auto !important; }
     html[data-exam-print="solutions"] .exam-solution header { margin: 0 0 1.2mm; padding: .7mm 1.6mm; border: 0; background: #e9e9e9; break-after: avoid; }
     html[data-exam-print="solutions"] .exam-solution p, html[data-exam-print="solutions"] .exam-solution li { margin: 0 0 .9mm; color: #000; font-size: 8.1pt; line-height: 1.52; }
@@ -322,7 +329,7 @@ ${extraCss}
     <p>한국교육과정평가원이 공개한 문제지(홀수형)를 실제 조판 그대로 제공합니다. 공통과목 8쪽과 선택과목 각 4쪽이며, 페이지를 누르면 크게 볼 수 있습니다. ‘문항 해설’에서는 46문항의 정답과 풀이를 문항별로 볼 수 있습니다.</p>
     <div class="exam-print-toolbar" aria-label="시험지 인쇄">
       ${printBtn('확통 인쇄', 'prob', 'A4')}${printBtn('미적분 인쇄', 'calc', 'A4')}${printBtn('기하 인쇄', 'geo', 'A4')}
-      <button type="button" onclick="document.documentElement.dataset.examPrint='solutions';document.getElementById('exam-page-size').textContent='@page { size: A4 portrait; margin: 13mm 12mm 14mm; @bottom-center { content: counter(page) \\' / \\' counter(pages); font-size: 8pt; color: #555; } }';window.print()">해설 인쇄</button>
+      <button type="button" onclick="document.documentElement.dataset.examPrint='solutions';document.getElementById('exam-page-size').textContent='@page { size: A4 portrait; margin: 13mm 12mm 14mm; @bottom-center { content: counter(page) \\' / \\' counter(pages); font-size: 8pt; color: #555; } }';var F=['KaTeX_Main','KaTeX_Math','KaTeX_AMS','KaTeX_Size1','KaTeX_Size2','KaTeX_Size3','KaTeX_Size4'],P=[];F.forEach(function(f){['','italic ','bold '].forEach(function(st){P.push(document.fonts.load(st+'1em '+f).catch(function(){}))})});Promise.all(P).then(function(){return document.fonts.ready}).then(function(){window.print()})">해설 인쇄</button>
       <small>시험지는 공통 8쪽과 선택한 과목 4쪽만 출력됩니다.</small>
     </div>
   </header>
