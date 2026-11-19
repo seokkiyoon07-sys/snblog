@@ -46,6 +46,9 @@ const OFFICIAL = {
 };
 const START = { common: 1, hwajak: 35, eonmae: 35 };
 const answerOf = (subject, n) => [...OFFICIAL[subject]][n - START[subject]];
+// 짝수형 정답(평가원 정답표 PDF 2쪽). 배점은 홀수형과 같다.
+const EVEN = JSON.parse(fs.readFileSync(path.join(DATA, 'answers_even.json'), 'utf8'));
+const evenOf = (subject, n) => [...EVEN[subject]][n - START[subject]];
 const THREE = { common: [3, 8, 12, 17, 21, 23, 30, 34], hwajak: [40, 45], eonmae: [36, 45] };
 const pts = (subject, n) => (THREE[subject].includes(n) ? 3 : 2);
 const SUBJECT = { common: '공통', hwajak: '화법과 작문', eonmae: '언어와 매체' };
@@ -554,9 +557,9 @@ ${FAQ.map(([q, a]) => `  <dt>${esc(q)}</dt>\n  <dd>${a}</dd>`).join('\n')}
 </div>`;
 
 // ---------- 정답 ----------
-const answerGrid = (subject, from, to) => {
+const answerGrid = (subject, from, to, of = answerOf) => {
   const cells = [];
-  for (let n = from; n <= to; n++) cells.push(`<span><b>${n}:</b> ${answerOf(subject, n)}${pts(subject, n) === 3 ? '<small class="ml-1 text-gray-500">3점</small>' : ''}</span>`);
+  for (let n = from; n <= to; n++) cells.push(`<span><b>${n}:</b> ${of(subject, n)}${pts(subject, n) === 3 ? '<small class="ml-1 text-gray-500">3점</small>' : ''}</span>`);
   return `<div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-2 text-gray-800 dark:text-gray-200 tabular-nums">${cells.join('')}</div>`;
 };
 
@@ -738,15 +741,29 @@ ${paperHtml}
 </section>`;
 
 const toc = [
-  ['overall', '1. 시험 총평'],
-  ['area-notes', '2. 영역별 정리(오답률 AI 예측, 등급컷 회귀 분석)'],
-  ['answer-table', '3. 정답 (홀수형)'],
+  ['predictions', '1. 등급컷·오답률 예측'],
+  ['answer-table', '2. 정답 (홀수형·짝수형)'],
+  ['overall', '3. 시험 총평과 영역별 정리'],
   ['detailed-solutions', '4. 평가원 원본 시험지 · 전 문항 해설'],
   ['study-plan', '5. 2028학년도 수능 준비생을 위한 국어 공부 방향'],
   ['downloads', '6. 문제지·정답표 PDF'],
   ['faq', '7. 자주 묻는 질문'],
 ];
 
+const answerBlock = (of) => `<div class="not-prose grid gap-6 my-4">
+  <section class="border-y border-gray-400 dark:border-gray-600 py-4">
+    <h3 class="font-bold text-gray-900 dark:text-gray-100 mb-3">공통과목</h3>
+    ${answerGrid('common', 1, 34, of)}
+  </section>
+  <section class="border-b border-gray-400 dark:border-gray-600 pb-4">
+    <h3 class="font-bold text-gray-900 dark:text-gray-100 mb-3">화법과 작문</h3>
+    ${answerGrid('hwajak', 35, 45, of)}
+  </section>
+  <section class="border-b border-gray-400 dark:border-gray-600 pb-4">
+    <h3 class="font-bold text-gray-900 dark:text-gray-100 mb-3">언어와 매체</h3>
+    ${answerGrid('eonmae', 35, 45, of)}
+  </section>
+</div>`;
 const article = `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">
   ${EXAM} 국어 영역 문제 및 해설 (홀수형)
 </p>
@@ -756,6 +773,26 @@ const article = `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">
   2026년 11월 19일 시행된 <strong>${EXAM} 국어 영역</strong>의 정답과 전 문항 해설,
   시험 총평을 정리했습니다. 평가원 원본 시험지를 그대로 보면서 지문과 문항 해설을 함께 확인할 수 있습니다.
 </p>
+
+<div class="not-prose border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 rounded-lg p-5 my-6">
+  <p class="font-bold text-amber-950 dark:text-amber-100 mb-2">정답·예측치 안내</p>
+  <p class="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
+    정답은 한국교육과정평가원이 문제지와 함께 공개한 정답표 기준이며, 해설은 SN독학기숙학원이 작성했습니다.
+    아래 예상 오답률은 AI가 문항 구조를 분석해 낸 예측치이고, 등급컷은 문항별 정답률을 바탕으로 한 회귀 분석 예측치입니다. 실제 수치는 입시기관 가채점 결과와
+    평가원 채점 결과 발표로 확인하세요. 이의 신청 심사 결과에 따라 확정 정답이 바뀌면 함께 고칩니다.
+  </p>
+</div>
+
+${h2('predictions', '1. 등급컷·오답률 예측')}
+
+${tw(md(dropRule(gradeCut)))}
+${tw(md(dropRule(errRate)))}
+
+${h2('answer-table', '2. 정답 (홀수형·짝수형)')}
+
+<p class="${P}">본인 문제지의 유형(홀수형·짝수형)을 고른 뒤 공통 1~34번과 응시한 선택과목 35~45번을 확인하세요. 공통 76점과 선택 24점을 더해 100점이며, 3점 문항은 번호 옆에 표시했습니다. 아래 전 문항 해설은 홀수형 문제지 기준입니다.</p>
+
+${faqTabs([['홀수형', answerBlock(answerOf)], ['짝수형', answerBlock(evenOf)]])}
 
 ${quote ? `<div class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-8">
   <p class="text-lg text-gray-900 dark:text-gray-100 leading-relaxed">${esc(quote)}</p>
@@ -772,14 +809,7 @@ ${quote ? `<div class="border-l-2 border-gray-900 dark:border-gray-100 pl-4 my-8
   </ul>
 </div>
 
-<div class="not-prose border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 rounded-lg p-5 my-6">
-  <p class="font-bold text-amber-950 dark:text-amber-100 mb-2">정답·예측치 안내</p>
-  <p class="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
-    정답은 한국교육과정평가원이 문제지와 함께 공개한 정답표 기준이며, 해설은 SN독학기숙학원이 작성했습니다.
-    ‘영역별 정리’의 예상 오답률은 AI가 문항 구조를 분석해 낸 예측치이고, 등급컷은 문항별 정답률을 바탕으로 한 회귀 분석 예측치입니다. 실제 수치는 입시기관 가채점 결과와
-    평가원 채점 결과 발표로 확인하세요. 이의 신청 심사 결과에 따라 확정 정답이 바뀌면 함께 고칩니다.
-  </p>
-</div>
+
 
 <nav id="table-of-contents" class="not-prose border-y border-gray-300 dark:border-gray-700 py-5 my-8" aria-label="글 목차">
   <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3">목차</p>
@@ -790,37 +820,14 @@ ${toc.map(([id, t]) => `    <li><a class="hover:underline" href="#${id}">${t}</a
 
 <hr class="my-8 border-gray-300 dark:border-gray-700" />
 
-${h2('overall', '1. 시험 총평')}
+${h2('overall', '3. 시험 총평과 영역별 정리')}
 
 ${tw(md(leadNote.startsWith('**') ? `> ${leadNote}` : leadNote, 0))}
 ${tw(md(dropRule(oneLine)))}
 ${tw(md(dropRule(areaFeel)))}
 ${tw(md(dropRule(hardSets)))}
 
-${h2('area-notes', '2. 영역별 정리(오답률 AI 예측, 등급컷 회귀 분석)')}
-
 ${tails.map((t) => tw(`<h3>${esc(t.area)}: ${inline(esc(t.title))}</h3>\n${md(t.bodyMd, 2)}`)).join('\n')}
-${tw(md(dropRule(errRate)))}
-${tw(md(dropRule(gradeCut)))}
-
-${h2('answer-table', '3. 정답 (홀수형)')}
-
-<p class="${P}">공통 1~34번과 본인이 응시한 선택과목 35~45번을 확인하세요. 공통 76점과 선택 24점을 더해 100점이며, 3점 문항은 번호 옆에 표시했습니다.</p>
-
-<div class="not-prose grid gap-6 my-6">
-  <section class="border-y border-gray-400 dark:border-gray-600 py-4">
-    <h3 class="font-bold text-gray-900 dark:text-gray-100 mb-3">공통과목</h3>
-    ${answerGrid('common', 1, 34)}
-  </section>
-  <section class="border-b border-gray-400 dark:border-gray-600 pb-4">
-    <h3 class="font-bold text-gray-900 dark:text-gray-100 mb-3">화법과 작문</h3>
-    ${answerGrid('hwajak', 35, 45)}
-  </section>
-  <section class="border-b border-gray-400 dark:border-gray-600 pb-4">
-    <h3 class="font-bold text-gray-900 dark:text-gray-100 mb-3">언어와 매체</h3>
-    ${answerGrid('eonmae', 35, 45)}
-  </section>
-</div>
 
 ${workbook}
 

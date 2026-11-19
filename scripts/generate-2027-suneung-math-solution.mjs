@@ -53,6 +53,12 @@ const answerOf = (subj, n) => {
   const v = A[subj.json][String(n)];
   return isChoice(n) ? CIRCLED[v] : String(v);
 };
+// 짝수형 정답(평가원 정답표 PDF 2쪽). 배점은 홀수형과 같다.
+const AE = JSON.parse(fs.readFileSync(path.join(DATA, 'answers_even.json'), 'utf8'));
+const evenOf = (subj, n) => {
+  const v = AE[subj.json][String(n)];
+  return isChoice(n) ? CIRCLED[v] : String(v);
+};
 const pts = (subj, n) => (subj.key === 'common' ? A.POINTS.COMMON[String(n)] : A.POINTS.SEL[String(n)]);
 
 // ---------- 마크다운 ----------
@@ -235,9 +241,9 @@ const solutionHtml = SUBJECTS.map((s) => {
 }).join('\n');
 
 // ---------- 정답 ----------
-const answerGrid = (s) => {
+const answerGrid = (s, of = answerOf) => {
   const cells = [];
-  for (let n = s.from; n <= s.to; n++) cells.push(`<span><b>${n}:</b> ${answerOf(s, n)}<small class="ml-1 text-gray-500">${pts(s, n)}점</small></span>`);
+  for (let n = s.from; n <= s.to; n++) cells.push(`<span><b>${n}:</b> ${of(s, n)}<small class="ml-1 text-gray-500">${pts(s, n)}점</small></span>`);
   return `<section class="border-b border-gray-400 dark:border-gray-600 pb-4"><h3 class="font-bold text-gray-900 dark:text-gray-100 mb-3">${s.name}</h3><div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-2 text-gray-800 dark:text-gray-200 tabular-nums">${cells.join('')}</div></section>`;
 };
 const printKey = `<table class="print-key">${SUBJECTS.map((s) => {
@@ -490,9 +496,9 @@ ${FAQ.map(([q, a]) => `  <dt>${esc(q)}</dt>\n  <dd>${a}</dd>`).join('\n')}
 const pending = '<p class="' + P + '">총평은 해설 작업이 끝나는 대로 싣습니다.</p>';
 const sec = (re) => (part(re) ? tw(md(dropRule(part(re)))) : '');
 const toc = [
-  ['overall', '1. 시험 총평'],
-  ['predictions', '2. 오답률·등급컷 예측'],
-  ['answer-table', '3. 정답 (홀수형)'],
+  ['predictions', '1. 등급컷·오답률 예측'],
+  ['answer-table', '2. 정답 (홀수형·짝수형)'],
+  ['overall', '3. 시험 총평'],
   ['detailed-solutions', '4. 평가원 원본 시험지 · 전 문항 해설'],
   ['study-plan', '5. 2028학년도 수능 준비생을 위한 수학 공부 방향'],
   ['downloads', '6. 문제지·정답표 PDF'],
@@ -506,6 +512,21 @@ const article = `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">${EXAM
   평가원 원본 시험지를 그대로 보면서 공통·확률과 통계·미적분·기하 46문항의 풀이를 확인할 수 있습니다.
 </p>
 
+<div class="not-prose border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 rounded-lg p-5 my-6">
+  <p class="font-bold text-amber-950 dark:text-amber-100 mb-2">정답·예측치 안내</p>
+  <p class="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
+    정답은 한국교육과정평가원이 문제지와 함께 공개한 정답표 기준이며, 해설은 SN독학기숙학원이 작성했습니다.
+    예상 오답률과 등급컷은 예측치이므로 실제 수치는 입시기관 가채점 결과와 평가원 채점 결과 발표로 확인하세요.
+  </p>
+</div>
+
+${h2('predictions', '1. 등급컷·오답률 예측')}
+${(gradeCutMd ? tw(md(gradeCutMd)) : '') + errRateHtml() || pending}
+
+${h2('answer-table', '2. 정답 (홀수형·짝수형)')}
+<p class="${P}">본인 문제지의 유형(홀수형·짝수형)을 고른 뒤 공통 1~22번과 응시한 선택과목 23~30번을 확인하세요. 1~15번과 23~28번은 5지선다형, 16~22번과 29~30번은 단답형입니다. 아래 전 문항 해설은 홀수형 문제지 기준입니다.</p>
+${faqTabs([['홀수형', `<div class="not-prose grid gap-6 my-4 border-t border-gray-400 dark:border-gray-600 pt-4">${SUBJECTS.map((x) => answerGrid(x)).join('')}</div>`], ['짝수형', `<div class="not-prose grid gap-6 my-4 border-t border-gray-400 dark:border-gray-600 pt-4">${SUBJECTS.map((x) => answerGrid(x, evenOf)).join('')}</div>`]])}
+
 <div id="summary" class="not-prose border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg p-5 my-6">
   <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3">핵심 요약</p>
   <ul class="space-y-2 text-gray-800 dark:text-gray-200 leading-relaxed">
@@ -518,13 +539,7 @@ const article = `<p class="text-sm text-gray-500 dark:text-gray-400 mb-8">${EXAM
   </ul>
 </div>
 
-<div class="not-prose border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 rounded-lg p-5 my-6">
-  <p class="font-bold text-amber-950 dark:text-amber-100 mb-2">정답·예측치 안내</p>
-  <p class="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
-    정답은 한국교육과정평가원이 문제지와 함께 공개한 정답표 기준이며, 해설은 SN독학기숙학원이 작성했습니다.
-    예상 오답률과 등급컷은 예측치이므로 실제 수치는 입시기관 가채점 결과와 평가원 채점 결과 발표로 확인하세요.
-  </p>
-</div>
+
 
 <nav id="table-of-contents" class="not-prose border-y border-gray-300 dark:border-gray-700 py-5 my-8" aria-label="글 목차">
   <p class="text-sm font-bold text-gray-900 dark:text-gray-100 mb-3">목차</p>
@@ -535,17 +550,8 @@ ${toc.map(([id, t]) => `    <li><a class="hover:underline" href="#${id}">${t}</a
 
 <hr class="my-8 border-gray-300 dark:border-gray-700" />
 
-${h2('overall', '1. 시험 총평')}
+${h2('overall', '3. 시험 총평')}
 ${sec(/^## 한 줄 총평/) + sec(/^## 과목별/) + sec(/^## 어려웠던/) || pending}
-
-${h2('predictions', '2. 오답률·등급컷 예측')}
-${errRateHtml() + (gradeCutMd ? tw(md(gradeCutMd)) : '') || pending}
-
-${h2('answer-table', '3. 정답 (홀수형)')}
-<p class="${P}">공통 1~22번과 본인이 응시한 선택과목 23~30번을 확인하세요. 1~15번과 23~28번은 5지선다형, 16~22번과 29~30번은 단답형입니다.</p>
-<div class="not-prose grid gap-6 my-6 border-t border-gray-400 dark:border-gray-600 pt-4">
-${SUBJECTS.map(answerGrid).join('\n')}
-</div>
 
 ${workbook}
 
