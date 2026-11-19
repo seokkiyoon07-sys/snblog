@@ -5,6 +5,32 @@ import { historySupplementPosts } from './history-supplements';
 
 export const allPosts: Post[] = [
   {
+    id: '261119-snargpt-grade-cut-prediction',
+    title: '2027 수능 등급컷 예측: 국어·수학 AI 분석',
+    excerpt:
+      '2027학년도 수능 국어·수학 등급컷을 시험지 공개 직후 AI로 예측해봤습니다. 국어 1등급 화작 91·언매 88, 수학 1등급 확통 88·미적분 84·기하 84(원점수 예측)와 예측 방법, 숫자 검증 원칙을 정리합니다.',
+    category: 'startup',
+    subcategory: 'tech-blog',
+    tags: [
+      'SNarGPT',
+      '2027학년도 수능',
+      '2027 수능 등급컷',
+      '수능 등급컷 예측',
+      '수능 국어 등급컷',
+      '수능 수학 등급컷',
+      'AI 등급컷',
+      '교육AI',
+    ],
+    author: 'SNarGPT',
+    date: '2026-11-19',
+    readTime: '4',
+    featured: false,
+    published: true,
+    url: '/startup/261119-snargpt-grade-cut-prediction',
+    thumbnail:
+      '/images/thumbnail/startup/261119-snargpt-grade-cut-prediction.jpg',
+  },
+  {
     id: '261119-snargpt-exam-restriction',
     title: '공정한 수능을 위한 SNarGPT의 부정행위 예방 조치',
     excerpt:
@@ -673,15 +699,19 @@ export const allPosts: Post[] = [
     id: '2027-suneung-math-solution',
     title: '2027학년도 수능 수학 문제 및 해설 | 정답·시험지·46문항 풀이',
     excerpt:
-      '2027학년도 수능 수학 문제지와 평가원 정답, 공통·확률과 통계·미적분·기하 46문항 풀이를 정리합니다. 평가원 원본 시험지를 보며 문항별 정답과 해설을 확인하세요.',
+      '2027학년도 수능 수학 정답(평가원 공개)과 공통·확률과 통계·미적분·기하 46문항 해설. 가장 어려운 문항, 1등급 컷 예측, 평가원 시험지·정답 PDF를 한 번에 확인하세요.',
     category: 'problem-download',
     subcategory: 'column-math',
     tags: [
       '2027학년도 수능',
       '2027 수능 수학',
+      '2027 수능 수학 정답',
       '수능 수학 해설',
       '수능 수학 정답',
+      '수능 수학 등급컷',
+      '2027 수능 등급컷',
       '수능 수학 문제지 PDF',
+      '수능 수학 킬러문항',
       '확률과 통계',
       '미적분',
       '기하',
@@ -697,18 +727,22 @@ export const allPosts: Post[] = [
   },
   {
     id: '2027-suneung-korean-solution',
-    title:
-      '2027학년도 수능 국어 문제 및 해설 | 정답·시험지·45문항 풀이',
+    title: '2027학년도 수능 국어 문제 및 해설 | 정답·시험지·45문항 풀이',
     excerpt:
-      '2027학년도 수능 국어 문제지와 평가원 정답, 공통·화법과 작문·언어와 매체 전 문항 해설을 정리합니다. 지문별 구조와 출제 포인트, 총평과 예상 등급컷을 함께 확인하세요.',
+      '2027학년도 수능 국어 정답(평가원 공개)과 공통·화법과 작문·언어와 매체 56문항 해설. 가장 어려운 문항, 1등급 컷 예측(화작 91·언매 88), 평가원 시험지·정답 PDF를 한 번에 확인하세요.',
     category: 'problem-download',
     subcategory: 'column-korean',
     tags: [
       '2027학년도 수능',
       '2027 수능 국어',
+      '2027 수능 국어 정답',
       '수능 국어 해설',
       '수능 국어 정답',
+      '수능 국어 등급컷',
+      '2027 수능 등급컷',
       '수능 국어 문제지 PDF',
+      '창선감의록',
+      '참회록',
       '화법과 작문',
       '언어와 매체',
     ],
@@ -717,7 +751,8 @@ export const allPosts: Post[] = [
     readTime: '15',
     featured: false,
     published: true,
-    thumbnail: '/images/thumbnail/problem-download/20261119_korean_thumbnail.png',
+    thumbnail:
+      '/images/thumbnail/problem-download/20261119_korean_thumbnail.png',
     url: '/problem-download/2027-suneung-korean-solution',
     problemContentType: 'solution',
   },

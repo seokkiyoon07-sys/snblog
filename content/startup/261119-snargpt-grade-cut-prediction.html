@@ -1,0 +1,142 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');
+.sx{--ink:#161616;--sub:#66625B;--mute:#9A958C;--line:#DDD7CC;--red:#B8402A;--soft:#F7F4EE;--sans:Pretendard,system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--serif:"Noto Serif KR",serif;font-family:var(--sans);color:var(--ink);font-size:17px;line-height:1.85;letter-spacing:-.01em;word-break:keep-all}
+.dark .sx{--ink:#ECEAE6;--sub:#ABA69D;--mute:#7F7A72;--line:#3B3934;--red:#EC7A62;--soft:#1F1E1C}
+.sx p{margin:0 0 1em}
+.sx strong{font-weight:700}
+.sx a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.sx .kicker{margin:0 0 12px;font-size:14px;font-weight:700;color:var(--sub)}
+.sx .deck{margin:0 0 22px;font-family:var(--serif);font-size:28px;font-weight:700;line-height:1.45;letter-spacing:-.045em}
+.sx .deck em{font-style:normal;color:var(--red)}
+.sx .lead{font-size:17.5px}
+.sx .info{width:100%;border-collapse:collapse;margin:30px 0 0;border-top:1.5px solid var(--ink);font-size:15.5px;line-height:1.65}
+.sx .info th{width:110px;padding:13px 14px 13px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-weight:700;color:var(--sub)}
+.sx .info td{padding:13px 0;border-bottom:1px solid var(--line)}
+.sx .info td b{color:var(--red)}
+.sx h2{margin:72px 0 18px;padding-top:18px;border-top:1.5px solid var(--ink);font-family:var(--serif);font-size:24px;font-weight:700;line-height:1.4;letter-spacing:-.045em}
+.sx h3{margin:36px 0 12px;font-size:18px;font-weight:700}
+.sx .note{margin:-6px 0 18px;font-size:14.5px;color:var(--sub);line-height:1.7}
+.sx .tbl-wrap{overflow-x:auto}
+.sx .tbl{width:100%;border-collapse:collapse;font-size:15px;line-height:1.55;font-variant-numeric:tabular-nums}
+.sx .tbl thead th{padding:0 10px 10px 0;border-bottom:1.5px solid var(--ink);text-align:left;font-size:13px;font-weight:700;color:var(--sub);white-space:nowrap}
+.sx .tbl td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.sx .tbl td.n{white-space:nowrap}
+.sx .tbl td.hi{color:var(--red);font-weight:700}
+.sx .cap{margin:12px 0 0;font-size:13.5px;line-height:1.65;color:var(--sub)}
+.sx .steps{list-style:none;margin:6px 0 0;padding:0;counter-reset:st}
+.sx .steps li{position:relative;padding:0 0 18px 34px;counter-increment:st}
+.sx .steps li::before{content:counter(st);position:absolute;left:0;top:1px;font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.5;color:var(--red)}
+.sx .steps li b{display:block;margin-bottom:2px}
+.sx .steps li span{color:var(--sub);font-size:15.5px}
+.sx ul.dots{margin:0 0 1em;padding-left:1.2em}
+.sx ul.dots li{margin:0 0 .4em}
+.sx .close{margin:72px 0 0;padding:26px 0 0;border-top:1.5px solid var(--ink)}
+.sx .close p{font-family:var(--serif);font-size:18px;line-height:1.85}
+.sx .sign{margin:26px 0 0;font-family:var(--sans);font-size:15px;font-weight:700;text-align:right}
+@media (max-width:640px){.sx{font-size:16px}.sx .deck{font-size:23px}.sx h2{font-size:21px;margin-top:56px}.sx .info th{width:86px}.sx .tbl{font-size:14px}}
+</style>
+<div class="sx not-prose">
+<p class="kicker">SNarGPT 개발기 · 2026년 11월 19일</p>
+<p class="deck">시험지가 공개된 날,<br /><em>AI로 2027학년도 수능 등급컷</em>을 예측해봤습니다.</p>
+
+<p class="lead">수능 당일에는 입시 기관의 가채점 결과가 나오기 전까지 수험생이 기댈 수 있는 숫자가 거의 없습니다. SNarGPT 팀은 평가원이 국어·수학 시험지를 공개한 직후부터 AI로 문항을 풀고, 문항별 오답률을 예측하고, 그 결과로 등급컷을 추정했습니다. 이 글은 그 결과와 방법, 그리고 숫자를 어떻게 검증했는지를 정리한 기록입니다.</p>
+
+<table class="info">
+  <tr><th>국어 1등급 컷</th><td>화법과 작문 <b>91점</b>, 언어와 매체 <b>88점</b> (정답률 회귀 분석, 원점수)</td></tr>
+  <tr><th>수학 1등급 컷</th><td>확률과 통계 <b>88점</b>, 미적분 <b>84점</b>, 기하 <b>84점</b> (원점수)</td></tr>
+  <tr><th>가장 어려웠을 문항</th><td>국어 언어와 매체 37번(약 65%), 수학 공통 21번(약 88%) · AI 예상 오답률</td></tr>
+  <tr><th>AI 풀이 정답</th><td>국어 56문항, 수학 46문항 모두 평가원 공개 정답과 일치</td></tr>
+  <tr><th>주의</th><td>모두 예측치입니다. 최종 등급컷은 평가원 성적 발표로 확인하세요.</td></tr>
+</table>
+
+<h2>1. 예측 결과: 국어</h2>
+<p>국어는 문항별 정답률을 바탕으로 한 회귀 분석으로 원점수 등급컷을 추정했습니다.</p>
+<div class="tbl-wrap"><table class="tbl">
+  <thead><tr><th>선택과목</th><th>1등급</th><th>2등급</th><th>3등급</th><th>4등급</th><th>5등급</th><th>6등급</th><th>7등급</th><th>8등급</th></tr></thead>
+  <tbody>
+    <tr><td class="n">화법과 작문</td><td class="hi">91</td><td>84</td><td>75</td><td>67</td><td>54</td><td>42</td><td>29</td><td>22</td></tr>
+    <tr><td class="n">언어와 매체</td><td class="hi">88</td><td>81</td><td>72</td><td>64</td><td>51</td><td>39</td><td>27</td><td>20</td></tr>
+  </tbody>
+</table></div>
+<p class="cap">원점수 기준 예측. 언어와 매체는 문법 35~39번이 무거워 같은 등급에서 화법과 작문보다 3점 낮게 나왔습니다.</p>
+
+<h3>예상 오답률이 높았을 문항</h3>
+<div class="tbl-wrap"><table class="tbl">
+  <thead><tr><th>문항</th><th>영역</th><th>AI 예상 오답률</th></tr></thead>
+  <tbody>
+    <tr><td class="n">언어와 매체 37번</td><td>문법(안긴절과 생략된 성분)</td><td class="hi">약 65%</td></tr>
+    <tr><td class="n">공통 8번</td><td>독서(인문 통합, 배불론)</td><td>약 63%</td></tr>
+    <tr><td class="n">공통 17번</td><td>독서(법, 의견 표현과 명예훼손)</td><td>약 63%</td></tr>
+    <tr><td class="n">화법과 작문 40번</td><td>화법과 작문</td><td>약 60%</td></tr>
+    <tr><td class="n">언어와 매체 35번</td><td>문법(직접 구성 요소)</td><td>약 60%</td></tr>
+  </tbody>
+</table></div>
+
+<h2>2. 예측 결과: 수학</h2>
+<div class="tbl-wrap"><table class="tbl">
+  <thead><tr><th>선택과목</th><th>1등급</th><th>2등급</th><th>3등급</th></tr></thead>
+  <tbody>
+    <tr><td class="n">확률과 통계</td><td class="hi">88</td><td>78~80</td><td>68~71</td></tr>
+    <tr><td class="n">미적분</td><td class="hi">84</td><td>74~76</td><td>64~67</td></tr>
+    <tr><td class="n">기하</td><td class="hi">84</td><td>76~78</td><td>66~69</td></tr>
+  </tbody>
+</table></div>
+<p class="cap">원점수 기준 예측. 1등급 컷은 상위권의 감점이 고난도 4점 문항에 몰린다는 판단을 반영했고, 2·3등급은 AI 예측 범위입니다.</p>
+
+<h3>예상 오답률이 높았을 문항</h3>
+<div class="tbl-wrap"><table class="tbl">
+  <thead><tr><th>문항</th><th>단원</th><th>AI 예상 오답률</th></tr></thead>
+  <tbody>
+    <tr><td class="n">공통 21번</td><td>삼차함수와 극한</td><td class="hi">약 88%</td></tr>
+    <tr><td class="n">미적분 30번</td><td>절댓값 조건과 정적분</td><td>약 85%</td></tr>
+    <tr><td class="n">기하 30번</td><td>두 구와 정사영</td><td>약 82%</td></tr>
+    <tr><td class="n">공통 22번</td><td>수열의 주기</td><td>약 78%</td></tr>
+    <tr><td class="n">확률과 통계 30번</td><td>시행과 확률</td><td>약 78%</td></tr>
+  </tbody>
+</table></div>
+<p class="cap">세 선택과목 모두 28~30번에 고난도 문항이 몰렸고, 미적분은 28·29·30번이 모두 예상 오답률 60%를 넘었습니다.</p>
+
+<h2>3. 어떻게 예측했나</h2>
+<ol class="steps">
+  <li><b>시험지를 문항별로 옮기기</b><span>평가원이 공개한 문제지를 문항 단위로 나눠 텍스트와 이미지로 정리했습니다. 그림과 표가 판단에 쓰이는 문항은 원본 이미지를 함께 썼습니다.</span></li>
+  <li><b>서로 다른 AI로 따로 풀기</b><span>국어는 서로 다른 AI 모델 세 개로 다섯 번, 수학은 모델별로 따로 풀었습니다. 풀이끼리 서로의 답을 보지 않게 했고, 국어 56문항과 수학 46문항 모두 평가원 공개 정답과 같았습니다.</span></li>
+  <li><b>문항별 오답률 예측</b><span>SNarGPT가 문항마다 묻는 판단의 구조가 닮은 기출을 찾고, 함정의 강도와 계산량을 비교해 예상 오답률을 매겼습니다.</span></li>
+  <li><b>등급컷 추정</b><span>국어는 문항별 정답률을 바탕으로 한 회귀 분석으로, 수학은 고난도 4점 문항의 분포와 선택과목별 차이를 바탕으로 원점수 컷을 추정했습니다.</span></li>
+  <li><b>사람의 판단</b><span>AI가 낸 예측을 바탕으로, 최종 등급컷은 SN독학기숙학원이 문항 난도 분포를 보고 정했습니다.</span></li>
+</ol>
+
+<h2>4. 숫자를 어떻게 검증했나</h2>
+<p>AI가 만든 숫자는 그럴듯해 보여도 그대로 믿을 수 없습니다. 이번 작업에서 지킨 원칙은 하나였습니다. <strong>출처를 원문으로 확인한 값만 싣는다.</strong></p>
+<ul class="dots">
+  <li><strong>기출 통계는 원문과 대조했습니다.</strong> 유사 기출의 실제 오답률은 데이터베이스 원문과 하나씩 대조했고, 확인되지 않은 값은 싣지 않았습니다. 국어 유사 기출의 오답률은 원문에서 확인되지 않아 모두 내렸고, 수학은 원문과 일치한 값만 '확률과 통계 응시자 기준'으로 실었습니다.</li>
+  <li><strong>다른 문항의 값이 붙은 경우를 찾아냈습니다.</strong> 서로 다른 기출에 같은 정답률이 붙은 경우를 재점검에서 찾아 바로잡았습니다.</li>
+  <li><strong>해설은 교육과정 범위를 따로 점검했습니다.</strong> 수학 해설 46문항은 서로 다른 두 AI 검토자가 2015 개정 교육과정 범위를 한 줄씩 점검했고, 범위를 벗어난 풀이 두 곳을 찾아 교육과정 안의 풀이로 고쳤습니다.</li>
+</ul>
+<p>그래서 이 글의 오답률과 등급컷은 모두 <strong>예측치</strong>라고 밝혀 둡니다. 실제 오답률은 입시 기관 통계로, 최종 등급컷은 평가원 성적 발표로 확인해 주세요.</p>
+
+<h2>5. 문항별 해설과 시험지</h2>
+<p>예측에 쓴 문항별 정답과 해설, 예상 오답률과 유사 기출은 아래 두 글에 모두 실었습니다. 평가원 원본 시험지도 함께 볼 수 있습니다.</p>
+<ul class="dots">
+  <li><a href="/problem-download/2027-suneung-korean-solution">2027학년도 수능 국어 문제 및 해설</a>: 공통·화법과 작문·언어와 매체 56문항, 등급컷 1~8등급 예측</li>
+  <li><a href="/problem-download/2027-suneung-math-solution">2027학년도 수능 수학 문제 및 해설</a>: 공통·확률과 통계·미적분·기하 46문항, 문항별 유사 기출</li>
+</ul>
+
+<h2>6. 실제 등급컷과 비교</h2>
+<p>이 예측은 <strong>고치지 않습니다.</strong> 실제 등급컷이 발표된 뒤 예측이 틀린 것으로 드러나도 위의 숫자는 그대로 두고, 아래 표에 실제 값만 채워 넣겠습니다. 시험지 공개 직후 AI가 어디까지 맞힐 수 있는지 보여 주는 실험 기록으로 남기기 위해서입니다.</p>
+<div class="tbl-wrap"><table class="tbl">
+  <thead><tr><th>과목</th><th>예측 1등급 컷</th><th>실제 1등급 컷</th><th>차이</th></tr></thead>
+  <tbody>
+    <tr><td class="n">국어 화법과 작문</td><td>91</td><td>발표 후 기재</td><td>–</td></tr>
+    <tr><td class="n">국어 언어와 매체</td><td>88</td><td>발표 후 기재</td><td>–</td></tr>
+    <tr><td class="n">수학 확률과 통계</td><td>88</td><td>발표 후 기재</td><td>–</td></tr>
+    <tr><td class="n">수학 미적분</td><td>84</td><td>발표 후 기재</td><td>–</td></tr>
+    <tr><td class="n">수학 기하</td><td>84</td><td>발표 후 기재</td><td>–</td></tr>
+  </tbody>
+</table></div>
+<p class="cap">예측은 2026년 11월 19일 시험지 공개 직후 기준 원점수입니다. 실제 값은 입시 기관 가채점 결과와 평가원 성적 발표가 나오는 대로 날짜와 출처를 밝혀 채웁니다.</p>
+
+<div class="close">
+<p>숫자 하나가 수험생의 저녁을 바꿉니다. 그래서 빠르게 내되, 확인한 것만 냈습니다. 맞았는지 틀렸는지도 숨기지 않고 이 자리에 남기겠습니다.</p>
+<p class="sign">SNarGPT 팀</p>
+</div>
+</div>
