@@ -6,7 +6,7 @@ import IntegratedScienceExplorer from '@/components/problems/IntegratedScienceEx
 export const metadata: Metadata = {
   title: '2028 수능 통합과학 예시문항 25제 분석',
   description:
-    '통합과학 예시문항 25개의 원문과 정답·배점을 확인하세요. 1~25번 풀이·문항 역분해와 연계 기출 자료 72개(원본 확인 필요 1개 포함)를 제공합니다. SNargen 생성 변형문제는 준비 중입니다.',
+    '통합과학 예시문항 25개의 원문과 정답·배점을 확인하세요. 1~25번 풀이·문항 역분해와 연계 기출 자료 72개(원본 미확인 1개 포함)를 제공합니다. SNargen 생성 변형문제는 준비 중입니다.',
   openGraph: {
     title: '2028 수능 통합과학 예시문항 25제 분석',
     images: ['/images/thumbnail/problem-download/2028-integrated-science.svg'],

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import ArticleRelated from '@/components/ArticleRelated';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogLayout from '@/components/BlogLayout';
@@ -152,6 +153,7 @@ export default async function ProblemPostPage({
           content,
         }}
         lead={cardNews && <CardNewsCarousel cards={cardNews} />}
+        footer={<ArticleRelated postId={post.id} />}
       />
       {relatedExamPosts.length > 0 && (
         <nav

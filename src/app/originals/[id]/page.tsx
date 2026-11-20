@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ArticleRelated from '@/components/ArticleRelated';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -38,14 +39,14 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | SN Originals`,
+    title: `${post.seoTitle ?? post.title} | SN Originals`,
     description: post.excerpt,
     keywords: post.tags?.join(', ') || '',
     alternates: {
       canonical: post.url,
     },
     openGraph: {
-      title: post.title,
+      title: post.seoTitle ?? post.title,
       description: post.excerpt,
       type: 'article',
       locale: 'ko_KR',
@@ -175,6 +176,7 @@ export default async function OriginalsPostPage({
               }}
             />
           )}
+          <ArticleRelated postId={post.id} />
         </article>
       </section>
     </main>

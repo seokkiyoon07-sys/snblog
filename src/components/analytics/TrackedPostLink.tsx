@@ -36,6 +36,8 @@ export default function TrackedPostLink({
     'home_featured',
     'featured_post',
     'sidebar_popular',
+    'sidebar_related',
+    'article_related',
   ].includes(placement);
   useEffect(() => {
     if (

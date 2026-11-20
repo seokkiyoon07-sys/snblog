@@ -175,7 +175,7 @@ const related = [
     id: '166531-1',
     width: 2940,
     height: 2842,
-    source: '2017학년도 6월 고2 교육청 · 물리학Ⅰ · 1번 (제공 원고 기준)',
+    source: '2017학년도 6월 고2 교육청 · 물리학Ⅰ · 1번',
     title: '시간의 표준과 길이의 표준은 어떻게 연결될까?',
     status: '직접 유사 · 길이 표준과 시간 표준',
     connection:
@@ -188,7 +188,7 @@ const related = [
     id: '165131-1',
     width: 2885,
     height: 2363,
-    source: '2016학년도 9월 고2 교육청 · 물리학Ⅰ · 1번 (제공 원고 기준)',
+    source: '2016학년도 9월 고2 교육청 · 물리학Ⅰ · 1번',
     title: '태양일에서 원자시로 시간의 기준이 바뀐 이유',
     status: '보충 학습 · 시간 표준의 재현성',
     connection:
@@ -206,9 +206,9 @@ export function ScienceQuestionTwoRelated() {
       <section className={card}>
         <h3 className={heading}>시간·길이 표준을 연결하는 유사문제 2개</h3>
         <p className="mt-3">
-          제공된 PNG의 문항 내용을 확인해 연결했습니다. 시험명·시기는 제공 원고
-          기준이며, 이미지에는 해당 정보가 표시되어 있지 않습니다. 아래 해설은
-          문항을 바탕으로 작성한 SN 풀이입니다.
+          문항 이미지의 문항 내용을 확인해 연결했습니다. 시험명·시기는 원고
+          표기를 따랐으며, 이미지에는 해당 정보가 표시되어 있지 않습니다. 아래
+          해설은 문항을 바탕으로 작성한 SN 풀이입니다.
         </p>
       </section>
       {related.map(item => {

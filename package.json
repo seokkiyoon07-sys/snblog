@@ -6,9 +6,13 @@
     "node": "22.x"
   },
   "scripts": {
+    "predev": "node scripts/build-post-records.mjs",
     "dev": "next dev",
     "dev:clean": "node scripts/dev-clean.js",
+    "prebuild": "node scripts/build-post-records.mjs",
     "build": "next build",
+    "posts:build": "node scripts/build-post-records.mjs",
+    "posts:check": "node scripts/build-post-records.mjs --check",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint",
@@ -19,6 +23,7 @@
     "test:jandi": "node scripts/test-jandi.js",
     "collect:academy-market": "node scripts/collect-academy-market.cjs",
     "audit:assets": "node scripts/audit-public-assets.cjs",
+    "images:optimize": "node scripts/optimize-images.cjs",
     "audit:seo": "node scripts/audit-seo-titles.cjs",
     "backup:posts": "node scripts/backup-posts.js",
     "restore:posts": "node scripts/restore-posts.js",
@@ -86,6 +91,7 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.20.6",
-    "typescript": "^5"
+    "typescript": "^5",
+    "yaml": "^2.8.1"
   }
 }

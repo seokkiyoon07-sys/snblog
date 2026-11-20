@@ -54,6 +54,12 @@ export interface Post {
   author: string;
   date: string;
   latestUpdate?: { date: string; summary: string };
+  // 날짜가 지나면 틀려지는 글: 기준일, 유효 마지막 날, 새 글 (FreshnessNotice 가 쓴다)
+  asOf?: string;
+  validUntil?: string;
+  successor?: { title: string; url: string };
+  // 함께 읽을 글: 사람이 고른 글 id 목록 (사이드바·글 끝에 이 순서로 나온다)
+  related?: string[];
   readTime: string;
   featured: boolean;
   featuredOrder?: number;

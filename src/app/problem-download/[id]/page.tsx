@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import ArticleRelated from '@/components/ArticleRelated';
 import { getPostById, getPostsByCategory } from '@/data/posts';
 import { loadPostContent } from '@/lib/post-content';
 import { notFound } from 'next/navigation';
@@ -181,7 +182,10 @@ export default async function ProblemDownloadDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogLayout post={{ ...post, content }} />
+      <BlogLayout
+        post={{ ...post, content }}
+        footer={<ArticleRelated postId={post.id} />}
+      />
     </>
   );
 }

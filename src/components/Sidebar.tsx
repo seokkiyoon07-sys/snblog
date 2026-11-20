@@ -1,4 +1,6 @@
-import { getLatestPosts, allPosts } from '@/data/posts';
+import { getLatestPosts, getPosts, allPosts } from '@/data/posts';
+import SidebarRelated from '@/components/SidebarRelated';
+import { buildRelatedIndex } from '@/lib/related-posts';
 import TrackedPostLink from '@/components/analytics/TrackedPostLink';
 
 export default function Sidebar() {
@@ -22,18 +24,17 @@ export default function Sidebar() {
   // 최근 포스트 데이터 (동적)
   const recentPosts = getLatestPosts(6);
 
-  // 인기 블로그 데이터 (조회수 시뮬레이션)
-  const popularPosts = getLatestPosts(5).map((post, index) => ({
-    ...post,
-    views: 2500 - index * 300, // 조회수 시뮬레이션
-  }));
+  // 지금 보는 글과 이어지는 글 (글 페이지에서만 보인다)
+  const relatedIndex = buildRelatedIndex(getPosts());
 
   return (
     <aside className="space-y-6 lg:space-y-8">
+      <SidebarRelated index={relatedIndex} />
+
       {/* 태그 섹션 */}
       <div>
         <h3 className="text-base lg:text-lg font-semibold text-gray-900 dark:text-white mb-3 lg:mb-4">
-          Tags
+          태그
         </h3>
         <div className="flex flex-wrap gap-1.5 lg:gap-2">
           {tags.map(tag => (
@@ -51,34 +52,10 @@ export default function Sidebar() {
         </div>
       </div>
 
-      {/* 인기 블로그 섹션 */}
+      {/* 최근 글 */}
       <div>
         <h3 className="text-base lg:text-lg font-semibold text-gray-900 dark:text-white mb-3 lg:mb-4">
-          인기 블로그
-        </h3>
-        <div className="space-y-2 lg:space-y-3">
-          {popularPosts.map((post, index) => (
-            <div key={index} className="space-y-1">
-              <TrackedPostLink
-                href={post.url}
-                postId={post.id}
-                placement="sidebar_popular"
-                className="block text-xs lg:text-sm font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2"
-              >
-                {post.title}
-              </TrackedPostLink>
-              <div className="text-xs text-gray-500 dark:text-gray-400">
-                {post.date}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 최근 포스트 섹션 (3개만) */}
-      <div>
-        <h3 className="text-base lg:text-lg font-semibold text-gray-900 dark:text-white mb-3 lg:mb-4">
-          Recent Posts
+          최근 글
         </h3>
         <div className="space-y-2 lg:space-y-3">
           {recentPosts.slice(0, 3).map((post, index) => (

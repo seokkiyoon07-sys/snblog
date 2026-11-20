@@ -10,15 +10,19 @@ const CATEGORY_FOLDER_MAP: Record<string, string> = {
   'korean-problem': 'problem-download',
 };
 
+// 글 파일 맨 위의 글 정보(--- 사이). 본문에서는 빼고, 목록은 scripts/build-post-records.mjs 가 만든다
+const FRONTMATTER = /^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/;
+
 /**
  * 포스트 ID와 카테고리로 HTML 콘텐츠 파일을 읽어 반환 (서버 사이드 전용)
  * 파일 경로: content/{category}/{id}.html
+ * (카테고리→폴더 대응은 scripts/build-post-records.mjs 와 같아야 한다)
  */
 export function loadPostContent(id: string, category: string): string {
   const folder = CATEGORY_FOLDER_MAP[category] || category;
   const filePath = path.join(CONTENT_BASE, folder, `${id}.html`);
   try {
-    return fs.readFileSync(filePath, 'utf-8');
+    return fs.readFileSync(filePath, 'utf-8').replace(FRONTMATTER, '');
   } catch {
     return '';
   }

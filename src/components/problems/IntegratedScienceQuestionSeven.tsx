@@ -161,7 +161,7 @@ const related = [
     id: '174406-1',
     width: 2793,
     height: 2604,
-    source: '2021학년도 9월 고3 평가원 · 화학Ⅰ · 1번 (제공 원고 기준)',
+    source: '2021학년도 9월 고3 평가원 · 화학Ⅰ · 1번',
     title: '염화 암모늄의 용해와 뷰테인의 연소',
     status: '직접 유사 · 염화 암모늄 용해',
     connection:
@@ -174,7 +174,7 @@ const related = [
     id: '174607-1',
     width: 2796,
     height: 2565,
-    source: '2021학년도 10월 고3 교육청 · 화학Ⅰ · 2번 (제공 원고 기준)',
+    source: '2021학년도 10월 고3 교육청 · 화학Ⅰ · 2번',
     title: '냉각 팩·염화 칼슘·드라이아이스의 열 출입',
     status: '직접 유사 · 용해와 승화의 열 출입',
     connection:
@@ -187,7 +187,7 @@ const related = [
     id: '176986-1',
     width: 2800,
     height: 2159,
-    source: '2023학년도 3월 고1 교육청 · 통합과학 · 6번 (제공 원고 기준)',
+    source: '2023학년도 3월 고1 교육청 · 통합과학 · 6번',
     title: '반응의 열 출입과 발열 도시락',
     status: '직접 유사 · 발열의 생활 속 활용',
     connection:
@@ -205,8 +205,8 @@ export function ScienceQuestionSevenRelated() {
       <section className={card}>
         <h3 className={heading}>흡열·발열의 사례를 비교하는 유사 기출 3개</h3>
         <p className="mt-3">
-          제공된 PNG의 상황과 선지를 직접 확인해 연결했습니다. 시험명·시기는
-          제공 원고 기준이며 이미지에는 표시되어 있지 않습니다. 아래 해설은
+          문항 이미지의 상황과 선지를 직접 확인해 연결했습니다. 시험명·시기는
+          원고 표기를 따랐으며 이미지에는 표시되어 있지 않습니다. 아래 해설은
           이미지 내용을 바탕으로 작성한 SN 풀이입니다.
         </p>
       </section>

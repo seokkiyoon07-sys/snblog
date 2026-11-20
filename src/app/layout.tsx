@@ -84,7 +84,7 @@ export const metadata: Metadata = {
       'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
     daumoa: 'index,follow',
     classification:
-      'AI스타트업, 독학기숙학원, 독학재수기숙학원, 컬럼, 문제 다운로드, SN Originals, 재수기숙학원, 대입학원, 대입종합학원, 윈터스쿨, 반수기숙학원, 입시정보 블로그',
+      'AI스타트업, 독학기숙학원, 독학재수기숙학원, 칼럼, 문제 다운로드, SN Originals, 재수기숙학원, 대입학원, 대입종합학원, 윈터스쿨, 반수기숙학원, 입시정보 블로그',
     'article:tag': [
       '독학기숙학원',
       'SN독학기숙학원',

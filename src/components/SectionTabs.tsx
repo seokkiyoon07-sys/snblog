@@ -17,6 +17,8 @@ interface SectionTabsProps {
   tabs: SectionTab[];
   // '전체' 탭에서 구역을 보여 줄 순서. 생략하면 탭 순서
   allOrder?: string[];
+  // '전체' 탭에서 구역을 이어 붙이지 않고 따로 보여 줄 내용 (예: 모든 글을 날짜순으로 섞은 목록)
+  allContent?: ReactNode;
 }
 
 const ALL = 'all';
@@ -25,6 +27,7 @@ export default function SectionTabs({
   ariaLabel,
   tabs,
   allOrder,
+  allContent,
 }: SectionTabsProps) {
   const [active, setActive] = useState<string>(ALL);
   const keys = tabs.map(tab => tab.key).join(',');
@@ -84,14 +87,14 @@ export default function SectionTabs({
         })}
       </div>
 
-      {(active === ALL && allOrder
-        ? allOrder
-            .map(key => tabs.find(tab => tab.key === key))
-            .filter((tab): tab is SectionTab => Boolean(tab))
-        : tabs.filter(tab => active === ALL || active === tab.key)
-      ).map(tab => (
-        <Fragment key={tab.key}>{tab.content}</Fragment>
-      ))}
+      {active === ALL && allContent !== undefined
+        ? allContent
+        : (active === ALL && allOrder
+            ? allOrder
+                .map(key => tabs.find(tab => tab.key === key))
+                .filter((tab): tab is SectionTab => Boolean(tab))
+            : tabs.filter(tab => active === ALL || active === tab.key)
+          ).map(tab => <Fragment key={tab.key}>{tab.content}</Fragment>)}
     </div>
   );
 }

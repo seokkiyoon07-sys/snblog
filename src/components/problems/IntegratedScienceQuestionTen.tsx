@@ -76,7 +76,7 @@ const related = [
     id: '165937-1',
     width: 2934,
     height: 2432,
-    source: '2017학년도 3월 고2 교육청 · 물리학Ⅰ · 7번 (제공 원고 기준)',
+    source: '2017학년도 3월 고2 교육청 · 물리학Ⅰ · 7번',
     title: '자동차 에너지 효율 비',
     status: '직접 유사 · 효율 계산',
     connection:
@@ -89,7 +89,7 @@ const related = [
     id: '162156-1',
     width: 3010,
     height: 2063,
-    source: '2015학년도 4월 고3 교육청 · 물리학Ⅰ · 1번 (제공 원고 기준)',
+    source: '2015학년도 4월 고3 교육청 · 물리학Ⅰ · 1번',
     title: '화력·수력·태양광 발전',
     status: '보충 학습 · 발전 원리',
     connection:
@@ -130,7 +130,7 @@ export function ScienceQuestionTenRelated() {
     <div className={body}>
       <ScienceSimilarityGuide />
       <p>
-        기출별 연결 범위를 구분했습니다. 시험 정보는 제공 원고 기준이며 미확인
+        기출별 연결 범위를 구분했습니다. 시험 정보는 원고 표기를 따랐으며 미확인
         자료는 따로 표시합니다.
       </p>
       {related.map(item => {

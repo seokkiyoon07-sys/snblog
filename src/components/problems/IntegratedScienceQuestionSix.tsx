@@ -153,7 +153,7 @@ const related = [
     id: '174290-1',
     width: 2788,
     height: 2259,
-    source: '2021학년도 8월 고2 교육청 · 지구과학Ⅰ · 10번 (제공 원고 기준)',
+    source: '2021학년도 8월 고2 교육청 · 지구과학Ⅰ · 10번',
     title: '온대 저기압 통과 전후의 기온·기압 변화',
     status: '보충 학습 · 기상 그래프 읽기',
     connection:
@@ -166,7 +166,7 @@ const related = [
     id: '177543-1',
     width: 2792,
     height: 2680,
-    source: '2023학년도 6월 고3 평가원 · 지구과학Ⅰ · 13번 (제공 원고 기준)',
+    source: '2023학년도 6월 고3 평가원 · 지구과학Ⅰ · 13번',
     title: '태풍 통과에 따른 기압과 표층 수온의 변화',
     status: '심화 학습 · 태풍과 표층 수온',
     connection:
@@ -184,8 +184,8 @@ export function ScienceQuestionSixRelated() {
       <section className={card}>
         <h3 className={heading}>시간에 따른 기상 자료를 읽는 유사 기출 2개</h3>
         <p className="mt-3">
-          제공된 PNG의 곡선·축·선지를 직접 확인해 연결했습니다. 시험명·시기는
-          제공 원고 기준이며 이미지에는 표시되어 있지 않습니다. 아래 해설은
+          문항 이미지의 곡선·축·선지를 직접 확인해 연결했습니다. 시험명·시기는
+          원고 표기를 따랐으며 이미지에는 표시되어 있지 않습니다. 아래 해설은
           이미지 내용을 바탕으로 작성한 SN 풀이입니다.
         </p>
       </section>

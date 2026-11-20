@@ -85,7 +85,7 @@ const related = [
     id: '300903-1',
     width: 1993,
     height: 1383,
-    source: '2013학년도 10월 고3 학력평가 · 지구과학Ⅱ · 3번 (제공 원고 기준)',
+    source: '2013학년도 10월 고3 학력평가 · 지구과학Ⅱ · 3번',
     title: '해령·해구 지도와 판 경계',
     status: '부분 직접 연결 · 발산과 수렴 식별',
     connection:
@@ -98,7 +98,7 @@ const related = [
     id: '177521-1',
     width: 2830,
     height: 5029,
-    source: '2023학년도 6월 고2 학력평가 · 지구과학Ⅰ · 16번 (제공 원고 기준)',
+    source: '2023학년도 6월 고2 학력평가 · 지구과학Ⅰ · 16번',
     title: '섭입 경계 비율과 판 이동 속도',
     status: '보충 학습 · 표와 산점도',
     connection:
@@ -111,7 +111,7 @@ const related = [
     id: '300489-1',
     width: 2855,
     height: 2606,
-    source: '2010학년도 6월 고3 모의평가 · 지구과학Ⅱ · 9번 (제공 원고 기준)',
+    source: '2010학년도 6월 고3 모의평가 · 지구과학Ⅱ · 9번',
     title: '고지자기와 해저 확장 속도',
     status: '심화 보충 · 연령·거리·고지자기',
     connection:
@@ -124,7 +124,7 @@ const related = [
     id: '300267-1',
     width: 2822,
     height: 1898,
-    source: '2008학년도 7월 고3 학력평가 · 지구과학Ⅱ · 7번 (제공 원고 기준)',
+    source: '2008학년도 7월 고3 학력평가 · 지구과학Ⅱ · 7번',
     title: '해저 확장과 과거 지자기 기록',
     status: '심화 학습 · 고지자기와 해저 확장',
     connection:
@@ -137,7 +137,7 @@ const related = [
 
 export function ScienceQuestionTwentyTwoRelated() {
   const intro =
-    '4문항의 PNG 5장을 모두 연결했습니다. 경계 식별에 부분 직접 연결 1개, 표·그래프 보충 1개, 고지자기 심화 보충 2개입니다. 같은 방향으로 움직이는 판의 상대 속도로 경계를 추론하는 기출은 없습니다. 시험 정보는 제공 원고 기준입니다.';
+    '4문항의 PNG 5장을 모두 연결했습니다. 경계 식별에 부분 직접 연결 1개, 표·그래프 보충 1개, 고지자기 심화 보충 2개입니다. 같은 방향으로 움직이는 판의 상대 속도로 경계를 추론하는 기출은 없습니다. 시험 정보는 원고 표기를 따랐습니다.';
   return (
     <div className={body}>
       <ScienceSimilarityGuide />

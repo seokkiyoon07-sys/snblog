@@ -33,7 +33,9 @@ const PLACEMENT_LABELS: Record<string, string> = {
   originals_card: 'SN Originals 카드',
   originals_list: 'SN Originals 목록',
   problems_card: '문제 다운로드 카드',
-  sidebar_popular: '사이드바 인기글',
+  sidebar_popular: '사이드바 인기글(종료)',
+  sidebar_related: '사이드바 함께 읽을 글',
+  article_related: '글 끝 함께 읽을 글',
   sidebar_recent: '사이드바 최신글',
 };
 

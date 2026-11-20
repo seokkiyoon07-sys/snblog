@@ -6,14 +6,14 @@ import { BASE_URL } from '@/lib/config';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
+  title: 'SN 칼럼 | 교육 전문가의 학습법과 입시 조언',
   description:
     'SN Academy의 교육 전문가들이 제공하는 학습법, 입시 전략, 자기주도학습 방법 등을 확인하세요. 검증된 교육 노하우로 학습 효과를 극대화할 수 있습니다.',
   alternates: {
     canonical: '/columns',
   },
   openGraph: {
-    title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
+    title: 'SN 칼럼 | 교육 전문가의 학습법과 입시 조언',
     description:
       'SN Academy의 교육 전문가들이 제공하는 학습법과 입시 조언을 확인하세요.',
     type: 'website',
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
         url: '/og/columns.jpg',
         width: 1200,
         height: 630,
-        alt: 'SN 컬럼 - 교육 전문가의 학습법과 입시 조언',
+        alt: 'SN 칼럼 - 교육 전문가의 학습법과 입시 조언',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SN 컬럼 | 교육 전문가의 학습법과 입시 조언',
+    title: 'SN 칼럼 | 교육 전문가의 학습법과 입시 조언',
     description:
       'SN Academy의 교육 전문가들이 제공하는 학습법과 입시 조언을 확인하세요.',
     images: ['/og/columns.jpg'],
@@ -41,11 +41,13 @@ export const metadata: Metadata = {
   },
 };
 
-// 개발 서버에서는 미공개 연재 글(쉼표 등)만 목록에 '초안'으로 보인다.
+// 개발 서버에서는 미공개 칼럼도 목록에 '초안'으로 보인다.
 // 디자인 가이드 같은 내부용 미공개 글은 개발 서버에서도 목록에 띄우지 않는다
 const SHOW_DRAFTS = process.env.NODE_ENV === 'development';
+const INTERNAL_DRAFTS = ['design-guide-demo'];
 
-// 칼럼 안 연재. 탭(전체 / 칼럼 / 연재)으로 나눠 보여 준다. key 는 /columns#key 주소에 쓴다
+// 칼럼 안 연재. 연재 탭에서 따로 모아 보고, '전체' 탭에서는 칼럼과 섞여 날짜순으로 보인다.
+// key 는 /columns#key 주소에 쓴다
 const SERIES = [
   {
     key: 'comma',
@@ -59,7 +61,10 @@ export default function ColumnsPage() {
   const drafts = SHOW_DRAFTS
     ? getAllPosts()
         .filter(
-          post => post.category === 'columns' && !post.published && post.series
+          post =>
+            post.category === 'columns' &&
+            !post.published &&
+            !INTERNAL_DRAFTS.includes(post.id)
         )
         .map(post => ({ ...post, badge: `초안 · ${post.badge ?? '칼럼'}` }))
     : [];
@@ -70,15 +75,20 @@ export default function ColumnsPage() {
       .filter(post => post.series === series.name)
       .sort((a, b) => (b.seriesOrder ?? 0) - (a.seriesOrder ?? 0)),
   })).filter(group => group.posts.length > 0);
-  // 연재 글은 연재 탭(상자)에만 보인다
+  // 칼럼 탭에는 연재가 아닌 글만, 전체 탭에는 연재 글까지 날짜순으로 섞어 보여 준다
   const standalone = columns.filter(post => !post.series);
+  const everything = [...columns].sort(
+    (a, b) =>
+      new Date(b.date).getTime() - new Date(a.date).getTime() ||
+      (b.seriesOrder ?? 0) - (a.seriesOrder ?? 0)
+  );
 
   return (
     <div className="space-y-8">
       {/* 페이지 헤더 */}
       <header className="text-center py-8">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          컬럼
+          칼럼
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300">
           교육 전문가의 학습법과 입시 조언
@@ -87,7 +97,18 @@ export default function ColumnsPage() {
 
       <SectionTabs
         ariaLabel="칼럼 구역"
-        allOrder={[...seriesGroups.map(group => group.key), 'columns']}
+        allContent={
+          <section aria-labelledby="all-columns-heading">
+            <h2 id="all-columns-heading" className="sr-only">
+              전체 칼럼
+            </h2>
+            <div className="space-y-6" role="list" aria-label="전체 칼럼 목록">
+              {everything.map(post => (
+                <PostCard key={post.id} post={post} />
+              ))}
+            </div>
+          </section>
+        }
         tabs={[
           {
             key: 'columns',
@@ -96,13 +117,13 @@ export default function ColumnsPage() {
             content: (
               <section aria-labelledby="columns-heading">
                 <h2 id="columns-heading" className="sr-only">
-                  교육 컬럼
+                  교육 칼럼
                 </h2>
                 {standalone.length > 0 ? (
                   <div
                     className="space-y-6"
                     role="list"
-                    aria-label="교육 컬럼 목록"
+                    aria-label="교육 칼럼 목록"
                   >
                     {standalone.map(post => (
                       <PostCard key={post.id} post={post} />
@@ -132,10 +153,10 @@ export default function ColumnsPage() {
                       </svg>
                     </div>
                     <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                      아직 컬럼이 없습니다
+                      아직 칼럼이 없습니다
                     </h3>
                     <p className="text-gray-500 dark:text-gray-400">
-                      곧 교육 전문가들의 유익한 컬럼을 공유할 예정입니다.
+                      곧 교육 전문가들의 유익한 칼럼을 공유할 예정입니다.
                     </p>
                   </div>
                 )}

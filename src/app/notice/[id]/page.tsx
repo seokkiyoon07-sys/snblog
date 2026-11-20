@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import ArticleRelated from '@/components/ArticleRelated';
 import { getPostById, getPostsByCategory } from '@/data/posts';
 import { loadPostContent } from '@/lib/post-content';
 import { notFound } from 'next/navigation';
@@ -82,6 +83,7 @@ export default async function NoticeDetailPage({
   return (
     <BlogLayout
       post={{ ...post, content: loadPostContent(post.id, post.category) }}
+      footer={<ArticleRelated postId={post.id} />}
     />
   );
 }

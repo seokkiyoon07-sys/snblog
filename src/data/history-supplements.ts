@@ -7,7 +7,7 @@ export const historySupplementPosts: Post[] = [
     excerpt:
       '두 차례 왕자의 난부터 사병 혁파·호패법·6조 직계제까지, 태종의 왕권 강화와 세종의 통치 기반을 살펴봅니다.',
     category: 'SN History',
-    tags: ['한국사 외전', '조선', 'SNHistory'],
+    tags: ['한국사 외전', '조선', 'SN History'],
     author: 'SN History',
     date: '2026-10-20',
     readTime: '숏츠',
@@ -25,7 +25,7 @@ export const historySupplementPosts: Post[] = [
     excerpt:
       '몽유도원도를 남긴 안평대군의 삶과 계유정난을 통해 소설 속 인물의 역사적 배경을 살펴봅니다.',
     category: 'SN History',
-    tags: ['운영전', '조선', 'SNHistory'],
+    tags: ['운영전', '조선', 'SN History'],
     author: 'SN History',
     date: '2026-10-12',
     readTime: '숏츠',
@@ -43,7 +43,7 @@ export const historySupplementPosts: Post[] = [
     excerpt:
       '탕춘대·소격서동·수성궁을 통해 운영전 속 장소와 실제 역사의 시간 차이를 짚습니다.',
     category: 'SN History',
-    tags: ['운영전', '조선', 'SNHistory'],
+    tags: ['운영전', '조선', 'SN History'],
     author: 'SN History',
     date: '2026-10-13',
     readTime: '숏츠',

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ArticleRelated from '@/components/ArticleRelated';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -10,6 +11,7 @@ import { renderMarkdown } from '@/lib/markdown-renderer';
 import { formatReadableOriginalsContent } from '@/lib/originals-content';
 import { getCategoryConfig, formatReadTime } from '@/lib/utils';
 import ArticleContent from '@/components/ArticleContent';
+import FreshnessNotice from '@/components/FreshnessNotice';
 import SNarGPTGuidePost from '@/components/special-posts/SNarGPTGuidePost';
 import { PROSE_CLASSES } from '@/lib/constants';
 import { withLatestUpdate } from '@/lib/post-updates';
@@ -304,10 +306,18 @@ export default async function PostPage({ params }: PostPageProps) {
             {snargptParts ? (
               <SNarGPTGuidePost renderedParts={snargptParts} />
             ) : (
-              <ArticleContent
-                content={renderedContent}
-                className={isUpdateTimeline ? '' : PROSE_CLASSES}
-              />
+              <>
+                <FreshnessNotice
+                  asOf={post.asOf}
+                  validUntil={post.validUntil}
+                  successor={post.successor}
+                />
+                <ArticleContent
+                  content={renderedContent}
+                  className={isUpdateTimeline ? '' : PROSE_CLASSES}
+                />
+                <ArticleRelated postId={post.id} />
+              </>
             )}
           </div>
         </div>

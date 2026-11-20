@@ -358,8 +358,7 @@ export default function NonsulScheduleFinder() {
 
         {results.length === 0 ? (
           <div className="rounded-lg border border-dashed border-slate-300 px-4 py-10 text-center text-sm text-slate-500 dark:border-slate-600 dark:text-slate-400">
-            조건에 맞는 대학이 없습니다. 수능 후 논술 36개 대학만
-            검색됩니다.
+            조건에 맞는 대학이 없습니다. 수능 후 논술 36개 대학만 검색됩니다.
           </div>
         ) : (
           <ul className="grid gap-3 md:grid-cols-2">

@@ -1,4 +1,5 @@
 import React from 'react';
+import ArticleRelated from '@/components/ArticleRelated';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Image from 'next/image';
@@ -16,9 +17,11 @@ import AIDataGenerator from '@/components/AIDataGenerator';
 import { renderMarkdown } from '@/lib/markdown-renderer';
 import { formatReadTime } from '@/lib/utils';
 import ArticleContent from '@/components/ArticleContent';
+import FreshnessNotice from '@/components/FreshnessNotice';
 import { PROSE_CLASSES } from '@/lib/constants';
 import SNarGPTPresentation from '@/components/posts/SNarGPTPresentation';
 import BlogLayout from '@/components/BlogLayout';
+import PostTitle from '@/components/PostTitle';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -253,6 +256,7 @@ export default async function Page({ params }: PageProps) {
         <BlogLayout
           post={{ ...post, content: postContent }}
           lead={<CardNewsCarousel cards={cardNews} />}
+          footer={<ArticleRelated postId={post.id} />}
         />
       </>
     );
@@ -267,7 +271,7 @@ export default async function Page({ params }: PageProps) {
           <div className="mx-auto max-w-5xl">
             <div className="text-center mb-8">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
-                {post.title}
+                <PostTitle title={post.title} />
               </h1>
               <p className="text-xl text-slate-600 dark:text-gray-300 mb-6 max-w-3xl mx-auto">
                 {post.excerpt}
@@ -411,8 +415,8 @@ export default async function Page({ params }: PageProps) {
         <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24">
           <div className="mx-auto max-w-5xl">
             <div className="text-center mb-12">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight whitespace-pre-line">
-                {post.title}
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+                <PostTitle title={post.title} />
               </h1>
               <p className="text-xl text-slate-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
                 {post.excerpt}
@@ -500,10 +504,16 @@ export default async function Page({ params }: PageProps) {
         >
           <div className="mx-auto max-w-4xl">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
+              <FreshnessNotice
+                asOf={post.asOf}
+                validUntil={post.validUntil}
+                successor={post.successor}
+              />
               <ArticleContent
                 content={renderMarkdown(postContent)}
                 className={PROSE_CLASSES}
               />
+              <ArticleRelated postId={post.id} />
             </div>
           </div>
         </section>

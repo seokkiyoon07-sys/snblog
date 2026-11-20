@@ -24,7 +24,9 @@ const actions: Record<string, string> = {
 const placements: Record<string, string> = {
   home_featured: '홈 추천 게시물',
   featured_post: '추천 게시물',
-  sidebar_popular: '사이드바 인기글',
+  sidebar_popular: '사이드바 인기글(종료)',
+  sidebar_related: '사이드바 함께 읽을 글',
+  article_related: '글 끝 함께 읽을 글',
 };
 const box =
   'rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800';

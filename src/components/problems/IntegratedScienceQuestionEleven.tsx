@@ -79,7 +79,7 @@ const related = [
     id: '175662-1',
     width: 2819,
     height: 2862,
-    source: '2022학년도 6월 고1 학력평가 · 통합과학 · 7번 (제공 원고 기준)',
+    source: '2022학년도 6월 고1 학력평가 · 통합과학 · 7번',
     title: '별의 층상 구조와 지구 구성 원소',
     status: '직접 유사 · 원소 판별과 지구 구성',
     connection:
@@ -92,7 +92,7 @@ const related = [
     id: '173345-1',
     width: 2875,
     height: 1862,
-    source: '2021학년도 3월 고2 학력평가 · 지구과학Ⅰ · 15번 (제공 원고 기준)',
+    source: '2021학년도 3월 고2 학력평가 · 지구과학Ⅰ · 15번',
     title: '철 중심핵을 가진 별의 온도와 진화',
     status: '직접 유사 · 중심부 온도',
     connection:
@@ -120,7 +120,7 @@ export function ScienceQuestionElevenRelated() {
     <div className={body}>
       <ScienceSimilarityGuide />
       <p>
-        기출별 연결 범위를 구분했습니다. 시험 정보는 제공 원고 기준이며 미확인
+        기출별 연결 범위를 구분했습니다. 시험 정보는 원고 표기를 따랐으며 미확인
         자료는 따로 표시합니다.
       </p>
       {related.map(item => {

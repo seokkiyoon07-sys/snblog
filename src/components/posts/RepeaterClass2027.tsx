@@ -505,9 +505,9 @@ function FeatureCard({
             ))}
           </ul>
         ) : (
-        <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          {description}
-        </p>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            {description}
+          </p>
         ))}
     </div>
   );

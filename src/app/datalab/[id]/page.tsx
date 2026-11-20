@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import ArticleRelated from '@/components/ArticleRelated';
 import { getPostById, getPostsByCategory } from '@/data/posts';
 import { loadPostContent } from '@/lib/post-content';
 import { Metadata } from 'next';
@@ -9,6 +10,7 @@ import AIDataGenerator from '@/components/AIDataGenerator';
 import { renderMarkdown } from '@/lib/markdown-renderer';
 import { formatReadTime } from '@/lib/utils';
 import ArticleContent from '@/components/ArticleContent';
+import FreshnessNotice from '@/components/FreshnessNotice';
 import { PROSE_CLASSES } from '@/lib/constants';
 
 interface PostPageProps {
@@ -280,7 +282,7 @@ export default async function DataLabPostPage({ params }: PostPageProps) {
 - 교재비, 단체복비, 콘텐츠비와 선택수업 비용의 포함 여부를 확인해야 합니다.
 
 ## 데이터 상태
-- 기존 공식 자료와 2026년 9월 10일·10월 18일 제공된 추가 조사 자료를 반영하고, 확인된 가격과 공개 대기 상태를 구분합니다.
+- 기존 공식 자료와 2026년 9월 10일·10월 18일에 추가로 확인한 자료를 반영하고, 확인된 가격과 공개 대기 상태를 구분합니다.
 - 자료가 상충하는 금액은 재확인 필요 상태로 표시합니다.
 - 목록과 지도는 대표 과정의 실제 기간과 총액을 먼저 표시합니다. 목록의 5주 환산가는 보조 비교 정보입니다. 월 비용만 확인된 과정과 별도 스프링캠프는 5주 환산 비교에서 제외합니다.
 - 5주 환산가는 비교용이며 실제 청구액은 과정별 총액에서 확인해야 합니다.
@@ -455,10 +457,16 @@ ${postContent}
         <section className="px-6 md:px-10 lg:px-16 pb-24">
           <div className="mx-auto max-w-4xl">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
+              <FreshnessNotice
+                asOf={post.asOf}
+                validUntil={post.validUntil}
+                successor={post.successor}
+              />
               <ArticleContent
                 content={renderMarkdown(postContent)}
                 className={PROSE_CLASSES}
               />
+              <ArticleRelated postId={post.id} />
             </div>
           </div>
         </section>
@@ -621,10 +629,16 @@ ${postContent}
       <section className="px-6 md:px-10 lg:px-16 pb-24">
         <div className="mx-auto max-w-4xl">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12">
+            <FreshnessNotice
+              asOf={post.asOf}
+              validUntil={post.validUntil}
+              successor={post.successor}
+            />
             <ArticleContent
               content={renderMarkdown(postContent)}
               className={PROSE_CLASSES}
             />
+            <ArticleRelated postId={post.id} />
           </div>
         </div>
       </section>

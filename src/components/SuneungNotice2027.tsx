@@ -429,7 +429,8 @@ export default function SuneungNotice2027() {
             </p>
             <p>
               귀마개에 대한 반입 금지 항목은 없으나, 초소형 인이어 이어폰 단속
-              등을 이유로 <strong>시험감독관이 수시로 확인할 수 있습니다.</strong>
+              등을 이유로{' '}
+              <strong>시험감독관이 수시로 확인할 수 있습니다.</strong>
             </p>
             <figure className="mt-4">
               <figcaption className="mb-2 font-semibold">

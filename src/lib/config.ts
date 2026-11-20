@@ -26,7 +26,7 @@ export const CDN_URLS = {
 export const NAVIGATION_MENU = [
   { name: '홈', href: '/' },
   { name: 'AI 스타트업', href: '/startup' },
-  { name: '컬럼', href: '/columns' },
+  { name: '칼럼', href: '/columns' },
   { name: 'SN DataLAB', href: '/datalab' },
   { name: '수능 문제 연구', href: '/problems' },
   { name: 'SN Originals', href: '/originals' },
@@ -61,7 +61,7 @@ export const CATEGORY_CONFIG = {
   columns: {
     route: '/columns',
     emoji: '📚',
-    label: '컬럼',
+    label: '칼럼',
   },
   'SN Originals': {
     route: '/originals',
@@ -122,7 +122,7 @@ export const STARTUP_SUBCATEGORY_CONFIG = {
   },
   'tech-blog': {
     label: '기술 블로그',
-    description: 'AI 교육 인사이트 및 기술 컬럼',
+    description: 'AI 교육 인사이트 및 기술 칼럼',
   },
 } as const;
 
@@ -140,7 +140,7 @@ export const PROBLEM_SUBJECT_CONFIG = {
       literature: '문학',
       'language-media': '언어와매체',
       'speech-writing': '화법과작문',
-      'column-korean': '컬럼',
+      'column-korean': '칼럼',
     },
   },
   math: {
@@ -154,7 +154,7 @@ export const PROBLEM_SUBJECT_CONFIG = {
       'probability-stats': '확률과통계',
       calculus: '미분과적분',
       geometry: '기하',
-      'column-math': '컬럼',
+      'column-math': '칼럼',
     },
   },
   english: {

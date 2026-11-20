@@ -8,6 +8,7 @@ import AdmissionGuide2026 from './posts/2026AdmissionGuide';
 import AcademicCalendar2026 from './posts/2026AcademicCalendar';
 import RepeaterClass2027 from './posts/RepeaterClass2027';
 import ProblemViewerModal from './ProblemViewerModal';
+import FreshnessNotice, { type Freshness } from './FreshnessNotice';
 import { integratedSocialExamples } from '@/data/integrated-social-examples';
 import { integratedScienceExamples } from '@/data/integrated-science-examples';
 import { BASE_URL, ORGANIZATION_INFO } from '@/lib/config';
@@ -27,7 +28,7 @@ const scienceQuestionImages = integratedScienceExamples.flatMap(q =>
 );
 
 interface BlogLayoutProps {
-  post: {
+  post: Freshness & {
     id: string;
     title: string;
     excerpt?: string;
@@ -42,9 +43,11 @@ interface BlogLayoutProps {
   };
   /** 제목 바로 아래, 썸네일 자리에 넣을 요소(예: 카드뉴스 캐러셀) */
   lead?: ReactNode;
+  // 본문 아래에 붙일 내용 (예: 함께 읽을 글)
+  footer?: ReactNode;
 }
 
-export default function BlogLayout({ post, lead }: BlogLayoutProps) {
+export default function BlogLayout({ post, lead, footer }: BlogLayoutProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const questionDialogRef = useRef<HTMLDialogElement>(null);
   const [questionNumber, setQuestionNumber] = useState<number | null>(null);
@@ -250,25 +253,35 @@ export default function BlogLayout({ post, lead }: BlogLayoutProps) {
   }, [post.content || '']);
 
   // 특별한 컴포넌트가 필요한 경우
-  if (
+  const freshness = (
+    <FreshnessNotice
+      asOf={post.asOf}
+      validUntil={post.validUntil}
+      successor={post.successor}
+    />
+  );
+  const SPECIAL_COMPONENTS: Record<string, () => ReactNode> = {
+    '261119suneungnotice': () => <SuneungNotice2027 />,
+    '251113suneungnotice': () => <SuneungNotice />,
+    '2026-admission-guide': () => <AdmissionGuide2026 />,
+    '2027-repeater-class': () => <RepeaterClass2027 />,
+    '2026-academic-calendar': () => <AcademicCalendar2026 />,
+  };
+  const special =
     post.type === 'special' &&
     (post.content || '').trim() === 'special-component'
-  ) {
-    if (post.id === '261119suneungnotice') {
-      return <SuneungNotice2027 />;
-    }
-    if (post.id === '251113suneungnotice') {
-      return <SuneungNotice />;
-    }
-    if (post.id === '2026-admission-guide') {
-      return <AdmissionGuide2026 />;
-    }
-    if (post.id === '2027-repeater-class') {
-      return <RepeaterClass2027 />;
-    }
-    if (post.id === '2026-academic-calendar') {
-      return <AcademicCalendar2026 />;
-    }
+      ? SPECIAL_COMPONENTS[post.id]
+      : undefined;
+  if (special) {
+    return (
+      <>
+        {(post.asOf || post.validUntil) && (
+          <div className="mx-auto max-w-4xl px-6 pt-6">{freshness}</div>
+        )}
+        {special()}
+        {footer && <div className="mx-auto max-w-4xl px-6 pb-12">{footer}</div>}
+      </>
+    );
   }
 
   const shouldRenderThumbnail = (() => {
@@ -380,11 +393,13 @@ export default function BlogLayout({ post, lead }: BlogLayoutProps) {
             </div>
           )
         )}
+        {freshness}
         <div
           ref={contentRef}
           dangerouslySetInnerHTML={{ __html: post.content || '' }}
           className="[&_img]:cursor-pointer [&_img]:transition-transform [&_img]:hover:scale-[1.02]"
         />
+        {footer}
       </article>
 
       {post.id === '2028-integrated-science-study-guide' && (

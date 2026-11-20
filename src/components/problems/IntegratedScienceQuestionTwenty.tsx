@@ -13,9 +13,9 @@ export function ScienceQuestionTwentySolution() {
       <div className={body + ' mt-5'}>
         <h3 className="text-lg font-bold">정답 ⑤</h3>
         <p className="rounded-xl bg-amber-50 p-4 text-amber-950">
-          원문 그림과 정답표를 대조하여 제공 원고의 정답 ②를 ⑤로 바로잡았습니다.
-          지구에서 B의 연속된 위치 사이 수평 간격은 1칸입니다. 출발점 A와 B
-          사이의 2칸은 B의 이동 거리가 아닙니다.
+          원문 그림과 정답표를 대조하여 원고에 ②로 적힌 정답을 ⑤로
+          바로잡았습니다. 지구에서 B의 연속된 위치 사이 수평 간격은 1칸입니다.
+          출발점 A와 B 사이의 2칸은 B의 이동 거리가 아닙니다.
         </p>
         <section className={card}>
           <h4 className="font-bold">1. 수평 운동은 그대로</h4>
@@ -106,7 +106,7 @@ const related = [
     id: '168373-1',
     width: 2814,
     height: 2973,
-    source: '2018학년도 6월 고1 학력평가 · 통합과학 · 18번 (제공 원고 기준)',
+    source: '2018학년도 6월 고1 학력평가 · 통합과학 · 18번',
     title: '자유 낙하와 수평 투사의 위치 기록',
     status: '직접 연결 · 운동의 독립성과 가속도',
     connection:
@@ -119,7 +119,7 @@ const related = [
     id: '175266-1',
     width: 2886,
     height: 4411,
-    source: '2022학년도 3월 고2 학력평가 · 물리학Ⅰ · 11번 (제공 원고 기준)',
+    source: '2022학년도 3월 고2 학력평가 · 물리학Ⅰ · 11번',
     title: '0.1초 간격의 모눈종이 운동 분석',
     status: '직접 연결 · 수평 간격과 속력 환산',
     connection:
@@ -132,7 +132,7 @@ const related = [
     id: '178618-1',
     width: 2859,
     height: 2880,
-    source: '2023학년도 12월 고1 학력평가 · 통합과학 · 13번 (제공 원고 기준)',
+    source: '2023학년도 12월 고1 학력평가 · 통합과학 · 13번',
     title: '수평 도달 거리와 낙하 시간',
     status: '직접 연결 · 같은 연직 운동',
     connection:
@@ -145,7 +145,7 @@ const related = [
     id: '171956-1',
     width: 2898,
     height: 2783,
-    source: '2020학년도 6월 고2 학력평가 · 물리학Ⅰ · 1번 (제공 원고 기준)',
+    source: '2020학년도 6월 고2 학력평가 · 물리학Ⅰ · 1번',
     title: '다중 섬광 사진으로 운동 구분',
     status: '보충 학습 · 속력과 운동 방향',
     connection:
@@ -162,7 +162,7 @@ export function ScienceQuestionTwentyRelated() {
       <p>
         PNG 4개를 모두 대조했습니다. 직접 연결 3개와 운동 구분 보충 1개입니다.
         중력이 다른 행성에서 같은 실험을 반복하는 조건까지 일치하는 기출은
-        없습니다. 시험 정보는 제공 원고 기준입니다.
+        없습니다. 시험 정보는 원고 표기를 따랐습니다.
       </p>
       {related.map(item => {
         const src =

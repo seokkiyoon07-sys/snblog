@@ -15,6 +15,8 @@
  * ```
  */
 
+import { renderContentBlocks } from './content-blocks';
+
 /**
  * 이미지 마크다운을 HTML로 변환
  * ![alt](src) → <figure><img /></figure>
@@ -34,7 +36,10 @@ function transformImage(match: string, alt: string, src: string): string {
  * [text](url) → <a href="url">text</a>
  */
 function transformLink(match: string, text: string, url: string): string {
-  return `<a href="${url}" class="text-sn-primary hover:text-sn-primary-dark underline font-semibold" target="_blank" rel="noopener noreferrer">${text}</a>`;
+  // 블로그 안 링크(/… 또는 #…)는 같은 탭에서, 바깥 링크만 새 탭에서 연다
+  const external = !/^[/#]/.test(url);
+  const target = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+  return `<a href="${url}" class="text-sn-primary hover:text-sn-primary-dark underline font-semibold"${target}>${text}</a>`;
 }
 
 /**
@@ -223,12 +228,12 @@ function transformParagraph(paragraph: string): string {
 
   if (trimmed.startsWith('- ')) {
     const items = paragraph.split('\n').map(transformListItem).join('');
-    return `<ul class="list-disc list-inside mb-4 space-y-2">${items}</ul>`;
+    return `<ul class="list-disc list-outside pl-6 mb-4 space-y-2">${items}</ul>`;
   }
 
   if (/^\d+\.\s/.test(trimmed)) {
     const items = paragraph.split('\n').map(transformOrderedListItem).join('');
-    return `<ol class="list-decimal list-inside mb-4 space-y-2">${items}</ol>`;
+    return `<ol class="list-decimal list-outside pl-6 mb-4 space-y-2">${items}</ol>`;
   }
 
   return `<p class="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">${paragraph}</p>`;
@@ -257,9 +262,10 @@ function processDetailsContent(innerContent: string): string {
  */
 export function renderMarkdown(content: string): string {
   // Windows에서 체크아웃한 CRLF 파일도 문단(\n\n) 단위로 나뉘도록 줄바꿈을 통일한다.
-  const preprocessed = content
-    .replace(/\r\n?/g, '\n')
-    .replace(/^(---)\s+(#{2,4}\s)/gm, '$1\n\n$2');
+  // ::: 블록과 '## 제목 {#id}' 는 content-blocks 에서 먼저 HTML로 바꾼다
+  const preprocessed = renderContentBlocks(
+    content.replace(/\r\n?/g, '\n')
+  ).replace(/^(---)\s+(#{2,4}\s)/gm, '$1\n\n$2');
 
   const withProcessedPlainDetails = preprocessed
     .replace(

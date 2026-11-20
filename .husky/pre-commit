@@ -3,3 +3,6 @@
 
 # staged 파일에만 lint + format 적용 (tsconfig.json 등 무관 파일 자동 수정 방지)
 npx lint-staged
+
+# 글 정보(content/**/*.html 맨 위)와 src/data/post-records.ts 가 어긋나면 멈춘다
+node scripts/build-post-records.mjs --check

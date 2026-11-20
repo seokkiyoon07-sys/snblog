@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ArticleRelated from '@/components/ArticleRelated';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getPostById, getPostsByCategory } from '@/data/posts';
@@ -225,6 +226,7 @@ export default async function HistoryPostPage({ params }: HistoryPostProps) {
         </a>
       )}
       {episode && <OdysseyEpisodeNotes episode={episode} />}
+      {post && <ArticleRelated postId={post.id} />}
     </article>
   );
 }

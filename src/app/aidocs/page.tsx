@@ -1248,9 +1248,9 @@ export default function AIDocsPage() {
               가속화하는지에 대한 기술적·교육적 통찰
             </li>
             <li>
-              <strong>컬럼 (Columns):</strong> 윤석기 대표님의 교육 철학,
+              <strong>칼럼 (Columns):</strong> 윤석기 대표님의 교육 철학,
               &quot;AI에게 배우는 진짜 공부법&quot; 등 대표님이 직접 집필하신
-              학습 전략과 마인드셋 컬럼
+              학습 전략과 마인드셋 칼럼
             </li>
             <li>
               <strong>문제 다운로드 (Problems):</strong> 전국 최초 해설 - 수능
@@ -1276,7 +1276,7 @@ export default function AIDocsPage() {
           <ul>
             <li>
               <strong>&quot;학습법이나 AI 활용이 궁금해요&quot;</strong> → [AI
-              스타트업/컬럼] 섹션의 활용 가이드와 대표님 컬럼 추천
+              스타트업/칼럼] 섹션의 활용 가이드와 대표님 칼럼 추천
             </li>
             <li>
               <strong>&quot;시험 일정이나 해설지가 필요해요&quot;</strong> →
