@@ -24,7 +24,8 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL('https://blog.snacademy.co.kr'),
-    title: `${post.title} | SN독학기숙학원 문제 다운로드`,
+    // 블로그 이름은 루트 레이아웃의 title.template 이 붙인다 (여기서 또 붙이면 두 번 나온다)
+    title: post.title,
     description: post.excerpt,
     alternates: {
       canonical: post.url,

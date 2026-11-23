@@ -149,15 +149,52 @@ export default function Header() {
 
           {/* 데스크톱 네비게이션 */}
           <nav className="mt-6 flex space-x-8">
-            {NAVIGATION_MENU.map(item => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 dark:hover:from-blue-400 dark:hover:to-purple-400 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 dark:after:from-blue-400 dark:after:to-purple-400 after:transition-all after:duration-300 hover:after:w-full hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {NAVIGATION_MENU.map(item =>
+              item.children ? (
+                // 하위 메뉴: 마우스를 올리거나 키보드로 포커스하면 펼친다
+                <div key={item.name} className="group relative">
+                  <Link
+                    href={item.href}
+                    aria-haspopup="true"
+                    className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 dark:hover:from-blue-400 dark:hover:to-purple-400 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 dark:after:from-blue-400 dark:after:to-purple-400 after:transition-all after:duration-300 hover:after:w-full hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+                  >
+                    {item.name}
+                    <span aria-hidden="true" className="ml-1 text-[10px]">
+                      ▾
+                    </span>
+                  </Link>
+                  <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <ul className="w-64 rounded-lg border border-gray-200 bg-white p-2 shadow-xl dark:border-gray-700 dark:bg-gray-900">
+                      {item.children.map(child => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            className="block rounded-md px-3 py-2.5 hover:bg-gray-50 dark:hover:bg-gray-800"
+                          >
+                            <span className="block text-sm font-semibold text-gray-900 dark:text-white">
+                              {child.name}
+                            </span>
+                            {child.description && (
+                              <span className="mt-0.5 block text-xs text-gray-500 dark:text-gray-400">
+                                {child.description}
+                              </span>
+                            )}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 dark:hover:from-blue-400 dark:hover:to-purple-400 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 dark:after:from-blue-400 dark:after:to-purple-400 after:transition-all after:duration-300 hover:after:w-full hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
           </nav>
         </div>
 
@@ -263,16 +300,36 @@ export default function Header() {
           {/* 모바일 네비게이션 */}
           {isMobileMenuOpen && (
             <nav className="mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700 pt-4">
-              {NAVIGATION_MENU.map(item => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {NAVIGATION_MENU.map(item =>
+                item.children ? (
+                  <div key={item.name}>
+                    <p className="py-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+                      {item.name}
+                    </p>
+                    <div className="ml-3 space-y-1 border-l border-gray-200 pl-3 dark:border-gray-700">
+                      {item.children.map(child => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block py-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
             </nav>
           )}
         </div>

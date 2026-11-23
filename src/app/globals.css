@@ -677,3 +677,72 @@ details div {
 div:has(> main [data-wide-page]) > aside {
   display: none;
 }
+
+/* 논술(/nonsul) 글: 시험지 버튼, 정답표, 문항별 해설. content/nonsul/*.html 에서 쓴다 */
+.ns-papers { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem; padding: 0; list-style: none; }
+.ns-papers li { margin: 0; padding: 0; }
+.ns-papers li::before { display: none; }
+.ns-papers a { display: inline-flex; align-items: baseline; gap: .4rem; padding: .5rem 1rem; border: 1px solid #111827; border-radius: 999px; color: #111827; font-size: .9rem; font-weight: 700; text-decoration: none; }
+.ns-papers a span { color: #6b7280; font-size: .75rem; font-weight: 500; }
+.ns-papers a:hover { color: #fff; background: #111827; }
+.ns-papers a:hover span { color: #d1d5db; }
+.dark .ns-papers a { border-color: #d1d5db; color: #f3f4f6; }
+.dark .ns-papers a:hover { color: #111827; background: #f3f4f6; }
+.ns-set { margin: 3rem 0 0; padding-top: 1.5rem; border-top: 2px solid #111827; scroll-margin-top: 5rem; }
+.dark .ns-set { border-top-color: #e5e7eb; }
+.ns-review { margin: 1rem 0 1.25rem; padding: 1rem 1.25rem; border-left: 4px solid #1a4d2a; background: #f3f7f4; }
+.ns-review h3 { margin-top: 0 !important; }
+.dark .ns-review { border-left-color: #8fd0a2; background: rgba(26, 77, 42, .25); }
+table.ns-answers { width: 100%; font-size: .875rem; }
+table.ns-answers td:first-child, table.ns-answers th:first-child { white-space: nowrap; }
+table.ns-answers td:nth-child(2) { white-space: nowrap; color: #6b7280; }
+details.ns-q { margin: .75rem 0; border: 1px solid #d1d5db; border-radius: .75rem; scroll-margin-top: 5rem; }
+.dark details.ns-q { border-color: #374151; }
+details.ns-q > summary { display: flex; align-items: baseline; gap: .6rem; padding: .85rem 1rem; cursor: pointer; list-style: none; }
+details.ns-q > summary::-webkit-details-marker { display: none; }
+details.ns-q > summary::after { content: '펼치기'; margin-left: auto; flex: none; color: #6b7280; font-size: .75rem; }
+details.ns-q[open] > summary::after { content: '접기'; }
+details.ns-q[open] > summary { border-bottom: 1px solid #e5e7eb; }
+.dark details.ns-q[open] > summary { border-bottom-color: #374151; }
+.ns-qno { flex: none; font-weight: 800; }
+.ns-qtitle { min-width: 0; font-weight: 600; }
+.ns-qpts { flex: none; color: #6b7280; font-size: .8rem; }
+.ns-qbody { padding: .25rem 1rem 1rem; }
+.ns-qbody h4 { margin: 1.1rem 0 .4rem !important; font-size: .95rem !important; }
+.ns-stem { margin-top: .75rem; padding: .75rem 1rem; border-radius: .5rem; background: #f9fafb; font-size: .95rem; }
+.dark .ns-stem { background: #1f2937; }
+.ns-official { padding-left: .9rem; border-left: 3px solid #9ca3af; }
+.ns-sn { padding-left: .9rem; border-left: 3px solid #1a4d2a; }
+.dark .ns-sn { border-left-color: #8fd0a2; }
+.ns-tip ul { margin-top: .25rem; }
+.ns-cta { margin: 2rem 0; padding: 1.25rem; border: 2px solid #1a4d2a; border-radius: .75rem; }
+.dark .ns-cta { border-color: #8fd0a2; }
+.ns-cta p:last-child { margin-bottom: 0; }
+/* 논술 글 본문 타이포그래피 (content 파일은 Tailwind 가 읽지 않아서 여기서 정한다) */
+.ns-doc { color: #1f2937; font-size: 1rem; line-height: 1.8; }
+.dark .ns-doc { color: #e5e7eb; }
+.ns-doc > p, .ns-set > p, .ns-doc .ns-qbody p { margin: 0 0 1rem; }
+.ns-doc h2 { margin: 2.5rem 0 1rem; font-size: 1.5rem; font-weight: 800; line-height: 1.35; color: #111827; }
+.ns-doc .ns-set > h2 { margin-top: 0; }
+.ns-doc h3 { margin: 1.75rem 0 .75rem; font-size: 1.15rem; font-weight: 700; color: #111827; }
+.dark .ns-doc h2, .dark .ns-doc h3 { color: #f9fafb; }
+.ns-doc h4 { font-weight: 700; }
+.ns-doc ul:not(.ns-papers) { margin: 0 0 1rem; padding-left: 1.25rem; list-style: disc; }
+.ns-doc ol { margin: 0 0 1rem; padding-left: 1.25rem; list-style: decimal; }
+.ns-doc li { margin: .25rem 0; }
+.ns-doc a:not(.ns-papers a) { color: #1a4d2a; text-decoration: underline; text-underline-offset: 2px; }
+.dark .ns-doc a:not(.ns-papers a) { color: #8fd0a2; }
+.ns-doc table { width: 100%; margin: 0 0 1.25rem; border-collapse: collapse; font-size: .9rem; }
+.ns-doc th, .ns-doc td { padding: .5rem .6rem; border-bottom: 1px solid #e5e7eb; text-align: left; vertical-align: top; }
+.ns-doc th { border-bottom: 2px solid #111827; font-weight: 700; }
+.dark .ns-doc th { border-bottom-color: #e5e7eb; }
+.dark .ns-doc td { border-bottom-color: #374151; }
+.ns-doc dl.faq dt { margin-top: 1.25rem; font-weight: 700; }
+.ns-doc dl.faq dd { margin: .35rem 0 0; }
+.ns-papers li { display: inline-flex; align-items: center; gap: .35rem; }
+.ns-papers a.ns-web { padding: .5rem .5rem; border: 0; color: #6b7280; font-size: .8rem; font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+.ns-papers a.ns-web:hover { color: #111827; background: transparent; }
+.dark .ns-papers a.ns-web { color: #9ca3af; }
+.dark .ns-papers a.ns-web:hover { color: #f3f4f6; background: transparent; }
+.ns-doc p.ns-source { margin: 0 0 .75rem; color: #6b7280; font-size: .8rem; }
+.dark .ns-doc p.ns-source { color: #9ca3af; }

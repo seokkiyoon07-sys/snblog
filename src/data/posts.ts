@@ -80,6 +80,22 @@ export interface Post {
   problemLog?: ProblemLog;
   // 기출 읽을거리·해설(problemContentType: 'reading' | 'solution')의 출처 문항 정보
   exam?: ExamInfo;
+  // 논술(/nonsul) 전용. 목록을 대학별·종류별로 묶을 때 쓴다
+  nonsul?: NonsulInfo;
+}
+
+// 대학 키 (예: 'gachon'). 이름·허브 글은 src/lib/nonsul.ts 의 NONSUL_UNIVERSITIES 에 있다
+export type NonsulUniversity = string;
+// 논술 유형. 목록 페이지의 탭이 된다 (글이 있는 유형만 보인다)
+export type NonsulFormat = 'yaksul' | 'inmun' | 'suri';
+// hub: 대학별 총정리 · gichul: 대학 기출 · mock: 대학 모의논술 · sn: SN 제작 실전 모의
+export type NonsulKind = 'hub' | 'gichul' | 'mock' | 'sn';
+
+export interface NonsulInfo {
+  university: NonsulUniversity;
+  format: NonsulFormat;
+  kind: NonsulKind;
+  year?: number; // 학년도 (2026학년도 → 2026). 총정리 글은 생략
 }
 
 // 기출 읽을거리·해설이 다루는 시험·문항. 연도별·시험별·영역별 목록을 만들 때 쓴다.

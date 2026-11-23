@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"><title>가천대 2025학년도 논술 모의고사 (A형) (공통)</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"><style>
+
+:root{--paper-w:272mm;--paper-h:394mm;--pad-x:15mm;--pad-top:16mm;--pad-bottom:30mm;--col-gap:5mm;--divider-w:.4mm;--rule-thick:.6mm;--rule-thin:.3mm;
+
+--text-size-body:10.6pt;--text-size-question:11.2pt;--line-height-body:1.62;--line-height-question:1.5;--letter-spacing-body:-.035em;
+
+--font-sans:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;--font-serif:"Batang","BatangChe","AppleMyungjo","NanumMyeongjo","Noto Serif KR",serif;}
+
+@page{size:272mm 394mm;margin:0}
+
+*{box-sizing:border-box}
+
+html{background:#71717a}
+
+body{margin:0;padding:20px 0;display:flex;flex-direction:column;align-items:center;gap:30px;background:#71717a;font-family:var(--font-serif);color:#000}
+
+@media print{html,body{background:#fff}body{display:block;padding:0}.paper{box-shadow:none!important;margin:0!important;break-after:page}.paper:last-child{break-after:auto}}
+
+.paper{width:var(--paper-w);height:var(--paper-h);padding:var(--pad-top) var(--pad-x) var(--pad-bottom);position:relative;background:#fff;box-shadow:0 10px 35px rgba(0,0,0,.25);overflow:hidden;display:flex;flex-direction:column}
+
+/* 첫 쪽 머리 */
+
+.topline{display:grid;grid-template-columns:1fr auto 1fr;align-items:baseline;margin-bottom:3.5mm}
+
+.exam-title{grid-column:2;font-family:var(--font-sans);font-size:18pt;font-weight:600;line-height:1.1;letter-spacing:-.03em;white-space:nowrap;text-align:center}
+
+.page-number-top{grid-column:3;justify-self:end;font-family:var(--font-serif);font-size:26pt;font-weight:800}
+
+.hero{margin-top:3.5mm;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12mm}
+
+.pill{display:inline-flex;align-items:center;justify-content:center;min-width:28mm;border:var(--rule-thin) solid #000;border-radius:999px;padding:2.2mm 7mm 2mm;font-size:15pt;font-weight:700;line-height:1;letter-spacing:-.05em}
+
+.pill.variant{border-radius:3mm;font-size:16pt;font-weight:800}
+
+.hero .r{text-align:right}
+
+.subject-big{font-family:var(--font-sans);font-size:46pt;font-weight:500;line-height:1;letter-spacing:.02em;text-align:center}
+
+/* 이어지는 쪽 머리 */
+
+.running-head{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;padding-bottom:1.5mm}
+
+.running-head .rh-num{font-family:var(--font-serif);font-size:26pt;font-weight:800;line-height:1}
+
+.running-head .rh-num.left{grid-column:1;justify-self:start;grid-row:1}
+
+.running-head .rh-num.right{grid-column:3;justify-self:end;grid-row:1}
+
+.running-head .rh-title{grid-column:2;grid-row:1;font-family:var(--font-sans);font-size:26pt;font-weight:700;line-height:1;letter-spacing:.04em}
+
+.running-head .rh-sub{grid-column:3;grid-row:1;justify-self:end;font-family:var(--font-sans);font-size:9.5pt;color:#333}
+
+.running-head .rh-sub.left{grid-column:1;justify-self:start}
+
+.running-head .rh-sub.right{grid-column:3;justify-self:end}
+
+.header-rule{width:100%;margin:2.5mm 0 0;border:0;border-top:var(--rule-thick) solid #000}
+
+/* 2단 */
+
+.body{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) var(--divider-w) minmax(0,1fr);column-gap:var(--col-gap)}
+
+.divider{width:var(--divider-w);height:100%;border-left:var(--divider-w) solid #000;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+
+.col{min-height:0;overflow:hidden;padding-top:4mm;font-size:var(--text-size-body);line-height:var(--line-height-body);letter-spacing:var(--letter-spacing-body);word-break:keep-all;display:flex;flex-direction:column;gap:6.5mm}
+
+.col>*{flex:0 0 auto}
+
+/* 국어 */
+
+.range-instruction{margin:0 0 3mm;font-family:var(--font-sans);font-size:var(--text-size-question);font-weight:700;line-height:var(--line-height-question);letter-spacing:-.03em}
+
+.passage{margin:0 0 3mm;padding:4.5mm 4mm 4mm;border:var(--rule-thin) solid #000;text-align:justify}
+
+.passage p{margin:0 0 2.5mm;text-indent:1em}
+
+.passage p:last-child{margin-bottom:0}
+
+.passage .pl{margin:0 0 2.5mm}
+
+.passage .pl p.l{margin:0;text-indent:0;text-align:left}
+
+.passage blockquote{margin:2mm 0;padding:2.5mm 3mm;border:var(--rule-thin) dashed #555}
+
+.passage u,.q-title u{text-underline-offset:3px;text-decoration-thickness:1px}
+
+.passage table{margin:2mm auto}
+
+/* 문항 */
+
+.u>:last-child{margin-bottom:0}
+
+.q-title{margin:0 0 2.2mm;padding-left:6mm;text-indent:-6mm;font-size:var(--text-size-question);line-height:var(--line-height-question);letter-spacing:-.03em;text-align:justify}
+
+.q-title .num{display:inline-block;width:6mm;text-indent:0;font-family:var(--font-sans);font-weight:800}
+
+.q-title .pts{margin-left:1mm;font-size:10pt;font-weight:normal}
+
+.u-prob>p{margin:1.6mm 0;padding-left:6mm}
+
+.u-prob>p strong{font-weight:normal;font-size:10pt}
+
+.u-prob.math .q-title{font-size:11.5pt;line-height:1.75}
+
+.u-prob.math>p{line-height:1.75}
+
+.u-pass>p:not(.range-instruction){margin:1.4mm 0}
+
+.q-title .dmath{display:block;text-indent:0;margin:2mm 0 2mm -6mm;text-align:center}
+
+.q-title.subq{margin:2.4mm 0 1.4mm;font-size:10.8pt;padding-left:7mm;text-indent:-7mm}
+
+.q-title.subq .num{width:7mm;font-family:var(--font-serif);font-weight:normal}
+
+.u-prob>p.stem{padding-left:6mm;margin:1.2mm 0}
+
+.u-prob.math .q-title.subq{font-size:11pt;line-height:1.75;margin-top:3mm}
+
+blockquote.cond{margin:2.5mm 0 2.5mm 6mm;padding:3mm 4mm;border:var(--rule-thin) solid #000;font-size:10.4pt;line-height:1.65}
+
+blockquote.cond p{margin:.6mm 0}
+
+/* 보기 */
+
+.viewbox-wrap{margin:4.5mm 0 3.5mm 6mm;position:relative}
+
+.u-pass .viewbox-wrap{margin-left:0}
+
+.viewbox-label{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);padding:0 2mm;background:#fff;font-size:10.5pt;letter-spacing:.25em;white-space:nowrap;line-height:1;z-index:1}
+
+.viewbox-label span{background:#fff}
+
+blockquote.viewbox{margin:0;padding:4.5mm 4mm 3.5mm;border:var(--rule-thin) solid #000;font-size:10.2pt;line-height:1.6;text-align:justify}
+
+blockquote.viewbox p{margin:0 0 1.6mm}
+
+blockquote.viewbox p:last-child{margin-bottom:0}
+
+/* 답란 */
+
+.blank{display:inline-block;min-width:26mm;border-bottom:.25mm solid #000;height:1em;vertical-align:-.2em}
+
+p.ansline,.u-prob>p.ansline{margin:3mm 0 0 6mm;padding-left:0;font-size:10.2pt}
+
+/* 표·그림 */
+
+table{border-collapse:collapse;margin:2.4mm auto;font-size:9.2pt;line-height:1.4;max-width:100%}
+
+th,td{border:var(--rule-thin) solid #000;padding:1mm 1.6mm;vertical-align:middle}
+
+th{font-family:var(--font-sans);font-weight:700;background:#f1f1f1;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+
+figure.fig{margin:3mm auto;text-align:center}
+
+figure.fig svg{max-width:90%;height:auto;max-height:80mm}
+
+.figdesc{display:block;font-size:9pt;color:#444;border:.2mm dashed #888;padding:1.5mm 2.4mm;margin:2mm 0}
+
+.katex{font-size:1.04em}
+
+.katex-display{margin:2mm 0;overflow:hidden}
+
+.srcline{font-size:8.5pt;color:#555;text-align:right}
+
+/* 쪽수 상자 */
+
+.footer-box{position:absolute;left:50%;bottom:10mm;transform:translateX(-50%);width:22mm;height:13mm;border:var(--rule-thin) solid #000;background:#fff}
+
+.footer-box::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,transparent calc(50% - .35mm),#000 calc(50% - .35mm),#000 calc(50% + .35mm),transparent calc(50% + .35mm))}
+
+.footer-box .a,.footer-box .b{position:absolute;font-size:15pt;font-weight:600;letter-spacing:-.05em}
+
+.footer-box .a{left:4.5mm;top:1.8mm}.footer-box .b{right:3.8mm;bottom:1.2mm}
+
+.copyright-tag{position:absolute;right:var(--pad-x);bottom:14mm;font-size:8.5pt;color:#555;font-family:var(--font-sans)}
+
+/* 해설 */
+
+.sol-head{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;padding-bottom:1.5mm}
+
+.sol-head .rh-title{grid-column:2;font-family:var(--font-sans);font-size:22pt;font-weight:700;letter-spacing:.04em;line-height:1}
+
+.sol-head .rh-sub{grid-column:3;justify-self:end;font-family:var(--font-sans);font-size:10pt}
+
+.sol .col{font-size:9.8pt;line-height:1.58;gap:5mm}
+
+.sol h3{margin:0 0 2mm;padding:1mm 2mm;font-family:var(--font-sans);font-size:11pt;font-weight:700;border-left:1.2mm solid #000;background:#f1f1f1;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+
+.sol h4{margin:3mm 0 1mm;font-family:var(--font-sans);font-size:10pt;font-weight:700}
+
+.sol h2.sol-subj{margin:0 0 2mm;font-family:var(--font-sans);font-size:12pt;font-weight:800;border-bottom:var(--rule-thin) solid #000;padding-bottom:1mm}
+
+.sol p{margin:0 0 1.6mm;text-align:justify}
+
+.sol table{width:100%;font-size:9pt}
+
+.sol .keybox{margin:1mm 0 2.5mm;padding:2mm 2.5mm;border:var(--rule-thin) solid #000;font-size:9.4pt;line-height:1.5}
+
+.sol .keybox p{margin:0 0 1mm}
+
+.sol .viewbox-wrap{margin-left:0}
+
+.sol ul,.sol ol{margin:1mm 0;padding-left:5mm}
+
+.none{border:.3mm dashed #888;padding:6mm;text-align:center;color:#555;margin-top:6mm}
+
+/* 표지·차례 */
+
+.cover{justify-content:flex-start;padding:60mm 28mm 30mm}
+
+.cover .brand{font-family:var(--font-sans);font-size:14pt;letter-spacing:.3em;color:#333}
+
+.cover h1{font-family:var(--font-sans);font-weight:600;font-size:44pt;margin:16mm 0 4mm;letter-spacing:.02em}
+
+.cover .sub{font-size:20pt}
+
+.cover .rule{border-top:1.2mm solid #000;border-bottom:.3mm solid #000;height:1.2mm;margin:10mm 0 10mm}
+
+.cover h2{font-family:var(--font-sans);font-size:15pt;margin:0 0 4mm}
+
+.cover ol{font-size:12.5pt;line-height:2.05;margin:0;padding-left:7mm}
+
+.cover a{color:#000;text-decoration:none;border-bottom:.2mm dotted #888}
+
+.cover .grp{font-family:var(--font-sans);font-weight:700;font-size:11.5pt;margin:5mm 0 1mm}
+
+.cover .foot{margin-top:auto;font-size:10.5pt;color:#444;border-top:.3mm solid #000;padding-top:4mm}
+
+</style><meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://blog.snacademy.co.kr/nonsul/gachon-nonsul">
+<style>.sn-bar{position:sticky;top:0;z-index:10;align-self:stretch;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:-20px 0 0;padding:10px;background:#18181b;font:600 14px/1.4 "Malgun Gothic","Apple SD Gothic Neo",sans-serif}.sn-bar a,.sn-bar button{color:#fff;background:#27272a;border:1px solid #52525b;border-radius:999px;padding:6px 14px;text-decoration:none;cursor:pointer;font:inherit}.sn-bar a:hover,.sn-bar button:hover{background:#3f3f46}@media print{.sn-bar{display:none!important}}@media screen{.flow{display:flex;flex-direction:column;align-items:center;gap:30px}}.paper::after{content:"문제 저작권: 가천대학교 · 조판: SN독학기숙학원 (학습용)\A정답 및 해설은 SNarGPT(snarGPT.ai)에서도 확인할 수 있습니다.";position:absolute;left:var(--pad-x,15mm);bottom:12mm;font:7.5pt/1.4 "Malgun Gothic","Apple SD Gothic Neo",sans-serif;color:#777;letter-spacing:0;white-space:pre}</style>
+</head><body>
+<nav class="sn-bar" aria-label="SN 논술"><a href="/nonsul/gachon-nonsul">← 가천대 논술 정답·SN 해설 보기</a><a href="/nonsul/pdf/gachon-2025-mock-a.pdf" download>PDF 다운로드</a><button type="button" onclick="window.print()">인쇄</button></nav>
+<section class="flow" id="set5" data-kind="q" data-title="2025학년도 가천대학교 논술 모의고사 (A형) 문제지" data-pill="공통" data-subj="국어 영역" data-variant="가천대" data-sub="가천대 2025학년도 논술 모의고사 (A형)"><div class="paper" id="set5-p1"><div class="topline"><div class="exam-title">2025학년도 가천대학교 논술 모의고사 (A형) 문제지</div><div class="page-number-top">1</div></div><div class="hero"><div><span class="pill">공통</span></div><div class="subject-big">국어 영역</div><div class="r"><span class="pill variant">가천대</span></div></div><hr class="header-rule"><div class="body"><div class="col left"><div class="u u-pass" data-type="pass" data-last="1"><p class="range-instruction">[1] 다음은 학생이 대학 학과 게시판에 올린 글이다. 물음에 답하시오.</p><blockquote class="passage">
+
+<p>제목: 문화재학과에 대해 궁금한 점이 있습니다.</p>
+
+<p>안녕하세요. 저는 ○○ 대학교 문화재학과 진학을 희망하는 □□ 고등학교 2학년 △△△입니다. 진로와 관련하여 궁금한 점이 있어 학과 게시판에 글을 남깁니다. 저는 얼마 전까지만 해도 진로에 대한 구체적인 계획이 없어 고민이 많았습니다. 그러던 중 얼마 전 부모님께서 초등학생인 동생과 민속 박물관 견학을 계획하셨고, 저에게 동행을 권유하셨습니다. 사실 이번 나들이 전까지 문화재에 별 관심이 없었고, 문화재는 그저 옛것 또는 낡은 것이라는 생각을 하고 있었기 때문에, 민속 박물관 견학에 별 기대가 없었습니다. 하지만 민속 박물관 견학을 계기로 우리 문화재에 대한 생각이 긍정적으로 바뀌게 되었습니다. 특히 박물관과 뒤뜰에는 무인석이 하나 있었는데, 그 생생한 모습 때문인지 마치 시간을 거슬러 과거로 돌아간 듯한 느낌을 받았습니다. 다만 박물관이 설립된 지 꽤 오래되었고 개인 소장품을 전시한 곳이다 보니 소중한 문화재의 관리가 제대로 이루어지고 있지 않은 것 같아서 아쉬웠습니다. 박물관 견학을 계기로 문화재에 관심을 갖게 되었으며, 담임 선생님과 부모님의 조언을 듣고 문화재학과에 진학하기로 결심했습니다. 저는 문화재학과에 진학하여 문화재와 관련된 전문가가 되고 싶지만 문화재학과 졸업 이후 어떤 진로가 있을지 막연한 생각이 들어, 재학생과 졸업생 분들의 조언을 듣고자 이렇게 글을 올립니다. 끝까지 읽어 주셔서 감사합니다.</p>
+
+</blockquote></div></div><div class="divider"></div><div class="col right"><div class="u u-prob" data-type="prob" data-num="1"><div class="q-title"><span class="num">1.</span>&lt;보기&gt;는 제시문을 작성하기 전에 학생이 수립한 글쓰기 계획의 일부이다. &lt;보기&gt;의 ①, ②가 반영된 문장을 제시문에서 찾아 각각의 첫 어절과 마지막 어절을 순서대로 쓰시오.</div><div class="viewbox-wrap"><div class="viewbox-label"><span>&lt;보기&gt;</span></div><blockquote class="viewbox">
+
+<p>① 박물관 견학에서 살펴본 구체적인 문화재를 제시하면서 박물관 견학을 통해 얻은 인상적인 경험을 전달한다.</p>
+
+<p>② 현재의 희망 진로를 언급한 후, 이와 관련하여 게시판 문의를 통해 알고 싶은 내용을 추가적으로 설명한다.</p>
+
+</blockquote></div><p class="ansline">① 첫 어절:                      , 마지막 어절:</p><p class="ansline">② 첫 어절:                      , 마지막 어절:<br>
+
+※ 다음 글을 읽고 물음에 답하시오.</p><blockquote class="passage">
+
+<p>서구 철학에서 ㉠코나투스는 수천 년에 걸쳐 정의되었다. 고대 그리스의 스토아학파는 코나투스를 생명체의 자기 보존의 욕망으로 보았으며, 살아있는 생명체는 스스로에 대한 애착과 보존 의지를 가지는 동시에 죽음으로부터 멀어지기를 원한다고 하였다. 하지만 스토아학파는 코나투스를 모든 생명체가 가지는 것이 아니라 동물만이 가지는 특성이라고 하였다. 이후 중세의 스콜라 철학에서는 동물뿐만 아니라 모든 자연적 사물이 코나투스를 가지고 있으며, 이에 따라 모든 유기적 생명체는 자신의 실존을 지속하려는 욕망을 갖는다고 보았다. 중세 이후 르네상스 철학자들은 코나투스가 자기 보존에 대한 욕망이라는 기존의 견해를 받아들이면서, 코나투스를 유기적 생명체뿐만 아니라 무기물도 가진 속성이라고 하였다.</p>
+
+<p>근대 철학자들은 코나투스의 기존 의미를 받아들이면서도, 코나투스를 물체의 운동에 적용하여 자연을 이해하는 데 활용하였다. 무기물도 코나투스를 가지고 있다는 인식을 이어받아 이를 물체의 운동에 적용한 것이다. 데카르트는 어떤 물체가 현재의 상태를 유지하고자 하는 속성을 코나투스에 의한 것이라고 보았다. 데카르트는 이전 학자들과 달리 코나투스에 담긴 생물학적인 함축적 의미를 제외하고 어떤 물체의 상태를 기술하는 중립적인 표현으로만 코나투스를 사용하였다. 홉스도 물체의 운동을 이해하기 위한 방법으로 코나투스를 활용하였다. 홉스는 코나투스를 인간이 알기 어려운 단위에서 벌어지는 물체의 운동이라고 말하였고, 우리가 관찰하는 모든 운동은 코나투스의 집합이라고 하였다. 홉스는 걷기나 말하기 같은 인간의 움직임도 코나투스에 의한 것이라고 보았는데, 이러한 관점에 따르면 심장을 통한 혈액의 순환 등 인체의 자기 보존을 위한 생명 운동 역시 코나투스에 의한 것이 된다. 즉 홉스에 따르면 코나투스는 어떠한 방향으로 향하기 위한 노력이며 인간의 자기 보전 욕망도 생존이라는 방향성을 갖는 노력이라고 할 수 있다.</p>
+
+</blockquote></div></div></div><div class="footer-box"><span class="a">1</span><span class="b">4</span></div></div><div class="paper"><div class="running-head"><div class="rh-num left">2</div><div class="rh-title">국어 영역</div><div class="rh-sub right">가천대 2025학년도 논술 모의고사 (A형)</div></div><hr class="header-rule"><div class="body"><div class="col left"><div class="u u-prob" data-type="prob" data-num="2"><div class="q-title"><span class="num">2.</span>&lt;보기&gt;는 제시문을 읽고 ㉠을 정리한 것이다. &lt;보기&gt;의 ①~③에 들어갈 적절한 말을 제시문에서 찾아 쓰시오.</div><div class="viewbox-wrap"><div class="viewbox-label"><span>&lt;보기&gt;</span></div><blockquote class="viewbox">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>철학 사조</th>
+
+<th>㉠에 대한 인식의 변화</th>
+
+<th></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>그리스 스토아학파</td>
+
+<td>자기 보존의 욕망</td>
+
+<td>생명체 중 (  ①  )이/가 지니는 특성</td>
+
+</tr>
+
+<tr>
+
+<td>중세 스콜라 철학</td>
+
+<td>자기 보존의 욕망</td>
+
+<td>모든 유기적 생명체가 지닌 특성</td>
+
+</tr>
+
+<tr>
+
+<td>르네상스 철학</td>
+
+<td>자기 보존의 욕망</td>
+
+<td>유기적 생명체와 (  ②  )이/가 지니는 특성</td>
+
+</tr>
+
+<tr>
+
+<td>근대 철학: (  ③  )</td>
+
+<td>물체의 운동에도 코나투스의 의미를 적용</td>
+
+<td>코나투스에 담긴 생물학적 함축을 제외</td>
+
+</tr>
+
+<tr>
+
+<td>근대 철학: 홉스</td>
+
+<td>물체의 운동에도 코나투스의 의미를 적용</td>
+
+<td>모든 물체의 운동을 코나투스의 집합으로 이해</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</blockquote></div><p class="ansline">①:                          ②:                      ③:<br>
+
+※ 다음 글을 읽고 물음에 답하시오.</p><blockquote class="passage">
+
+<p>우리는 흔히 사회 과학 내에서 합리적 행위의 영역은 경제학이, 비합리적 행위의 영역은 사회학이 담당하는 것으로 여긴다. 그러나 사회학 이론가인 ㉠제임스 콜먼은 이러한 통념이 사실이 아니라는 것을 입증하고자 하였다. 또한 그는 사회학에서 인간의 행위를 수학적으로나 경제학적으로 접근하여 설명하지 않는다는 점, 경제학에서 경제적 행위나 현상을 분석할 때에 사회 구조의 영향을 간과한다는 점 등에 대해 날카로운 비판을 던졌다. 콜먼이 경제학과의 긴밀한 연관 속에서 사회학을 연구하고자 하였음을 가장 잘 보여주는 것은 그의 합리적 선택 이론이다.</p>
+
+<p>합리적 선택 이론에서는 인간의 행위를 모형화하기 위한 틀을 제시한다. 콜먼에 의하면 인간 행위는 행위자 개인의 효용을 증대한다는 단일한 목적으로 이루어진다. 합리적 선택 이론에서 각 행위자는 목적 지향적이어서 자신이 보유한 초기 자원, 그것에 대한 통제 정도를 이용하여 자신의 효용을 최대화하는 존재로 가정된다. 여기서 자원에는 시간, 돈, 노력, 물리적 장비, 인력뿐만 아니라 정보, 지식, 기술 등이 포함된다. 그런데 행위자가 관심 있는 자원, 즉 이해관계를 가지고 있는 자원을 타인이 통제하고 있을 수도 있고 타인이 관심 있는 자원을 자신이 통제하고 있을 수도 있다. 콜먼은 자원에 대한 통제 상황에서 행위에 대한 효용을 함수를 통해 표현하였는데, 이 함수에서 행위에 대한 효용은 행위자가 가지고 있는 자원과 그것에 대한 통제 정도를 지수로 하여 계산한 값이다.</p>
+
+<p>콜먼은 이러한 경제학적 접근에 그치지 않고 인간의 행위나 현상을 사회 구조와 관련지어 설명하였다. 콜먼은 행위자들 사이에 더 이상의 행위가 일어나지 않는다면 그것은 사회적 균형 상태에 도달한 것인데, 우리가 목도하는 빈부의 격차와 같은 사회적 상황도 사회적 균형 상태의 하나라고 하였다. 그러면서 그는 사회적 균형 상태에서 나타나는 행위자의 권리 배분과 권리 이양, 그리고 이것으로부터 파생하는 신뢰 및 권위 관계 등에 주목하고, 사회적 균형 상태는 자원의 초기 배분 상태에 절대적으로 의존한다는 점을 강조하였다. 주어진 자원의 상태가 행위자의 행위가 이루어진 이후의 균형적 결과에 결정적으로 영향을 미친다는 것이다. 이를 시장에서의 배분과 관련지어 말하자면, 완전 경쟁 시장이라는 전제하에 시장을 통한 배분은 자원의 초기 불평등 상태를 유지하게 하는 경향이 있다는 말로 설명할 수 있다.</p>
+
+</blockquote></div></div><div class="divider"></div><div class="col right"></div></div><div class="footer-box"><span class="a">2</span><span class="b">4</span></div></div><div class="paper"><div class="running-head"><div class="rh-num right">3</div><div class="rh-title">국어 영역</div><div class="rh-sub left">가천대 2025학년도 논술 모의고사 (A형)</div></div><hr class="header-rule"><div class="body"><div class="col left"><div class="u u-prob" data-type="prob" data-num="3"><div class="q-title"><span class="num">3.</span>&lt;보기&gt;는 제시문을 읽고 ㉠의 견해를 정리한 것이다. &lt;보기&gt;의 ①, ②에 들어갈 적절한 말을 쓰시오.</div><div class="viewbox-wrap"><div class="viewbox-label"><span>&lt;보기&gt;</span></div><blockquote class="viewbox">
+
+<p>∙ 합리적 선택 이론에서 행위자는 자신이 원하는 모든 자원을 자유롭게 활용할 수</p>
+
+<p>(  ①  ).</p>
+
+<p>∙ 완전 경쟁 시장에서 정부의 적극적 개입이나 사회 구조적 혁명 등이 없이 인간의 행위만으로 자원 배분의 불평등 정도를 해소할 수 (  ②  ).</p>
+
+</blockquote></div><p class="ansline">①:                               ②:<br>
+
+※ 다음 글을 읽고 물음에 답하시오.</p><blockquote class="passage">
+
+<p>[A]</p>
+
+<p>그분의 망가진 부분이 육신보다는 정신이었다는 걸 알아차린 건 그 후였다. 우리는 그걸 서서히 알아차리게 됐다. 처음엔 아이들 이름을 헷갈려 부르는 정도였다. 노인들이 흔히 그러는 걸 봐 온지라 대수롭지 않게 알았다. 그러나 바로 가르쳐 드려도 믿지를 않고 한사코 자기가 옳다고 주장하는 건 묘하게 신경에 거슬렸다. 숫제 치지도외<em>하기로 했다. 어쩌면 나는 그럴 기화</em>로 그때까지도 그분이 한사코 움켜쥐고 있던 살림 권리를 빼앗을 수 있어서 은근히 기뻤는지도 모르겠다. 그러니까 그분의 노망을 근심하는 소리는 집 안에서보다 집 밖에서 먼저 났다. 오래간만에 고모님을 뵈러 온 당신 조카한테 당신 누구요? 하며 낯선 얼굴을 해서 조카를 당황하게 하더니 어찌어찌해서 그가 조카라는 걸 알아보고 나서 아이가 몇이냐고 물었다. 아들이 둘이라고 하자 아이구 대견해라 일찌거니 농사 잘 지었구나라고 정상적인 대답을 했다. 그러나 곧 똑같은 질문을 하고 똑같은 덕담을 했다. 똑같은 질문은 한없이 되풀이됐다. 그는 내가 애써 차려 준 점심을 뜨는 둥 마는 둥 진저리를 치며 달아나 버렸다. 그렇게 해서 그분의 노망났다는 소문은 그분의 친정 쪽으로부터 먼저 퍼졌다.</p>
+
+<p>`</p>
+
+<p>집에서도 같은 말의 되풀이가 점점 심해졌다. 그 대신 그분이 주된 관심사에서 제외된 어휘는 급속도로 잊혀지는 것 같았다. 쌀 씻어 놓았냐? 빨래 걷었냐? 장독 덮었냐? 빗장 걸었냐? 등 주로 의식주에 관한 기본적인 관심이 온종일 되풀이되는 대화 내용이었다. 하루 이틀도 아니고 허구한 날 같은 말에 같은 대꾸를 해야 된다는 것도 쉬운 일은 아니었다. 더구나 그 빈도가 하루하루 잦아지고 있었다. “쌀 씻어 놓았냐?” “네” “쌀 씻어 놓아라. 저녁때 다 됐다.” “네, 씻어 놓았다니까요.” “쌀 씻어 놓았냐?” “씻어 놓았대두요.” “쌀 씻어 놓았냐?” “쌀 안 씻어 놓으면 밥 못할까 봐 그러세요. 진지 안 굶길 테니 제발 조용히 좀 계세요.” 이렇게 짜증이 나게 마련이었다. 그렇다고 그 줄기찬 바보 같은 질문이 조금이라도 뜸해지거나 위축되는 것도 아니었다. 남들은 몇 년씩 똥오줌 싸는 노인도 있는데 그만하면 곱게 난 망령이라고 나를 위로했지만 나는 온종일 달달 볶이고 있는 것처럼 신경이 피로했다. 차라리 똥오줌 치는 게 온종일 같은 말 대꾸하는 것보다 덜 지겨울 것 같았다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</blockquote></div></div><div class="divider"></div><div class="col right"><div class="u u-prob cont" data-type="cont" data-num="3"><blockquote class="passage cont"><p>[중략 부분 줄거리] 시어머니의 치매는 갈수록 심해지고, 그에 따라 ‘나’의 피로와 시어머니에 대한 증오도 커진다. 견딜 수 없을 만큼이 되어 ‘나’는 시어머니를 시설에 맡기고자 하고, 남편과 함께 시설을 찾아 한 시골 마을을 찾아간다.</p><p>[B]</p><p>“라면이라도 하나 끓여 달랠까요?”</p><p>“당신 시장하오?”</p><p>“아뇨, 당신 술안주 하게요.”</p><p>“안주는 무슨…….”</p><p>나는 주인을 찾아 가게 터 뒤로 돌아갔다. 좀 떨어진 데 초가가 보였다. 초가지붕 위엔 방금 떠오른 보름달처럼 풍만하고 잘생긴 박이 서너 덩이 의젓하게 자리 잡고 있었다.</p><p>“여보, 저 박 좀 봐요. 해산 바가지 했으면 좋겠네.”</p><p>나는 생뚱한 목소리로 환성을 질렀다.</p><p>“해산 바가지?”</p><p>남편이 멍청하게 물었다.</p><p>“그래요. 해산 바가지요.”</p><p>실로 오래간만에 기쁨과 평화와 삶에 대한 믿음이 샘물처럼 괴어 오는 걸 느꼈다.</p><p>내가 첫애를 뱄을 때 시어머님은 해산달을 짚어 보고 섣달이구나, 좋을 때다, 곧 해가 길어지면서 기저귀가 잘 마를 테니, 하시더니 그해 가을 일부러 사람을 시켜 시골에 가서 해산 바가지를 구해 오게 했다.</p><p>“잘생기고, 여물게 굳고, 정한 데서 자란 햇바가지여야 하네. 첫 손자 첫국밥 지을 미역 빨고 쌀 씻을 소중한 바가지니까.”</p><p>이러면서 후한 값까지 미리 쳐주는 것이었다. 그럴 때의 그분은 너무 경건해 보여 나도 덩달아서 아기를 가졌다는 데 대한 경건한 기쁨을 느꼈었다. 이윽고 정말 잘 굳고 잘생기고 정갈한 두 짝의 바가지가 당도했고, 시어머니는 그걸 신령한 물건인 양 선반 위에 고이 모셔 놓았다. 또 손수 장에 나가 보얀 젖빛 사발도 한 쌍을 사다가 선반에 얹어 두었다. 그건 해산 사발이라고 했다.</p><ul>
+
+<li>박완서, ｢해산 바가지｣</li>
+
+</ul><p>*치지도외(置之度外): 내버려두고 문제 삼지 않음.</p><p>*기화(奇貨): 뜻밖의 이익을 얻을 수 있는 물건, 또는 그런 기회.</p></blockquote></div></div></div><div class="footer-box"><span class="a">3</span><span class="b">4</span></div></div><div class="paper"><div class="running-head"><div class="rh-num left">4</div><div class="rh-title">국어 영역</div><div class="rh-sub right">가천대 2025학년도 논술 모의고사 (A형)</div></div><hr class="header-rule"><div class="body"><div class="col left"><div class="u u-prob" data-type="prob" data-num="4"><div class="q-title"><span class="num">4.</span>&lt;보기2&gt;는 &lt;보기1&gt;을 바탕으로 제시문을 감상한 것이다. &lt;보기2&gt;의 ①~③에 들어갈 적절한 말을 &lt;보기1&gt;에서 찾아 쓰시오.</div><div class="viewbox-wrap"><div class="viewbox-label"><span>&lt;보기1&gt;</span></div><blockquote class="viewbox">
+
+<p>소설에서 독자에게 주제를 효과적으로 전달하기 위해서는 ‘서술자’의 위치와 이야기 전달 방식을 고민해야 한다. 서술자의 위치는 서술자가 이야기의 내부에 위치하는 경우와 이야기의 외부에 위치하는 경우로 구별된다. 한편 서술자가 사건이나 인물을 제시하는 방식은 말하기와 보여주기로 나뉜다. 전자는 서술자가 자신의 목소리로 사건, 인물의 성격, 상황을 설명 · 해설 · 요약 · 논평하는 방식이고, 후자는 서술자가 인물의 말로 사건을 제시하거나 심리를 묘사하는 방식이다.</p>
+
+<p>&lt;보기2&gt;</p>
+
+<p>｢해산 바가지｣에서 서술자는 이야기의 (  ①  )에 위치하고 있다. 이 작품의 서술자가 독자에게 사건이나 인물을 제시하는 방식은 장면에 따라 보여주기가 사용되기도 하고 말하기가 사용되기도 한다. 예를 들어 [A]에서는 (  ②  )의 방식이 사용되고, [B]에서는 (  ③  )의 방식이 사용되고 있다.</p>
+
+</blockquote></div><p>①:<br>
+
+②:<br>
+
+③:</p><blockquote class="passage">
+
+<p>공 통</p>
+
+</blockquote><p>국 어 영 역</p><p>국 어 영 역</p><blockquote class="passage">
+
+<p>공 통</p>
+
+</blockquote></div></div><div class="divider"></div><div class="col right"></div></div><div class="footer-box"><span class="a">4</span><span class="b">4</span></div></div></section><section class="flow" id="set5-1" data-kind="q" data-title="2025학년도 가천대학교 논술 모의고사 (A형) 문제지" data-pill="공통" data-subj="수학 영역" data-variant="가천대" data-sub="가천대 2025학년도 논술 모의고사 (A형)"><div class="paper" id="set5-1-p1"><div class="topline"><div class="exam-title">2025학년도 가천대학교 논술 모의고사 (A형) 문제지</div><div class="page-number-top">1</div></div><div class="hero"><div><span class="pill">공통</span></div><div class="subject-big">수학 영역</div><div class="r"><span class="pill variant">가천대</span></div></div><hr class="header-rule"><div class="body"><div class="col left"><div class="u u-prob math" data-type="prob" data-num="5" style="min-height: 571px;"><div class="q-title"><span class="num">5.</span></div><div class="pl"><p class="l">정의역이 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">{</mo><mi>x</mi><mi mathvariant="normal">∣</mi><mn>2</mn><mo>≤</mo><mi>x</mi><mo>≤</mo><mn>3</mn><mo fence="true">}</mo></mrow><annotation encoding="application/x-tex">\left\{x \vert  2 \le x \le 3 \right\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top: 0em;">{</span><span class="mord mathnormal">x</span><span class="mord">∣2</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mord">3</span><span class="mclose delimcenter" style="top: 0em;">}</span></span></span></span></span></span>인 함수 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><msup><mi>a</mi><mrow><mi>x</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">y = a^{x - 1} + 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord mathnormal" style="margin-right: 0.0359em;">y</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.8974em; vertical-align: -0.0833em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">2</span></span></span></span></span> <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>a</mi><mo>&gt;</mo><mn>0</mn><mo separator="true">,</mo><mi>a</mi><mo mathvariant="normal">≠</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">( a &gt; 0 , a \ne 1 )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></span>의 최솟값이 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>19</mn><mn>9</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{19}{9}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1.1901em; vertical-align: -0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.8451em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.394em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">19</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.345em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>이다.</p><p class="l">(단, <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span></span>는 상수)</p><p class="l">⓵ <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a &gt; 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.5782em; vertical-align: -0.0391em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span>일 때 위 조건을 만족시키는 함수가 존재하는지 서술하시오.</p><p class="l">⓶ <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>a</mi><mo>&lt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0 &lt; a &lt; 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6835em; vertical-align: -0.0391em;"></span><span class="mord">0</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.5782em; vertical-align: -0.0391em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span>일 때 위 조건을 만족시키는 함수가 존재하는지 서술하시오.</p></div></div><div class="u u-prob math" data-type="prob" data-num="6"><div class="q-title"><span class="num">6.</span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>+</mo><mi>θ</mi><mo fence="true">)</mo></mrow><mo>−</mo><mi>cos</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mi>π</mi><mn>2</mn></mfrac><mo>+</mo><mi>θ</mi><mo fence="true">)</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mn>5</mn></mfrac></mrow><annotation encoding="application/x-tex">\sin \left( \frac{\pi}{2} + \theta \right) - \cos \left( \frac{\pi}{2} + \theta \right) = \frac{1}{5}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1.2em; vertical-align: -0.35em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top: 0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.6954em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.394em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.0359em;">π</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.345em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">θ</span><span class="mclose delimcenter" style="top: 0em;"><span class="delimsizing size1">)</span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 1.2em; vertical-align: -0.35em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top: 0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.6954em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.394em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.0359em;">π</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.345em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">θ</span><span class="mclose delimcenter" style="top: 0em;"><span class="delimsizing size1">)</span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1.1901em; vertical-align: -0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.8451em;"><span class="" style="top: -2.655em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">5</span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.394em;"><span class="pstrut" style="height: 3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.345em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>일 때, <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mi>sin</mi><mo>⁡</mo></mrow><mn>3</mn></msup><mi>θ</mi><mo>+</mo><msup><mrow><mi>cos</mi><mo>⁡</mo></mrow><mn>3</mn></msup><mi>θ</mi></mrow><annotation encoding="application/x-tex">\sin^{3} \theta + \cos^{3} \theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.9552em; vertical-align: -0.0833em;"></span><span class="mop"><span class="mop">sin</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8719em;"><span class="" style="top: -3.1208em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">θ</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.8141em;"></span><span class="mop"><span class="mop">cos</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">θ</span></span></span></span></span>의 값을 구하는 과정을 서술하시오.</div></div></div><div class="divider"></div><div class="col right"><div class="u u-prob math" data-type="prob" data-num="7" style="min-height: 571px;"><div class="q-title"><span class="num">7.</span>다항함수 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f ( x )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span>가 모든 실수 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></span>에 대하여<br>
+
+<span><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mo>∫</mo><mn>0</mn><mi>x</mi></msubsup><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo> <mi>d</mi><mi>t</mi><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\int_{0}^{x} f(t)\,dt = f(x) + ax^{2} + x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 2.3262em; vertical-align: -0.9119em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right: 0.4445em; position: relative; top: -0.0011em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.4143em;"><span class="" style="top: -1.7881em; margin-left: -0.4445em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span><span class="" style="top: -3.8129em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.9119em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal" style="margin-right: 0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.9474em; vertical-align: -0.0833em;"></span><span class="mord mathnormal">a</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8641em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></span></span><br>
+
+를 만족시킬 때, <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f ( a )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathnormal" style="margin-right: 0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mclose">)</span></span></span></span></span>의 값을 구하는 과정을 서술하시오. (단, <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span></span>는 상수)</div></div><div class="u u-prob math" data-type="prob" data-num="8"><div class="q-title"><span class="num">8.</span>첫째항이 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">1</span></span></span></span></span>이고 공차가 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">3</span></span></span></span></span>인 등차수열 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">{</mo><msub><mi>a</mi><mi>n</mi></msub><mo fence="true">}</mo></mrow><annotation encoding="application/x-tex">\left\{a_{n} \right\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top: 0em;">{</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mclose delimcenter" style="top: 0em;">}</span></span></span></span></span></span>에 대하여 첫째항부터 제 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></span>항까지의 합이 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">S_{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.8333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.0576em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: -0.0576em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span>일 때, <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mi>n</mi></msub><mo>&gt;</mo><msubsup><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mn>4</mn></msubsup><mo stretchy="false">(</mo><msub><mi>a</mi><mi>k</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">S_{n} &gt; \sum_{k = 1}^{4} ( a_{k} )^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.8333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right: 0.0576em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: -0.0576em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1.2537em; vertical-align: -0.2997em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position: relative; top: 0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.954em;"><span class="" style="top: -2.4003em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.0315em;">k</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span class="" style="top: -3.2029em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2997em;"><span class=""></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3361em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right: 0.0315em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8141em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span>을 만족시키는 자연수 <span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></span>의 최솟값을 구하는 과정을 서술하시오.</div></div></div></div><div class="footer-box"><span class="a">1</span><span class="b">1</span></div></div></section><section class="flow" id="ans5" data-kind="a" data-sub="가천대 2025학년도 논술 모의고사 (A형) · 공통"><div class="paper sol" id="ans5-p1"><div class="sol-head"><div class="rh-title">정답 및 해설</div><div class="rh-sub">가천대 2025학년도 논술 모의고사 (A형) · 공통</div></div><hr class="header-rule"><div class="body"><div class="col left"><div class="u" data-type="pass"><div class="none">원본 자료에 이 시험의 답안·해설이 없습니다.</div></div></div><div class="divider"></div><div class="col right"></div></div><div class="footer-box"><span class="a">1</span><span class="b">1</span></div></div></section>
+
+</body></html>
+

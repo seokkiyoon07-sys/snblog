@@ -23,16 +23,39 @@ export const CDN_URLS = {
 } as const;
 
 // Navigation menu items
-export const NAVIGATION_MENU = [
+// children 이 있으면 데스크톱에서는 펼침 메뉴, 모바일에서는 들여쓴 하위 항목으로 보인다.
+// 묶음은 메뉴에서만 한다: 하위 페이지 주소(/problems, /nonsul)는 그대로 둔다 (검색 순위 유지)
+export interface NavigationItem {
+  name: string;
+  href: string;
+  children?: { name: string; href: string; description?: string }[];
+}
+
+export const NAVIGATION_MENU: readonly NavigationItem[] = [
   { name: '홈', href: '/' },
   { name: 'AI 스타트업', href: '/startup' },
   { name: '칼럼', href: '/columns' },
   { name: 'SN DataLAB', href: '/datalab' },
-  { name: '수능 문제 연구', href: '/problems' },
+  {
+    name: '문제',
+    href: '/problems',
+    children: [
+      {
+        name: '수능 문제 연구',
+        href: '/problems',
+        description: '기출 읽을거리 · AI 출제 노트 · 수능 해설',
+      },
+      {
+        name: '논술',
+        href: '/nonsul',
+        description: '대학별 논술 기출 · 해설 · SN 실전 모의',
+      },
+    ],
+  },
   { name: 'SN Originals', href: '/originals' },
   { name: 'SN History', href: '/history' },
   { name: '공지사항', href: '/notice' },
-] as const;
+];
 
 // Academy info options for header
 export const ACADEMY_INFO_OPTIONS = [
@@ -102,6 +125,11 @@ export const CATEGORY_CONFIG = {
     route: '/problems',
     emoji: '🌏',
     label: '통합사회',
+  },
+  nonsul: {
+    route: '/nonsul',
+    emoji: '✍️',
+    label: '논술',
   },
   datalab: {
     route: '/datalab',
