@@ -33,7 +33,7 @@ export const allPosts: Post[] = [
     date: '2026-11-23',
     readTime: '25',
     featured: false,
-    published: false,
+    published: true,
     url: '/nonsul/gachon-2026-nonsul-gichul',
     related: [
       'gachon-nonsul',
@@ -67,7 +67,7 @@ export const allPosts: Post[] = [
     date: '2026-11-23',
     readTime: '20',
     featured: false,
-    published: false,
+    published: true,
     url: '/nonsul/gachon-2026-nonsul-mock',
     related: [
       'gachon-nonsul',
@@ -95,7 +95,7 @@ export const allPosts: Post[] = [
     date: '2026-11-23',
     readTime: '5',
     featured: false,
-    published: false,
+    published: true,
     url: '/nonsul/gachon-nonsul',
     related: [
       'gachon-2026-nonsul-gichul',
@@ -129,7 +129,7 @@ export const allPosts: Post[] = [
     date: '2026-11-23',
     readTime: '20',
     featured: false,
-    published: false,
+    published: true,
     url: '/nonsul/kookmin-2026-nonsul-gichul',
     related: [
       'kookmin-nonsul',
@@ -157,7 +157,7 @@ export const allPosts: Post[] = [
     date: '2026-11-23',
     readTime: '4',
     featured: false,
-    published: false,
+    published: true,
     url: '/nonsul/kookmin-nonsul',
     related: [
       'kookmin-2026-nonsul-gichul',
