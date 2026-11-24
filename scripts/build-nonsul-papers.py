@@ -1,4 +1,5 @@
-# 논술 시험지 HTML 을 public/nonsul/papers 로 복사하며 상단 막대·저작권 표기·의예 2문항 배치를 넣는다.
+# 논술 시험지 HTML 을 public/nonsul/papers 로 복사하며 상단 막대·저작권 표기를 넣는다.
+# 쪽 배치(의예 포함)는 원본 조판을 그대로 따른다. 예전 의예 재배치가 필요하면 --two-per-page.
 # 사용: python scripts/build-nonsul-papers.py "<SynologyDrive>/07_ SN_work/SN_출제/논술/조판/회차별" public/nonsul/papers
 # 그 뒤 dev 서버를 켠 채 Edge --headless --print-to-pdf 로 public/nonsul/pdf/*.pdf 를 다시 만든다.
 import os, re, sys
@@ -121,7 +122,7 @@ for f in sorted(os.listdir(src)):
         '<button type="button" onclick="window.print()">인쇄</button></nav>\n'
     )
     assert '</head>' in s and re.search(r'<body[^>]*>', s), f
-    if t == 'uiye':
+    if t == 'uiye' and '--two-per-page' in sys.argv:
         s = two_per_page(s)
     s = s.replace('</head>', head + '</head>', 1)
     s = re.sub(r'(<body[^>]*>)', lambda mm: mm.group(1) + '\n' + bar, s, count=1)
