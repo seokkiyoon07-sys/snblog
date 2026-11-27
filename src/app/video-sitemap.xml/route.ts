@@ -1,6 +1,7 @@
 import { BASE_URL } from '@/lib/config';
 import { odysseyEpisodes } from '@/data/odyssey';
 import { koreanHistoryEpisodes } from '@/data/korean-history';
+import { readingShortEpisodes } from '@/data/reading-shorts';
 
 export const dynamic = 'force-static';
 
@@ -19,7 +20,19 @@ function xml(value: string) {
 }
 
 export function GET() {
-  const entries = [...odysseyEpisodes, ...koreanHistoryEpisodes]
+  const entries = [
+    ...odysseyEpisodes,
+    ...koreanHistoryEpisodes,
+    ...readingShortEpisodes.map(ep => ({
+      url: ep.pageUrl,
+      thumbnail: ep.thumbnail,
+      videoTitle: ep.videoTitle,
+      summary: ep.summary,
+      videoId: ep.videoId,
+      durationSeconds: ep.durationSeconds,
+      uploadDate: ep.uploadDate,
+    })),
+  ]
     .map(
       episode => `
   <url>

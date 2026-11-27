@@ -8,6 +8,97 @@ import { historySupplementPosts } from './history-supplements';
 
 export const allPosts: Post[] = [
   {
+    id: 'guunmong',
+    title:
+      '조선판 환생 판타지, 구운몽 | SN오리지날 클래식 고전소설 김만중 「구운몽」',
+    seoTitle: '「구운몽」 해설 | 김만중 고전소설 · 몽자류 소설',
+    excerpt:
+      'SN Originals 76번째 작품, 17세기 후반 김만중의 고전 소설 「구운몽」. 연화봉의 젊은 스님 성진과 여덟 선녀가 인간 세상에 다시 태어나 부귀영화를 누린 뒤, 한바탕 꿈에서 깨어나 ‘진짜 나는 어디에 있는가’를 되묻는 환몽 구조와 인물 관계를 살펴봅니다.',
+    category: 'SN Originals',
+    tags: [
+      '구운몽',
+      '김만중',
+      '고전소설',
+      '몽자류소설',
+      '환몽구조',
+      '성진',
+      '양소유',
+      '팔선녀',
+      '수능국어',
+      'SNOriginals',
+    ],
+    author: 'SN Academy',
+    date: '2026-11-27',
+    readTime: '7',
+    featured: false,
+    published: true,
+    badge: 'SN Originals · 76번째 작품',
+    thumbnail: '/images/thumbnail/originals/76_guunmong.png',
+    youtubeUrl: 'https://www.youtube.com/embed/3RyBt1fkZQg',
+    url: '/originals/guunmong',
+    layoutVariant: 'original-only',
+    type: 'special',
+    related: ['unyoungjeon', 'daegwanjae-mongyurok', 'banssijeon'],
+  },
+  {
+    id: 'kookmin-2027-sn-mock-02',
+    title:
+      '국민대 논술 실전 모의고사 2회 (인문·자연) 문제·해설 PDF — EBS 수능특강·수능완성 연계',
+    excerpt:
+      '국민대 2026 기출과 같은 형식·배점으로 SN이 만든 실전 모의고사 2회입니다. 인문(국어 8·수학 2)과 자연(수학 8·국어 2) 문제지와 정답·해설을 따로 내려받아 시간을 재고 풀어 보세요.',
+    category: 'nonsul',
+    nonsul: { format: 'yaksul', university: 'kookmin', kind: 'sn', year: 2027 },
+    tags: [
+      '국민대 논술',
+      '국민대 논술 모의고사',
+      '국민대 논술 2027',
+      '국민대 약술형 논술',
+      '국민대 논술 EBS 연계',
+      '약술형 논술',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-11-27',
+    readTime: '6',
+    featured: false,
+    published: false,
+    url: '/nonsul/kookmin-2027-sn-mock-02',
+    thumbnail: '/images/thumbnail/nonsul/kookmin-sn-mock-02.png',
+    related: [
+      'kookmin-2027-sn-mock-01',
+      'kookmin-nonsul',
+      'kookmin-2026-nonsul-gichul',
+    ],
+  },
+  {
+    id: 'kookmin-2027-sn-mock-01',
+    title:
+      '국민대 논술 실전 모의고사 1회 (인문·자연) 문제·해설 PDF — EBS 수능특강 연계',
+    excerpt:
+      '국민대 2026 기출과 같은 형식·배점으로 SN이 만든 실전 모의고사 1회입니다. 인문(국어 8·수학 2)과 자연(수학 8·국어 2) 문제지와 정답·해설을 따로 내려받아 시간을 재고 풀어 보세요.',
+    category: 'nonsul',
+    nonsul: { format: 'yaksul', university: 'kookmin', kind: 'sn', year: 2027 },
+    tags: [
+      '국민대 논술',
+      '국민대 논술 모의고사',
+      '국민대 논술 2027',
+      '국민대 약술형 논술',
+      '국민대 논술 EBS 연계',
+      '약술형 논술',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-11-27',
+    readTime: '6',
+    featured: false,
+    published: false,
+    url: '/nonsul/kookmin-2027-sn-mock-01',
+    thumbnail: '/images/thumbnail/nonsul/kookmin-sn-mock-01.png',
+    related: [
+      'kookmin-nonsul',
+      'kookmin-2026-nonsul-gichul',
+      '2027-nonsul-schedule',
+    ],
+  },
+  {
     id: 'gachon-2026-nonsul-gichul',
     title: '가천대 논술 기출문제 2026학년도 정답·해설 (인문·자연·의예)',
     excerpt:
@@ -35,6 +126,7 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     url: '/nonsul/gachon-2026-nonsul-gichul',
+    thumbnail: '/images/thumbnail/nonsul/gachon-2026-nonsul-gichul.png',
     related: [
       'gachon-nonsul',
       'gachon-2026-nonsul-mock',
@@ -69,6 +161,7 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     url: '/nonsul/gachon-2026-nonsul-mock',
+    thumbnail: '/images/thumbnail/nonsul/gachon-2026-nonsul-mock.png',
     related: [
       'gachon-nonsul',
       'gachon-2026-nonsul-gichul',
@@ -97,6 +190,7 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     url: '/nonsul/gachon-nonsul',
+    thumbnail: '/images/thumbnail/nonsul/gachon-nonsul.png',
     related: [
       'gachon-2026-nonsul-gichul',
       'gachon-2026-nonsul-mock',
@@ -131,6 +225,7 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     url: '/nonsul/kookmin-2026-nonsul-gichul',
+    thumbnail: '/images/thumbnail/nonsul/kookmin-2026-nonsul-gichul.png',
     related: [
       'kookmin-nonsul',
       'gachon-2026-nonsul-gichul',
@@ -159,6 +254,7 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     url: '/nonsul/kookmin-nonsul',
+    thumbnail: '/images/thumbnail/nonsul/kookmin-nonsul.png',
     related: [
       'kookmin-2026-nonsul-gichul',
       'gachon-nonsul',
@@ -387,7 +483,7 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     thumbnail: '/images/problems/2020-june-symbiogenesis/thumbnail.jpg',
-    url: '/problems/2020-june-symbiogenesis',
+    url: '/originals/reading/2020-june-symbiogenesis',
     related: [
       'possible-worlds',
       '2022-suneung-bretton-woods',
@@ -428,7 +524,7 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     thumbnail: '/images/problems/2022-suneung-bretton-woods/thumbnail.jpg',
-    url: '/problems/2022-suneung-bretton-woods',
+    url: '/originals/reading/2022-suneung-bretton-woods',
     related: [
       '2026-suneung-personal-identity',
       'ai-korean-reading-ep3',
@@ -469,7 +565,7 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     thumbnail: '/images/problems/2026-suneung-personal-identity/thumbnail.jpg',
-    url: '/problems/2026-suneung-personal-identity',
+    url: '/originals/reading/2026-suneung-personal-identity',
     related: [
       'possible-worlds',
       'ai-korean-reading-ep5',
@@ -632,6 +728,47 @@ export const allPosts: Post[] = [
     ],
   },
   {
+    id: 'korean-generation-notes',
+    title: '국어 문제 개발노트',
+    excerpt:
+      'SNarGEN으로 수능형 국어 문제를 만드는 과정에서 바뀐 점을 날짜별로 기록합니다. 생성 품질, 검수 방식, 참고 기출의 변화를 확인하세요.',
+    category: 'ai-problem',
+    problemContentType: 'devlog',
+    problemSubject: 'korean',
+    tags: ['AI출제', '수능국어', 'SNarGEN', '개발노트', 'SN독학기숙학원'],
+    author: 'SN독학기숙학원',
+    date: '2026-10-27',
+    readTime: '3',
+    featured: false,
+    published: false,
+    thumbnail: '/images/thumbnail/problems/korean-generation-notes.svg',
+    url: '/problems/korean-generation-notes',
+  },
+  {
+    id: 'math-generation-notes',
+    title: '수학 문제 개발노트',
+    excerpt:
+      'SNarGEN으로 수능형 수학 문제를 만드는 과정에서 바뀐 점을 날짜별로 기록합니다. 생성 품질, 풀이 검증, 참고 기출의 변화를 확인하세요.',
+    category: 'ai-problem',
+    problemContentType: 'devlog',
+    problemSubject: 'math',
+    tags: [
+      'AI출제',
+      '수능수학',
+      'SNarGEN',
+      'SNarGO',
+      '개발노트',
+      'SN독학기숙학원',
+    ],
+    author: 'SN독학기숙학원',
+    date: '2026-10-27',
+    readTime: '3',
+    featured: false,
+    published: false,
+    thumbnail: '/images/thumbnail/problems/math-generation-notes.svg',
+    url: '/problems/math-generation-notes',
+  },
+  {
     id: 'myeonangjeongga-2027',
     title:
       '굽어보면 면, 우러러보면 앙! 면앙정가 시선 정리 | EBS 2027 수능특강 문학 고전시가 송순 「면앙정가」',
@@ -726,13 +863,36 @@ export const allPosts: Post[] = [
     featured: false,
     published: true,
     thumbnail: '/images/problems/possible-worlds/thumbnail.jpg',
-    url: '/problems/possible-worlds',
+    url: '/originals/reading/possible-worlds',
     related: [
       '2026-suneung-personal-identity',
       'ai-korean-reading-ep5',
       '2020-june-symbiogenesis',
       'suneung-korean-17',
     ],
+  },
+  {
+    id: '2027-goyo-winter-banpo',
+    title: '2027 반포 윈터스쿨 모집 | SN고요의숲 반포점 (예비 고1~고3·N수)',
+    excerpt:
+      'SN고요의숲 반포점 2027 윈터스쿨 모집. 예비 고1~고3·N수, 4주 80만 원. 상주 관리 원장과 대치 수학 원장의 2인 체제, SNarLink·SNarGPT·학사 포탈, 2028 수능 통합사회·통합과학 데일리 문항까지 안내합니다.',
+    category: 'notice',
+    tags: [
+      '반포 윈터스쿨',
+      '윈터스쿨',
+      'SN고요의숲',
+      '반포 관리형 독서실',
+      '겨울방학',
+      '모집요강',
+      '2027',
+    ],
+    author: 'SN고요의숲',
+    date: '2026-10-21',
+    readTime: '8',
+    featured: false,
+    published: true,
+    url: '/notice/2027-goyo-winter-banpo',
+    type: 'standard',
   },
   {
     id: 'how-ai-makes-suneung-problems',
@@ -968,7 +1128,7 @@ export const allPosts: Post[] = [
     readTime: '5',
     featured: true,
     published: true,
-    badge: '2027 수능특강 · 30편 몰아보기 · 유튜브 10만뷰 눈앞',
+    badge: '2027 수특 · 30편 몰아보기 · 15만뷰',
     thumbnail:
       '/images/thumbnail/originals/2027_Binge-watching_CSAT_Korean_prep_lecturesEpisode 30.png',
     youtubeUrl: 'https://www.youtube.com/embed/uH1psJ6VJoc',
@@ -1157,7 +1317,7 @@ export const allPosts: Post[] = [
     featured: true,
     featuredOrder: 2,
     published: true,
-    thumbnail: '/images/thumbnail/startup/260910_SNargpt_update_note.png',
+    thumbnail: '/thumbnails/snargpt-update-note.svg',
     url: '/startup/snargpt-development-2026',
     related: [
       'snargpt-update-260114',

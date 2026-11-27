@@ -13,8 +13,8 @@ import {
 export const AI_PROBLEM_CATEGORY = 'ai-problem';
 export const KOREAN_EXAM_CATEGORY = 'korean-exam-analysis';
 
-// /problems/{id} 경로로 서빙하는 카테고리
-const PROBLEM_ROUTE_CATEGORIES = [AI_PROBLEM_CATEGORY, KOREAN_EXAM_CATEGORY];
+// /problems/{id} 경로로 서빙하는 카테고리 (기출 읽을거리는 /originals/reading 으로 이관)
+const PROBLEM_ROUTE_CATEGORIES = [AI_PROBLEM_CATEGORY];
 
 export const HUB_SUBJECTS: ProblemSubject[] = [
   'korean',
@@ -87,6 +87,17 @@ export function getAiProblemPosts(): Post[] {
   return allPosts.filter(
     post => isVisible(post) && post.category === AI_PROBLEM_CATEGORY
   );
+}
+
+// 기출 읽을거리(/originals/reading/{id}) 글 목록
+export function getReadingPosts(): Post[] {
+  return allPosts
+    .filter(
+      post =>
+        post.category === KOREAN_EXAM_CATEGORY &&
+        (post.published || SHOW_DRAFTS)
+    )
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 // 출제 로그를 날짜 내림차순으로 묶는다

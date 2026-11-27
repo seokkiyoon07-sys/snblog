@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getPostById, getPostsByCategory } from '@/data/posts';
 import FeaturedPost from '@/components/FeaturedPost';
 import OriginalsTabs from '@/components/OriginalsTabs';
@@ -169,6 +170,25 @@ export default async function OriginalsPage() {
       />
 
       <div className="space-y-6 lg:space-y-8">
+        {/* SN Originals 시리즈 전환 바 */}
+        <nav
+          aria-label="SN Originals 시리즈 이동"
+          className="flex flex-wrap items-center gap-2 border-b border-gray-200 pb-4 dark:border-gray-700"
+        >
+          <span
+            aria-current="page"
+            className="rounded-full bg-sn-primary px-4 py-2 text-sm font-semibold text-white dark:bg-emerald-600"
+          >
+            고전문학
+          </span>
+          <Link
+            href="/originals/reading"
+            className="rounded-full bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+          >
+            독서 · 기출 읽을거리
+          </Link>
+        </nav>
+
         {/* SN Originals 소개글 (고정) */}
         {introPost && (
           <section aria-labelledby="intro-heading">

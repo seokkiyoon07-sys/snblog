@@ -43,7 +43,7 @@ export const NAVIGATION_MENU: readonly NavigationItem[] = [
       {
         name: '수능 문제 연구',
         href: '/problems',
-        description: '기출 읽을거리 · AI 출제 노트 · 수능 해설',
+        description: 'AI 출제 노트 · 모의고사·수능 해설 · 자료실',
       },
       {
         name: '논술',
@@ -52,7 +52,22 @@ export const NAVIGATION_MENU: readonly NavigationItem[] = [
       },
     ],
   },
-  { name: 'SN Originals', href: '/originals' },
+  {
+    name: 'SN Originals',
+    href: '/originals',
+    children: [
+      {
+        name: '고전문학',
+        href: '/originals',
+        description: '수능 필수 고전문학 AI 해설 시리즈',
+      },
+      {
+        name: '독서 · 기출 읽을거리',
+        href: '/originals/reading',
+        description: '평가원 독서 기출 숏츠 · 카드뉴스 · 지문 해설',
+      },
+    ],
+  },
   { name: 'SN History', href: '/history' },
   { name: '공지사항', href: '/notice' },
 ];
@@ -117,7 +132,7 @@ export const CATEGORY_CONFIG = {
     label: 'AI 출제 노트',
   },
   'korean-exam-analysis': {
-    route: '/problems',
+    route: '/originals/reading',
     emoji: '📖',
     label: '기출 읽을거리',
   },

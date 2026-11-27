@@ -41,6 +41,31 @@ const nextConfig: NextConfig = {
   // Vercel 배포 최적화
   trailingSlash: false,
   skipTrailingSlashRedirect: true,
+  // 기출 읽을거리(/problems/* → /originals/reading/*) 301 영구 리다이렉트
+  async redirects() {
+    return [
+      {
+        source: '/problems/possible-worlds',
+        destination: '/originals/reading/possible-worlds',
+        permanent: true,
+      },
+      {
+        source: '/problems/2026-suneung-personal-identity',
+        destination: '/originals/reading/2026-suneung-personal-identity',
+        permanent: true,
+      },
+      {
+        source: '/problems/2022-suneung-bretton-woods',
+        destination: '/originals/reading/2022-suneung-bretton-woods',
+        permanent: true,
+      },
+      {
+        source: '/problems/2020-june-symbiogenesis',
+        destination: '/originals/reading/2020-june-symbiogenesis',
+        permanent: true,
+      },
+    ];
+  },
   // 헤더 설정은 vercel.json에서 관리 (Vercel 배포 시 충돌 방지)
 };
 

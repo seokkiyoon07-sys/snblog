@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BlogLayout from '@/components/BlogLayout';
 import ProblemLogSummary from '@/components/problems/ProblemLogSummary';
-import CardNewsCarousel from '@/components/posts/CardNewsCarousel';
+import ReadingLeadMedia from '@/components/problems/ReadingLeadMedia';
 import { CARD_NEWS } from '@/data/card-news';
+import { getReadingShortsByPostId } from '@/data/reading-shorts';
 import { loadPostContent } from '@/lib/post-content';
 import { BASE_URL, EXAM_TYPE_CONFIG } from '@/lib/config';
 import { buildExamJsonLd } from '@/lib/exam-jsonld';
@@ -110,8 +111,23 @@ export default async function ProblemPostPage({
   };
 
   const cardNews = CARD_NEWS[post.id];
+  const readingShorts = getReadingShortsByPostId(post.id);
   const content = loadPostContent(post.id, post.category);
   const examJsonLd = buildExamJsonLd(post, content);
+  const shortsVideoJsonLd = readingShorts
+    ? readingShorts.episodes.map(ep => ({
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: ep.videoTitle,
+        description: ep.summary,
+        thumbnailUrl: `${BASE_URL}${ep.thumbnail}`,
+        uploadDate: ep.uploadDate,
+        duration: `PT${ep.durationSeconds}S`,
+        embedUrl: `https://www.youtube-nocookie.com/embed/${ep.videoId}`,
+        contentUrl: ep.youtubeUrl,
+        inLanguage: 'ko',
+      }))
+    : [];
 
   // 기출 읽을거리끼리 서로 잇는다 (최신 학년도 먼저)
   const relatedExamPosts = post.exam
@@ -142,6 +158,15 @@ export default async function ProblemPostPage({
           }}
         />
       ))}
+      {shortsVideoJsonLd.map((data, i) => (
+        <script
+          key={`video-${i}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(data).replace(/</g, '\\u003c'),
+          }}
+        />
+      ))}
       {!post.published && (
         <div className="mx-auto mt-6 max-w-3xl rounded border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-200">
           초안 · 개발 서버에서만 보이는 미공개 글입니다.
@@ -152,7 +177,11 @@ export default async function ProblemPostPage({
           ...post,
           content,
         }}
-        lead={cardNews && <CardNewsCarousel cards={cardNews} />}
+        lead={
+          (cardNews || readingShorts) && (
+            <ReadingLeadMedia cardNews={cardNews} shorts={readingShorts} />
+          )
+        }
         footer={<ArticleRelated postId={post.id} />}
       />
       {relatedExamPosts.length > 0 && (

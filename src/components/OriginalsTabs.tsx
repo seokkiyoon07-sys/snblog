@@ -232,9 +232,9 @@ export default function OriginalsTabs({
                       )}
                       {/* 몰아보기 배지 (posts.ts의 badge 필드 사용) */}
                       {isMarathon && work.badge && (
-                        <div className="absolute top-2 left-2 px-2 py-1 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-bold rounded-full shadow-lg flex items-center gap-1">
-                          <span>🔥</span>
-                          <span>{work.badge}</span>
+                        <div className="absolute top-2 left-2 max-w-[calc(100%-1rem)] px-2 py-1 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-[10px] font-bold rounded-full shadow-lg flex items-center gap-1 whitespace-nowrap">
+                          <span className="shrink-0">🔥</span>
+                          <span className="truncate">{work.badge}</span>
                         </div>
                       )}
                     </div>
@@ -344,9 +344,9 @@ export default function OriginalsTabs({
                               </span>
                             )}
                             {isMarathon && work.badge && (
-                              <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full w-fit">
-                                <span>🔥</span>
-                                <span>{work.badge}</span>
+                              <span className="inline-flex items-center gap-1 px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full w-fit max-w-full whitespace-nowrap">
+                                <span className="shrink-0">🔥</span>
+                                <span className="truncate">{work.badge}</span>
                               </span>
                             )}
                             <span className="whitespace-pre-line relative inline-block hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 dark:hover:from-blue-400 dark:hover:to-purple-400 transition-all duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 dark:after:from-blue-400 dark:after:to-purple-400 after:transition-all after:duration-300 hover:after:w-full">
